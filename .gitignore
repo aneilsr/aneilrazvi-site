@@ -1,0 +1,10 @@
+# OS + tooling
+.DS_Store
+.vercel/
+node_modules/
+
+# Local-only masters and scratch (kept on disk, not in the repo)
+_source/
+_to_delete/
+Photos - to pull from/
+*.zip

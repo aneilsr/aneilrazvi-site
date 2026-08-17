@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About, Aneil Razvi</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+<style>
+  /* HERO split */
+  .abx-hero{max-width:1200px;margin:0 auto;padding:8.5rem 6% 2rem;display:grid;grid-template-columns:1.05fr .95fr;gap:3.5rem;align-items:center}
+  .abx-hero .eyebrow{color:var(--teal);font-size:.78rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+  .abx-hero h1{font-family:'DM Serif Display',serif;font-size:clamp(2.6rem,5vw,4rem);color:#fff;font-weight:400;line-height:1.06;margin:.5rem 0 1.2rem}
+  .abx-hero h1 em{font-style:italic;color:var(--teal)}
+  .abx-hero p{color:rgba(255,255,255,.75);font-size:1.12rem;line-height:1.75;font-weight:300;margin-bottom:1.8rem}
+  .abx-hero .btns{display:flex;gap:.9rem;flex-wrap:wrap}
+  .abx-hero .btns a{padding:12px 24px;border-radius:8px;font-weight:700;font-size:.92rem;text-decoration:none}
+  .abx-hero .btns .p{background:var(--teal);color:#062028}
+  .abx-hero .btns .g{border:1px solid rgba(255,255,255,.3);color:#fff}
+  .abx-portrait{border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,.12);box-shadow:0 24px 60px rgba(0,0,0,.4)}
+  .abx-portrait img{width:100%;display:block;aspect-ratio:4/5;object-fit:cover}
+  .abx-portrait.ph{aspect-ratio:4/5;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-align:center;padding:20px;border:2px dashed rgba(0,188,212,.4);box-shadow:none;background:#0c1620}
+  .abx-portrait.ph .phd{font-family:'DM Serif Display',serif;color:var(--teal);font-size:1.5rem;line-height:1}
+  .abx-portrait.ph .phl{font-size:.82rem;color:rgba(255,255,255,.5)}
+  /* facts strip */
+  .abx-facts{max-width:1200px;margin:0 auto;padding:1rem 6% 3.5rem;display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+  .fact{border-top:2px solid rgba(0,188,212,.5);padding-top:.9rem}
+  .fact .n{font-family:'DM Serif Display',serif;color:#fff;font-size:1.5rem;line-height:1.1;display:block}
+  .fact .l{color:rgba(255,255,255,.6);font-size:.86rem;line-height:1.45;margin-top:.3rem;display:block}
+  /* generic section */
+  .abx-sec{padding:4.5rem 6%}
+  .abx-sec.alt{background:#0c1620}
+  .abx-wrap{max-width:1000px;margin:0 auto}
+  .abx-eyebrow{color:var(--teal);font-size:.72rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;display:block;margin-bottom:.6rem}
+  .abx-h2{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,3.2vw,2.5rem);color:#fff;font-weight:400;line-height:1.15;margin:0 0 1.4rem}
+  .abx-lead{color:rgba(255,255,255,.82);font-size:1.18rem;line-height:1.7;font-weight:300;max-width:760px;margin:0 0 2.2rem}
+  /* principles */
+  .abx-principles{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1.4rem}
+  .principle{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:14px;padding:1.6rem 1.5rem}
+  .principle h3{font-family:'DM Serif Display',serif;color:#fff;font-size:1.18rem;font-weight:400;margin:0 0 .6rem}
+  .principle p{color:rgba(255,255,255,.68);font-size:.94rem;line-height:1.6;font-weight:300;margin:0}
+  /* timeline */
+  .tl{position:relative;margin-top:.5rem}
+  .tl:before{content:'';position:absolute;left:8px;top:6px;bottom:6px;width:2px;background:linear-gradient(rgba(0,188,212,.6),rgba(0,188,212,.08))}
+  .tl-row{position:relative;padding:0 0 1.7rem 2.4rem}
+  .tl-row:before{content:'';position:absolute;left:2px;top:5px;width:14px;height:14px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 4px rgba(0,188,212,.15)}
+  .tl-row .role{color:#fff;font-size:1.02rem;font-weight:600}
+  .tl-row .meta{color:rgba(255,255,255,.55);font-size:.88rem;margin-top:.15rem}
+  .tl-row .meta b{color:var(--teal);font-weight:600}
+  /* Cubby callout */
+  .abx-callout{max-width:1000px;margin:0 auto;background:linear-gradient(135deg,rgba(0,188,212,.1),rgba(0,188,212,.03));border:1px solid rgba(0,188,212,.35);border-radius:18px;padding:2.4rem 2.6rem;display:flex;gap:2rem;align-items:center;flex-wrap:wrap}
+  .abx-callout .txt{flex:1;min-width:280px}
+  .abx-callout .abx-eyebrow{margin-bottom:.4rem}
+  .abx-callout h2{font-family:'DM Serif Display',serif;color:#fff;font-size:1.7rem;font-weight:400;margin:0 0 .7rem}
+  .abx-callout p{color:rgba(255,255,255,.78);font-size:1rem;line-height:1.65;font-weight:300;margin:0 0 1.1rem}
+  .abx-callout a{display:inline-block;background:var(--teal);color:#062028;padding:11px 22px;border-radius:8px;font-weight:700;text-decoration:none;font-size:.9rem}
+  .abx-callout .cta-row{display:flex;gap:.8rem;flex-wrap:wrap}
+  .abx-callout .cta-row a.appstore{background:#000;color:#fff;border:1px solid rgba(255,255,255,.25);display:inline-flex;align-items:center;gap:9px}
+  .abx-callout .cta-row a.appstore:hover{border-color:rgba(255,255,255,.5)}
+  .abx-callout .cta-row a.g{background:transparent;border:1px solid rgba(255,255,255,.32);color:#fff}
+  /* personal */
+  .abx-photos{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:2rem}
+  .abx-photo figure{margin:0}
+  .abx-photo img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:12px;border:1px solid rgba(255,255,255,.1)}
+  .abx-photo figcaption{color:rgba(255,255,255,.55);font-size:.82rem;margin-top:.6rem;letter-spacing:.02em}
+  /* credentials */
+  .abx-creds{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+  .cred{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:14px;padding:1.5rem 1.6rem}
+  .cred h3{color:var(--teal);font-size:.74rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin:0 0 1rem}
+  .cred ul{list-style:none;margin:0;padding:0}
+  .cred li{color:rgba(255,255,255,.82);font-size:.95rem;line-height:1.45;padding:.5rem 0;border-bottom:1px solid rgba(255,255,255,.07)}
+  .cred li:last-child{border-bottom:none}
+  .cred li span{display:block;color:rgba(255,255,255,.5);font-size:.82rem;margin-top:.15rem}
+  /* CTA */
+  .abx-cta{background:linear-gradient(135deg,#0d1b2a,#0a2530);text-align:center;padding:5rem 6%}
+  .abx-cta h2{font-family:'DM Serif Display',serif;font-size:2.2rem;color:#fff;font-weight:400;margin:0 0 1.4rem}
+  .abx-cta a{background:var(--teal);color:#062028;padding:14px 30px;border-radius:8px;font-weight:700;text-decoration:none;display:inline-block}
+  @media(max-width:900px){
+    .abx-hero{grid-template-columns:1fr;gap:2rem;padding-top:7.5rem}
+    .abx-portrait{max-width:none;width:100%}
+    .abx-facts{grid-template-columns:1fr 1fr;gap:1.2rem}
+    .abx-principles,.abx-creds{grid-template-columns:1fr}
+    .abx-photos{grid-template-columns:1fr 1fr}
+  }
+  @media(max-width:560px){.abx-facts{grid-template-columns:1fr 1fr}.abx-photos{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav class="site-nav" id="nav"><a href="index.html" class="nav-brand">Aneil <b>Razvi</b></a>
+<ul class="nav-links">
+<li><a href="index.html">Home</a></li>
+<li><a href="portfolio.html">Portfolio</a></li>
+<li><a href="speaking.html">Speaking</a></li>
+<li><a href="work-with-me.html">Work With Me</a></li>
+<li><a href="about.html" class="active">About</a></li>
+<li><a href="blog.html">Blog</a></li>
+</ul>
+<a href="contact.html" class="nav-cta">Let's Talk</a><button class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button></nav>
+
+<!-- HERO -->
+<section class="abx-hero">
+  <div>
+    <div class="eyebrow">About</div>
+    <h1>A design leader who <em>still builds</em></h1>
+    <p>Fifteen years across creative direction, product and UX leadership, and hands-on AI-native building. The through-line has stayed the same. I walk into fragmented environments: legacy platforms, acquired systems, teams built from zero, and architect the way forward through human-centered design, AI, and systems thinking.</p>
+    <div class="btns">
+      <a class="p" href="https://calendar.app.google/insHQBTTsdfgxxMz5" target="_blank">Book a call</a>
+      <a class="g" href="portfolio.html">See my work</a>
+    </div>
+  </div>
+  <div class="abx-portrait"><img src="assets/work/about-hero.jpg" alt="Aneil Razvi"></div>
+</section>
+
+<!-- FACTS -->
+<div class="abx-facts">
+  <div class="fact"><span class="n">15+ yrs</span><span class="l">Leading &amp; scaling design teams</span></div>
+  <div class="fact"><span class="n">Lead + build</span><span class="l">Strategy and hands-on craft</span></div>
+  <div class="fact"><span class="n">Founder</span><span class="l">Cubby, shipped solo, live on iOS</span></div>
+  <div class="fact"><span class="n">In the field</span><span class="l">AIGA DFW board · ADPList mentor</span></div>
+</div>
+
+<!-- HOW I LEAD -->
+<section class="abx-sec alt">
+  <div class="abx-wrap">
+    <span class="abx-eyebrow">How I lead</span>
+    <h2 class="abx-h2">I build teams, and I build product</h2>
+    <p class="abx-lead">As a player-coach I set the design vision and the metrics design maps to, grow multidisciplinary teams and the next generation of leaders, and stay close enough to the craft to ship alongside them.</p>
+    <div class="abx-principles">
+      <div class="principle"><h3>Player-coach</h3><p>I set direction and still do the work: standing up teams, research practices, and design systems, while prototyping and testing alongside the team.</p></div>
+      <div class="principle"><h3>A peer to product &amp; engineering</h3><p>I partner across the table, not from a silo. Design maps to outcomes: task success, time-to-value, adoption.</p></div>
+      <div class="principle"><h3>AI with judgment, not hype</h3><p>I bring AI into the work where it genuinely helps a person in the moment: a framework to design against, not features bolted on.</p></div>
+      <div class="principle"><h3>Design at the right maturity</h3><p>Not every company needs a full design team yet. I read where an org actually is and build to that: AI-assisted, a fractional lead, or a full function, so you invest in design exactly when it starts to pay off.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHERE I'VE BEEN -->
+<section class="abx-sec">
+  <div class="abx-wrap">
+    <span class="abx-eyebrow">Where I've been</span>
+    <h2 class="abx-h2">Career at a glance</h2>
+    <div class="tl">
+      <div class="tl-row"><div class="role">Founder &amp; Builder, Cubby</div><div class="meta"><b>2026–Present</b> · Caregiver-curated video for autism &amp; IDD, shipped solo</div></div>
+      <div class="tl-row"><div class="role">Director of Product Design &amp; AI Experience, SPOTIO</div><div class="meta"><b>2025–2026</b> · B2B field-sales SaaS · reported to the CEO</div></div>
+      <div class="tl-row"><div class="role">Director of Creative Technology, TPN (Omnicom)</div><div class="meta"><b>2024–2025</b> · AI-driven brand experiences for AT&amp;T, Caterpillar</div></div>
+      <div class="tl-row"><div class="role">Director of Product Design, Southern New Hampshire University</div><div class="meta"><b>2021–2023</b> · Built the Product Design department from zero</div></div>
+      <div class="tl-row"><div class="role">Director of Product / UX, Kalkomey</div><div class="meta"><b>2020–2021</b> · Owned strategy &amp; roadmap · +225% content sales</div></div>
+      <div class="tl-row"><div class="role">UX Manager → Sr. Manager, Omnitracs</div><div class="meta"><b>2016–2020</b> · Founded UX Research · 'Logic Blocks' design system</div></div>
+      <div class="tl-row"><div class="role">Lead UX Designer, Citi</div><div class="meta"><b>2014–2016</b> · Bank-wide design system · first Apple Watch app</div></div>
+      <div class="tl-row"><div class="role">Earlier: brand &amp; creative direction</div><div class="meta">Fifteen years across agencies including The Richards Group</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CUBBY CALLOUT -->
+<section class="abx-sec alt">
+  <div class="abx-callout">
+    <div class="txt">
+      <span class="abx-eyebrow">I still ship</span>
+      <h2>Cubby: concept to App Store, solo</h2>
+      <p>I designed and shipped Cubby, a caregiver-curated, accessibility-first iOS app for teens and adults with autism and IDD, solo and end to end on an AI-assisted stack. Proof that an AI-fluent design leader can still take something from concept to a working product.</p>
+      <div class="cta-row"><a class="p" href="cubby.html">See the Cubby case study →</a><a class="appstore" href="https://apps.apple.com/us/app/cubby-curated-video/id6762105730" target="_blank" rel="noopener"><svg viewBox="0 0 384 512" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>Download on the App Store</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- OUTSIDE THE WORK -->
+<section class="abx-sec">
+  <div class="abx-wrap">
+    <span class="abx-eyebrow">Personal</span>
+    <h2 class="abx-h2">Outside the work</h2>
+    <p class="abx-lead">I came up as a visual person and I never left it. I'm a working artist, and I believe people should see what they want in a piece. An artist shouldn't dictate how it's interpreted. I'm a tinkerer by nature; I build things to understand them. My taste comes from outside the screen too: architecture, industrial design, and fashion are constant inputs. And I give a lot of it back: portfolio reviews, mentorship, and career coaching. At home, the smallest member of the family is very much the boss.</p>
+    <div class="abx-photos">
+      <div class="abx-photo"><img src="assets/work/about-art.jpg" alt="Artwork by Aneil Razvi"></div>
+      <div class="abx-photo"><img src="assets/work/about-mentoring.jpg" alt="Aneil Razvi with family"></div>
+      <div class="abx-photo"><img src="assets/work/about-taste.jpg" alt="Tinkering and making"></div>
+    </div>
+  </div>
+</section>
+
+<!-- CREDENTIALS -->
+<section class="abx-sec alt">
+  <div class="abx-wrap">
+    <span class="abx-eyebrow">Credentials</span>
+    <h2 class="abx-h2">Education &amp; training</h2>
+    <div class="abx-creds">
+      <div class="cred"><h3>Education</h3><ul>
+        <li>BFA, Visual Communications<span>Minor, Art History · Southern Illinois University</span></li>
+      </ul></div>
+      <div class="cred"><h3>Certifications</h3><ul>
+        <li>IDEO U, Design Thinking</li>
+        <li>Certified Agile Leadership (CAL-I)<span>Scrum Alliance</span></li>
+        <li>Red Hat, Open Innovation Labs</li>
+      </ul></div>
+      <div class="cred"><h3>Community</h3><ul>
+        <li>ADPList Mentor</li>
+        <li>AIGA DFW<span>Former board member</span></li>
+        <li>Actively mentoring<span>Portfolio reviews &amp; career coaching</span></li>
+      </ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="abx-cta">
+  <h2>Let's build something</h2>
+  <a href="https://calendar.app.google/insHQBTTsdfgxxMz5" target="_blank">Book a call →</a>
+</section>
+
+<footer style="background:#0a1420;border-top:1px solid rgba(255,255,255,.08);padding:40px 6%;text-align:center;color:rgba(255,255,255,.6)"><div style="font-family:'DM Serif Display',serif;font-size:1.2rem;color:#fff;margin-bottom:12px">Aneil <span style="color:var(--teal)">Razvi</span></div><div style="font-size:.9rem"><a style="color:#cfe;text-decoration:none;margin:0 10px" href="https://www.linkedin.com/in/aneilrazvi/" target="_blank">LinkedIn</a>·<a style="color:#cfe;text-decoration:none;margin:0 10px" href="https://calendar.app.google/insHQBTTsdfgxxMz5" target="_blank">Book a call</a>·<a style="color:#cfe;text-decoration:none;margin:0 10px" href="mailto:aneilsr@gmail.com">Email</a></div><div style="font-size:.78rem;color:rgba(255,255,255,.4);margin-top:14px">© 2026 Aneil Razvi · Allen, TX</div></footer>
+<script>var nv=document.getElementById('nav');window.addEventListener('scroll',function(){nv.classList.toggle('scrolled',window.scrollY>40);});</script>
+<script>(function(){var h=document.querySelector(".nav-hamburger"),n=document.getElementById("nav");if(h&&n)h.addEventListener("click",function(){n.classList.toggle("open");});})();</script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>Portfolio, Aneil Razvi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css"><style>
+.pf-wrap{max-width:1180px;margin:0 auto;padding:0 5% 90px}
+.pf-section-label{display:flex;align-items:center;gap:14px;margin:40px 0 22px}
+.pf-section-label span{font-size:.74rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.pf-section-label i{height:1px;background:rgba(255,255,255,.09);flex:1}
+.pf-eyebrow{color:var(--teal);font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px}
+.pf-pills{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 6px}
+.pf-pill{font-size:.72rem;font-weight:600;color:#bfeaf1;background:rgba(0,188,212,.12);border:1px solid rgba(0,188,212,.3);padding:5px 11px;border-radius:100px}
+.pf-view{margin-top:14px;color:var(--teal);font-weight:600;font-size:.9rem}
+.pf-feature{display:grid;grid-template-columns:1.15fr .85fr;background:#101d2b;border:1px solid rgba(255,255,255,.09);border-radius:var(--radius);overflow:hidden;text-decoration:none;color:#eef3f8;transition:transform .18s,border-color .18s}
+.pf-feature:hover{transform:translateY(-4px);border-color:rgba(0,188,212,.5)}
+.pf-feat-img{min-height:340px;background-size:cover;background-position:center}
+.pf-feat-body{padding:40px}
+.pf-feat-body h2{font-family:'DM Serif Display',serif;font-size:2.6rem;margin-bottom:12px;color:#fff}
+.pf-feat-body p{color:rgba(255,255,255,.66);line-height:1.65;font-weight:300}
+.pf-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:22px}
+.pf-tier2{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.pf-card{display:flex;flex-direction:column;background:#101d2b;border:1px solid rgba(255,255,255,.09);border-radius:14px;overflow:hidden;text-decoration:none;color:#eef3f8;transition:transform .18s,border-color .18s}
+.pf-card:hover{transform:translateY(-4px);border-color:rgba(0,188,212,.5)}
+.pf-card-img{height:220px;background-size:cover;background-position:center}
+.pf-card-img.sm{height:130px}
+.pf-card-body{padding:22px}
+.pf-compact .pf-card-body{padding:16px}
+.pf-card h3{font-family:'DM Serif Display',serif;font-size:1.6rem;margin-bottom:10px;color:#fff}
+.pf-card h4{font-family:'DM Serif Display',serif;font-size:1.15rem;margin-bottom:8px;color:#fff}
+.pf-card p{color:rgba(255,255,255,.62);font-size:.93rem;line-height:1.6;font-weight:300}
+.pf-compact p{font-size:.84rem;margin-bottom:12px}
+@media(max-width:860px){.pf-feature{grid-template-columns:1fr}.pf-feat-img{min-height:230px}.pf-grid{grid-template-columns:1fr}.pf-tier2{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.pf-tier2{grid-template-columns:1fr}}
+</style></head><body>
+<nav class="site-nav" id="nav">
+  <a href="index.html" class="nav-brand">Aneil <b>Razvi</b></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="portfolio.html" class="active">Portfolio</a></li>
+    <li><a href="speaking.html">Speaking</a></li>
+    <li><a href="work-with-me.html">Work With Me</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="blog.html">Blog</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">Let's Talk</a>
+<button class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button></nav>
+<section class="page-hero">
+  <div class="section-tag">Selected Work</div><h1>Portfolio</h1>
+  <p>15+ years of design and AI product leadership across enterprise software, financial services, education, and consumer. Start with the flagship, then dig in.</p>
+</section>
+<div class="pf-wrap">
+  <div class="pf-section-label"><span>Flagship</span><i></i></div>
+  <a class="pf-feature" href="cubby.html">
+  <div class="pf-feat-img" style="background-image:url('assets/work/cubby.jpg')"></div>
+  <div class="pf-feat-body">
+    <div class="pf-eyebrow">Flagship · Founder &amp; Builder</div>
+    <h2>Cubby</h2>
+    <p>Caregiver-curated video for teens and adults with autism and IDD. Designed, built, and shipped solo, 0 to 1: a live iOS App Store release and production web app, with accessibility built in natively.</p>
+    <div class="pf-pills"><span class="pf-pill">0-to-1</span><span class="pf-pill">iOS</span><span class="pf-pill">Accessibility</span><span class="pf-pill">AI-native</span><span class="pf-pill">React/TS</span></div>
+    <div class="pf-view">View Case Study &rarr;</div>
+  </div></a>
+  <div class="pf-grid"><a class="pf-card" href="spotio-case-study.html">
+  <div class="pf-card-img" style="background-image:url('assets/work/spotio.jpg')"></div>
+  <div class="pf-card-body"><div class="pf-eyebrow">Director of Product Design</div><h3>SPOTIO</h3><p>AI experience strategy for a B2B field-sales platform; shaped DASH, an AI co-pilot now generally available.</p>
+  <div class="pf-pills"><span class="pf-pill">AI Experience</span><span class="pf-pill">Design Systems</span><span class="pf-pill">B2B SaaS</span></div><div class="pf-view">View Case Study &rarr;</div></div></a><a class="pf-card" href="snhu.html">
+  <div class="pf-card-img" style="background-image:url('assets/work/snhu.jpg')"></div>
+  <div class="pf-card-body"><div class="pf-eyebrow">Director of Product Design</div><h3>SNHU</h3><p>Built a product design department from zero at one of the largest online universities in the U.S.</p>
+  <div class="pf-pills"><span class="pf-pill">Org Building</span><span class="pf-pill">Design Systems</span><span class="pf-pill">EdTech</span></div><div class="pf-view">View Case Study &rarr;</div></div></a><a class="pf-card" href="omnitracs.html">
+  <div class="pf-card-img" style="background-image:url('assets/work/omnitracs.jpg')"></div>
+  <div class="pf-card-body"><div class="pf-eyebrow">UX Manager to Sr. Manager</div><h3>Omnitracs</h3><p>'Logic blocks' unified a fragmented global fleet platform; an ML next-best-action layer tamed dense data.</p>
+  <div class="pf-pills"><span class="pf-pill">Design Systems</span><span class="pf-pill">ML</span><span class="pf-pill">Enterprise</span></div><div class="pf-view">View Case Study &rarr;</div></div></a><a class="pf-card" href="kalkomey.html">
+  <div class="pf-card-img" style="background-image:url('assets/work/kalkomey.jpg')"></div>
+  <div class="pf-card-body"><div class="pf-eyebrow">Director of Product / UX</div><h3>Kalkomey</h3><p>Drove 225%+ content-sales growth through a rapid, user-centered product pivot during market disruption.</p>
+  <div class="pf-pills"><span class="pf-pill">Product Strategy</span><span class="pf-pill">Growth</span><span class="pf-pill">Consumer</span></div><div class="pf-view">View Case Study &rarr;</div></div></a></div>
+  <div class="pf-section-label"><span>More work</span><i></i></div>
+  <div class="pf-tier2"><a class="pf-card pf-compact" href="citi.html">
+  <div class="pf-card-img sm" style="background-image:url('assets/work/citi.jpg')"></div>
+  <div class="pf-card-body"><div class="pf-eyebrow">Lead UX Designer</div><h4>Citi</h4><p>Bank-wide design system + Citi's first Apple Watch app.</p><span class="pf-pill">Financial Services</span></div></a><a class="pf-card pf-compact" href="capital-one.html">
+  <div class="pf-card-img sm" style="background-image:url('assets/work/capital-one.jpg')"></div>
+  <div class="pf-card-body"><div class="pf-eyebrow">Lead Art Director / Creative Director</div><h4>Capital One</h4><p>Brand + UX for Auto Navigator; +40% direct-mail ROI.</p><span class="pf-pill">Financial Services</span></div></a><a class="pf-card pf-compact" href="tpn.html">
+  <div class="pf-card-img sm" style="background-image:url('assets/work/tpn.jpg')"></div>
+  <div class="pf-card-body"><div class="pf-eyebrow">Director of Creative Technology</div><h4>TPN (Omnicom)</h4><p>AI-augmented brand experiences for Fortune 500 retail.</p><span class="pf-pill">Advertising</span></div></a><a class="pf-card pf-compact" href="phzme.html">
+  <div class="pf-card-img sm" style="background-image:url('assets/work/phzme.jpg')"></div>
+  <div class="pf-card-body"><div class="pf-eyebrow">Chief Experience Officer</div><h4>PhzMe</h4><p>Brand, product, and fundraising for an early-stage marketplace.</p><span class="pf-pill">Startup</span></div></a></div>
+</div>
+<footer style="background:#0a1420;border-top:1px solid rgba(255,255,255,.08);padding:40px 6%;text-align:center;color:rgba(255,255,255,.6)"><div style="font-family:'DM Serif Display',serif;font-size:1.2rem;color:#fff;margin-bottom:12px">Aneil <span style="color:var(--teal)">Razvi</span></div><div style="font-size:.9rem"><a style="color:#cfe;text-decoration:none;margin:0 10px" href="https://www.linkedin.com/in/aneilrazvi/" target="_blank">LinkedIn</a>·<a style="color:#cfe;text-decoration:none;margin:0 10px" href="https://calendar.app.google/insHQBTTsdfgxxMz5" target="_blank">Book a call</a>·<a style="color:#cfe;text-decoration:none;margin:0 10px" href="mailto:aneilsr@gmail.com">Email</a></div><div style="font-size:.78rem;color:rgba(255,255,255,.4);margin-top:14px">© 2026 Aneil Razvi · Allen, TX</div></footer>
+<script>(function(){var h=document.querySelector(".nav-hamburger"),n=document.getElementById("nav");if(h&&n)h.addEventListener("click",function(){n.classList.toggle("open");});})();</script>
+</body></html>

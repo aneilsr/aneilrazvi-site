@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aneil Razvi, VP of Product Design & AI Experience</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="site.css" />
+  <style>
+    /* ─── HERO ─── */
+    #hero {
+      min-height: 100vh;
+      background: linear-gradient(rgba(10,18,28,0.72) 0%, rgba(10,18,28,0.60) 60%, rgba(10,18,28,0.82) 100%),
+        url('assets/hero-aiga.jpg') center/cover no-repeat;
+      display: flex; align-items: center;
+      padding: 120px 5% 80px;
+    }
+    .hero-inner { max-width: 720px; }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(0,188,212,0.15); border: 1px solid rgba(0,188,212,0.3);
+      color: var(--teal); padding: 6px 14px; border-radius: 100px;
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; margin-bottom: 24px;
+    }
+    .hero-tag::before { content: ''; width: 6px; height: 6px; background: var(--teal); border-radius: 50%; }
+    .hero-inner h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.8rem, 5.5vw, 4.6rem);
+      color: white; line-height: 1.08; margin-bottom: 24px;
+      font-weight: 400;
+    }
+    .hero-inner h1 em { font-style: italic; color: var(--teal); }
+    .hero-inner p {
+      color: rgba(255,255,255,0.78); font-size: 1.15rem; line-height: 1.7;
+      max-width: 580px; margin-bottom: 40px; font-weight: 300;
+    }
+    .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+    .btn-ghost {
+      border: 1px solid rgba(255,255,255,0.35); color: white;
+      padding: 14px 30px; border-radius: 10px;
+      font-size: 0.95rem; font-weight: 600; text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-ghost:hover { border-color: var(--teal); color: var(--teal); }
+    .hero-stats {
+      display: flex; gap: 40px; margin-top: 60px; flex-wrap: wrap;
+    }
+    .hero-stat { }
+    .hero-stat .num { font-size: 2rem; font-weight: 800; color: var(--teal); line-height: 1; }
+    .hero-stat .label { font-size: 0.8rem; color: rgba(255,255,255,0.55); font-weight: 400; margin-top: 4px; letter-spacing: 0.03em; }
+
+    /* ─── LOGOS MARQUEE ─── */
+    #logos { background: var(--dark); padding: 28px 0; overflow: hidden; }
+    .logos-label {
+      text-align: center; color: rgba(255,255,255,0.35);
+      font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
+      font-weight: 600; margin-bottom: 20px;
+    }
+    .marquee-wrap { overflow: hidden; }
+    .marquee-track {
+      display: flex; gap: 60px; align-items: center;
+      white-space: nowrap;
+      animation: marquee 40s linear infinite;
+      width: max-content;
+    }
+    .marquee-track:hover { animation-play-state: paused; }
+    .marquee-track img { height: 28px; opacity: 0.45; filter: brightness(0) invert(1); transition: opacity 0.2s; flex-shrink: 0; }
+    .marquee-track img:hover { opacity: 0.85; }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* ─── SECTIONS ─── */
+    section { padding: 96px 5%; }
+
+    /* ─── ABOUT ─── */
+    #about { background: var(--gray); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+    .about-left { }
+    .timeline { display: flex; flex-direction: column; gap: 0; }
+    .tl-item { display: flex; gap: 24px; padding-bottom: 36px; position: relative; }
+    .tl-item:not(:last-child)::after {
+      content: ''; position: absolute; left: 14px; top: 30px; bottom: 0;
+      width: 1px; background: rgba(0,188,212,0.2);
+    }
+    .tl-dot {
+      width: 29px; height: 29px; border-radius: 50%;
+      background: var(--teal); flex-shrink: 0; margin-top: 2px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .tl-dot svg { width: 13px; height: 13px; fill: var(--dark); }
+    .tl-body { }
+    .tl-label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--teal); margin-bottom: 6px; }
+    .tl-text { font-size: 0.97rem; color: var(--muted); line-height: 1.7; }
+    .about-right { }
+    .about-intro { font-size: 1.12rem; line-height: 1.75; color: var(--text); margin-bottom: 32px; font-weight: 400; }
+    .about-intro strong { color: var(--navy); }
+    .competencies { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; }
+    .competency-tag {
+      background: white; border: 1px solid rgba(0,188,212,0.2);
+      color: var(--navy); padding: 7px 16px; border-radius: 100px;
+      font-size: 0.82rem; font-weight: 600;
+    }
+    .about-creds { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .cred-card {
+      background: white; border-radius: 12px; padding: 18px;
+      border: 1px solid rgba(0,0,0,0.05); box-shadow: var(--shadow);
+    }
+    .cred-card .cred-title { font-size: 0.85rem; font-weight: 700; color: var(--navy); margin-bottom: 2px; }
+    .cred-card .cred-sub { font-size: 0.78rem; color: var(--muted); }
+
+    /* ─── WHAT I DO ─── */
+    #what { background: white; }
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    .service-card {
+      background: var(--gray); border-radius: var(--radius); padding: 36px 28px;
+      border: 1px solid rgba(0,0,0,0.04);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .service-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .service-icon {
+      width: 52px; height: 52px; background: var(--navy);
+      border-radius: 14px; display: flex; align-items: center; justify-content: center;
+      margin-bottom: 20px;
+    }
+    .service-icon svg { width: 24px; height: 24px; stroke: var(--teal); fill: none; stroke-width: 1.8; }
+    .service-card h3 { font-size: 1.1rem; font-weight: 700; color: var(--navy); margin-bottom: 12px; }
+    .service-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.7; }
+
+    /* ─── WORK ─── */
+    #work { background: var(--dark); }
+    #work .section-tag { color: var(--teal); }
+    #work h2.section-title { color: white; }
+    #work .section-sub { color: rgba(255,255,255,0.5); }
+    .work-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .work-card {
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius); padding: 36px; overflow: hidden;
+      position: relative; transition: border-color 0.2s, background 0.2s;
+    }
+    .work-card:hover { border-color: rgba(0,188,212,0.35); background: rgba(0,188,212,0.04); }
+    .work-card .work-co {
+      font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--teal); margin-bottom: 10px;
+    }
+    .work-card h3 { font-size: 1.22rem; font-weight: 700; color: white; margin-bottom: 14px; line-height: 1.3; }
+    .work-card p { font-size: 0.9rem; color: rgba(255,255,255,0.55); line-height: 1.7; margin-bottom: 24px; }
+    .work-results { display: flex; flex-wrap: wrap; gap: 10px; }
+    .work-result {
+      background: rgba(0,188,212,0.12); border: 1px solid rgba(0,188,212,0.2);
+      color: var(--teal); padding: 5px 13px; border-radius: 100px;
+      font-size: 0.78rem; font-weight: 600;
+    }
+    .work-card .work-num {
+      position: absolute; top: 28px; right: 28px;
+      font-size: 3.5rem; font-weight: 900; color: rgba(255,255,255,0.03);
+      line-height: 1; font-family: 'DM Serif Display', serif; pointer-events: none;
+    }
+    .work-card.featured { border-color: rgba(0,188,212,0.25); background: rgba(0,188,212,0.06); grid-column: 1 / -1; }
+    .work-card.featured h3 { font-size: 1.45rem; }
+    .work-cta {
+      display: inline-flex; align-items: center; gap: 6px; margin-top: 20px;
+      font-size: 0.82rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--teal); text-decoration: none;
+      border-bottom: 1px solid rgba(0,188,212,0.3); padding-bottom: 2px;
+      transition: border-color 0.2s;
+    }
+    .work-cta:hover { border-color: var(--teal); }
+    .work-cta svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; }
+
+    /* ─── SPEAKING ─── */
+    #speaking { background: var(--gray); }
+    .speaking-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 64px; align-items: center; }
+    .speaking-img {
+      border-radius: var(--radius); overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      aspect-ratio: 4/3;
+      background: url('assets/speaking.jpg') center/cover;
+    }
+    .speaking-topics { display: flex; flex-direction: column; gap: 20px; margin-top: 28px; }
+    .speaking-topic {
+      display: flex; gap: 16px; align-items: flex-start;
+      background: white; border-radius: 12px; padding: 20px;
+      border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .topic-icon {
+      width: 40px; height: 40px; border-radius: 10px; flex-shrink: 0;
+      background: var(--teal); display: flex; align-items: center; justify-content: center;
+    }
+    .topic-icon svg { width: 18px; height: 18px; stroke: white; fill: none; stroke-width: 2; }
+    .speaking-topic h4 { font-size: 0.92rem; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+    .speaking-topic p { font-size: 0.83rem; color: var(--muted); line-height: 1.5; }
+
+    /* ─── COMMUNITY ─── */
+    #community { background: white; }
+    .community-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    .community-img img { width: 100%; border-radius: var(--radius); box-shadow: var(--shadow-lg); }
+    .community-copy p { font-size: 1.02rem; color: var(--muted); line-height: 1.8; margin-bottom: 20px; }
+
+    /* ─── TOOLS ─── */
+    #tools { background: var(--navy); padding: 64px 5%; }
+    #tools .section-tag { color: var(--teal); }
+    #tools h2.section-title { color: white; font-size: 1.6rem; margin-bottom: 36px; }
+    .tools-grid { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
+    .tool-badge {
+      background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 10px; padding: 10px 20px;
+      display: flex; align-items: center; gap: 10px;
+      transition: background 0.2s;
+    }
+    .tool-badge:hover { background: rgba(0,188,212,0.12); }
+    .tool-badge img { height: 20px; filter: brightness(0) invert(1); opacity: 0.7; }
+    .tool-badge span { color: rgba(255,255,255,0.7); font-size: 0.85rem; font-weight: 500; }
+
+    /* ─── CONTACT ─── */
+    #contact { background: var(--dark); text-align: center; padding: 100px 5%; }
+    #contact h2.section-title { color: white; max-width: 600px; margin: 0 auto 20px; }
+    #contact .section-sub { max-width: 500px; margin: 0 auto 48px; text-align: center; }
+    .contact-options { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 60px; }
+    .contact-card {
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius); padding: 28px 36px; min-width: 200px;
+      text-decoration: none; transition: all 0.2s;
+    }
+    .contact-card:hover { border-color: var(--teal); background: rgba(0,188,212,0.08); transform: translateY(-3px); }
+    .contact-card .cc-icon { font-size: 1.6rem; margin-bottom: 10px; }
+    .contact-card .cc-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--teal); font-weight: 600; margin-bottom: 6px; }
+    .contact-card .cc-value { color: white; font-size: 0.92rem; font-weight: 500; }
+
+    /* ─── FOOTER ─── */
+    .site-footer {
+      background: var(--dark-2); padding: 32px 5%;
+    }
+    .footer-inner {
+      max-width: 1140px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px;
+    }
+    .footer-logo img { height: 32px; opacity: 0.7; }
+    .footer-copy { color: rgba(255,255,255,0.3); font-size: 0.8rem; }
+    .footer-socials { display: flex; gap: 12px; }
+    .footer-socials a {
+      color: rgba(255,255,255,0.45);
+      font-size: 0.85rem;
+      transition: color 0.2s;
+      text-decoration: none;
+    }
+    .footer-socials a:hover { color: var(--teal); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .about-grid, .speaking-grid, .community-grid { grid-template-columns: 1fr; gap: 40px; }
+      .services-grid { grid-template-columns: 1fr; }
+      .work-grid { grid-template-columns: 1fr; }
+      .nav-links, .nav-cta { display: none; }
+      .nav-hamburger { display: flex; }
+    }
+    @media (max-width: 600px) {
+      section { padding: 64px 5%; }
+      .hero-stats { gap: 24px; }
+      .about-creds { grid-template-columns: 1fr; }
+      .footer-inner { flex-direction: column; text-align: center; }
+    }
+
+    /* ─── SCROLL ANIMATIONS ─── */
+    .fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+  
+/* ── DARK UNIFY: flip the 4 light sections to dark ── */
+#about { background: #0c1620; }
+#what { background: var(--dark); }
+#work { background: #0c1620; }
+#speaking { background: var(--dark); }
+#community { background: #0c1620; }
+#about h2.section-title, #what h2.section-title,
+#speaking h2.section-title, #community h2.section-title { color: #fff; }
+#about .section-sub, #what .section-sub,
+#speaking .section-sub, #community .section-sub { color: rgba(255,255,255,0.55); }
+#about .about-intro { color: rgba(255,255,255,0.82); }
+#about .about-intro strong { color: var(--teal); }
+#about .tl-text { color: rgba(255,255,255,0.62); }
+#about .competency-tag { background: rgba(255,255,255,0.06); border-color: rgba(0,188,212,0.3); color: #dfeef2; }
+#about .cred-card { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1); box-shadow: none; }
+#about .cred-card .cred-title { color: #fff; }
+#about .cred-card .cred-sub { color: rgba(255,255,255,0.55); }
+#what .service-card { background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.09); }
+#what .service-card:hover { box-shadow: 0 12px 40px rgba(0,0,0,0.35); }
+#what .service-icon { background: rgba(0,188,212,0.14); }
+#what .service-card h3 { color: #fff; }
+#what .service-card p { color: rgba(255,255,255,0.62); }
+#speaking .speaking-topic { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1); box-shadow: none; }
+#speaking .speaking-topic h4 { color: #fff; }
+#speaking .speaking-topic p { color: rgba(255,255,255,0.6); }
+#community .community-copy p { color: rgba(255,255,255,0.72); }
+</style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="site-nav" id="nav">
+    <a href="index.html" class="nav-brand">Aneil <b>Razvi</b></a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="speaking.html">Speaking</a></li>
+      <li><a href="work-with-me.html">Work With Me</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="blog.html">Blog</a></li>
+    </ul>
+    <a href="contact.html" class="nav-cta">Let's Talk</a>
+    <button class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-inner">
+      <div class="hero-tag">VP Product Design &amp; AI Experience</div>
+      <h1>I help companies<br /><em>move forward.</em></h1>
+      <p>
+        Bridging AI &amp; machine learning, systems thinking, and human-centered design
+        to build products that reduce complexity, surface next best actions, and
+        make organizations faster and more human at the same time.
+      </p>
+      <div class="hero-btns">
+        <a href="portfolio.html" class="btn-primary">
+          View My Work
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="contact.html" class="btn-ghost">Get In Touch</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="num">15+</div><div class="label">Years Experience</div></div>
+        <div class="hero-stat"><div class="num">~$500M</div><div class="label">Revenue Influenced</div></div>
+        <div class="hero-stat"><div class="num">5×</div><div class="label">Team Productivity</div></div>
+        <div class="hero-stat"><div class="num">0&rarr;1</div><div class="label">Shipped Solo (Cubby)</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLIENT LOGOS -->
+  <div id="logos">
+    <div class="logos-label">Collaborating with Excellence</div>
+    <div class="marquee-wrap">
+      <div class="marquee-track">
+        <!-- Set 1 -->
+        <img src="assets/logos/stratmark.svg" alt="Stratmark" />
+        <img src="assets/logos/snhu.svg" alt="SNHU" />
+        <img src="assets/logos/kalkomey.svg" alt="Kalkomey" />
+        <img src="assets/logos/campfire.svg" alt="Campfire Collective" />
+        <img src="assets/logos/80monkeys.svg" alt="80 Monkeys" />
+        <img src="assets/logos/citi.svg" alt="Citi" />
+        <img src="assets/logos/milesahead.svg" alt="Miles Ahead" />
+        <img src="assets/logos/richards-group.svg" alt="The Richards Group" />
+        <img src="assets/logos/raid.svg" alt="RAID" />
+        <!-- Set 2 (duplicate for seamless loop) -->
+        <img src="assets/logos/stratmark.svg" alt="Stratmark" />
+        <img src="assets/logos/snhu.svg" alt="SNHU" />
+        <img src="assets/logos/kalkomey.svg" alt="Kalkomey" />
+        <img src="assets/logos/campfire.svg" alt="Campfire Collective" />
+        <img src="assets/logos/80monkeys.svg" alt="80 Monkeys" />
+        <img src="assets/logos/citi.svg" alt="Citi" />
+        <img src="assets/logos/milesahead.svg" alt="Miles Ahead" />
+        <img src="assets/logos/richards-group.svg" alt="The Richards Group" />
+        <img src="assets/logos/raid.svg" alt="RAID" />
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-left fade-up">
+          <span class="section-tag">The Journey</span>
+          <h2 class="section-title">Past. Present.<br /><em>Future.</em></h2>
+          <div class="timeline">
+            <div class="tl-item">
+              <div class="tl-dot">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/></svg>
+              </div>
+              <div class="tl-body">
+                <div class="tl-label">Past</div>
+                <div class="tl-text">Design journey began with a deep curiosity for creative problem-solving. Architectural studies, graphic design, and visual communications at Southern Illinois University Carbondale shaped a foundation unlike most.</div>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/></svg>
+              </div>
+              <div class="tl-body">
+                <div class="tl-label">Present</div>
+                <div class="tl-text">Director of Product Design at SPOTIO, leading AI experience strategy for a field sales platform, redesigning legacy UX, and embedding next best action AI that gives reps back the time to do what they do best: talk to people.</div>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/></svg>
+              </div>
+              <div class="tl-body">
+                <div class="tl-label">Future</div>
+                <div class="tl-text">Pushing the boundaries of what's possible at the intersection of AI, systems thinking, and human-centered design, building organizations where the technology becomes invisible in its ease.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="about-right fade-up">
+          <p class="about-intro">
+            My career has one repeating pattern: walk into a fragmented environment (a legacy platform, an acquired system, a team built from nothing) and <strong>architect the way forward.</strong>
+            <br /><br />
+            I do it through the intersection of human-centered design, AI &amp; machine learning, and systems thinking. Not as buzzwords. As real tools that reduce cognitive load, surface next best actions, and build experiences that feel almost invisible in their ease.
+          </p>
+          <div class="competencies">
+            <span class="competency-tag">AI Experience Strategy</span>
+            <span class="competency-tag">Systems Thinking</span>
+            <span class="competency-tag">Product Design Leadership</span>
+            <span class="competency-tag">Design Operations</span>
+            <span class="competency-tag">UX Research</span>
+            <span class="competency-tag">ML-Powered Frameworks</span>
+            <span class="competency-tag">Team Building</span>
+            <span class="competency-tag">Enterprise UX</span>
+            <span class="competency-tag">Design Systems</span>
+            <span class="competency-tag">Cognitive Load Reduction</span>
+          </div>
+          <div class="about-creds">
+            <div class="cred-card">
+              <div class="cred-title">BFA Visual Communications</div>
+              <div class="cred-sub">Southern Illinois University, Carbondale</div>
+            </div>
+            <div class="cred-card">
+              <div class="cred-title">IDEO Design Thinking</div>
+              <div class="cred-sub">Certified Practitioner</div>
+            </div>
+            <div class="cred-card">
+              <div class="cred-title">Scrum Alliance CAL</div>
+              <div class="cred-sub">Credential Level I</div>
+            </div>
+            <div class="cred-card">
+              <div class="cred-title">AIGA Dallas / DFW</div>
+              <div class="cred-sub">Active Member &amp; Contributor</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT I DO -->
+  <section id="what">
+    <div class="container">
+      <div class="fade-up" style="text-align:center; max-width:560px; margin: 0 auto 56px;">
+        <span class="section-tag">What I Do</span>
+        <h2 class="section-title">How I help<br /><em>companies move forward</em></h2>
+        <p class="section-sub" style="margin: 0 auto;">Three intersecting capabilities that I bring to every leadership role.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card fade-up">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+          <h3>AI Experience Strategy</h3>
+          <p>Defining where AI genuinely belongs in your product, and what level your org is actually ready for, so next best actions and ML-powered recommendations help people decide faster instead of adding noise.</p>
+        </div>
+        <div class="service-card fade-up">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg>
+          </div>
+          <h3>Systems Thinking &amp; Architecture</h3>
+          <p>Seeing complexity clearly enough to simplify it. Designing mental models, information architectures, and platform structures that make even the most fragmented legacy systems feel cohesive and intuitive.</p>
+        </div>
+        <div class="service-card fade-up">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3>Design Leadership &amp; Org Building</h3>
+          <p>Building design functions from nothing, sized to where the company actually is, or inheriting broken ones and making them exceptional. Recruiting, mentoring, establishing career frameworks, and creating cultures where teams do their best work.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section id="work">
+    <div class="container">
+      <div class="fade-up">
+        <span class="section-tag">Selected Work</span>
+        <h2 class="section-title">What I've actually<br /><em>built.</em></h2>
+        <p class="section-sub">A few of the problems I walked into, and what came out the other side.</p>
+      </div>
+      <div class="hw-grid">
+  <a class="hw-card feat fade-up" href="spotio-case-study.html">
+    <div class="hw-thumb" style="background-image:url('assets/work/spotio.jpg')"></div>
+    <div class="hw-body">
+      <div class="hw-co">SPOTIO · Director of Product Design · 2025&ndash;2026</div>
+      <h3>AI Experience Strategy for a Field Sales Platform</h3>
+      <p>Built the design function and defined the AI experience strategy for a platform used by thousands of field-sales teams &mdash; next-best-actions, coaching nudges, and smart visit summaries that cut admin friction and return reps to selling.</p>
+      <div class="hw-pills"><span>AI UX Strategy</span><span>Legacy Redesign</span><span>Design System</span><span>Research 0&rarr;1</span></div>
+      <span class="hw-cta">View Case Study &rarr;</span>
+    </div>
+  </a>
+  <a class="hw-card fade-up" href="omnitracs.html">
+    <div class="hw-thumb" style="background-image:url('assets/work/omnitracs.jpg')"></div>
+    <div class="hw-body">
+      <div class="hw-co">Omnitracs · UX Manager &rarr; Sr. Manager</div>
+      <h3>ML-Powered Cognitive-Load Framework for Fleet Ops</h3>
+      <p>Unified a fragmented, acquired fleet platform with &lsquo;logic blocks,&rsquo; a modular design system, and an ML next-best-action layer that made dense operational data calm and legible.</p>
+      <div class="hw-pills"><span>&lsquo;Logic Blocks&rsquo; System</span><span>ML Next-Best-Action</span><span>Founded UX Research</span><span>1,000+ Onboardings</span></div>
+      <span class="hw-cta">View Case Study &rarr;</span>
+    </div>
+  </a>
+  <a class="hw-card fade-up" href="snhu.html">
+    <div class="hw-thumb" style="background-image:url('assets/work/snhu.jpg')"></div>
+    <div class="hw-body">
+      <div class="hw-co">SNHU · Director of Product Design</div>
+      <h3>Built a Product Design Department from Zero</h3>
+      <p>Recruited into a university with no design function. Built the team, defined the role, established multi-layered Figma design systems, and launched a next-gen skill-based learning platform &mdash; end to end.</p>
+      <div class="hw-pills"><span>Dept Built 0&rarr;1</span><span>5&times; Productivity</span><span>Design Systems</span></div>
+      <span class="hw-cta">View Case Study &rarr;</span>
+    </div>
+  </a>
+  <a class="hw-card fade-up" href="kalkomey.html">
+    <div class="hw-thumb" style="background-image:url('assets/work/kalkomey.jpg')"></div>
+    <div class="hw-body">
+      <div class="hw-co">Kalkomey · Director of Product / UX</div>
+      <h3>225%+ Revenue Growth Through a User-Centered Pivot</h3>
+      <p>Navigated a pandemic-era demand surge while integrating an acquired platform and pivoting to user-centered design &mdash; driving extraordinary content-sales growth and expanding market reach.</p>
+      <div class="hw-pills"><span>225%+ Content Sales</span><span>$300K+ Savings</span><span>5 Launches</span></div>
+      <span class="hw-cta">View Case Study &rarr;</span>
+    </div>
+  </a>
+</div>
+      <div style="text-align: center; margin-top: 48px;">
+        <a href="portfolio.html" class="btn-primary" style="display: inline-flex;">
+          View All Work
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPEAKING -->
+  <section id="speaking">
+    <div class="container">
+      <div class="speaking-grid">
+        <div class="speaking-img fade-up"></div>
+        <div class="fade-up">
+          <span class="section-tag">Speaking</span>
+          <h2 class="section-title">Sharing what<br /><em>I've learned.</em></h2>
+          <p style="color: var(--muted); font-size: 0.97rem; line-height: 1.75; margin-bottom: 8px;">
+            I speak at conferences and events on AI in product design, design thinking, cognitive systems, and building design-led organizations. If your team or event could use a perspective that bridges AI, systems thinking, and human-centered design. Let's talk.
+          </p>
+          <div class="speaking-topics">
+            <div class="speaking-topic">
+              <div class="topic-icon">
+                <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              </div>
+              <div>
+                <h4>AI &amp; the Future of Product Experience</h4>
+                <p>How AI surfaces in real products, and how design leaders should be shaping that conversation.</p>
+              </div>
+            </div>
+            <div class="speaking-topic">
+              <div class="topic-icon">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+              </div>
+              <div>
+                <h4>Cognitive Load &amp; Systems Thinking</h4>
+                <p>Why reducing friction is the highest-leverage design skill, and how to build it into your org.</p>
+              </div>
+            </div>
+            <div class="speaking-topic">
+              <div class="topic-icon">
+                <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+              <div>
+                <h4>Building Design-Led Organizations</h4>
+                <p>How to build, grow, and sustain a high-performing design team from the ground up.</p>
+              </div>
+            </div>
+          </div>
+          <a href="speaking.html" class="btn-primary" style="display: inline-flex; margin-top: 28px;">
+            Explore Speaking Topics
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMUNITY -->
+  <section id="community">
+    <div class="container">
+      <div class="community-grid">
+        <div class="community-copy fade-up">
+          <span class="section-tag">Community</span>
+          <h2 class="section-title">Giving back to<br /><em>the craft.</em></h2>
+          <p>Contributing to the design community has been one of the most rewarding parts of this journey. I've actively engaged with organizations like the Dallas Society of Visual Communications and AIGA DFW, providing portfolio reviews, facilitating mentorship programs, and hosting the Behance Portfolio Review in DFW for three years.</p>
+          <p>Through these initiatives, I aim to uplift and inspire the next generation of designers, because great design culture compounds.</p>
+        </div>
+        <div class="community-img fade-up">
+          <img src="assets/community.jpg" alt="Aneil at AIGA Creator Lab, mentoring and design community" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOOLS -->
+  <div id="tools">
+    <div class="container">
+      <span class="section-tag">Tools &amp; Tech</span>
+      <h2 class="section-title">What's in the toolkit</h2>
+      <div class="tk-groups">
+        <div class="tk-group"><h4>Design &amp; Prototyping</h4><div class="tk-pills"><span>Figma</span><span>Adobe Creative Suite</span><span>Prototyping</span><span>Design Systems</span><span>Miro</span></div></div>
+        <div class="tk-group"><h4>AI &amp; Build</h4><div class="tk-pills"><span>Claude Code</span><span>Cursor</span><span>Anthropic API</span><span>LLMs (Claude, ChatGPT)</span><span>React</span><span>TypeScript</span><span>Capacitor</span><span>Supabase</span></div></div>
+        <div class="tk-group"><h4>Research &amp; Analytics</h4><div class="tk-pills"><span>User Research</span><span>Usability Testing</span><span>Dovetail</span><span>Pendo</span><span>Segment</span></div></div>
+        <div class="tk-group"><h4>Product &amp; Delivery</h4><div class="tk-pills"><span>Productboard</span><span>Jira</span><span>Notion</span><span>Loom</span><span>Agile</span><span>Design Sprints</span><span>Event Storming</span></div></div>
+        <div class="tk-group"><h4>Methods</h4><div class="tk-pills"><span>Design Thinking</span><span>Information Architecture</span><span>Accessibility (WCAG)</span><span>Systems Thinking</span><span>Design Operations</span></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="fade-up">
+        <span class="section-tag">Contact</span>
+        <h2 class="section-title">The conversation<br /><em>will be worth it.</em></h2>
+        <p class="section-sub" style="color: rgba(255,255,255,0.5);">
+          If you're building something complex and need a leader who can bridge AI, systems thinking, and design. Let's talk.
+        </p>
+        <div class="contact-options">
+          <a href="mailto:aneilsr@gmail.com" class="contact-card">
+            <div class="cc-icon">📩</div>
+            <div class="cc-label">Email</div>
+            <div class="cc-value">aneilsr@gmail.com</div>
+          </a>
+          <a href="tel:14692614282" class="contact-card">
+            <div class="cc-icon">📞</div>
+            <div class="cc-label">Phone</div>
+            <div class="cc-value">1-469-261-4282</div>
+          </a>
+          <a href="https://www.linkedin.com/in/aneilrazvi/" target="_blank" rel="noopener" class="contact-card">
+            <div class="cc-icon">💼</div>
+            <div class="cc-label">LinkedIn</div>
+            <div class="cc-value">linkedin.com/in/aneilrazvi</div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="background:#0a1420;border-top:1px solid rgba(255,255,255,.08);padding:40px 6%;text-align:center;color:rgba(255,255,255,.6)"><div style="font-family:'DM Serif Display',serif;font-size:1.2rem;color:#fff;margin-bottom:12px">Aneil <span style="color:var(--teal)">Razvi</span></div><div style="font-size:.9rem"><a style="color:#cfe;text-decoration:none;margin:0 10px" href="https://www.linkedin.com/in/aneilrazvi/" target="_blank">LinkedIn</a>·<a style="color:#cfe;text-decoration:none;margin:0 10px" href="https://calendar.app.google/insHQBTTsdfgxxMz5" target="_blank">Book a call</a>·<a style="color:#cfe;text-decoration:none;margin:0 10px" href="mailto:aneilsr@gmail.com">Email</a></div><div style="font-size:.78rem;color:rgba(255,255,255,.4);margin-top:14px">© 2026 Aneil Razvi · Allen, TX</div></footer>
+
+  <script>
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>40));
+const obs=new IntersectionObserver((e)=>e.forEach(i=>{if(i.isIntersecting){i.target.classList.add('visible');obs.unobserve(i.target);}}),{threshold:0.1});
+document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+  </script>
+<script>(function(){var h=document.querySelector(".nav-hamburger"),n=document.getElementById("nav");if(h&&n)h.addEventListener("click",function(){n.classList.toggle("open");});})();</script>
+</body>
+</html>

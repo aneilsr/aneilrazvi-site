@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact, Aneil Razvi</title>
+  <link rel="stylesheet" href="site.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    .contact-hero { padding: 9rem 6% 2.5rem; text-align: center; }
+    .contact-hero .eyebrow { color: var(--teal); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; }
+    .contact-hero h1 { font-family: 'DM Serif Display', serif; font-size: clamp(2.5rem,6vw,4rem); color: #fff; margin: 0.5rem 0; font-weight: 400; }
+    .contact-hero h1 em { font-style: italic; color: var(--teal); }
+    .contact-hero .hero-sub { max-width: 600px; margin: 1rem auto 0; color: rgba(255,255,255,0.68); font-size: 1.12rem; line-height: 1.7; }
+
+    /* Booking (primary) */
+    .booking-wrap { max-width: 920px; margin: 0 auto; padding: 1.5rem 6% 1rem; }
+    .booking-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius); padding: 1.75rem 1.75rem 1rem; }
+    .booking-head { display:flex; align-items:center; gap:12px; margin-bottom: 0.5rem; flex-wrap: wrap; }
+    .booking-head h2 { font-family: 'DM Serif Display', serif; font-weight: 400; color:#fff; font-size: 1.5rem; }
+    .booking-head .pill { font-size:0.72rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--teal); background:rgba(0,188,212,.12); border:1px solid rgba(0,188,212,.3); padding:4px 12px; border-radius:100px; }
+    .booking-sub { color: rgba(255,255,255,0.6); font-size: 0.95rem; margin-bottom: 1rem; }
+    .booking-frame { border-radius: 12px; overflow: hidden; background:#fff; }
+    .booking-frame iframe { display:block; width:100%; border:0; }
+    .booking-fallback { text-align:center; margin: 0.75rem 0 0; font-size: 0.9rem; color: rgba(255,255,255,0.55); }
+    .booking-fallback a { color: var(--teal); text-decoration: none; }
+
+    .divider-or { text-align:center; color:rgba(255,255,255,0.35); font-size:0.8rem; letter-spacing:0.1em; text-transform:uppercase; margin: 2.5rem auto 0; }
+
+    .contact-info-cards { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.1rem; max-width: 1000px; margin: 1.5rem auto 0; padding: 0 6% 4.5rem; }
+    .contact-info-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius); padding: 1.25rem 1.5rem; display: flex; align-items: center; gap: 1.1rem; text-decoration: none; flex: 1 1 240px; max-width: 320px; transition: border-color 0.2s; }
+    a.contact-info-card:hover { border-color: rgba(0,188,212,0.4); }
+    .contact-info-card .ci-icon { width: 42px; height: 42px; border-radius: 12px; background: rgba(0,188,212,0.15); display: flex; align-items: center; justify-content: center; font-size: 1.15rem; flex-shrink: 0; }
+    .contact-info-card .ci-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 0.2rem; }
+    .contact-info-card .ci-value { font-size: 0.92rem; color: #fff; }
+    .contact-info-card a { color: var(--teal); text-decoration: none; }
+    .contact-form { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius); padding: 2.25rem; }
+    .contact-form h3 { color:#fff; font-family:'DM Serif Display',serif; font-weight:400; font-size:1.3rem; margin-bottom: 0.4rem; }
+    .contact-form .form-note { color: rgba(255,255,255,0.55); font-size: 0.88rem; margin-bottom: 1.5rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.1rem; }
+    .form-label { font-size: 0.78rem; font-weight: 600; color: rgba(255,255,255,0.7); text-transform: uppercase; letter-spacing: 0.06em; }
+    .form-input { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); border-radius: 10px; padding: 0.8rem 1rem; color: #fff; font-family: inherit; font-size: 0.95rem; outline: none; transition: border-color 0.2s; }
+    .form-input:focus { border-color: var(--teal); }
+    textarea.form-input { resize: vertical; min-height: 130px; }
+    .form-submit { width: 100%; padding: 0.95rem; background: var(--teal); color: #06222a; font-weight: 700; font-size: 0.95rem; border: none; border-radius: 10px; cursor: pointer; letter-spacing: 0.02em; transition: opacity 0.2s; margin-top: 0.4rem; }
+    .form-submit:hover { opacity: 0.88; }
+    .availability-section { text-align: center; padding: 1rem 6% 5rem; }
+    .availability-section h3 { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); margin-bottom: 1.1rem; }
+    .avail-badges { display: flex; flex-wrap: wrap; gap: 0.7rem; justify-content: center; }
+    .avail-badge { border: 1px solid rgba(0,188,212,0.4); color: var(--teal); padding: 0.45rem 1.15rem; border-radius: 100px; font-size: 0.85rem; font-weight: 500; }
+    @media(max-width:760px){
+      .contact-body{grid-template-columns:1fr}
+      .form-row{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="site-nav" id="nav">
+    <a href="index.html" class="nav-brand">Aneil <b>Razvi</b></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="speaking.html">Speaking</a></li>
+      <li><a href="work-with-me.html">Work With Me</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="blog.html">Blog</a></li>
+    </ul>
+    <a href="contact.html" class="nav-cta">Let's Talk</a>
+  <button class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button></nav>
+
+  <!-- HERO -->
+  <section class="contact-hero" style="background: linear-gradient(rgba(10,18,28,0.82), rgba(10,18,28,0.92)), linear-gradient(135deg, #0d1b3e 0%, #10283f 100%); margin-top: 68px;">
+    <div class="eyebrow">Contact</div>
+    <h1>Let's <em>talk</em></h1>
+    <p class="hero-sub">Looking for a design leader, a fractional partner, or a speaker? The fastest way to reach me is to grab a time below. Prefer email or LinkedIn? Both are right here.</p>
+  </section>
+
+  <!-- BOOKING (primary) -->
+  <section style="background: var(--dark); padding-top: 1rem;">
+    <div class="booking-wrap">
+      <div class="booking-card">
+        <div class="booking-head">
+          <h2>Book a call</h2>
+          <span class="pill">Fastest way to reach me</span>
+        </div>
+        <p class="booking-sub">A 30-minute intro call: pick any open slot and it drops straight onto both our calendars.</p>
+        <div class="booking-frame">
+          <!-- Google Calendar Appointment Scheduling begin -->
+          <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3xrDUs3aQdxoYM_51DY3kz-URO7mkEqhbcrbTKjRQWqM2kY-y_Nveg2tkQm04XgLesAGvFkYE5?gv=true" style="border: 0" width="100%" height="600" frameborder="0"></iframe>
+          <!-- end Google Calendar Appointment Scheduling -->
+        </div>
+        <p class="booking-fallback">Widget not loading? <a href="https://calendar.app.google/insHQBTTsdfgxxMz5" target="_blank">Open my booking page in a new tab →</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT INFO -->
+  <section style="background: var(--dark);">
+    <div class="contact-info-cards">
+      <a class="contact-info-card" href="mailto:aneilsr@gmail.com">
+        <div class="ci-icon">✉️</div>
+        <div>
+          <div class="ci-label">Email</div>
+          <div class="ci-value">aneilsr@gmail.com</div>
+        </div>
+      </a>
+      <a class="contact-info-card" href="https://www.linkedin.com/in/aneilrazvi/" target="_blank" rel="noopener">
+        <div class="ci-icon">🔗</div>
+        <div>
+          <div class="ci-label">LinkedIn</div>
+          <div class="ci-value">linkedin.com/in/aneilrazvi</div>
+        </div>
+      </a>
+      <div class="contact-info-card">
+        <div class="ci-icon">📍</div>
+        <div>
+          <div class="ci-label">Location</div>
+          <div class="ci-value">Allen, TX (Dallas–Fort Worth)<br><span style="font-size: 0.85rem; color: rgba(255,255,255,0.5);">Open to remote &amp; relocation</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AVAILABILITY -->
+  <section class="availability-section" style="background: var(--dark);">
+    <h3>Currently available for</h3>
+    <div class="avail-badges">
+      <div class="avail-badge">Design Leadership</div>
+      <div class="avail-badge">Fractional VP of Design</div>
+      <div class="avail-badge">AI Experience Strategy</div>
+      <div class="avail-badge">Advisory &amp; Consulting</div>
+      <div class="avail-badge">Speaking</div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="background:#0a1420;border-top:1px solid rgba(255,255,255,.08);padding:40px 6%;text-align:center;color:rgba(255,255,255,.6)"><div style="font-family:'DM Serif Display',serif;font-size:1.2rem;color:#fff;margin-bottom:12px">Aneil <span style="color:var(--teal)">Razvi</span></div><div style="font-size:.9rem"><a style="color:#cfe;text-decoration:none;margin:0 10px" href="https://www.linkedin.com/in/aneilrazvi/" target="_blank">LinkedIn</a>·<a style="color:#cfe;text-decoration:none;margin:0 10px" href="https://calendar.app.google/insHQBTTsdfgxxMz5" target="_blank">Book a call</a>·<a style="color:#cfe;text-decoration:none;margin:0 10px" href="mailto:aneilsr@gmail.com">Email</a></div><div style="font-size:.78rem;color:rgba(255,255,255,.4);margin-top:14px">© 2026 Aneil Razvi · Allen, TX</div></footer>
+
+  <script>
+    const nav=document.getElementById('nav');
+    window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>40));
+    const obs=new IntersectionObserver((e)=>e.forEach(i=>{if(i.isIntersecting){i.target.classList.add('visible');obs.unobserve(i.target);}}),{threshold:0.1});
+    document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+  </script>
+
+<script>(function(){var h=document.querySelector(".nav-hamburger"),n=document.getElementById("nav");if(h&&n)h.addEventListener("click",function(){n.classList.toggle("open");});})();</script>
+</body>
+</html>

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Speaking: Aneil Razvi</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+<style>
+  .sp-hero{max-width:1240px;margin:0 auto;padding:9rem 6% 3rem;display:grid;grid-template-columns:1.05fr .95fr;gap:3.5rem;align-items:center}
+  .sp-hero .eyebrow{color:var(--teal);font-size:.78rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase}
+  .sp-hero h1{font-family:'DM Serif Display',serif;font-size:clamp(2.6rem,5.5vw,4.2rem);color:#fff;font-weight:400;line-height:1.06;margin:.5rem 0 1.2rem}
+  .sp-hero h1 em{font-style:italic;color:var(--teal)}
+  .sp-hero p{color:rgba(255,255,255,.74);font-size:1.14rem;line-height:1.72;font-weight:300;max-width:560px}
+  .sp-cta-row{display:flex;gap:1rem;flex-wrap:wrap;margin-top:2rem}
+  .sp-btn{background:var(--teal);color:#062028;padding:14px 28px;border-radius:9px;font-weight:700;text-decoration:none;font-size:.95rem}
+  .sp-btn.ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.35)}
+  .sp-heroimg{position:relative}
+  .sp-heroimg img{width:100%;border-radius:16px;border:1px solid rgba(255,255,255,.12);display:block;aspect-ratio:4/3;object-fit:cover}
+  /* credibility strip */
+  .sp-proof{border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08);background:#0c1620}
+  .sp-proof-in{max-width:1240px;margin:0 auto;padding:2.2rem 6%;display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+  .sp-proof .pf .n{font-family:'DM Serif Display',serif;color:#fff;font-size:1.5rem;line-height:1.1}
+  .sp-proof .pf .l{color:rgba(255,255,255,.6);font-size:.86rem;margin-top:6px;line-height:1.45}
+  /* section shells */
+  .sp-sec{max-width:1180px;margin:0 auto;padding:4.5rem 6%}
+  .sp-eyebrow{color:var(--teal);font-size:.72rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;display:block;margin-bottom:.7rem}
+  .sp-h2{font-family:'DM Serif Display',serif;font-size:clamp(1.9rem,3.4vw,2.6rem);color:#fff;font-weight:400;margin:0 0 .6rem;line-height:1.1}
+  .sp-lead{color:rgba(255,255,255,.66);font-size:1.05rem;line-height:1.7;font-weight:300;max-width:640px;margin:0 0 2.4rem}
+  /* topics */
+  .sp-topics{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+  .topic{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:2rem 2.1rem;transition:border-color .2s,transform .2s}
+  .topic:hover{border-color:rgba(0,188,212,.4);transform:translateY(-4px)}
+  .topic .tnum{font-family:'DM Serif Display',serif;color:rgba(0,188,212,.5);font-size:1.4rem}
+  .topic h3{font-family:'DM Serif Display',serif;color:#fff;font-size:1.4rem;font-weight:400;margin:.3rem 0 .7rem;line-height:1.2}
+  .topic p{color:rgba(255,255,255,.66);font-size:.95rem;line-height:1.62;font-weight:300;margin:0 0 1.2rem}
+  .topic .lo{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:.5rem}
+  .topic ul{list-style:none;margin:0 0 1.1rem;padding:0}
+  .topic ul li{color:rgba(255,255,255,.72);font-size:.9rem;line-height:1.5;padding-left:1.1rem;position:relative;margin-bottom:.35rem}
+  .topic ul li::before{content:'';position:absolute;left:0;top:.55em;width:6px;height:6px;border-radius:50%;background:var(--teal)}
+  .topic .who{color:rgba(255,255,255,.5);font-size:.8rem;border-top:1px solid rgba(255,255,255,.08);padding-top:.9rem}
+  .topic .who b{color:rgba(255,255,255,.75);font-weight:600}
+  /* featured appearance */
+  .sp-feat{background:#0c1620;border-top:1px solid rgba(255,255,255,.08)}
+  .sp-feat-in{max-width:1180px;margin:0 auto;padding:4.5rem 6%;display:grid;grid-template-columns:1.05fr .95fr;gap:3rem;align-items:center}
+  .sp-feat-in img{width:100%;border-radius:16px;border:1px solid rgba(255,255,255,.12);display:block}
+  .sp-feat h3{font-family:'DM Serif Display',serif;color:#fff;font-size:1.9rem;font-weight:400;margin:.4rem 0 .5rem}
+  .sp-feat .venue{color:var(--teal);font-size:.9rem;font-weight:600;margin-bottom:1rem}
+  .sp-feat p{color:rgba(255,255,255,.72);font-size:1rem;line-height:1.68;font-weight:300;margin:0 0 1.4rem}
+  .sp-community{display:flex;flex-wrap:wrap;gap:.6rem}
+  .sp-community span{font-size:.8rem;font-weight:600;color:#bfeaf1;background:rgba(0,188,212,.1);border:1px solid rgba(0,188,212,.28);padding:6px 13px;border-radius:100px}
+  /* timeline */
+  .tl-group{margin-top:2.4rem}
+  .tl-year{font-family:'DM Serif Display',serif;color:var(--teal);font-size:1.4rem;margin:0 0 1.1rem;padding-bottom:.55rem;border-bottom:1px solid rgba(255,255,255,.1)}
+  .tl-list{display:grid;gap:1.15rem}
+  .tl-item{display:grid;grid-template-columns:minmax(200px,.85fr) 1.6fr;gap:1.5rem;align-items:baseline}
+  .tl-ev{color:var(--teal);font-size:.82rem;font-weight:700;letter-spacing:.02em;line-height:1.35}
+  .tl-ev .sub{display:block;color:rgba(255,255,255,.42);font-weight:500;font-size:.76rem;margin-top:2px;letter-spacing:0}
+  .tl-body h4{font-family:'DM Serif Display',serif;color:#fff;font-size:1.1rem;font-weight:400;margin:0 0 .3rem;line-height:1.25}
+  .tl-body h4 a{color:#fff;text-decoration:none;border-bottom:1px solid rgba(0,188,212,.4)}
+  .tl-body h4 a:hover{border-bottom-color:var(--teal)}
+  .tl-body p{color:rgba(255,255,255,.6);font-size:.9rem;line-height:1.55;font-weight:300;margin:0}
+  .tl-body .cospk{color:rgba(255,255,255,.4);font-size:.8rem;font-style:italic;margin-top:.35rem}
+  @media(max-width:700px){.tl-item{grid-template-columns:1fr;gap:.35rem}}
+  /* formats */
+  .sp-formats{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem}
+  .fmt{border-top:2px solid var(--teal);padding-top:1rem}
+  .fmt h4{font-family:'DM Serif Display',serif;color:#fff;font-size:1.15rem;font-weight:400;margin:0 0 .4rem}
+  .fmt p{color:rgba(255,255,255,.62);font-size:.88rem;line-height:1.55;font-weight:300;margin:0}
+  /* testimonials */
+  .sp-quotes{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+  .qt{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:2rem 2.1rem}
+  .qt p{color:rgba(255,255,255,.85);font-size:1.02rem;line-height:1.65;font-weight:300;margin:0 0 1.3rem}
+  .qt .who{display:flex;align-items:center;gap:.8rem}
+  .qt .av{width:46px;height:46px;border-radius:50%;border:1px solid rgba(0,188,212,.35);object-fit:cover;flex-shrink:0;display:block}
+  .qt .av-ini{width:46px;height:46px;border-radius:50%;border:1px solid rgba(0,188,212,.35);background:rgba(0,188,212,.12);color:#bfeaf1;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem;flex-shrink:0}
+  .qt .nm{color:#fff;font-size:.92rem;font-weight:600}
+  .qt .nm a{color:#fff;text-decoration:none;border-bottom:1px solid rgba(0,188,212,.4)}
+  .qt .rl{color:rgba(255,255,255,.55);font-size:.8rem}
+  /* booking cta */
+  .sp-book{background:linear-gradient(135deg,#0d1b2a,#0a2530);text-align:center;padding:5.5rem 6%}
+  .sp-book h2{font-family:'DM Serif Display',serif;font-size:clamp(2rem,4vw,2.8rem);color:#fff;font-weight:400;margin:0 0 1rem}
+  .sp-book p{color:rgba(255,255,255,.72);font-size:1.08rem;line-height:1.7;font-weight:300;max-width:560px;margin:0 auto 2rem}
+  .sp-book .row{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+  @media(max-width:900px){
+    .sp-hero{grid-template-columns:1fr;gap:2rem;padding-top:7rem}
+    .sp-heroimg{order:-1}
+    .sp-proof-in{grid-template-columns:1fr 1fr;gap:1.6rem}
+    .sp-topics{grid-template-columns:1fr}
+    .sp-feat-in{grid-template-columns:1fr;gap:2rem}
+    .sp-feat-in .fig{order:-1}
+    .sp-formats{grid-template-columns:1fr 1fr}
+    .sp-quotes{grid-template-columns:1fr}
+  }
+  @media(max-width:520px){.sp-proof-in{grid-template-columns:1fr}.sp-formats{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav class="site-nav" id="nav"><a href="index.html" class="nav-brand">Aneil <b>Razvi</b></a>
+<ul class="nav-links">
+<li><a href="index.html">Home</a></li>
+<li><a href="portfolio.html">Portfolio</a></li>
+<li><a href="speaking.html" class="active">Speaking</a></li>
+<li><a href="work-with-me.html">Work With Me</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="blog.html">Blog</a></li>
+</ul>
+<a href="contact.html" class="nav-cta">Let's Talk</a><button class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button></nav>
+
+<!-- HERO -->
+<section class="sp-hero">
+  <div>
+    <div class="eyebrow">Keynotes · Fireside chats · Workshops</div>
+    <h1>Talks that make AI feel <em>human</em>, not hyped</h1>
+    <p>I'm a design and AI leader who's spent 15+ years turning fragmented, complex products into calm, human ones, and lately, designing and shipping an AI-native app solo. I speak to product, design, and leadership audiences who want AI to be useful, not bolted on.</p>
+    <div class="sp-cta-row">
+      <a class="sp-btn" href="https://calendar.app.google/insHQBTTsdfgxxMz5" target="_blank" rel="noopener">Book Aneil to speak →</a>
+      <a class="sp-btn ghost" href="#topics">See the topics</a>
+    </div>
+  </div>
+  <div class="sp-heroimg">
+    <img src="assets/speaking.jpg" alt="Aneil Razvi speaking to an audience">
+  </div>
+</section>
+
+<!-- CREDIBILITY STRIP -->
+<div class="sp-proof">
+  <div class="sp-proof-in">
+    <div class="pf"><div class="n">20+ talks</div><div class="l">Keynotes, panels &amp; workshops since 2017</div></div>
+    <div class="pf"><div class="n">Vista UX Summit</div><div class="l">Recurring speaker, 2017–2020</div></div>
+    <div class="pf"><div class="n">AIGA Dallas</div><div class="l">Guest speaker, expert &amp; mentor</div></div>
+    <div class="pf"><div class="n">Behance</div><div class="l">Portfolio-review facilitator</div></div>
+  </div>
+</div>
+
+<!-- TOPICS -->
+<section class="sp-sec" id="topics">
+  <span class="sp-eyebrow">What I speak on</span>
+  <h2 class="sp-h2">Signature topics</h2>
+  <p class="sp-lead">Each talk flexes to a keynote, a fireside chat, or a hands-on workshop, and I tailor the examples to your audience. Here's what people walk away with.</p>
+  <div class="sp-topics">
+
+    <div class="topic">
+      <span class="tnum">01</span>
+      <h3>Designing for AI Without the Hype</h3>
+      <p>Where AI actually belongs in a product, and a framework your team can design against instead of bolting features onto a roadmap.</p>
+      <div class="lo">The audience leaves with</div>
+      <ul>
+        <li>A way to decide where AI earns its place, and where it doesn't</li>
+        <li>Human-in-the-loop patterns that build trust instead of eroding it</li>
+        <li>How to spot and avoid "AI theater"</li>
+      </ul>
+      <div class="who"><b>For:</b> product &amp; design teams, and the leaders who set their direction</div>
+    </div>
+
+    <div class="topic">
+      <span class="tnum">02</span>
+      <h3>Building Solo With AI</h3>
+      <p>How AI coding agents let one person take a real product from concept to the App Store: what changes, what doesn't, and what it means for how teams work.</p>
+      <div class="lo">The audience leaves with</div>
+      <ul>
+        <li>An honest picture of AI-native building, from someone who shipped it</li>
+        <li>Where craft, taste, and judgment still decide the outcome</li>
+        <li>How to raise their own ceiling without losing the plot</li>
+      </ul>
+      <div class="who"><b>For:</b> designers, founders, and product leaders</div>
+    </div>
+
+    <div class="topic">
+      <span class="tnum">03</span>
+      <h3>Calmer Products: Systems Thinking &amp; Cognitive Load</h3>
+      <p>Why reducing friction is the highest-leverage design skill, and how to build that discipline into a team instead of leaving it to heroics.</p>
+      <div class="lo">The audience leaves with</div>
+      <ul>
+        <li>A lens for seeing cognitive load others miss</li>
+        <li>Patterns for taming dense, data-heavy products</li>
+        <li>How to make "make it simpler" a team habit, not a slogan</li>
+      </ul>
+      <div class="who"><b>For:</b> product &amp; design teams working on complex software</div>
+    </div>
+
+    <div class="topic">
+      <span class="tnum">04</span>
+      <h3>Right-Sizing Design: Do You Even Need a Team Yet?</h3>
+      <p>Most orgs over-invest in design too early or starve it too long. I help teams read their own design and research maturity, then pick the right level (from AI-assisted, to a fractional lead, to a full in-house function) and build it when they're actually ready.</p>
+      <div class="lo">The audience leaves with</div>
+      <ul>
+        <li>A way to gauge their org's real design and research maturity</li>
+        <li>The right level for their stage: AI, fractional, contract, agency, or full team</li>
+        <li>A 0→1 playbook for when they're ready to build the function</li>
+      </ul>
+      <div class="who"><b>For:</b> founders, heads of design, and leaders deciding how much design to invest in</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FEATURED APPEARANCE -->
+<div class="sp-feat">
+  <div class="sp-feat-in">
+    <div class="fig"><img src="assets/speaking-aiga.jpg" alt="Aneil Razvi featured as a guest speaker at AIGA Creator Lab"></div>
+    <div>
+      <span class="sp-eyebrow">Featured appearance</span>
+      <div class="venue">AIGA Creator Lab · Dallas</div>
+      <h3>An evening of AI, tools, and real-world creativity</h3>
+      <p>Invited as a guest speaker for an evening built around AI in the creative process: how design leaders can move past the hype to tools and practices that hold up in real work. The kind of room I love: practitioners who want something they can use on Monday.</p>
+      <div class="sp-community">
+        <span>AIGA DFW</span>
+        <span>Dallas Society of Visual Communications</span>
+        <span>Behance Portfolio Reviews · 3 years</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TALKS TIMELINE -->
+<section class="sp-sec" id="talks">
+  <span class="sp-eyebrow">The receipts</span>
+  <h2 class="sp-h2">Talks &amp; appearances</h2>
+  <p class="sp-lead">A selection of keynotes, panels, and workshops, from enterprise summits to the Dallas design community.</p>
+
+  <div class="tl-group">
+    <h3 class="tl-year">Recent · AIGA Dallas</h3>
+    <div class="tl-list">
+      <div class="tl-item"><div class="tl-ev">AIGA Dallas Creator Lab<span class="sub">Guest speaker</span></div><div class="tl-body"><h4><a href="https://dallas.aiga.org/event/aiga-dallas-creator-lab/" target="_blank" rel="noopener">An evening of AI, tools &amp; real-world creativity</a></h4><p>Speaking on how design leaders move past AI hype to tools and practices that hold up in real work.</p></div></div>
+      <div class="tl-item"><div class="tl-ev">Creative Career Corner<span class="sub">Invited expert</span></div><div class="tl-body"><h4><a href="https://dallas.aiga.org/creative-career-corner-experts/" target="_blank" rel="noopener">Career &amp; portfolio guidance for designers</a></h4><p>One of the invited experts helping emerging designers navigate career questions and portfolio decisions.</p></div></div>
+      <div class="tl-item"><div class="tl-ev">Mentor Mixer<span class="sub">Mentor</span></div><div class="tl-body"><h4><a href="https://dallas.aiga.org/event/mentor-mixer/" target="_blank" rel="noopener">Hands-on mentorship for Dallas designers</a></h4><p>Pairing with designers for direct, practical feedback and career mentorship.</p></div></div>
+    </div>
+  </div>
+
+  <div class="tl-group">
+    <h3 class="tl-year">2020</h3>
+    <div class="tl-list">
+      <div class="tl-item"><div class="tl-ev">2020 Vista UX Summit</div><div class="tl-body"><h4>Can UX Survive Without Product Management?</h4><p>How UX and product management can operate as one cohesive team: what to expect from one another, and the value each brings.</p></div></div>
+      <div class="tl-item"><div class="tl-ev">Omnitracs Outlook 2020</div><div class="tl-body"><h4>Omnitracs User Experience Lab + Channel Partner</h4><p>A sneak peek into the future Omnitracs One product line, and how channel partners could help shape the vision.</p></div></div>
+      <div class="tl-item"><div class="tl-ev">AIGA DFW<span class="sub">Facilitator</span></div><div class="tl-body"><h4>AIGA DFW Portfolio Review</h4><p>Giving emerging designers no-risk practice interviewing and real feedback on their work and résumé.</p></div></div>
+    </div>
+  </div>
+
+  <div class="tl-group">
+    <h3 class="tl-year">2019</h3>
+    <div class="tl-list">
+      <div class="tl-item"><div class="tl-ev">2019 Vista UX Summit<span class="sub">Panel</span></div><div class="tl-body"><h4>Design Systems &amp; Other Key UX Topics</h4><p>A practical panel on merging design into agile, distributed vs. centralized teams, and measuring UX success.</p><p class="cospk">with Dashiel Hermann &amp; Raymond Galang</p></div></div>
+      <div class="tl-item"><div class="tl-ev">2019 Vista UX Summit</div><div class="tl-body"><h4>How to Come Up with a Million Ideas and Pick the Best Ones!</h4><p>Brainstorming techniques for generating ideas, and keeping momentum to shape many concepts from one.</p><p class="cospk">with Arielle McMahon</p></div></div>
+      <div class="tl-item"><div class="tl-ev">Omnitracs Outlook 2019</div><div class="tl-body"><h4>Omnitracs User Experience Team + Channel Partner</h4><p>A conversation with channel partners and an early look at the Omnitracs One product line.</p></div></div>
+      <div class="tl-item"><div class="tl-ev">Dallas Sketch App Meetup</div><div class="tl-body"><h4>Pizza &amp; Pixels with Sketch</h4><p>Teaching Sketch shortcuts and file structure, and applying atomic design when building a style guide.</p></div></div>
+    </div>
+  </div>
+
+  <div class="tl-group">
+    <h3 class="tl-year">2018</h3>
+    <div class="tl-list">
+      <div class="tl-item"><div class="tl-ev">2018 Vista UX Summit</div><div class="tl-body"><h4>Field Studies: Seeing the World Through the Eyes of Our Users</h4><p>Using filmed field research to build radical empathy and turn findings into consensus among stakeholders.</p></div></div>
+      <div class="tl-item"><div class="tl-ev">2018 Vista UX Summit</div><div class="tl-body"><h4>Solving Common Problems Faced by Designers</h4><p>A joint session with TIBCO on the problems designers face day to day, from career growth to cross-team friction.</p></div></div>
+      <div class="tl-item"><div class="tl-ev">2018 Vista UX Summit</div><div class="tl-body"><h4>Creating a Style Guide</h4><p>Why a UI style guide speeds up front-end work and creates consistency from the end user's point of view.</p></div></div>
+      <div class="tl-item"><div class="tl-ev">Omnitracs Outlook 2018<span class="sub">Data &amp; Analytics track</span></div><div class="tl-body"><h4>The Data Reveal: What's Behind Your Omnitracs Products</h4><p>Combining behavioral studies with data analytics (ride-alongs, usability testing, and more) to design better products.</p></div></div>
+      <div class="tl-item"><div class="tl-ev">Omnitracs Outlook 2018<span class="sub">Training track</span></div><div class="tl-body"><h4>Building Better Applications Together</h4><p>A live UX design demo: improving an application with audience participation and feedback in real time.</p></div></div>
+    </div>
+  </div>
+
+  <div class="tl-group">
+    <h3 class="tl-year">2017</h3>
+    <div class="tl-list">
+      <div class="tl-item"><div class="tl-ev">Omnitracs Outlook 2017</div><div class="tl-body"><h4>How It's Made: The Omnitracs UX Design Lab</h4><p>How the UX team works directly with drivers and dispatchers to build relevant, impactful applications.</p></div></div>
+      <div class="tl-item"><div class="tl-ev">2017 Vista<span class="sub">Product &amp; Technology Leadership</span></div><div class="tl-body"><h4>Bring Design Thinking to Your Organization</h4><p>How to prep culture and leadership to embrace an innovation framework that actually drives results.</p></div></div>
+      <div class="tl-item"><div class="tl-ev">2017 Vista<span class="sub">Operational Excellence</span></div><div class="tl-body"><h4>Dev Panel</h4><p>An open forum on how the development process works end to end, and how to identify new creatives for a team.</p></div></div>
+      <div class="tl-item"><div class="tl-ev">2017 Vista<span class="sub">UI/UX Summit</span></div><div class="tl-body"><h4>Mentoring Creatives</h4><p>How to mentor creatives, map career paths, and build an environment and toolkit that cultivates success.</p></div></div>
+    </div>
+  </div>
+
+  <div class="tl-group">
+    <h3 class="tl-year">Ongoing</h3>
+    <div class="tl-list">
+      <div class="tl-item"><div class="tl-ev">Behance<span class="sub">Facilitator · multiple years</span></div><div class="tl-body"><h4>Behance Portfolio Reviews</h4><p>Facilitating Behance's global Portfolio Review Week, setting the tone and matching junior designers with senior mentors for actionable feedback.</p></div></div>
+    </div>
+  </div>
+
+</section>
+
+<!-- FORMATS -->
+<section class="sp-sec">
+  <span class="sp-eyebrow">How it can show up</span>
+  <h2 class="sp-h2">Formats</h2>
+  <p class="sp-lead">Same substance, shaped to your event. Tell me the room and the goal, and I'll shape the talk to fit.</p>
+  <div class="sp-formats">
+    <div class="fmt"><h4>Keynote</h4><p>A 20–45 minute talk that sets the tone or sends the room out with a point of view and something to do about it.</p></div>
+    <div class="fmt"><h4>Fireside chat</h4><p>A guided conversation: I'll bring the stories and the candor; you bring the questions your audience actually has.</p></div>
+    <div class="fmt"><h4>Workshop</h4><p>Hands-on and practical. The audience leaves having done the thing, not just heard about it.</p></div>
+    <div class="fmt"><h4>Panel</h4><p>A clear, generous voice on a panel, moving the discussion forward instead of competing for airtime.</p></div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="sp-sec" style="padding-top:0">
+  <span class="sp-eyebrow">What people say</span>
+  <h2 class="sp-h2">How I show up in a room</h2>
+  <div class="sp-quotes">
+    <div class="qt">
+      <p>"He leads with solutions. Where others see roadblocks, Aneil sees the next move. He takes ambiguous problems, rallies the people around him, and drives toward outcomes that actually matter to the end user."</p>
+      <div class="who"><img class="av" src="assets/work/testimonial-michael.jpg" alt="Michael Grigone"><div><div class="nm"><a href="https://www.linkedin.com/in/michael-grigone-696a8a197/" target="_blank" rel="noopener">Michael Grigone</a></div><div class="rl">Account Executive, SPOTIO</div></div></div>
+    </div>
+    <div class="qt">
+      <p>"What makes him truly exceptional is how he balances creative passion with a highly organized approach. He fosters an environment where people feel supported, inspired, and empowered to do their best work."</p>
+      <div class="who"><img class="av" src="assets/work/testimonial-amira.jpg" alt="Amira Maruf"><div><div class="nm"><a href="https://www.linkedin.com/in/amiramaruf/" target="_blank" rel="noopener">Amira Maruf</a></div><div class="rl">Senior UX Designer, SPOTIO</div></div></div>
+    </div>
+    <div class="qt">
+      <p>"Aneil is one of those dynamic creative leaders that lights up any room he walks into. If you need an energetic and charismatic speaker to help empower your organization, you need an Aneil."</p>
+      <div class="who"><div class="av-ini">SM</div><div><div class="nm"><a href="https://www.linkedin.com/in/suleeux/" target="_blank" rel="noopener">Su Milazzo</a></div><div class="rl">Design &amp; Product Ops Practitioner</div></div></div>
+    </div>
+    <div class="qt">
+      <p>"His presentations and engagements with my channel partners fostered a deep sense of teamwork and engagement. He has always been a sought-after contributor to partner conferences."</p>
+      <div class="who"><div class="av-ini">EB</div><div><div class="nm"><a href="https://www.linkedin.com/in/ericbraswell/" target="_blank" rel="noopener">Eric Braswell</a></div><div class="rl">Chief Revenue Officer</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING CTA -->
+<section class="sp-book">
+  <h2>Bring this to your stage</h2>
+  <p>Conference, team offsite, podcast, or panel: if your audience cares about AI, design, and building things that actually ship, let's talk about what would land for them.</p>
+  <div class="row">
+    <a class="sp-btn" href="https://calendar.app.google/insHQBTTsdfgxxMz5" target="_blank" rel="noopener">Book a call →</a>
+    <a class="sp-btn ghost" href="mailto:aneilsr@gmail.com">Email me</a>
+  </div>
+</section>
+
+<footer style="background:#0a1420;border-top:1px solid rgba(255,255,255,.08);padding:40px 6%;text-align:center;color:rgba(255,255,255,.6)"><div style="font-family:'DM Serif Display',serif;font-size:1.2rem;color:#fff;margin-bottom:12px">Aneil <span style="color:var(--teal)">Razvi</span></div><div style="font-size:.9rem"><a style="color:#cfe;text-decoration:none;margin:0 10px" href="https://www.linkedin.com/in/aneilrazvi/" target="_blank">LinkedIn</a>·<a style="color:#cfe;text-decoration:none;margin:0 10px" href="https://calendar.app.google/insHQBTTsdfgxxMz5" target="_blank">Book a call</a>·<a style="color:#cfe;text-decoration:none;margin:0 10px" href="mailto:aneilsr@gmail.com">Email</a></div><div style="font-size:.78rem;color:rgba(255,255,255,.4);margin-top:14px">© 2026 Aneil Razvi · Allen, TX</div></footer>
+
+<script>var nv=document.getElementById('nav');window.addEventListener('scroll',function(){nv.classList.toggle('scrolled',window.scrollY>40);});</script>
+<script>(function(){var h=document.querySelector(".nav-hamburger"),n=document.getElementById("nav");if(h&&n)h.addEventListener("click",function(){n.classList.toggle("open");});})();</script>
+</body>
+</html>

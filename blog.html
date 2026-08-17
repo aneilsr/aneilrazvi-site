@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blog, Aneil Razvi</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+<style>
+  .bl-hero{max-width:1140px;margin:0 auto;padding:9rem 6% 1.5rem}
+  .bl-hero .eyebrow{color:var(--teal);font-size:.78rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase}
+  .bl-hero h1{font-family:'DM Serif Display',serif;font-size:clamp(2.6rem,6vw,4.2rem);color:#fff;font-weight:400;margin:.4rem 0 1.1rem;line-height:1.08}
+  .bl-hero h1 em{font-style:italic;color:var(--teal)}
+  .bl-hero p{max-width:720px;color:rgba(255,255,255,.72);font-size:1.14rem;line-height:1.75;font-weight:300}
+  .bl-sec{max-width:1140px;margin:0 auto;padding:2.5rem 6%}
+  .bl-eyebrow{color:var(--teal);font-size:.72rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;display:block;margin-bottom:.7rem}
+  .bl-h2{font-family:'DM Serif Display',serif;font-size:clamp(1.7rem,3vw,2.3rem);color:#fff;font-weight:400;margin:0 0 1.4rem}
+  /* featured newsletter */
+  .bl-feature{background:linear-gradient(135deg,rgba(0,188,212,.12),rgba(0,188,212,.03));border:1px solid rgba(0,188,212,.35);border-radius:18px;padding:2.4rem 2.6rem;display:flex;gap:2rem;align-items:center;flex-wrap:wrap}
+  .bl-feature .txt{flex:1;min-width:280px}
+  .bl-feature .tag{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);background:rgba(0,188,212,.12);border:1px solid rgba(0,188,212,.3);padding:4px 12px;border-radius:100px;margin-bottom:1rem}
+  .bl-feature h3{font-family:'DM Serif Display',serif;color:#fff;font-size:1.9rem;font-weight:400;margin:0 0 .7rem}
+  .bl-feature p{color:rgba(255,255,255,.78);font-size:1.02rem;line-height:1.65;font-weight:300;margin:0 0 1.3rem;max-width:620px}
+  .bl-feature a.sub{display:inline-block;background:var(--teal);color:#062028;padding:12px 26px;border-radius:8px;font-weight:700;text-decoration:none;font-size:.92rem}
+  /* article grid */
+  .bl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem}
+  .art{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;text-decoration:none;color:inherit;transition:transform .18s,border-color .18s}
+  .art:hover{transform:translateY(-4px);border-color:rgba(0,188,212,.45)}
+  .art .thumb{aspect-ratio:16/9;width:100%;object-fit:cover;display:block;background:#0a1620}
+  .art .rd{color:var(--teal);font-weight:600;font-size:.86rem;margin-top:auto}
+  .art .body{padding:1.3rem 1.4rem 1.5rem;flex:1;display:flex;flex-direction:column}
+  .art .cat{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:.5rem}
+  .art h4{font-family:'DM Serif Display',serif;color:#fff;font-size:1.18rem;font-weight:400;margin:0 0 .5rem;line-height:1.25}
+  .art p{color:rgba(255,255,255,.62);font-size:.9rem;line-height:1.55;font-weight:300;margin:0 0 1rem;flex:1}
+  .art a{color:var(--teal);font-weight:600;font-size:.86rem;text-decoration:none}
+  .bl-note{color:rgba(255,255,255,.5);font-size:.9rem;margin-top:1.4rem;font-style:italic}
+  @media(max-width:900px){.bl-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav class="site-nav" id="nav"><a href="index.html" class="nav-brand">Aneil <b>Razvi</b></a>
+<ul class="nav-links">
+<li><a href="index.html">Home</a></li>
+<li><a href="portfolio.html">Portfolio</a></li>
+<li><a href="speaking.html">Speaking</a></li>
+<li><a href="work-with-me.html">Work With Me</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="blog.html" class="active">Blog</a></li>
+</ul>
+<a href="contact.html" class="nav-cta">Let's Talk</a><button class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button></nav>
+
+<section class="bl-hero" style="margin-top:68px">
+  <div class="eyebrow">Writing</div>
+  <h1>Building <em>in the open</em></h1>
+  <p>I lead in public. I write about designing and building products with AI in the loop: the decisions, the trade-offs, and what actually ships. Here's the newsletter and the latest pieces.</p>
+</section>
+
+<section class="bl-sec">
+  <div class="bl-feature">
+    <div class="txt">
+      <span class="tag">Newsletter</span>
+      <h3>Building in the Open</h3>
+      <p>A running account of designing and building real products with AI as a partner, not autocomplete. Practical, honest, and shipped. New issues on LinkedIn.</p>
+      <a class="sub" href="https://www.linkedin.com/newsletters/building-in-the-open-7488094002198753281/" target="_blank" rel="noopener">Subscribe on LinkedIn →</a>
+    </div>
+  </div>
+</section>
+
+<section class="bl-sec">
+  <span class="bl-eyebrow">Latest</span>
+  <h2 class="bl-h2">Articles</h2>
+  <div class="bl-grid">
+    <a class="art" href="https://www.linkedin.com/pulse/wall-aneil-razvi-tmzjc" target="_blank" rel="noopener"><img class="thumb" src="assets/work/blog-article-1.jpg" alt="The Wall, Building in the Open"><div class="body"><span class="cat">The Journey</span><h4>The Wall</h4><p>The wall every builder runs into, and what it takes to get through it.</p><span class="rd">Read on LinkedIn →</span></div></a>
+    <a class="art" href="https://www.linkedin.com/pulse/foundation-aneil-razvi-hbfpc" target="_blank" rel="noopener"><img class="thumb" src="assets/work/blog-article-2.jpg" alt="The Foundation, Building in the Open"><div class="body"><span class="cat">Foundations</span><h4>The Foundation</h4><p>On the groundwork everything else gets built on.</p><span class="rd">Read on LinkedIn →</span></div></a>
+    <a class="art" href="https://www.linkedin.com/pulse/building-solo-ai-aneil-razvi-qh5ac" target="_blank" rel="noopener"><img class="thumb" src="assets/work/blog-article-3.jpg" alt="Building Solo With AI, Building in the Open"><div class="body"><span class="cat">AI-Native Building</span><h4>Building Solo With AI</h4><p>Designing and shipping a real product solo, with AI in the loop.</p><span class="rd">Read on LinkedIn →</span></div></a>
+  </div>
+</section>
+
+<footer style="background:#0a1420;border-top:1px solid rgba(255,255,255,.08);padding:40px 6%;text-align:center;color:rgba(255,255,255,.6)"><div style="font-family:'DM Serif Display',serif;font-size:1.2rem;color:#fff;margin-bottom:12px">Aneil <span style="color:var(--teal)">Razvi</span></div><div style="font-size:.9rem"><a style="color:#cfe;text-decoration:none;margin:0 10px" href="https://www.linkedin.com/in/aneilrazvi/" target="_blank">LinkedIn</a>·<a style="color:#cfe;text-decoration:none;margin:0 10px" href="https://calendar.app.google/insHQBTTsdfgxxMz5" target="_blank">Book a call</a>·<a style="color:#cfe;text-decoration:none;margin:0 10px" href="mailto:aneilsr@gmail.com">Email</a></div><div style="font-size:.78rem;color:rgba(255,255,255,.4);margin-top:14px">© 2026 Aneil Razvi · Allen, TX</div></footer>
+<script>var nv=document.getElementById('nav');window.addEventListener('scroll',function(){nv.classList.toggle('scrolled',window.scrollY>40);});</script>
+<script>(function(){var h=document.querySelector(".nav-hamburger"),n=document.getElementById("nav");if(h&&n)h.addEventListener("click",function(){n.classList.toggle("open");});})();</script>
+</body>
+</html>
