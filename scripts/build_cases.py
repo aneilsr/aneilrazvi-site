@@ -1,5 +1,65 @@
-import re
+import re, json, html
 FONTS='<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">'
+
+# ---- SEO / AEO shared entities (kept in sync with scripts/seo_inject.py) ----
+SEO_BASE="https://aneilrazvi.com"
+SEO_OG=f"{SEO_BASE}/assets/og-image.jpg"
+SEO_PERSON={
+    "@type":"Person","@id":f"{SEO_BASE}/#aneil","name":"Aneil Razvi","url":f"{SEO_BASE}/",
+    "image":SEO_OG,"jobTitle":"VP of Product Design & AI Experience",
+    "description":("Product design and AI experience leader with 20+ years building design teams, "
+                   "AI-native products, and 0 to 1 experiences across enterprise and startups."),
+    "address":{"@type":"PostalAddress","addressLocality":"Allen","addressRegion":"TX","addressCountry":"US"},
+    "sameAs":["https://www.linkedin.com/in/aneilrazvi/","https://cubbyplaylist.com"],
+    "knowsAbout":["AI product design","AI experience strategy","Human-in-the-loop AI",
+        "Product design leadership","Design systems","Building and scaling design teams",
+        "Fractional design leadership","Design maturity","UX research","0 to 1 product design",
+        "Enterprise UX","Accessibility","Design operations"],
+    "knowsLanguage":"en",
+}
+SEO_WEBSITE={"@type":"WebSite","@id":f"{SEO_BASE}/#website","url":f"{SEO_BASE}/","name":"Aneil Razvi",
+    "description":"Portfolio of Aneil Razvi, product design and AI experience leader.",
+    "publisher":{"@id":f"{SEO_BASE}/#aneil"},"inLanguage":"en"}
+
+def _clean(s):
+    return re.sub(r"\s+"," ",re.sub(r"<[^>]+>","",s)).strip()
+
+def seo_head(c):
+    url=f"{SEO_BASE}/{c['file']}"
+    title=f"{c['title']}, Aneil Razvi"
+    desc=_clean(c["lead"])
+    img=f"{SEO_BASE}/assets/work/{c['img']}.jpg"
+    e=lambda s: html.escape(s,quote=True)
+    webpage={"@type":"WebPage","@id":f"{url}#webpage","url":url,"name":title,"description":desc,
+        "isPartOf":{"@id":f"{SEO_BASE}/#website"},"about":{"@id":f"{SEO_BASE}/#aneil"},
+        "primaryImageOfPage":img,"inLanguage":"en","breadcrumb":{"@id":f"{url}#breadcrumb"}}
+    work={"@type":"CreativeWork","@id":f"{url}#work","name":c["title"],"headline":_clean(c["h1"]),
+        "description":desc,"creator":{"@id":f"{SEO_BASE}/#aneil"},"about":_clean(c["category"]),
+        "keywords":", ".join(c.get("tags",[])),"image":img,"url":url}
+    crumb={"@type":"BreadcrumbList","@id":f"{url}#breadcrumb","itemListElement":[
+        {"@type":"ListItem","position":1,"name":"Home","item":f"{SEO_BASE}/"},
+        {"@type":"ListItem","position":2,"name":"Portfolio","item":f"{SEO_BASE}/portfolio.html"},
+        {"@type":"ListItem","position":3,"name":c["title"],"item":url}]}
+    ld={"@context":"https://schema.org","@graph":[SEO_PERSON,SEO_WEBSITE,webpage,work,crumb]}
+    ldjson=json.dumps(ld,ensure_ascii=False,separators=(",",":"))
+    return ("\n<!-- SEO-START -->"
+        f'\n<meta name="description" content="{e(desc)}"/>'
+        '\n<meta name="author" content="Aneil Razvi"/>'
+        '\n<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"/>'
+        f'\n<link rel="canonical" href="{url}"/>'
+        '\n<meta property="og:type" content="article"/>'
+        '\n<meta property="og:site_name" content="Aneil Razvi"/>'
+        f'\n<meta property="og:title" content="{e(title)}"/>'
+        f'\n<meta property="og:description" content="{e(desc)}"/>'
+        f'\n<meta property="og:url" content="{url}"/>'
+        f'\n<meta property="og:image" content="{img}"/>'
+        f'\n<meta property="og:image:alt" content="{e(c["title"])}, Aneil Razvi case study"/>'
+        '\n<meta name="twitter:card" content="summary_large_image"/>'
+        f'\n<meta name="twitter:title" content="{e(title)}"/>'
+        f'\n<meta name="twitter:description" content="{e(desc)}"/>'
+        f'\n<meta name="twitter:image" content="{img}"/>'
+        f'\n<script type="application/ld+json">{ldjson}</script>'
+        "\n<!-- SEO-END -->\n")
 def nav(active):
     def it(h,l):
         cls=' class="active"' if l==active else ''
@@ -151,7 +211,7 @@ def page(c):
 <section class="cs2-cta"><div class="cs2-wrap"><h2>{cta_h}</h2>
   <div class="cs2-cta-btns">{cta_btns}</div></div></section>'''
     return f'''<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{c["title"]}, Aneil Razvi</title>{FONTS}<link rel="stylesheet" href="site.css"></head><body>
+<title>{c["title"]}, Aneil Razvi</title>{seo_head(c)}{FONTS}<link rel="stylesheet" href="site.css"></head><body>
 {nav("Portfolio")}{body}{FOOT}{CAROUSEL_JS}</body></html>'''
 
 CASES=[
