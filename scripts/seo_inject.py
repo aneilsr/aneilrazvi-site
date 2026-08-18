@@ -17,7 +17,7 @@ PERSON = {
     "url": f"{BASE}/",
     "image": OG,
     "jobTitle": "VP of Product Design & AI Experience",
-    "description": ("Product design and AI experience leader with 20+ years building design teams, "
+    "description": ("Product design and AI experience leader with 15+ years building design teams, "
                     "AI-native products, and 0 to 1 experiences across enterprise and startups."),
     "address": {"@type": "PostalAddress", "addressLocality": "Allen", "addressRegion": "TX", "addressCountry": "US"},
     "sameAs": [LINKEDIN, "https://cubbyplaylist.com"],
@@ -44,7 +44,7 @@ PAGES = {
     "index.html": {
         "slug": "", "type": "website", "pagetype": "WebPage",
         "title": "Aneil Razvi, VP of Product Design & AI Experience",
-        "desc": ("Aneil Razvi is a product design and AI experience leader in Allen, Texas, with 20+ years "
+        "desc": ("Aneil Razvi is a product design and AI experience leader in Allen, Texas, with 15+ years "
                  "building design teams, AI-native products, and 0 to 1 experiences."),
         "crumbs": [],
     },
