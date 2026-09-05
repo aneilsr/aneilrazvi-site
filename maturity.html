@@ -115,7 +115,7 @@ td.mult{font-family:'DM Serif Display',Georgia,serif;font-size:1.15rem;color:var
 
 /* offerings map */
 .offers{display:flex;flex-direction:column;gap:.7rem;margin-top:.7rem;}
-.of{display:grid;grid-template-columns:auto 1fr auto;gap:1rem;align-items:start;padding:1rem 1.15rem;border-radius:var(--radius-sm);
+.of{display:block;padding:1rem 1.15rem;border-radius:var(--radius-sm);
   border:1.5px solid var(--line);background:var(--white);}
 .of.fit{border-color:var(--teal);background:var(--teal-wash);box-shadow:0 2px 14px var(--teal-glow);}
 .of .rank{font-family:'DM Serif Display',Georgia,serif;font-size:1.5rem;color:var(--line-firm);line-height:1;padding-top:.1rem;}
@@ -203,9 +203,81 @@ details.srcbox summary::-webkit-details-marker{display:none;}
 details.srcbox summary::after{content:" ▾";}
 details.srcbox[open] summary::after{content:" ▴";}
 details.srcbox summary:hover{color:var(--teal-dark);}
+
+/* --- v3: site nav (light variant), entry transition, package accordions --- */
+nav.site-nav{position:fixed;top:0;left:0;right:0;z-index:60;padding:0 5%;
+  display:flex;align-items:center;justify-content:space-between;height:68px;
+  background:rgba(255,255,255,.86);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);transition:background var(--transition);}
+nav.site-nav.scrolled{background:rgba(255,255,255,.97);box-shadow:0 1px 14px rgba(0,0,0,.05);}
+.nav-brand{font-family:'DM Serif Display',Georgia,serif;font-size:1.4rem;color:var(--text);
+  text-decoration:none;letter-spacing:.01em;}
+.nav-brand b{color:var(--teal-dark);font-weight:400;}
+.nav-links{display:flex;gap:36px;list-style:none;margin:0;padding:0;}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:.875rem;font-weight:500;
+  letter-spacing:.02em;transition:color var(--transition);}
+.nav-links a:hover,.nav-links a.active{color:var(--teal-dark);}
+.nav-cta{background:var(--teal);color:var(--dark);padding:9px 22px;border-radius:8px;
+  font-size:.875rem;font-weight:700;text-decoration:none;transition:background var(--transition),transform .1s;}
+.nav-cta:hover{background:var(--teal-dark);color:var(--white);transform:translateY(-1px);}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:6px;margin-left:14px;}
+.nav-hamburger span{width:24px;height:2px;background:var(--text);border-radius:2px;transition:transform .2s,opacity .2s;}
+@media(max-width:860px){
+  nav.site-nav{flex-wrap:wrap;height:68px;align-content:center;}
+  nav.site-nav .nav-links{display:none;}
+  nav.site-nav .nav-hamburger{display:flex;}
+  nav.site-nav .nav-cta{margin-left:auto;}
+  nav.site-nav.open{height:auto;padding-bottom:14px;background:rgba(255,255,255,.98);}
+  nav.site-nav.open .nav-links{display:flex;order:5;flex-direction:column;width:100%;gap:1.1rem;
+    padding:1.1rem 0 .2rem;margin-top:.5rem;border-top:1px solid var(--line);}
+  nav.site-nav.open .nav-hamburger span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  nav.site-nav.open .nav-hamburger span:nth-child(2){opacity:0;}
+  nav.site-nav.open .nav-hamburger span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+}
+.wrap{padding-top:5.4rem;}
+
+/* entry transition: dark site -> light page, background does the work */
+html{background:var(--dark);}
+body{background:var(--dark);transition:background 700ms cubic-bezier(.4,0,.2,1);}
+body.lit{background:var(--gray);}
+.fadein{opacity:0;transform:translateY(8px);transition:opacity 620ms ease 180ms,transform 620ms cubic-bezier(.4,0,.2,1) 180ms;}
+body.lit .fadein{opacity:1;transform:none;}
+@media (prefers-reduced-motion: reduce){
+  html,body{background:var(--gray);}
+  body,.fadein{transition:none!important;}
+  .fadein{opacity:1;transform:none;}
+}
+
+/* package accordions */
+.of{cursor:pointer;}
+.of .hd{display:grid;grid-template-columns:auto 1fr auto auto;gap:1rem;align-items:start;width:100%;}
+.of .chev{align-self:center;color:var(--line-firm);transition:transform .25s ease;flex:none;}
+.of.open .chev{transform:rotate(180deg);color:var(--teal-dark);}
+.of .body{max-height:0;overflow:hidden;transition:max-height .34s ease;}
+.of .body .inner{padding-top:1rem;margin-top:1rem;border-top:1px solid var(--line);}
+.of.fit .body .inner{border-top-color:rgba(0,151,167,.28);}
+.of .body h4{font-size:.7rem;letter-spacing:.13em;text-transform:uppercase;font-weight:700;
+  color:var(--muted);margin:0 0 .5rem;font-family:'Inter',sans-serif;}
+.of .body ul{margin:0 0 1.1rem;padding-left:1.15rem;}
+.of .body li{font-size:.89rem;color:var(--muted);margin-bottom:.4rem;}
+.of .body li b{color:var(--text);font-weight:600;}
+.of .body .nope li{color:#8A7466;}
+.of .body .nope li::marker{color:var(--orange);}
 </style>
 
-<div class="wrap">
+<nav class="site-nav" id="nav"><a href="index.html" class="nav-brand">Aneil <b>Razvi</b></a>
+<ul class="nav-links">
+<li><a href="index.html">Home</a></li>
+<li><a href="portfolio.html">Portfolio</a></li>
+<li><a href="speaking.html">Speaking</a></li>
+<li><a href="work-with-me.html">Work With Me</a></li>
+<li><a href="maturity.html" class="active">Design Maturity</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="blog.html">Blog</a></li>
+</ul>
+<a href="contact.html" class="nav-cta">Let's Talk</a><button class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button></nav>
+
+<div class="wrap fadein">
 
 <section id="intro">
   <div class="tick"></div>
@@ -257,6 +329,54 @@ var SID = (function(){
     return v;
   }catch(e){ return "s_"+Date.now().toString(36)+Math.random().toString(36).slice(2,9); }
 })();
+
+
+var SCOPE = {
+ "The Audit": {
+   weeks:["<b>Week 1.</b> Interviews with six to eight people across design, product and engineering. Artefact review: your last three shipped features, end to end.",
+          "<b>Week 2.</b> Scoring against the twelve dimensions, written findings, and a prioritised sequence with owners and effort."],
+   get:["A written read on where the practice actually sits, with evidence, not impressions",
+        "The three constraints costing you the most, ranked",
+        "A ninety-day sequence someone on your team can run without me"],
+   nope:["No design work. This is diagnosis, not delivery.",
+         "No hiring plan. That is a different conversation and usually premature.",
+         "No tooling recommendations. Tools are almost never the constraint."]
+ },
+ "AI Experience Framework": {
+   weeks:["<b>Week 1.</b> Where AI already touches your product and your team, and what it is actually doing versus what people believe it does.",
+          "<b>Week 2.</b> The decision architecture: what the system may do alone, what it proposes, what it must never do without a human.",
+          "<b>Week 3.</b> Patterns for provenance, uncertainty, refusal and reversibility, applied to two real flows in your product."],
+   get:["A written framework your team applies without me in the room",
+        "Two flows designed end to end as worked examples",
+        "The refusal and escalation rules, which is the part almost everyone skips"],
+   nope:["No model selection or evaluation. That is your engineering team.",
+         "No prompt libraries. They rot in weeks.",
+         "No claim that AI belongs in a given feature until the flow says it does."]
+ },
+ "Design System Build": {
+   weeks:["<b>Week 1.</b> Audit of every component in production and the drift between them.",
+          "<b>Week 2 to 3.</b> Tokens, core components, and the rules that govern how they compose.",
+          "<b>Week 4.</b> Documentation written for the people who have to use it, not for designers.",
+          "<b>Week 5.</b> Governance: contribution, review, adoption tracking, and a named owner."],
+   get:["A working system in your codebase, not a Figma file",
+        "Tokens and components covering your real surfaces",
+        "The governance model, which is what makes it survive month three"],
+   nope:["No full product redesign. The system serves the product you have.",
+         "No migration of every legacy screen. I set the pattern and the path.",
+         "No ongoing maintenance. That is the retainer."]
+ },
+ "Fractional Retainer": {
+   weeks:["<b>Two days a week</b>, held on the same days so your team can plan around me.",
+          "<b>First month.</b> Set the standard, name what good looks like, and get into the decisions that are already in flight.",
+          "<b>Ongoing.</b> Direction, critique, hiring input, and hands on the work that matters most that month."],
+   get:["A senior owner accountable for the bar, not an advisor with opinions",
+        "Design present in planning and roadmap, not just execution",
+        "Coaching that raises your team rather than replacing them"],
+   nope:["Not full-time cover. Two days is two days, and I will tell you when the problem needs more.",
+         "No exclusivity. I hold a small number of engagements at once.",
+         "Not a stopgap while you recruit, unless we both name it as that up front."]
+ }
+};
 
 var CAPDIM=["Research","Design's seat","Measurement","System","Process","Executives"];
 var AIDIM=["Practical use","Strategy","Org change","Product AI","Ownership","Eng alignment"];
@@ -447,9 +567,17 @@ function show(){
 
   var ofHtml="";
   for(var o=0;o<OF.length;o++){
-    ofHtml+='<div class="of'+(o===0?" fit":"")+'"><div class="rank">'+(o+1)+'</div><div><div class="nm">'+OF[o].n+
+    var sc=SCOPE[OF[o].n]||{weeks:[],get:[],nope:[]};
+    ofHtml+='<div class="of'+(o===0?" fit":"")+'" data-of="'+o+'" role="button" tabindex="0" aria-expanded="false">'+
+      '<div class="hd"><div class="rank">'+(o+1)+'</div><div><div class="nm">'+OF[o].n+
       (o===0?'<span class="badge">Best fit</span>':'')+'</div><div class="why">'+OF[o].why+'</div></div>'+
-      '<div class="pr">'+OF[o].p+'<span>'+OF[o].d+'</span></div></div>';
+      '<div class="pr">'+OF[o].p+'<span>'+OF[o].d+'</span></div>'+
+      '<svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>'+
+      '<div class="body"><div class="inner">'+
+        '<h4>How it runs</h4><ul>'+sc.weeks.map(function(w){return '<li>'+w+'</li>';}).join('')+'</ul>'+
+        '<h4>What you end up with</h4><ul>'+sc.get.map(function(w){return '<li>'+w+'</li>';}).join('')+'</ul>'+
+        '<h4>What this is not</h4><ul class="nope">'+sc.nope.map(function(w){return '<li>'+w+'</li>';}).join('')+'</ul>'+
+      '</div></div></div>';
   }
 
   $("#result").innerHTML =
@@ -492,6 +620,22 @@ function show(){
   if(!posted){ posted=true; post(payload()); }
 
   document.body.classList.add("hasdock");
+  var ofs=document.querySelectorAll(".of");
+  for(var oi=0;oi<ofs.length;oi++){
+    (function(el){
+      var body=el.querySelector(".body");
+      function sizeOpen(){ if(el.classList.contains("open")) body.style.maxHeight=body.scrollHeight+"px"; }
+      function tog(){
+        var open=el.classList.toggle("open");
+        el.setAttribute("aria-expanded",open?"true":"false");
+        body.style.maxHeight = open ? body.scrollHeight+"px" : "0px";
+      }
+      window.addEventListener("resize",sizeOpen);
+      el.addEventListener("click",tog);
+      el.addEventListener("keydown",function(e){ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); tog(); } });
+    })(ofs[oi]);
+  }
+
   var dock=$("#dock"); dock.hidden=false; dock.dataset.state="locked";
 
   $("#dockmin").addEventListener("click",function(e){
@@ -527,6 +671,14 @@ function show(){
   try{ var prev=localStorage.getItem("arz-maturity-em");
        if(prev){ $("#d-email").value=prev; } }catch(e){}
 }
+
+(function(){
+  var h=document.querySelector(".nav-hamburger"), n=document.getElementById("nav");
+  if(h&&n) h.addEventListener("click",function(){ n.classList.toggle("open"); });
+  function onScroll(){ if(n) n.classList.toggle("scrolled", window.scrollY>8); }
+  window.addEventListener("scroll",onScroll,{passive:true}); onScroll();
+  requestAnimationFrame(function(){ requestAnimationFrame(function(){ document.body.classList.add("lit"); }); });
+})();
 </script>
 
 <div class="dock" id="dock" hidden>

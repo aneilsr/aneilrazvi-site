@@ -54,32 +54,89 @@ export default async function handler(req, res) {
   if (b.gated && b.email && process.env.RESEND_API_KEY) {
     const t = process.env.LEAD_NOTIFY_TO || "aneilsyed@gmail.com";
     const from = process.env.LEAD_FROM || "Aneil Razvi <hi@aneilrazvi.com>";
+    const BOOKING = "https://cal.com/aneil-razvi/maturity-read";
     const dims = (o) => o ? Object.keys(o).map(k => `${k}: ${o[k]}/5`).join(" &middot; ") : "";
 
+    const bar = (n) => {
+      const pct = Math.round((Number(n) || 0) / 5 * 100);
+      return `<table role="presentation" cellpadding="0" cellspacing="0" style="width:120px;border-collapse:collapse"><tr>
+        <td style="height:6px;background:#E2E8EC;border-radius:3px;padding:0">
+          <table role="presentation" cellpadding="0" cellspacing="0" style="width:${pct}%;border-collapse:collapse"><tr>
+            <td style="height:6px;background:#00BCD4;border-radius:3px;font-size:0;line-height:0">&nbsp;</td></tr></table>
+        </td></tr></table>`;
+    };
+    const dimRows = (o, accent) => !o ? "" : Object.keys(o).map(k => `
+      <tr>
+        <td style="padding:5px 14px 5px 0;font:400 13px/1.4 Helvetica,Arial,sans-serif;color:#6B7280;white-space:nowrap">${k}</td>
+        <td style="padding:5px 10px 5px 0;width:120px">${bar(o[k]).replace("#00BCD4", accent)}</td>
+        <td style="padding:5px 0;font:600 13px/1.4 Helvetica,Arial,sans-serif;color:#1A1A2E;white-space:nowrap">${o[k]}<span style="color:#9AA5AD;font-weight:400">/5</span></td>
+      </tr>`).join("");
+
     const toVisitor = `
-      <div style="font-family:Georgia,serif;max-width:560px">
-        <h2 style="font-weight:400;font-size:26px;color:#1E3A5F;margin:0 0 6px">${b.capability_label} capability, ${b.ai_label} on AI</h2>
-        <p style="font-family:Inter,Helvetica,sans-serif;font-size:15px;line-height:1.6;color:#6B7280">
-          Thanks for taking this. Your full read is below. If you want the tear sheet for the engagement that fits you, just reply and I will send it.
+<div style="background:#F4F6F8;padding:28px 12px">
+<table role="presentation" cellpadding="0" cellspacing="0" style="max-width:600px;margin:0 auto;width:100%;background:#FFFFFF;border-radius:16px;border-collapse:separate;overflow:hidden">
+  <tr><td style="height:5px;background:#00BCD4;font-size:0;line-height:0">&nbsp;</td></tr>
+  <tr><td style="padding:30px 34px 8px">
+    <div style="font:700 11px/1 Helvetica,Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#0097A7">Your read</div>
+    <h1 style="margin:12px 0 6px;font:400 27px/1.2 Georgia,'Times New Roman',serif;color:#1E3A5F">${b.capability_label} capability, ${b.ai_label} on AI</h1>
+    <p style="margin:10px 0 0;font:400 15px/1.65 Helvetica,Arial,sans-serif;color:#6B7280">
+      Thanks for taking this. Your full read is below, and the scores are exactly what you saw on the page.
+    </p>
+  </td></tr>
+
+  <tr><td style="padding:20px 34px 0">
+    <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;border-collapse:separate;border-spacing:0 8px">
+      <tr><td style="background:#E4F8FB;border-left:4px solid #00BCD4;border-radius:8px;padding:14px 16px">
+        <div style="font:700 10px/1 Helvetica,Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#0097A7">Design capability</div>
+        <div style="font:400 22px/1.15 Georgia,serif;color:#1E3A5F;margin-top:5px">${b.capability_label}</div>
+        <div style="font:400 13px/1.4 Helvetica,Arial,sans-serif;color:#6B7280;margin-top:3px">Level ${b.capability_level} of 6</div>
+      </td></tr>
+      <tr><td style="background:#FFF1E6;border-left:4px solid #F97316;border-radius:8px;padding:14px 16px">
+        <div style="font:700 10px/1 Helvetica,Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#C2410C">AI maturity</div>
+        <div style="font:400 22px/1.15 Georgia,serif;color:#1E3A5F;margin-top:5px">${b.ai_label}</div>
+        <div style="font:400 13px/1.4 Helvetica,Arial,sans-serif;color:#6B7280;margin-top:3px">Level ${b.ai_level} of 6</div>
+      </td></tr>
+    </table>
+  </td></tr>
+
+  <tr><td style="padding:22px 34px 0">
+    <div style="font:700 11px/1 Helvetica,Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#6B7280;padding-bottom:8px">Design capability, by dimension</div>
+    <table role="presentation" cellpadding="0" cellspacing="0" style="border-collapse:collapse">${dimRows(b.capability_breakdown, "#00BCD4")}</table>
+    <div style="font:700 11px/1 Helvetica,Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#6B7280;padding:18px 0 8px">AI maturity, by dimension</div>
+    <table role="presentation" cellpadding="0" cellspacing="0" style="border-collapse:collapse">${dimRows(b.ai_breakdown, "#F97316")}</table>
+    <p style="margin:14px 0 0;font:400 13px/1.6 Helvetica,Arial,sans-serif;color:#9AA5AD">The low bars are where the work is.</p>
+  </td></tr>
+
+  <tr><td style="padding:24px 34px 0">
+    <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;background:#0F1923;border-radius:12px;border-collapse:collapse">
+      <tr><td style="padding:22px 24px">
+        <div style="font:700 10px/1 Helvetica,Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#00BCD4">Best fit for where you are</div>
+        <div style="font:400 23px/1.2 Georgia,serif;color:#FFFFFF;margin:8px 0 10px">${b.recommended_package}</div>
+        <p style="margin:0 0 16px;font:400 14px/1.6 Helvetica,Arial,sans-serif;color:rgba(255,255,255,.7)">
+          Ranked against your answers, not a generic order. Reply and I will send the tear sheet for this engagement, written for your maturity band rather than in general.
         </p>
-        <table style="font-family:Inter,Helvetica,sans-serif;font-size:14px;border-collapse:collapse;margin:16px 0">
-          <tr><td style="padding:6px 12px 6px 0;color:#6B7280">Design capability</td><td style="padding:6px 0"><b>${b.capability_label}</b>, level ${b.capability_level} of 6</td></tr>
-          <tr><td style="padding:6px 12px 6px 0;color:#6B7280">AI maturity</td><td style="padding:6px 0"><b>${b.ai_label}</b>, level ${b.ai_level} of 6</td></tr>
-          <tr><td style="padding:6px 12px 6px 0;color:#6B7280">Best fit</td><td style="padding:6px 0"><b>${b.recommended_package}</b></td></tr>
-        </table>
-        <p style="font-family:Inter,Helvetica,sans-serif;font-size:14px;color:#6B7280">
-          Capability dimensions: ${dims(b.capability_breakdown)}<br>
-          AI dimensions: ${dims(b.ai_breakdown)}
-        </p>
-        <p style="font-family:Inter,Helvetica,sans-serif;font-size:15px;line-height:1.6">
-          If it is useful, book thirty minutes and I will walk you through it:
-          <a href="https://calendar.app.google/wDU2w51rzZCdDizh9" style="color:#0097A7">calendar.app.google</a>.
-          Free either way, and I will tell you honestly if the answer is that you do not need me yet.
-        </p>
-        <p style="font-family:Inter,Helvetica,sans-serif;font-size:13px;color:#9AA5AD">
-          Aneil Razvi &middot; aneilrazvi.com &middot; you are not on a list, this is the only email you get.
-        </p>
-      </div>`;
+        <a href="${BOOKING}" style="display:inline-block;background:#00BCD4;color:#0F1923;font:700 14px/1 Helvetica,Arial,sans-serif;padding:13px 24px;border-radius:99px;text-decoration:none">Book thirty minutes</a>
+      </td></tr>
+    </table>
+  </td></tr>
+
+  <tr><td style="padding:22px 34px 30px">
+    <p style="margin:0 0 14px;font:400 14px/1.65 Helvetica,Arial,sans-serif;color:#6B7280">
+      Free either way, and I will tell you honestly if the answer is that you do not need me yet.
+    </p>
+    <div style="border-top:1px solid #E2E8EC;padding-top:14px">
+      <div style="font:400 15px/1.3 Georgia,serif;color:#1E3A5F">Aneil Razvi</div>
+      <div style="font:400 12px/1.5 Helvetica,Arial,sans-serif;color:#9AA5AD;margin-top:3px">
+        Fractional design and AI experience leadership ·
+        <a href="https://aneilrazvi.com" style="color:#0097A7;text-decoration:none">aneilrazvi.com</a>
+      </div>
+      <div style="font:400 12px/1.5 Helvetica,Arial,sans-serif;color:#9AA5AD;margin-top:9px">
+        I do not run a mailing list. If you want me to follow up, say so and I will.
+      </div>
+    </div>
+  </td></tr>
+</table>
+</div>`;
 
     const toAneil = `
       <div style="font-family:Inter,Helvetica,sans-serif;font-size:15px;max-width:560px">
