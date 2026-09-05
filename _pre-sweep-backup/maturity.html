@@ -1,0 +1,699 @@
+<title>Design Maturity Assessment</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Serif+Display:ital@0;1&display=swap">
+<style>
+:root{
+  --teal:#00BCD4; --teal-dark:#0097A7; --teal-glow:rgba(0,188,212,0.35);
+  --navy:#1E3A5F; --navy-light:#2A4F7F;
+  --dark:#0F1923; --dark-2:#070C12;
+  --gray:#F4F6F8; --text:#1A1A2E; --muted:#6B7280; --white:#FFFFFF;
+  --orange:#F97316; --orange-wash:#FFF1E6; --teal-wash:#E4F8FB;
+  --line:#E2E8EC; --line-firm:#CBD5DB;
+  --radius:16px; --radius-sm:10px;
+  --shadow:0 4px 24px rgba(0,0,0,0.10); --shadow-lg:0 12px 48px rgba(0,0,0,0.15);
+  --transition:0.2s ease;
+}
+*{box-sizing:border-box;}
+html,body{overflow-x:hidden;}
+body{background:var(--gray);color:var(--text);font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+  font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;}
+.wrap{max-width:56rem;margin:0 auto;padding:2.6rem 1.15rem 5rem;}
+.serif{font-family:'DM Serif Display',Georgia,serif;font-weight:400;}
+h1{font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:clamp(2.1rem,5.6vw,3.1rem);line-height:1.08;letter-spacing:-.01em;margin:.5rem 0 .7rem;text-wrap:balance;}
+h2{font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:1.75rem;line-height:1.18;margin:0 0 .4rem;text-wrap:balance;}
+h3{font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:1.3rem;margin:0 0 .45rem;}
+p{margin:0 0 1rem;}
+.eyebrow{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--teal-dark);}
+.lede{font-size:1.08rem;color:var(--muted);max-width:40rem;}
+.lede b{color:var(--text);font-weight:600;}
+.tick{width:44px;height:4px;background:var(--teal);border-radius:2px;}
+
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(11rem,1fr));gap:1rem;margin:1.8rem 0;}
+.fact{background:var(--white);border-radius:var(--radius);padding:1.1rem 1.2rem;box-shadow:var(--shadow);}
+.fact .n{font-family:'DM Serif Display',Georgia,serif;font-size:2rem;color:var(--navy);line-height:1;font-variant-numeric:tabular-nums;}
+.fact .t{font-size:.83rem;color:var(--muted);margin-top:.45rem;line-height:1.45;}
+
+.rail{position:sticky;top:0;background:var(--gray);padding:.85rem 0 .7rem;z-index:5;}
+.railtop{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;font-size:.74rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);font-weight:600;}
+.bar{height:6px;background:#DFE6EA;border-radius:3px;margin-top:.55rem;overflow:hidden;}
+.bar i{display:block;height:100%;width:0;background:var(--teal);border-radius:3px;transition:width .35s var(--transition);}
+.bar i.ai{background:var(--orange);}
+
+.q{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);padding:1.7rem 1.7rem 1.5rem;margin-top:1.3rem;}
+.q .axis{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;font-weight:700;color:var(--teal-dark);}
+.q.aq .axis{color:var(--orange);}
+.q .qt{font-family:'DM Serif Display',Georgia,serif;font-size:1.5rem;line-height:1.24;margin:.4rem 0 1.15rem;text-wrap:balance;}
+.opts{display:flex;flex-direction:column;gap:.5rem;}
+.opt{display:flex;gap:.85rem;align-items:flex-start;padding:.8rem .95rem;border:1.5px solid var(--line);border-radius:var(--radius-sm);
+  background:var(--white);cursor:pointer;text-align:left;font:inherit;font-size:.95rem;color:inherit;transition:all var(--transition);}
+.opt:hover{border-color:var(--line-firm);background:#FBFCFD;}
+.opt:focus-visible{outline:3px solid var(--teal-glow);outline-offset:2px;}
+.opt .k{font-size:.72rem;font-weight:700;color:#A8B4BC;min-width:1.15rem;padding-top:.18rem;font-variant-numeric:tabular-nums;}
+.opt.sel{border-color:var(--teal);background:var(--teal-wash);}
+.opt.sel .k{color:var(--teal-dark);}
+.q.aq .opt.sel{border-color:var(--orange);background:var(--orange-wash);}
+.q.aq .opt.sel .k{color:var(--orange);}
+.ctx{display:flex;flex-wrap:wrap;gap:.5rem;}
+.chip{font-size:.88rem;padding:.55rem .95rem;border:1.5px solid var(--line);border-radius:99px;background:var(--white);cursor:pointer;color:inherit;font-family:inherit;transition:all var(--transition);}
+.chip.sel{border-color:var(--teal);background:var(--teal-wash);color:var(--teal-dark);font-weight:600;}
+.chip:focus-visible{outline:3px solid var(--teal-glow);outline-offset:2px;}
+
+.nav{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-top:1.3rem;}
+.btn{font-family:inherit;font-size:.92rem;font-weight:600;padding:.85rem 1.6rem;border:none;border-radius:99px;
+  background:var(--teal);color:var(--dark);cursor:pointer;transition:all var(--transition);box-shadow:0 2px 12px var(--teal-glow);}
+.btn:hover{background:var(--teal-dark);color:var(--white);}
+.btn:disabled{opacity:.3;cursor:not-allowed;box-shadow:none;}
+.btn.ghost{background:transparent;color:var(--muted);box-shadow:none;border:1.5px solid var(--line-firm);}
+.btn.ghost:hover{background:var(--white);color:var(--text);}
+.btn:focus-visible{outline:3px solid var(--teal-glow);outline-offset:3px;}
+.hint{font-size:.82rem;color:var(--muted);}
+
+.gate{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);padding:1.8rem;margin-top:1.3rem;}
+.field{display:flex;flex-direction:column;gap:.32rem;margin-bottom:.9rem;}
+.field label{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:700;}
+.field input{font:inherit;font-size:.98rem;padding:.72rem .9rem;border:1.5px solid var(--line);border-radius:var(--radius-sm);background:var(--white);color:var(--text);}
+.field input:focus-visible{outline:3px solid var(--teal-glow);outline-offset:1px;border-color:var(--teal);}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;}
+@media(max-width:560px){.row2{grid-template-columns:1fr;}}
+
+.levels{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.4rem 0 1.5rem;}
+@media(max-width:600px){.levels{grid-template-columns:1fr;}}
+.lv{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);padding:1.3rem 1.4rem;border-top:5px solid var(--teal);}
+.lv.a{border-top-color:var(--orange);}
+.lv .ax{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;font-weight:700;color:var(--teal-dark);}
+.lv.a .ax{color:var(--orange);}
+.lv .nm{font-family:'DM Serif Display',Georgia,serif;font-size:2rem;line-height:1.05;margin:.3rem 0 .15rem;color:var(--navy);}
+.lv .sc{font-size:.82rem;color:var(--muted);font-variant-numeric:tabular-nums;font-weight:500;}
+.lv p{font-size:.92rem;color:var(--muted);margin:.7rem 0 0;}
+
+.charts{display:grid;grid-template-columns:1.25fr 1fr;gap:1rem;margin-bottom:1.5rem;}
+.charts>*{min-width:0;}
+@media(max-width:760px){.charts{grid-template-columns:1fr;}}
+.card{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);padding:1.3rem;min-width:0;}
+.card h3{font-size:1.1rem;margin-bottom:.2rem;}
+.card .sub{font-size:.82rem;color:var(--muted);margin-bottom:.9rem;}
+.card svg{display:block;width:100%;height:auto;}
+.scroller{overflow-x:auto;max-width:100%;}
+.scroller svg{min-width:430px;}
+.scroller.sc2 svg{min-width:330px;}
+.scroller{-webkit-overflow-scrolling:touch;}
+.scroller::-webkit-scrollbar{height:6px;}.scroller::-webkit-scrollbar-thumb{background:var(--line-firm);border-radius:3px;}
+.capt{font-size:.8rem;color:var(--muted);margin-top:.8rem;line-height:1.5;}
+
+.block{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);padding:1.5rem 1.6rem;margin-bottom:1rem;}
+.block.hi{border-left:5px solid var(--orange);}
+.block ul{margin:.5rem 0 0;padding-left:1.2rem;}
+.block li{margin-bottom:.55rem;color:var(--muted);}
+.block li b{color:var(--text);font-weight:600;}
+.block p{font-size:.96rem;color:var(--muted);}
+.block p:last-child{margin-bottom:0;}
+
+table{width:100%;border-collapse:collapse;font-size:.92rem;margin-top:.6rem;}
+th,td{text-align:left;padding:.6rem .7rem;border-bottom:1px solid var(--line);}
+th{font-size:.7rem;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);font-weight:700;}
+td.num{font-variant-numeric:tabular-nums;text-align:right;color:var(--muted);}
+td.mult{font-family:'DM Serif Display',Georgia,serif;font-size:1.15rem;color:var(--teal-dark);text-align:right;}
+
+/* offerings map */
+.offers{display:flex;flex-direction:column;gap:.7rem;margin-top:.7rem;}
+.of{display:block;padding:1rem 1.15rem;border-radius:var(--radius-sm);
+  border:1.5px solid var(--line);background:var(--white);}
+.of.fit{border-color:var(--teal);background:var(--teal-wash);box-shadow:0 2px 14px var(--teal-glow);}
+.of .rank{font-family:'DM Serif Display',Georgia,serif;font-size:1.5rem;color:var(--line-firm);line-height:1;padding-top:.1rem;}
+.of.fit .rank{color:var(--teal-dark);}
+.of .nm{font-family:'DM Serif Display',Georgia,serif;font-size:1.2rem;color:var(--navy);}
+.of .why{font-size:.89rem;color:var(--muted);margin-top:.25rem;}
+.of .pr{font-size:.83rem;font-weight:600;color:var(--text);white-space:nowrap;text-align:right;}
+.of .pr span{display:block;font-weight:400;color:var(--muted);font-size:.78rem;margin-top:.15rem;}
+.badge{display:inline-block;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;
+  background:var(--teal);color:var(--dark);padding:.2rem .55rem;border-radius:99px;margin-left:.5rem;vertical-align:middle;}
+
+.cta{background:var(--dark);color:var(--white);border-radius:var(--radius);padding:1.8rem;margin:1.5rem 0 1rem;}
+.cta h3{color:var(--white);font-size:1.7rem;margin-bottom:.5rem;}
+.cta p{color:rgba(255,255,255,.72);font-size:.98rem;}
+.cta a.b{display:inline-block;margin-top:.6rem;background:var(--teal);color:var(--dark);font-weight:700;
+  padding:.8rem 1.6rem;border-radius:99px;text-decoration:none;font-size:.94rem;}
+.cta a.b:hover{background:var(--white);}
+
+footer{border-top:1px solid var(--line-firm);margin-top:2.2rem;padding-top:1.2rem;display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;align-items:baseline;}
+footer .sig{font-family:'DM Serif Display',Georgia,serif;font-style:italic;color:var(--muted);font-size:1rem;}
+footer a{font-size:.88rem;color:var(--teal-dark);font-weight:600;text-decoration:none;}
+.src{font-size:.78rem;color:var(--muted);margin-top:1.5rem;line-height:1.6;}
+.src b{color:var(--text);}
+[hidden]{display:none!important;}
+@media (prefers-reduced-motion: reduce){*{transition:none!important;}}
+
+/* --- v2: locked prescription, anchored dock, sources toggle --- */
+.lockwrap{position:relative;margin-bottom:1rem;}
+.locked{filter:blur(7px);pointer-events:none;user-select:none;transition:filter .5s ease;}
+.lockwrap.open .locked{filter:none;pointer-events:auto;user-select:auto;}
+.locknote{position:absolute;left:50%;top:2.2rem;transform:translateX(-50%);z-index:3;
+  background:var(--navy);color:var(--white);border-radius:99px;padding:.6rem 1.35rem;
+  font-size:.84rem;font-weight:600;box-shadow:var(--shadow-lg);white-space:nowrap;
+  display:flex;align-items:center;gap:.5rem;transition:opacity .35s ease;}
+.locknote svg{flex:none;}
+.lockwrap.open .locknote{opacity:0;pointer-events:none;}
+@media(max-width:560px){.locknote{font-size:.76rem;padding:.5rem 1rem;white-space:normal;text-align:center;max-width:88vw;}}
+
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--dark);color:var(--white);
+  box-shadow:0 -8px 40px rgba(0,0,0,.28);border-top:3px solid var(--teal);
+  transform:translateY(0);transition:transform .3s ease;}
+.dock[hidden]{display:none;}
+.dock.min{transform:translateY(calc(100% - 2.6rem));}
+.dockin{max-width:56rem;margin:0 auto;padding:1rem 1.15rem 1.15rem;}
+.dockhead{display:flex;justify-content:space-between;align-items:center;gap:1rem;cursor:pointer;}
+.dockhead .lbl{font-size:.79rem;font-weight:600;color:var(--white);display:flex;align-items:center;gap:.55rem;line-height:1.35;}
+.dockhead .lbl .dot{width:8px;height:8px;border-radius:50%;background:var(--teal);flex:none;}
+.dock.min .dockhead{padding-bottom:.35rem;}
+.docktoggle{background:none;border:none;color:rgba(255,255,255,.55);font:inherit;font-size:.75rem;
+  cursor:pointer;padding:.2rem .4rem;flex:none;}
+.docktoggle:hover{color:var(--white);}
+.dockbody{margin-top:.85rem;}
+.dock.min .dockbody{display:none;}
+.dock .field label{color:rgba(255,255,255,.55);}
+.dock .field input{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.16);color:var(--white);}
+.dock .field input::placeholder{color:rgba(255,255,255,.32);}
+.dock .field input:focus-visible{border-color:var(--teal);}
+.dockrow{display:grid;grid-template-columns:1fr 1fr auto;gap:.9rem;align-items:end;}
+@media(max-width:640px){.dockrow{grid-template-columns:1fr;}}
+.dockrow .field{margin-bottom:0;}
+.dockmsg{font-size:.8rem;color:rgba(255,255,255,.6);margin-top:.6rem;min-height:1.1rem;}
+.dockdone{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;}
+.dockdone .ok{font-size:.92rem;font-weight:600;color:var(--teal);display:flex;align-items:center;gap:.5rem;}
+.dockdone .sub{font-size:.8rem;color:rgba(255,255,255,.55);}
+.dock a.b{display:inline-block;background:var(--teal);color:var(--dark);font-weight:700;
+  padding:.72rem 1.45rem;border-radius:99px;text-decoration:none;font-size:.89rem;
+  box-shadow:0 2px 12px var(--teal-glow);transition:all var(--transition);white-space:nowrap;}
+.dock a.b:hover{background:var(--white);color:var(--dark);}
+.dock a.b:focus-visible{outline:3px solid var(--teal-glow);outline-offset:3px;}
+body.hasdock{padding-bottom:11rem;}
+@media(max-width:640px){
+  .dockin{padding:.8rem 1.15rem 1rem;}
+  .dock[data-state="done"] .dockmsg{display:none;}
+  .dockdone{gap:.7rem;}
+  .dockdone .ok{font-size:.86rem;}
+  .dock a.b{width:100%;text-align:center;}
+  .dockhead .lbl{font-size:.75rem;}
+}
+@media(max-width:640px){body.hasdock{padding-bottom:17rem;}}
+
+details.srcbox{margin-top:1.4rem;border-top:1px solid var(--line);padding-top:1rem;}
+details.srcbox summary{cursor:pointer;font-size:.76rem;letter-spacing:.13em;text-transform:uppercase;
+  font-weight:700;color:var(--muted);list-style:none;}
+details.srcbox summary::-webkit-details-marker{display:none;}
+details.srcbox summary::after{content:" ▾";}
+details.srcbox[open] summary::after{content:" ▴";}
+details.srcbox summary:hover{color:var(--teal-dark);}
+
+/* --- v3: site nav (light variant), entry transition, package accordions --- */
+nav.site-nav{position:fixed;top:0;left:0;right:0;z-index:60;padding:0 5%;
+  display:flex;align-items:center;justify-content:space-between;height:68px;
+  background:rgba(255,255,255,.86);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);transition:background var(--transition);}
+nav.site-nav.scrolled{background:rgba(255,255,255,.97);box-shadow:0 1px 14px rgba(0,0,0,.05);}
+.nav-brand{font-family:'DM Serif Display',Georgia,serif;font-size:1.4rem;color:var(--text);
+  text-decoration:none;letter-spacing:.01em;}
+.nav-brand b{color:var(--teal-dark);font-weight:400;}
+.nav-links{display:flex;gap:36px;list-style:none;margin:0;padding:0;}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:.875rem;font-weight:500;
+  letter-spacing:.02em;transition:color var(--transition);}
+.nav-links a:hover,.nav-links a.active{color:var(--teal-dark);}
+.nav-cta{background:var(--teal);color:var(--dark);padding:9px 22px;border-radius:8px;
+  font-size:.875rem;font-weight:700;text-decoration:none;transition:background var(--transition),transform .1s;}
+.nav-cta:hover{background:var(--teal-dark);color:var(--white);transform:translateY(-1px);}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:6px;margin-left:14px;}
+.nav-hamburger span{width:24px;height:2px;background:var(--text);border-radius:2px;transition:transform .2s,opacity .2s;}
+@media(max-width:860px){
+  nav.site-nav{flex-wrap:wrap;height:68px;align-content:center;}
+  nav.site-nav .nav-links{display:none;}
+  nav.site-nav .nav-hamburger{display:flex;}
+  nav.site-nav .nav-cta{margin-left:auto;}
+  nav.site-nav.open{height:auto;padding-bottom:14px;background:rgba(255,255,255,.98);}
+  nav.site-nav.open .nav-links{display:flex;order:5;flex-direction:column;width:100%;gap:1.1rem;
+    padding:1.1rem 0 .2rem;margin-top:.5rem;border-top:1px solid var(--line);}
+  nav.site-nav.open .nav-hamburger span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  nav.site-nav.open .nav-hamburger span:nth-child(2){opacity:0;}
+  nav.site-nav.open .nav-hamburger span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+}
+.wrap{padding-top:5.4rem;}
+
+/* entry transition: dark site -> light page, background does the work */
+html{background:var(--dark);}
+body{background:var(--dark);transition:background 700ms cubic-bezier(.4,0,.2,1);}
+body.lit{background:var(--gray);}
+.fadein{opacity:0;transform:translateY(8px);transition:opacity 620ms ease 180ms,transform 620ms cubic-bezier(.4,0,.2,1) 180ms;}
+body.lit .fadein{opacity:1;transform:none;}
+@media (prefers-reduced-motion: reduce){
+  html,body{background:var(--gray);}
+  body,.fadein{transition:none!important;}
+  .fadein{opacity:1;transform:none;}
+}
+
+/* package accordions */
+.of{cursor:pointer;}
+.of .hd{display:grid;grid-template-columns:auto 1fr auto auto;gap:1rem;align-items:start;width:100%;}
+.of .chev{align-self:center;color:var(--line-firm);transition:transform .25s ease;flex:none;}
+.of.open .chev{transform:rotate(180deg);color:var(--teal-dark);}
+.of .body{max-height:0;overflow:hidden;transition:max-height .34s ease;}
+.of .body .inner{padding-top:1rem;margin-top:1rem;border-top:1px solid var(--line);}
+.of.fit .body .inner{border-top-color:rgba(0,151,167,.28);}
+.of .body h4{font-size:.7rem;letter-spacing:.13em;text-transform:uppercase;font-weight:700;
+  color:var(--muted);margin:0 0 .5rem;font-family:'Inter',sans-serif;}
+.of .body ul{margin:0 0 1.1rem;padding-left:1.15rem;}
+.of .body li{font-size:.89rem;color:var(--muted);margin-bottom:.4rem;}
+.of .body li b{color:var(--text);font-weight:600;}
+.of .body .nope li{color:#8A7466;}
+.of .body .nope li::marker{color:var(--orange);}
+</style>
+
+<nav class="site-nav" id="nav"><a href="index.html" class="nav-brand">Aneil <b>Razvi</b></a>
+<ul class="nav-links">
+<li><a href="index.html">Home</a></li>
+<li><a href="portfolio.html">Portfolio</a></li>
+<li><a href="speaking.html">Speaking</a></li>
+<li><a href="work-with-me.html">Work With Me</a></li>
+<li><a href="maturity.html" class="active">Design Maturity</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="blog.html">Blog</a></li>
+</ul>
+<a href="contact.html" class="nav-cta">Let's Talk</a><button class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button></nav>
+
+<div class="wrap fadein">
+
+<section id="intro">
+  <div class="tick"></div>
+  <div class="eyebrow" style="margin-top:.75rem;">Aneil Razvi</div>
+  <h1>Where does your design function actually sit?</h1>
+  <p class="lede">Twelve questions, about four minutes. You get a read on two axes most assessments collapse into one: <b>how mature your design practice is</b>, and separately, <b>how far your AI adoption has actually gone</b>. Most companies are further along on one than the other, and the gap between them is usually the real problem.</p>
+
+  <div class="facts">
+    <div class="fact"><div class="n">49%</div><div class="t">of organizations sit at a single level, Emergent, out of six</div></div>
+    <div class="fact"><div class="n">13%</div><div class="t">have updated hiring or reviews for AI, though 87% report support for it</div></div>
+    <div class="fact"><div class="n">30 vs 15</div><div class="t">average designers at the least mature level, versus the most mature</div></div>
+  </div>
+
+  <p style="font-size:.98rem;color:var(--muted);max-width:40rem;">That last number is worth sitting with. Companies at the bottom of the maturity scale average <b style="color:var(--text)">twice as many designers</b> as the ones at the top. Headcount is not the lever.</p>
+  <button class="btn" id="start">Start the assessment</button>
+  <p class="hint" style="margin-top:.85rem;">No email to take it. Where you sit is free. The full breakdown and the engagement fit need an email.</p>
+</section>
+
+<section id="quiz" hidden>
+  <div class="rail">
+    <div class="railtop"><span id="qcount">Question 1 of 15</span><span id="qaxis">Design capability</span></div>
+    <div class="bar"><i id="prog"></i></div>
+  </div>
+  <div id="qhost"></div>
+  <div class="nav">
+    <button class="btn ghost" id="back">Back</button>
+    <span class="hint">Pick the closest answer. Nothing here is a trick.</span>
+  </div>
+</section>
+
+<section id="result" hidden></section>
+
+<footer>
+  <span class="sig">Aneil Razvi, fractional design and product leadership</span>
+  <a href="https://aneilrazvi.com" target="_blank" rel="noopener">aneilrazvi.com</a>
+</footer>
+
+<details class="srcbox"><summary>Sources and method</summary><p class="src" style="margin-top:.7rem;"><b>Sources.</b> Level names and population distribution from Nielsen Norman Group, <i>The 6 Levels of UX Maturity</i> (2021, reviewed 2024) and <i>The State of UX Maturity</i>, n=5,371 (2022). Outcome multiples and designer headcount by level from InVision, <i>The New Design Frontier</i>, 2,200+ organizations across 24 industries and 77 countries (2018). Revenue and shareholder return figures from McKinsey, <i>The Business Value of Design</i>, 300 public companies over five years (2018). AI maturity levels from Jakob Nielsen, <i>The Capability Maturity Model for AI in Design</i> (March 2026). AI adoption and organizational change figures from the <i>AI in Design Report 2026</i>, Designer Fund and Foundation Capital. The 2018 studies are dated on tooling and current on structure.</p></details>
+
+</div>
+
+<script>
+var BOOKING = "https://cal.com/aneil-razvi/maturity-read";
+var LEAD_ENDPOINT = "/api/lead";
+
+var SID = (function(){
+  try{ var k="arz-maturity-sid", v=localStorage.getItem(k);
+    if(!v){ v = "s_"+Date.now().toString(36)+Math.random().toString(36).slice(2,9); localStorage.setItem(k,v); }
+    return v;
+  }catch(e){ return "s_"+Date.now().toString(36)+Math.random().toString(36).slice(2,9); }
+})();
+
+
+var SCOPE = {
+ "The Audit": {
+   weeks:["<b>Week 1.</b> Interviews with six to eight people across design, product and engineering. Artefact review: your last three shipped features, end to end.",
+          "<b>Week 2.</b> Scoring against the twelve dimensions, written findings, and a prioritised sequence with owners and effort."],
+   get:["A written read on where the practice actually sits, with evidence, not impressions",
+        "The three constraints costing you the most, ranked",
+        "A ninety-day sequence someone on your team can run without me"],
+   nope:["No design work. This is diagnosis, not delivery.",
+         "No hiring plan. That is a different conversation and usually premature.",
+         "No tooling recommendations. Tools are almost never the constraint."]
+ },
+ "AI Experience Framework": {
+   weeks:["<b>Week 1.</b> Where AI already touches your product and your team, and what it is actually doing versus what people believe it does.",
+          "<b>Week 2.</b> The decision architecture: what the system may do alone, what it proposes, what it must never do without a human.",
+          "<b>Week 3.</b> Patterns for provenance, uncertainty, refusal and reversibility, applied to two real flows in your product."],
+   get:["A written framework your team applies without me in the room",
+        "Two flows designed end to end as worked examples",
+        "The refusal and escalation rules, which is the part almost everyone skips"],
+   nope:["No model selection or evaluation. That is your engineering team.",
+         "No prompt libraries. They rot in weeks.",
+         "No claim that AI belongs in a given feature until the flow says it does."]
+ },
+ "Design System Build": {
+   weeks:["<b>Week 1.</b> Audit of every component in production and the drift between them.",
+          "<b>Week 2 to 3.</b> Tokens, core components, and the rules that govern how they compose.",
+          "<b>Week 4.</b> Documentation written for the people who have to use it, not for designers.",
+          "<b>Week 5.</b> Governance: contribution, review, adoption tracking, and a named owner."],
+   get:["A working system in your codebase, not a Figma file",
+        "Tokens and components covering your real surfaces",
+        "The governance model, which is what makes it survive month three"],
+   nope:["No full product redesign. The system serves the product you have.",
+         "No migration of every legacy screen. I set the pattern and the path.",
+         "No ongoing maintenance. That is the retainer."]
+ },
+ "Fractional Retainer": {
+   weeks:["<b>Two days a week</b>, held on the same days so your team can plan around me.",
+          "<b>First month.</b> Set the standard, name what good looks like, and get into the decisions that are already in flight.",
+          "<b>Ongoing.</b> Direction, critique, hiring input, and hands on the work that matters most that month."],
+   get:["A senior owner accountable for the bar, not an advisor with opinions",
+        "Design present in planning and roadmap, not just execution",
+        "Coaching that raises your team rather than replacing them"],
+   nope:["Not full-time cover. Two days is two days, and I will tell you when the problem needs more.",
+         "No exclusivity. I hold a small number of engagements at once.",
+         "Not a stopgap while you recruit, unless we both name it as that up front."]
+ }
+};
+
+var CAPDIM=["Research","Design's seat","Measurement","System","Process","Executives"];
+var AIDIM=["Practical use","Strategy","Org change","Product AI","Ownership","Eng alignment"];
+
+var CAP=[
+ {q:"When did someone on your team last talk to a user?",o:["We do not, or nobody can remember","Occasionally, usually to settle an internal disagreement","At the start of big projects","Regularly, but it is one person's job","Continuously, and product and engineering partners join sessions","Continuously, and people outside design run sessions themselves"]},
+ {q:"Where does design enter a product decision?",o:["After the spec is written, to make it look right","During build, to produce screens","At kickoff, to help scope the work","In planning, as a peer to product and engineering","In roadmap and strategy, before the problem is framed","Design leadership sets direction alongside the executive team"]},
+ {q:"Can you tell whether a design change worked?",o:["No","Anecdotally, or by whether people complained","We look at analytics afterward sometimes","Some projects define success metrics up front","Most work ties to a metric we track and review","Design has its own measurement framework tied to business outcomes"]},
+ {q:"How consistent is your product across its surfaces?",o:["Every screen is its own invention","A shared UI kit that has drifted badly","A component library people mostly use","A maintained system with tokens and documentation","Governed system: adoption tracked, contributions reviewed","The system encodes rules, not just components, and adapts by context"]},
+ {q:"How does design work reach engineering?",o:["Screenshots and Slack messages","Files handed over, questions answered later","A handoff process with written specs","Design and engineering plan together, specs are shared artifacts","Continuous pairing, and design QA on built work is routine","Designers and engineers work in one shared system end to end"]},
+ {q:"What do your executives actually do with design?",o:["Review the visuals at the end","Ask for design when something looks wrong","Fund it and stay out of the way","Ask design for input on decisions","Participate in reviews and sit in on research","Design has a seat where company strategy is set"]}
+];
+var AI=[
+ {q:"What do people on your team actually use AI for?",o:["Not much, or personal admin only","Writing, summaries, meeting notes","Early exploration and first drafts of design work","Prototyping with real components, using documented workflows","Building working prototypes engineering can extend","Designers work natively in code and systems with AI"]},
+ {q:"Is there an AI strategy for design, or just tools?",o:["Neither","People experiment alone, some pay out of pocket","The company pays for tools but gives no guidance","Named use cases and some documented workflows","A real strategy with budget, training, and owners","AI is infrastructure, and design shapes where it belongs in the product"]},
+ {q:"Has anything about how you work formally changed because of AI?",o:["No","We talk about it a lot","Some rituals shifted informally","Some processes were updated and written down","Reviews or team rituals formally changed","Hiring criteria and performance reviews were updated"]},
+ {q:"In your product, what does AI do for the user?",o:["Nothing yet","A feature bolted onto the existing interface","A chat surface added alongside the product","AI-assisted steps inside real workflows","Agentic flows with human approval, and designed trust and provenance","The interface itself assembles by context under rules we set"]},
+ {q:"Who decides where AI belongs in the product?",o:["Nobody. It is reactive to what competitors ship","Engineering or leadership, and design finds out later","Product decides, design executes","Product and design decide together","Design frames the experience question before anything gets built","Design owns the AI experience strategy"]},
+ {q:"How do design and engineering work together on AI features?",o:["Separate worlds","Handoff, followed by rework","Regular syncs","Shared prototypes","Same tools, same components, continuous","One shared system where design constraints are executed at runtime"]}
+];
+var CTX=[
+ {q:"Roughly how many designers do you have?",o:["None","1","2 to 5","6 to 15","16 to 50","More than 50"]},
+ {q:"Where is the company?",o:["Pre-product","Early, finding fit","Scaling","Established","Large enterprise"]},
+ {q:"What is actually in the way right now?",o:["Nobody senior owns design","The product feels inconsistent","We ship slowly","Design is not in the room for decisions","Our AI features are not landing","We cannot prove design is working"]}
+];
+
+var CAPL=[
+ {n:"Absent",d:"Design happens, but nobody owns it as a practice. Decisions get made on instinct and cleaned up later.",lo:0,hi:4},
+ {n:"Limited",d:"Design exists as a service. It is called in to make things presentable once the thinking is finished.",lo:5,hi:9},
+ {n:"Emergent",d:"Design is real but inconsistent. It works when a specific person pushes, and reverts when they get busy. Roughly half of all organizations sit here.",lo:10,hi:16},
+ {n:"Structured",d:"Design is established, with process and standards that hold. The remaining gains come from measurement and from earning decisions earlier.",lo:17,hi:22},
+ {n:"Integrated",d:"Design is a peer function with a seat in planning and its own measures. About 4 percent of organizations reach this.",lo:23,hi:27},
+ {n:"User-Driven",d:"Evidence about users drives decisions across the company, not only inside design. Fewer than 1 in 2,000 report this.",lo:28,hi:30}
+];
+var AIL=[
+ {n:"Limited",d:"AI is a personal productivity aid for admin work. No strategy, no budget, no training.",lo:0,hi:4},
+ {n:"Reactive",d:"Ad hoc experimentation driven by pressure to ship something with AI in it. A lot of throwaway work.",lo:5,hi:9},
+ {n:"Developing",d:"AI is a genuine prototyping accelerator. Adoption is problem-led and workflows are getting written down.",lo:10,hi:16},
+ {n:"Embedded",d:"AI is core infrastructure. Design scope has grown to cover trust, uncertainty, and what the system does when it should refuse.",lo:17,hi:22},
+ {n:"Leading",d:"Designers think natively in code and systems, and shift from producing artifacts to setting direction.",lo:23,hi:27},
+ {n:"Symbiotic",d:"Design time and runtime blur. Designers set constraints and the system assembles interfaces by context.",lo:28,hi:30}
+];
+
+var ALL=[],i;
+for(i=0;i<CAP.length;i++) ALL.push({t:"cap",q:CAP[i].q,o:CAP[i].o});
+for(i=0;i<AI.length;i++) ALL.push({t:"ai",q:AI[i].q,o:AI[i].o});
+for(i=0;i<CTX.length;i++) ALL.push({t:"ctx",q:CTX[i].q,o:CTX[i].o});
+
+var idx=0, ans=new Array(ALL.length).fill(null), posted=false;
+var $=function(s){return document.querySelector(s);};
+function band(v,a){for(var j=0;j<a.length;j++){if(v>=a[j].lo&&v<=a[j].hi)return j;}return 0;}
+function capScore(){var s=0;for(var j=0;j<6;j++)s+=(ans[j]||0);return s;}
+function aiScore(){var s=0;for(var j=6;j<12;j++)s+=(ans[j]||0);return s;}
+
+function render(){
+  var it=ALL[idx], isCtx=it.t==="ctx";
+  $("#qcount").textContent="Question "+(idx+1)+" of "+ALL.length;
+  $("#qaxis").textContent=it.t==="cap"?"Design capability":(it.t==="ai"?"AI maturity":"About you");
+  var p=$("#prog"); p.style.width=(idx/ALL.length*100)+"%"; p.className=it.t==="ai"?"ai":"";
+  var h='<div class="q'+(it.t==="ai"?" aq":"")+'"><div class="axis">'+
+    (isCtx?"About you, not scored":(it.t==="ai"?"AI maturity":"Design capability"))+
+    '</div><div class="qt">'+it.q+'</div>'+(isCtx?'<div class="ctx">':'<div class="opts">');
+  for(var j=0;j<it.o.length;j++){
+    var sel=ans[idx]===j?" sel":"";
+    h+= isCtx ? '<button class="chip'+sel+'" data-v="'+j+'">'+it.o[j]+'</button>'
+              : '<button class="opt'+sel+'" data-v="'+j+'"><span class="k">'+j+'</span><span>'+it.o[j]+'</span></button>';
+  }
+  $("#qhost").innerHTML=h+'</div></div>';
+  $("#back").disabled=idx===0;
+  var b=$("#qhost").querySelectorAll("button");
+  for(var x=0;x<b.length;x++) b[x].addEventListener("click",function(e){
+    ans[idx]=parseInt(e.currentTarget.getAttribute("data-v"),10);
+    if(idx<ALL.length-1){idx++;render();} else {show();}
+  });
+}
+$("#start").addEventListener("click",function(){$("#intro").hidden=true;$("#quiz").hidden=false;idx=0;render();window.scrollTo(0,0);});
+$("#back").addEventListener("click",function(){if(idx>0){idx--;render();}});
+
+function payload(extra){
+  var cs=capScore(), as=aiScore(), cl=band(cs,CAPL), al=band(as,AIL);
+  var cb={},ab={};
+  for(var j=0;j<6;j++){cb[CAPDIM[j]]=ans[j];ab[AIDIM[j]]=ans[j+6];}
+  var p={session_id:SID,source:"maturity-assessment",
+    capability_level:cl+1,capability_label:CAPL[cl].n,ai_level:al+1,ai_label:AIL[al].n,
+    quadrant:CAPL[cl].n+" / "+AIL[al].n,
+    team_size:(ans[12]!=null?CTX[0].o[ans[12]]:null),
+    company_stage:(ans[13]!=null?CTX[1].o[ans[13]]:null),
+    blocker:(ans[14]!=null?CTX[2].o[ans[14]]:null),
+    capability_breakdown:cb, ai_breakdown:ab,
+    answers:{raw:ans,capability_score:cs,ai_score:as},
+    recommended_package:offers(cl,al)[0].n, gated:false};
+  if(extra) for(var k in extra) p[k]=extra[k];
+  return p;
+}
+function post(p){ if(!LEAD_ENDPOINT) return Promise.resolve();
+  return fetch(LEAD_ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(p)}).catch(function(){}); }
+
+function offers(cl,al){
+  var sys=(ans[3]||0), meas=(ans[2]||0), seat=(ans[1]||0), use=(ans[6]||0), prod=(ans[9]||0);
+  var L=[
+   {n:"The Audit",p:"$7,500",d:"2 weeks",
+    fit:cl<=2?95:(cl===3?55:35),
+    why:cl<=2?"Your scores say the foundation has never been mapped. This is the cheapest way to find out whether the problem you think you have is the problem you actually have."
+        :"Useful as an outside read on a functioning team, aimed at why the value is invisible rather than at fixing process you already have."},
+   {n:"AI Experience Framework",p:"$15,000",d:"3 weeks",
+    fit:(use>=2&&prod<=2)?98:(al<=1&&use>=2?90:(al>=2&&al<=3?75:40)),
+    why:(use>=2&&prod<=2)?"Your team is using AI but it has not landed in the product. That gap is the single clearest signal in your answers."
+        :(al<=1?"Adoption has started without a decision about what the system may do on its own. That decision is the work."
+        :"You are past the basics. The next question is trust architecture: provenance, uncertainty, refusal, reversibility.")},
+   {n:"Design System Build",p:"$22,000",d:"5 weeks",
+    fit:sys<=2?96:(sys<=3?70:45),
+    why:sys<=2?"Consistency scored lowest of your six capability dimensions, which means every new screen costs more than the last one."
+        :"A system exists. The next move is components that assemble by context rather than a library people shop from."},
+   {n:"Fractional Retainer",p:"$16,000/mo",d:"2 days a week",
+    fit:(cl===2||cl===3)?92:(cl<=1?70:60),
+    why:cl===2?"This band is where a part-time senior owner is the highest-leverage intervention that exists. The bar needs to hold on the days I am not there."
+        :(cl<=1?"Someone has to own the standard before any project can stick. That is a person, not a deliverable."
+        :"Augmentation rather than rescue. A named gap, held week over week by someone who still does the work.")}
+  ];
+  L.sort(function(a,b){return b.fit-a.fit;});
+  return L;
+}
+
+function scatter(cx,ay){
+  var W=520,H=340,L=108,T=16,cw=64,ch=46;
+  var capN=["Absent","Limited","Emergent","Structured","Integrated","User-Driven"];
+  var aiN=["Symbiotic","Leading","Embedded","Developing","Reactive","Limited"];
+  var dist=[1,17,49,28,4,0.04];
+  var s='<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Your position on design capability and AI maturity">';
+  for(var c=0;c<6;c++) s+='<rect x="'+(L+c*cw)+'" y="'+T+'" width="'+cw+'" height="'+(ch*6)+'" fill="#00BCD4" opacity="'+((dist[c]/49)*0.20).toFixed(3)+'"/>';
+  for(var r=0;r<=6;r++) s+='<line x1="'+L+'" y1="'+(T+r*ch)+'" x2="'+(L+6*cw)+'" y2="'+(T+r*ch)+'" stroke="#E2E8EC"/>';
+  for(var c2=0;c2<=6;c2++) s+='<line x1="'+(L+c2*cw)+'" y1="'+T+'" x2="'+(L+c2*cw)+'" y2="'+(T+6*ch)+'" stroke="#E2E8EC"/>';
+  for(var r2=0;r2<6;r2++) s+='<text x="'+(L-9)+'" y="'+(T+r2*ch+ch/2+4)+'" text-anchor="end" font-family="Inter,sans-serif" font-size="10.5" fill="#6B7280">'+aiN[r2]+'</text>';
+  for(var c3=0;c3<6;c3++){
+    s+='<text x="'+(L+c3*cw+cw/2)+'" y="'+(T+6*ch+16)+'" text-anchor="middle" font-family="Inter,sans-serif" font-size="9.5" fill="#6B7280">'+capN[c3]+'</text>';
+    s+='<text x="'+(L+c3*cw+cw/2)+'" y="'+(T+6*ch+30)+'" text-anchor="middle" font-family="Inter,sans-serif" font-size="9.5" font-weight="700" fill="#0097A7">'+dist[c3]+'%</text>';
+  }
+  var px=L+cx*cw+cw/2, py=T+(5-ay)*ch+ch/2;
+  s+='<circle cx="'+px+'" cy="'+py+'" r="19" fill="#F97316" opacity="0.16"/>';
+  s+='<circle cx="'+px+'" cy="'+py+'" r="19" fill="none" stroke="#F97316" stroke-width="2.5"/>';
+  s+='<circle cx="'+px+'" cy="'+py+'" r="5.5" fill="#F97316"/>';
+  s+='<text x="'+(L+3*cw)+'" y="'+(T+6*ch+47)+'" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" letter-spacing="1.5" fill="#6B7280">DESIGN CAPABILITY, WITH POPULATION SHARE</text>';
+  s+='<text transform="translate(14,'+(T+3*ch)+') rotate(-90)" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" letter-spacing="1.5" fill="#6B7280">AI MATURITY</text>';
+  return s+'</svg>';
+}
+
+function radar(){
+  var W=340,H=340,cx=170,cy=162,R=104;
+  var labels=CAPDIM.concat(AIDIM), n=12;
+  var s='<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Your score on each of the twelve dimensions">';
+  function pt(k,frac){var a=(Math.PI*2*k/n)-Math.PI/2;return [cx+Math.cos(a)*R*frac, cy+Math.sin(a)*R*frac];}
+  for(var ring=1;ring<=5;ring++){
+    var d="";
+    for(var k=0;k<n;k++){var p=pt(k,ring/5);d+=(k?"L":"M")+p[0].toFixed(1)+","+p[1].toFixed(1);}
+    s+='<path d="'+d+'Z" fill="none" stroke="#E2E8EC" stroke-width="1"/>';
+  }
+  for(var k2=0;k2<n;k2++){var e=pt(k2,1);s+='<line x1="'+cx+'" y1="'+cy+'" x2="'+e[0].toFixed(1)+'" y2="'+e[1].toFixed(1)+'" stroke="#EDF1F3"/>';}
+  var dCap="",dAi="";
+  for(var k3=0;k3<n;k3++){
+    var v=(ans[k3]||0)/5, p2=pt(k3,Math.max(v,0.02));
+    var seg=(k3?"L":"M")+p2[0].toFixed(1)+","+p2[1].toFixed(1);
+    dCap+=seg;
+  }
+  s+='<path d="'+dCap+'Z" fill="#00BCD4" fill-opacity="0.17" stroke="#0097A7" stroke-width="2"/>';
+  for(var k4=0;k4<n;k4++){
+    var v2=(ans[k4]||0)/5, p3=pt(k4,Math.max(v2,0.02));
+    s+='<circle cx="'+p3[0].toFixed(1)+'" cy="'+p3[1].toFixed(1)+'" r="3.2" fill="'+(k4<6?"#0097A7":"#F97316")+'"/>';
+    var lp=pt(k4,1.24), anch = (lp[0]>cx+6)?"start":((lp[0]<cx-6)?"end":"middle");
+    s+='<text x="'+lp[0].toFixed(1)+'" y="'+(lp[1]+3.5).toFixed(1)+'" text-anchor="'+anch+'" font-family="Inter,sans-serif" font-size="9" font-weight="600" fill="'+(k4<6?"#0097A7":"#F97316")+'">'+labels[k4]+'</text>';
+  }
+  s+='<text x="'+cx+'" y="'+(H-8)+'" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" letter-spacing="1.2" fill="#6B7280">TEAL = CAPABILITY   ORANGE = AI</text>';
+  return s+'</svg>';
+}
+
+function show(){
+  var cs=capScore(), as=aiScore(), cl=band(cs,CAPL), al=band(as,AIL);
+  var C=CAPL[cl], A=AIL[al], OF=offers(cl,al), gap=cl-al;
+  var gapLine = gap>=2 ? "Your design practice is meaningfully ahead of your AI adoption. That is the safer imbalance, but it leaves capability on the table: a team with your process discipline would compound AI faster than most, and is not."
+    : gap<=-2 ? "Your AI adoption is running ahead of your design practice. This is the more dangerous imbalance. AI accelerates whatever process you already have, so a team without measurement or a system will produce inconsistency faster than before, not less of it."
+    : "Your two axes are roughly in step, which is less common than it sounds. The work now is moving both together rather than letting one sprint ahead.";
+
+  var lowIdx=0,lowVal=99;
+  for(var j=0;j<12;j++){ if((ans[j]||0)<lowVal){lowVal=(ans[j]||0);lowIdx=j;} }
+  var lowName=(lowIdx<6?CAPDIM[lowIdx]:AIDIM[lowIdx-6]);
+  var teamIdx=ans[12], blocker=(ans[14]!=null?CTX[2].o[ans[14]]:null);
+  var headcount=(teamIdx!=null&&teamIdx>=3&&cl<=2)
+    ? '<div class="block hi"><h3>On your team size</h3><p>You reported <b>'+CTX[0].o[teamIdx].toLowerCase()+' designers</b> at a maturity level where capacity is not the constraint. InVision found companies at the bottom of the scale averaged 30 designers and those at the top averaged 15. Hiring more people into an unstructured practice reliably produces more unstructured output.</p></div>' : "";
+
+  var ofHtml="";
+  for(var o=0;o<OF.length;o++){
+    var sc=SCOPE[OF[o].n]||{weeks:[],get:[],nope:[]};
+    ofHtml+='<div class="of'+(o===0?" fit":"")+'" data-of="'+o+'" role="button" tabindex="0" aria-expanded="false">'+
+      '<div class="hd"><div class="rank">'+(o+1)+'</div><div><div class="nm">'+OF[o].n+
+      (o===0?'<span class="badge">Best fit</span>':'')+'</div><div class="why">'+OF[o].why+'</div></div>'+
+      '<div class="pr">'+OF[o].p+'<span>'+OF[o].d+'</span></div>'+
+      '<svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>'+
+      '<div class="body"><div class="inner">'+
+        '<h4>How it runs</h4><ul>'+sc.weeks.map(function(w){return '<li>'+w+'</li>';}).join('')+'</ul>'+
+        '<h4>What you end up with</h4><ul>'+sc.get.map(function(w){return '<li>'+w+'</li>';}).join('')+'</ul>'+
+        '<h4>What this is not</h4><ul class="nope">'+sc.nope.map(function(w){return '<li>'+w+'</li>';}).join('')+'</ul>'+
+      '</div></div></div>';
+  }
+
+  $("#result").innerHTML =
+    '<div class="tick"></div><div class="eyebrow" style="margin-top:.75rem;">Your read</div>'+
+    '<h1>'+C.n+' capability, '+A.n+' on AI</h1><p class="lede">'+gapLine+'</p>'+
+    '<div class="levels">'+
+      '<div class="lv"><div class="ax">Design capability</div><div class="nm">'+C.n+'</div><div class="sc">Level '+(cl+1)+' of 6 · '+cs+' of 30 points</div><p>'+C.d+'</p></div>'+
+      '<div class="lv a"><div class="ax">AI maturity</div><div class="nm">'+A.n+'</div><div class="sc">Level '+(al+1)+' of 6 · '+as+' of 30 points</div><p>'+A.d+'</p></div>'+
+    '</div>'+
+    '<div class="charts">'+
+      '<div class="card"><h3>Where you sit</h3><div class="sub">Against the actual population. Shading is how many organizations are in each column.</div><div class="scroller">'+scatter(cl,al)+'</div><p class="capt">Almost everyone lands in the middle two columns. The ring is you.</p></div>'+
+      '<div class="card"><h3>Your profile shape</h3><div class="sub">All twelve dimensions. The dents are where the work is.</div><div class="scroller sc2">'+radar()+'</div>'+
+      '<p class="capt">Lowest dimension: <b style="color:var(--text)">'+lowName+'</b>. That is where I would start.</p></div>'+
+    '</div>'+
+    headcount+
+    '<div class="block"><h3>What the same work returns at your level</h3>'+
+      '<p>Share of companies at the lowest and highest maturity levels reporting proven design impact. The engagement does not change. What changes is how much of it survives contact with the organization.</p>'+
+      '<table><thead><tr><th>Outcome</th><th style="text-align:right">Least mature</th><th style="text-align:right">Most mature</th><th style="text-align:right">Gap</th></tr></thead><tbody>'+
+      '<tr><td>Revenue</td><td class="num">22%</td><td class="num">92%</td><td class="mult">4x</td></tr>'+
+      '<tr><td>Cost savings</td><td class="num">16%</td><td class="num">85%</td><td class="mult">5x</td></tr>'+
+      '<tr><td>Time to market</td><td class="num">14%</td><td class="num">84%</td><td class="mult">6x</td></tr>'+
+      '<tr><td>Valuation</td><td class="num">2%</td><td class="num">52%</td><td class="mult">26x</td></tr></tbody></table>'+
+      '<p style="margin-top:.9rem;">McKinsey tracked 300 public companies over five years and found the top design quartile delivered 32 percentage points higher revenue growth and 56 points higher shareholder return than the bottom.</p></div>'+
+    (blocker?'<div class="block hi"><h3>On what you said is in the way</h3><p>You picked <b>'+blocker.toLowerCase()+'</b>. At '+C.n+' capability that is a symptom. The underlying cause at this level is almost always that '+(cl<=1?"nobody owns the standard, so quality tracks whoever happened to do the work":(cl===2?"the practice depends on individual effort rather than structure, so it holds when someone pushes and reverts when they are busy":"the work is good but its value is invisible, because nothing connects design decisions to outcomes the business already tracks"))+'.</p></div>':'')+
+    '<div class="lockwrap" id="lockwrap"><div class="locknote"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Your next moves and the engagement fit</div><div class="locked">'+'<div class="block"><h3>The moves that matter next</h3><ul>'+
+      (cl<=1?'<li><b>Put one person in charge of the standard.</b> Not a hire. A named owner with the authority to say no.</li><li><b>Talk to five users this month.</b> Anyone can run these. The point is breaking the habit of deciding in a room.</li><li><b>Write down what good looks like.</b> One page. New work gets measured against it.</li>'
+       :cl===2?'<li><b>Define success before the work starts.</b> One metric per project, agreed with product. This single change is what moves Emergent to Structured.</li><li><b>Make the design system governed, not just present.</b> Track adoption, review contributions, name an owner.</li><li><b>Get design in before the problem is framed.</b> Being consulted at kickoff is not the same as helping decide what gets built.</li>'
+       :cl===3?'<li><b>Build the measurement framework.</b> You have process. What is missing is proof, and proof buys the seat at the next level.</li><li><b>Move upstream of the roadmap.</b> Your team executes well on problems someone else framed.</li><li><b>Grow leads, not headcount.</b> Capacity is not your constraint. Distribution of judgment is.</li>'
+       :'<li><b>Push evidence past design.</b> The last level is about whether other functions decide on user evidence, not about your team.</li><li><b>Put executives in research directly.</b> Not readouts. In the room.</li><li><b>Treat the design system as a rules engine.</b> Components that assemble by context, not a library people shop from.</li>')+
+      (al<=1?'<li><b>Pick two AI use cases and write the workflow down.</b> Undocumented experimentation is where throwaway work comes from.</li>'
+       :al===2?'<li><b>Decide what an agent does versus proposes.</b> That single distinction is most of AI experience design.</li>'
+       :'<li><b>Update reviews and hiring criteria.</b> Only 13 percent of organizations have. It is the difference between using AI and being changed by it.</li>')+
+    '</ul></div>'+
+    '<div class="block"><h3>How this maps to what I do</h3><p>Ranked against your answers, not a generic order. Every one of these is a fixed scope at a fixed price.</p><div class="offers">'+ofHtml+'</div></div>'+
+    '</div></div>'+
+    '<p class="hint">This is a self-assessment and a conversation starter, not an audit. The honest version takes two weeks and involves talking to your team.</p>';
+
+  $("#quiz").hidden=true; $("#result").hidden=false; window.scrollTo(0,0);
+
+  if(!posted){ posted=true; post(payload()); }
+
+  document.body.classList.add("hasdock");
+  var ofs=document.querySelectorAll(".of");
+  for(var oi=0;oi<ofs.length;oi++){
+    (function(el){
+      var body=el.querySelector(".body");
+      function sizeOpen(){ if(el.classList.contains("open")) body.style.maxHeight=body.scrollHeight+"px"; }
+      function tog(){
+        var open=el.classList.toggle("open");
+        el.setAttribute("aria-expanded",open?"true":"false");
+        body.style.maxHeight = open ? body.scrollHeight+"px" : "0px";
+      }
+      window.addEventListener("resize",sizeOpen);
+      el.addEventListener("click",tog);
+      el.addEventListener("keydown",function(e){ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); tog(); } });
+    })(ofs[oi]);
+  }
+
+  var dock=$("#dock"); dock.hidden=false; dock.dataset.state="locked";
+
+  $("#dockmin").addEventListener("click",function(e){
+    e.stopPropagation(); dock.classList.toggle("min");
+    this.textContent = dock.classList.contains("min") ? "Show" : "Hide";
+  });
+
+  function unlock(em,nm,co,ro){
+    $("#lockwrap").classList.add("open");
+    post(payload({email:em,name:nm,company:co,role:ro,gated:true,send_report:true}));
+    dock.dataset.state="done";
+    $("#dockbody").innerHTML =
+      '<div class="dockdone">'+
+        '<div class="ok"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>Report on its way to '+em.replace(/</g,"&lt;")+'</div>'+
+        '<a class="b small" id="bookbtn" href="'+BOOKING+'" target="_blank" rel="noopener">Book a time to talk it through</a>'+
+      '</div>'+
+      '<div class="dockmsg">Thirty minutes, free, whether or not you hire anyone. Your answers come with you, so we start from where you actually are.</div>';
+    $("#docklbl").innerHTML = '<span class="dot"></span>Full read unlocked below';
+    try{ localStorage.setItem("arz-maturity-em", em); }catch(e){}
+  }
+
+  $("#unlock").addEventListener("click",function(){
+    var em=$("#d-email").value.trim(), nm=$("#d-name").value.trim();
+    var msg=$("#dockmsg");
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em)){ msg.textContent="That email does not look right."; $("#d-email").focus(); return; }
+    dock.dataset.state="sending"; msg.textContent="Sending...";
+    unlock(em,nm,"","");
+  });
+
+  $("#d-email").addEventListener("keydown",function(e){ if(e.key==="Enter") $("#unlock").click(); });
+  $("#d-name").addEventListener("keydown",function(e){ if(e.key==="Enter") $("#d-email").focus(); });
+
+  try{ var prev=localStorage.getItem("arz-maturity-em");
+       if(prev){ $("#d-email").value=prev; } }catch(e){}
+}
+
+(function(){
+  var h=document.querySelector(".nav-hamburger"), n=document.getElementById("nav");
+  if(h&&n) h.addEventListener("click",function(){ n.classList.toggle("open"); });
+  function onScroll(){ if(n) n.classList.toggle("scrolled", window.scrollY>8); }
+  window.addEventListener("scroll",onScroll,{passive:true}); onScroll();
+  requestAnimationFrame(function(){ requestAnimationFrame(function(){ document.body.classList.add("lit"); }); });
+})();
+</script>
+
+<div class="dock" id="dock" hidden>
+  <div class="dockin">
+    <div class="dockhead">
+      <div class="lbl" id="docklbl"><span class="dot"></span>Unlock your next moves and the engagement that fits</div>
+      <button class="docktoggle" id="dockmin" type="button">Hide</button>
+    </div>
+    <div class="dockbody" id="dockbody">
+      <div class="dockrow">
+        <div class="field"><label for="d-name">Name</label><input id="d-name" type="text" autocomplete="name" placeholder="Optional"></div>
+        <div class="field"><label for="d-email">Work email</label><input id="d-email" type="email" autocomplete="email" placeholder="you@company.com"></div>
+        <button class="btn" id="unlock" type="button">Unlock full report</button>
+      </div>
+      <div class="dockmsg" id="dockmsg">I send the written read plus the tear sheet for your engagement. No list, no sequence, nobody else sees your answers.</div>
+    </div>
+  </div>
+</div>
