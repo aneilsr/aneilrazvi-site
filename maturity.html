@@ -471,8 +471,9 @@ function render(){
     ans[idx]=parseInt(e.currentTarget.getAttribute("data-v"),10);
     if(idx<ALL.length-1){idx++;render();} else {show();}
   });
+  if(idx+1>progMax){ progMax=idx+1; prog("q",{question:idx+1, axis:$("#qaxis").textContent}); }
 }
-$("#start").addEventListener("click",function(){$("#intro").hidden=true;$("#quiz").hidden=false;idx=0;render();window.scrollTo(0,0);});
+$("#start").addEventListener("click",function(){prog("start");$("#intro").hidden=true;$("#quiz").hidden=false;idx=0;render();window.scrollTo(0,0);});
 $("#back").addEventListener("click",function(){if(idx>0){idx--;render();}});
 
 function payload(extra){
@@ -497,6 +498,29 @@ function payload(extra){
 function UTM(n){ try{ return new URLSearchParams(location.search).get(n) || null; }catch(e){ return null; } }
 function post(p){ if(!LEAD_ENDPOINT) return Promise.resolve();
   return fetch(LEAD_ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(p)}).catch(function(){}); }
+
+// Funnel. Fires on land, on Start, on each new question reached, on the result, and on
+// the email unlock. Server side is monotonic, so a hit arriving late cannot walk a
+// visitor backwards, and going back a question does not re-fire.
+var PROGRESS_ENDPOINT = "/api/progress";
+var progMax = 0;
+function prog(ev, extra){
+  if(!PROGRESS_ENDPOINT) return;
+  var answered=0, j;
+  for(j=0;j<ans.length;j++) if(ans[j]!=null) answered++;
+  var p={ session_id:SID, event:ev, answered:answered, questions_total:ALL.length,
+    utm_source:UTM("utm_source"), utm_medium:UTM("utm_medium"),
+    utm_campaign:UTM("utm_campaign"), utm_content:UTM("utm_content"),
+    referrer:(document.referrer||null),
+    landing_path:(location.pathname+location.search).slice(0,300),
+    screen_w:((window.screen&&window.screen.width)||null) };
+  if(extra) for(var k in extra) p[k]=extra[k];
+  var body=JSON.stringify(p);
+  try{
+    if(navigator.sendBeacon && navigator.sendBeacon(PROGRESS_ENDPOINT, new Blob([body],{type:"application/json"}))) return;
+  }catch(e){}
+  try{ fetch(PROGRESS_ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json"},body:body,keepalive:true}).catch(function(){}); }catch(e){}
+}
 
 function offers(cl,al){
   var sys=(ans[3]||0), meas=(ans[2]||0), seat=(ans[1]||0), use=(ans[6]||0), prod=(ans[9]||0);
@@ -641,7 +665,7 @@ function show(){
 
   $("#quiz").hidden=true; $("#result").hidden=false; window.scrollTo(0,0);
 
-  if(!posted){ posted=true; post(payload()); }
+  if(!posted){ posted=true; post(payload()); prog("complete",{question:ALL.length}); }
 
   document.body.classList.add("hasdock");
   var lb=$("#lb"), lbc=$("#lbc"), lbt=$("#lbt");
@@ -692,6 +716,7 @@ function show(){
   function unlock(em,nm,co,ro){
     $("#lockwrap").classList.add("open");
     post(payload({email:em,name:nm,company:co,role:ro,gated:true,send_report:true}));
+    prog("email",{question:ALL.length});
     dock.dataset.state="done";
     $("#dockbody").innerHTML =
       '<div class="dockdone">'+
@@ -723,7 +748,7 @@ function show(){
   if(h&&n) h.addEventListener("click",function(){ n.classList.toggle("open"); });
   function onScroll(){ if(n) n.classList.toggle("scrolled", window.scrollY>8); }
   window.addEventListener("scroll",onScroll,{passive:true}); onScroll();
-  requestAnimationFrame(function(){ requestAnimationFrame(function(){ document.body.classList.add("lit");document.documentElement.classList.add("lit");
+  requestAnimationFrame(function(){ requestAnimationFrame(function(){ document.body.classList.add("lit");document.documentElement.classList.add("lit"); prog("land");
   (function(){var el=document.getElementById("qtotal");if(!el)return;var n=CAPDIM.length+AIDIM.length+CTX.length;var w=["Zero","One","Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten","Eleven","Twelve","Thirteen","Fourteen","Fifteen","Sixteen","Seventeen","Eighteen","Nineteen","Twenty"];el.textContent = w[n] || String(n);})(); }); });
 })();
 </script>

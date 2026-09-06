@@ -33,7 +33,8 @@ runtime, so editing the questions updates the wording automatically. Do not hard
 | `report.html` | site repo root | Per-lead read at `/report.html?s=<session_id>`. Fetches from `/api/report`, redraws the same charts, prints to a 2-page PDF |
 | `api/lead.js` | site repo | Upserts the lead, sends the branded report email via Resend, notifies Aneil |
 | `api/report.js` | site repo | GET returns one lead's scores by session id. POST logs an interaction |
-| Supabase `bpdjmixiohrqqoxbljvl` | job-search-hq | `leads`, `report_events`, plus the `report_activity` and `report_forwarding` views |
+| `api/progress.js` | site repo | Records the funnel: one row per visitor, moved forward on every step. This is how abandonment is measured |
+| Supabase `bpdjmixiohrqqoxbljvl` | job-search-hq | `leads`, `report_events`, `assessment_progress`, plus the `report_activity`, `report_forwarding`, `assessment_dropoff` and `assessment_abandoned` views |
 
 **The scoring logic lives in exactly one place: `maturity.html`.** `report.html` and the PDF
 generator extract those blocks verbatim rather than reimplementing them, so a score can never
@@ -63,10 +64,42 @@ Records `device`, `os`, `browser`, `screen_w`, `country`, `city`, `is_bot`.
 **No IP address is stored anywhere** by design: enough to tell two machines apart, not enough
 to identify a person.
 
+### `assessment_progress`
+One row per visitor, keyed on the same `session_id` `leads` uses. Written from
+`/api/progress` through the `record_assessment_progress` RPC.
+
+Five events fire from `maturity.html`:
+
+| Event | When | Carries |
+|---|---|---|
+| `land` | the page finishes loading | this is the funnel denominator |
+| `start` | the Start button is pressed | |
+| `q` | a question is reached for the first time | `question` (1 based), `axis` |
+| `complete` | the result screen renders | |
+| `email` | the unlock is submitted | |
+
+**The row only ever moves forward.** `max_question`, `answered_count`, `started`,
+`completed` and `gave_email` are merged with `greatest` and `or`, so a hit that arrives
+late cannot walk a visitor backwards, and pressing Back does not re-fire. Attribution columns
+are first touch and never overwritten. Device columns are last touch.
+
+Transport is `navigator.sendBeacon`, falling back to `fetch` with `keepalive`. The endpoint
+always returns 204 and never blocks the visitor, so a broken analytics call cannot break the
+assessment.
+
+Same privacy shape as `report_events`: coarse device and city, **no IP address anywhere**.
+
 ### Views
-- `report_activity` — every open and download in plain language
-- `report_forwarding` — one row per lead: opens, downloads, distinct real machines, and
+- `report_activity`: every open and download in plain language
+- `report_forwarding`: one row per lead: opens, downloads, distinct real machines, and
   `likely_forwarded`
+- `assessment_dropoff`: the funnel by step, bots excluded. Read it top to bottom: the biggest
+  gap between two adjacent rows is where people quit
+- `assessment_abandoned`: one row per person who started and never saw a result, with where
+  they quit, where they came from, and how long they lasted
+
+All five views are `security_invoker`, so they respect row level security rather than running
+with the creator's rights. Do not recreate one without setting that again.
 
 ---
 
@@ -110,9 +143,15 @@ losing data.
 
 ## Where the CTA lives
 
-Nav link on every page. A full call-to-action block on: `index.html`, `portfolio.html`,
-`work-with-me.html`, and all nine case studies. Plus an entry in `links.html`, positioned
-straight after "Book a call".
+Nav link on every page.
+
+`index.html` carries a full section, `#maturity`, sitting between Selected Work and Speaking.
+It explains both axes and holds the quadrant map. It deliberately breaks the page's dark
+alternation so it reads as the one interactive thing on the homepage. The smaller duplicate
+block that used to sit above the footer was removed on 2026-09-06: one headline, one place.
+
+A call-to-action block on `portfolio.html`, `work-with-me.html`, and all nine case studies.
+Plus an entry in `links.html`, positioned straight after "Book a call".
 
 ---
 
@@ -127,6 +166,12 @@ drop once you are sure nothing is needed.
 ## Useful queries
 
 ```sql
+-- where people quit
+select * from assessment_dropoff order by step_no;
+
+-- who bailed, and from what source
+select quit_at, came_from, device, seconds_on_page from assessment_abandoned;
+
 -- what came in, and from where
 select utm_source, count(*) leads from leads group by 1 order by 2 desc;
 

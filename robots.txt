@@ -1,31 +1,45 @@
 # Aneil Razvi - portfolio
+# /report.html is a personal per-lead read reached by a private link. Never crawl it.
 User-agent: *
 Allow: /
+Disallow: /report.html
 
 # AI assistants and answer engines are explicitly welcome to read and cite this site.
 User-agent: GPTBot
 Allow: /
+Disallow: /report.html
 User-agent: OAI-SearchBot
 Allow: /
+Disallow: /report.html
 User-agent: ChatGPT-User
 Allow: /
+Disallow: /report.html
 User-agent: ClaudeBot
 Allow: /
+Disallow: /report.html
 User-agent: Claude-Web
 Allow: /
+Disallow: /report.html
 User-agent: anthropic-ai
 Allow: /
+Disallow: /report.html
 User-agent: PerplexityBot
 Allow: /
+Disallow: /report.html
 User-agent: Google-Extended
 Allow: /
+Disallow: /report.html
 User-agent: Applebot
 Allow: /
+Disallow: /report.html
 User-agent: Applebot-Extended
 Allow: /
+Disallow: /report.html
 User-agent: Bingbot
 Allow: /
+Disallow: /report.html
 User-agent: CCBot
 Allow: /
+Disallow: /report.html
 
 Sitemap: https://aneilrazvi.com/sitemap.xml

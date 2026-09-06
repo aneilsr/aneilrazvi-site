@@ -246,7 +246,6 @@
       text-decoration: none; transition: all 0.2s;
     }
     .contact-card:hover { border-color: var(--teal); background: rgba(0,188,212,0.08); transform: translateY(-3px); }
-    .contact-card .cc-icon { font-size: 1.6rem; margin-bottom: 10px; }
     .contact-card .cc-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--teal); font-weight: 600; margin-bottom: 6px; }
     .contact-card .cc-value { color: white; font-size: 0.92rem; font-weight: 500; }
 
@@ -269,9 +268,43 @@
     }
     .footer-socials a:hover { color: var(--teal); }
 
+
+    /* ─── DESIGN MATURITY ─── */
+    #maturity { background: linear-gradient(160deg, #0c1620 0%, #0F1923 60%, #10202b 100%); border-top: 1px solid rgba(0,188,212,0.14); border-bottom: 1px solid rgba(0,188,212,0.14); }
+    #maturity .section-tag { color: var(--teal); }
+    #maturity h2.section-title { color: #fff; }
+    #maturity .section-sub { color: rgba(255,255,255,0.55); margin-bottom: 28px; }
+    .dm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    .dm-list { list-style: none; margin: 0 0 32px; padding: 0; display: flex; flex-direction: column; gap: 14px; }
+    .dm-list li { position: relative; padding-left: 26px; font-size: 0.93rem; line-height: 1.65; color: rgba(255,255,255,0.55); }
+    .dm-list li b { color: #fff; font-weight: 600; }
+    .dm-list li::before {
+      content: ''; position: absolute; left: 0; top: 0.55em;
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--teal); box-shadow: 0 0 0 4px rgba(0,188,212,0.14);
+    }
+    .dm-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--teal); color: var(--dark);
+      font-weight: 700; font-size: 0.97rem;
+      padding: 14px 28px; border-radius: 100px; text-decoration: none;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .dm-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,188,212,0.25); }
+    .dm-right { }
+    .dm-map { width: 100%; height: auto; display: block; }
+    .dm-map text { font-family: inherit; }
+    .dm-map .dm-q { fill: rgba(255,255,255,0.42); font-size: 12px; }
+    .dm-map .dm-q-r { text-anchor: end; }
+    .dm-map .dm-lbl { fill: rgba(255,255,255,0.72); font-size: 13px; font-weight: 600; }
+    .dm-map .dm-ax { fill: rgba(255,255,255,0.38); font-size: 11.5px; letter-spacing: 0.04em; text-transform: uppercase; }
+    .dm-map .dm-ax-t { fill: var(--teal); font-size: 11.5px; font-weight: 700; letter-spacing: 0.12em; }
+    .dm-cap { margin-top: 18px; font-size: 0.83rem; color: rgba(255,255,255,0.38); line-height: 1.6; text-align: center; }
+
     /* ─── RESPONSIVE ─── */
     @media (max-width: 900px) {
       .about-grid, .speaking-grid, .community-grid { grid-template-columns: 1fr; gap: 40px; }
+      .dm-grid { grid-template-columns: 1fr; gap: 44px; }
       .services-grid { grid-template-columns: 1fr; }
       .work-grid { grid-template-columns: 1fr; }
       .nav-links, .nav-cta { display: none; }
@@ -560,6 +593,68 @@
     </div>
   </section>
 
+
+  <!-- DESIGN MATURITY -->
+  <section id="maturity">
+    <div class="container">
+      <div class="dm-grid">
+        <div class="dm-left fade-up">
+          <span class="section-tag">Design Maturity</span>
+          <h2 class="section-title">Where does your design<br /><em>function actually sit?</em></h2>
+          <p class="section-sub">Most maturity models collapse everything into a single number. Two things move independently: how established your design practice is, and how far your AI adoption has actually gone. A team can be strong on one and nowhere on the other, and the fix is completely different depending on which.</p>
+          <ul class="dm-list">
+            <li><b>Fifteen questions, about four minutes.</b> No email required to see where you land.</li>
+            <li><b>Scored on two axes.</b> Design capability across twelve dimensions, AI adoption scored separately.</li>
+            <li><b>Placed against population data.</b> Roughly half of organizations sit at Emergent. About 4 percent reach Integrated.</li>
+            <li><b>You get the honest read.</b> Including the times the answer is that you do not need me yet.</li>
+          </ul>
+          <a href="maturity.html" class="dm-btn">
+            Take the assessment
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <div class="dm-right fade-up">
+          <svg class="dm-map" viewBox="0 0 440 372" role="img" aria-label="A two axis map. The horizontal axis is design capability from Absent to User-Driven. The vertical axis is AI adoption from Limited to Symbiotic. Roughly half of organizations cluster low on both axes, and about four percent reach the upper right.">
+            <defs>
+              <linearGradient id="dmfill" x1="0" y1="1" x2="1" y2="0">
+                <stop offset="0" stop-color="#00BCD4" stop-opacity="0.015" />
+                <stop offset="1" stop-color="#00BCD4" stop-opacity="0.14" />
+              </linearGradient>
+            </defs>
+
+            <rect x="62" y="18" width="352" height="286" fill="url(#dmfill)" stroke="rgba(255,255,255,0.10)" />
+            <line x1="238" y1="18" x2="238" y2="304" stroke="rgba(255,255,255,0.09)" stroke-dasharray="4 6" />
+            <line x1="62" y1="161" x2="414" y2="161" stroke="rgba(255,255,255,0.09)" stroke-dasharray="4 6" />
+
+            <text class="dm-q" x="74" y="36">AI shipped with no</text>
+            <text class="dm-q" x="74" y="49">practice to hold it</text>
+            <text class="dm-q dm-q-r" x="402" y="36">Integrated, and</text>
+            <text class="dm-q dm-q-r" x="402" y="49">compounding</text>
+            <text class="dm-q" x="74" y="284">Design as cleanup,</text>
+            <text class="dm-q" x="74" y="297">AI as novelty</text>
+            <text class="dm-q dm-q-r" x="402" y="284">Real practice, AI</text>
+            <text class="dm-q dm-q-r" x="402" y="297">still on the shelf</text>
+
+            <ellipse cx="164" cy="206" rx="84" ry="52" fill="#00BCD4" fill-opacity="0.10" stroke="#00BCD4" stroke-opacity="0.45" stroke-dasharray="5 5" />
+            <text class="dm-lbl" x="164" y="201" text-anchor="middle">Roughly half of</text>
+            <text class="dm-lbl" x="164" y="218" text-anchor="middle">organizations</text>
+
+            <circle cx="345" cy="74" r="7" fill="#00BCD4" />
+            <circle cx="345" cy="74" r="15" fill="none" stroke="#00BCD4" stroke-opacity="0.35" />
+            <text class="dm-lbl" x="345" y="110" text-anchor="middle">About 4 percent</text>
+
+            <text class="dm-ax" x="62" y="332">Absent</text>
+            <text class="dm-ax dm-q-r" x="414" y="332">User-Driven</text>
+            <text class="dm-ax dm-ax-t" x="238" y="356" text-anchor="middle">Design capability</text>
+            <text class="dm-ax dm-ax-t" transform="translate(26,161) rotate(-90)" text-anchor="middle">AI adoption</text>
+          </svg>
+          <p class="dm-cap">The assessment plots you on both axes and shows the spread you sit inside.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- SPEAKING -->
   <section id="speaking">
     <div class="container">
@@ -646,23 +741,20 @@
     <div class="container">
       <div class="fade-up">
         <span class="section-tag">Contact</span>
-        <h2 class="section-title">The conversation<br /><em>will be worth it.</em></h2>
+        <h2 class="section-title">Tell me what's<br /><em>in the way.</em></h2>
         <p class="section-sub" style="color: rgba(255,255,255,0.5);">
           If you're building something complex and need a leader who can bridge AI, systems thinking, and design. Let's talk.
         </p>
         <div class="contact-options">
           <a href="mailto:hi@aneilrazvi.com" class="contact-card">
-            <div class="cc-icon">📩</div>
             <div class="cc-label">Email</div>
             <div class="cc-value">hi@aneilrazvi.com</div>
           </a>
           <a href="tel:14692614282" class="contact-card">
-            <div class="cc-icon">📞</div>
             <div class="cc-label">Phone</div>
             <div class="cc-value">1-469-261-4282</div>
           </a>
           <a href="https://www.linkedin.com/in/aneilrazvi/" target="_blank" rel="noopener" class="contact-card">
-            <div class="cc-icon">💼</div>
             <div class="cc-label">LinkedIn</div>
             <div class="cc-value">linkedin.com/in/aneilrazvi</div>
           </a>
@@ -672,14 +764,7 @@
   </section>
 
   <!-- FOOTER -->
-  <section style="background:#0c1620;border-top:1px solid rgba(255,255,255,.08);padding:3.6rem 6%">
-  <div style="max-width:900px;margin:0 auto;text-align:center">
-    <div style="color:#00BCD4;font-size:.72rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase">Free, and it takes four minutes</div>
-    <h2 style="font-family:'DM Serif Display',serif;font-size:clamp(1.6rem,3vw,2.2rem);color:#fff;font-weight:400;margin:.6rem 0 .8rem">Where does your design function actually sit?</h2>
-    <p style="color:rgba(255,255,255,.68);font-size:1rem;line-height:1.7;font-weight:300;max-width:620px;margin:0 auto 1.6rem">Two axes most assessments collapse into one: how mature your design practice is, and separately how far your AI adoption has actually gone. Scored against real population data. No email needed to see where you land.</p>
-    <a href="maturity.html" style="display:inline-block;background:#00BCD4;color:#0F1923;font-weight:700;font-size:.98rem;padding:.85rem 1.8rem;border-radius:99px;text-decoration:none">Take the assessment</a>
-  </div>
-</section>
+  
 <footer style="background:#0a1420;border-top:1px solid rgba(255,255,255,.08);padding:40px 6%;text-align:center;color:rgba(255,255,255,.6)"><div style="font-family:'DM Serif Display',serif;font-size:1.2rem;color:#fff;margin-bottom:12px">Aneil <span style="color:var(--teal)">Razvi</span></div><div style="font-size:.9rem"><a style="color:#cfe;text-decoration:none;margin:0 10px" href="https://www.linkedin.com/in/aneilrazvi/" target="_blank">LinkedIn</a>·<a style="color:#cfe;text-decoration:none;margin:0 10px" href="https://cal.com/aneil-razvi" target="_blank">Book a call</a>·<a style="color:#cfe;text-decoration:none;margin:0 10px" href="mailto:hi@aneilrazvi.com">Email</a></div><div style="font-size:.78rem;color:rgba(255,255,255,.4);margin-top:14px">© 2026 Aneil Razvi · Allen, TX</div></footer>
 
   <script>
