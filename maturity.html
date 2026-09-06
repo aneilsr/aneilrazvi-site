@@ -306,7 +306,7 @@ body.lit .fadein{opacity:1;transform:none;}
   <div class="tick"></div>
   <div class="eyebrow" style="margin-top:.75rem;">Aneil Razvi</div>
   <h1>Where does your design function actually sit?</h1>
-  <p class="lede">Twelve questions, about four minutes. You get a read on two axes most assessments collapse into one: <b>how mature your design practice is</b>, and separately, <b>how far your AI adoption has actually gone</b>. Most companies are further along on one than the other, and the gap between them is usually the real problem.</p>
+  <p class="lede"><span id="qtotal">Fifteen</span> questions, about four minutes. You get a read on two axes most assessments collapse into one: <b>how mature your design practice is</b>, and separately, <b>how far your AI adoption has actually gone</b>. Most companies are further along on one than the other, and the gap between them is usually the real problem.</p>
 
   <div class="facts">
     <div class="fact"><div class="n">49%</div><div class="t">of organizations sit at a single level, Emergent, out of six</div></div>
@@ -721,7 +721,8 @@ function show(){
   if(h&&n) h.addEventListener("click",function(){ n.classList.toggle("open"); });
   function onScroll(){ if(n) n.classList.toggle("scrolled", window.scrollY>8); }
   window.addEventListener("scroll",onScroll,{passive:true}); onScroll();
-  requestAnimationFrame(function(){ requestAnimationFrame(function(){ document.body.classList.add("lit");document.documentElement.classList.add("lit"); }); });
+  requestAnimationFrame(function(){ requestAnimationFrame(function(){ document.body.classList.add("lit");document.documentElement.classList.add("lit");
+  (function(){var el=document.getElementById("qtotal");if(!el)return;var n=CAPDIM.length+AIDIM.length+CTX.length;var w=["Zero","One","Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten","Eleven","Twelve","Thirteen","Fourteen","Fifteen","Sixteen","Seventeen","Eighteen","Nineteen","Twenty"];el.textContent = w[n] || String(n);})(); }); });
 })();
 </script>
 
