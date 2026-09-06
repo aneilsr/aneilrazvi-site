@@ -267,9 +267,7 @@ body.lit .fadein{opacity:1;transform:none;}
 
 /* --- v4: chart lightbox --- */
 .card .scroller{position:relative;cursor:zoom-in;}
-.zoomhint{position:absolute;right:.4rem;top:.4rem;z-index:2;display:inline-flex;align-items:center;gap:.3rem;background:rgba(255,255,255,.94);
-  border:1px solid var(--line);border-radius:99px;padding:.25rem .6rem;font-size:.7rem;font-weight:600;
-  color:var(--muted);display:flex;align-items:center;gap:.3rem;pointer-events:none;transition:all var(--transition);}
+.zoomhint{position:absolute;right:.5rem;top:.5rem;z-index:2;display:flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:var(--white);border:1px solid var(--line);box-shadow:0 1px 4px rgba(15,25,35,.14);color:var(--muted);pointer-events:none;transition:all var(--transition);}
 .card .scroller:hover .zoomhint{color:var(--teal-dark);border-color:var(--teal);}
 .lb{position:fixed;inset:0;z-index:90;background:rgba(15,25,35,.86);backdrop-filter:blur(4px);
   display:flex;align-items:center;justify-content:center;padding:2.5rem 1.2rem;opacity:0;
@@ -614,8 +612,8 @@ function show(){
       '<div class="lv a"><div class="ax">AI maturity</div><div class="nm">'+A.n+'</div><div class="sc">Level '+(al+1)+' of 6 · '+as+' of 30 points</div><p>'+A.d+'</p></div>'+
     '</div>'+
     '<div class="charts">'+
-      '<div class="card"><h3>Where you sit</h3><div class="sub">Against the actual population. Shading is how many organizations are in each column.</div><div class="scroller" data-zoom="Where you sit"><div class="zoomhint"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5M11 8v6M8 11h6"/></svg>Tap to enlarge</div>'+scatter(cl,al)+'</div><p class="capt">Almost everyone lands in the middle two columns. The ring is you.</p></div>'+
-      '<div class="card"><h3>Your profile shape</h3><div class="sub">All twelve dimensions. The dents are where the work is.</div><div class="scroller sc2" data-zoom="Your profile shape"><div class="zoomhint"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5M11 8v6M8 11h6"/></svg>Tap to enlarge</div>'+radar()+'</div>'+
+      '<div class="card"><h3>Where you sit</h3><div class="sub">Against the actual population. Shading is how many organizations are in each column.</div><div class="scroller" data-zoom="Where you sit"><div class="zoomhint" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6M11 8.2v5.6M8.2 11h5.6"/></svg></div>'+scatter(cl,al)+'</div><p class="capt">Almost everyone lands in the middle two columns. The ring is you.</p></div>'+
+      '<div class="card"><h3>Your profile shape</h3><div class="sub">All twelve dimensions. The dents are where the work is.</div><div class="scroller sc2" data-zoom="Your profile shape"><div class="zoomhint" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6M11 8.2v5.6M8.2 11h5.6"/></svg></div>'+radar()+'</div>'+
       '<p class="capt">Lowest dimension: <b style="color:var(--text)">'+lowName+'</b>. That is where I would start.</p></div>'+
     '</div>'+
     headcount+
@@ -649,7 +647,7 @@ function show(){
   var lb=$("#lb"), lbc=$("#lbc"), lbt=$("#lbt");
   function closeLb(){ lb.classList.remove("on"); setTimeout(function(){ lb.hidden=true; lbc.innerHTML=""; },220); }
   function openLb(host){
-    var svg=host.querySelector("svg"); if(!svg) return;
+    var svg=host.querySelector(":scope > svg") || host.querySelector("svg:not(.zoomhint svg)"); if(!svg) return;
     lbt.textContent = host.getAttribute("data-zoom") || "";
     lbc.innerHTML = svg.outerHTML;
     lb.hidden=false;

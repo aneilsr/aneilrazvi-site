@@ -81,11 +81,31 @@ table.rank td.n{font-weight:600;color:var(--dark)} table.rank td.f{text-align:ri
   .bands,.charts,.dims,.ts{grid-template-columns:1fr}
   h1{font-size:1.85rem} .sheet{padding:1.4rem 1.2rem 1.6rem}
 }
+.zoom{position:absolute;right:.55rem;top:.55rem;z-index:2;display:flex;align-items:center;justify-content:center;
+ width:30px;height:30px;border-radius:50%;background:var(--white);border:1px solid var(--line);
+ box-shadow:0 1px 4px rgba(15,25,35,.14);color:var(--muted);cursor:zoom-in}
+.zwrap{position:relative}
+.zwrap:hover .zoom{color:var(--teal-dark);border-color:var(--teal)}
+.lb{position:fixed;inset:0;z-index:60;background:rgba(15,25,35,.72);display:flex;align-items:center;
+ justify-content:center;padding:1.2rem;opacity:0;transition:opacity .18s ease}
+.lb.on{opacity:1}
+.lbin{background:var(--white);border-radius:var(--radius);padding:1.5rem;width:min(94vw,940px);
+ max-height:92vh;overflow:auto;position:relative}
+.lbh{display:flex;justify-content:space-between;align-items:center;margin-bottom:.9rem}
+.lbh h4{font-family:'DM Serif Display',Georgia,serif;font-size:1.25rem;color:var(--dark);font-weight:400}
+.lbx{background:none;border:none;font-size:1.4rem;line-height:1;color:var(--muted);cursor:pointer;padding:.2rem .4rem}
+@media print{.lb{display:none!important}.zoom{display:none!important}}
+@page{size:Letter;margin:0}
 @media print{
-  body{background:#fff} .wrap{max-width:none;padding:0}
-  .sheet{box-shadow:none;border-radius:0;padding:0 0 1.2rem;page-break-inside:avoid}
+  html{font-size:12.5px}
+  html,body{background:#fff}
+  .wrap{max-width:none;padding:0;margin:0}
+  .sheet{box-shadow:none;border-radius:0;margin:0;padding:.5in .55in}
+  .sheet:first-of-type{break-after:page;page-break-after:always}
   .actions,.noprint{display:none!important}
   .charts,.dims,.ts,.bands{grid-template-columns:1fr 1fr!important}
+  .bands,.charts,.dims,.gap,.rec,.ts,table.rank,ol,.sig{break-inside:avoid;page-break-inside:avoid}
+  h3{break-after:avoid;page-break-after:avoid}
   a[href]:after{content:""}
 }
 </style></head><body>
@@ -262,6 +282,35 @@ function track(ev){
   } catch(e){}
 }
 
+
+function zbtn(){ return '<div class="zoom" role="button" tabindex="0" aria-label="Enlarge chart">'+
+  '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">'+
+  '<circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6M11 8.2v5.6M8.2 11h5.6"/></svg></div>'; }
+
+function wireZoom(){
+  var lb = document.createElement("div");
+  lb.className = "lb"; lb.hidden = true;
+  lb.innerHTML = '<div class="lbin"><div class="lbh"><h4></h4><button class="lbx" aria-label="Close">&times;</button></div><div class="lbc"></div></div>';
+  document.body.appendChild(lb);
+  var h4 = lb.querySelector("h4"), body = lb.querySelector(".lbc");
+  function close(){ lb.classList.remove("on"); setTimeout(function(){ lb.hidden = true; }, 180); }
+  lb.addEventListener("click", function(e){ if(e.target === lb) close(); });
+  lb.querySelector(".lbx").addEventListener("click", close);
+  document.addEventListener("keydown", function(e){ if(e.key === "Escape" && !lb.hidden) close(); });
+  Array.prototype.forEach.call(document.querySelectorAll(".zwrap"), function(w){
+    function open(){
+      var svg = w.querySelector(":scope > svg");   /* the chart, never the button icon */
+      if(!svg) return;
+      h4.textContent = w.getAttribute("data-zoom") || "";
+      body.innerHTML = svg.outerHTML;
+      lb.hidden = false;
+      requestAnimationFrame(function(){ lb.classList.add("on"); });
+    }
+    w.addEventListener("click", open);
+    w.addEventListener("keydown", function(e){ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); open(); } });
+  });
+}
+
 function bars(labels, offset, colour){
   return labels.map(function(l,i){
     var v = ans[i+offset] || 0;
@@ -316,8 +365,8 @@ function draw(d){
     '</div>'+
     '<h3>Where you sit, and the shape of it</h3>'+
     '<div class="charts">'+
-      '<div>'+scatter(cl,al)+'<div class="cap2">Against the actual population. Shading is how many organizations sit in each column. The ring is you.</div></div>'+
-      '<div>'+radar()+'<div class="cap2">All twelve dimensions. The dents are where the work is. Lowest: <b>'+esc(lowName)+'</b>.</div></div>'+
+      '<div><div class="zwrap" data-zoom="Where you sit">'+zbtn()+scatter(cl,al)+'</div><div class="cap2">Against the actual population. Shading is how many organizations sit in each column. The ring is you.</div></div>'+
+      '<div><div class="zwrap" data-zoom="Your profile shape">'+zbtn()+radar()+'</div><div class="cap2">All twelve dimensions. The dents are where the work is. Lowest: <b>'+esc(lowName)+'</b>.</div></div>'+
     '</div>'+
     '<h3>Dimension by dimension</h3>'+
     '<div class="dims"><div>'+bars(CAPDIM,0,"#0097A7")+'</div><div>'+bars(AIDIM,6,"#F97316")+'</div></div>'+
@@ -359,7 +408,13 @@ function draw(d){
   if (bk) bk.addEventListener("click", function(){ track("book_click"); });
   var sv = document.getElementById("save");
   if (sv) sv.addEventListener("click", function(){ window.print(); });
-  window.addEventListener("beforeprint", function(){ track("print"); });
+  wireZoom();
+  var BASE_TITLE = document.title;
+  window.addEventListener("beforeprint", function(){
+    track("print");
+    document.title = "Aneil Razvi - Design Maturity Read" + (d.company ? " - " + d.company : "");
+  });
+  window.addEventListener("afterprint", function(){ document.title = BASE_TITLE; });
 }
 
 (function(){

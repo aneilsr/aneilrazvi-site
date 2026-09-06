@@ -64,9 +64,9 @@ export default async function handler(req, res) {
     const REPORT_URL = `https://aneilrazvi.com/report.html?s=${encodeURIComponent(b.session_id || "")}`;
     const dims = (o) => o ? Object.keys(o).map(k => `${k}: ${o[k]}/5`).join(" &middot; ") : "";
 
-    const bar = (n) => {
+    const bar = (n, w) => {
       const pct = Math.round((Number(n) || 0) / 5 * 100);
-      return `<table role="presentation" cellpadding="0" cellspacing="0" style="width:120px;border-collapse:collapse"><tr>
+      return `<table role="presentation" cellpadding="0" cellspacing="0" style="width:${w||120}px;border-collapse:collapse"><tr>
         <td style="height:6px;background:#E2E8EC;border-radius:3px;padding:0">
           <table role="presentation" cellpadding="0" cellspacing="0" style="width:${pct}%;border-collapse:collapse"><tr>
             <td style="height:6px;background:#00BCD4;border-radius:3px;font-size:0;line-height:0">&nbsp;</td></tr></table>
@@ -74,9 +74,9 @@ export default async function handler(req, res) {
     };
     const dimRows = (o, accent) => !o ? "" : Object.keys(o).map(k => `
       <tr>
-        <td style="padding:5px 14px 5px 0;font:400 13px/1.4 Helvetica,Arial,sans-serif;color:#6B7280;white-space:nowrap">${k}</td>
-        <td style="padding:5px 10px 5px 0;width:120px">${bar(o[k]).replace("#00BCD4", accent)}</td>
-        <td style="padding:5px 0;font:600 13px/1.4 Helvetica,Arial,sans-serif;color:#1A1A2E;white-space:nowrap">${o[k]}<span style="color:#9AA5AD;font-weight:400">/5</span></td>
+        <td style="padding:4px 8px 4px 0;font:400 12px/1.35 Helvetica,Arial,sans-serif;color:#6B7280;white-space:nowrap">${k}</td>
+        <td style="padding:4px 8px 4px 0;width:86px">${bar(o[k], 86).replace("#00BCD4", accent)}</td>
+        <td style="padding:4px 0;font:600 12px/1.35 Helvetica,Arial,sans-serif;color:#1A1A2E;white-space:nowrap">${o[k]}<span style="color:#9AA5AD;font-weight:400">/5</span></td>
       </tr>`).join("");
 
     // Population matrix, drawn as a table because Gmail strips inline SVG.
@@ -123,17 +123,20 @@ export default async function handler(req, res) {
   </td></tr>
 
   <tr><td style="padding:20px 34px 0">
-    <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;border-collapse:separate;border-spacing:0 8px">
-      <tr><td style="background:#E4F8FB;border-left:4px solid #00BCD4;border-radius:8px;padding:14px 16px">
-        <div style="font:700 10px/1 Helvetica,Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#0097A7">Design capability</div>
-        <div style="font:400 22px/1.15 Georgia,serif;color:#1E3A5F;margin-top:5px">${b.capability_label}</div>
-        <div style="font:400 13px/1.4 Helvetica,Arial,sans-serif;color:#6B7280;margin-top:3px">Level ${b.capability_level} of 6</div>
-      </td></tr>
-      <tr><td style="background:#FFF1E6;border-left:4px solid #F97316;border-radius:8px;padding:14px 16px">
-        <div style="font:700 10px/1 Helvetica,Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#C2410C">AI maturity</div>
-        <div style="font:400 22px/1.15 Georgia,serif;color:#1E3A5F;margin-top:5px">${b.ai_label}</div>
-        <div style="font:400 13px/1.4 Helvetica,Arial,sans-serif;color:#6B7280;margin-top:3px">Level ${b.ai_level} of 6</div>
-      </td></tr>
+    <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse">
+      <tr>
+        <td width="49%" valign="top" style="background:#E4F8FB;border-left:4px solid #00BCD4;border-radius:8px;padding:14px 16px">
+          <div style="font:700 10px/1 Helvetica,Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#0097A7">Design capability</div>
+          <div style="font:400 22px/1.15 Georgia,serif;color:#1E3A5F;margin-top:5px">${b.capability_label}</div>
+          <div style="font:400 13px/1.4 Helvetica,Arial,sans-serif;color:#6B7280;margin-top:3px">Level ${b.capability_level} of 6</div>
+        </td>
+        <td width="2%" style="font-size:0;line-height:0">&nbsp;</td>
+        <td width="49%" valign="top" style="background:#FFF1E6;border-left:4px solid #F97316;border-radius:8px;padding:14px 16px">
+          <div style="font:700 10px/1 Helvetica,Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#C2410C">AI maturity</div>
+          <div style="font:400 22px/1.15 Georgia,serif;color:#1E3A5F;margin-top:5px">${b.ai_label}</div>
+          <div style="font:400 13px/1.4 Helvetica,Arial,sans-serif;color:#6B7280;margin-top:3px">Level ${b.ai_level} of 6</div>
+        </td>
+      </tr>
     </table>
   </td></tr>
 
@@ -146,10 +149,19 @@ export default async function handler(req, res) {
   </td></tr>
 
   <tr><td style="padding:22px 34px 0">
-    <div style="font:700 11px/1 Helvetica,Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#6B7280;padding-bottom:8px">Design capability, by dimension</div>
-    <table role="presentation" cellpadding="0" cellspacing="0" style="border-collapse:collapse">${dimRows(b.capability_breakdown, "#00BCD4")}</table>
-    <div style="font:700 11px/1 Helvetica,Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#6B7280;padding:18px 0 8px">AI maturity, by dimension</div>
-    <table role="presentation" cellpadding="0" cellspacing="0" style="border-collapse:collapse">${dimRows(b.ai_breakdown, "#F97316")}</table>
+    <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse">
+      <tr>
+        <td width="49%" valign="top">
+          <div style="font:700 10px/1 Helvetica,Arial,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#0097A7;padding-bottom:9px">Design capability</div>
+          <table role="presentation" cellpadding="0" cellspacing="0" style="border-collapse:collapse">${dimRows(b.capability_breakdown, "#00BCD4")}</table>
+        </td>
+        <td width="2%" style="font-size:0;line-height:0">&nbsp;</td>
+        <td width="49%" valign="top">
+          <div style="font:700 10px/1 Helvetica,Arial,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#C2410C;padding-bottom:9px">AI maturity</div>
+          <table role="presentation" cellpadding="0" cellspacing="0" style="border-collapse:collapse">${dimRows(b.ai_breakdown, "#F97316")}</table>
+        </td>
+      </tr>
+    </table>
     <p style="margin:14px 0 0;font:400 13px/1.6 Helvetica,Arial,sans-serif;color:#9AA5AD">The low bars are where the work is.</p>
   </td></tr>
 
