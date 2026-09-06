@@ -482,6 +482,9 @@ function payload(extra){
   var cb={},ab={};
   for(var j=0;j<6;j++){cb[CAPDIM[j]]=ans[j];ab[AIDIM[j]]=ans[j+6];}
   var p={session_id:SID,source:"maturity-assessment",
+    utm_source:UTM("utm_source"), utm_medium:UTM("utm_medium"),
+    utm_campaign:UTM("utm_campaign"), utm_content:UTM("utm_content"),
+    referrer:(document.referrer||null), landing_path:(location.pathname+location.search).slice(0,300),
     capability_level:cl+1,capability_label:CAPL[cl].n,ai_level:al+1,ai_label:AIL[al].n,
     quadrant:CAPL[cl].n+" / "+AIL[al].n,
     team_size:(ans[12]!=null?CTX[0].o[ans[12]]:null),
@@ -493,6 +496,7 @@ function payload(extra){
   if(extra) for(var k in extra) p[k]=extra[k];
   return p;
 }
+function UTM(n){ try{ return new URLSearchParams(location.search).get(n) || null; }catch(e){ return null; } }
 function post(p){ if(!LEAD_ENDPOINT) return Promise.resolve();
   return fetch(LEAD_ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(p)}).catch(function(){}); }
 

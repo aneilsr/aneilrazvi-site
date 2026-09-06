@@ -17,6 +17,12 @@ export default async function handler(req, res) {
   const H = { "apikey": KEY, "Authorization": `Bearer ${KEY}`, "Content-Type": "application/json" };
 
   const row = {
+    utm_source: b.utm_source || null,
+    utm_medium: b.utm_medium || null,
+    utm_campaign: b.utm_campaign || null,
+    utm_content: b.utm_content || null,
+    referrer: b.referrer || null,
+    landing_path: b.landing_path || null,
     session_id: b.session_id,
     source: b.source || "maturity-assessment",
     capability_level: b.capability_level ?? null,
@@ -52,9 +58,10 @@ export default async function handler(req, res) {
 
   // Only email on the gated call, and never let a mail failure block the visitor.
   if (b.gated && b.email && process.env.RESEND_API_KEY) {
-    const t = process.env.LEAD_NOTIFY_TO || "aneilsyed@gmail.com";
+    const t = process.env.LEAD_NOTIFY_TO || "hi@aneilrazvi.com";
     const from = process.env.LEAD_FROM || "Aneil Razvi <hi@aneilrazvi.com>";
     const BOOKING = "https://cal.com/aneil-razvi/maturity-read";
+    const REPORT_URL = `https://aneilrazvi.com/report.html?s=${encodeURIComponent(b.session_id || "")}`;
     const dims = (o) => o ? Object.keys(o).map(k => `${k}: ${o[k]}/5`).join(" &middot; ") : "";
 
     const bar = (n) => {
@@ -155,6 +162,7 @@ export default async function handler(req, res) {
           Ranked against your answers, not a generic order. Reply and I will send the tear sheet for this engagement, written for your maturity band rather than in general.
         </p>
         <a href="${BOOKING}" style="display:inline-block;background:#00BCD4;color:#0F1923;font:700 14px/1 Helvetica,Arial,sans-serif;padding:13px 24px;border-radius:99px;text-decoration:none">Book thirty minutes</a>
+        <a href="${REPORT_URL}" style="display:inline-block;margin-left:10px;color:#00BCD4;font:600 14px/1 Helvetica,Arial,sans-serif;padding:13px 4px;text-decoration:none;border-bottom:1px solid rgba(0,188,212,.45)">Open the full read</a>
       </td></tr>
     </table>
   </td></tr>
@@ -163,14 +171,15 @@ export default async function handler(req, res) {
     <p style="margin:0 0 14px;font:400 14px/1.65 Helvetica,Arial,sans-serif;color:#6B7280">
       Free either way, and I will tell you honestly if the answer is that you do not need me yet.
     </p>
+    <p style="margin:0 0 14px;font:400 13px/1.6 Helvetica,Arial,sans-serif;color:#9AA5AD">
+      Your full read, with both charts and the engagement detail, lives at
+      <a href="${REPORT_URL}" style="color:#0097A7;text-decoration:none">this link</a>. It is yours to keep and it prints to a PDF.
+    </p>
     <div style="border-top:1px solid #E2E8EC;padding-top:14px">
       <div style="font:400 15px/1.3 Georgia,serif;color:#1E3A5F">Aneil Razvi</div>
       <div style="font:400 12px/1.5 Helvetica,Arial,sans-serif;color:#9AA5AD;margin-top:3px">
         Fractional design and AI experience leadership ·
         <a href="https://aneilrazvi.com" style="color:#0097A7;text-decoration:none">aneilrazvi.com</a>
-      </div>
-      <div style="font:400 12px/1.5 Helvetica,Arial,sans-serif;color:#9AA5AD;margin-top:9px">
-        I do not run a mailing list. If you want me to follow up, say so and I will.
       </div>
     </div>
   </td></tr>
