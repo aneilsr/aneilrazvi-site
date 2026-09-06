@@ -72,6 +72,37 @@ export default async function handler(req, res) {
         <td style="padding:5px 0;font:600 13px/1.4 Helvetica,Arial,sans-serif;color:#1A1A2E;white-space:nowrap">${o[k]}<span style="color:#9AA5AD;font-weight:400">/5</span></td>
       </tr>`).join("");
 
+    // Population matrix, drawn as a table because Gmail strips inline SVG.
+    // Column tints are the page's teal at (share/49)*0.20 opacity, pre-flattened onto white.
+    const matrixTable = () => {
+      const capN = ["Absent","Limited","Emergent","Structured","Integrated","User-Driven"];
+      const aiN  = ["Symbiotic","Leading","Embedded","Developing","Reactive","Limited"];
+      const share = [1, 17, 49, 28, 4, 0.04];
+      const tint  = ["#FEFFFF","#EDFAFC","#CCF2F6","#E2F7FA","#FBFEFE","#FFFFFF"];
+      const col = (Number(b.capability_level) || 1) - 1;          // 0..5, left to right
+      const rowFromTop = 6 - (Number(b.ai_level) || 1);            // aiN is top-down
+      let out = '<table role="presentation" cellpadding="0" cellspacing="0" style="border-collapse:collapse;width:100%">';
+      for (let r = 0; r < 6; r++) {
+        out += '<tr><td style="padding:0 8px 0 0;text-align:right;white-space:nowrap;font:400 11px/1 Helvetica,Arial,sans-serif;color:#9AA5AD">' + aiN[r] + '</td>';
+        for (let c = 0; c < 6; c++) {
+          const hit = (c === col && r === rowFromTop);
+          out += '<td style="border:1px solid #E2E8EC;background:' + (hit ? "#FFF1E6" : tint[c]) +
+                 ';height:26px;width:15%;text-align:center;font-size:0;line-height:0' +
+                 (hit ? ';border:2px solid #F97316' : '') + '">' +
+                 (hit ? '<span style="display:inline-block;width:10px;height:10px;background:#F97316;border-radius:50%;font-size:0;line-height:0">&nbsp;</span>' : '&nbsp;') +
+                 '</td>';
+        }
+        out += '</tr>';
+      }
+      out += '<tr><td></td>';
+      for (let c = 0; c < 6; c++) {
+        out += '<td style="padding:6px 2px 0;text-align:center;font:400 10px/1.3 Helvetica,Arial,sans-serif;color:#9AA5AD">' +
+               capN[c] + '<br><span style="font-weight:700;color:#0097A7">' + share[c] + '%</span></td>';
+      }
+      out += '</tr></table>';
+      return out;
+    };
+
     const toVisitor = `
 <div style="background:#F4F6F8;padding:28px 12px">
 <table role="presentation" cellpadding="0" cellspacing="0" style="max-width:600px;margin:0 auto;width:100%;background:#FFFFFF;border-radius:16px;border-collapse:separate;overflow:hidden">
@@ -97,6 +128,14 @@ export default async function handler(req, res) {
         <div style="font:400 13px/1.4 Helvetica,Arial,sans-serif;color:#6B7280;margin-top:3px">Level ${b.ai_level} of 6</div>
       </td></tr>
     </table>
+  </td></tr>
+
+  <tr><td style="padding:24px 34px 0">
+    <div style="font:700 11px/1 Helvetica,Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#6B7280;padding-bottom:10px">Where you sit</div>
+    ${matrixTable()}
+    <p style="margin:12px 0 0;font:400 13px/1.6 Helvetica,Arial,sans-serif;color:#9AA5AD">
+      Design capability runs left to right with the share of organizations in each column. AI maturity runs bottom to top. The orange marker is you.
+    </p>
   </td></tr>
 
   <tr><td style="padding:22px 34px 0">
