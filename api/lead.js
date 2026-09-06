@@ -179,6 +179,29 @@ export default async function handler(req, res) {
     </table>
   </td></tr>
 
+  <!-- The entry rung. Dashed and flat so it reads as separate from the recommendation
+       above rather than as a competing offer. Nested tables only: email clients drop
+       CSS borders on divs inconsistently. -->
+  <tr><td style="padding:14px 34px 0">
+    <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;background:#F4F6F8;border-radius:12px;border:1px dashed #CBD5DB;border-collapse:separate">
+      <tr><td style="padding:18px 22px">
+        <div style="font:700 10px/1 Helvetica,Arial,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#6B7280">If that is not a yes yet</div>
+        <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;margin-top:8px">
+          <tr>
+            <td style="font:400 20px/1.2 Georgia,serif;color:#1E3A5F">First Look</td>
+            <td style="text-align:right;font:700 14px/1.2 Helvetica,Arial,sans-serif;color:#1A1A2E;white-space:nowrap">$2,500<br /><span style="font:400 10px/1.4 Helvetica,Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#9AA5AD">one week</span></td>
+          </tr>
+        </table>
+        <p style="margin:6px 0 12px;font:400 13px/1.6 Helvetica,Arial,sans-serif;color:#6B7280">
+          Ninety minutes with me and a written read, before anyone signs anything larger. I go through your answers plus up to ten artefacts you send, we spend ninety minutes on it together, and you get a three page read: where the function actually sits, the constraint costing you the most, and what the first thirty days should be.
+        </p>
+        <p style="margin:0;padding-top:12px;border-top:1px solid #E2E8EC;font:400 13px/1.6 Helvetica,Arial,sans-serif;color:#1A1A2E">
+          <b style="color:#0097A7">Credited in full</b> against the AI Experience Framework, the Design System Build, or the retainer, if you start within thirty days. It does not stack with the Audit, because the Audit is this same work done properly. Decide you do not need me at all and you still keep the read.
+        </p>
+      </td></tr>
+    </table>
+  </td></tr>
+
   <tr><td style="padding:22px 34px 30px">
     <p style="margin:0 0 14px;font:400 14px/1.65 Helvetica,Arial,sans-serif;color:#6B7280">
       Free either way, and I will tell you honestly if the answer is that you do not need me yet.

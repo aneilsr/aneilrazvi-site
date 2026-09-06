@@ -69,6 +69,19 @@ table.rank th{text-align:left;font-size:.66rem;letter-spacing:.1em;text-transfor
  font-weight:700;padding:0 .6rem .4rem 0;border-bottom:1px solid var(--line)}
 table.rank td{padding:.5rem .6rem .5rem 0;border-bottom:1px solid #F2F5F6;color:#4B5563}
 table.rank td.n{font-weight:600;color:var(--dark)} table.rank td.f{text-align:right;font-weight:700;color:var(--teal-dark)}
+/* The entry rung. Dashed and flat so it reads as separate from the four ranked
+   engagements rather than as a fifth one competing with them. */
+.fl{margin-top:1rem;padding:1.05rem 1.2rem;border-radius:12px;border:1.5px dashed #CBD5DB;background:var(--gray)}
+.fl .k{font-size:.64rem;letter-spacing:.13em;text-transform:uppercase;font-weight:700;color:var(--muted);margin-bottom:.5rem}
+.fl .hd{display:flex;gap:1rem;align-items:flex-start;justify-content:space-between;flex-wrap:wrap}
+.fl .nm{font-family:'DM Serif Display',Georgia,serif;font-size:1.2rem;color:var(--navy)}
+.fl .why{font-size:.86rem;color:var(--muted);margin-top:.2rem}
+.fl .pr{font-size:.82rem;font-weight:700;color:var(--text);white-space:nowrap;text-align:right}
+.fl .pr span{display:block;font-weight:400;color:var(--muted);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;margin-top:.15rem}
+.fl ul{margin:.8rem 0 0}
+.fl li{font-size:.85rem}
+.fl .cr{margin-top:.85rem;padding-top:.75rem;border-top:1px solid var(--line);font-size:.86rem;color:var(--text);line-height:1.55}
+.fl .cr b{font-weight:700;color:var(--teal-dark)}
 .actions{display:flex;gap:.7rem;flex-wrap:wrap;margin-top:1.4rem}
 .b{display:inline-block;background:var(--teal);color:var(--dark);font-weight:700;font-size:.95rem;
  padding:.8rem 1.5rem;border-radius:99px;text-decoration:none;border:none;cursor:pointer;font-family:inherit}
@@ -100,14 +113,26 @@ table.rank td.n{font-weight:600;color:var(--dark)} table.rank td.f{text-align:ri
 @media print{.lb{display:none!important}.zoom{display:none!important}}
 @page{size:Letter;margin:0}
 @media print{
-  html{font-size:12.5px}
+  /* Chrome drops every CSS background when 'Background graphics' is unticked, which is the
+     default in the Save as PDF dialog. That left the dark recommendation card as pale grey
+     text on white. This forces backgrounds to print whatever the checkbox says. */
+  *,*::before,*::after{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  html{font-size:11.9px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
   html,body{background:#fff}
   .wrap{max-width:none;padding:0;margin:0}
-  .sheet{box-shadow:none;border-radius:0;margin:0;padding:.5in .55in}
+  .sheet{box-shadow:none;border-radius:0;margin:0;padding:.42in .5in}
+  /* tighten so the second sheet still lands on one page with the First Look band on it */
+  h3{margin:1.15rem 0 .6rem}
+  .rec{padding:1.2rem 1.35rem}
+  .rec h2{font-size:1.7rem;margin:.3rem 0 .4rem}
+  .ts{gap:1.2rem}
+  .fl{margin-top:.75rem;padding:.85rem 1rem}
+  .fl ul{margin-top:.6rem}
+  .sig{margin-top:1rem;padding-top:.7rem}
   .sheet:first-of-type{break-after:page;page-break-after:always}
   .actions,.noprint{display:none!important}
   .charts,.dims,.ts,.bands{grid-template-columns:1fr 1fr!important}
-  .bands,.charts,.dims,.gap,.rec,.ts,table.rank,ol,.sig{break-inside:avoid;page-break-inside:avoid}
+  .bands,.charts,.dims,.gap,.rec,.ts,.fl,table.rank,ol,.sig{break-inside:avoid;page-break-inside:avoid}
   h3{break-after:avoid;page-break-after:avoid}
   a[href]:after{content:""}
 }
@@ -184,6 +209,19 @@ var SCOPE = {
 };
 
 function band(v,a){for(var j=0;j<a.length;j++){if(v>=a[j].lo&&v<=a[j].hi)return j;}return 0;}
+
+// The entry rung, deliberately kept OUT of offers() so it never competes in the ranking.
+// Copy is the same source of truth as maturity.html. If it changes there, change it here.
+var FIRSTLOOK = {
+  n:"First Look", p:"$2,500", d:"one week",
+  why:"Ninety minutes with me and a written read, before anyone signs anything larger.",
+  runs:[
+    "I read your answers here, plus up to ten artefacts you send: recent specs, screens, a roadmap, whatever is actually real.",
+    "One ninety-minute working session with you and one other person you choose.",
+    "A three page written read: where the function actually sits, the constraint costing you the most, and what the first thirty days should be."
+  ],
+  credit:"<b>Credited in full</b> against the AI Experience Framework, the Design System Build, or the retainer, if you start within thirty days. It does not stack with the Audit, because the Audit is this same work done properly: if you already know you want the deep read, buy that instead. Decide you do not need me at all and you still keep the read."
+};
 
 function offers(cl,al){
   var sys=(ans[3]||0), meas=(ans[2]||0), seat=(ans[1]||0), use=(ans[6]||0), prod=(ans[9]||0);
@@ -393,6 +431,15 @@ function draw(d){
       OF.map(function(o){ return '<tr><td class="n">'+esc(o.n)+'</td><td>'+esc(o.p)+'</td><td>'+esc(o.d)+'</td><td class="f">'+o.fit+'</td></tr>'; }).join('')+
     '</table>'+
     '<p class="cap2">Ranked against your answers, not a generic order.</p>'+
+    '<div class="fl">'+
+      '<div class="k">If none of those is a yes yet</div>'+
+      '<div class="hd">'+
+        '<div><div class="nm">'+FIRSTLOOK.n+'</div><div class="why">'+FIRSTLOOK.why+'</div></div>'+
+        '<div class="pr">'+FIRSTLOOK.p+'<span>'+FIRSTLOOK.d+'</span></div>'+
+      '</div>'+
+      '<ul>'+FIRSTLOOK.runs.map(function(r){return '<li>'+esc(r)+'</li>';}).join('')+'</ul>'+
+      '<div class="cr">'+FIRSTLOOK.credit+'</div>'+
+    '</div>'+
     '<h3>The moves that matter next</h3>'+
     '<ol><li><b>'+esc(lowName)+'</b> is your lowest dimension of the twelve. Whatever else happens, that is where the first move goes.</li>'+
       '<li>'+(gap>=2?'Close the AI gap deliberately rather than by adoption drift. Your practice can absorb it faster than most.'

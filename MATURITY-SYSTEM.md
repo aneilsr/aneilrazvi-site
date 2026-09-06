@@ -103,6 +103,31 @@ with the creator's rights. Do not recreate one without setting that again.
 
 ---
 
+## The First Look, and the two files that must agree
+
+`FIRSTLOOK` is the $2,500 entry rung. It is deliberately **not** in `offers()`, so it never
+competes in the ranking. It renders under the four ranked engagements, in both
+`maturity.html` and `report.html`.
+
+Its copy is duplicated in three places and they must stay in step:
+
+| File | What it holds |
+|---|---|
+| `maturity.html` | `FIRSTLOOK` object and `firstLookHtml()` |
+| `report.html` | its own `FIRSTLOOK` copy, plus the band under the ranking table |
+| `api/lead.js` | the same band as nested tables, in the report email |
+
+Plus the two PDFs built outside this repo: the public one-pager and the private rate sheet.
+
+**The credit rule is not what it first looks like.** It credits in full against the AI
+Experience Framework, the Design System Build, or the retainer. It does **not** credit against
+the Audit. The arithmetic is the reason: $7,500 minus $2,500 is $5,000 for roughly 36 hours of
+work, or $208 an hour, under the $225 floor. The three that do credit blend to $227, $234 and
+$242. The public framing is positioning rather than fine print: the Audit is the same work done
+properly, so buy one or the other.
+
+---
+
 ## The link-scanner trap
 
 **Observed 2026-09-06.** A Windows / Chrome / 1366px hit follows every real view by 13 to 18
