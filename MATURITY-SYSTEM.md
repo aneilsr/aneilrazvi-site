@@ -1,0 +1,139 @@
+# Design Maturity Assessment: how the whole thing works
+
+Last updated 2026-09-06. Written so a cold session can pick this up without archaeology.
+
+---
+
+## What it is
+
+A free, ungated assessment at `aneilrazvi.com/maturity.html` that scores a company on
+**two independent axes** and recommends the engagement that fits. It is the top of the
+fractional funnel: no email is needed to see where you land, an email unlocks the written
+read and the engagement detail.
+
+**Why two axes.** Most maturity models collapse design practice and AI adoption into one
+number. They move independently, and the gap between them is usually the real problem.
+
+| Axis | Levels | Source model |
+|---|---|---|
+| Design capability | Absent · Limited · Emergent · Structured · Integrated · User-Driven | NN/g capability levels |
+| AI maturity | Limited · Reactive · Developing · Embedded · Leading · Symbiotic | Nielsen AI CMM |
+
+**15 questions.** 12 scored (6 per axis, 0 to 5 each, so 30 points per axis) plus 3 context
+questions that are captured but not scored. The intro copy derives the count from the data at
+runtime, so editing the questions updates the wording automatically. Do not hardcode it again.
+
+---
+
+## The pieces
+
+| File / object | Where | What it does |
+|---|---|---|
+| `maturity.html` | site repo root | The assessment. Holds the canonical `CAPDIM`, `AIDIM`, `CAPL`, `AIL`, `SCOPE`, `offers()`, `scatter()`, `radar()` |
+| `report.html` | site repo root | Per-lead read at `/report.html?s=<session_id>`. Fetches from `/api/report`, redraws the same charts, prints to a 2-page PDF |
+| `api/lead.js` | site repo | Upserts the lead, sends the branded report email via Resend, notifies Aneil |
+| `api/report.js` | site repo | GET returns one lead's scores by session id. POST logs an interaction |
+| Supabase `bpdjmixiohrqqoxbljvl` | job-search-hq | `leads`, `report_events`, plus the `report_activity` and `report_forwarding` views |
+
+**The scoring logic lives in exactly one place: `maturity.html`.** `report.html` and the PDF
+generator extract those blocks verbatim rather than reimplementing them, so a score can never
+drift between what a visitor saw and what lands in their inbox. If you change `offers()` or
+`SCOPE`, regenerate `report.html` from `maturity.html` rather than editing it by hand.
+
+---
+
+## Data model
+
+### `leads`
+One row per session. Upserted on `session_id`, so a retake from the same browser **updates
+rather than inserts**. `created_at` is the first take, `completed_at` is the latest.
+
+Carries first-touch attribution: `utm_source`, `utm_medium`, `utm_campaign`, `utm_content`,
+`referrer`, `landing_path`. Put `?utm_source=linkedin&utm_campaign=whatever` on every link you
+post and the answer comes back in one query.
+
+`answers` is `{raw: [...], capability_score, ai_score}`. **It is an object, not an array.**
+Read `answers.raw`.
+
+### `report_events`
+One row per interaction with a personal report. Events: `view`, `revisit`, `print`,
+`copy_link`, `book_click`. `print` means they saved the PDF.
+
+Records `device`, `os`, `browser`, `screen_w`, `country`, `city`, `is_bot`.
+**No IP address is stored anywhere** by design: enough to tell two machines apart, not enough
+to identify a person.
+
+### Views
+- `report_activity` — every open and download in plain language
+- `report_forwarding` — one row per lead: opens, downloads, distinct real machines, and
+  `likely_forwarded`
+
+---
+
+## The link-scanner trap
+
+**Observed 2026-09-06.** A Windows / Chrome / 1366px hit follows every real view by 13 to 18
+seconds. It never prints and never clicks through. It is a mail-security link scanner
+(Safelinks, Proofpoint or similar) following the URL out of the email. Its user agent is a
+plain Chrome string, so no bot filter catches it.
+
+Left alone it would have made **every report look forwarded** and doubled every view count.
+
+`report_forwarding` therefore only counts a second machine as a real reader if it either
+downloaded, clicked to book, or first appeared **more than ten minutes** after the original.
+Raw rows are never mutated; the judgement lives in the view so the rule can change without
+losing data.
+
+---
+
+## Bugs already fixed, so nobody reintroduces them
+
+| Bug | Cause | Fix |
+|---|---|---|
+| Black frame around the page | `html` stayed `background:var(--dark)` while `body` transitioned to light | `html` transitions in lockstep and gets `.lit` |
+| Radar labels clipped ("roduct AI") | viewBox too narrow for edge labels | viewBox 340 to 452, radius 104 to 112, label ring 1.19 |
+| Horizontal scrollbar under the matrix | `.scroller svg{min-width:430px}` forced it wider than its card | scales to the card |
+| Lightbox showed a giant magnifier | `host.querySelector("svg")` grabbed the zoom hint's own icon | `:scope > svg` |
+| **Nothing on the report page was clickable** | `.lb{display:flex}` beats the browser's `[hidden]` rule, so an invisible full-screen overlay at z-index 60 swallowed every click | `.lb[hidden]{display:none!important}` |
+| Printed PDF was 4 pages with a date header | no `@page{margin:0}`, no break control, content too tall | `@page{margin:0}`, `break-after:page`, print root font 12.5px |
+| Intro said "Twelve questions", it asks 15 | hardcoded word | derived from `CAPDIM.length + AIDIM.length + CTX.length` |
+
+**Two testing lessons, learned the hard way:**
+
+1. `element.click()` in JavaScript **bypasses hit-testing**. It will happily "pass" on a page
+   where an invisible overlay makes every control unclickable. Verify with real coordinate
+   clicks and `document.elementFromPoint`.
+2. A screenshot taken during a CSS transition looks broken. Check computed styles before
+   believing an image.
+
+---
+
+## Where the CTA lives
+
+Nav link on every page. A full call-to-action block on: `index.html`, `portfolio.html`,
+`work-with-me.html`, and all nine case studies. Plus an entry in `links.html`, positioned
+straight after "Book a call".
+
+---
+
+## Test data
+
+Aneil's own testing was cleared on 2026-09-06 so the real numbers start at zero. It is
+preserved in `leads_archive` (1 row) and `report_events_archive` (18 rows). Both are safe to
+drop once you are sure nothing is needed.
+
+---
+
+## Useful queries
+
+```sql
+-- what came in, and from where
+select utm_source, count(*) leads from leads group by 1 order by 2 desc;
+
+-- who opened their report, from what machine, and did they save it
+select * from report_activity;
+
+-- who forwarded it
+select name, company, opens, downloads, real_machines, scanner_hits, likely_forwarded, machines
+from report_forwarding order by downloads desc;
+```
