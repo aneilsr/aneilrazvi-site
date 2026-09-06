@@ -89,6 +89,9 @@ table.rank td.n{font-weight:600;color:var(--dark)} table.rank td.f{text-align:ri
 .lb{position:fixed;inset:0;z-index:60;background:rgba(15,25,35,.72);display:flex;align-items:center;
  justify-content:center;padding:1.2rem;opacity:0;transition:opacity .18s ease}
 .lb.on{opacity:1}
+/* A class rule beats the browser's [hidden] rule, so without this the overlay
+   stays display:flex over the whole page and swallows every click. */
+.lb[hidden]{display:none!important}
 .lbin{background:var(--white);border-radius:var(--radius);padding:1.5rem;width:min(94vw,940px);
  max-height:92vh;overflow:auto;position:relative}
 .lbh{display:flex;justify-content:space-between;align-items:center;margin-bottom:.9rem}
