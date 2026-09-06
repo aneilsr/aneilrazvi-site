@@ -6,6 +6,31 @@
 // it is never listed anywhere, and this endpoint deliberately does NOT return the email
 // address, so a leaked link exposes scores and nothing that identifies a person by contact.
 
+
+// Turn a user agent into something a human can read, and flag link scanners.
+// Deliberately coarse: enough to tell two machines apart, not enough to identify a person.
+function readUA(ua) {
+  const u = String(ua || "");
+  const bot = /bot|crawler|spider|preview|slurp|facebookexternalhit|whatsapp|slackbot|discordbot|telegram|linkedinbot|bingpreview|proofpoint|barracuda|mimecast|safelinks|urldefense|headless/i.test(u);
+  let os = "unknown";
+  if (/iPhone|iPod/i.test(u)) os = "iPhone";
+  else if (/iPad/i.test(u)) os = "iPad";
+  else if (/Android/i.test(u)) os = "Android";
+  else if (/Mac OS X|Macintosh/i.test(u)) os = "Mac";
+  else if (/Windows NT/i.test(u)) os = "Windows";
+  else if (/CrOS/i.test(u)) os = "ChromeOS";
+  else if (/Linux/i.test(u)) os = "Linux";
+  let browser = "unknown";
+  if (/Edg\//i.test(u)) browser = "Edge";
+  else if (/OPR\/|Opera/i.test(u)) browser = "Opera";
+  else if (/Firefox\//i.test(u)) browser = "Firefox";
+  else if (/Chrome\//i.test(u)) browser = "Chrome";
+  else if (/Safari\//i.test(u)) browser = "Safari";
+  const device = /iPhone|iPod|Android.*Mobile/i.test(u) ? "Phone"
+               : /iPad|Tablet|Android/i.test(u) ? "Tablet" : "Desktop";
+  return { os, browser, device, bot };
+}
+
 const ALLOWED_EVENTS = ["view", "print", "copy_link", "book_click", "revisit"];
 
 export default async function handler(req, res) {
@@ -47,6 +72,8 @@ export default async function handler(req, res) {
     if (!s) return res.status(400).json({ error: "bad session" });
     if (!ALLOWED_EVENTS.includes(ev)) return res.status(400).json({ error: "bad event" });
 
+    const ua = readUA(req.headers["user-agent"]);
+
     // resolve lead_id so the view can join even if a session id is later recycled
     let lead_id = null;
     try {
@@ -66,7 +93,14 @@ export default async function handler(req, res) {
       utm_medium:   clip(b.utm_medium, 100),
       utm_campaign: clip(b.utm_campaign, 150),
       user_agent:   clip(req.headers["user-agent"], 400),
-      screen_w:     Number.isFinite(+b.screen_w) ? Math.round(+b.screen_w) : null
+      screen_w:     Number.isFinite(+b.screen_w) ? Math.round(+b.screen_w) : null,
+      device:  ua.device,
+      os:      ua.os,
+      browser: ua.browser,
+      is_bot:  ua.bot,
+      // Vercel's edge geo. Coarse by design: no IP address is stored anywhere.
+      country: clip(req.headers["x-vercel-ip-country"], 8),
+      city:    clip(decodeURIComponent(req.headers["x-vercel-ip-city"] || ""), 80) || null
     };
 
     const w = await fetch(`${SB}/rest/v1/report_events`, {
