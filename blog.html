@@ -55,6 +55,27 @@
   .art a{color:var(--teal);font-weight:600;font-size:.86rem;text-decoration:none}
   .bl-note{color:rgba(255,255,255,.5);font-size:.9rem;margin-top:1.4rem;font-style:italic}
   @media(max-width:900px){.bl-grid{grid-template-columns:1fr}}
+
+  /* Editions mirror the LinkedIn covers: numbered issues run dark, Sidenotes run light. */
+  .art{position:relative}
+  .art .cat{display:flex;align-items:center;gap:.55rem}
+  .art .num{font-family:'DM Serif Display',serif;font-size:1.5rem;line-height:1;color:var(--teal);
+    letter-spacing:0;text-transform:none;font-weight:400;margin-right:.15rem}
+  .art.side{background:rgba(255,255,255,.075);border-color:rgba(255,255,255,.16)}
+  .art.side:hover{border-color:rgba(255,255,255,.34)}
+  .art.side .cat,.art.side .num{color:rgba(255,255,255,.72)}
+  .art.side a{color:rgba(255,255,255,.82)}
+  .art .thumb-ph{aspect-ratio:16/9;width:100%;display:flex;align-items:flex-end;padding:1.1rem 1.3rem;
+    background:linear-gradient(160deg,#0c1620,#0F1923 60%,#10202b);
+    border-bottom:1px solid rgba(0,188,212,.16)}
+  .art.side .thumb-ph{background:linear-gradient(160deg,#eef1f5,#F4F6F8 60%,#e8edf3);
+    border-bottom:1px solid rgba(255,255,255,.2)}
+  .art .thumb-ph span{font-family:'DM Serif Display',serif;font-size:1.25rem;line-height:1.15;color:#fff}
+  .art.side .thumb-ph span{color:#151C25}
+  .bl-legend{display:flex;gap:1.6rem;flex-wrap:wrap;margin:0 0 1.4rem;font-size:.84rem;
+    color:rgba(255,255,255,.55);font-weight:300}
+  .bl-legend b{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:.5rem;
+    vertical-align:-1px}
 </style>
 </head>
 <body>
@@ -89,12 +110,68 @@
 
 <section class="bl-sec">
   <span class="bl-eyebrow">Latest</span>
-  <h2 class="bl-h2">Articles</h2>
-  <div class="bl-grid">
-    <a class="art" href="https://www.linkedin.com/pulse/wall-aneil-razvi-tmzjc" target="_blank" rel="noopener"><img class="thumb" src="assets/work/blog-article-1.jpg" alt="The Wall, Building in the Open"><div class="body"><span class="cat">The Journey</span><h4>The Wall</h4><p>The wall every builder runs into, and what it takes to get through it.</p><span class="rd">Read on LinkedIn →</span></div></a>
-    <a class="art" href="https://www.linkedin.com/pulse/foundation-aneil-razvi-hbfpc" target="_blank" rel="noopener"><img class="thumb" src="assets/work/blog-article-2.jpg" alt="The Foundation, Building in the Open"><div class="body"><span class="cat">Foundations</span><h4>The Foundation</h4><p>On the groundwork everything else gets built on.</p><span class="rd">Read on LinkedIn →</span></div></a>
-    <a class="art" href="https://www.linkedin.com/pulse/building-solo-ai-aneil-razvi-qh5ac" target="_blank" rel="noopener"><img class="thumb" src="assets/work/blog-article-3.jpg" alt="Building Solo With AI, Building in the Open"><div class="body"><span class="cat">AI-Native Building</span><h4>Building Solo With AI</h4><p>Designing and shipping a real product solo, with AI in the loop.</p><span class="rd">Read on LinkedIn →</span></div></a>
+  <h2 class="bl-h2">Editions</h2>
+  <div class="bl-legend">
+    <span><b style="background:#0F1923;border:1px solid rgba(0,188,212,.4)"></b>Numbered issues run dark</span>
+    <span><b style="background:#F4F6F8"></b>Sidenotes run light</span>
   </div>
+  <div class="bl-grid">
+    <a class="art side" href="https://www.linkedin.com/pulse/your-design-system-becoming-rules-engine-aneil-razvi-f7ryc/" target="_blank" rel="noopener">
+      <div class="thumb-ph"><span>Your design system is becoming a rules engine</span></div>
+      <div class="body">
+        <div class="cat">Sidenote</div>
+        <h4>Your design system is becoming a rules engine</h4>
+        <p>Localisation and white-labelling force you to stop designing a screen and start designing the conditions under which one gets assembled. Jakob Nielsen arrived at the same place from a different door.</p>
+        <span class="rd">Read on LinkedIn</span>
+      </div>
+    </a>
+    <a class="art" href="https://www.linkedin.com/newsletters/building-in-the-open-7488094002198753281/" target="_blank" rel="noopener">
+      <div class="thumb-ph"><span>What I'd Tell a Designer Who Wants to Build</span></div>
+      <div class="body">
+        <div class="cat"><span class="num">06</span>Issue</div>
+        <h4>What I'd Tell a Designer Who Wants to Build</h4>
+        <p>The advice I actually give, rather than the advice that sounds good on a panel.</p>
+        <span class="rd">Read on LinkedIn</span>
+      </div>
+    </a>
+    <a class="art" href="https://www.linkedin.com/newsletters/building-in-the-open-7488094002198753281/" target="_blank" rel="noopener">
+      <div class="thumb-ph"><span>The Gate</span></div>
+      <div class="body">
+        <div class="cat"><span class="num">05</span>Issue</div>
+        <h4>The Gate</h4>
+        <p>What you put in front of the thing you made, and what it costs you to put it there.</p>
+        <span class="rd">Read on LinkedIn</span>
+      </div>
+    </a>
+    <a class="art" href="https://www.linkedin.com/pulse/building-solo-ai-aneil-razvi-qh5ac" target="_blank" rel="noopener">
+      <div class="thumb-ph"><span>Building Solo With AI</span></div>
+      <div class="body">
+        <div class="cat"><span class="num">04</span>Issue</div>
+        <h4>Building Solo With AI</h4>
+        <p>One person, a real product, and the specific places the tools helped and the specific places they did not.</p>
+        <span class="rd">Read on LinkedIn</span>
+      </div>
+    </a>
+    <a class="art" href="https://www.linkedin.com/pulse/wall-aneil-razvi-tmzjc" target="_blank" rel="noopener">
+      <div class="thumb-ph"><span>The Wall</span></div>
+      <div class="body">
+        <div class="cat"><span class="num">03</span>Issue</div>
+        <h4>The Wall</h4>
+        <p>The point in a build where the thing stops moving, and what it takes to get through it.</p>
+        <span class="rd">Read on LinkedIn</span>
+      </div>
+    </a>
+    <a class="art" href="https://www.linkedin.com/pulse/foundation-aneil-razvi-hbfpc" target="_blank" rel="noopener">
+      <div class="thumb-ph"><span>The Foundation</span></div>
+      <div class="body">
+        <div class="cat"><span class="num">02</span>Issue</div>
+        <h4>The Foundation</h4>
+        <p>What has to be true before any of the rest of it holds.</p>
+        <span class="rd">Read on LinkedIn</span>
+      </div>
+    </a>
+  </div>
+  <p class="bl-note">Six editions so far, published biweekly. Every one lives on LinkedIn first. Canonical copies are moving here.</p>
 </section>
 
 <footer style="background:#0a1420;border-top:1px solid rgba(255,255,255,.08);padding:40px 6%;text-align:center;color:rgba(255,255,255,.6)"><div style="font-family:'DM Serif Display',serif;font-size:1.2rem;color:#fff;margin-bottom:12px">Aneil <span style="color:var(--teal)">Razvi</span></div><div style="font-size:.9rem"><a style="color:#cfe;text-decoration:none;margin:0 10px" href="https://www.linkedin.com/in/aneilrazvi/" target="_blank">LinkedIn</a>·<a style="color:#cfe;text-decoration:none;margin:0 10px" href="https://cal.com/aneil-razvi" target="_blank">Book a call</a>·<a style="color:#cfe;text-decoration:none;margin:0 10px" href="mailto:hi@aneilrazvi.com">Email</a></div><div style="font-size:.78rem;color:rgba(255,255,255,.4);margin-top:14px">© 2026 Aneil Razvi · Allen, TX</div></footer>
