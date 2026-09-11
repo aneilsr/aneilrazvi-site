@@ -57,7 +57,7 @@
 
   /* Covers are the real LinkedIn artwork. Issues run dark, Sidenotes run light,
      which is the convention already set on the covers themselves. */
-  .art .cover{aspect-ratio:16/9;width:100%;object-fit:cover;display:block;background:#0a1620;
+  .art .cover{aspect-ratio:16/9;width:100%;height:auto;object-fit:cover;display:block;background:#0a1620;
     border-bottom:1px solid rgba(255,255,255,.08)}
   .art.side .cover{border-bottom-color:rgba(255,255,255,.22)}
   .art .cat{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
@@ -67,6 +67,39 @@
   .art.side .cat,.art.side .rd{color:rgba(255,255,255,.78)}
   .bl-sub{color:rgba(255,255,255,.6);font-size:1rem;line-height:1.7;font-weight:300;
     max-width:640px;margin:-.7rem 0 1.6rem}
+
+  /* Each cover carries its own dark ground. The card picks it up so the grid
+     reads like the covers rather than like a list of links. */
+  .art[data-hue="foundation"]{background:#0d1523;border-color:#1b2740}
+  .art[data-hue="foundation"]:hover{border-color:#33507e}
+  .art[data-hue="wall"]{background:#181327;border-color:#271f3e}
+  .art[data-hue="wall"]:hover{border-color:#483a6e}
+  .art[data-hue="solo"]{background:#0c1a16;border-color:#172c25}
+  .art[data-hue="solo"]:hover{border-color:#2c5546}
+  .art[data-hue="gate"]{background:#1a1510;border-color:#2b231a}
+  .art[data-hue="gate"]:hover{border-color:#4d3f2d}
+  .art[data-hue="build"]{background:#1c1526;border-color:#2d2340}
+  .art[data-hue="build"]:hover{border-color:#503d6f}
+  .art.side[data-hue="sidenote"]{background:#eef1f5;border-color:#d7dde6}
+  .art.side[data-hue="sidenote"]:hover{border-color:#9fb0c4}
+  .art.side[data-hue="sidenote"] h4{color:#151c25}
+  .art.side[data-hue="sidenote"] p{color:#4a5763}
+  .art.side[data-hue="sidenote"] .cat{color:#0f6b7a}
+  .art.side[data-hue="sidenote"] .rd{color:#0f6b7a}
+  .art.side .cover{border-bottom-color:#d7dde6}
+
+  /* The covers are drawn on an 80px grid. The section carries the same grid at the
+     same module, so the gutters read as the sheet the covers were cut from. Cards are
+     opaque and mask it. If you can count the squares it is too strong. */
+  .bl-sec.gridded{position:relative;isolation:isolate}
+  .bl-sec.gridded::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+    background-image:linear-gradient(to right,rgba(255,255,255,.05) 1px,transparent 1px),
+                     linear-gradient(to bottom,rgba(255,255,255,.05) 1px,transparent 1px);
+    background-size:80px 80px;background-position:center top;
+    -webkit-mask-image:linear-gradient(to bottom,transparent,#000 12%,#000 88%,transparent);
+    mask-image:linear-gradient(to bottom,transparent,#000 12%,#000 88%,transparent)}
+  .art{position:relative;z-index:1}
+  @media(prefers-reduced-motion:no-preference){.art{transition:transform .18s,border-color .18s}}
   @media(max-width:900px){.bl-grid{grid-template-columns:1fr}}
 
   /* Editions mirror the LinkedIn covers: numbered issues run dark, Sidenotes run light. */
@@ -86,6 +119,7 @@
   .art .thumb-ph span{font-family:'DM Serif Display',serif;font-size:1.25rem;line-height:1.15;color:#fff}
   .art.side .thumb-ph span{color:#151C25}
 </style>
+<script defer src="assets/analytics.js"></script>
 </head>
 <body>
 <nav class="site-nav" id="nav"><a href="index.html" class="nav-brand">Aneil <b>Razvi</b></a>
@@ -117,11 +151,11 @@
   </div>
 </section>
 
-<section class="bl-sec">
+<section class="bl-sec gridded">
   <h2 class="bl-h2">Building in the Open</h2>
   <p class="bl-sub">The numbered series. One build, in public, including the parts that went wrong.</p>
   <div class="bl-grid">
-    <a class="art" href="https://www.linkedin.com/pulse/what-id-tell-designer-who-wants-build-aneil-razvi-t9g0c/" target="_blank" rel="noopener">
+    <a data-hue="build" class="art" href="https://www.linkedin.com/pulse/what-id-tell-designer-who-wants-build-aneil-razvi-t9g0c/" target="_blank" rel="noopener">
       <img class="cover" src="assets/newsletter/05-so-you-want-to-build.jpg" alt="So You Want to Build, Issue no. 05" loading="lazy" width="1200" height="675">
       <div class="body">
         <div class="cat">Issue no. 05</div>
@@ -130,7 +164,7 @@
         <span class="rd">Read on LinkedIn</span>
       </div>
     </a>
-    <a class="art" href="https://www.linkedin.com/pulse/gate-aneil-razvi-3hrvc/" target="_blank" rel="noopener">
+    <a data-hue="gate" class="art" href="https://www.linkedin.com/pulse/gate-aneil-razvi-3hrvc/" target="_blank" rel="noopener">
       <img class="cover" src="assets/newsletter/04-the-gate.jpg" alt="The Gate, Issue no. 04" loading="lazy" width="1200" height="675">
       <div class="body">
         <div class="cat">Issue no. 04</div>
@@ -139,7 +173,7 @@
         <span class="rd">Read on LinkedIn</span>
       </div>
     </a>
-    <a class="art" href="https://www.linkedin.com/pulse/building-solo-ai-aneil-razvi-qh5ac/" target="_blank" rel="noopener">
+    <a data-hue="solo" class="art" href="https://www.linkedin.com/pulse/building-solo-ai-aneil-razvi-qh5ac/" target="_blank" rel="noopener">
       <img class="cover" src="assets/newsletter/03-building-solo-with-ai.jpg" alt="Building Solo With AI, Issue no. 03" loading="lazy" width="1200" height="675">
       <div class="body">
         <div class="cat">Issue no. 03</div>
@@ -148,7 +182,7 @@
         <span class="rd">Read on LinkedIn</span>
       </div>
     </a>
-    <a class="art" href="https://www.linkedin.com/pulse/wall-aneil-razvi-tmzjc/" target="_blank" rel="noopener">
+    <a data-hue="wall" class="art" href="https://www.linkedin.com/pulse/wall-aneil-razvi-tmzjc/" target="_blank" rel="noopener">
       <img class="cover" src="assets/newsletter/02-the-wall.jpg" alt="The Wall, Issue no. 02" loading="lazy" width="1200" height="675">
       <div class="body">
         <div class="cat">Issue no. 02</div>
@@ -157,7 +191,7 @@
         <span class="rd">Read on LinkedIn</span>
       </div>
     </a>
-    <a class="art" href="https://www.linkedin.com/pulse/foundation-aneil-razvi-hbfpc/" target="_blank" rel="noopener">
+    <a data-hue="foundation" class="art" href="https://www.linkedin.com/pulse/foundation-aneil-razvi-hbfpc/" target="_blank" rel="noopener">
       <img class="cover" src="assets/newsletter/01-the-foundation.jpg" alt="The Foundation, Issue no. 01" loading="lazy" width="1200" height="675">
       <div class="body">
         <div class="cat">Issue no. 01</div>
@@ -171,7 +205,7 @@
   <h2 class="bl-h2" style="margin-top:3.4rem">Sidenotes</h2>
   <p class="bl-sub">Shorter pieces outside the series, on whatever the build turned up that week.</p>
   <div class="bl-grid">
-    <a class="art side" href="https://www.linkedin.com/pulse/your-design-system-becoming-rules-engine-aneil-razvi-f7ryc/" target="_blank" rel="noopener">
+    <a data-hue="sidenote" class="art side" href="https://www.linkedin.com/pulse/your-design-system-becoming-rules-engine-aneil-razvi-f7ryc/" target="_blank" rel="noopener">
       <img class="cover" src="assets/newsletter/sidenote-01-rules-engine.jpg" alt="Your Design System Is Becoming a Rules Engine, Sidenote no. 01" loading="lazy" width="1200" height="675">
       <div class="body">
         <div class="cat">Sidenote no. 01</div>
