@@ -275,7 +275,7 @@
 
   <div class="ws-list">
 
-    <details class="wsx" data-ws="anything-is-possible">
+    <details class="wsx" id="ws-anything-is-possible" data-ws="anything-is-possible">
       <summary>
         <div>
           <h3><span class="num">01</span>In a World Where Anything Is Possible</h3>
@@ -292,7 +292,7 @@
       </div>
     </details>
 
-    <details class="wsx" data-ws="experience-context-mapping">
+    <details class="wsx" id="ws-experience-context-mapping" data-ws="experience-context-mapping">
       <summary>
         <div>
           <h3><span class="num">02</span>Experience and Context Mapping</h3>
@@ -314,7 +314,7 @@
       </div>
     </details>
 
-    <details class="wsx" data-ws="ai-opportunity-mapping">
+    <details class="wsx" id="ws-ai-opportunity-mapping" data-ws="ai-opportunity-mapping">
       <summary>
         <div>
           <h3><span class="num">03</span>AI Opportunity Mapping</h3>
@@ -336,7 +336,7 @@
       </div>
     </details>
 
-    <details class="wsx" data-ws="global-alignment">
+    <details class="wsx" id="ws-global-alignment" data-ws="global-alignment">
       <summary>
         <div>
           <h3><span class="num">04</span>Global Alignment</h3>
@@ -358,7 +358,7 @@
       </div>
     </details>
 
-    <details class="wsx" data-ws="future-thinking">
+    <details class="wsx" id="ws-future-thinking" data-ws="future-thinking">
       <summary>
         <div>
           <h3><span class="num">05</span>Future Thinking</h3>
@@ -379,7 +379,7 @@
       </div>
     </details>
 
-    <details class="wsx" data-ws="design-sprint">
+    <details class="wsx" id="ws-design-sprint" data-ws="design-sprint">
       <summary>
         <div>
           <h3><span class="num">06</span>The Design Sprint, rebuilt</h3>
@@ -397,7 +397,7 @@
       </div>
     </details>
 
-    <details class="wsx" data-ws="service-blueprint">
+    <details class="wsx" id="ws-service-blueprint" data-ws="service-blueprint">
       <summary>
         <div>
           <h3><span class="num">07</span>Service Blueprint</h3>
@@ -414,7 +414,7 @@
       </div>
     </details>
 
-    <details class="wsx" data-ws="design-system">
+    <details class="wsx" id="ws-design-system" data-ws="design-system">
       <summary>
         <div>
           <h3><span class="num">08</span>Design System Audit and Build</h3>
@@ -432,7 +432,7 @@
       </div>
     </details>
 
-    <details class="wsx" data-ws="ai-built-on-paper">
+    <details class="wsx" id="ws-ai-built-on-paper" data-ws="ai-built-on-paper">
       <summary>
         <div>
           <h3><span class="num">09</span>AI, Built On Paper</h3>
@@ -552,7 +552,13 @@
       n.focus(); n.click();
     });
   });
-  if(location.hash==='#workshop') show('tab-workshop');
+  var h=location.hash;
+  if(h==='#workshop'){ show('tab-workshop'); }
+  else if(h.indexOf('#ws-')===0){
+    show('tab-workshop');
+    var card=document.getElementById(h.slice(1));
+    if(card){ card.open=true; setTimeout(function(){ card.scrollIntoView({block:'start'}); }, 60); }
+  }
 })();
 </script>
 </body>
