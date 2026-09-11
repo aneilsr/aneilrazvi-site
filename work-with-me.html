@@ -32,8 +32,12 @@
   .wm-hero h1{font-family:'DM Serif Display',serif;font-size:clamp(2.6rem,6vw,4.2rem);color:#fff;font-weight:400;margin:.4rem 0 1.2rem;line-height:1.08}
   .wm-hero h1 em{font-style:italic;color:var(--teal)}
   .wm-hero p{max-width:720px;color:rgba(255,255,255,.72);font-size:1.14rem;line-height:1.75;font-weight:300}
-  .wm-heroimg{max-width:1240px;margin:2.5rem auto 0;padding:0 6%}
-  .wm-heroimg img{width:100%;border-radius:16px;border:1px solid rgba(255,255,255,.1);display:block;max-height:60vh;object-fit:cover}
+  .wm-heroimg{width:100%;margin:2.6rem 0 0;padding:0;position:relative}
+  .wm-heroimg::after{content:"";position:absolute;inset:0;pointer-events:none;
+    background:linear-gradient(to bottom,rgba(15,25,35,.35) 0%,transparent 22%,transparent 78%,rgba(15,25,35,.55) 100%)}
+  .wm-heroimg img{width:100%;display:block;aspect-ratio:2000/1250;max-height:64vh;object-fit:cover;
+    object-position:center 38%;border-radius:0;border:0;border-top:1px solid rgba(0,188,212,.18);
+    border-bottom:1px solid rgba(0,188,212,.18)}
   .wm-sec{max-width:1040px;margin:0 auto;padding:4rem 6%}
   .wm-sec h2{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,3.2vw,2.5rem);color:#fff;font-weight:400;margin:0 0 2rem}
   .wm-services{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem}
@@ -144,7 +148,7 @@
   <h1>Senior design leadership, <em>and the hands</em> to back it up</h1>
   <p>I partner with companies that need senior design leadership and the hands to back it up. Sometimes that's a full-time executive role. Sometimes it's a fractional engagement where you get the strategy, the team-building, and the craft without the full-time hire. Either way I sit on the same side of the table as you and your team, focused on what we can actually ship.</p>
 </section>
-<div class="wm-heroimg"><img src="assets/work/work-with-me-hero.jpg" alt="Aneil Razvi working with a team"></div>
+<div class="wm-heroimg"><img src="assets/work/work-with-me-hero.jpg" alt="Aneil Razvi facilitating a workshop, with the logos of companies he has run sessions for" width="2000" height="1250"></div>
 
 <div class="wm-tabs">
   <div class="wm-tablist" role="tablist" aria-label="Two ways to work together">

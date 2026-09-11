@@ -74,6 +74,83 @@
       if (start) start.addEventListener('click', function () { cap('assessment_started', {}); });
     }
 
+    /* ---- Header. Every nav item, and the CTA, named rather than guessed at. ---- */
+    on('.site-nav a', 'click', function (t) {
+      cap('nav_click', {
+        label: (t.textContent || '').trim(),
+        href: t.getAttribute('href'),
+        area: t.classList.contains('nav-cta') ? 'cta'
+            : t.classList.contains('nav-brand') ? 'brand' : 'links',
+        from: location.pathname
+      });
+    });
+    on('.nav-hamburger', 'click', function () {
+      cap('nav_menu_toggle', { page: location.pathname });
+    });
+
+    /* ---- Scroll depth on the two pages where it answers a real question:
+       does anyone get past the fold on Home, and do they reach the end of the
+       Portfolio. Fires each threshold once per pageview, never repeatedly. ---- */
+    var DEPTH_PAGES = ['/', '/index.html', '/portfolio.html'];
+    var here = location.pathname;
+    var wantDepth = DEPTH_PAGES.some(function (d) { return here === d || here.indexOf(d) > -1; });
+    if (wantDepth) {
+      var hits = {}, marks = [25, 50, 75, 90, 100];
+      var tick = function () {
+        var doc = document.documentElement;
+        var scrolled = window.scrollY + window.innerHeight;
+        var total = Math.max(doc.scrollHeight, document.body.scrollHeight);
+        if (total <= 0) return;
+        var pct = Math.min(100, Math.round((scrolled / total) * 100));
+        for (var i = 0; i < marks.length; i++) {
+          var m = marks[i];
+          if (pct >= m && !hits[m]) {
+            hits[m] = 1;
+            cap('scroll_depth', { percent: m, page: here });
+          }
+        }
+      };
+      var queued = false;
+      window.addEventListener('scroll', function () {
+        if (queued) return;
+        queued = true;
+        requestAnimationFrame(function () { queued = false; tick(); });
+      }, { passive: true });
+      tick();
+    }
+
+    /* ---- Homepage and Portfolio, section by section. Tells you which section
+       people actually reach, not just how far they scrolled. ---- */
+    if (wantDepth && 'IntersectionObserver' in window) {
+      var seen = {};
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          var el = e.target;
+          var id = el.id || (el.querySelector('h2') ? el.querySelector('h2').textContent.trim() : null);
+          if (!id || seen[id]) return;
+          seen[id] = 1;
+          cap('section_viewed', { section: id, page: here });
+        });
+      }, { threshold: 0.4 });
+      document.querySelectorAll('section[id], section').forEach(function (el) { io.observe(el); });
+    }
+
+    /* ---- The design maturity experience, end to end. The server records the
+       funnel; these record what the person did with their hands. ---- */
+    if (here.indexOf('maturity') > -1) {
+      on('#start', 'click', function () { cap('assessment_started', {}); });
+      on('.opt, [data-opt], .choice', 'click', function (t) {
+        cap('assessment_answer', { label: (t.textContent || '').trim().slice(0, 60) });
+      });
+      on('#back, .back', 'click', function () { cap('assessment_back', {}); });
+      on('.acc, .accordion, details summary', 'click', function (t) {
+        cap('assessment_package_opened', { label: (t.textContent || '').trim().slice(0, 60) });
+      });
+      on('.lb, .zoom, [data-zoom]', 'click', function () { cap('assessment_chart_zoom', {}); });
+      on('form', 'submit', function () { cap('assessment_email_submitted', {}); });
+    }
+
     /* Anything leaving the site, so referral traffic out is legible too. */
     on('a[href^="http"]', 'click', function (t) {
       var h = t.getAttribute('href') || '';

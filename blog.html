@@ -88,18 +88,16 @@
   .art.side[data-hue="sidenote"] .rd{color:#0f6b7a}
   .art.side .cover{border-bottom-color:#d7dde6}
 
-  /* The covers are drawn on an 80px grid. The section carries the same grid at the
-     same module, so the gutters read as the sheet the covers were cut from. Cards are
-     opaque and mask it. If you can count the squares it is too strong. */
-  .bl-sec.gridded{position:relative;isolation:isolate}
-  .bl-sec.gridded::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
-    background-image:linear-gradient(to right,rgba(255,255,255,.05) 1px,transparent 1px),
-                     linear-gradient(to bottom,rgba(255,255,255,.05) 1px,transparent 1px);
-    background-size:80px 80px;background-position:center top;
-    -webkit-mask-image:linear-gradient(to bottom,transparent,#000 12%,#000 88%,transparent);
-    mask-image:linear-gradient(to bottom,transparent,#000 12%,#000 88%,transparent)}
+  /* The covers are drawn on an 80px grid. The whole page carries the same grid at
+     the same module, so every card reads as cut from one sheet and the gutters are
+     the sheet showing through. Fixed attachment so it does not slide under scroll. */
+  body{position:relative}
+  body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+    background-image:linear-gradient(to right,rgba(255,255,255,.045) 1px,transparent 1px),
+                     linear-gradient(to bottom,rgba(255,255,255,.045) 1px,transparent 1px);
+    background-size:80px 80px;background-position:center top}
+  body > *{position:relative;z-index:1}
   .art{position:relative;z-index:1}
-  @media(prefers-reduced-motion:no-preference){.art{transition:transform .18s,border-color .18s}}
   @media(max-width:900px){.bl-grid{grid-template-columns:1fr}}
 
   /* Editions mirror the LinkedIn covers: numbered issues run dark, Sidenotes run light. */
@@ -151,7 +149,7 @@
   </div>
 </section>
 
-<section class="bl-sec gridded">
+<section class="bl-sec">
   <h2 class="bl-h2">Building in the Open</h2>
   <p class="bl-sub">The numbered series. One build, in public, including the parts that went wrong.</p>
   <div class="bl-grid">
