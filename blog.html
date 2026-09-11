@@ -54,6 +54,19 @@
   .art p{color:rgba(255,255,255,.62);font-size:.9rem;line-height:1.55;font-weight:300;margin:0 0 1rem;flex:1}
   .art a{color:var(--teal);font-weight:600;font-size:.86rem;text-decoration:none}
   .bl-note{color:rgba(255,255,255,.5);font-size:.9rem;margin-top:1.4rem;font-style:italic}
+
+  /* Covers are the real LinkedIn artwork. Issues run dark, Sidenotes run light,
+     which is the convention already set on the covers themselves. */
+  .art .cover{aspect-ratio:16/9;width:100%;object-fit:cover;display:block;background:#0a1620;
+    border-bottom:1px solid rgba(255,255,255,.08)}
+  .art.side .cover{border-bottom-color:rgba(255,255,255,.22)}
+  .art .cat{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--teal);margin-bottom:.5rem}
+  .art.side{background:rgba(255,255,255,.075);border-color:rgba(255,255,255,.16)}
+  .art.side:hover{border-color:rgba(255,255,255,.34)}
+  .art.side .cat,.art.side .rd{color:rgba(255,255,255,.78)}
+  .bl-sub{color:rgba(255,255,255,.6);font-size:1rem;line-height:1.7;font-weight:300;
+    max-width:640px;margin:-.7rem 0 1.6rem}
   @media(max-width:900px){.bl-grid{grid-template-columns:1fr}}
 
   /* Editions mirror the LinkedIn covers: numbered issues run dark, Sidenotes run light. */
@@ -72,10 +85,6 @@
     border-bottom:1px solid rgba(255,255,255,.2)}
   .art .thumb-ph span{font-family:'DM Serif Display',serif;font-size:1.25rem;line-height:1.15;color:#fff}
   .art.side .thumb-ph span{color:#151C25}
-  .bl-legend{display:flex;gap:1.6rem;flex-wrap:wrap;margin:0 0 1.4rem;font-size:.84rem;
-    color:rgba(255,255,255,.55);font-weight:300}
-  .bl-legend b{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:.5rem;
-    vertical-align:-1px}
 </style>
 </head>
 <body>
@@ -109,69 +118,69 @@
 </section>
 
 <section class="bl-sec">
-  <span class="bl-eyebrow">Latest</span>
-  <h2 class="bl-h2">Editions</h2>
-  <div class="bl-legend">
-    <span><b style="background:#0F1923;border:1px solid rgba(0,188,212,.4)"></b>Numbered issues run dark</span>
-    <span><b style="background:#F4F6F8"></b>Sidenotes run light</span>
+  <h2 class="bl-h2">Building in the Open</h2>
+  <p class="bl-sub">The numbered series. One build, in public, including the parts that went wrong.</p>
+  <div class="bl-grid">
+    <a class="art" href="https://www.linkedin.com/pulse/what-id-tell-designer-who-wants-build-aneil-razvi-t9g0c/" target="_blank" rel="noopener">
+      <img class="cover" src="assets/newsletter/05-so-you-want-to-build.jpg" alt="So You Want to Build, Issue no. 05" loading="lazy" width="1200" height="675">
+      <div class="body">
+        <div class="cat">Issue no. 05</div>
+        <h4>So You Want to Build</h4>
+        <p>The bottleneck was never the code. It was the judgment. Start before you feel ready, direct the tools instead of deferring to them, and tell the true story rather than the impressive one.</p>
+        <span class="rd">Read on LinkedIn</span>
+      </div>
+    </a>
+    <a class="art" href="https://www.linkedin.com/pulse/gate-aneil-razvi-3hrvc/" target="_blank" rel="noopener">
+      <img class="cover" src="assets/newsletter/04-the-gate.jpg" alt="The Gate, Issue no. 04" loading="lazy" width="1200" height="675">
+      <div class="body">
+        <div class="cat">Issue no. 04</div>
+        <h4>The Gate</h4>
+        <p>Handing your work to a reviewer you will never speak to. Two rejections taught me that some review flags are not bugs you patch, they are decisions about what the product actually is.</p>
+        <span class="rd">Read on LinkedIn</span>
+      </div>
+    </a>
+    <a class="art" href="https://www.linkedin.com/pulse/building-solo-ai-aneil-razvi-qh5ac/" target="_blank" rel="noopener">
+      <img class="cover" src="assets/newsletter/03-building-solo-with-ai.jpg" alt="Building Solo With AI, Issue no. 03" loading="lazy" width="1200" height="675">
+      <div class="body">
+        <div class="cat">Issue no. 03</div>
+        <h4>Building Solo With AI</h4>
+        <p>A passing build proves nothing. The thing writing the code cannot be the thing approving it, and everything the AI got confidently wrong looked exactly like progress.</p>
+        <span class="rd">Read on LinkedIn</span>
+      </div>
+    </a>
+    <a class="art" href="https://www.linkedin.com/pulse/wall-aneil-razvi-tmzjc/" target="_blank" rel="noopener">
+      <img class="cover" src="assets/newsletter/02-the-wall.jpg" alt="The Wall, Issue no. 02" loading="lazy" width="1200" height="675">
+      <div class="body">
+        <div class="cat">Issue no. 02</div>
+        <h4>The Wall</h4>
+        <p>None of these rules are hidden. They just do not announce themselves while you are designing, and by the time they matter you have already built the thing they forbid.</p>
+        <span class="rd">Read on LinkedIn</span>
+      </div>
+    </a>
+    <a class="art" href="https://www.linkedin.com/pulse/foundation-aneil-razvi-hbfpc/" target="_blank" rel="noopener">
+      <img class="cover" src="assets/newsletter/01-the-foundation.jpg" alt="The Foundation, Issue no. 01" loading="lazy" width="1200" height="675">
+      <div class="body">
+        <div class="cat">Issue no. 01</div>
+        <h4>The Foundation</h4>
+        <p>Two days before launch a rule killed the product I had built. The pivot took an afternoon instead of a month, and only because I had written down why I made each decision.</p>
+        <span class="rd">Read on LinkedIn</span>
+      </div>
+    </a>
   </div>
+
+  <h2 class="bl-h2" style="margin-top:3.4rem">Sidenotes</h2>
+  <p class="bl-sub">Shorter pieces outside the series, on whatever the build turned up that week.</p>
   <div class="bl-grid">
     <a class="art side" href="https://www.linkedin.com/pulse/your-design-system-becoming-rules-engine-aneil-razvi-f7ryc/" target="_blank" rel="noopener">
-      <div class="thumb-ph"><span>Your design system is becoming a rules engine</span></div>
+      <img class="cover" src="assets/newsletter/sidenote-01-rules-engine.jpg" alt="Your Design System Is Becoming a Rules Engine, Sidenote no. 01" loading="lazy" width="1200" height="675">
       <div class="body">
-        <div class="cat">Sidenote</div>
-        <h4>Your design system is becoming a rules engine</h4>
-        <p>Localisation and white-labelling force you to stop designing a screen and start designing the conditions under which one gets assembled. Jakob Nielsen arrived at the same place from a different door.</p>
-        <span class="rd">Read on LinkedIn</span>
-      </div>
-    </a>
-    <a class="art" href="https://www.linkedin.com/newsletters/building-in-the-open-7488094002198753281/" target="_blank" rel="noopener">
-      <div class="thumb-ph"><span>What I'd Tell a Designer Who Wants to Build</span></div>
-      <div class="body">
-        <div class="cat"><span class="num">06</span>Issue</div>
-        <h4>What I'd Tell a Designer Who Wants to Build</h4>
-        <p>The advice I actually give, rather than the advice that sounds good on a panel.</p>
-        <span class="rd">Read on LinkedIn</span>
-      </div>
-    </a>
-    <a class="art" href="https://www.linkedin.com/newsletters/building-in-the-open-7488094002198753281/" target="_blank" rel="noopener">
-      <div class="thumb-ph"><span>The Gate</span></div>
-      <div class="body">
-        <div class="cat"><span class="num">05</span>Issue</div>
-        <h4>The Gate</h4>
-        <p>What you put in front of the thing you made, and what it costs you to put it there.</p>
-        <span class="rd">Read on LinkedIn</span>
-      </div>
-    </a>
-    <a class="art" href="https://www.linkedin.com/pulse/building-solo-ai-aneil-razvi-qh5ac" target="_blank" rel="noopener">
-      <div class="thumb-ph"><span>Building Solo With AI</span></div>
-      <div class="body">
-        <div class="cat"><span class="num">04</span>Issue</div>
-        <h4>Building Solo With AI</h4>
-        <p>One person, a real product, and the specific places the tools helped and the specific places they did not.</p>
-        <span class="rd">Read on LinkedIn</span>
-      </div>
-    </a>
-    <a class="art" href="https://www.linkedin.com/pulse/wall-aneil-razvi-tmzjc" target="_blank" rel="noopener">
-      <div class="thumb-ph"><span>The Wall</span></div>
-      <div class="body">
-        <div class="cat"><span class="num">03</span>Issue</div>
-        <h4>The Wall</h4>
-        <p>The point in a build where the thing stops moving, and what it takes to get through it.</p>
-        <span class="rd">Read on LinkedIn</span>
-      </div>
-    </a>
-    <a class="art" href="https://www.linkedin.com/pulse/foundation-aneil-razvi-hbfpc" target="_blank" rel="noopener">
-      <div class="thumb-ph"><span>The Foundation</span></div>
-      <div class="body">
-        <div class="cat"><span class="num">02</span>Issue</div>
-        <h4>The Foundation</h4>
-        <p>What has to be true before any of the rest of it holds.</p>
+        <div class="cat">Sidenote no. 01</div>
+        <h4>Your Design System Is Becoming a Rules Engine</h4>
+        <p>Localization and white-labeling force you to stop designing a screen and start designing the conditions under which one gets assembled. That is a rules engine, not a catalog of parts.</p>
         <span class="rd">Read on LinkedIn</span>
       </div>
     </a>
   </div>
-  <p class="bl-note">Six editions so far, published biweekly. Every one lives on LinkedIn first. Canonical copies are moving here.</p>
 </section>
 
 <footer style="background:#0a1420;border-top:1px solid rgba(255,255,255,.08);padding:40px 6%;text-align:center;color:rgba(255,255,255,.6)"><div style="font-family:'DM Serif Display',serif;font-size:1.2rem;color:#fff;margin-bottom:12px">Aneil <span style="color:var(--teal)">Razvi</span></div><div style="font-size:.9rem"><a style="color:#cfe;text-decoration:none;margin:0 10px" href="https://www.linkedin.com/in/aneilrazvi/" target="_blank">LinkedIn</a>·<a style="color:#cfe;text-decoration:none;margin:0 10px" href="https://cal.com/aneil-razvi" target="_blank">Book a call</a>·<a style="color:#cfe;text-decoration:none;margin:0 10px" href="mailto:hi@aneilrazvi.com">Email</a></div><div style="font-size:.78rem;color:rgba(255,255,255,.4);margin-top:14px">© 2026 Aneil Razvi · Allen, TX</div></footer>
