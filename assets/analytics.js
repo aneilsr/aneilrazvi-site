@@ -46,6 +46,19 @@
       cap('work_with_me_tab', { tab: 'workshop', via: 'deep_link' });
     }
 
+    /* The nine workshop cards. Which ones people open is the whole signal here:
+       it tells him what to lead with on a call and what to quietly retire. */
+    [].forEach.call(document.querySelectorAll('details.wsx'), function (d) {
+      d.addEventListener('toggle', function () {
+        if (!d.open) return;
+        var h3 = d.querySelector('h3');
+        cap('workshop_expand', {
+          workshop: d.getAttribute('data-ws'),
+          title: h3 ? h3.textContent.replace(/^\s*\d+\s*/, '').trim() : null
+        });
+      });
+    });
+
     /* Newsletter issues. Which cover pulls, and whether Sidenotes pull differently. */
     on('.art', 'click', function (t) {
       var h4 = t.querySelector('h4'), cat = t.querySelector('.cat');

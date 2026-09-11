@@ -91,19 +91,48 @@
 
   /* workshop panel */
   .ws-lead{max-width:1040px;margin:0 auto;padding:3.4rem 6% 0}
-  .ws-lead h2{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,3.2vw,2.5rem);color:#fff;font-weight:400;margin:0 0 1rem}
+  .ws-lead .kicker{color:var(--teal);font-size:.72rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase}
+  .ws-lead h2{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,3.2vw,2.5rem);color:#fff;font-weight:400;margin:.55rem 0 1.1rem;line-height:1.2}
   .ws-lead p{color:rgba(255,255,255,.72);font-size:1.06rem;line-height:1.75;font-weight:300;max-width:720px;margin:0}
-  .ws-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;max-width:1040px;margin:2.2rem auto 0;padding:0 6%}
-  .ws{background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.09);border-radius:14px;
-    padding:1.5rem 1.6rem;display:flex;flex-direction:column;gap:.7rem}
-  .ws .said{color:#fff;font-family:'DM Serif Display',serif;font-size:1.12rem;line-height:1.35;font-weight:400}
-  .ws .said::before{content:"\201C"}
-  .ws .said::after{content:"\201D"}
-  .ws .run{color:rgba(255,255,255,.66);font-size:.92rem;line-height:1.6;font-weight:300;flex:1;margin:0}
-  .ws .meta{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.2rem}
-  .ws .pill{font-size:.72rem;letter-spacing:.04em;color:var(--teal);
-    border:1px solid rgba(0,188,212,.35);border-radius:999px;padding:3px 9px;white-space:nowrap}
-  .ws .pill.plain{color:rgba(255,255,255,.55);border-color:rgba(255,255,255,.16)}
+  .ws-lead p+p{margin-top:1.05rem}
+  .ws-lead p b{color:#fff;font-weight:600}
+
+  .ws-band{margin:3rem 0 0}
+  .ws-band img{width:100%;display:block;aspect-ratio:2000/860;height:auto;max-height:48vh;object-fit:cover;object-position:center 45%;
+    border-top:1px solid rgba(0,188,212,.18);border-bottom:1px solid rgba(0,188,212,.18);background:#0a1620}
+  .ws-band figcaption{max-width:1040px;margin:.85rem auto 0;padding:0 6%;color:rgba(255,255,255,.4);font-size:.8rem;font-weight:300}
+
+  .ws-list{max-width:1040px;margin:3rem auto 0;padding:0 6%;display:grid;gap:.8rem}
+  .wsx{background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.09);border-radius:14px;transition:border-color .2s ease,background .2s ease}
+  .wsx:hover{border-color:rgba(255,255,255,.16)}
+  .wsx[open]{background:rgba(255,255,255,.055);border-color:rgba(0,188,212,.3)}
+  .wsx>summary{list-style:none;cursor:pointer;padding:1.3rem 1.5rem;display:grid;grid-template-columns:1fr auto;gap:1rem;align-items:start}
+  .wsx>summary::-webkit-details-marker{display:none}
+  .wsx>summary:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:13px}
+  .wsx h3{font-family:'DM Serif Display',serif;color:#fff;font-size:1.16rem;font-weight:400;margin:0;line-height:1.3}
+  .wsx h3 .num{color:var(--teal);font-size:.94rem;margin-right:.5rem}
+  .wsx .tag{color:rgba(255,255,255,.63);font-size:.93rem;font-weight:300;line-height:1.6;margin:.4rem 0 0;max-width:640px}
+  .wsx .chev{color:rgba(255,255,255,.4);font-size:.8rem;line-height:1;margin-top:.45rem;transition:transform .2s ease,color .2s ease}
+  .wsx[open] .chev{transform:rotate(180deg);color:var(--teal)}
+  .wsx .meta{display:flex;gap:.45rem;flex-wrap:wrap;margin-top:.85rem}
+  .wsx .pill{font-size:.71rem;letter-spacing:.04em;color:var(--teal);border:1px solid rgba(0,188,212,.35);border-radius:999px;padding:3px 9px;white-space:nowrap}
+  .wsx .pill.plain{color:rgba(255,255,255,.5);border-color:rgba(255,255,255,.15)}
+  .wsx .body{padding:0 1.5rem 1.55rem}
+  .wsx .now{color:rgba(255,255,255,.8);font-size:.94rem;line-height:1.7;font-weight:300;
+    border-left:2px solid var(--teal);padding:.1rem 0 .1rem 1rem;margin:.2rem 0 1.15rem;max-width:660px}
+  .wsx .now b{color:var(--teal);font-weight:600}
+  .wsx .body p{color:rgba(255,255,255,.66);font-size:.93rem;line-height:1.7;font-weight:300;margin:0 0 .85rem;max-width:660px}
+  .wsx .body p:last-child{margin-bottom:0}
+  .wsx .body a{color:var(--teal)}
+  .wsx .shot{margin:1.15rem 0 0;max-width:660px}
+  .wsx .shot img{width:100%;display:block;height:auto;border-radius:9px;border:1px solid rgba(255,255,255,.1);background:#0a1620}
+  .wsx .shot figcaption{color:rgba(255,255,255,.38);font-size:.78rem;font-weight:300;margin-top:.5rem}
+
+  .ws-more{max-width:1040px;margin:2.8rem auto 0;padding:0 6%}
+  .ws-more h3{font-family:'DM Serif Display',serif;color:#fff;font-size:1.15rem;font-weight:400;margin:0 0 .35rem}
+  .ws-more p{color:rgba(255,255,255,.55);font-size:.9rem;font-weight:300;line-height:1.65;margin:0 0 1rem;max-width:660px}
+  .ws-more .tags{display:flex;flex-wrap:wrap;gap:.45rem}
+  .ws-more .tags span{font-size:.79rem;color:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.13);border-radius:999px;padding:5px 11px}
 
   /* the receipts band. this is the part that separates him from a deck */
   .ws-proof{background:#0c1620;border-top:1px solid rgba(255,255,255,.08);
@@ -118,15 +147,23 @@
   .ws-case p{color:rgba(255,255,255,.66);font-size:.92rem;line-height:1.62;font-weight:300;margin:0 0 .7rem}
   .ws-case p:last-child{margin-bottom:0}
   .ws-case .limit{color:rgba(255,255,255,.44);font-size:.84rem;font-style:italic}
+  .ws-case img{width:100%;display:block;height:auto;border-radius:9px;border:1px solid rgba(255,255,255,.1);margin:0 0 .95rem;background:#0a1620}
+
   .ws-how{max-width:1040px;margin:0 auto;padding:3.6rem 6% 0}
   .ws-how h2{font-family:'DM Serif Display',serif;font-size:clamp(1.7rem,3vw,2.3rem);color:#fff;font-weight:400;margin:0 0 1.6rem}
   .ws-how ol{margin:0;padding:0;list-style:none;display:grid;gap:1.15rem;counter-reset:s}
-  .ws-how li{counter-increment:s;display:grid;grid-template-columns:auto 1fr;gap:1.1rem;align-items:baseline}
+  .ws-how li{counter-increment:s;display:grid;grid-template-columns:auto minmax(0,1fr);gap:.25rem 1.1rem;align-items:baseline}
   .ws-how li::before{content:counter(s,decimal-leading-zero);font-family:'DM Serif Display',serif;
-    color:var(--teal);font-size:1.3rem;line-height:1}
-  .ws-how li b{color:#fff;font-weight:600;font-size:.98rem}
-  .ws-how li span{color:rgba(255,255,255,.66);font-size:.94rem;line-height:1.6;font-weight:300;display:block;margin-top:.2rem}
-  @media(max-width:820px){.ws-grid,.ws-cases{grid-template-columns:1fr}.wm-tablist{gap:1.4rem}}
+    color:var(--teal);font-size:1.3rem;line-height:1;grid-column:1;grid-row:1 / span 2}
+  .ws-how li b{color:#fff;font-weight:600;font-size:.98rem;grid-column:2;grid-row:1}
+  .ws-how li span{color:rgba(255,255,255,.66);font-size:.94rem;line-height:1.6;font-weight:300;display:block;grid-column:2;grid-row:2;max-width:640px}
+
+  .ws-close{margin:3.6rem 0 0}
+  .ws-close img{width:100%;display:block;aspect-ratio:1200/800;height:auto;max-height:52vh;object-fit:cover;object-position:center 42%;
+    border-top:1px solid rgba(0,188,212,.18);border-bottom:1px solid rgba(0,188,212,.18);background:#0a1620}
+  .ws-close p{max-width:1040px;margin:1.3rem auto 0;padding:0 6%;color:rgba(255,255,255,.7);
+    font-family:'DM Serif Display',serif;font-size:clamp(1.05rem,2vw,1.3rem);font-weight:400;line-height:1.5}
+  @media(max-width:820px){.ws-cases{grid-template-columns:1fr}.wm-tablist{gap:1.4rem}.wsx>summary{padding:1.15rem 1.2rem}.wsx .body{padding:0 1.2rem 1.3rem}}
 </style>
 <script defer src="assets/analytics.js"></script>
 </head>
@@ -216,59 +253,199 @@
 <div id="panel-workshop" role="tabpanel" aria-labelledby="tab-workshop" hidden>
 
   <div class="ws-lead">
-    <h2>A day that ends in an artefact, not a summary</h2>
-    <p>Most workshops produce a photograph of a wall and a follow-up email nobody opens. These end in something a team can act on: a written rule set, a ranked map, a tested concept. Every session below is one I run myself, and every one names the conditions under which you should not book it.</p>
+    <div class="kicker">Workshop with me</div>
+    <h2>It starts with point of view</h2>
+    <p>Every function in your company sees the same product differently. Sales sees the objection. Support sees the ticket. Engineering sees the constraint. Design sees the seam. Nobody is wrong, and nobody has the whole thing. A workshop is the day those perspectives get laid side by side and pointed at one goal.</p>
+    <p>That is what companies actually buy. <b>Alignment they can point at. A decision the room owns instead of one that gets relitigated on Monday. And something tangible on the wall the next morning that people keep using.</b></p>
+    <p>The shift underneath all of it is reactive to proactive. Most teams spend the week answering what already happened. The work is getting them to where the puck is going to be and building for that instead, and you cannot do that from one point of view. You need all of them in the room at the same time.</p>
+    <p>I facilitate, I do not lecture. The room does the thinking. My job is to keep it moving, keep it honest, and make sure nobody leaves without something written down with their name on it.</p>
   </div>
 
-  <div class="ws-grid">
-    <div class="ws">
-      <div class="said">We bought the tools, we ran the pilot, and it did not turn into a product.</div>
-      <p class="run">Two days getting the rules out of three long-tenured people's heads and into a table a machine can read. Ends with a policy set and a register of every rule that turned out to live only in a person.</p>
-      <div class="meta"><span class="pill">Two days</span><span class="pill plain">6 to 10 people</span></div>
-    </div>
-    <div class="ws">
-      <div class="said">Everyone has an AI idea and nobody can say which one is worth doing first.</div>
-      <p class="run">Walk every function twice, once for the customer-facing experience and once for the internal one. Ends with a ranked map where "we never wrote the rules down" shows up as a visible blocker instead of a surprise three months in.</p>
-      <div class="meta"><span class="pill">One day</span><span class="pill plain">8 to 14 people</span></div>
-    </div>
-    <div class="ws">
-      <div class="said">Every customer sees the same nine modules whether they bought them or not.</div>
-      <p class="run">Three hours, and often the right place to start. Modules by plan tier, crossed with role and locale, in one table. Most teams have never seen theirs written out and are surprised by it.</p>
-      <div class="meta"><span class="pill">Three hours</span><span class="pill plain">5 to 9 people</span></div>
-    </div>
-    <div class="ws">
-      <div class="said">Nobody can describe end to end what actually happens when a customer does this.</div>
-      <p class="run">One wall, one real process, every function that touches it in the room. Ends with the timeline, the places the room disagreed, and the boundaries drawn where people actually put them rather than where the org chart says.</p>
-      <div class="meta"><span class="pill">Half a day</span><span class="pill plain">8 to 12 people</span></div>
-    </div>
-    <div class="ws">
-      <div class="said">It works in the demo and falls apart the moment a real user touches it.</div>
-      <p class="run">One flow, four passes: where the model produces something, what triggers it, where a human decides, and what the interface does when the model is wrong. The fourth is the one teams skip and the one that decides whether a pilot survives.</p>
-      <div class="meta"><span class="pill">Half a day</span><span class="pill plain">5 to 9 people</span></div>
-    </div>
-    <div class="ws">
-      <div class="said">We have a design system and every new customer still needs a designer.</div>
-      <p class="run">Tested against one question: can a new tenant be configured without a designer in the room. Ends with a verdict, component library, kit, or rules engine, and the entitlement, locale and role gaps that decide it.</p>
-      <div class="meta"><span class="pill">Half a day</span><span class="pill plain">4 to 8 people</span></div>
+  <figure class="ws-band">
+    <img src="assets/work/workshop-band.jpg" alt="A workshop room with a wall of coloured sticky notes and printed row labels reading ACTION and ACTORS, participants standing at the wall" width="2000" height="860">
+    <figcaption>SPOTIO, Poland, June 2025. The printed labels on the left read ACTION and ACTORS. Faces are blurred throughout this page.</figcaption>
+  </figure>
+
+  <div class="ws-list">
+
+    <details class="wsx" data-ws="anything-is-possible">
+      <summary>
+        <div>
+          <h3><span class="num">01</span>In a World Where Anything Is Possible</h3>
+          <p class="tag">Take every constraint off the table, find out what your people would actually build, then put the best of it in front of the people you would build it for.</p>
+          <div class="meta"><span class="pill plain">Half a day to a day</span><span class="pill plain">Leadership, a department, or one person</span></div>
+        </div>
+        <span class="chev" aria-hidden="true">&#9662;</span>
+      </summary>
+      <div class="body">
+        <p class="now"><b>What's different now.</b> The ideas that used to get killed in the room as impossible are mostly buildable this quarter. The gap between imagining something and trying it has collapsed, so capturing the imagination properly matters more than it ever has. The constraint moved from can we to should we, and only the people you serve can answer the second one.</p>
+        <p>Budget, headcount, technology, politics, the thing someone said no to in 2019. All of it comes off the table for the first half. What comes back is bigger and far more specific than anyone expects, because people who are told the ceiling is gone stop pre-editing themselves before they speak.</p>
+        <p>Then it gets honest. The strongest ideas go in front of real end users inside the same week, and the room finds out which parts of the impossible are genuinely wanted. That is the half that turns a good morning into a decision you can fund.</p>
+        <p>It runs at three sizes. A leadership team that needs to agree on where it is going. A single department that has stopped believing it is allowed to propose things. And one person who needs their own ceiling removed.</p>
+      </div>
+    </details>
+
+    <details class="wsx" data-ws="experience-context-mapping">
+      <summary>
+        <div>
+          <h3><span class="num">02</span>Experience and Context Mapping</h3>
+          <p class="tag">The whole journey on one wall, across every platform the customer touches, with the internal handoffs drawn in where they actually happen.</p>
+          <div class="meta"><span class="pill">Omnitracs</span><span class="pill plain">One to two days</span><span class="pill plain">8 to 14 people</span></div>
+        </div>
+        <span class="chev" aria-hidden="true">&#9662;</span>
+      </summary>
+      <div class="body">
+        <p class="now"><b>What's different now.</b> AI put new touchpoints into the journey that nobody has mapped yet. Assistants, summaries, suggestions, automated outreach. If your map predates those, it is missing rows, and the gaps between the rows are where customers quietly fall through.</p>
+        <p>Omnitracs had grown by acquisition, so a fleet manager could touch four products before lunch and meet four different ideas of what a driver was. We put the whole thing on one wall with every function that owned a piece of it standing in front of it.</p>
+        <p>The moment that changed the room was not a slide. It was watching the same driver record change its name three times across six feet of wall, with the person responsible for each name standing right there. Nobody had to be told there was a problem and nobody had to be blamed for it.</p>
+        <figure class="shot">
+          <img src="assets/work/workshop-context-wall.jpg" alt="A cross platform context map on a wall, hundreds of coloured sticky notes grouped under handwritten category headers" width="966" height="500" loading="lazy">
+          <figcaption>The cross platform context map, mid session.</figcaption>
+        </figure>
+      </div>
+    </details>
+
+    <details class="wsx" data-ws="ai-opportunity-mapping">
+      <summary>
+        <div>
+          <h3><span class="num">03</span>AI Opportunity Mapping</h3>
+          <p class="tag">Where AI earns its place in your product, decided by the people who know the workflow rather than by whoever read the most about it.</p>
+          <div class="meta"><span class="pill">SPOTIO</span><span class="pill plain">Two to three days</span><span class="pill plain">8 to 16 people</span></div>
+        </div>
+        <span class="chev" aria-hidden="true">&#9662;</span>
+      </summary>
+      <div class="body">
+        <p class="now"><b>What's different now.</b> Nobody is short of AI ideas. The work is picking the two worth funding and being able to say clearly why the other eight are not, in language the people who pitched them can accept.</p>
+        <p>The brief names two people rather than a technology. Every idea gets traced back to the customer moment it came from, which means the ranking argues itself and nobody has to win on volume.</p>
+        <p>Run on site for one team, then run again for a second. Full write up in the Receipts section below.</p>
+        <figure class="shot">
+          <img src="assets/work/workshop-ai-poland.jpg" alt="Participants standing at a wall of sticky notes during an AI opportunity mapping session, faces blurred" width="1200" height="675" loading="lazy">
+          <figcaption>Poland, day two. Dallas ran the same arc a few weeks later.</figcaption>
+        </figure>
+      </div>
+    </details>
+
+    <details class="wsx" data-ws="global-alignment">
+      <summary>
+        <div>
+          <h3><span class="num">04</span>Global Alignment</h3>
+          <p class="tag">Teams in different regions and different functions get one vision, one set of norms, and a real understanding of what the others are up against.</p>
+          <div class="meta"><span class="pill plain">Three to five sessions</span><span class="pill plain">Two or more regions or functions</span></div>
+        </div>
+        <span class="chev" aria-hidden="true">&#9662;</span>
+      </summary>
+      <div class="body">
+        <p class="now"><b>What's different now.</b> Regions are adopting AI tools at completely different speeds. One office has rebuilt its workflow around them and another has not started. That is a new kind of drift, and it shows up as misalignment months before anyone gives it a name.</p>
+        <p>Common vision first, then how information travels, then the session that does the real work: each region explaining its own constraints to the others, out loud, in its own words. People stop reading each other as difficult the moment they can see the calendar and the customer the other team is working against.</p>
+        <p>The output is written norms rather than a good feeling. Who decides what, how a decision travels, and what a region does when it disagrees.</p>
+      </div>
+    </details>
+
+    <details class="wsx" data-ws="future-thinking">
+      <summary>
+        <div>
+          <h3><span class="num">05</span>Future Thinking</h3>
+          <p class="tag">Break the rut, picture several futures honestly, then pick the one you are building for and make it fundable.</p>
+          <div class="meta"><span class="pill">SNHU</span><span class="pill plain">Three to four sessions</span><span class="pill plain">8 to 12 people</span></div>
+        </div>
+        <span class="chev" aria-hidden="true">&#9662;</span>
+      </summary>
+      <div class="body">
+        <p class="now"><b>What's different now.</b> The futures people sketched in these rooms two years ago are shipping. Scenario planning stopped being theoretical, which makes the sessions shorter, more concrete, and much easier to act on at the end.</p>
+        <p>At SNHU this ran remote across two calendar weeks with ten participants, split openly into active participants and observers so nobody had to pretend to be in a role they were not in. Four steps of pre-work, a written facilitation script, and a day by day arc that ended in a tested concept rather than a wish list.</p>
+      </div>
+    </details>
+
+    <details class="wsx" data-ws="design-sprint">
+      <summary>
+        <div>
+          <h3><span class="num">06</span>The Design Sprint, rebuilt</h3>
+          <p class="tag">Problem to a prototype in front of a real person. Shorter than it used to be, and heavier in the places that still decide the outcome.</p>
+          <div class="meta"><span class="pill plain">Two to five days</span><span class="pill plain">5 to 8 people</span></div>
+        </div>
+        <span class="chev" aria-hidden="true">&#9662;</span>
+      </summary>
+      <div class="body">
+        <p class="now"><b>What's different now.</b> This is the big one. The five day sprint was designed when prototyping was the bottleneck, and it has not been for a while. Building is cheap now, so the week moves its weight off make it and onto the two things that are still hard: deciding what is worth building, and getting it in front of a real person before anyone falls in love with it.</p>
+        <p>For most teams that is two or three days now rather than five. Sketching and deciding keep their full length, because that is where the value moved. The prototype day compresses to an afternoon. The testing day grows, because it is the only day that tells you the truth.</p>
+        <p>If your question is cheaper to answer in an afternoon than in a sprint, I will say so on the call. Some of them are.</p>
+      </div>
+    </details>
+
+    <details class="wsx" data-ws="service-blueprint">
+      <summary>
+        <div>
+          <h3><span class="num">07</span>Service Blueprint</h3>
+          <p class="tag">Five rows across the journey. Customer, staff, product, policy, and everything happening backstage to make it work.</p>
+          <div class="meta"><span class="pill plain">Half a day to a day</span><span class="pill plain">8 to 12 people</span></div>
+        </div>
+        <span class="chev" aria-hidden="true">&#9662;</span>
+      </summary>
+      <div class="body">
+        <p class="now"><b>What's different now.</b> The backstage row is where AI actually lives, and most blueprints still draw that row as a person. Redrawing it is usually the moment a room realises which handoffs quietly stopped being human.</p>
+        <p>This is the one that brings operations and support into a design conversation as equals, because two of the five rows are theirs and everyone can see it. Half a day covers one journey. A full day covers the journey, the gap list, and a name against each gap.</p>
+      </div>
+    </details>
+
+    <details class="wsx" data-ws="design-system">
+      <summary>
+        <div>
+          <h3><span class="num">08</span>Design System Audit and Build</h3>
+          <p class="tag">What you have, what you actually use, what is duplicated, and the plan to get to one system engineering will adopt.</p>
+          <div class="meta"><span class="pill plain">Two weeks, part time</span><span class="pill plain">4 to 8 people</span></div>
+        </div>
+        <span class="chev" aria-hidden="true">&#9662;</span>
+      </summary>
+      <div class="body">
+        <p class="now"><b>What's different now.</b> The question changed from does it look consistent to can a machine read it. A system a model can build from is a different artefact from one a designer can build from, and most teams have the second while being asked for the first.</p>
+        <p>Tested against one question: can a new customer be configured without a designer in the room. The answer decides whether what you have is a component library, a kit, or a rules engine, and those are three different jobs with three different price tags.</p>
+        <p>Pairs with the <a href="maturity.html">design maturity read</a>, which scores where your function sits before we start.</p>
+      </div>
+    </details>
+
+    <details class="wsx" data-ws="ai-built-on-paper">
+      <summary>
+        <div>
+          <h3><span class="num">09</span>AI, Built On Paper</h3>
+          <p class="tag">Three hours, hands on, building an app without a laptop. No technology, to build technology.</p>
+          <div class="meta"><span class="pill plain">Three hours</span><span class="pill plain">Campuses and early career teams</span></div>
+        </div>
+        <span class="chev" aria-hidden="true">&#9662;</span>
+      </summary>
+      <div class="body">
+        <p class="now"><b>What's different now.</b> When anyone can generate a screen in a minute, the scarce skill is knowing what to ask for. Taking the laptop away is the fastest way to teach it.</p>
+        <p>Everyone leaves with written inputs for three documents and a paper prototype in a bag, which is the part that surprises people. A second chapter, AI Built In Order, picks it up for anyone who wants to turn the paper into something a machine will actually build.</p>
+        <p>Campus partners run their own booking and marketing. There is a pack for that.</p>
+      </div>
+    </details>
+
+  </div>
+
+  <div class="ws-more">
+    <h3>Also available</h3>
+    <p>All of these are written up and ready to run. They sit behind the nine above because they overlap with them, or because they exist to solve one specific problem rather than to be shopped for. Ask about any of them on the call.</p>
+    <div class="tags">
+      <span>Vision and Goal Alignment</span><span>Design + Disrupt</span><span>Play Thinking</span><span>Design Thinking Series</span><span>UX and UI Series with office hours</span><span>The Figma Series with office hours</span><span>Event Storming</span><span>North Star and Impact Mapping</span><span>Entitlement and Permissions Matrix</span><span>Model in the Loop Mapping</span><span>Process and Handoff</span><span>Career Ladder and Team Shape</span><span>Research Operations</span><span>Persona System</span><span>Retail Experience Observation</span><span>Multi Day Concept Sprint</span><span>AI, Built In Order</span>
     </div>
   </div>
 
   <section class="ws-proof">
     <div class="ws-proof-in">
       <div class="eyebrow">Receipts</div>
-      <h2>Rooms I have actually run</h2>
+      <h2>Two rooms, in detail</h2>
       <div class="ws-cases">
         <div class="ws-case">
           <div class="when">SPOTIO, June 2025</div>
+          <img src="assets/work/workshop-ai-dallas.jpg" alt="A workshop table in Dallas with participants working through sticky notes, faces blurred" width="1200" height="675" loading="lazy">
           <h3>Two days, on site, then run again for a second team</h3>
-          <p>The brief named two people rather than a technology: a canvasser and an account manager losing their day to repetitive work. Pre-work was mandatory with a deadline five days out. The room worked a four-colour wall with printed row labels reading ACTION and ACTORS, where the app and the AI were written in as actors alongside the humans. Day two the teams acted the workflow out, current state first and the version with AI in it second, while everyone else watched for edge cases.</p>
-          <p>Four one-page concept briefs landed within four days, each one quoting the sticky note it came from. Every brief is signed "Author(s): Workshop Participants", so the thing that circulated afterwards belonged to the room and not to me.</p>
-          <p>That is the part clients remember. The first share of each day ran under a hard no-questions rule so nobody senior could kill a half-formed idea early, observers were given three specific things to write down instead of a chair, and the personas we designed against included the person who did not want to be there. Silos came down because everyone had a voice and the voice was written down with a name on it. Nobody had to argue afterwards about whose idea it was.</p>
+          <p>The brief named two people rather than a technology: a canvasser and an account manager losing their day to repetitive work. Pre-work was mandatory with a deadline five days out. The room worked a four colour wall with printed row labels reading ACTION and ACTORS, where the app and the AI were written in as actors alongside the humans. On day two the teams acted the workflow out, current state first and the version with AI in it second, while everyone else watched for edge cases.</p>
+          <p>Four one page concept briefs landed within four days, each one quoting the sticky note it came from. Every brief is signed "Author(s): Workshop Participants", so the thing that circulated afterwards belonged to the room rather than to me.</p>
+          <p>That is the part clients remember. The first share of each day ran under a no questions rule so nobody senior could kill a half formed idea early, observers were given three specific things to write down instead of a chair, and the personas we designed against included the person who did not want to be there. Everybody had a voice, every voice was written down with a name on it, and nobody had to argue afterwards about whose idea it was.</p>
         </div>
         <div class="ws-case">
           <div class="when">SNHU, summer</div>
-          <h3>A five-day design sprint, remote, across two calendar weeks</h3>
-          <p>Ten participants, split explicitly into active participants and observers so nobody had to pretend. A four-step pre-work programme, a written facilitation script, and a day-by-day arc from ideation to a tested concept. My name is printed on the board as one of two facilitators, next to a line telling participants to call me with questions.</p>
+          <h3>A five day design sprint, remote, across two calendar weeks</h3>
+          <p>Ten participants, split explicitly into active participants and observers so nobody had to pretend. A four step pre-work programme, a written facilitation script, and a day by day arc from ideation to a tested concept. My name is printed on the board as one of two facilitators, next to a line telling participants to call me with questions.</p>
           <p class="limit">What it does not show: what shipped afterwards. That record is not mine to publish, so I do not claim it.</p>
         </div>
       </div>
@@ -280,10 +457,15 @@
     <ol>
       <li><b>A call, and an honest answer about whether you need one</b><span>Some of these questions are cheaper to answer in an afternoon than in a workshop. If yours is, I will say so on the call.</span></li>
       <li><b>Pre-work, with a deadline</b><span>Not a suggestion. The sessions that work are the ones where the room arrives having already written something down.</span></li>
-      <li><b>The day, standing up</b><span>Remote-first on a board, or in a room around a wall. Both work. The wall is better and I will say that too.</span></li>
-      <li><b>The artefact, within a week</b><span>Written up so someone who was not there can follow a decision back to the moment it was made.</span></li>
+      <li><b>The day, standing up</b><span>Remote first on a board, or in a room around a wall. Both work. The wall is better and I will say that too.</span></li>
+      <li><b>The artefact, within a week</b><span>Written up so someone who was not there can follow a decision back to the moment it was made, and so the people who made it get their names on it.</span></li>
     </ol>
   </div>
+
+  <section class="ws-close">
+    <img src="assets/work/workshop-table.jpg" alt="The workshop group sharing a long lunch together after the session, faces blurred" width="1200" height="800" loading="lazy">
+    <p>The wall is the artefact. The long lunch afterwards is where the silo actually comes down.</p>
+  </section>
 
 </div><!-- /panel-workshop -->
 
@@ -311,7 +493,7 @@
     });
     var note=document.getElementById('tabnote');
     if(note) note.textContent = id==='tab-workshop'
-      ? 'Every session below names the conditions under which you should not book it.'
+      ? 'Nine sessions, plus an honest conversation about which one you actually need.'
       : 'An engagement is a season. A workshop is a day. Most people start with the second one.';
   }
   tabs.forEach(function(t,i){
