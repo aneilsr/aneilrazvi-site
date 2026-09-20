@@ -1,0 +1,39 @@
+{
+  "built_at": "2026-09-20T05:33:26+00:00",
+  "sources": {
+    "onet": {
+      "version": "31.0",
+      "url": "https://www.onetcenter.org/database.html",
+      "license": "CC BY 4.0"
+    },
+    "aei": {
+      "release": "release_2026_06_26",
+      "url": "https://huggingface.co/datasets/Anthropic/EconomicIndex",
+      "license": "CC BY",
+      "periods": [
+        "2026-05-01",
+        "2026-06-01"
+      ]
+    }
+  },
+  "rows": {
+    "aei_onet_tasks": 2823,
+    "aei_soc_occupations": 718,
+    "onet_occupations": 1016,
+    "onet_job_titles": 54269
+  },
+  "coverage": {
+    "full": 235,
+    "partial": 483,
+    "thin": 298
+  },
+  "citation_line": "Source: O*NET 31.0, Anthropic Economic Index 2026-06-26 release.",
+  "checksums": {
+    "aei_onet_tasks.csv": "2bc41682c635e5efce33de8db6cc3f905a3a54487d5affb7d15d58ca47634041",
+    "aei_soc_occupations.csv": "f4d482c127d85df26a807b163669fa2bf7b3aa832c45f40832030014200a086b",
+    "coverage.csv": "7b7347b74105f48ea3a18346952fc8ea29d4bf4b63d37d736b93a0bdf4edb106",
+    "onet_job_titles.csv": "483532ad3c62086cdf7febf541647db73a42763c6d91d2b2a2c4db08ca220eb3",
+    "onet_occupations.csv": "d25987f417f610dc1de283068c358851896001cd31afe79501812c600069f86c",
+    "onet_task_statements.csv": "b385e294497cacfe4efa3303c59035f93b9c27cf4646e2278dad2876dd8eb603"
+  }
+}

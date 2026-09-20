@@ -1,0 +1,1017 @@
+onetsoc_code,title,coverage_tier,tasks_total,tasks_matched,occupation_automation_share,task_mean_share
+11-1011.00,Chief Executives,full,31,7,53.32,51.5
+11-1011.03,Chief Sustainability Officers,partial,18,1,44.12,34.1
+11-1021.00,General and Operations Managers,full,17,6,43.32,45.33
+11-1031.00,Legislators,partial,30,4,39.91,43.06
+11-2011.00,Advertising and Promotions Managers,full,30,7,32.7,44.08
+11-2021.00,Marketing Managers,full,20,8,38.42,42.56
+11-2022.00,Sales Managers,full,17,5,47.96,51.27
+11-2032.00,Public Relations Managers,full,20,5,32.26,44.49
+11-2033.00,Fundraising Managers,partial,16,0,31.95,
+11-3012.00,Administrative Services Managers,full,18,5,66.0,60.51
+11-3013.00,Facilities Managers,partial,11,1,78.43,33.16
+11-3013.01,Security Managers,full,28,6,55.12,53.52
+11-3021.00,Computer and Information Systems Managers,full,17,8,63.72,58.01
+11-3031.00,Financial Managers,full,17,9,48.44,59.69
+11-3031.01,Treasurers and Controllers,full,22,9,39.11,43.1
+11-3031.03,Investment Fund Managers,full,20,5,40.66,46.25
+11-3051.00,Industrial Production Managers,full,21,5,78.23,64.96
+11-3051.01,Quality Control Systems Managers,full,27,7,42.01,49.09
+11-3051.02,Geothermal Production Managers,thin,17,0,,
+11-3051.03,Biofuels Production Managers,thin,14,0,,
+11-3051.04,Biomass Power Plant Managers,partial,19,1,80.72,79.95
+11-3051.06,Hydroelectric Production Managers,thin,18,0,,
+11-3061.00,Purchasing Managers,full,18,5,36.35,48.03
+11-3071.00,"Transportation, Storage, and Distribution Managers",full,30,9,42.63,52.64
+11-3071.04,Supply Chain Managers,partial,30,3,56.43,56.73
+11-3111.00,Compensation and Benefits Managers,full,22,5,37.38,37.48
+11-3121.00,Human Resources Managers,full,26,6,40.54,38.63
+11-3131.00,Training and Development Managers,full,12,6,58.77,48.74
+11-9013.00,"Farmers, Ranchers, and Other Agricultural Managers",partial,30,3,42.6,55.37
+11-9021.00,Construction Managers,partial,25,4,50.55,55.77
+11-9031.00,"Education and Childcare Administrators, Preschool and Daycare",partial,17,3,36.55,43.04
+11-9032.00,"Education Administrators, Kindergarten through Secondary",full,32,10,26.62,35.62
+11-9033.00,"Education Administrators, Postsecondary",full,27,9,32.93,48.11
+11-9039.00,"Education Administrators, All Other",thin,0,0,,
+11-9041.00,Architectural and Engineering Managers,partial,19,4,47.16,43.97
+11-9041.01,Biofuels/Biodiesel Technology and Product Development Managers,thin,18,0,,
+11-9051.00,Food Service Managers,full,28,5,50.28,47.88
+11-9071.00,Gambling Managers,partial,19,1,74.29,77.78
+11-9072.00,"Entertainment and Recreation Managers, Except Gambling",partial,17,4,38.79,58.94
+11-9081.00,Lodging Managers,full,24,8,62.73,64.43
+11-9111.00,Medical and Health Services Managers,full,18,5,61.8,47.91
+11-9121.00,Natural Sciences Managers,full,16,5,45.8,37.77
+11-9121.01,Clinical Research Coordinators,full,33,6,46.89,44.09
+11-9121.02,Water Resource Specialists,thin,21,0,,
+11-9131.00,Postmasters and Mail Superintendents,partial,13,3,60.11,41.83
+11-9141.00,"Property, Real Estate, and Community Association Managers",partial,26,3,46.11,53.84
+11-9151.00,Social and Community Service Managers,partial,16,4,33.53,45.34
+11-9161.00,Emergency Management Directors,partial,23,1,47.97,54.84
+11-9171.00,Funeral Home Managers,full,23,5,55.3,52.15
+11-9179.00,"Personal Service Managers, All Other",thin,0,0,,
+11-9179.01,Fitness and Wellness Coordinators,full,24,6,45.76,40.73
+11-9179.02,Spa Managers,full,21,6,60.15,56.92
+11-9199.00,"Managers, All Other",thin,0,0,,
+11-9199.01,Regulatory Affairs Managers,full,27,5,42.14,43.93
+11-9199.02,Compliance Managers,full,29,7,36.89,55.27
+11-9199.08,Loss Prevention Managers,partial,27,4,59.61,63.45
+11-9199.09,Wind Energy Operations Managers,thin,16,0,,
+11-9199.10,Wind Energy Development Managers,partial,15,2,52.93,51.78
+11-9199.11,Brownfield Redevelopment Specialists and Site Managers,partial,23,0,58.21,
+13-1011.00,"Agents and Business Managers of Artists, Performers, and Athletes",partial,14,3,28.85,37.78
+13-1021.00,"Buyers and Purchasing Agents, Farm Products",partial,9,2,67.33,64.91
+13-1022.00,"Wholesale and Retail Buyers, Except Farm Products",partial,16,4,40.7,52.71
+13-1023.00,"Purchasing Agents, Except Wholesale, Retail, and Farm Products",full,19,7,63.25,56.04
+13-1031.00,"Claims Adjusters, Examiners, and Investigators",partial,29,1,41.29,42.23
+13-1032.00,"Insurance Appraisers, Auto Damage",partial,7,1,78.26,77.11
+13-1041.00,Compliance Officers,partial,16,4,40.24,42.04
+13-1041.01,Environmental Compliance Inspectors,partial,26,2,60.96,48.3
+13-1041.03,Equal Opportunity Representatives and Officers,partial,18,3,56.58,61.73
+13-1041.04,Government Property Inspectors and Investigators,partial,13,1,65.0,71.45
+13-1041.06,Coroners,partial,20,1,43.9,47.22
+13-1041.07,Regulatory Affairs Specialists,full,30,12,44.28,48.45
+13-1041.08,Customs Brokers,partial,23,3,40.97,36.41
+13-1051.00,Cost Estimators,partial,14,4,49.67,44.92
+13-1071.00,Human Resources Specialists,full,26,5,42.05,54.27
+13-1074.00,Farm Labor Contractors,thin,7,0,,
+13-1075.00,Labor Relations Specialists,partial,28,1,38.66,34.36
+13-1081.00,Logisticians,full,22,6,54.55,48.03
+13-1081.01,Logistics Engineers,full,30,9,47.18,47.63
+13-1081.02,Logistics Analysts,full,31,11,76.47,74.85
+13-1082.00,Project Management Specialists,full,20,11,52.68,59.85
+13-1111.00,Management Analysts,partial,11,4,45.46,52.53
+13-1121.00,"Meeting, Convention, and Event Planners",partial,21,4,37.02,41.13
+13-1131.00,Fundraisers,full,28,6,34.61,38.6
+13-1141.00,"Compensation, Benefits, and Job Analysis Specialists",full,22,6,42.3,38.35
+13-1151.00,Training and Development Specialists,full,20,6,47.51,38.91
+13-1161.00,Market Research Analysts and Marketing Specialists,full,13,5,45.63,43.58
+13-1161.01,Search Marketing Strategists,full,36,15,56.33,52.44
+13-1199.00,"Business Operations Specialists, All Other",thin,0,0,,
+13-1199.04,Business Continuity Planners,full,21,7,62.06,55.09
+13-1199.05,Sustainability Specialists,partial,14,3,37.89,45.7
+13-1199.06,Online Merchants,full,34,18,42.91,50.6
+13-1199.07,Security Management Specialists,full,23,8,37.73,47.4
+13-2011.00,Accountants and Auditors,full,30,13,45.02,52.64
+13-2022.00,Appraisers of Personal and Business Property,partial,14,3,52.56,53.19
+13-2023.00,Appraisers and Assessors of Real Estate,full,28,5,45.99,45.68
+13-2031.00,Budget Analysts,partial,13,4,36.79,42.77
+13-2041.00,Credit Analysts,partial,11,4,50.12,50.82
+13-2051.00,Financial and Investment Analysts,full,26,15,44.34,42.61
+13-2052.00,Personal Financial Advisors,full,21,7,41.01,53.11
+13-2053.00,Insurance Underwriters,partial,7,1,55.0,66.67
+13-2054.00,Financial Risk Specialists,full,30,14,42.8,40.09
+13-2061.00,Financial Examiners,partial,17,4,38.34,54.52
+13-2071.00,Credit Counselors,full,23,12,35.34,33.13
+13-2072.00,Loan Officers,full,30,11,61.16,57.58
+13-2081.00,"Tax Examiners and Collectors, and Revenue Agents",partial,21,2,54.81,49.57
+13-2082.00,Tax Preparers,full,12,7,45.23,43.24
+13-2099.00,"Financial Specialists, All Other",thin,0,0,,
+13-2099.01,Financial Quantitative Analysts,full,21,6,34.13,35.28
+13-2099.04,"Fraud Examiners, Investigators and Analysts",full,23,5,48.85,47.73
+15-1211.00,Computer Systems Analysts,full,22,16,84.24,65.5
+15-1211.01,Health Informatics Specialists,partial,17,4,56.36,54.96
+15-1212.00,Information Security Analysts,partial,11,4,75.08,80.33
+15-1221.00,Computer and Information Research Scientists,full,15,8,58.44,49.83
+15-1231.00,Computer Network Support Specialists,full,26,12,79.85,74.03
+15-1232.00,Computer User Support Specialists,full,16,9,64.67,74.19
+15-1241.00,Computer Network Architects,full,33,11,51.06,53.79
+15-1241.01,Telecommunications Engineering Specialists,full,26,8,86.59,73.56
+15-1242.00,Database Administrators,full,18,7,62.83,58.97
+15-1243.00,Database Architects,full,25,12,58.2,50.59
+15-1243.01,Data Warehousing Specialists,full,18,9,60.82,62.48
+15-1244.00,Network and Computer Systems Administrators,full,20,7,68.1,71.01
+15-1251.00,Computer Programmers,full,17,11,62.9,67.56
+15-1252.00,Software Developers,full,17,9,60.34,54.37
+15-1253.00,Software Quality Assurance Analysts and Testers,full,30,20,75.77,65.58
+15-1254.00,Web Developers,full,29,20,55.26,60.25
+15-1255.00,Web and Digital Interface Designers,full,30,13,51.67,55.1
+15-1255.01,Video Game Designers,full,24,8,45.04,46.97
+15-1299.00,"Computer Occupations, All Other",thin,0,0,,
+15-1299.01,Web Administrators,full,35,18,70.08,74.86
+15-1299.02,Geographic Information Systems Technologists and Technicians,full,29,15,75.35,57.76
+15-1299.03,Document Management Specialists,full,23,12,67.37,64.11
+15-1299.04,Penetration Testers,full,22,6,71.12,71.96
+15-1299.05,Information Security Engineers,full,20,10,63.66,63.56
+15-1299.06,Digital Forensics Analysts,full,20,7,71.93,55.98
+15-1299.07,Blockchain Engineers,full,17,5,55.35,61.94
+15-1299.08,Computer Systems Engineers/Architects,full,28,20,62.49,55.47
+15-1299.09,Information Technology Project Managers,full,21,7,58.36,66.88
+15-2011.00,Actuaries,partial,15,3,35.18,33.53
+15-2021.00,Mathematicians,full,12,8,45.92,45.97
+15-2031.00,Operations Research Analysts,full,17,12,53.13,53.13
+15-2041.00,Statisticians,full,19,14,41.22,42.49
+15-2041.01,Biostatisticians,full,25,14,50.34,41.27
+15-2051.00,Data Scientists,full,16,11,47.43,50.49
+15-2051.01,Business Intelligence Analysts,full,17,11,65.75,56.74
+15-2051.02,Clinical Data Managers,full,21,11,56.75,56.03
+15-2099.00,"Mathematical Science Occupations, All Other",thin,0,0,,
+15-2099.01,Bioinformatics Technicians,full,19,10,48.41,59.1
+17-1011.00,"Architects, Except Landscape and Naval",full,25,9,46.02,42.3
+17-1012.00,Landscape Architects,partial,19,4,49.55,63.09
+17-1021.00,Cartographers and Photogrammetrists,full,14,5,87.25,62.87
+17-1022.00,Surveyors,partial,24,3,45.46,35.95
+17-1022.01,Geodetic Surveyors,partial,16,3,63.61,59.98
+17-2011.00,Aerospace Engineers,full,14,6,51.76,57.48
+17-2021.00,Agricultural Engineers,partial,14,1,31.54,41.91
+17-2031.00,Bioengineers and Biomedical Engineers,partial,30,4,52.71,45.98
+17-2041.00,Chemical Engineers,partial,14,1,40.82,46.67
+17-2051.00,Civil Engineers,partial,16,3,33.13,38.49
+17-2051.01,Transportation Engineers,full,26,5,48.12,47.19
+17-2051.02,Water/Wastewater Engineers,partial,28,4,47.33,34.79
+17-2061.00,Computer Hardware Engineers,full,18,8,45.76,42.12
+17-2071.00,Electrical Engineers,full,22,6,58.98,54.26
+17-2072.00,"Electronics Engineers, Except Computer",full,20,10,35.68,40.1
+17-2072.01,Radio Frequency Identification Device Specialists,partial,21,2,58.9,73.22
+17-2081.00,Environmental Engineers,full,29,5,46.79,40.27
+17-2111.00,"Health and Safety Engineers, Except Mining Safety Engineers and Inspectors",partial,27,4,48.26,41.8
+17-2111.02,Fire-Prevention and Protection Engineers,partial,14,2,43.32,43.36
+17-2112.00,Industrial Engineers,full,20,5,40.99,44.14
+17-2112.01,Human Factors Engineers and Ergonomists,full,26,9,39.23,36.81
+17-2112.02,Validation Engineers,full,21,6,46.96,58.83
+17-2112.03,Manufacturing Engineers,full,24,11,52.81,50.08
+17-2121.00,Marine Engineers and Naval Architects,partial,30,4,45.58,40.76
+17-2131.00,Materials Engineers,full,21,5,37.44,43.83
+17-2141.00,Mechanical Engineers,full,28,12,53.89,53.19
+17-2141.01,Fuel Cell Engineers,partial,26,2,34.74,36.32
+17-2141.02,Automotive Engineers,full,25,9,45.03,44.32
+17-2151.00,"Mining and Geological Engineers, Including Mining Safety Engineers",partial,18,1,51.77,50.47
+17-2161.00,Nuclear Engineers,partial,20,2,59.85,56.38
+17-2171.00,Petroleum Engineers,partial,23,2,43.9,41.42
+17-2199.00,"Engineers, All Other",thin,0,0,,
+17-2199.03,"Energy Engineers, Except Wind and Solar",partial,21,3,44.91,48.99
+17-2199.05,Mechatronics Engineers,full,23,5,40.89,52.41
+17-2199.06,Microsystems Engineers,partial,31,3,45.38,45.69
+17-2199.07,Photonics Engineers,partial,26,2,60.14,50.5
+17-2199.08,Robotics Engineers,partial,24,3,35.34,43.42
+17-2199.09,Nanosystems Engineers,partial,25,3,23.33,29.28
+17-2199.10,Wind Energy Engineers,partial,16,0,13.64,
+17-2199.11,Solar Energy Systems Engineers,partial,13,2,67.6,53.85
+17-3011.00,Architectural and Civil Drafters,full,26,8,38.61,45.03
+17-3012.00,Electrical and Electronics Drafters,full,30,7,60.57,61.38
+17-3013.00,Mechanical Drafters,full,16,5,37.31,47.85
+17-3019.00,"Drafters, All Other",thin,0,0,,
+17-3021.00,Aerospace Engineering and Operations Technologists and Technicians,thin,11,0,,
+17-3022.00,Civil Engineering Technologists and Technicians,partial,14,4,68.47,48.57
+17-3023.00,Electrical and Electronic Engineering Technologists and Technicians,full,28,7,52.92,48.37
+17-3024.00,Electro-Mechanical and Mechatronics Technologists and Technicians,partial,28,3,63.17,66.63
+17-3024.01,Robotics Technicians,partial,22,1,80.0,57.89
+17-3025.00,Environmental Engineering Technologists and Technicians,full,23,6,40.73,58.12
+17-3026.00,Industrial Engineering Technologists and Technicians,full,30,6,35.19,46.09
+17-3026.01,Nanotechnology Engineering Technologists and Technicians,partial,25,1,47.3,54.9
+17-3027.00,Mechanical Engineering Technologists and Technicians,full,30,8,28.89,47.69
+17-3027.01,Automotive Engineering Technicians,partial,18,3,39.87,42.45
+17-3028.00,Calibration Technologists and Technicians,partial,14,2,56.52,55.62
+17-3029.00,"Engineering Technologists and Technicians, Except Drafters, All Other",thin,0,0,,
+17-3029.01,Non-Destructive Testing Specialists,partial,16,0,58.06,
+17-3029.08,Photonics Technicians,thin,24,0,,
+17-3031.00,Surveying and Mapping Technicians,partial,30,4,57.19,60.47
+19-1011.00,Animal Scientists,partial,9,1,37.04,36.36
+19-1012.00,Food Scientists and Technologists,partial,13,0,,
+19-1013.00,Soil and Plant Scientists,partial,27,3,55.7,60.29
+19-1021.00,Biochemists and Biophysicists,partial,24,3,21.47,22.69
+19-1022.00,Microbiologists,partial,14,3,42.24,33.44
+19-1023.00,Zoologists and Wildlife Biologists,partial,14,1,46.94,63.67
+19-1029.00,"Biological Scientists, All Other",thin,0,0,,
+19-1029.01,Bioinformatics Scientists,full,20,8,51.0,57.9
+19-1029.02,Molecular and Cellular Biologists,full,22,5,52.9,40.97
+19-1029.03,Geneticists,partial,24,2,28.24,21.33
+19-1029.04,Biologists,full,22,5,55.38,44.26
+19-1031.00,Conservation Scientists,partial,30,1,45.65,65.0
+19-1031.02,Range Managers,partial,18,0,62.5,
+19-1031.03,Park Naturalists,full,20,5,54.18,53.55
+19-1032.00,Foresters,thin,25,0,,
+19-1041.00,Epidemiologists,full,16,5,38.14,34.94
+19-1042.00,"Medical Scientists, Except Epidemiologists",partial,14,4,27.12,23.14
+19-1099.00,"Life Scientists, All Other",thin,0,0,,
+19-2011.00,Astronomers,partial,17,3,54.92,45.83
+19-2012.00,Physicists,partial,16,2,49.59,47.41
+19-2021.00,Atmospheric and Space Scientists,partial,27,4,23.85,58.8
+19-2031.00,Chemists,partial,12,3,69.3,54.86
+19-2032.00,Materials Scientists,full,16,6,36.57,33.14
+19-2041.00,"Environmental Scientists and Specialists, Including Health",partial,22,2,17.71,35.36
+19-2041.01,Climate Change Policy Analysts,partial,14,2,33.71,29.95
+19-2041.02,Environmental Restoration Planners,partial,23,3,36.5,43.11
+19-2041.03,Industrial Ecologists,partial,38,3,37.12,29.04
+19-2042.00,"Geoscientists, Except Hydrologists and Geographers",partial,32,3,41.18,49.45
+19-2043.00,Hydrologists,partial,25,0,37.59,
+19-2099.00,"Physical Scientists, All Other",thin,0,0,,
+19-2099.01,Remote Sensing Scientists and Technologists,partial,24,3,46.25,32.81
+19-3011.00,Economists,full,14,6,26.61,30.75
+19-3011.01,Environmental Economists,partial,20,3,52.4,46.54
+19-3022.00,Survey Researchers,partial,16,3,48.83,51.88
+19-3032.00,Industrial-Organizational Psychologists,full,25,10,41.33,41.4
+19-3033.00,Clinical and Counseling Psychologists,full,30,12,36.35,43.03
+19-3034.00,School Psychologists,partial,19,4,33.02,33.8
+19-3039.00,"Psychologists, All Other",thin,0,0,,
+19-3039.02,Neuropsychologists,partial,14,2,23.07,45.18
+19-3039.03,Clinical Neuropsychologists,partial,18,0,23.3,
+19-3041.00,Sociologists,full,15,6,23.54,33.22
+19-3051.00,Urban and Regional Planners,partial,25,4,47.51,48.92
+19-3091.00,Anthropologists and Archeologists,full,30,6,51.42,45.66
+19-3092.00,Geographers,partial,12,3,38.99,49.95
+19-3093.00,Historians,full,21,6,37.33,32.72
+19-3094.00,Political Scientists,full,14,7,25.39,28.71
+19-3099.00,"Social Scientists and Related Workers, All Other",thin,0,0,,
+19-3099.01,Transportation Planners,full,22,5,48.5,48.76
+19-4012.00,Agricultural Technicians,partial,26,2,27.71,63.64
+19-4012.01,Precision Agriculture Technicians,partial,22,1,60.61,47.83
+19-4013.00,Food Science Technicians,partial,16,3,72.6,60.91
+19-4021.00,Biological Technicians,full,18,5,60.63,68.49
+19-4031.00,Chemical Technicians,partial,16,3,48.97,51.31
+19-4042.00,"Environmental Science and Protection Technicians, Including Health",partial,25,4,54.19,53.59
+19-4043.00,"Geological Technicians, Except Hydrologic Technicians",partial,29,2,91.25,85.91
+19-4044.00,Hydrologic Technicians,partial,16,4,56.01,35.82
+19-4051.00,Nuclear Technicians,thin,18,0,,
+19-4051.02,Nuclear Monitoring Technicians,thin,16,0,,
+19-4061.00,Social Science Research Assistants,full,22,8,57.76,55.67
+19-4071.00,Forest and Conservation Technicians,partial,20,2,62.14,52.51
+19-4092.00,Forensic Science Technicians,partial,24,1,42.55,28.57
+19-4099.00,"Life, Physical, and Social Science Technicians, All Other",thin,0,0,,
+19-4099.01,Quality Control Analysts,full,26,8,28.08,44.27
+19-4099.03,Remote Sensing Technicians,full,21,7,55.51,61.99
+19-5011.00,Occupational Health and Safety Specialists,partial,22,2,47.0,58.12
+19-5012.00,Occupational Health and Safety Technicians,partial,26,1,29.37,63.16
+21-1011.00,Substance Abuse and Behavioral Disorder Counselors,partial,23,4,46.08,52.7
+21-1012.00,"Educational, Guidance, and Career Counselors and Advisors",full,35,8,36.94,39.7
+21-1013.00,Marriage and Family Therapists,full,17,7,43.4,52.33
+21-1014.00,Mental Health Counselors,full,27,11,39.0,41.51
+21-1015.00,Rehabilitation Counselors,partial,17,4,52.96,61.87
+21-1019.00,"Counselors, All Other",thin,0,0,,
+21-1021.00,"Child, Family, and School Social Workers",full,21,7,40.05,53.09
+21-1022.00,Healthcare Social Workers,partial,17,2,56.96,65.97
+21-1023.00,Mental Health and Substance Abuse Social Workers,partial,13,3,51.46,55.78
+21-1029.00,"Social Workers, All Other",thin,0,0,,
+21-1091.00,Health Education Specialists,partial,16,1,41.94,55.56
+21-1092.00,Probation Officers and Correctional Treatment Specialists,partial,21,1,58.82,57.69
+21-1093.00,Social and Human Service Assistants,full,19,5,56.32,49.6
+21-1094.00,Community Health Workers,full,29,11,34.44,38.42
+21-1099.00,"Community and Social Service Specialists, All Other",thin,0,0,,
+21-2011.00,Clergy,full,21,7,39.98,44.85
+21-2021.00,"Directors, Religious Activities and Education",full,19,5,40.32,33.3
+21-2099.00,"Religious Workers, All Other",thin,0,0,,
+23-1011.00,Lawyers,full,22,7,32.44,36.54
+23-1012.00,Judicial Law Clerks,partial,18,3,42.04,67.66
+23-1021.00,"Administrative Law Judges, Adjudicators, and Hearing Officers",partial,14,4,35.28,49.16
+23-1022.00,"Arbitrators, Mediators, and Conciliators",full,20,5,37.83,34.74
+23-1023.00,"Judges, Magistrate Judges, and Magistrates",partial,21,3,50.6,51.53
+23-2011.00,Paralegals and Legal Assistants,partial,12,4,37.48,42.25
+23-2093.00,"Title Examiners, Abstractors, and Searchers",partial,17,4,65.16,67.18
+23-2099.00,"Legal Support Workers, All Other",thin,0,0,,
+25-1011.00,"Business Teachers, Postsecondary",full,25,9,30.11,35.17
+25-1021.00,"Computer Science Teachers, Postsecondary",partial,26,4,29.1,52.13
+25-1022.00,"Mathematical Science Teachers, Postsecondary",partial,23,3,29.02,39.55
+25-1031.00,"Architecture Teachers, Postsecondary",partial,22,0,28.68,
+25-1032.00,"Engineering Teachers, Postsecondary",partial,24,3,28.35,24.23
+25-1041.00,"Agricultural Sciences Teachers, Postsecondary",partial,23,0,29.0,
+25-1042.00,"Biological Science Teachers, Postsecondary",partial,27,3,29.89,39.61
+25-1043.00,"Forestry and Conservation Science Teachers, Postsecondary",partial,25,2,28.73,31.88
+25-1051.00,"Atmospheric, Earth, Marine, and Space Sciences Teachers, Postsecondary",partial,26,1,25.18,40.0
+25-1052.00,"Chemistry Teachers, Postsecondary",partial,28,1,28.77,55.0
+25-1053.00,"Environmental Science Teachers, Postsecondary",partial,25,1,29.04,47.62
+25-1054.00,"Physics Teachers, Postsecondary",partial,24,2,28.85,16.09
+25-1061.00,"Anthropology and Archeology Teachers, Postsecondary",partial,27,3,25.86,22.73
+25-1062.00,"Area, Ethnic, and Cultural Studies Teachers, Postsecondary",partial,23,1,29.41,25.92
+25-1063.00,"Economics Teachers, Postsecondary",partial,22,0,29.05,
+25-1064.00,"Geography Teachers, Postsecondary",partial,25,1,29.34,66.67
+25-1065.00,"Political Science Teachers, Postsecondary",partial,22,0,29.31,
+25-1066.00,"Psychology Teachers, Postsecondary",partial,29,3,28.96,39.49
+25-1067.00,"Sociology Teachers, Postsecondary",partial,24,0,29.31,
+25-1069.00,"Social Sciences Teachers, Postsecondary, All Other",thin,0,0,,
+25-1071.00,"Health Specialties Teachers, Postsecondary",partial,22,0,29.27,
+25-1072.00,"Nursing Instructors and Teachers, Postsecondary",partial,29,0,28.68,
+25-1081.00,"Education Teachers, Postsecondary",partial,24,0,29.12,
+25-1082.00,"Library Science Teachers, Postsecondary",partial,25,0,29.39,
+25-1111.00,"Criminal Justice and Law Enforcement Teachers, Postsecondary",partial,23,0,29.05,
+25-1112.00,"Law Teachers, Postsecondary",partial,23,1,28.49,34.85
+25-1113.00,"Social Work Teachers, Postsecondary",partial,24,1,29.52,42.24
+25-1121.00,"Art, Drama, and Music Teachers, Postsecondary",partial,28,2,33.61,44.09
+25-1122.00,"Communications Teachers, Postsecondary",partial,23,0,29.07,
+25-1123.00,"English Language and Literature Teachers, Postsecondary",partial,33,4,30.8,37.21
+25-1124.00,"Foreign Language and Literature Teachers, Postsecondary",partial,24,1,29.0,36.76
+25-1125.00,"History Teachers, Postsecondary",partial,25,1,29.12,33.89
+25-1126.00,"Philosophy and Religion Teachers, Postsecondary",partial,22,1,39.81,46.8
+25-1192.00,"Family and Consumer Sciences Teachers, Postsecondary",partial,23,1,28.67,56.14
+25-1193.00,"Recreation and Fitness Studies Teachers, Postsecondary",partial,23,0,29.06,
+25-1194.00,"Career/Technical Education Teachers, Postsecondary",full,20,10,28.84,37.48
+25-1199.00,"Postsecondary Teachers, All Other",thin,0,0,,
+25-2011.00,"Preschool Teachers, Except Special Education",partial,34,2,42.11,39.53
+25-2012.00,"Kindergarten Teachers, Except Special Education",partial,37,4,32.9,39.08
+25-2021.00,"Elementary School Teachers, Except Special Education",partial,38,4,33.28,37.55
+25-2022.00,"Middle School Teachers, Except Special and Career/Technical Education",partial,35,3,36.91,30.62
+25-2023.00,"Career/Technical Education Teachers, Middle School",partial,31,2,35.35,15.02
+25-2031.00,"Secondary School Teachers, Except Special and Career/Technical Education",partial,32,1,43.3,51.43
+25-2032.00,"Career/Technical Education Teachers, Secondary School",partial,33,1,34.94,29.15
+25-2051.00,"Special Education Teachers, Preschool",full,36,7,41.19,48.74
+25-2055.00,"Special Education Teachers, Kindergarten",partial,29,4,50.75,56.07
+25-2056.00,"Special Education Teachers, Elementary School",partial,30,4,50.18,49.14
+25-2057.00,"Special Education Teachers, Middle School",partial,40,2,40.73,36.24
+25-2058.00,"Special Education Teachers, Secondary School",partial,40,0,42.39,
+25-2059.00,"Special Education Teachers, All Other",thin,0,0,,
+25-2059.01,Adapted Physical Education Specialists,partial,20,1,46.97,37.78
+25-3011.00,"Adult Basic Education, Adult Secondary Education, and English as a Second Language Instructors",partial,37,4,31.77,36.58
+25-3021.00,Self-Enrichment Teachers,partial,30,3,46.78,50.48
+25-3031.00,"Substitute Teachers, Short-Term",full,18,5,23.08,37.17
+25-3041.00,Tutors,full,19,11,48.99,39.75
+25-3099.00,"Teachers and Instructors, All Other",thin,0,0,,
+25-4011.00,Archivists,partial,13,2,56.92,33.23
+25-4012.00,Curators,partial,15,3,24.06,28.43
+25-4013.00,Museum Technicians and Conservators,partial,24,2,60.83,63.39
+25-4022.00,Librarians and Media Collections Specialists,full,30,8,50.74,59.5
+25-4031.00,Library Technicians,full,31,5,50.29,68.74
+25-9021.00,Farm and Home Management Educators,partial,15,3,44.16,51.39
+25-9031.00,Instructional Coordinators,full,30,18,47.31,37.27
+25-9042.00,"Teaching Assistants, Preschool, Elementary, Middle, and Secondary School, Except Special Education",full,28,7,46.45,52.09
+25-9043.00,"Teaching Assistants, Special Education",partial,30,0,54.49,
+25-9044.00,"Teaching Assistants, Postsecondary",full,20,8,33.33,39.61
+25-9049.00,"Teaching Assistants, All Other",thin,0,0,,
+25-9099.00,"Educational Instruction and Library Workers, All Other",thin,0,0,,
+27-1011.00,Art Directors,full,16,8,46.04,48.82
+27-1012.00,Craft Artists,full,16,5,44.88,46.12
+27-1013.00,"Fine Artists, Including Painters, Sculptors, and Illustrators",full,28,7,46.76,45.21
+27-1014.00,Special Effects Artists and Animators,full,13,7,53.59,55.24
+27-1019.00,"Artists and Related Workers, All Other",thin,0,0,,
+27-1021.00,Commercial and Industrial Designers,full,17,8,24.07,36.84
+27-1022.00,Fashion Designers,partial,20,3,46.94,41.77
+27-1023.00,Floral Designers,partial,15,2,46.78,44.76
+27-1024.00,Graphic Designers,full,19,12,30.62,50.72
+27-1025.00,Interior Designers,partial,16,2,41.1,39.01
+27-1026.00,Merchandise Displayers and Window Trimmers,partial,24,2,47.3,46.25
+27-1027.00,Set and Exhibit Designers,partial,27,3,32.47,37.31
+27-1029.00,"Designers, All Other",thin,0,0,,
+27-2011.00,Actors,full,18,7,51.03,72.53
+27-2012.00,Producers and Directors,full,30,10,31.98,42.41
+27-2012.03,Media Programming Directors,partial,23,4,38.7,37.37
+27-2012.04,Talent Directors,partial,15,1,34.26,34.48
+27-2012.05,Media Technical Directors/Managers,partial,15,0,66.67,
+27-2021.00,Athletes and Sports Competitors,partial,9,1,42.55,45.45
+27-2022.00,Coaches and Scouts,full,27,7,47.38,50.13
+27-2023.00,"Umpires, Referees, and Other Sports Officials",partial,16,1,43.33,41.39
+27-2031.00,Dancers,thin,14,0,,
+27-2032.00,Choreographers,partial,18,2,28.13,26.04
+27-2041.00,Music Directors and Composers,full,30,9,38.19,41.36
+27-2042.00,Musicians and Singers,partial,26,2,41.1,26.66
+27-2091.00,"Disc Jockeys, Except Radio",partial,19,3,71.43,65.6
+27-2099.00,"Entertainers and Performers, Sports and Related Workers, All Other",thin,0,0,,
+27-3011.00,Broadcast Announcers and Radio Disc Jockeys,partial,24,4,36.09,45.94
+27-3023.00,"News Analysts, Reporters, and Journalists",full,30,13,28.91,40.19
+27-3031.00,Public Relations Specialists,full,18,9,38.85,45.44
+27-3041.00,Editors,full,22,9,34.22,36.31
+27-3042.00,Technical Writers,full,15,10,39.66,54.96
+27-3043.00,Writers and Authors,full,20,10,28.54,28.25
+27-3043.05,"Poets, Lyricists and Creative Writers",full,16,13,29.58,32.49
+27-3091.00,Interpreters and Translators,full,17,11,62.62,53.81
+27-3092.00,Court Reporters and Simultaneous Captioners,partial,15,2,68.85,57.29
+27-3099.00,"Media and Communication Workers, All Other",thin,0,0,,
+27-4011.00,Audio and Video Technicians,full,29,6,52.1,60.45
+27-4012.00,Broadcast Technicians,partial,28,2,49.8,58.01
+27-4014.00,Sound Engineering Technicians,partial,14,2,86.89,88.83
+27-4015.00,Lighting Technicians,thin,16,0,,
+27-4021.00,Photographers,partial,28,4,51.25,58.56
+27-4031.00,"Camera Operators, Television, Video, and Film",partial,21,2,39.17,54.31
+27-4032.00,Film and Video Editors,full,22,9,45.52,55.41
+27-4099.00,"Media and Communication Equipment Workers, All Other",thin,0,0,,
+29-1011.00,Chiropractors,partial,13,3,47.61,51.36
+29-1021.00,"Dentists, General",partial,20,1,37.24,36.36
+29-1022.00,Oral and Maxillofacial Surgeons,thin,15,0,,
+29-1023.00,Orthodontists,partial,11,1,48.48,25.0
+29-1024.00,Prosthodontists,thin,12,0,,
+29-1029.00,"Dentists, All Other Specialists",thin,0,0,,
+29-1031.00,Dietitians and Nutritionists,full,28,6,48.1,43.8
+29-1041.00,Optometrists,partial,10,1,66.8,67.12
+29-1051.00,Pharmacists,partial,21,3,36.53,53.88
+29-1071.00,Physician Assistants,partial,12,3,51.02,53.69
+29-1071.01,Anesthesiologist Assistants,thin,16,0,,
+29-1081.00,Podiatrists,partial,11,1,56.25,68.09
+29-1122.00,Occupational Therapists,partial,17,3,55.56,60.9
+29-1122.01,"Low Vision Therapists, Orientation and Mobility Specialists, and Vision Rehabilitation Therapists",partial,21,2,45.61,44.52
+29-1123.00,Physical Therapists,partial,24,2,37.41,44.06
+29-1124.00,Radiation Therapists,partial,22,2,71.57,47.72
+29-1125.00,Recreational Therapists,partial,11,3,61.48,54.8
+29-1126.00,Respiratory Therapists,partial,23,1,30.0,70.83
+29-1127.00,Speech-Language Pathologists,partial,23,3,41.04,60.44
+29-1128.00,Exercise Physiologists,full,25,6,44.37,45.63
+29-1129.00,"Therapists, All Other",thin,0,0,,
+29-1129.01,Art Therapists,full,25,5,43.01,43.01
+29-1129.02,Music Therapists,full,30,7,41.98,43.07
+29-1131.00,Veterinarians,partial,21,3,61.52,67.61
+29-1141.00,Registered Nurses,partial,27,2,41.77,68.66
+29-1141.01,Acute Care Nurses,full,27,6,45.62,57.08
+29-1141.02,Advanced Practice Psychiatric Nurses,full,24,7,44.02,49.17
+29-1141.03,Critical Care Nurses,partial,29,3,53.51,51.76
+29-1141.04,Clinical Nurse Specialists,full,30,9,48.16,42.31
+29-1151.00,Nurse Anesthetists,partial,24,1,69.05,75.0
+29-1161.00,Nurse Midwives,partial,21,3,38.1,41.44
+29-1171.00,Nurse Practitioners,full,27,6,36.54,52.62
+29-1181.00,Audiologists,partial,22,1,36.11,
+29-1211.00,Anesthesiologists,partial,20,2,40.3,50.84
+29-1212.00,Cardiologists,full,25,5,37.6,50.36
+29-1213.00,Dermatologists,partial,18,2,43.75,55.89
+29-1214.00,Emergency Medicine Physicians,full,17,6,27.8,50.64
+29-1215.00,Family Medicine Physicians,partial,12,3,42.12,63.93
+29-1216.00,General Internal Medicine Physicians,partial,19,3,42.45,43.92
+29-1217.00,Neurologists,full,24,6,23.91,48.82
+29-1218.00,Obstetricians and Gynecologists,partial,15,1,44.33,75.0
+29-1221.00,"Pediatricians, General",partial,17,4,45.72,38.51
+29-1222.00,"Physicians, Pathologists",partial,19,1,31.62,31.71
+29-1223.00,Psychiatrists,partial,12,2,37.1,37.66
+29-1224.00,Radiologists,partial,30,3,53.29,53.71
+29-1229.00,"Physicians, All Other",thin,0,0,,
+29-1229.01,Allergists and Immunologists,partial,16,3,31.6,31.26
+29-1229.02,Hospitalists,partial,14,2,58.33,59.02
+29-1229.03,Urologists,partial,14,1,65.63,62.96
+29-1229.04,Physical Medicine and Rehabilitation Physicians,partial,15,1,66.67,70.59
+29-1229.05,Preventive Medicine Physicians,partial,15,0,27.43,
+29-1229.06,Sports Medicine Physicians,full,27,6,44.74,53.43
+29-1241.00,"Ophthalmologists, Except Pediatric",partial,18,1,32.71,26.9
+29-1242.00,"Orthopedic Surgeons, Except Pediatric",partial,15,1,66.67,44.44
+29-1243.00,Pediatric Surgeons,partial,18,0,59.37,
+29-1249.00,"Surgeons, All Other",thin,0,0,,
+29-1291.00,Acupuncturists,partial,18,2,53.28,43.61
+29-1292.00,Dental Hygienists,partial,16,1,32.41,31.6
+29-1299.00,"Healthcare Diagnosing or Treating Practitioners, All Other",thin,0,0,,
+29-1299.01,Naturopathic Physicians,partial,20,3,44.87,50.43
+29-1299.02,Orthoptists,partial,16,3,50.59,51.66
+29-2011.00,Medical and Clinical Laboratory Technologists,partial,15,2,46.97,55.37
+29-2011.01,Cytogenetic Technologists,partial,30,1,51.01,45.99
+29-2011.02,Cytotechnologists,thin,13,0,,
+29-2011.04,Histotechnologists,thin,16,0,,
+29-2012.00,Medical and Clinical Laboratory Technicians,partial,14,1,45.0,44.83
+29-2012.01,Histology Technicians,thin,8,0,,
+29-2031.00,Cardiovascular Technologists and Technicians,partial,21,1,75.47,91.43
+29-2032.00,Diagnostic Medical Sonographers,partial,19,1,61.54,68.42
+29-2033.00,Nuclear Medicine Technologists,partial,17,3,84.06,82.5
+29-2034.00,Radiologic Technologists and Technicians,partial,30,1,60.6,58.23
+29-2035.00,Magnetic Resonance Imaging Technologists,partial,24,2,45.1,30.69
+29-2036.00,Medical Dosimetrists,partial,19,2,31.66,53.2
+29-2042.00,Emergency Medical Technicians,partial,12,2,47.59,55.44
+29-2043.00,Paramedics,partial,13,1,49.36,29.41
+29-2051.00,Dietetic Technicians,partial,13,3,48.1,59.98
+29-2052.00,Pharmacy Technicians,partial,21,0,41.1,
+29-2053.00,Psychiatric Technicians,partial,16,3,59.34,51.63
+29-2055.00,Surgical Technologists,thin,18,0,,
+29-2056.00,Veterinary Technologists and Technicians,partial,31,2,53.47,50.34
+29-2057.00,Ophthalmic Medical Technicians,thin,20,0,,
+29-2061.00,Licensed Practical and Licensed Vocational Nurses,partial,22,1,48.48,45.45
+29-2072.00,Medical Records Specialists,partial,16,2,78.47,59.81
+29-2081.00,"Opticians, Dispensing",thin,21,0,,
+29-2091.00,Orthotists and Prosthetists,thin,15,0,,
+29-2092.00,Hearing Aid Specialists,thin,11,0,,
+29-2099.00,"Health Technologists and Technicians, All Other",thin,0,0,,
+29-2099.01,Neurodiagnostic Technologists,partial,16,1,29.03,27.08
+29-2099.05,Ophthalmic Medical Technologists,partial,31,1,88.29,88.68
+29-2099.08,Patient Representatives,partial,13,2,48.9,45.69
+29-9021.00,Health Information Technologists and Medical Registrars,partial,16,2,56.41,57.58
+29-9091.00,Athletic Trainers,full,23,6,44.42,56.0
+29-9092.00,Genetic Counselors,full,19,6,40.47,40.73
+29-9093.00,Surgical Assistants,thin,28,0,,
+29-9099.00,"Healthcare Practitioners and Technical Workers, All Other",thin,0,0,,
+29-9099.01,Midwives,full,36,6,33.38,42.02
+31-1121.00,Home Health Aides,thin,15,0,,
+31-1122.00,Personal Care Aides,full,11,5,51.94,55.13
+31-1131.00,Nursing Assistants,partial,33,4,36.04,40.67
+31-1132.00,Orderlies,partial,22,1,82.46,82.93
+31-1133.00,Psychiatric Aides,partial,17,1,86.05,88.0
+31-2011.00,Occupational Therapy Assistants,partial,22,2,69.66,84.99
+31-2012.00,Occupational Therapy Aides,partial,15,0,76.47,
+31-2021.00,Physical Therapist Assistants,partial,21,1,55.15,51.57
+31-2022.00,Physical Therapist Aides,thin,19,0,,
+31-9011.00,Massage Therapists,partial,14,2,38.46,39.74
+31-9091.00,Dental Assistants,thin,16,0,,
+31-9092.00,Medical Assistants,partial,20,2,27.54,51.7
+31-9093.00,Medical Equipment Preparers,thin,16,0,,
+31-9094.00,Medical Transcriptionists,partial,15,2,53.76,58.05
+31-9095.00,Pharmacy Aides,partial,17,0,,
+31-9096.00,Veterinary Assistants and Laboratory Animal Caretakers,partial,28,1,82.35,69.39
+31-9097.00,Phlebotomists,partial,23,0,51.52,
+31-9099.00,"Healthcare Support Workers, All Other",thin,0,0,,
+31-9099.01,Speech-Language Pathology Assistants,thin,11,0,,
+31-9099.02,Endoscopy Technicians,thin,12,0,,
+33-1011.00,First-Line Supervisors of Correctional Officers,partial,23,3,59.13,60.19
+33-1012.00,First-Line Supervisors of Police and Detectives,partial,20,4,41.1,46.21
+33-1021.00,First-Line Supervisors of Firefighting and Prevention Workers,partial,30,2,63.11,50.98
+33-1091.00,First-Line Supervisors of Security Workers,partial,21,3,41.09,42.65
+33-1099.00,"First-Line Supervisors of Protective Service Workers, All Other",thin,0,0,,
+33-2011.00,Firefighters,thin,30,0,,
+33-2021.00,Fire Inspectors and Investigators,partial,30,0,41.72,
+33-2022.00,Forest Fire Inspectors and Prevention Specialists,partial,16,1,76.61,98.04
+33-3011.00,Bailiffs,thin,15,0,,
+33-3012.00,Correctional Officers and Jailers,partial,27,1,97.5,97.53
+33-3021.00,Detectives and Criminal Investigators,full,30,5,62.26,51.78
+33-3021.02,Police Identification and Records Officers,thin,16,0,,
+33-3021.06,Intelligence Analysts,partial,21,3,60.27,59.62
+33-3031.00,Fish and Game Wardens,thin,23,0,,
+33-3041.00,Parking Enforcement Workers,thin,20,0,,
+33-3051.00,Police and Sheriff's Patrol Officers,partial,30,4,61.72,61.18
+33-3051.04,Customs and Border Protection Officers,partial,11,2,31.11,64.09
+33-3052.00,Transit and Railroad Police,partial,12,1,45.0,47.37
+33-9011.00,Animal Control Workers,thin,16,0,,
+33-9021.00,Private Detectives and Investigators,partial,14,3,72.73,77.91
+33-9031.00,Gambling Surveillance Officers and Gambling Investigators,partial,8,1,92.0,92.0
+33-9032.00,Security Guards,partial,14,1,86.67,95.24
+33-9091.00,Crossing Guards and Flaggers,thin,12,0,,
+33-9092.00,"Lifeguards, Ski Patrol, and Other Recreational Protective Service Workers",thin,15,0,,
+33-9093.00,Transportation Security Screeners,partial,26,0,64.87,
+33-9094.00,School Bus Monitors,partial,18,1,50.47,50.32
+33-9099.00,"Protective Service Workers, All Other",thin,0,0,,
+33-9099.02,Retail Loss Prevention Specialists,partial,21,2,45.22,42.98
+35-1011.00,Chefs and Head Cooks,full,21,5,39.64,42.9
+35-1012.00,First-Line Supervisors of Food Preparation and Serving Workers,partial,26,2,41.64,44.95
+35-2011.00,"Cooks, Fast Food",partial,20,1,71.12,75.0
+35-2012.00,"Cooks, Institution and Cafeteria",partial,17,2,42.6,57.47
+35-2013.00,"Cooks, Private Household",partial,13,3,41.62,44.09
+35-2014.00,"Cooks, Restaurant",partial,20,4,72.98,64.45
+35-2015.00,"Cooks, Short Order",partial,11,1,72.34,71.43
+35-2019.00,"Cooks, All Other",thin,0,0,,
+35-2021.00,Food Preparation Workers,partial,31,2,70.0,76.44
+35-3011.00,Bartenders,partial,20,2,48.9,37.46
+35-3023.00,Fast Food and Counter Workers,partial,27,1,46.67,49.05
+35-3023.01,Baristas,partial,19,1,54.39,26.19
+35-3031.00,Waiters and Waitresses,partial,25,1,59.31,59.82
+35-3041.00,"Food Servers, Nonrestaurant",partial,14,1,84.0,85.71
+35-9011.00,Dining Room and Cafeteria Attendants and Bartender Helpers,partial,23,1,75.39,75.0
+35-9021.00,Dishwashers,partial,13,1,75.51,73.91
+35-9031.00,"Hosts and Hostesses, Restaurant, Lounge, and Coffee Shop",partial,20,1,31.55,29.91
+35-9099.00,"Food Preparation and Serving Related Workers, All Other",thin,0,0,,
+37-1011.00,First-Line Supervisors of Housekeeping and Janitorial Workers,full,26,5,43.78,67.46
+37-1012.00,"First-Line Supervisors of Landscaping, Lawn Service, and Groundskeeping Workers",partial,28,3,62.39,65.05
+37-2011.00,"Janitors and Cleaners, Except Maids and Housekeeping Cleaners",thin,21,0,,
+37-2012.00,Maids and Housekeeping Cleaners,thin,20,0,,
+37-2019.00,"Building Cleaning Workers, All Other",thin,0,0,,
+37-2021.00,Pest Control Workers,partial,14,2,66.62,67.54
+37-3011.00,Landscaping and Groundskeeping Workers,partial,19,1,65.62,62.5
+37-3012.00,"Pesticide Handlers, Sprayers, and Applicators, Vegetation",thin,12,0,,
+37-3013.00,Tree Trimmers and Pruners,thin,24,0,,
+37-3019.00,"Grounds Maintenance Workers, All Other",thin,0,0,,
+39-1013.00,First-Line Supervisors of Gambling Services Workers,partial,30,3,36.59,41.07
+39-1014.00,"First-Line Supervisors of Entertainment and Recreation Workers, Except Gambling Services",partial,19,4,47.67,46.09
+39-1022.00,First-Line Supervisors of Personal Service Workers,partial,17,3,44.19,47.88
+39-2011.00,Animal Trainers,partial,15,0,68.18,
+39-2021.00,Animal Caretakers,partial,22,4,58.47,63.24
+39-3011.00,Gambling Dealers,partial,21,2,61.43,45.45
+39-3012.00,Gambling and Sports Book Writers and Runners,partial,17,1,56.59,51.02
+39-3019.00,"Gambling Service Workers, All Other",thin,0,0,,
+39-3021.00,Motion Picture Projectionists,thin,17,0,,
+39-3031.00,"Ushers, Lobby Attendants, and Ticket Takers",partial,23,1,81.4,73.4
+39-3091.00,Amusement and Recreation Attendants,partial,17,2,58.0,58.66
+39-3092.00,Costume Attendants,thin,21,0,,
+39-3093.00,"Locker Room, Coatroom, and Dressing Room Attendants",partial,24,2,64.75,57.31
+39-3099.00,"Entertainment Attendants and Related Workers, All Other",thin,0,0,,
+39-4011.00,Embalmers,thin,26,0,,
+39-4012.00,Crematory Operators,partial,12,1,41.84,45.28
+39-4021.00,Funeral Attendants,partial,24,3,64.39,55.32
+39-4031.00,"Morticians, Undertakers, and Funeral Arrangers",partial,22,2,47.15,52.81
+39-5011.00,Barbers,partial,20,2,47.54,46.41
+39-5012.00,"Hairdressers, Hairstylists, and Cosmetologists",partial,20,4,44.09,61.1
+39-5091.00,"Makeup Artists, Theatrical and Performance",partial,22,0,37.5,
+39-5092.00,Manicurists and Pedicurists,partial,18,1,56.25,31.25
+39-5093.00,Shampooers,partial,4,1,76.34,70.32
+39-5094.00,Skincare Specialists,full,18,6,58.06,51.16
+39-6011.00,Baggage Porters and Bellhops,partial,17,3,73.87,71.41
+39-6012.00,Concierges,partial,18,4,79.21,74.38
+39-7011.00,Tour Guides and Escorts,full,19,5,64.08,61.43
+39-7012.00,Travel Guides,partial,17,2,74.41,77.62
+39-9011.00,Childcare Workers,full,24,5,58.5,58.81
+39-9011.01,Nannies,partial,19,1,50.94,46.15
+39-9031.00,Exercise Trainers and Group Fitness Instructors,full,20,10,42.0,38.41
+39-9032.00,Recreation Workers,full,24,8,53.73,41.81
+39-9041.00,Residential Advisors,full,30,6,43.43,54.97
+39-9099.00,"Personal Care and Service Workers, All Other",thin,0,0,,
+41-1011.00,First-Line Supervisors of Retail Sales Workers,full,21,6,44.15,45.98
+41-1012.00,First-Line Supervisors of Non-Retail Sales Workers,full,18,6,39.79,46.69
+41-2011.00,Cashiers,full,28,5,32.58,53.79
+41-2012.00,Gambling Change Persons and Booth Cashiers,partial,13,0,81.25,
+41-2021.00,Counter and Rental Clerks,partial,16,4,43.48,39.86
+41-2022.00,Parts Salespersons,partial,19,3,34.89,34.17
+41-2031.00,Retail Salespersons,full,24,5,41.27,61.13
+41-3011.00,Advertising Sales Agents,full,20,11,32.81,42.3
+41-3021.00,Insurance Sales Agents,partial,19,3,34.91,46.88
+41-3031.00,"Securities, Commodities, and Financial Services Sales Agents",full,30,15,49.43,49.27
+41-3041.00,Travel Agents,partial,8,2,64.66,53.86
+41-3091.00,"Sales Representatives of Services, Except Advertising, Insurance, Financial Services, and Travel",full,15,10,45.69,56.07
+41-4011.00,"Sales Representatives, Wholesale and Manufacturing, Technical and Scientific Products",full,33,17,48.15,50.51
+41-4011.07,Solar Sales Representatives and Assessors,partial,13,3,33.58,34.14
+41-4012.00,"Sales Representatives, Wholesale and Manufacturing, Except Technical and Scientific Products",full,18,7,46.88,51.4
+41-9011.00,Demonstrators and Product Promoters,full,21,7,37.66,46.19
+41-9012.00,Models,partial,10,0,80.0,
+41-9021.00,Real Estate Brokers,partial,19,1,64.61,60.8
+41-9022.00,Real Estate Sales Agents,full,33,7,47.13,49.5
+41-9031.00,Sales Engineers,full,25,12,70.61,54.17
+41-9041.00,Telemarketers,full,12,5,29.11,49.52
+41-9091.00,"Door-to-Door Sales Workers, News and Street Vendors, and Related Workers",partial,12,3,37.62,43.27
+41-9099.00,"Sales and Related Workers, All Other",thin,0,0,,
+43-1011.00,First-Line Supervisors of Office and Administrative Support Workers,full,28,11,56.53,49.88
+43-2011.00,"Switchboard Operators, Including Answering Service",partial,19,3,66.84,80.75
+43-2021.00,Telephone Operators,partial,14,2,72.13,70.5
+43-2099.00,"Communications Equipment Operators, All Other",thin,0,0,,
+43-3011.00,Bill and Account Collectors,partial,15,3,79.82,86.08
+43-3021.00,Billing and Posting Clerks,full,26,11,44.81,53.8
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",full,28,13,51.9,61.71
+43-3041.00,Gambling Cage Workers,partial,17,2,65.62,74.65
+43-3051.00,Payroll and Timekeeping Clerks,partial,21,2,51.15,61.59
+43-3061.00,Procurement Clerks,partial,19,4,65.15,57.23
+43-3071.00,Tellers,full,28,5,48.67,60.66
+43-3099.00,"Financial Clerks, All Other",thin,0,0,,
+43-4011.00,Brokerage Clerks,partial,10,3,62.79,67.49
+43-4021.00,Correspondence Clerks,full,17,8,38.05,60.96
+43-4031.00,"Court, Municipal, and License Clerks",full,29,11,46.43,50.28
+43-4041.00,"Credit Authorizers, Checkers, and Clerks",partial,16,4,52.24,53.17
+43-4051.00,Customer Service Representatives,partial,13,4,34.34,58.63
+43-4061.00,"Eligibility Interviewers, Government Programs",partial,17,4,40.94,54.61
+43-4071.00,File Clerks,full,19,6,74.8,77.25
+43-4081.00,"Hotel, Motel, and Resort Desk Clerks",partial,20,1,42.29,34.48
+43-4111.00,"Interviewers, Except Eligibility and Loan",full,16,5,59.99,59.78
+43-4121.00,"Library Assistants, Clerical",partial,32,4,80.53,74.91
+43-4131.00,Loan Interviewers and Clerks,partial,18,2,37.28,47.27
+43-4141.00,New Accounts Clerks,partial,15,3,66.0,60.48
+43-4151.00,Order Clerks,full,19,6,60.99,63.43
+43-4161.00,"Human Resources Assistants, Except Payroll and Timekeeping",full,19,5,52.1,52.61
+43-4171.00,Receptionists and Information Clerks,full,18,10,58.16,63.37
+43-4181.00,Reservation and Transportation Ticket Agents and Travel Clerks,full,19,5,34.77,50.52
+43-4199.00,"Information and Record Clerks, All Other",thin,0,0,,
+43-5011.00,Cargo and Freight Agents,partial,24,2,85.96,75.06
+43-5011.01,Freight Forwarders,partial,31,4,50.0,39.2
+43-5021.00,Couriers and Messengers,partial,16,1,97.12,98.4
+43-5031.00,Public Safety Telecommunicators,partial,18,0,93.33,
+43-5032.00,"Dispatchers, Except Police, Fire, and Ambulance",partial,12,2,86.92,81.63
+43-5041.00,"Meter Readers, Utilities",partial,15,0,82.35,
+43-5051.00,Postal Service Clerks,thin,19,0,,
+43-5052.00,Postal Service Mail Carriers,partial,21,1,52.0,48.0
+43-5053.00,"Postal Service Mail Sorters, Processors, and Processing Machine Operators",thin,14,0,,
+43-5061.00,"Production, Planning, and Expediting Clerks",full,17,7,43.07,55.73
+43-5071.00,"Shipping, Receiving, and Inventory Clerks",partial,11,1,67.5,71.43
+43-5111.00,"Weighers, Measurers, Checkers, and Samplers, Recordkeeping",partial,18,3,46.15,61.02
+43-6011.00,Executive Secretaries and Executive Administrative Assistants,full,22,10,57.7,71.98
+43-6012.00,Legal Secretaries and Administrative Assistants,partial,14,4,51.28,56.21
+43-6013.00,Medical Secretaries and Administrative Assistants,full,15,5,77.3,69.09
+43-6014.00,"Secretaries and Administrative Assistants, Except Legal, Medical, and Executive",full,31,11,71.22,69.18
+43-9021.00,Data Entry Keyers,full,9,7,76.71,76.07
+43-9022.00,Word Processors and Typists,full,19,13,56.9,67.89
+43-9031.00,Desktop Publishers,full,18,10,54.21,54.28
+43-9041.00,Insurance Claims and Policy Processing Clerks,full,25,8,47.73,60.65
+43-9051.00,"Mail Clerks and Mail Machine Operators, Except Postal Service",thin,29,0,,
+43-9061.00,"Office Clerks, General",full,20,11,69.29,71.31
+43-9071.00,"Office Machine Operators, Except Computer",partial,18,1,57.61,67.21
+43-9081.00,Proofreaders and Copy Markers,full,11,6,57.36,41.02
+43-9111.00,Statistical Assistants,full,16,11,58.33,65.32
+43-9199.00,"Office and Administrative Support Workers, All Other",thin,0,0,,
+45-1011.00,"First-Line Supervisors of Farming, Fishing, and Forestry Workers",partial,30,4,96.91,85.09
+45-2011.00,Agricultural Inspectors,partial,22,1,48.77,54.26
+45-2021.00,Animal Breeders,thin,21,0,,
+45-2041.00,"Graders and Sorters, Agricultural Products",thin,5,0,,
+45-2091.00,Agricultural Equipment Operators,thin,17,0,,
+45-2092.00,"Farmworkers and Laborers, Crop, Nursery, and Greenhouse",partial,27,3,52.6,66.32
+45-2093.00,"Farmworkers, Farm, Ranch, and Aquacultural Animals",partial,19,0,73.68,
+45-2099.00,"Agricultural Workers, All Other",thin,0,0,,
+45-3031.00,Fishing and Hunting Workers,thin,29,0,,
+45-4011.00,Forest and Conservation Workers,partial,17,0,48.0,
+45-4021.00,Fallers,thin,17,0,,
+45-4022.00,Logging Equipment Operators,thin,9,0,,
+45-4023.00,Log Graders and Scalers,thin,12,0,,
+45-4029.00,"Logging Workers, All Other",thin,0,0,,
+47-1011.00,First-Line Supervisors of Construction Trades and Extraction Workers,partial,15,2,71.27,68.71
+47-1011.03,Solar Energy Installation Managers,partial,15,1,49.3,50.1
+47-2011.00,Boilermakers,thin,18,0,,
+47-2021.00,Brickmasons and Blockmasons,partial,14,0,44.58,
+47-2022.00,Stonemasons,thin,16,0,,
+47-2031.00,Carpenters,partial,29,2,78.91,67.16
+47-2041.00,Carpet Installers,partial,17,1,48.51,45.05
+47-2042.00,"Floor Layers, Except Carpet, Wood, and Hard Tiles",thin,14,0,,
+47-2043.00,Floor Sanders and Finishers,thin,7,0,,
+47-2044.00,Tile and Stone Setters,partial,25,1,52.17,62.5
+47-2051.00,Cement Masons and Concrete Finishers,thin,26,0,,
+47-2053.00,Terrazzo Workers and Finishers,thin,26,0,,
+47-2061.00,Construction Laborers,thin,27,0,,
+47-2071.00,"Paving, Surfacing, and Tamping Equipment Operators",thin,20,0,,
+47-2072.00,Pile Driver Operators,thin,5,0,,
+47-2073.00,Operating Engineers and Other Construction Equipment Operators,partial,26,0,48.44,
+47-2081.00,Drywall and Ceiling Tile Installers,thin,24,0,,
+47-2082.00,Tapers,thin,16,0,,
+47-2111.00,Electricians,partial,21,1,67.86,73.68
+47-2121.00,Glaziers,partial,27,1,38.1,28.3
+47-2131.00,"Insulation Workers, Floor, Ceiling, and Wall",thin,10,0,,
+47-2132.00,"Insulation Workers, Mechanical",thin,9,0,,
+47-2141.00,"Painters, Construction and Maintenance",partial,17,1,43.22,40.13
+47-2142.00,Paperhangers,partial,19,0,42.98,
+47-2151.00,Pipelayers,thin,14,0,,
+47-2152.00,"Plumbers, Pipefitters, and Steamfitters",partial,30,0,70.21,
+47-2152.04,Solar Thermal Installers and Technicians,thin,21,0,,
+47-2161.00,Plasterers and Stucco Masons,partial,15,1,33.33,33.33
+47-2171.00,Reinforcing Iron and Rebar Workers,thin,9,0,,
+47-2181.00,Roofers,partial,25,0,62.5,
+47-2211.00,Sheet Metal Workers,thin,19,0,,
+47-2221.00,Structural Iron and Steel Workers,thin,20,0,,
+47-2231.00,Solar Photovoltaic Installers,partial,26,1,97.55,99.79
+47-3011.00,"Helpers--Brickmasons, Blockmasons, Stonemasons, and Tile and Marble Setters",thin,15,0,,
+47-3012.00,Helpers--Carpenters,thin,19,0,,
+47-3013.00,Helpers--Electricians,thin,25,0,,
+47-3014.00,"Helpers--Painters, Paperhangers, Plasterers, and Stucco Masons",thin,11,0,,
+47-3015.00,"Helpers--Pipelayers, Plumbers, Pipefitters, and Steamfitters",thin,15,0,,
+47-3016.00,Helpers--Roofers,thin,18,0,,
+47-3019.00,"Helpers, Construction Trades, All Other",thin,0,0,,
+47-4011.00,Construction and Building Inspectors,partial,19,1,63.41,50.0
+47-4011.01,Energy Auditors,partial,21,3,40.64,46.85
+47-4021.00,Elevator and Escalator Installers and Repairers,thin,20,0,,
+47-4031.00,Fence Erectors,thin,20,0,,
+47-4041.00,Hazardous Materials Removal Workers,thin,19,0,,
+47-4051.00,Highway Maintenance Workers,thin,19,0,,
+47-4061.00,Rail-Track Laying and Maintenance Equipment Operators,thin,26,0,,
+47-4071.00,Septic Tank Servicers and Sewer Pipe Cleaners,thin,22,0,,
+47-4091.00,Segmental Pavers,thin,12,0,,
+47-4099.00,"Construction and Related Workers, All Other",thin,0,0,,
+47-4099.03,Weatherization Installers and Technicians,partial,20,1,44.03,43.59
+47-5011.00,"Derrick Operators, Oil and Gas",thin,15,0,,
+47-5012.00,"Rotary Drill Operators, Oil and Gas",thin,21,0,,
+47-5013.00,"Service Unit Operators, Oil and Gas",partial,19,1,45.61,45.61
+47-5022.00,"Excavating and Loading Machine and Dragline Operators, Surface Mining",thin,16,0,,
+47-5023.00,"Earth Drillers, Except Oil and Gas",thin,29,0,,
+47-5032.00,"Explosives Workers, Ordnance Handling Experts, and Blasters",thin,27,0,,
+47-5041.00,Continuous Mining Machine Operators,thin,15,0,,
+47-5043.00,"Roof Bolters, Mining",thin,14,0,,
+47-5044.00,"Loading and Moving Machine Operators, Underground Mining",thin,25,0,,
+47-5049.00,"Underground Mining Machine Operators, All Other",thin,0,0,,
+47-5051.00,"Rock Splitters, Quarry",thin,9,0,,
+47-5071.00,"Roustabouts, Oil and Gas",thin,13,0,,
+47-5081.00,Helpers--Extraction Workers,thin,14,0,,
+47-5099.00,"Extraction Workers, All Other",thin,0,0,,
+49-1011.00,"First-Line Supervisors of Mechanics, Installers, and Repairers",partial,22,4,52.58,55.23
+49-2011.00,"Computer, Automated Teller, and Office Machine Repairers",partial,25,2,70.08,68.88
+49-2021.00,"Radio, Cellular, and Tower Equipment Installers and Repairers",partial,30,1,84.54,86.02
+49-2022.00,"Telecommunications Equipment Installers and Repairers, Except Line Installers",full,40,6,30.39,58.6
+49-2091.00,Avionics Technicians,partial,13,0,88.35,
+49-2092.00,"Electric Motor, Power Tool, and Related Repairers",partial,31,1,63.16,63.16
+49-2093.00,"Electrical and Electronics Installers and Repairers, Transportation Equipment",partial,15,2,81.33,72.16
+49-2094.00,"Electrical and Electronics Repairers, Commercial and Industrial Equipment",partial,20,0,57.45,
+49-2095.00,"Electrical and Electronics Repairers, Powerhouse, Substation, and Relay",partial,15,2,66.77,61.76
+49-2096.00,"Electronic Equipment Installers and Repairers, Motor Vehicles",partial,12,0,80.65,
+49-2097.00,Audiovisual Equipment Installers and Repairers,partial,11,3,50.0,53.1
+49-2098.00,Security and Fire Alarm Systems Installers,partial,16,3,18.91,39.88
+49-3011.00,Aircraft Mechanics and Service Technicians,partial,38,0,66.67,
+49-3021.00,Automotive Body and Related Repairers,thin,25,0,,
+49-3022.00,Automotive Glass Installers and Repairers,partial,18,1,66.67,69.57
+49-3023.00,Automotive Service Technicians and Mechanics,partial,30,3,72.45,76.61
+49-3031.00,Bus and Truck Mechanics and Diesel Engine Specialists,partial,26,1,77.17,79.27
+49-3041.00,Farm Equipment Mechanics and Service Technicians,thin,14,0,,
+49-3042.00,"Mobile Heavy Equipment Mechanics, Except Engines",partial,20,2,78.0,74.59
+49-3043.00,Rail Car Repairers,thin,20,0,,
+49-3051.00,Motorboat Mechanics and Service Technicians,partial,13,1,67.9,64.38
+49-3052.00,Motorcycle Mechanics,thin,13,0,,
+49-3053.00,Outdoor Power Equipment and Other Small Engine Mechanics,thin,14,0,,
+49-3091.00,Bicycle Repairers,thin,18,0,,
+49-3092.00,Recreational Vehicle Service Technicians,partial,17,2,35.23,35.16
+49-3093.00,Tire Repairers and Changers,thin,25,0,,
+49-9011.00,Mechanical Door Repairers,partial,25,0,85.71,
+49-9012.00,"Control and Valve Installers and Repairers, Except Mechanical Door",thin,32,0,,
+49-9021.00,"Heating, Air Conditioning, and Refrigeration Mechanics and Installers",partial,30,3,72.61,73.0
+49-9031.00,Home Appliance Repairers,partial,29,1,51.34,47.12
+49-9041.00,Industrial Machinery Mechanics,partial,16,1,80.9,82.33
+49-9043.00,"Maintenance Workers, Machinery",thin,18,0,,
+49-9044.00,Millwrights,partial,23,1,84.5,84.47
+49-9045.00,"Refractory Materials Repairers, Except Brickmasons",thin,10,0,,
+49-9051.00,Electrical Power-Line Installers and Repairers,partial,23,1,64.0,71.26
+49-9052.00,Telecommunications Line Installers and Repairers,thin,20,0,,
+49-9061.00,Camera and Photographic Equipment Repairers,partial,15,2,58.93,50.0
+49-9062.00,Medical Equipment Repairers,partial,20,2,71.19,79.29
+49-9063.00,Musical Instrument Repairers and Tuners,thin,24,0,,
+49-9064.00,Watch and Clock Repairers,thin,15,0,,
+49-9069.00,"Precision Instrument and Equipment Repairers, All Other",thin,0,0,,
+49-9071.00,"Maintenance and Repair Workers, General",partial,27,1,75.74,75.42
+49-9081.00,Wind Turbine Service Technicians,thin,12,0,,
+49-9091.00,"Coin, Vending, and Amusement Machine Servicers and Repairers",partial,18,1,77.78,81.01
+49-9092.00,Commercial Divers,thin,24,0,,
+49-9094.00,Locksmiths and Safe Repairers,thin,14,0,,
+49-9095.00,Manufactured Building and Mobile Home Installers,partial,14,1,61.29,50.0
+49-9096.00,Riggers,thin,14,0,,
+49-9097.00,Signal and Track Switch Repairers,thin,12,0,,
+49-9098.00,"Helpers--Installation, Maintenance, and Repair Workers",thin,16,0,,
+49-9099.00,"Installation, Maintenance, and Repair Workers, All Other",thin,0,0,,
+49-9099.01,Geothermal Technicians,partial,24,1,89.32,89.47
+51-1011.00,First-Line Supervisors of Production and Operating Workers,full,20,5,37.2,59.76
+51-2011.00,"Aircraft Structure, Surfaces, Rigging, and Systems Assemblers",thin,26,0,,
+51-2021.00,"Coil Winders, Tapers, and Finishers",partial,11,1,93.15,93.18
+51-2022.00,Electrical and Electronic Equipment Assemblers,partial,17,2,55.3,62.87
+51-2023.00,Electromechanical Equipment Assemblers,thin,14,0,,
+51-2031.00,Engine and Other Machine Assemblers,thin,12,0,,
+51-2041.00,Structural Metal Fabricators and Fitters,thin,23,0,,
+51-2051.00,Fiberglass Laminators and Fabricators,thin,16,0,,
+51-2061.00,Timing Device Assemblers and Adjusters,thin,17,0,,
+51-2092.00,Team Assemblers,partial,11,2,55.45,45.77
+51-2099.00,"Assemblers and Fabricators, All Other",thin,0,0,,
+51-3011.00,Bakers,partial,18,4,46.38,59.96
+51-3021.00,Butchers and Meat Cutters,thin,11,0,,
+51-3022.00,"Meat, Poultry, and Fish Cutters and Trimmers",thin,12,0,,
+51-3023.00,Slaughterers and Meat Packers,thin,14,0,,
+51-3091.00,"Food and Tobacco Roasting, Baking, and Drying Machine Operators and Tenders",partial,19,0,53.12,
+51-3092.00,Food Batchmakers,partial,25,1,58.46,36.03
+51-3093.00,Food Cooking Machine Operators and Tenders,partial,17,1,52.94,42.86
+51-3099.00,"Food Processing Workers, All Other",thin,0,0,,
+51-4021.00,"Extruding and Drawing Machine Setters, Operators, and Tenders, Metal and Plastic",thin,16,0,,
+51-4022.00,"Forging Machine Setters, Operators, and Tenders, Metal and Plastic",thin,12,0,,
+51-4023.00,"Rolling Machine Setters, Operators, and Tenders, Metal and Plastic",thin,19,0,,
+51-4031.00,"Cutting, Punching, and Press Machine Setters, Operators, and Tenders, Metal and Plastic",thin,31,0,,
+51-4032.00,"Drilling and Boring Machine Tool Setters, Operators, and Tenders, Metal and Plastic",thin,17,0,,
+51-4033.00,"Grinding, Lapping, Polishing, and Buffing Machine Tool Setters, Operators, and Tenders, Metal and Plastic",thin,18,0,,
+51-4034.00,"Lathe and Turning Machine Tool Setters, Operators, and Tenders, Metal and Plastic",thin,18,0,,
+51-4035.00,"Milling and Planing Machine Setters, Operators, and Tenders, Metal and Plastic",thin,15,0,,
+51-4041.00,Machinists,partial,29,3,26.65,28.47
+51-4051.00,Metal-Refining Furnace Operators and Tenders,partial,15,1,100.0,100.0
+51-4052.00,"Pourers and Casters, Metal",thin,16,0,,
+51-4061.00,"Model Makers, Metal and Plastic",thin,16,0,,
+51-4062.00,"Patternmakers, Metal and Plastic",partial,15,0,50.0,
+51-4071.00,Foundry Mold and Coremakers,thin,13,0,,
+51-4072.00,"Molding, Coremaking, and Casting Machine Setters, Operators, and Tenders, Metal and Plastic",partial,29,1,95.24,95.0
+51-4081.00,"Multiple Machine Tool Setters, Operators, and Tenders, Metal and Plastic",partial,21,0,64.1,
+51-4111.00,Tool and Die Makers,partial,17,1,37.5,40.91
+51-4121.00,"Welders, Cutters, Solderers, and Brazers",thin,30,0,,
+51-4122.00,"Welding, Soldering, and Brazing Machine Setters, Operators, and Tenders",thin,29,0,,
+51-4191.00,"Heat Treating Equipment Setters, Operators, and Tenders, Metal and Plastic",thin,23,0,,
+51-4192.00,"Layout Workers, Metal and Plastic",partial,14,1,42.22,54.29
+51-4193.00,"Plating Machine Setters, Operators, and Tenders, Metal and Plastic",partial,33,1,72.73,66.67
+51-4194.00,"Tool Grinders, Filers, and Sharpeners",thin,18,0,,
+51-4199.00,"Metal Workers and Plastic Workers, All Other",thin,0,0,,
+51-5111.00,Prepress Technicians and Workers,partial,15,1,94.96,94.83
+51-5112.00,Printing Press Operators,partial,23,1,95.74,77.78
+51-5113.00,Print Binding and Finishing Workers,partial,25,1,93.33,93.33
+51-6011.00,Laundry and Dry-Cleaning Workers,thin,32,0,,
+51-6021.00,"Pressers, Textile, Garment, and Related Materials",thin,28,0,,
+51-6031.00,Sewing Machine Operators,thin,26,0,,
+51-6041.00,Shoe and Leather Workers and Repairers,partial,26,1,62.96,63.42
+51-6042.00,Shoe Machine Operators and Tenders,thin,19,0,,
+51-6051.00,"Sewers, Hand",thin,11,0,,
+51-6052.00,"Tailors, Dressmakers, and Custom Sewers",partial,22,0,52.94,
+51-6061.00,Textile Bleaching and Dyeing Machine Operators and Tenders,partial,23,1,90.91,93.42
+51-6062.00,"Textile Cutting Machine Setters, Operators, and Tenders",partial,18,1,79.07,60.0
+51-6063.00,"Textile Knitting and Weaving Machine Setters, Operators, and Tenders",partial,19,1,76.53,60.0
+51-6064.00,"Textile Winding, Twisting, and Drawing Out Machine Setters, Operators, and Tenders",thin,23,0,,
+51-6091.00,"Extruding and Forming Machine Setters, Operators, and Tenders, Synthetic and Glass Fibers",thin,17,0,,
+51-6092.00,Fabric and Apparel Patternmakers,partial,16,0,47.06,
+51-6093.00,Upholsterers,partial,22,0,81.25,
+51-6099.00,"Textile, Apparel, and Furnishings Workers, All Other",thin,0,0,,
+51-7011.00,Cabinetmakers and Bench Carpenters,partial,20,1,47.78,45.9
+51-7021.00,Furniture Finishers,partial,22,1,34.59,27.83
+51-7031.00,"Model Makers, Wood",thin,14,0,,
+51-7032.00,"Patternmakers, Wood",partial,20,1,61.33,61.35
+51-7041.00,"Sawing Machine Setters, Operators, and Tenders, Wood",thin,22,0,,
+51-7042.00,"Woodworking Machine Setters, Operators, and Tenders, Except Sawing",thin,25,0,,
+51-7099.00,"Woodworkers, All Other",thin,0,0,,
+51-8011.00,Nuclear Power Reactor Operators,partial,19,1,71.79,53.85
+51-8012.00,Power Distributors and Dispatchers,partial,14,2,73.33,75.0
+51-8013.00,Power Plant Operators,partial,30,1,94.77,93.6
+51-8013.03,Biomass Plant Technicians,thin,18,0,,
+51-8013.04,Hydroelectric Plant Technicians,thin,21,0,,
+51-8021.00,Stationary Engineers and Boiler Operators,partial,25,2,84.39,91.97
+51-8031.00,Water and Wastewater Treatment Plant and System Operators,thin,8,0,,
+51-8091.00,Chemical Plant and System Operators,partial,19,2,66.28,78.03
+51-8092.00,Gas Plant Operators,thin,19,0,,
+51-8093.00,"Petroleum Pump System Operators, Refinery Operators, and Gaugers",thin,24,0,,
+51-8099.00,"Plant and System Operators, All Other",thin,0,0,,
+51-8099.01,Biofuels Processing Technicians,thin,19,0,,
+51-9011.00,Chemical Equipment Operators and Tenders,partial,24,0,63.16,
+51-9012.00,"Separating, Filtering, Clarifying, Precipitating, and Still Machine Setters, Operators, and Tenders",thin,20,0,,
+51-9021.00,"Crushing, Grinding, and Polishing Machine Setters, Operators, and Tenders",partial,21,1,82.35,
+51-9022.00,"Grinding and Polishing Workers, Hand",thin,17,0,,
+51-9023.00,"Mixing and Blending Machine Setters, Operators, and Tenders",partial,20,1,90.28,90.85
+51-9031.00,"Cutters and Trimmers, Hand",partial,18,1,83.8,84.89
+51-9032.00,"Cutting and Slicing Machine Setters, Operators, and Tenders",thin,28,0,,
+51-9041.00,"Extruding, Forming, Pressing, and Compacting Machine Setters, Operators, and Tenders",thin,26,0,,
+51-9051.00,"Furnace, Kiln, Oven, Drier, and Kettle Operators and Tenders",thin,17,0,,
+51-9061.00,"Inspectors, Testers, Sorters, Samplers, and Weighers",full,31,6,33.59,56.59
+51-9071.00,Jewelers and Precious Stone and Metal Workers,partial,30,1,31.62,36.71
+51-9071.06,Gem and Diamond Workers,partial,22,0,33.33,
+51-9081.00,Dental Laboratory Technicians,thin,17,0,,
+51-9082.00,Medical Appliance Technicians,thin,16,0,,
+51-9083.00,Ophthalmic Laboratory Technicians,thin,18,0,,
+51-9111.00,Packaging and Filling Machine Operators and Tenders,thin,20,0,,
+51-9123.00,"Painting, Coating, and Decorating Workers",thin,9,0,,
+51-9124.00,"Coating, Painting, and Spraying Machine Setters, Operators, and Tenders",partial,29,1,92.5,96.74
+51-9141.00,Semiconductor Processing Technicians,thin,17,0,,
+51-9151.00,Photographic Process Workers and Processing Machine Operators,partial,27,3,85.23,81.56
+51-9161.00,Computer Numerically Controlled Tool Operators,partial,27,1,83.72,77.27
+51-9162.00,Computer Numerically Controlled Tool Programmers,partial,16,4,44.79,61.63
+51-9191.00,Adhesive Bonding Machine Operators and Tenders,thin,16,0,,
+51-9192.00,"Cleaning, Washing, and Metal Pickling Equipment Operators and Tenders",thin,11,0,,
+51-9193.00,Cooling and Freezing Equipment Operators and Tenders,thin,18,0,,
+51-9194.00,Etchers and Engravers,thin,26,0,,
+51-9195.00,"Molders, Shapers, and Casters, Except Metal and Plastic",thin,24,0,,
+51-9195.03,"Stone Cutters and Carvers, Manufacturing",thin,14,0,,
+51-9195.04,"Glass Blowers, Molders, Benders, and Finishers",thin,19,0,,
+51-9195.05,"Potters, Manufacturing",thin,23,0,,
+51-9196.00,"Paper Goods Machine Setters, Operators, and Tenders",thin,14,0,,
+51-9197.00,Tire Builders,thin,20,0,,
+51-9198.00,Helpers--Production Workers,partial,34,0,90.0,
+51-9199.00,"Production Workers, All Other",thin,0,0,,
+53-1041.00,Aircraft Cargo Handling Supervisors,thin,6,0,,
+53-1042.00,"First-Line Supervisors of Helpers, Laborers, and Material Movers, Hand",full,24,12,52.69,55.34
+53-1042.01,Recycling Coordinators,partial,23,2,71.6,58.07
+53-1043.00,First-Line Supervisors of Material-Moving Machine and Vehicle Operators,full,22,6,61.72,60.9
+53-1044.00,First-Line Supervisors of Passenger Attendants,partial,19,2,63.83,44.93
+53-1049.00,"First-Line Supervisors of Transportation Workers, All Other",thin,0,0,,
+53-2011.00,"Airline Pilots, Copilots, and Flight Engineers",thin,24,0,,
+53-2012.00,Commercial Pilots,thin,24,0,,
+53-2021.00,Air Traffic Controllers,partial,23,2,48.7,52.83
+53-2022.00,Airfield Operations Specialists,thin,27,0,,
+53-2031.00,Flight Attendants,partial,25,1,68.22,71.9
+53-3011.00,"Ambulance Drivers and Attendants, Except Emergency Medical Technicians",thin,11,0,,
+53-3031.00,Driver/Sales Workers,partial,11,0,69.84,
+53-3032.00,Heavy and Tractor-Trailer Truck Drivers,partial,29,2,65.15,67.14
+53-3033.00,Light Truck Drivers,thin,13,0,,
+53-3051.00,"Bus Drivers, School",thin,17,0,,
+53-3052.00,"Bus Drivers, Transit and Intercity",partial,14,1,71.87,80.0
+53-3053.00,Shuttle Drivers and Chauffeurs,partial,26,2,63.38,49.66
+53-3054.00,Taxi Drivers,partial,16,0,59.29,
+53-3099.00,"Motor Vehicle Operators, All Other",thin,0,0,,
+53-4011.00,Locomotive Engineers,thin,15,0,,
+53-4013.00,"Rail Yard Engineers, Dinkey Operators, and Hostlers",thin,23,0,,
+53-4022.00,"Railroad Brake, Signal, and Switch Operators and Locomotive Firers",thin,25,0,,
+53-4031.00,Railroad Conductors and Yardmasters,thin,20,0,,
+53-4041.00,Subway and Streetcar Operators,partial,10,1,66.13,67.67
+53-4099.00,"Rail Transportation Workers, All Other",thin,0,0,,
+53-5011.00,Sailors and Marine Oilers,thin,24,0,,
+53-5021.00,"Captains, Mates, and Pilots of Water Vessels",thin,30,0,,
+53-5022.00,Motorboat Operators,thin,16,0,,
+53-5031.00,Ship Engineers,thin,17,0,,
+53-6011.00,Bridge and Lock Tenders,partial,18,1,56.76,56.76
+53-6021.00,Parking Attendants,partial,15,1,82.14,84.37
+53-6031.00,Automotive and Watercraft Service Attendants,partial,14,1,70.82,70.54
+53-6032.00,Aircraft Service Attendants,thin,11,0,,
+53-6041.00,Traffic Technicians,partial,22,2,39.98,58.02
+53-6051.00,Transportation Inspectors,partial,17,2,48.86,60.49
+53-6051.01,Aviation Inspectors,partial,13,0,42.34,
+53-6051.07,"Transportation Vehicle, Equipment and Systems Inspectors, Except Aviation",partial,20,2,39.04,42.17
+53-6061.00,Passenger Attendants,partial,12,3,73.97,72.14
+53-6099.00,"Transportation Workers, All Other",thin,0,0,,
+53-7011.00,Conveyor Operators and Tenders,thin,23,0,,
+53-7021.00,Crane and Tower Operators,thin,11,0,,
+53-7031.00,Dredge Operators,thin,6,0,,
+53-7041.00,Hoist and Winch Operators,thin,13,0,,
+53-7051.00,Industrial Truck and Tractor Operators,thin,9,0,,
+53-7061.00,Cleaners of Vehicles and Equipment,thin,20,0,,
+53-7062.00,"Laborers and Freight, Stock, and Material Movers, Hand",partial,13,2,90.32,95.49
+53-7062.04,Recycling and Reclamation Workers,thin,14,0,,
+53-7063.00,Machine Feeders and Offbearers,partial,13,0,84.37,
+53-7064.00,"Packers and Packagers, Hand",partial,12,2,85.71,80.72
+53-7065.00,Stockers and Order Fillers,partial,30,3,45.84,52.19
+53-7071.00,Gas Compressor and Gas Pumping Station Operators,partial,13,1,93.55,93.56
+53-7072.00,"Pump Operators, Except Wellhead Pumpers",thin,14,0,,
+53-7073.00,Wellhead Pumpers,thin,14,0,,
+53-7081.00,Refuse and Recyclable Material Collectors,partial,14,0,96.3,
+53-7121.00,"Tank Car, Truck, and Ship Loaders",thin,19,0,,
+53-7199.00,"Material Moving Workers, All Other",thin,0,0,,
+55-1011.00,Air Crew Officers,thin,0,0,,
+55-1012.00,Aircraft Launch and Recovery Officers,thin,0,0,,
+55-1013.00,Armored Assault Vehicle Officers,thin,0,0,,
+55-1014.00,Artillery and Missile Officers,thin,0,0,,
+55-1015.00,Command and Control Center Officers,thin,0,0,,
+55-1016.00,Infantry Officers,thin,0,0,,
+55-1017.00,Special Forces Officers,thin,0,0,,
+55-1019.00,"Military Officer Special and Tactical Operations Leaders, All Other",thin,0,0,,
+55-2011.00,First-Line Supervisors of Air Crew Members,thin,0,0,,
+55-2012.00,First-Line Supervisors of Weapons Specialists/Crew Members,thin,0,0,,
+55-2013.00,First-Line Supervisors of All Other Tactical Operations Specialists,thin,0,0,,
+55-3011.00,Air Crew Members,thin,0,0,,
+55-3012.00,Aircraft Launch and Recovery Specialists,thin,0,0,,
+55-3013.00,Armored Assault Vehicle Crew Members,thin,0,0,,
+55-3014.00,Artillery and Missile Crew Members,thin,0,0,,
+55-3015.00,Command and Control Center Specialists,thin,0,0,,
+55-3016.00,Infantry,thin,0,0,,
+55-3018.00,Special Forces,thin,0,0,,
+55-3019.00,"Military Enlisted Tactical Operations and Air/Weapons Specialists and Crew Members, All Other",thin,0,0,,

@@ -1,0 +1,9 @@
+# The raw downloads never go in git.
+#
+# aei_claude_ai_*.csv is 219 MB and GitHub hard-rejects any file over 100 MB.
+# A push containing it fails, and worse, it fails AFTER the commit exists, so
+# you end up rewriting history to get rid of it.
+#
+# build.py filters these down to the few MB that actually matter, and THOSE
+# go in git. Anyone can rebuild the raw files with fetch.sh.
+raw/
