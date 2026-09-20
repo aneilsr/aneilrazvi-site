@@ -527,8 +527,8 @@ function render(){
     '</div><div class="qt">'+it.q+'</div>'+(isCtx?'<div class="ctx">':'<div class="opts">');
   for(var j=0;j<it.o.length;j++){
     var sel=ans[idx]===j?" sel":"";
-    h+= isCtx ? '<button class="chip'+sel+'" data-v="'+j+'">'+it.o[j]+'</button>'
-              : '<button class="opt'+sel+'" data-v="'+j+'"><span class="k">'+j+'</span><span>'+it.o[j]+'</span></button>';
+    h+= isCtx ? '<button class="chip'+sel+'" data-v="'+j+'" data-private>'+it.o[j]+'</button>'
+              : '<button class="opt'+sel+'" data-v="'+j+'"><span class="k">'+j+'</span><span data-private>'+it.o[j]+'</span></button>';
   }
   $("#qhost").innerHTML=h+'</div></div>';
   $("#back").disabled=idx===0;
@@ -782,6 +782,15 @@ function show(){
   function unlock(em,nm,co,ro){
     $("#lockwrap").classList.add("open");
     post(payload({email:em,name:nm,company:co,role:ro,gated:true,send_report:true}));
+    window.arIdentify && window.arIdentify({
+      email: em, name: nm, company: co, role: ro,
+      source: 'maturity-assessment'
+    });
+    window.arSetPerson && window.arSetPerson({
+      last_assessment_at: new Date().toISOString(),
+      quadrant: C.n + " / " + A.n,
+      recommended_package: OF[0].n
+    });
     prog("email",{question:ALL.length});
     dock.dataset.state="done";
     $("#dockbody").innerHTML =

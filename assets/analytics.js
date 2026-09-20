@@ -25,8 +25,40 @@
     person_profiles: 'identified_only',
     capture_pageview: true,
     capture_pageleave: true,
-    autocapture: true
+    autocapture: true,
+    session_recording: {
+      maskAllInputs: true,
+      maskTextSelector: '[data-private]'
+    }
   });
+
+  /* ---- Two helpers on window so page scripts can name a person without each
+     one re-deriving the company grouping rule. Called from maturity.html the
+     moment someone hands over an email in exchange for the full read. ---- */
+
+  window.arIdentify = function (person) {
+    // person: { email, name, company, role, source, ...extra }
+    if (dnt || !person || !person.email) return;
+    try {
+      posthog.identify(person.email, person);
+      var at = person.email.lastIndexOf('@');
+      var domain = at > -1 ? person.email.slice(at + 1).toLowerCase() : null;
+      var FREE = ['gmail.com','yahoo.com','hotmail.com','outlook.com',
+                  'icloud.com','aol.com','proton.me','protonmail.com',
+                  'me.com','live.com','msn.com'];
+      if (domain && FREE.indexOf(domain) === -1) {
+        posthog.group('company', domain, {
+          name: person.company || domain,
+          domain: domain
+        });
+      }
+    } catch (err) {}
+  };
+
+  window.arSetPerson = function (props) {
+    if (dnt || !props) return;
+    try { posthog.setPersonProperties(props); } catch (err) {}
+  };
 
   function on(sel, ev, fn) {
     document.addEventListener(ev, function (e) {
