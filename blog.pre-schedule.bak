@@ -80,46 +80,6 @@
   .art[data-hue="gate"]:hover{border-color:#4d3f2d}
   .art[data-hue="build"]{background:#1c1526;border-color:#2d2340}
   .art[data-hue="build"]:hover{border-color:#503d6f}
-  /* the eleven new issues. ground matches the cover exactly so the card and the
-     art read as one surface; border is the same hue lifted to L18, hover to L30. */
-  .art[data-hue="i06"]{background:#201414;border-color:#382323}
-  .art[data-hue="i06"]:hover{border-color:#5e3b3b}
-  .art[data-hue="i07"]{background:#132016;border-color:#223a28}
-  .art[data-hue="i07"]:hover{border-color:#396042}
-  .art[data-hue="i08"]{background:#201418;border-color:#38232a}
-  .art[data-hue="i08"]:hover{border-color:#5e3b47}
-  .art[data-hue="i09"]{background:#162113;border-color:#273a22}
-  .art[data-hue="i09"]:hover{border-color:#416138}
-  .art[data-hue="i10"]{background:#1f1321;border-color:#37223a}
-  .art[data-hue="i10"]:hover{border-color:#5b3861}
-  .art[data-hue="i11"]{background:#1a2014;border-color:#2e3823}
-  .art[data-hue="i11"]:hover{border-color:#4d5e3b}
-  .art[data-hue="i12"]{background:#151320;border-color:#26223a}
-  .art[data-hue="i12"]:hover{border-color:#3f3960}
-  .art[data-hue="i13"]{background:#1f1f13;border-color:#393923}
-  .art[data-hue="i13"]:hover{border-color:#5f5f3a}
-  .art[data-hue="i14"]{background:#131d1f;border-color:#233539}
-  .art[data-hue="i14"]:hover{border-color:#3a595f}
-  .art[data-hue="i15"]{background:#201d14;border-color:#383323}
-  .art[data-hue="i15"]:hover{border-color:#5e553b}
-  .art[data-hue="i16"]{background:#132019;border-color:#223a2d}
-  .art[data-hue="i16"]:hover{border-color:#39604b}
-
-  /* Coming up */
-  .bl-next{list-style:none;margin:1.4rem 0 0;padding:0;max-width:820px;
-    border-top:1px solid rgba(255,255,255,.09)}
-  .bl-next li{display:grid;grid-template-columns:7.5rem 7rem minmax(0,1fr);gap:.2rem 1.1rem;
-    align-items:baseline;padding:.95rem 0;border-bottom:1px solid rgba(255,255,255,.07)}
-  .bl-next .wk{color:var(--teal);font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
-  .bl-next .no{color:rgba(255,255,255,.4);font-size:.78rem;letter-spacing:.04em}
-  .bl-next b{color:#fff;font-family:'DM Serif Display',serif;font-weight:400;font-size:1.08rem;line-height:1.3}
-  .bl-next .dek{grid-column:3;color:rgba(255,255,255,.55);font-size:.88rem;font-weight:300;line-height:1.55;margin-top:.2rem}
-  .bl-next li.side .no{color:#8fb6c6}
-  @media(max-width:640px){
-    .bl-next li{grid-template-columns:1fr}
-    .bl-next .no{margin-top:-.1rem}
-    .bl-next .dek{grid-column:1}
-  }
   .art.side[data-hue="sidenote"]{background:#eef1f5;border-color:#d7dde6}
   .art.side[data-hue="sidenote"]:hover{border-color:#9fb0c4}
   .art.side[data-hue="sidenote"] h4{color:#151c25}
@@ -253,20 +213,9 @@
       </div>
     </a>
   </div>
-
-  <h2 class="bl-h2" style="margin-top:3.4rem">Coming up</h2>
-  <p class="bl-sub">Weekly from 15 September, rotating through the build journal, the craft pieces and the Sidenotes. Each one lands on LinkedIn first and is added here once it is live.</p>
-  <ol class="bl-next">
-      <li><span class="wk">Mon 15 Sep</span><span class="no">Issue no. 06</span><b>The Beta</b><span class="dek">Twelve people said yes. Five actually installed. The real story of a launch is the quiet funnel between "I would love to try that" and "I opened it."</span></li>
-      <li><span class="wk">Mon 22 Sep</span><span class="no">Issue no. 07</span><b>Why I Test the Same Thing Five Times</b><span class="dek">A green checkmark is not a working feature. The habit that separates people who ship reliable things from people who ship surprises.</span></li>
-      <li class="side"><span class="wk">Mon 29 Sep</span><span class="no">Sidenote no. 02</span><b>The Ad-Free Promise I Almost Made</b><span class="dek">Everyone assumed one thing was true, including me, including the AI. I was a sentence away from promising it to customers.</span></li>
-      <li><span class="wk">Mon 6 Oct</span><span class="no">Issue no. 08</span><b>Priced Like a Toy, Built Like a Tool</b><span class="dek">I set my price by looking at the wrong shelf. The number felt right, and it was aimed at a customer I do not actually have.</span></li>
-      <li><span class="wk">Mon 13 Oct</span><span class="no">Issue no. 09</span><b>When Your AI Says It's Done</b><span class="dek">More of us are building after work with an AI writing the code. It will tell you it is finished. Here is the ten minute check.</span></li>
-  </ol>
-  <p class="bl-sub" style="margin-top:1.2rem">Eleven more are written and scheduled through December. <a class="sub" href="https://www.linkedin.com/newsletters/building-in-the-open-7488094002198753281/" target="_blank" rel="noopener">Subscribe on LinkedIn</a> to get them as they land.</p>
 </section>
 
-<footer style="background:#0a1420;border-top:1px solid rgba(255,255,255,.08);padding:40px 6%;text-align:center;color:rgba(255,255,255,.6)"><div style="font-family:'DM Serif Display',serif;font-size:1.2rem;color:#fff;margin-bottom:12px">Aneil <span style="color:var(--teal)">Razvi</span></div><div style="font-size:.9rem"><a style="color:#cfe;text-decoration:none;margin:0 10px" href="https://www.linkedin.com/in/aneilrazvi/" target="_blank">LinkedIn</a>·<a style="color:#cfe;text-decoration:none;margin:0 10px" href="https://cal.com/aneil-razvi" target="_blank">Book a call</a>·<a style="color:#cfe;text-decoration:none;margin:0 10px" href="mailto:hi@aneilrazvi.com">Email</a>·<a style="color:#cfe;text-decoration:none;margin:0 10px" href="privacy.html">Privacy</a></div><div style="font-size:.78rem;color:rgba(255,255,255,.4);margin-top:14px">© 2026 Aneil Razvi · Allen, TX</div></footer>
+<footer style="background:#0a1420;border-top:1px solid rgba(255,255,255,.08);padding:40px 6%;text-align:center;color:rgba(255,255,255,.6)"><div style="font-family:'DM Serif Display',serif;font-size:1.2rem;color:#fff;margin-bottom:12px">Aneil <span style="color:var(--teal)">Razvi</span></div><div style="font-size:.9rem"><a style="color:#cfe;text-decoration:none;margin:0 10px" href="https://www.linkedin.com/in/aneilrazvi/" target="_blank">LinkedIn</a>·<a style="color:#cfe;text-decoration:none;margin:0 10px" href="https://cal.com/aneil-razvi" target="_blank">Book a call</a>·<a style="color:#cfe;text-decoration:none;margin:0 10px" href="mailto:hi@aneilrazvi.com">Email</a></div><div style="font-size:.78rem;color:rgba(255,255,255,.4);margin-top:14px">© 2026 Aneil Razvi · Allen, TX</div></footer>
 <script>var nv=document.getElementById('nav');window.addEventListener('scroll',function(){nv.classList.toggle('scrolled',window.scrollY>40);});</script>
 <script>(function(){var h=document.querySelector(".nav-hamburger"),n=document.getElementById("nav");if(h&&n)h.addEventListener("click",function(){n.classList.toggle("open");});})();</script>
 </body>
