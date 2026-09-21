@@ -15,3 +15,6 @@ Photos - to pull from/
 # Backup folders MUST never ship: Vercel serves every file in the repo,
 # so a committed backup republishes whatever you just removed.
 _*/
+
+# FUSE mount artifacts. Created when a file is replaced while open.
+.fuse_hidden*

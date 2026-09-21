@@ -81,6 +81,29 @@ a{color:var(--teal-dark);}
 .keys{display:flex;gap:1.3rem;flex-wrap:wrap;font-size:.84rem;color:var(--muted);}
 .keys i{width:11px;height:11px;border-radius:3px;display:inline-block;margin-right:.4rem;vertical-align:-1px;}
 
+.auto{color:var(--orange-dark);font-weight:700;}
+.augm{color:var(--teal-dark);font-weight:700;}
+.ibtn{display:inline-flex;align-items:center;justify-content:center;width:17px;height:17px;
+  border-radius:50%;border:1.5px solid var(--muted);color:var(--muted);background:none;
+  font-family:inherit;font-size:11px;font-weight:700;line-height:1;cursor:pointer;
+  vertical-align:1px;margin-left:5px;padding:0;}
+.ibtn:hover,.ibtn[aria-expanded="true"]{border-color:var(--teal-dark);color:var(--teal-dark);}
+.deftip{display:none;background:var(--gray);border-radius:var(--radius-sm);padding:1rem 1.15rem;
+  margin-top:1rem;font-size:.9rem;line-height:1.55;}
+.deftip.on{display:block;}
+.deftip dt{font-weight:700;margin-top:.6rem;}
+.deftip dt:first-child{margin-top:0;}
+.deftip dd{margin:.1rem 0 0;color:var(--muted);}
+.plain{background:var(--teal-wash);border-radius:var(--radius-sm);padding:1.15rem 1.3rem;margin-top:1.25rem;}
+.plain h3{margin-bottom:.5rem;}
+.plain p:last-child{margin-bottom:0;}
+.plain .no{font-size:.88rem;color:var(--muted);border-top:1px solid rgba(0,151,167,.22);
+  padding-top:.7rem;margin-top:.8rem;}
+.also{margin-top:1.1rem;padding-top:.9rem;border-top:1px solid var(--line);font-size:.9rem;}
+.also b{display:block;margin-bottom:.4rem;color:var(--text);}
+.also a{display:block;padding:.35rem 0;color:var(--teal-dark);text-decoration:none;}
+.also a:hover{text-decoration:underline;}
+.also a i{font-style:normal;color:var(--muted);}
 .nonum{background:var(--orange-wash);border-left:4px solid var(--orange);padding:1.15rem 1.3rem;border-radius:var(--radius-sm);margin:1.2rem 0;}
 .nonum h3{color:var(--orange-dark);}
 .nonum p:last-child{margin-bottom:0;}
@@ -211,10 +234,26 @@ function search(v){
   for(i = 0; i < current.length; i++){
     var o = OCC[current[i][1]];
     var lay = current[i][0], off = o[1];
-    h += '<b data-i="'+i+'" role="option">'+esc(lay)+
-         (lay.toLowerCase() === off.toLowerCase() ? "" : '<i>'+esc(off)+'</i>')+'</b>';
+    var famName = (FAM[o[6]] || {}).n || "";
+    var second = (lay.toLowerCase() === off.toLowerCase() ? famName : off + "  \u00b7  " + famName);
+    h += '<b data-i="'+i+'" role="option">'+esc(lay)+'<i>'+esc(second)+'</i></b>';
   }
   sugg.innerHTML = h; sugg.className = "sugg on";
+}
+
+// "Compliance Manager" is two different occupations, and O*NET carries no
+// industry dimension at all, so the honest move is to show every occupation a
+// typed title maps to rather than silently picking the first.
+function siblings(typed, notIdx){
+  if(!TITLES) return [];
+  var k = typed.toLowerCase(), out = [], seen = {}, i;
+  for(i = 0; i < TITLES.length; i++){
+    if(TITLES[i][0].toLowerCase() !== k) continue;
+    var oi = TITLES[i][1];
+    if(oi === notIdx || seen[oi]) continue;
+    seen[oi] = 1; out.push(oi);
+  }
+  return out;
 }
 
 function esc(s){ return String(s).replace(/[&<>"]/g, function(c){
@@ -245,8 +284,15 @@ document.addEventListener("click", function(e){
 function pick(i){
   var row = current[i]; if(!row) return;
   var o = OCC[row[1]];
+  // A sibling link carries the occupation it means, since the title alone is ambiguous.
+  var want = (location.search.match(/[?&]soc=([0-9.\-]+)/) || [])[1];
+  if(want){
+    for(var j = 0; j < current.length; j++){
+      if(OCC[current[j][1]][0] === want){ o = OCC[current[j][1]]; row = current[j]; break; }
+    }
+  }
   q.value = row[0]; sugg.className = "sugg";
-  try{ history.replaceState(null, "", "?q=" + encodeURIComponent(row[0])); }catch(e){}
+  try{ history.replaceState(null, "", "?q=" + encodeURIComponent(row[0]) + "&soc=" + o[0]); }catch(e){}
   track("readiness_lookup", {occupation: o[1], soc: o[0], tier: o[3], typed_matched_official: row[0] === o[1]});
   render(o, row[0]);
 }
@@ -278,12 +324,27 @@ function render(o, typed){
   } else {
     var aug = Math.round((100 - share) * 10) / 10;
     h += '<div class="big"><div class="n">'+share+'%</div>'
-      +  '<div class="u">of AI use on this kind of work looks like <b>automation</b>, '
-      +  'AI completing the task. The other '+aug+'% is <b>augmentation</b>, a person working with AI.</div></div>';
+      +  '<div class="u">of AI use on this kind of work looks like <span class="auto">automation</span>. '
+      +  'The other '+aug+'% is <span class="augm">augmentation</span>.'
+      +  '<button class="ibtn" id="ibtn" aria-expanded="false" aria-controls="deftip" '
+      +  'aria-label="What these two words mean">i</button></div></div>';
     h += '<div class="split"><div class="a" style="width:'+share+'%"></div>'
       +  '<div class="g" style="width:'+aug+'%"></div></div>';
-    h += '<div class="keys"><span><i style="background:var(--orange)"></i>Automation '+share+'%</span>'
-      +  '<span><i style="background:var(--teal)"></i>Augmentation '+aug+'%</span></div>';
+    h += '<div class="keys"><span><i style="background:var(--orange)"></i>'
+      +  '<span class="auto">Automation</span> '+share+'%</span>'
+      +  '<span><i style="background:var(--teal)"></i>'
+      +  '<span class="augm">Augmentation</span> '+aug+'%</span></div>';
+    h += '<dl class="deftip" id="deftip">'
+      +  '<dt class="auto">Automation</dt>'
+      +  '<dd>The person handed the task over and AI did it. They asked for the finished thing, '
+      +  'not for help doing it.</dd>'
+      +  '<dt class="augm">Augmentation</dt>'
+      +  '<dd>The person stayed in the work and used AI alongside them. Asking, checking, '
+      +  'arguing with it, editing the answer.</dd>'
+      +  '<dt>Why the split matters more than the total</dt>'
+      +  '<dd>Both mean AI touched the task. Only one of them means the person stepped out of it. '
+      +  'A job that is mostly augmentation is a job that changed. A job that is mostly automation '
+      +  'is a job where somebody stopped doing part of it.</dd></dl>';
     if(f.avg !== null){
       var d = Math.round((share - f.avg) * 10) / 10;
       h += '<p style="margin-top:1rem;font-size:.94rem">'
@@ -299,6 +360,8 @@ function render(o, typed){
         +  'Treat the task list below as a sample, not a survey.</div>';
     }
   }
+  h += plainEnglish(name, share, tier, total, matched, f);
+  h += alsoBlock(typed, OCC.indexOf(o));
   h += '</div>';
 
   h += '<div class="card" id="taskcard"><h2>Your tasks</h2>'
@@ -306,14 +369,100 @@ function render(o, typed){
     +  'Ranked by how much AI use against them looks like automation.</p>'
     +  '<div class="loading">Loading tasks…</div></div>';
 
-  h += '<div class="cta"><h2>This is the individual read</h2>'
-    +  '<p>There is a companion for organizations. Six levels of design capability against six levels of AI adoption, '
-    +  'and what to do about the square you land in.</p>'
-    +  '<a class="btn" href="maturity.html">Take the organizational read</a></div>';
+  h += ctaFor(mg);
 
   res.innerHTML = h; res.className = "res on";
+  var ib = document.getElementById("ibtn"), dt = document.getElementById("deftip");
+  if(ib && dt) ib.addEventListener("click", function(){
+    var open = dt.className.indexOf("on") === -1;
+    dt.className = open ? "deftip on" : "deftip";
+    ib.setAttribute("aria-expanded", open ? "true" : "false");
+    if(open) track("readiness_terms_opened", {});
+  });
   res.scrollIntoView({behavior:"smooth", block:"start"});
   loadTasks(mg, code, name, total);
+}
+
+// What the number means for one person, in words they did not have to learn.
+function plainEnglish(name, share, tier, total, matched, f){
+  var h = '<div class="plain"><h3>What this actually means for you</h3>';
+  if(share === null){
+    h += '<p>Nobody has measured this job well enough to say. That is worth knowing on its own: '
+      +  'the tools are not being pointed at this work yet, or not often enough to show up in the data. '
+      +  'It is not evidence that the work is safe, and it is not evidence that it is at risk. '
+      +  'It is an absence of evidence.</p>'
+      +  '<p class="no">What I would do with that: watch the occupations nearest yours in '
+      +  esc(f.n) + '. They will move first, and the pattern usually arrives a year or two later.</p>';
+    return h + '</div>';
+  }
+  var aug = Math.round((100 - share) * 10) / 10;
+  if(share >= 60){
+    h += '<p>Most of the AI use against your kind of work is <span class="auto">people handing '
+      +  'the task over</span>, not people getting help with it. In practice that means chunks of '
+      +  'this job are already being done without a person in the middle, somewhere, by someone.</p>'
+      +  '<p>The useful question is not whether your job disappears. It is <b>which parts of your week '
+      +  'are the handed-over parts</b>, and what the rest of your week is worth once those go. '
+      +  'The task list below is where to look.</p>';
+  } else if(share >= 40){
+    h += '<p>It is split roughly down the middle. Some of this work gets handed to AI outright, '
+      +  'and about as much gets done <span class="augm">with</span> AI by a person who stayed in it. '
+      +  'That is the most unstable place to be, because which side a task lands on is still '
+      +  'being decided right now, by habit rather than by capability.</p>'
+      +  '<p>The people who do well here are the ones who <b>pick the side deliberately</b>: get fast '
+      +  'at handing over the tasks that should be handed over, and get visibly good at the ones that '
+      +  'should not.</p>';
+  } else {
+    h += '<p>Most of the AI use against your kind of work is <span class="augm">a person working '
+      +  'alongside it</span>, not handing it over. People are using AI to go faster or check '
+      +  'themselves, and staying in the work.</p>'
+      +  '<p>That is the more durable pattern, and it is also the one that raises the floor on what '
+      +  'people expect from you. <b>The risk here is not replacement. It is that the baseline moves</b> '
+      +  'and doing it the old way starts to look slow.</p>';
+  }
+  h += '<p class="no"><b>What this number is not.</b> It is not a probability your job disappears, '
+    +  'not a forecast, and not a measure of how much of your work AI is capable of. It describes '
+    +  'how people are using AI on this kind of task today, and nothing more.</p>';
+  if(tier === 1){
+    h += '<p class="no">Only ' + matched + ' of ' + total + ' tasks were measured individually, '
+      +  'so read the list below as a sample.</p>';
+  }
+  return h + '</div>';
+}
+
+// The same lay title can belong to several occupations. O*NET sorts by what the
+// work is, never by what industry it happens in, so a compliance manager in a
+// hospital and one in a bank are the same row. Say that rather than hide it.
+function alsoBlock(typed, myIdx){
+  var sibs = siblings(typed, myIdx);
+  if(!sibs.length) return "";
+  var h = '<div class="also"><b>&ldquo;' + esc(typed) + '&rdquo; is also a different occupation</b>';
+  for(var i = 0; i < sibs.length && i < 5; i++){
+    var o = OCC[sibs[i]];
+    h += '<a href="?q=' + encodeURIComponent(typed) + '&amp;soc=' + o[0] + '">'
+      +  esc(o[1]) + ' <i>&middot; ' + esc((FAM[o[6]] || {}).n || "") + '</i></a>';
+  }
+  h += '<p style="margin:.55rem 0 0;color:var(--muted);font-size:.84rem">'
+    +  'O*NET classifies work by what the job does, never by the industry it happens in. '
+    +  'There is no separate row for the same job in healthcare, finance or government.</p></div>';
+  return h;
+}
+
+// The organizational read is about a company's design function. Offering it to a
+// welder is noise, so it only appears where it is actually relevant.
+function ctaFor(mg){
+  var relevant = {"11":1,"13":1,"15":1,"27":1};
+  if(relevant[mg]){
+    return '<div class="cta"><h2>Your organization has a level too</h2>'
+      +  '<p>This read is about your tasks. There is a companion read for the company you work in, '
+      +  'scoring how mature its design practice is against how far AI has moved into it. '
+      +  'Twenty questions, four minutes.</p>'
+      +  '<a class="btn" href="maturity.html">Take the organizational read</a></div>';
+  }
+  return '<div class="cta"><h2>Where this came from</h2>'
+    +  '<p>Two public datasets, joined and pinned to a version so this page says the same thing in '
+    +  'six months and can explain it if it changes. No survey, no opinion, and no number where the '
+    +  'source data does not have one.</p>'
+    +  '<a class="btn" href="https://huggingface.co/datasets/Anthropic/EconomicIndex">See the source data</a></div>';
 }
 
 function loadTasks(mg, code, name, total){
