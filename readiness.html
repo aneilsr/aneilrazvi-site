@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en"><head>
+<title>The AI Readiness Read, Aneil Razvi</title>
+<!-- SEO-START -->
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="description" content="Type your job title. See which of your tasks AI is already doing, which it is not, and where the data runs out. Built on O*NET 31.0 and the Anthropic Economic Index."/>
+<meta name="author" content="Aneil Razvi"/>
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"/>
+<link rel="canonical" href="https://aneilrazvi.com/readiness.html"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="Aneil Razvi"/>
+<meta property="og:title" content="The AI Readiness Read, Aneil Razvi"/>
+<meta property="og:description" content="Type your job title. See which of your tasks AI is already doing, which it is not, and where the data runs out."/>
+<meta property="og:url" content="https://aneilrazvi.com/readiness.html"/>
+<meta property="og:image" content="https://aneilrazvi.com/assets/og-image.jpg"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="The AI Readiness Read, Aneil Razvi"/>
+<meta name="twitter:description" content="Type your job title. See which of your tasks AI is already doing, which it is not, and where the data runs out."/>
+<meta name="twitter:image" content="https://aneilrazvi.com/assets/og-image.jpg"/>
+<!-- SEO-END -->
+<script defer src="assets/analytics.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Serif+Display:ital@0;1&display=swap">
+<style>
+:root{
+  --teal:#00BCD4; --teal-dark:#0097A7; --teal-wash:#E4F8FB;
+  --navy:#1E3A5F; --dark:#0F1923;
+  --gray:#F4F6F8; --text:#1A1A2E; --muted:#6B7280; --white:#FFFFFF;
+  --orange:#F97316; --orange-wash:#FFF1E6; --orange-dark:#C2621B;
+  --line:#E2E8EC; --line-firm:#CBD5DB;
+  --radius:16px; --radius-sm:10px;
+  --shadow:0 4px 24px rgba(0,0,0,0.10); --shadow-lg:0 12px 48px rgba(0,0,0,0.15);
+}
+*{box-sizing:border-box;}
+html,body{overflow-x:hidden;}
+body{background:var(--gray);color:var(--text);font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+  font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;margin:0;}
+.wrap{max-width:56rem;margin:0 auto;padding:2.6rem 1.15rem 5rem;}
+h1{font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:clamp(2.1rem,5.6vw,3.1rem);line-height:1.08;letter-spacing:-.01em;margin:.5rem 0 .7rem;text-wrap:balance;}
+h2{font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:1.75rem;line-height:1.18;margin:0 0 .4rem;text-wrap:balance;}
+h3{font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:1.25rem;margin:0 0 .45rem;}
+p{margin:0 0 1rem;}
+a{color:var(--teal-dark);}
+.eyebrow{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--teal-dark);}
+.lede{font-size:1.08rem;color:var(--muted);max-width:40rem;}
+.lede b{color:var(--text);font-weight:600;}
+.tick{width:44px;height:4px;background:var(--teal);border-radius:2px;}
+
+/* search ------------------------------------------------------------------ */
+.searchbox{position:relative;margin:2rem 0 .6rem;max-width:34rem;}
+.searchbox input{width:100%;font-family:inherit;font-size:1.12rem;padding:1rem 1.1rem;
+  border:2px solid var(--line-firm);border-radius:var(--radius-sm);background:var(--white);
+  color:var(--text);box-shadow:var(--shadow);}
+.searchbox input:focus{outline:none;border-color:var(--teal);}
+.hint{font-size:.86rem;color:var(--muted);max-width:34rem;}
+.sugg{position:absolute;left:0;right:0;top:calc(100% + .35rem);background:var(--white);
+  border-radius:var(--radius-sm);box-shadow:var(--shadow-lg);overflow:hidden;z-index:20;display:none;
+  max-height:19rem;overflow-y:auto;}
+.sugg.on{display:block;}
+.sugg b{display:block;padding:.62rem 1.05rem;cursor:pointer;font-weight:500;font-size:.96rem;
+  border-bottom:1px solid var(--line);}
+.sugg b:last-child{border-bottom:none;}
+.sugg b:hover,.sugg b.sel{background:var(--teal-wash);}
+.sugg b i{display:block;font-style:normal;font-size:.78rem;color:var(--muted);margin-top:.1rem;}
+.sugg .none{padding:.9rem 1.05rem;color:var(--muted);font-size:.9rem;}
+
+/* result ------------------------------------------------------------------ */
+.res{display:none;margin-top:2.4rem;}
+.res.on{display:block;}
+.card{background:var(--white);border-radius:var(--radius);padding:1.6rem 1.7rem;box-shadow:var(--shadow);margin-bottom:1.2rem;}
+.you{font-size:.8rem;color:var(--muted);margin-bottom:.15rem;}
+.occ{font-family:'DM Serif Display',Georgia,serif;font-size:1.85rem;line-height:1.14;margin:0 0 .2rem;}
+.soc{font-size:.76rem;color:var(--muted);letter-spacing:.04em;}
+
+.big{display:flex;align-items:baseline;gap:.75rem;margin:1.3rem 0 .3rem;flex-wrap:wrap;}
+.big .n{font-family:'DM Serif Display',Georgia,serif;font-size:4.1rem;line-height:.92;color:var(--navy);font-variant-numeric:tabular-nums;}
+.big .u{font-size:1rem;color:var(--muted);max-width:22rem;line-height:1.4;}
+.split{display:flex;height:12px;border-radius:6px;overflow:hidden;margin:1rem 0 .55rem;background:var(--line);}
+.split .a{background:var(--orange);}
+.split .g{background:var(--teal);}
+.keys{display:flex;gap:1.3rem;flex-wrap:wrap;font-size:.84rem;color:var(--muted);}
+.keys i{width:11px;height:11px;border-radius:3px;display:inline-block;margin-right:.4rem;vertical-align:-1px;}
+
+.nonum{background:var(--orange-wash);border-left:4px solid var(--orange);padding:1.15rem 1.3rem;border-radius:var(--radius-sm);margin:1.2rem 0;}
+.nonum h3{color:var(--orange-dark);}
+.nonum p:last-child{margin-bottom:0;}
+.thin{background:var(--teal-wash);padding:.85rem 1.05rem;border-radius:var(--radius-sm);font-size:.9rem;margin:1rem 0 0;}
+
+.tasks{list-style:none;padding:0;margin:.7rem 0 0;}
+.tasks li{display:flex;gap:.9rem;align-items:flex-start;padding:.62rem 0;border-bottom:1px solid var(--line);}
+.tasks li:last-child{border-bottom:none;}
+.tasks .p{flex:none;width:3.4rem;text-align:right;font-weight:700;font-variant-numeric:tabular-nums;font-size:.95rem;}
+.tasks .p.hi{color:var(--orange-dark);}
+.tasks .p.lo{color:var(--teal-dark);}
+.tasks .p.na{color:var(--muted);font-weight:500;font-size:.8rem;}
+.tasks .t{font-size:.93rem;line-height:1.45;}
+.tasks .t em{font-style:normal;font-size:.72rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);display:block;margin-top:.15rem;}
+
+.fam{display:flex;justify-content:space-between;gap:1rem;align-items:baseline;padding:.75rem 0;border-bottom:1px solid var(--line);font-size:.94rem;}
+.fam:last-child{border-bottom:none;}
+.fam b{font-variant-numeric:tabular-nums;}
+.more{background:none;border:1px solid var(--line-firm);border-radius:999px;padding:.45rem 1.1rem;
+  font-family:inherit;font-size:.86rem;color:var(--muted);cursor:pointer;margin-top:.9rem;}
+.more:hover{border-color:var(--teal);color:var(--teal-dark);}
+
+.cta{background:var(--dark);color:#fff;border-radius:var(--radius);padding:1.7rem 1.8rem;margin-top:1.8rem;}
+.cta h2{color:#fff;}
+.cta p{color:#C7D2D8;}
+.cta a.btn{display:inline-block;background:var(--teal);color:#062026;font-weight:700;
+  padding:.8rem 1.5rem;border-radius:999px;text-decoration:none;margin-top:.4rem;}
+
+.srcbox{margin-top:2.2rem;background:var(--white);border-radius:var(--radius);padding:1rem 1.3rem;box-shadow:var(--shadow);}
+.srcbox summary{cursor:pointer;font-weight:600;font-size:.92rem;}
+.src{font-size:.82rem;color:var(--muted);line-height:1.55;}
+footer{margin-top:2.4rem;font-size:.84rem;color:var(--muted);}
+footer .sig{display:block;}
+.loading{font-size:.88rem;color:var(--muted);padding:.4rem 0;}
+@media(max-width:560px){ .big .n{font-size:3.2rem;} .card{padding:1.25rem 1.2rem;} }
+</style></head><body>
+<div class="wrap">
+
+  <div class="tick"></div>
+  <p class="eyebrow" style="margin:.8rem 0 0">The AI Readiness Read</p>
+  <h1>What AI is actually doing to your job</h1>
+  <p class="lede">Not a prediction. Not a vibe. Two public datasets, joined and cited: the tasks that make up your occupation, and how people are really using AI against each one. <b>Type what you call yourself</b>, not the official title.</p>
+
+  <div class="searchbox">
+    <input id="q" type="text" autocomplete="off" spellcheck="false"
+           placeholder="Graphic designer, paralegal, welder, line cook&hellip;"
+           aria-label="Your job title">
+    <div class="sugg" id="sugg" role="listbox"></div>
+  </div>
+  <p class="hint" id="hint">55,283 job titles in the index, mapping to 1,016 occupations.</p>
+
+  <div class="res" id="res"></div>
+
+  <details class="srcbox"><summary>Sources and method</summary>
+    <p class="src" style="margin-top:.7rem">
+    <b>Occupations and tasks</b> from the <a href="https://www.onetcenter.org/database.html">O*NET 31.0 database</a>, US Department of Labor, CC BY 4.0. 1,016 occupations, 18,838 task statements, and the reported job titles people actually use.
+    <b>AI usage</b> from the <a href="https://huggingface.co/datasets/Anthropic/EconomicIndex">Anthropic Economic Index</a>, 2026-06-26 release, CC BY. Global, task level and occupation level.
+    </p>
+    <p class="src"><b>What the percentage is.</b> Of the conversations where AI was used on this kind of work, the share that looked like <i>automation</i>, AI completing the task, rather than <i>augmentation</i>, a person working with AI. It is a description of how people use AI today. It is not a forecast, not a probability your job disappears, and not a measure of how much of the work AI can do.</p>
+    <p class="src"><b>Where it stops.</b> 300 of the 1,016 occupations have no published figure. A blank in the source data means the value <b>was not published, not that it is zero</b>. Those occupations get no number here. Military occupations have no task statements in O*NET at all.</p>
+    <p class="src" id="cite"></p>
+  </details>
+
+  <footer>
+    <span class="sig">Aneil Razvi, fractional design and AI experience leadership</span>
+    <span class="sig" style="margin-top:.5rem;opacity:.75"><a href="privacy.html" style="color:inherit">What I do with your answers</a></span>
+  </footer>
+</div>
+
+<script>
+(function(){
+"use strict";
+var BOOKING = "https://cal.com/aneil-razvi/maturity-read";
+var D = "assets/readiness/";
+var OCC = null, FAM = null, CITE = "", TITLES = null, loadingTitles = false;
+var q = document.getElementById("q"), sugg = document.getElementById("sugg"),
+    res = document.getElementById("res"), hint = document.getElementById("hint");
+var sel = -1, current = [];
+// ?q=welder makes a result linkable, and makes the page testable without a
+// human typing into it.
+var PRE = (function(){ try{ return decodeURIComponent((location.search.match(/[?&]q=([^&]*)/)||[])[1]||""); }
+  catch(e){ return ""; } })();
+
+function cap(){ try{ return window.posthog; }catch(e){ return null; } }
+function track(n, p){ var ph = cap(); if(ph && ph.capture) ph.capture(n, p||{}); }
+
+function getJSON(u){ return fetch(u, {cache:"force-cache"}).then(function(r){
+  if(!r.ok) throw new Error(u+" "+r.status); return r.json(); }); }
+
+getJSON(D+"occ.json").then(function(d){
+  OCC = d.occ; FAM = d.fam; CITE = d.cite;
+  document.getElementById("cite").textContent = CITE;
+  if(PRE) ensureTitles();
+}).catch(function(){ hint.textContent = "The data did not load. Reload the page and it should come back."; });
+
+// The title index is 1.6 MB. Nobody pays for it until they start typing.
+function ensureTitles(){
+  if(TITLES || loadingTitles) return;
+  loadingTitles = true;
+  hint.textContent = "Loading the title index…";
+  getJSON(D+"titles.json").then(function(t){
+    TITLES = t; loadingTitles = false;
+    hint.textContent = t.length.toLocaleString() + " job titles in the index, mapping to 1,016 occupations.";
+    if(PRE && !q.value){ q.value = PRE; }
+    if(q.value.trim()){ search(q.value); if(PRE && current.length){ PRE = ""; pick(0); } }
+  }).catch(function(){
+    loadingTitles = false;
+    hint.textContent = "The title index did not load. Reload the page.";
+  });
+}
+
+function search(v){
+  v = v.trim().toLowerCase();
+  if(!TITLES || v.length < 2){ sugg.className = "sugg"; return; }
+  var starts = [], has = [], i, t;
+  for(i = 0; i < TITLES.length; i++){
+    t = TITLES[i][0].toLowerCase();
+    if(t.indexOf(v) === 0){ starts.push(TITLES[i]); if(starts.length > 40) break; }
+    else if(has.length < 40 && t.indexOf(v) > 0) has.push(TITLES[i]);
+  }
+  current = starts.concat(has).slice(0, 12);
+  sel = -1;
+  if(!current.length){
+    sugg.innerHTML = '<div class="none">No match. Try a simpler word, "designer" rather than "senior brand designer".</div>';
+    sugg.className = "sugg on"; return;
+  }
+  var h = "";
+  for(i = 0; i < current.length; i++){
+    var o = OCC[current[i][1]];
+    var lay = current[i][0], off = o[1];
+    h += '<b data-i="'+i+'" role="option">'+esc(lay)+
+         (lay.toLowerCase() === off.toLowerCase() ? "" : '<i>'+esc(off)+'</i>')+'</b>';
+  }
+  sugg.innerHTML = h; sugg.className = "sugg on";
+}
+
+function esc(s){ return String(s).replace(/[&<>"]/g, function(c){
+  return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
+
+q.addEventListener("focus", ensureTitles);
+q.addEventListener("input", function(){ ensureTitles(); search(q.value); });
+q.addEventListener("keydown", function(e){
+  var n = sugg.querySelectorAll("b");
+  if(e.key === "ArrowDown" || e.key === "ArrowUp"){
+    e.preventDefault(); if(!n.length) return;
+    sel += (e.key === "ArrowDown" ? 1 : -1);
+    if(sel < 0) sel = n.length - 1; if(sel >= n.length) sel = 0;
+    for(var i = 0; i < n.length; i++) n[i].className = (i === sel ? "sel" : "");
+    n[sel].scrollIntoView({block:"nearest"});
+  } else if(e.key === "Enter"){
+    e.preventDefault(); if(sel < 0) sel = 0;
+    if(current[sel]) pick(sel);
+  } else if(e.key === "Escape"){ sugg.className = "sugg"; }
+});
+sugg.addEventListener("click", function(e){
+  var b = e.target.closest("b[data-i]"); if(b) pick(+b.getAttribute("data-i"));
+});
+document.addEventListener("click", function(e){
+  if(!e.target.closest(".searchbox")) sugg.className = "sugg";
+});
+
+function pick(i){
+  var row = current[i]; if(!row) return;
+  var o = OCC[row[1]];
+  q.value = row[0]; sugg.className = "sugg";
+  try{ history.replaceState(null, "", "?q=" + encodeURIComponent(row[0])); }catch(e){}
+  track("readiness_lookup", {occupation: o[1], soc: o[0], tier: o[3], typed_matched_official: row[0] === o[1]});
+  render(o, row[0]);
+}
+
+function tierWord(t){ return t === 2 ? "full" : (t === 1 ? "partial" : "thin"); }
+
+function render(o, typed){
+  var code = o[0], name = o[1], share = o[2], tier = o[3],
+      total = o[4], matched = o[5], mg = o[6];
+  var f = FAM[mg] || {n:"this family", avg:null, count:0};
+  var h = "";
+
+  h += '<div class="card">';
+  h += '<div class="you">You typed &ldquo;'+esc(typed)+'&rdquo;. In the data that is</div>';
+  h += '<h2 class="occ">'+esc(name)+'</h2>';
+  h += '<div class="soc">'+esc(code)+' &middot; '+esc(f.n)+'</div>';
+
+  if(share === null){
+    h += '<div class="nonum"><h3>There is no number for this job</h3>'
+      +  '<p>The Anthropic Economic Index does not publish a figure for '+esc(name)+'. '
+      +  'A missing value means it <b>was not published, not that it is zero</b>. '
+      +  'Showing you a number here would mean inventing one.</p>';
+    if(f.avg !== null){
+      h += '<p>What I can tell you: across the '+f.count+' occupations in <b>'+esc(f.n)
+        +  '</b> that do have a figure, the average automation share is <b>'+f.avg
+        +  '%</b>. That is context, not your number.</p>';
+    }
+    h += '</div>';
+  } else {
+    var aug = Math.round((100 - share) * 10) / 10;
+    h += '<div class="big"><div class="n">'+share+'%</div>'
+      +  '<div class="u">of AI use on this kind of work looks like <b>automation</b>, '
+      +  'AI completing the task. The other '+aug+'% is <b>augmentation</b>, a person working with AI.</div></div>';
+    h += '<div class="split"><div class="a" style="width:'+share+'%"></div>'
+      +  '<div class="g" style="width:'+aug+'%"></div></div>';
+    h += '<div class="keys"><span><i style="background:var(--orange)"></i>Automation '+share+'%</span>'
+      +  '<span><i style="background:var(--teal)"></i>Augmentation '+aug+'%</span></div>';
+    if(f.avg !== null){
+      var d = Math.round((share - f.avg) * 10) / 10;
+      h += '<p style="margin-top:1rem;font-size:.94rem">'
+        +  (Math.abs(d) < 1.5
+             ? 'That sits right on the average for <b>'+esc(f.n)+'</b>, '+f.avg+'%.'
+             : 'That is <b>'+Math.abs(d)+' points '+(d > 0 ? "above" : "below")+'</b> the average for '
+               +esc(f.n)+', which is '+f.avg+'%.')
+        +  '</p>';
+    }
+    if(tier === 1){
+      h += '<div class="thin"><b>The detail is thin.</b> The occupation-level figure is published, '
+        +  'but only '+matched+' of '+total+' tasks were measured individually. '
+        +  'Treat the task list below as a sample, not a survey.</div>';
+    }
+  }
+  h += '</div>';
+
+  h += '<div class="card" id="taskcard"><h2>Your tasks</h2>'
+    +  '<p class="lede" style="font-size:.95rem">O*NET lists '+total+' tasks for this occupation. '
+    +  'Ranked by how much AI use against them looks like automation.</p>'
+    +  '<div class="loading">Loading tasks…</div></div>';
+
+  h += '<div class="cta"><h2>This is the individual read</h2>'
+    +  '<p>There is a companion for organizations. Six levels of design capability against six levels of AI adoption, '
+    +  'and what to do about the square you land in.</p>'
+    +  '<a class="btn" href="maturity.html">Take the organizational read</a></div>';
+
+  res.innerHTML = h; res.className = "res on";
+  res.scrollIntoView({behavior:"smooth", block:"start"});
+  loadTasks(mg, code, name, total);
+}
+
+function loadTasks(mg, code, name, total){
+  var card = document.getElementById("taskcard");
+  if(mg === "55"){
+    card.innerHTML = '<h2>Your tasks</h2><div class="nonum">'
+      + '<h3>O*NET has no task statements for military occupations</h3>'
+      + '<p>Every occupation in the Military Specific group is listed without tasks, so there is '
+      + 'nothing to rank and no task-level reading to give. This is a gap in the source data, '
+      + 'not a statement about the work.</p></div>';
+    return;
+  }
+  getJSON(D+"tasks/"+mg+".json").then(function(all){
+    var list = all[code] || [];
+    var measured = list.filter(function(t){ return t[1] !== null; });
+    var h = '<h2>Your tasks</h2>';
+    if(!list.length){
+      h += '<p class="lede" style="font-size:.95rem">O*NET does not list tasks for this occupation.</p>';
+      card.innerHTML = h; return;
+    }
+    h += '<p class="lede" style="font-size:.95rem">O*NET lists '+list.length+' tasks for this occupation. '
+      +  (measured.length
+           ? measured.length+' of them were measured individually, ranked here from most automated to least.'
+           : 'None of them were measured individually, so none carry a number.')+'</p>';
+    var shown = [];
+    if(measured.length >= 6){
+      var top3 = measured.slice(0, 3), bot3 = measured.slice(-3).reverse();
+      shown = top3.concat(bot3);
+      h += '<h3 style="margin-top:1.3rem">Moving fastest</h3><ul class="tasks">'
+        +  rowsOf(top3, "hi") + '</ul>'
+        +  '<h3 style="margin-top:1.3rem">Barely moving</h3><ul class="tasks">'
+        +  rowsOf(bot3, "lo") + '</ul>';
+    }
+    var rest = list.filter(function(t){ return shown.indexOf(t) === -1; });
+    if(rest.length){
+      h += '<h3 style="margin-top:1.3rem">'+(shown.length ? "Everything else" : "All tasks, ranked")+'</h3>'
+        +  '<ul class="tasks" id="rest">' + rowsOf(rest.slice(0, 8), "") + '</ul>';
+      if(rest.length > 8){
+        h += '<button class="more" id="moreb">Show the other '+(rest.length - 8)+'</button>';
+      }
+    }
+    card.innerHTML = h;
+    var b = document.getElementById("moreb");
+    if(b) b.addEventListener("click", function(){
+      document.getElementById("rest").innerHTML = rowsOf(rest, "");
+      b.remove();
+      track("readiness_tasks_expanded", {occupation: name, soc: code});
+    });
+  }).catch(function(){
+    card.innerHTML = '<h2>Your tasks</h2><p class="lede" style="font-size:.95rem">'
+      + 'The task list did not load. Reload the page and it should come back.</p>';
+  });
+}
+
+function rowsOf(list, cls){
+  var h = "", i;
+  for(i = 0; i < list.length; i++){
+    var t = list[i], p = t[1];
+    h += '<li><span class="p '+(p === null ? "na" : cls)+'">'
+      +  (p === null ? "no data" : p+"%")+'</span>'
+      +  '<span class="t">'+esc(t[0])+(t[2] ? '<em>Core task</em>' : '')+'</span></li>';
+  }
+  return h;
+}
+})();
+</script>
+</body></html>
