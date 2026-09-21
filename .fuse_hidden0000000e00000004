@@ -21,8 +21,7 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="site.css"><script defer src="assets/analytics.js"></script>
 </head><body>
 <nav class="site-nav" id="nav"><a href="index.html" class="nav-brand">Aneil <b>Razvi</b></a><ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="portfolio.html" class="active">Portfolio</a></li><li><a href="speaking.html">Speaking</a></li><li><a href="work-with-me.html">Work With Me</a></li>
-<li><a href="maturity.html">Design Maturity</a></li>
-<li><a href="readiness.html">AI Readiness</a></li><li><a href="about.html">About</a></li><li><a href="blog.html">Blog</a></li></ul><a href="contact.html" class="nav-cta">Let's Talk</a><button class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button></nav>
+<li><a href="maturity.html">Design Maturity</a></li><li><a href="about.html">About</a></li><li><a href="blog.html">Blog</a></li></ul><a href="contact.html" class="nav-cta">Let's Talk</a><button class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button></nav>
 <section class="cs2-hero" style="background-image:linear-gradient(rgba(10,18,28,.82),rgba(10,18,28,.88)),url('assets/work/citi.jpg')">
   <div class="cs2-hero-inner">
     <div class="cs2-eyebrow light">Citi · Global Consumer Banking</div>
