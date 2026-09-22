@@ -72,10 +72,12 @@ a{color:var(--teal-dark);}
 .occ{font-family:'DM Serif Display',Georgia,serif;font-size:1.85rem;line-height:1.14;margin:0 0 .2rem;}
 .soc{font-size:.76rem;color:var(--muted);letter-spacing:.04em;}
 
-.big{display:flex;align-items:baseline;gap:.75rem;margin:1.3rem 0 .3rem;flex-wrap:wrap;}
-.big .n{font-family:'DM Serif Display',Georgia,serif;font-size:4.1rem;line-height:.92;color:var(--navy);font-variant-numeric:tabular-nums;}
-.big .u{font-size:1rem;color:var(--muted);max-width:22rem;line-height:1.4;}
-.split{display:flex;height:12px;border-radius:6px;overflow:hidden;margin:1rem 0 .55rem;background:var(--line);}
+.big{display:flex;align-items:center;gap:1.15rem;margin:1.35rem 0 .2rem;}
+.big .n{font-family:'DM Serif Display',Georgia,serif;font-size:4.1rem;line-height:.9;color:var(--navy);
+  font-variant-numeric:tabular-nums;flex:none;}
+.big .u{font-size:1.02rem;color:var(--muted);line-height:1.45;flex:1;min-width:0;}
+.barrow{display:flex;align-items:center;gap:.8rem;margin:1.1rem 0 .6rem;}
+.split{display:flex;height:12px;border-radius:6px;overflow:hidden;background:var(--line);flex:1;min-width:0;}
 .split .a{background:var(--orange);}
 .split .g{background:var(--teal);}
 .keys{display:flex;gap:1.3rem;flex-wrap:wrap;font-size:.84rem;color:var(--muted);}
@@ -83,10 +85,9 @@ a{color:var(--teal-dark);}
 
 .auto{color:var(--orange-dark);font-weight:700;}
 .augm{color:var(--teal-dark);font-weight:700;}
-.ibtn{display:inline-flex;align-items:center;justify-content:center;width:17px;height:17px;
-  border-radius:50%;border:1.5px solid var(--muted);color:var(--muted);background:none;
-  font-family:inherit;font-size:11px;font-weight:700;line-height:1;cursor:pointer;
-  vertical-align:1px;margin-left:5px;padding:0;}
+.ibtn{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;flex:none;
+  border-radius:50%;border:1.5px solid var(--line-firm);color:var(--muted);background:var(--white);
+  font-family:inherit;font-size:12px;font-weight:700;line-height:1;cursor:pointer;padding:0;}
 .ibtn:hover,.ibtn[aria-expanded="true"]{border-color:var(--teal-dark);color:var(--teal-dark);}
 .deftip{display:none;background:var(--gray);border-radius:var(--radius-sm);padding:1rem 1.15rem;
   margin-top:1rem;font-size:.9rem;line-height:1.55;}
@@ -215,16 +216,43 @@ function ensureTitles(){
   });
 }
 
+function bare(t){ return t.replace(/\s*\([^)]*\)\s*/g, " ").replace(/\s+/g, " ").trim(); }
+
+function score(title, q){
+  var t = title.toLowerCase(), b = bare(t);
+  if(t === q || b === q) return 0;                                  // exact
+  if(b.indexOf(q + " ") === 0) return 1 + (b.length - q.length) / 400;   // "registered nurse ..."
+  if(b.indexOf(q) === 0)      return 2 + (b.length - q.length) / 400;   // prefix
+  if((" " + b).indexOf(" " + q) > -1) return 3 + (b.length - q.length) / 400; // word start
+  if(t.indexOf(q) > -1)       return 4 + (t.length - q.length) / 400;   // anywhere
+  return 99;
+}
+
 function search(v){
   v = v.trim().toLowerCase();
   if(!TITLES || v.length < 2){ sugg.className = "sugg"; return; }
-  var starts = [], has = [], i, t;
+  var scored = [], i, sc;
   for(i = 0; i < TITLES.length; i++){
-    t = TITLES[i][0].toLowerCase();
-    if(t.indexOf(v) === 0){ starts.push(TITLES[i]); if(starts.length > 40) break; }
-    else if(has.length < 40 && t.indexOf(v) > 0) has.push(TITLES[i]);
+    sc = score(TITLES[i][0], v);
+    if(sc < 99) scored.push([sc, TITLES[i]]);
   }
-  current = starts.concat(has).slice(0, 12);
+  // An occupation with a published number is more use than one without, so it
+  // breaks ties. Otherwise keep the lower SOC code for stability.
+  scored.sort(function(a, b){
+    if(a[0] !== b[0]) return a[0] - b[0];
+    var oa = OCC[a[1][1]], ob = OCC[b[1][1]];
+    if(ob[3] !== oa[3]) return ob[3] - oa[3];
+    return oa[0] < ob[0] ? -1 : 1;
+  });
+  // One row per occupation. "Physician" is eight occupations, not eight rows of
+  // the same word, and that list is the industry cross-reference.
+  var seenOcc = {}, out = [];
+  for(i = 0; i < scored.length && out.length < 12; i++){
+    var oi = scored[i][1][1];
+    if(seenOcc[oi]) continue;
+    seenOcc[oi] = 1; out.push(scored[i][1]);
+  }
+  current = out;
   sel = -1;
   if(!current.length){
     sugg.innerHTML = '<div class="none">No match. Try a simpler word, "designer" rather than "senior brand designer".</div>';
@@ -325,11 +353,12 @@ function render(o, typed){
     var aug = Math.round((100 - share) * 10) / 10;
     h += '<div class="big"><div class="n">'+share+'%</div>'
       +  '<div class="u">of AI use on this kind of work looks like <span class="auto">automation</span>. '
-      +  'The other '+aug+'% is <span class="augm">augmentation</span>.'
+      +  'The other '+aug+'% is <span class="augm">augmentation</span>, a person staying in the work.'
+      +  '</div></div>';
+    h += '<div class="barrow"><div class="split"><div class="a" style="width:'+share+'%"></div>'
+      +  '<div class="g" style="width:'+aug+'%"></div></div>'
       +  '<button class="ibtn" id="ibtn" aria-expanded="false" aria-controls="deftip" '
-      +  'aria-label="What these two words mean">i</button></div></div>';
-    h += '<div class="split"><div class="a" style="width:'+share+'%"></div>'
-      +  '<div class="g" style="width:'+aug+'%"></div></div>';
+      +  'title="What these two words mean" aria-label="What these two words mean">i</button></div>';
     h += '<div class="keys"><span><i style="background:var(--orange)"></i>'
       +  '<span class="auto">Automation</span> '+share+'%</span>'
       +  '<span><i style="background:var(--teal)"></i>'
