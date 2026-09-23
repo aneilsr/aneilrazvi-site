@@ -12,6 +12,20 @@
 function readUA(ua) {
   const u = String(ua || "");
   const bot = /bot|crawler|spider|preview|slurp|facebookexternalhit|whatsapp|slackbot|discordbot|telegram|linkedinbot|bingpreview|proofpoint|barracuda|mimecast|safelinks|urldefense|headless/i.test(u);
+
+  // An in-app browser is a REAL PERSON in a cramped webview, not a bot. LinkedIn is the
+  // one that matters here: through 2026-09-22 sixteen LinkedIn in-app sessions produced
+  // zero completions, which is invisible if the channel is not recorded on its own.
+  // Order matters. Instagram and Threads also carry the Facebook tokens.
+  let inApp = null;
+  if (/\[LinkedInApp\]/i.test(u))        inApp = "LinkedIn";
+  else if (/Instagram/i.test(u))          inApp = "Instagram";
+  else if (/Threads/i.test(u))            inApp = "Threads";
+  else if (/FBAN|FBAV|FB_IAB/i.test(u))   inApp = "Facebook";
+  else if (/Twitter/i.test(u))            inApp = "X";
+  else if (/Slack_SSB/i.test(u))          inApp = "Slack";
+  else if (/Teams\//i.test(u))            inApp = "Teams";
+
   let os = "unknown";
   if (/iPhone|iPod/i.test(u)) os = "iPhone";
   else if (/iPad/i.test(u)) os = "iPad";
@@ -21,14 +35,15 @@ function readUA(ua) {
   else if (/CrOS/i.test(u)) os = "ChromeOS";
   else if (/Linux/i.test(u)) os = "Linux";
   let browser = "unknown";
-  if (/Edg\//i.test(u)) browser = "Edge";
+  if (inApp) browser = inApp + " in-app";
+  else if (/Edg\//i.test(u)) browser = "Edge";
   else if (/OPR\/|Opera/i.test(u)) browser = "Opera";
   else if (/Firefox\//i.test(u)) browser = "Firefox";
   else if (/Chrome\//i.test(u)) browser = "Chrome";
   else if (/Safari\//i.test(u)) browser = "Safari";
   const device = /iPhone|iPod|Android.*Mobile/i.test(u) ? "Phone"
                : /iPad|Tablet|Android/i.test(u) ? "Tablet" : "Desktop";
-  return { os, browser, device, bot };
+  return { os, browser, device, bot, inApp };
 }
 
 const ALLOWED_EVENTS = ["land", "start", "q", "complete", "email"];
@@ -77,7 +92,8 @@ export default async function handler(req, res) {
     p_is_bot:          ua.bot,
     p_screen_w:        num(b.screen_w, 0, 20000),
     p_country:         clip(req.headers["x-vercel-ip-country"], 8),
-    p_city:            clip(decodeURIComponent(req.headers["x-vercel-ip-city"] || ""), 80)
+    p_city:            clip(decodeURIComponent(req.headers["x-vercel-ip-city"] || ""), 80),
+    p_in_app:          ua.inApp
   };
 
   try {

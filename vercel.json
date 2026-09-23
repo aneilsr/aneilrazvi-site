@@ -1,0 +1,25 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    {
+      "source": "/workshop",
+      "destination": "/maturity.html?utm_source=luma&utm_medium=event&utm_campaign=where-design-starts-paying",
+      "permanent": false
+    },
+    {
+      "source": "/panel",
+      "destination": "/maturity.html?utm_source=utdallas&utm_medium=event&utm_campaign=minicon-oct10",
+      "permanent": false
+    },
+    {
+      "source": "/podcast",
+      "destination": "/maturity.html?utm_source=roads&utm_medium=podcast&utm_campaign=terri",
+      "permanent": false
+    },
+    {
+      "source": "/check",
+      "destination": "/maturity.html?utm_source=spoken&utm_medium=inperson&utm_campaign=room",
+      "permanent": false
+    }
+  ]
+}
