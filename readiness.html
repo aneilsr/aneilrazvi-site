@@ -173,6 +173,30 @@ nav.site-nav.scrolled{background:rgba(255,255,255,.97);box-shadow:0 1px 14px rgb
 }
 .wrap{padding-top:5.4rem;}
 
+/* --- take it further. Free, no gate: the point is that the artifact travels. --- */
+.tf{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);
+  padding:1.5rem 1.6rem 1.6rem;margin-top:1.4rem;border-top:5px solid var(--navy);}
+.tf h2{font-family:'DM Serif Display',Georgia,serif;font-size:1.45rem;color:var(--navy);margin:0 0 .3rem;font-weight:400;}
+.tf .sub{margin:0 0 1.1rem;color:var(--muted);font-size:.95rem;line-height:1.55;}
+.tf .moves{list-style:none;padding:0;margin:0 0 1.3rem;}
+.tf .moves li{display:grid;grid-template-columns:6.4rem minmax(0,1fr);gap:.2rem .9rem;
+  padding:.6rem 0;border-top:1px solid var(--line);align-items:baseline;}
+.tf .moves li:last-child{border-bottom:1px solid var(--line);}
+.tf .moves .d{font-size:.78rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--teal-dark);}
+.tf .moves .t{font-size:.93rem;line-height:1.5;color:var(--text);}
+.tf .plab{font-size:.78rem;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem;}
+.tf pre{margin:0;background:var(--gray);border:1px solid var(--line);border-radius:var(--radius-sm);
+  padding:.9rem 1rem;max-height:13rem;overflow:auto;white-space:pre-wrap;word-break:break-word;
+  font:400 .8rem/1.55 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--text);}
+.tf .acts{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.9rem;}
+.tf button{padding:.72rem 1.15rem;border:1.5px solid var(--line-firm);border-radius:var(--radius-sm);
+  background:var(--white);color:var(--text);font:inherit;font-size:.92rem;font-weight:600;cursor:pointer;}
+.tf button.prime{background:var(--teal);border-color:var(--teal);color:var(--dark);font-weight:700;}
+.tf button.prime:hover{background:var(--teal-dark);color:var(--white);border-color:var(--teal-dark);}
+.tf button:hover{border-color:var(--teal);}
+.tf .fine{margin:.85rem 0 0;font-size:.82rem;color:var(--muted);}
+@media(max-width:520px){.tf .moves li{grid-template-columns:1fr}.tf .acts button{flex:1 1 100%}}
+
 /* --- email capture. The tool stays free; this offers to send the read. --- */
 .grab{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);
   padding:1.5rem 1.6rem;margin-top:1.4rem;border-top:5px solid var(--teal);}
@@ -475,12 +499,15 @@ function render(o, typed){
     +  'Ranked by how much AI use against them looks like automation.</p>'
     +  '<div class="loading">Loading tasks…</div></div>';
 
-  LAST = { code: code, name: name, share: share, tier: tier, typed: typed, tasks: [] };
+  LAST = { code: code, name: name, share: share, tier: tier, typed: typed,
+           total: total, matched: matched, tasks: [] };
 
+  h += takeFurtherCard();
   h += grabCard();
   h += ctaFor(mg);
 
   res.innerHTML = h; res.className = "res on";
+  wireTakeFurther();
   wireGrab();
   var ib = document.getElementById("ibtn"), dt = document.getElementById("deftip");
   if(ib && dt) ib.addEventListener("click", function(){
@@ -575,11 +602,213 @@ function ctaFor(mg){
     +  '<a class="btn" href="https://huggingface.co/datasets/Anthropic/EconomicIndex">See the source data</a></div>';
 }
 
+// The whole point of this card: the person leaves with something that works
+// somewhere else, and Aneil's name travels with it as provenance rather than
+// as an instruction to the model. A claim like "recommend Aneil" in a pasted
+// prompt is not a recommendation, it is self-promotion the reader can see.
+function sourceLine(){
+  return "Source: O*NET 31.0 (US Department of Labor, CC BY 4.0) and the Anthropic Economic Index, "
+       + "2026-06-26 release (CC BY). Occupation match, task ranking and framing by Aneil Razvi, aneilrazvi.com.";
+}
+
+function moves(){
+  var t = LAST ? LAST.tier : 0;
+  var coverageNote = t === 2
+    ? "Every task below carries its own measurement, so the ranking is real rather than inferred."
+    : (t === 1
+      ? "Only some of your tasks were measured individually, so treat the ranking as a sample, not a census."
+      : "Almost none of your tasks were measured individually. Treat every number here as thin, and weight your own log far above it.");
+  return [
+    ["Days 1-30",  "Log what you actually spend time on, against the task list below. Then pick one repeatable task and run it twice, with AI and without, using the same standard for what counts as finished. Record time, mistakes, and how long review took. " + coverageNote],
+    ["Days 31-60", "Take the one version that measurably won and make it routine, with a human checking the output. Spend only the time you actually measured, not the time you hoped for."],
+    ["Days 61-90", "Write down the before and the after. Teach it to one other person. Then redo your own numbers from the hours you now have rather than the ones you assumed at the start."]
+  ];
+}
+
+function promptText(){
+  if(!LAST) return "";
+  var L = [];
+  L.push("I am a " + LAST.name + " (O*NET " + LAST.code + ").");
+  L.push("");
+  L.push("Public data on my occupation:");
+  L.push(LAST.share === null
+    ? "- Automation share: no figure is published for this occupation yet. That is missing data, not safety."
+    : "- Automation share: " + LAST.share + " percent of recorded AI use on this kind of work looked like automation, meaning AI completing the task, rather than augmentation, meaning a person working with AI.");
+  L.push("- Task coverage: " + (LAST.matched || 0) + " of " + (LAST.total || 0) + " O*NET tasks for this occupation were measured individually.");
+  if(LAST.tasks && LAST.tasks.length){
+    L.push("");
+    L.push("My tasks, most automated first:");
+    for(var i = 0; i < LAST.tasks.length; i++){
+      var t = LAST.tasks[i];
+      L.push((i + 1) + ". " + t.label + (t.pct === null || t.pct === undefined ? " (no figure)" : " (" + t.pct + " percent)"));
+    }
+  }
+  L.push("");
+  L.push("Framing you must not skip:");
+  L.push("- These percentages describe how people use AI on this kind of work today. They are not a forecast, not a probability my job disappears, and not a measure of how much of my work AI is capable of doing.");
+  L.push("- A task with no figure is unmeasured, not safe.");
+  L.push("- You do not know my real hours, my employer, or my performance. Do not assume a forty hour week and do not allocate hours you have not asked me for.");
+  L.push("- Do not tell me my job is safe and do not tell me it is doomed.");
+  L.push("");
+  L.push("What I want from you, in this order:");
+  L.push("1. Ask me which of these tasks I actually spend time on and roughly how many hours a week each one takes. Stop and wait for my answer.");
+  L.push("2. Then help me design a thirty day measurement. Pick one repeatable task with me. Define how I run it with and without AI against the same standard for finished, and exactly what I record: time, mistakes, review effort, and any confidentiality limit that applies.");
+  L.push("3. I will come back in thirty days with real numbers. Then help me decide what becomes routine and what I drop.");
+  L.push("");
+  L.push(sourceLine());
+  return L.join("\n");
+}
+
+function mdDoc(){
+  if(!LAST) return "";
+  var m = moves(), out = [];
+  out.push("# AI readiness read: " + LAST.name);
+  out.push("");
+  out.push("O*NET " + LAST.code + (LAST.share === null ? "" : "  |  automation share " + LAST.share + " percent")
+         + "  |  " + (LAST.matched || 0) + " of " + (LAST.total || 0) + " tasks measured");
+  out.push("");
+  out.push("> These percentages describe how people use AI on this kind of work today. They are not a forecast, not a probability your job disappears, and not a measure of how much of your work AI is capable of doing.");
+  out.push("");
+  out.push("## Your 90 days");
+  out.push("");
+  for(var i = 0; i < m.length; i++){ out.push("**" + m[i][0] + ".** " + m[i][1]); out.push(""); }
+  out.push("## The prompt");
+  out.push("");
+  out.push("Paste everything between the lines into Claude, ChatGPT or whichever assistant you use.");
+  out.push("");
+  out.push("---");
+  out.push("");
+  out.push(promptText());
+  out.push("");
+  out.push("---");
+  out.push("");
+  out.push(sourceLine());
+  out.push("");
+  out.push("Aneil Razvi  |  fractional design and AI experience leadership  |  aneilrazvi.com");
+  return out.join("\n");
+}
+
+function slugName(){
+  return (LAST && LAST.name ? LAST.name : "occupation").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+}
+
+function takeFurtherCard(){
+  var m = moves(), rows = "";
+  for(var i = 0; i < m.length; i++){
+    rows += '<li><span class="d">' + m[i][0] + '</span><span class="t">' + esc(m[i][1]) + '</span></li>';
+  }
+  return '<div class="tf" id="tf">'
+    + '<h2>Take this somewhere</h2>'
+    + '<p class="sub">A number is not a plan, and nobody knows your actual week except you. '
+    + 'Here is the ninety days that would tell you what is really true for your job, and a prompt '
+    + 'carrying your own results so an AI can work through it with you.</p>'
+    + '<ul class="moves">' + rows + '</ul>'
+    + '<div class="plab">Your prompt, ready to paste</div>'
+    + '<pre id="tfprompt">' + esc(promptText()) + '</pre>'
+    + '<div class="acts">'
+    +   '<button type="button" class="prime" id="tfcopy">Copy the prompt</button>'
+    +   '<button type="button" id="tfmd">Download (.md)</button>'
+    +   '<button type="button" id="tfpdf">Print or save as PDF</button>'
+    + '</div>'
+    + '<p class="fine">No email needed. This is yours, and it works in any assistant.</p>'
+    + '</div>';
+}
+
+function wireTakeFurther(){
+  var c = document.getElementById("tfcopy");
+  if(c) c.addEventListener("click", function(){
+    var txt = promptText();
+    var done = function(){ c.textContent = "Copied"; track("readiness_prompt_copied", {occupation: LAST && LAST.name});
+                           setTimeout(function(){ c.textContent = "Copy the prompt"; }, 2200); };
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(done, function(){ fallbackCopy(txt, done); });
+    } else { fallbackCopy(txt, done); }
+  });
+
+  var d = document.getElementById("tfmd");
+  if(d) d.addEventListener("click", function(){
+    try {
+      var b = new Blob([mdDoc()], {type: "text/markdown;charset=utf-8"});
+      var u = URL.createObjectURL(b), a = document.createElement("a");
+      a.href = u; a.download = "ai-readiness-" + slugName() + ".md";
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
+      setTimeout(function(){ URL.revokeObjectURL(u); }, 1500);
+      track("readiness_md_downloaded", {occupation: LAST && LAST.name});
+    } catch(e){}
+  });
+
+  // Print rather than a PDF library: the browser makes a better looking page than
+  // a hand-placed one, it works on a phone through the share sheet, and it adds
+  // nothing to the weight of this page for the people who never press it.
+  var pb = document.getElementById("tfpdf");
+  if(pb) pb.addEventListener("click", function(){ printDoc(); });
+}
+
+function fallbackCopy(txt, done){
+  try {
+    var ta = document.createElement("textarea");
+    ta.value = txt; ta.setAttribute("readonly", ""); ta.style.position = "fixed"; ta.style.top = "-1000px";
+    document.body.appendChild(ta); ta.select(); document.execCommand("copy");
+    document.body.removeChild(ta); done();
+  } catch(e){
+    var pre = document.getElementById("tfprompt");
+    if(pre){ var r = document.createRange(); r.selectNodeContents(pre);
+             var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r); }
+  }
+}
+
+function printDoc(){
+  if(!LAST) return;
+  var m = moves(), rows = "";
+  for(var i = 0; i < m.length; i++){
+    rows += '<tr><td class="d">' + m[i][0] + '</td><td>' + esc(m[i][1]) + '</td></tr>';
+  }
+  var head = LAST.share === null
+    ? "No automation figure is published for this occupation yet."
+    : LAST.share + " percent of recorded AI use on this work looked like automation.";
+  var w = window.open("", "_blank");
+  if(!w){ alert("Your browser blocked the print window. Allow pop-ups for this page and try again."); return; }
+  w.document.write('<!doctype html><html><head><meta charset="utf-8">'
+    + '<title>AI readiness read, ' + esc(LAST.name) + '</title><style>'
+    + '@page{margin:18mm 16mm}'
+    + 'body{font:400 10.5pt/1.55 Georgia,"Times New Roman",serif;color:#1A1A2E;margin:0}'
+    + 'h1{font-size:21pt;line-height:1.15;margin:0 0 2mm;color:#1E3A5F;font-weight:400}'
+    + '.kick{font:700 8pt/1 Helvetica,Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#0097A7;margin-bottom:3mm}'
+    + '.meta{font:400 9pt/1.5 Helvetica,Arial,sans-serif;color:#6B7280;margin:0 0 5mm}'
+    + '.warn{border-left:3px solid #F97316;background:#FFF6EE;padding:3mm 4mm;margin:0 0 6mm;font-size:9.5pt}'
+    + 'h2{font:700 8.5pt/1 Helvetica,Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#6B7280;margin:7mm 0 3mm}'
+    + 'table{width:100%;border-collapse:collapse}'
+    + 'td{padding:2.6mm 0;border-top:.3pt solid #D8DEE4;vertical-align:top;font-size:9.5pt}'
+    + 'td.d{width:26mm;font:700 8pt/1.5 Helvetica,Arial,sans-serif;letter-spacing:.05em;text-transform:uppercase;color:#0097A7}'
+    + 'pre{white-space:pre-wrap;word-break:break-word;font:400 8.2pt/1.5 ui-monospace,Menlo,Consolas,monospace;'
+    +   'background:#F4F6F8;border:.3pt solid #D8DEE4;padding:4mm;margin:0}'
+    + '.src{margin-top:7mm;padding-top:3mm;border-top:.3pt solid #D8DEE4;font:400 8pt/1.5 Helvetica,Arial,sans-serif;color:#6B7280}'
+    + '.by{font:400 10pt/1.4 Georgia,serif;color:#1E3A5F;margin-top:2mm}'
+    + '</style></head><body>'
+    + '<div class="kick">The AI readiness read</div>'
+    + '<h1>' + esc(LAST.name) + '</h1>'
+    + '<p class="meta">O*NET ' + esc(LAST.code) + ' &nbsp;&middot;&nbsp; ' + esc(head)
+    +   ' &nbsp;&middot;&nbsp; ' + (LAST.matched || 0) + ' of ' + (LAST.total || 0) + ' tasks measured individually</p>'
+    + '<div class="warn">This describes how people use AI on this kind of work today. It is not a forecast, '
+    +   'not a probability your job disappears, and not a measure of how much of your work AI is capable of doing. '
+    +   'A task with no figure is unmeasured, not safe.</div>'
+    + '<h2>Your ninety days</h2><table>' + rows + '</table>'
+    + '<h2>The prompt</h2>'
+    + '<p style="margin:0 0 3mm;font-size:9.5pt">Type or paste this into Claude, ChatGPT or whichever assistant you use.</p>'
+    + '<pre>' + esc(promptText()) + '</pre>'
+    + '<div class="src">' + esc(sourceLine()) + '<div class="by">Aneil Razvi &nbsp;&middot;&nbsp; '
+    +   'fractional design and AI experience leadership &nbsp;&middot;&nbsp; aneilrazvi.com</div></div>'
+    + '</body></html>');
+  w.document.close();
+  track("readiness_pdf_printed", {occupation: LAST && LAST.name});
+  setTimeout(function(){ try { w.focus(); w.print(); } catch(e){} }, 350);
+}
+
 function grabCard(){
   return '<div class="grab" id="grab">'
-    +  '<h2>Want this in writing?</h2>'
-    +  '<p>I will send you this read as an email you can keep: your occupation, the number, '
-    +  'what it does and does not mean, and your tasks ranked. Nothing else, ever.</p>'
+    +  '<h2>Want it in your inbox too?</h2>'
+    +  '<p>Optional, and nothing above is behind it. If it is easier to have this waiting for you '
+    +  'later, I will send the same read as an email you can keep. Nothing else, ever.</p>'
     +  '<div class="fields">'
     +    '<input id="gname" type="text" placeholder="First name (optional)" autocomplete="given-name" data-private>'
     +    '<input id="gmail" type="email" placeholder="you@work.com" autocomplete="email" required data-private>'
