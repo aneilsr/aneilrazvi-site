@@ -239,7 +239,11 @@ nav.site-nav.scrolled{background:rgba(255,255,255,.97);box-shadow:0 1px 14px rgb
 .grab button[disabled]{opacity:.55;cursor:default;}
 .grab .fine{margin:.75rem 0 0;font-size:.82rem;color:var(--muted);}
 .grab .done{font-size:.98rem;color:var(--teal-dark);font-weight:600;margin:0;}
-@media(max-width:520px){.grab .fields{flex-direction:column;}.grab button{width:100%;}}
+@media(max-width:520px){
+  .grab .fields{flex-direction:column;}
+  .grab input{flex:0 0 auto;width:100%;}
+  .grab button{flex:0 0 auto;width:100%;}
+}
 </style></head><body>
 <nav class="site-nav" id="nav">
   <a href="index.html" class="nav-brand">Aneil <b>Razvi</b></a>
@@ -863,8 +867,9 @@ function printDoc(){
   if(!w){ alert("Your browser blocked the print window. Allow pop-ups for this page and try again."); return; }
   w.document.write('<!doctype html><html><head><meta charset="utf-8">'
     + '<title>AI readiness read, ' + esc(LAST.name) + '</title><style>'
-    + '@page{margin:18mm 16mm}'
-    + 'body{font:400 10.5pt/1.55 Georgia,"Times New Roman",serif;color:#1A1A2E;margin:0}'
+    + '@page{size:letter;margin:0}'
+    + 'body{font:400 10.5pt/1.55 Georgia,"Times New Roman",serif;color:#1A1A2E;'
+    +   'margin:0;padding:17mm 16mm 15mm;box-sizing:border-box}'
     + 'h1{font-size:21pt;line-height:1.15;margin:0 0 2mm;color:#1E3A5F;font-weight:400}'
     + '.kick{font:700 8pt/1 Helvetica,Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#0097A7;margin-bottom:3mm}'
     + '.meta{font:400 9pt/1.5 Helvetica,Arial,sans-serif;color:#6B7280;margin:0 0 5mm}'
