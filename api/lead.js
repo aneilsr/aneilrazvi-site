@@ -36,6 +36,10 @@ export default async function handler(req, res) {
     ai_breakdown: b.ai_breakdown || null,
     answers: b.answers || null,
     recommended_package: b.recommended_package || null,
+    occupation_code: b.occupation_code || null,
+    occupation_title: b.occupation_title || null,
+    automation_share: b.automation_share ?? null,
+    coverage_tier: b.coverage_tier ?? null,
     completed_at: new Date().toISOString(),
     gated: !!b.gated
   };
@@ -234,6 +238,78 @@ export default async function handler(req, res) {
         <p style="color:#6B7280">Pull the matching tear sheet before you reply.</p>
       </div>`;
 
+    const isReadiness = (b.source === "readiness");
+    const occ   = b.occupation_title || "your occupation";
+    const shareN = (b.automation_share === null || b.automation_share === undefined)
+      ? null : Number(b.automation_share);
+    const tierW = b.coverage_tier === 2 ? "full" : (b.coverage_tier === 1 ? "partial" : "thin");
+    const tasks = Array.isArray(b.top_tasks) ? b.top_tasks.slice(0, 6) : [];
+
+    const shareLine = shareN === null
+      ? `The Anthropic Economic Index does not publish a figure for ${occ} yet, so there is no number to give you. That is coverage, not safety, and it is worth knowing which one you are looking at.`
+      : `Of the AI conversations recorded against this kind of work, <b>${shareN}%</b> looked like automation, AI completing the task, rather than augmentation, a person working with AI alongside them.`;
+
+    const taskRows = tasks.length ? tasks.map(t =>
+      `<tr><td style="padding:9px 0;border-bottom:1px solid #E2E8EC;font:400 13.5px/1.45 Helvetica,Arial,sans-serif;color:#1A1A2E">${String(t.label || "").replace(/[<&]/g, "")}</td>` +
+      `<td style="padding:9px 0 9px 14px;border-bottom:1px solid #E2E8EC;text-align:right;white-space:nowrap;font:700 13.5px/1.45 Helvetica,Arial,sans-serif;color:${(t.pct === null || t.pct === undefined) ? "#9AA5AD" : (Number(t.pct) >= 50 ? "#C2621B" : "#0097A7")}">${(t.pct === null || t.pct === undefined) ? "no data" : Number(t.pct) + "%"}</td></tr>`
+    ).join("") : "";
+
+    const toVisitorReadiness = `
+<div style="background:#F4F6F8;padding:28px 12px">
+<table role="presentation" cellpadding="0" cellspacing="0" style="max-width:600px;margin:0 auto;width:100%;background:#FFFFFF;border-radius:16px;border-collapse:separate;overflow:hidden">
+  <tr><td style="height:5px;background:#00BCD4;font-size:0;line-height:0">&nbsp;</td></tr>
+  <tr><td style="padding:30px 34px 8px">
+    <div style="font:700 11px/1 Helvetica,Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#0097A7">The AI readiness read</div>
+    <h1 style="margin:12px 0 6px;font:400 27px/1.25 Georgia,'Times New Roman',serif;color:#1E3A5F">${occ}</h1>
+    <p style="margin:10px 0 0;font:400 15px/1.65 Helvetica,Arial,sans-serif;color:#3B4651">${shareLine}</p>
+    <p style="margin:12px 0 0;font:400 14px/1.6 Helvetica,Arial,sans-serif;color:#6B7280">
+      This is a description of how people use AI today. It is not a forecast, not a probability your job disappears, and not a measure of how much of the work AI can do. Coverage for this occupation is <b style="color:#1A1A2E">${tierW}</b>.
+    </p>
+  </td></tr>
+  ${taskRows ? `<tr><td style="padding:22px 34px 0">
+    <div style="font:700 11px/1 Helvetica,Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#6B7280;padding-bottom:6px">Your tasks, most automated first</div>
+    <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse">${taskRows}</table>
+    <p style="margin:12px 0 0;font:400 13px/1.6 Helvetica,Arial,sans-serif;color:#9AA5AD">The full list, with every task and every source, is on the page you came from.</p>
+  </td></tr>` : ""}
+  <tr><td style="padding:24px 34px 0">
+    <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;background:#0F1923;border-radius:12px;border-collapse:collapse">
+      <tr><td style="padding:22px 24px">
+        <div style="font:700 10px/1 Helvetica,Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#00BCD4">The other half of this</div>
+        <div style="font:400 22px/1.25 Georgia,serif;color:#FFFFFF;margin:8px 0 10px">Your company has a level too</div>
+        <p style="margin:0 0 16px;font:400 14px/1.6 Helvetica,Arial,sans-serif;color:rgba(255,255,255,.72)">
+          This read is about your tasks. There is a companion read for the organization you work in, scoring how mature its design practice is against how far AI has actually moved into it. Fifteen questions, about four minutes.
+        </p>
+        <a href="https://aneilrazvi.com/maturity.html" style="display:inline-block;background:#00BCD4;color:#0F1923;font:700 14px/1 Helvetica,Arial,sans-serif;padding:13px 24px;border-radius:99px;text-decoration:none">Take the organizational read</a>
+      </td></tr>
+    </table>
+  </td></tr>
+  <tr><td style="padding:16px 34px 0">
+    <p style="margin:0;font:400 14px/1.65 Helvetica,Arial,sans-serif;color:#6B7280">
+      If any of this landed badly, reply and tell me what you do. I read every one, and I would rather talk it through than leave you with a percentage.
+    </p>
+  </td></tr>
+  <tr><td style="padding:22px 34px 30px">
+    <div style="border-top:1px solid #E2E8EC;padding-top:14px">
+      <div style="font:400 15px/1.3 Georgia,serif;color:#1E3A5F">Aneil Razvi</div>
+      <div style="font:400 12px/1.5 Helvetica,Arial,sans-serif;color:#9AA5AD;margin-top:3px">
+        Fractional design and AI experience leadership &middot;
+        <a href="https://aneilrazvi.com" style="color:#0097A7;text-decoration:none">aneilrazvi.com</a>
+      </div>
+    </div>
+  </td></tr>
+</table>
+</div>`;
+
+    const toAneilReadiness = `
+<div style="font:400 15px/1.6 Helvetica,Arial,sans-serif;color:#1A1A2E">
+  <h2 style="font:400 22px/1.2 Georgia,serif;color:#1E3A5F;margin:0 0 12px">${b.name || "Someone"} looked up ${occ}</h2>
+  <p style="margin:0 0 6px"><b>Email:</b> ${b.email}</p>
+  <p style="margin:0 0 6px"><b>Occupation:</b> ${occ} (${b.occupation_code || "no SOC"})</p>
+  <p style="margin:0 0 6px"><b>Automation share:</b> ${shareN === null ? "no figure published" : shareN + "%"} &middot; <b>Coverage:</b> ${tierW}</p>
+  <p style="margin:0 0 6px"><b>Typed:</b> ${(b.typed || "not recorded").toString().replace(/[<&]/g, "")}</p>
+  <p style="margin:14px 0 0;color:#6B7280">This is a readiness lookup, not the maturity assessment. They are a person, not a company. Do not pitch a retainer.</p>
+</div>`;
+
     const send = (to, subject, html) => fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: { "Authorization": `Bearer ${process.env.RESEND_API_KEY}`, "Content-Type": "application/json" },
@@ -242,8 +318,12 @@ export default async function handler(req, res) {
 
     try {
       await Promise.all([
-        send(b.email, `Your design maturity read: ${b.capability_label} / ${b.ai_label}`, toVisitor),
-        send(t, `New lead: ${b.company || b.email} (${b.quadrant})`, toAneil)
+        isReadiness
+          ? send(b.email, `Your AI readiness read: ${occ}`, toVisitorReadiness)
+          : send(b.email, `Your design maturity read: ${b.capability_label} / ${b.ai_label}`, toVisitor),
+        isReadiness
+          ? send(t, `Readiness lookup: ${b.email} (${occ})`, toAneilReadiness)
+          : send(t, `New lead: ${b.company || b.email} (${b.quadrant})`, toAneil)
       ]);
       await fetch(`${SB}/rest/v1/leads?session_id=eq.${encodeURIComponent(b.session_id)}`, {
         method: "PATCH", headers: { ...H, "Prefer": "return=minimal" },

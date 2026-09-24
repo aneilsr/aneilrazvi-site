@@ -140,7 +140,73 @@ footer{margin-top:2.4rem;font-size:.84rem;color:var(--muted);}
 footer .sig{display:block;}
 .loading{font-size:.88rem;color:var(--muted);padding:.4rem 0;}
 @media(max-width:560px){ .big .n{font-size:3.2rem;} .card{padding:1.25rem 1.2rem;} }
+
+/* --- site nav, ported from maturity.html so every page carries the same bar --- */
+nav.site-nav{position:fixed;top:0;left:0;right:0;z-index:60;padding:0 5%;
+  display:flex;align-items:center;justify-content:space-between;height:68px;
+  background:rgba(255,255,255,.86);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);transition:background 200ms ease;}
+nav.site-nav.scrolled{background:rgba(255,255,255,.97);box-shadow:0 1px 14px rgba(0,0,0,.05);}
+.nav-brand{font-family:'DM Serif Display',Georgia,serif;font-size:1.4rem;color:var(--text);
+  text-decoration:none;letter-spacing:.01em;}
+.nav-brand b{color:var(--teal-dark);font-weight:400;}
+.nav-links{display:flex;gap:36px;list-style:none;margin:0;padding:0;}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:.875rem;font-weight:500;
+  letter-spacing:.02em;transition:color 200ms ease;}
+.nav-links a:hover,.nav-links a.active{color:var(--teal-dark);}
+.nav-cta{background:var(--teal);color:var(--dark);padding:9px 22px;border-radius:8px;
+  font-size:.875rem;font-weight:700;text-decoration:none;transition:background 200ms ease,transform .1s;}
+.nav-cta:hover{background:var(--teal-dark);color:var(--white);transform:translateY(-1px);}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:6px;margin-left:14px;}
+.nav-hamburger span{width:24px;height:2px;background:var(--text);border-radius:2px;transition:transform .2s,opacity .2s;}
+@media(max-width:860px){
+  nav.site-nav{flex-wrap:wrap;height:68px;align-content:center;}
+  nav.site-nav .nav-links{display:none;}
+  nav.site-nav .nav-hamburger{display:flex;}
+  nav.site-nav .nav-cta{margin-left:auto;}
+  nav.site-nav.open{height:auto;padding-bottom:14px;background:rgba(255,255,255,.98);}
+  nav.site-nav.open .nav-links{display:flex;order:5;flex-direction:column;width:100%;gap:1.1rem;
+    padding:1.1rem 0 .2rem;margin-top:.5rem;border-top:1px solid var(--line);}
+  nav.site-nav.open .nav-hamburger span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  nav.site-nav.open .nav-hamburger span:nth-child(2){opacity:0;}
+  nav.site-nav.open .nav-hamburger span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+}
+.wrap{padding-top:5.4rem;}
+
+/* --- email capture. The tool stays free; this offers to send the read. --- */
+.grab{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);
+  padding:1.5rem 1.6rem;margin-top:1.4rem;border-top:5px solid var(--teal);}
+.grab h2{font-family:'DM Serif Display',Georgia,serif;font-size:1.45rem;color:var(--navy);margin:0 0 .35rem;font-weight:400;}
+.grab p{margin:0 0 1rem;color:var(--muted);font-size:.95rem;line-height:1.55;}
+.grab .fields{display:flex;gap:.6rem;flex-wrap:wrap;}
+.grab input{flex:1 1 13rem;min-width:0;padding:.78rem .9rem;border:1.5px solid var(--line-firm);
+  border-radius:var(--radius-sm);font:inherit;font-size:.95rem;background:var(--white);color:var(--text);}
+.grab input:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 3px var(--teal-wash);}
+.grab button{flex:0 0 auto;padding:.78rem 1.4rem;border:none;border-radius:var(--radius-sm);
+  background:var(--teal);color:var(--dark);font:inherit;font-size:.95rem;font-weight:700;cursor:pointer;}
+.grab button:hover{background:var(--teal-dark);color:var(--white);}
+.grab button[disabled]{opacity:.55;cursor:default;}
+.grab .fine{margin:.75rem 0 0;font-size:.82rem;color:var(--muted);}
+.grab .done{font-size:.98rem;color:var(--teal-dark);font-weight:600;margin:0;}
+@media(max-width:520px){.grab .fields{flex-direction:column;}.grab button{width:100%;}}
 </style></head><body>
+<nav class="site-nav" id="nav">
+  <a href="index.html" class="nav-brand">Aneil <b>Razvi</b></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="portfolio.html">Portfolio</a></li>
+    <li><a href="speaking.html">Speaking</a></li>
+    <li><a href="work-with-me.html">Work With Me</a></li>
+    <li><a href="maturity.html">Design Maturity</a></li>
+    <li><a href="readiness.html" class="active">AI Readiness</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="blog.html">Blog</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">Let's Talk</a>
+  <button class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+
 <div class="wrap">
 
   <div class="tick"></div>
@@ -187,6 +253,17 @@ var sel = -1, current = [];
 // human typing into it.
 var PRE = (function(){ try{ return decodeURIComponent((location.search.match(/[?&]q=([^&]*)/)||[])[1]||""); }
   catch(e){ return ""; } })();
+
+// One id per visit so the anonymous lookup and the emailed read are the same row.
+var RSID = (function(){
+  try {
+    var k = "ar_readiness_sid", v = sessionStorage.getItem(k);
+    if(!v){ v = "r-" + Date.now().toString(36) + "-" + Math.random().toString(36).slice(2,10);
+            sessionStorage.setItem(k, v); }
+    return v;
+  } catch(e){ return "r-" + Date.now().toString(36); }
+})();
+var LAST = null;
 
 function cap(){ try{ return window.posthog; }catch(e){ return null; } }
 function track(n, p){ var ph = cap(); if(ph && ph.capture) ph.capture(n, p||{}); }
@@ -398,9 +475,13 @@ function render(o, typed){
     +  'Ranked by how much AI use against them looks like automation.</p>'
     +  '<div class="loading">Loading tasks…</div></div>';
 
+  LAST = { code: code, name: name, share: share, tier: tier, typed: typed, tasks: [] };
+
+  h += grabCard();
   h += ctaFor(mg);
 
   res.innerHTML = h; res.className = "res on";
+  wireGrab();
   var ib = document.getElementById("ibtn"), dt = document.getElementById("deftip");
   if(ib && dt) ib.addEventListener("click", function(){
     var open = dt.className.indexOf("on") === -1;
@@ -494,6 +575,62 @@ function ctaFor(mg){
     +  '<a class="btn" href="https://huggingface.co/datasets/Anthropic/EconomicIndex">See the source data</a></div>';
 }
 
+function grabCard(){
+  return '<div class="grab" id="grab">'
+    +  '<h2>Want this in writing?</h2>'
+    +  '<p>I will send you this read as an email you can keep: your occupation, the number, '
+    +  'what it does and does not mean, and your tasks ranked. Nothing else, ever.</p>'
+    +  '<div class="fields">'
+    +    '<input id="gname" type="text" placeholder="First name (optional)" autocomplete="given-name" data-private>'
+    +    '<input id="gmail" type="email" placeholder="you@work.com" autocomplete="email" required data-private>'
+    +    '<button id="gbtn" type="button">Send it to me</button>'
+    +  '</div>'
+    +  '<p class="fine">No list, no sequence. I am the only person who sees this.</p>'
+    +  '</div>';
+}
+
+function wireGrab(){
+  var btn = document.getElementById("gbtn");
+  if(!btn) return;
+  btn.addEventListener("click", function(){
+    var em = (document.getElementById("gmail").value || "").trim();
+    var nm = (document.getElementById("gname").value || "").trim();
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em)){
+      document.getElementById("gmail").focus(); return;
+    }
+    btn.disabled = true; btn.textContent = "Sending\u2026";
+    var qp = new URLSearchParams(location.search);
+    fetch("/api/lead", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        session_id: RSID,
+        source: "readiness",
+        gated: true,
+        email: em,
+        name: nm || null,
+        occupation_code: LAST ? LAST.code : null,
+        occupation_title: LAST ? LAST.name : null,
+        automation_share: LAST ? LAST.share : null,
+        coverage_tier: LAST ? LAST.tier : null,
+        typed: LAST ? LAST.typed : null,
+        top_tasks: LAST ? LAST.tasks : [],
+        referrer: document.referrer || null,
+        landing_path: location.pathname,
+        utm_source: qp.get("utm_source"), utm_medium: qp.get("utm_medium"),
+        utm_campaign: qp.get("utm_campaign"), utm_content: qp.get("utm_content")
+      })
+    }).then(function(){
+      track("readiness_email_given", { occupation: LAST && LAST.name });
+      var g = document.getElementById("grab");
+      if(g) g.innerHTML = '<h2>On its way</h2><p class="done">Check ' + esc(em)
+        + '. If it is not there in a minute, look in spam and drag it out, that helps more than you would think.</p>';
+    }).catch(function(){
+      btn.disabled = false; btn.textContent = "Try again";
+    });
+  });
+}
+
 function loadTasks(mg, code, name, total){
   var card = document.getElementById("taskcard");
   if(mg === "55"){
@@ -507,6 +644,12 @@ function loadTasks(mg, code, name, total){
   getJSON(D+"tasks/"+mg+".json").then(function(all){
     var list = all[code] || [];
     var measured = list.filter(function(t){ return t[1] !== null; });
+    // Stash the sharpest few so the emailed read is not just a headline number.
+    if(LAST){
+      LAST.tasks = (measured.length ? measured : list).slice(0, 6).map(function(t){
+        return { label: t[0], pct: t[1] };
+      });
+    }
     var h = '<h2>Your tasks</h2>';
     if(!list.length){
       h += '<p class="lede" style="font-size:.95rem">O*NET does not list tasks for this occupation.</p>';
