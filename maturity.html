@@ -351,6 +351,9 @@ body.lit .fadein{opacity:1;transform:none;}
   <h1>Where does your design function actually sit?</h1>
   <p class="lede"><span id="qtotal">Fifteen</span> questions, about four minutes. You get a read on two axes most assessments collapse into one: <b>how mature your design practice is</b>, and separately, <b>how far your AI adoption has actually gone</b>. Most companies are further along on one than the other, and the gap between them is usually the real problem.</p>
 
+  <div id="q0host"></div>
+  <p class="hint" id="q0hint" style="margin-top:.85rem;">No email to take it. Where you sit is free. The full breakdown and the engagement fit need an email.</p>
+
   <div class="facts">
     <div class="fact"><div class="n">49%</div><div class="t">of organizations sit at a single level, Emergent, out of six</div></div>
     <div class="fact"><div class="n">13%</div><div class="t">have updated hiring or reviews for AI, though 87% report support for it</div></div>
@@ -358,8 +361,6 @@ body.lit .fadein{opacity:1;transform:none;}
   </div>
 
   <p style="font-size:.98rem;color:var(--muted);max-width:40rem;">That last number is worth sitting with. Companies at the bottom of the maturity scale average <b style="color:var(--text)">twice as many designers</b> as the ones at the top. Headcount is not the lever.</p>
-  <button class="btn" id="start">Start the assessment</button>
-  <p class="hint" style="margin-top:.85rem;">No email to take it. Where you sit is free. The full breakdown and the engagement fit need an email.</p>
 </section>
 
 <section id="quiz" hidden>
@@ -544,7 +545,25 @@ function render(){
   });
   if(idx+1>progMax){ progMax=idx+1; prog("q",{question:idx+1, axis:$("#qaxis").textContent}); }
 }
-$("#start").addEventListener("click",function(){prog("start");$("#intro").hidden=true;$("#quiz").hidden=false;idx=0;render();window.scrollTo(0,0);});
+function renderQ0(){
+  var it=ALL[0];
+  var h='<div class="q'+(it.t==="ai"?" aq":"")+'"><div class="axis">'+
+    (it.t==="ctx"?"About you, not scored":(it.t==="ai"?"AI maturity":"Design capability"))+
+    '</div><div class="qt">'+it.q+'</div><div class="opts">';
+  for(var j=0;j<it.o.length;j++)
+    h+='<button class="opt" data-v="'+j+'"><span class="k">'+j+'</span><span data-private>'+it.o[j]+'</span></button>';
+  $("#q0host").innerHTML=h+'</div></div>';
+  var b=$("#q0host").querySelectorAll("button");
+  for(var x=0;x<b.length;x++) b[x].addEventListener("click",function(e){
+    // "Started" now means answered question one, not clicked a button.
+    prog("start");
+    ans[0]=parseInt(e.currentTarget.getAttribute("data-v"),10);
+    progMax=1;
+    $("#intro").hidden=true; $("#quiz").hidden=false;
+    idx=1; render(); window.scrollTo(0,0);
+  });
+}
+renderQ0();
 $("#back").addEventListener("click",function(){if(idx>0){idx--;render();}});
 
 function payload(extra){
