@@ -31,6 +31,12 @@ h1{font-family:'DM Serif Display',Georgia,serif;font-size:2.4rem;line-height:1.0
 .band.cap .k{color:var(--teal-dark)} .band.ai .k{color:#C2410C}
 .band h2{font-family:'DM Serif Display',Georgia,serif;font-size:1.7rem;color:var(--dark);margin:.3rem 0 .1rem;line-height:1.1}
 .band .lv{font-size:.78rem;color:var(--muted);margin-bottom:.45rem}
+.sqr{display:flex;align-items:center;gap:1.1rem;background:var(--navy);border-radius:var(--radius);padding:1.05rem 1.3rem;margin:1.2rem 0 0;}
+.sqr .sqn{font-family:'DM Serif Display',Georgia,serif;font-size:2.15rem;line-height:1;color:#fff;white-space:nowrap;font-variant-numeric:tabular-nums;}
+.sqr .sqt{font-size:.94rem;line-height:1.45;color:rgba(255,255,255,.80);}
+.sqr .sqt b{color:#fff;font-weight:600;}
+@media(max-width:600px){.sqr{flex-direction:column;align-items:flex-start;gap:.55rem;}.sqr .sqn{font-size:1.8rem;}}
+
 .band p{font-size:.85rem;color:#4B5563;line-height:1.5}
 h3{font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);font-weight:700;
  margin:1.8rem 0 .8rem;padding-bottom:.4rem;border-bottom:1px solid var(--line)}
@@ -399,15 +405,18 @@ function draw(d){
       (dateStr ? ' &nbsp;·&nbsp; '+esc(dateStr) : '')+
       ' &nbsp;·&nbsp; the scores are exactly what you saw on the page</div>'+
     '<div class="rule"></div>'+
+    '<div class="sqr"><span class="sqn">'+(cl+1)+' &times; '+(al+1)+'</span>'+
+      '<span class="sqt"><b>Your square.</b> Capability '+(cl+1)+', '+esc(C.n)+'. '+
+      'AI '+(al+1)+', '+esc(A.n)+'. One of thirty-six.</span></div>'+
     '<div class="bands">'+
       '<div class="band cap"><div class="k">Design capability</div><h2>'+esc(C.n)+'</h2>'+
         '<div class="lv">Level '+(cl+1)+' of 6 &nbsp;·&nbsp; '+cs+' of 30 points</div><p>'+esc(C.d)+'</p></div>'+
       '<div class="band ai"><div class="k">AI maturity</div><h2>'+esc(A.n)+'</h2>'+
         '<div class="lv">Level '+(al+1)+' of 6 &nbsp;·&nbsp; '+as+' of 30 points</div><p>'+esc(A.d)+'</p></div>'+
     '</div>'+
-    '<h3>Where you sit, and the shape of it</h3>'+
+    '<h3>Your square, on the thirty-six</h3>'+
     '<div class="charts">'+
-      '<div><div class="zwrap" data-zoom="Where you sit">'+zbtn()+scatter(cl,al)+'</div><div class="cap2">Against the actual population. Shading is how many organizations sit in each column. The ring is you.</div></div>'+
+      '<div><div class="zwrap" data-zoom="Your square">'+zbtn()+scatter(cl,al)+'</div><div class="cap2">Six levels of design capability against six of AI adoption. Shading is how many organizations sit in each column. The ring is your square.</div></div>'+
       '<div><div class="zwrap" data-zoom="Your profile shape">'+zbtn()+radar()+'</div><div class="cap2">All twelve dimensions. The dents are where the work is. Lowest: <b>'+esc(lowName)+'</b>.</div></div>'+
     '</div>'+
     '<h3>Dimension by dimension</h3>'+

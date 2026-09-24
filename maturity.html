@@ -97,6 +97,11 @@ p{margin:0 0 1rem;}
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;}
 @media(max-width:560px){.row2{grid-template-columns:1fr;}}
 
+.sqr{display:flex;align-items:center;gap:1.1rem;background:var(--navy);border-radius:var(--radius);padding:1.05rem 1.3rem;margin:1.35rem 0 0;}
+.sqr .sqn{font-family:'DM Serif Display',Georgia,serif;font-size:2.15rem;line-height:1;color:#fff;white-space:nowrap;font-variant-numeric:tabular-nums;}
+.sqr .sqt{font-size:.94rem;line-height:1.45;color:rgba(255,255,255,.80);}
+.sqr .sqt b{color:#fff;font-weight:600;}
+@media(max-width:600px){.sqr{flex-direction:column;align-items:flex-start;gap:.55rem;}.sqr .sqn{font-size:1.8rem;}}
 .levels{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.4rem 0 1.5rem;}
 @media(max-width:600px){.levels{grid-template-columns:1fr;}}
 .lv{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);padding:1.3rem 1.4rem;border-top:5px solid var(--teal);}
@@ -697,12 +702,15 @@ function show(){
   $("#result").innerHTML =
     '<div class="tick"></div><div class="eyebrow" style="margin-top:.75rem;">Your read</div>'+
     '<h1>'+C.n+' capability, '+A.n+' on AI</h1><p class="lede">'+gapLine+'</p>'+
+    '<div class="sqr"><span class="sqn">'+(cl+1)+' &times; '+(al+1)+'</span>'+
+      '<span class="sqt"><b>Your square.</b> Capability '+(cl+1)+', '+C.n+'. '+
+      'AI '+(al+1)+', '+A.n+'. One of thirty-six.</span></div>'+
     '<div class="levels">'+
       '<div class="lv"><div class="ax">Design capability</div><div class="nm">'+C.n+'</div><div class="sc">Level '+(cl+1)+' of 6 · '+cs+' of 30 points</div><p>'+C.d+'</p></div>'+
       '<div class="lv a"><div class="ax">AI maturity</div><div class="nm">'+A.n+'</div><div class="sc">Level '+(al+1)+' of 6 · '+as+' of 30 points</div><p>'+A.d+'</p></div>'+
     '</div>'+
     '<div class="charts">'+
-      '<div class="card"><h3>Where you sit</h3><div class="sub">Against the actual population. Shading is how many organizations are in each column.</div><div class="scroller" data-zoom="Where you sit"><div class="zoomhint" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6M11 8.2v5.6M8.2 11h5.6"/></svg></div>'+scatter(cl,al)+'</div><p class="capt">Almost everyone lands in the middle two columns. The ring is you.</p></div>'+
+      '<div class="card"><h3>Your square, on the thirty-six</h3><div class="sub">Six levels of design capability against six of AI adoption. Shading is how many organizations sit in each column.</div><div class="scroller" data-zoom="Your square"><div class="zoomhint" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6M11 8.2v5.6M8.2 11h5.6"/></svg></div>'+scatter(cl,al)+'</div><p class="capt">Almost everyone lands in the middle two columns. The ring is your square.</p></div>'+
       '<div class="card"><h3>Your profile shape</h3><div class="sub">All twelve dimensions. The dents are where the work is.</div><div class="scroller sc2" data-zoom="Your profile shape"><div class="zoomhint" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6M11 8.2v5.6M8.2 11h5.6"/></svg></div>'+radar()+'</div>'+
       '<p class="capt">Lowest dimension: <b style="color:var(--text)">'+lowName+'</b>. That is where I would start.</p></div>'+
     '</div>'+
