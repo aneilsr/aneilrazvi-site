@@ -3,7 +3,7 @@
   "redirects": [
     {
       "source": "/workshop",
-      "destination": "/maturity.html?utm_source=luma&utm_medium=event&utm_campaign=where-design-starts-paying",
+      "destination": "https://luma.com/jmpah2p8?utm_source=aneilrazvi&utm_medium=poster&utm_campaign=where-design-starts-paying",
       "permanent": false
     },
     {
@@ -19,6 +19,11 @@
     {
       "source": "/check",
       "destination": "/maturity.html?utm_source=spoken&utm_medium=inperson&utm_campaign=room",
+      "permanent": false
+    },
+    {
+      "source": "/map",
+      "destination": "/maturity.html?utm_source=tearsheet&utm_medium=handout&utm_campaign=where-design-starts-paying",
       "permanent": false
     }
   ]
