@@ -1,30 +1,25 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "redirects": [
+  "rewrites": [
     {
       "source": "/workshop",
-      "destination": "https://luma.com/jmpah2p8?utm_source=aneilrazvi&utm_medium=poster&utm_campaign=where-design-starts-paying",
-      "permanent": false
+      "destination": "/api/go?s=workshop"
     },
     {
       "source": "/panel",
-      "destination": "/maturity.html?utm_source=utdallas&utm_medium=event&utm_campaign=minicon-oct10",
-      "permanent": false
+      "destination": "/api/go?s=panel"
     },
     {
       "source": "/podcast",
-      "destination": "/maturity.html?utm_source=roads&utm_medium=podcast&utm_campaign=terri",
-      "permanent": false
+      "destination": "/api/go?s=podcast"
     },
     {
       "source": "/check",
-      "destination": "/maturity.html?utm_source=spoken&utm_medium=inperson&utm_campaign=room",
-      "permanent": false
+      "destination": "/api/go?s=check"
     },
     {
       "source": "/map",
-      "destination": "/maturity.html?utm_source=tearsheet&utm_medium=handout&utm_campaign=where-design-starts-paying",
-      "permanent": false
+      "destination": "/api/go?s=map"
     }
   ]
 }
