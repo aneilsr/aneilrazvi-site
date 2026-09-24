@@ -94,9 +94,9 @@ export default async function handler(req, res) {
         for (let c = 0; c < 6; c++) {
           const hit = (c === col && r === rowFromTop);
           out += '<td style="border:1px solid #E2E8EC;background:' + (hit ? "#FFF1E6" : tint[c]) +
-                 ';height:26px;width:15%;text-align:center;font-size:0;line-height:0' +
+                 ';height:34px;width:15%;text-align:center;font-size:0;line-height:0' +
                  (hit ? ';border:2px solid #F97316' : '') + '">' +
-                 (hit ? '<span style="display:inline-block;width:10px;height:10px;background:#F97316;border-radius:50%;font-size:0;line-height:0">&nbsp;</span>' : '&nbsp;') +
+                 (hit ? '<span style="display:inline-block;width:15px;height:15px;background:#F97316;border-radius:50%;font-size:0;line-height:0">&nbsp;</span>' : '&nbsp;') +
                  '</td>';
         }
         out += '</tr>';
@@ -110,6 +110,14 @@ export default async function handler(req, res) {
       return out;
     };
 
+    const _cl = Number(b.capability_level) || 1, _al = Number(b.ai_level) || 1;
+    const _gap = _cl - _al;
+    const _read = _gap >= 2
+      ? "Your design practice is meaningfully ahead of your AI adoption. That is the safer imbalance, but a team with your process discipline would compound AI faster than most, and is not."
+      : _gap <= -2
+      ? "Your AI adoption is running ahead of your design practice. That is the more dangerous imbalance, because AI accelerates whatever process you already have."
+      : "Your two axes are roughly in step, which is less common than it sounds. The work now is moving both together rather than letting one sprint ahead.";
+
     const toVisitor = `
 <div style="background:#F4F6F8;padding:28px 12px">
 <table role="presentation" cellpadding="0" cellspacing="0" style="max-width:600px;margin:0 auto;width:100%;background:#FFFFFF;border-radius:16px;border-collapse:separate;overflow:hidden">
@@ -120,6 +128,17 @@ export default async function handler(req, res) {
     <p style="margin:10px 0 0;font:400 15px/1.65 Helvetica,Arial,sans-serif;color:#6B7280">
       Thanks for taking this. Your full read is below, and the scores are exactly what you saw on the page.
     </p>
+  </td></tr>
+
+  <tr><td style="padding:20px 34px 0">
+    <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;background:#1E3A5F;border-radius:12px;border-collapse:collapse">
+      <tr>
+        <td valign="middle" style="padding:16px 8px 16px 22px;font:400 34px/1 Georgia,serif;color:#FFFFFF;white-space:nowrap">${_cl} &times; ${_al}</td>
+        <td valign="middle" style="padding:16px 22px 16px 14px;font:400 14px/1.5 Helvetica,Arial,sans-serif;color:rgba(255,255,255,.82)">
+          <b style="color:#FFFFFF">Your square.</b> Capability ${_cl}, ${b.capability_label}. AI ${_al}, ${b.ai_label}. One of thirty-six.
+        </td>
+      </tr>
+    </table>
   </td></tr>
 
   <tr><td style="padding:20px 34px 0">
@@ -141,11 +160,12 @@ export default async function handler(req, res) {
   </td></tr>
 
   <tr><td style="padding:24px 34px 0">
-    <div style="font:700 11px/1 Helvetica,Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#6B7280;padding-bottom:10px">Where you sit</div>
+    <div style="font:700 11px/1 Helvetica,Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#6B7280;padding-bottom:10px">Your square, on the thirty-six</div>
     ${matrixTable()}
     <p style="margin:12px 0 0;font:400 13px/1.6 Helvetica,Arial,sans-serif;color:#9AA5AD">
-      Design capability runs left to right with the share of organizations in each column. AI maturity runs bottom to top. The orange marker is you.
+      Six levels of design capability run left to right, with the share of organizations in each column. Six levels of AI adoption run bottom to top. Thirty-six squares, and the orange marker is yours.
     </p>
+    <p style="margin:12px 0 0;font:400 14px/1.65 Helvetica,Arial,sans-serif;color:#3B4651">${_read}</p>
   </td></tr>
 
   <tr><td style="padding:22px 34px 0">
@@ -171,41 +191,21 @@ export default async function handler(req, res) {
         <div style="font:700 10px/1 Helvetica,Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#00BCD4">Best fit for where you are</div>
         <div style="font:400 23px/1.2 Georgia,serif;color:#FFFFFF;margin:8px 0 10px">${b.recommended_package}</div>
         <p style="margin:0 0 16px;font:400 14px/1.6 Helvetica,Arial,sans-serif;color:rgba(255,255,255,.7)">
-          Ranked against your answers, not a generic order. Reply and I will send the tear sheet for this engagement, written for your maturity band rather than in general.
+          Ranked against your answers, not a generic order. If that looks close to right, I would like to work with you on it. Twenty minutes, no pitch, and I will tell you honestly if the answer is that you do not need me yet.
         </p>
-        <a href="${BOOKING}" style="display:inline-block;background:#00BCD4;color:#0F1923;font:700 14px/1 Helvetica,Arial,sans-serif;padding:13px 24px;border-radius:99px;text-decoration:none">Book thirty minutes</a>
-        <a href="${REPORT_URL}" style="display:inline-block;margin-left:10px;color:#00BCD4;font:600 14px/1 Helvetica,Arial,sans-serif;padding:13px 4px;text-decoration:none;border-bottom:1px solid rgba(0,188,212,.45)">Open the full read</a>
+        <a href="${BOOKING}" style="display:inline-block;background:#00BCD4;color:#0F1923;font:700 14px/1 Helvetica,Arial,sans-serif;padding:13px 24px;border-radius:99px;text-decoration:none">Book a quick intro call</a>
+        <a href="${REPORT_URL}" style="display:inline-block;margin-left:10px;color:#00BCD4;font:600 14px/1 Helvetica,Arial,sans-serif;padding:13px 4px;text-decoration:none;border-bottom:1px solid rgba(0,188,212,.45)">Or open your full read</a>
       </td></tr>
     </table>
   </td></tr>
 
-  <!-- The entry rung. Dashed and flat so it reads as separate from the recommendation
-       above rather than as a competing offer. Nested tables only: email clients drop
-       CSS borders on divs inconsistently. -->
-  <tr><td style="padding:14px 34px 0">
-    <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;background:#F4F6F8;border-radius:12px;border:1px dashed #CBD5DB;border-collapse:separate">
-      <tr><td style="padding:18px 22px">
-        <div style="font:700 10px/1 Helvetica,Arial,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#6B7280">If that is not a yes yet</div>
-        <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;margin-top:8px">
-          <tr>
-            <td style="font:400 20px/1.2 Georgia,serif;color:#1E3A5F">First Look</td>
-            <td style="text-align:right;font:700 14px/1.2 Helvetica,Arial,sans-serif;color:#1A1A2E;white-space:nowrap">$2,500<br /><span style="font:400 10px/1.4 Helvetica,Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#9AA5AD">one week</span></td>
-          </tr>
-        </table>
-        <p style="margin:6px 0 12px;font:400 13px/1.6 Helvetica,Arial,sans-serif;color:#6B7280">
-          Ninety minutes with me and a written read, before anyone signs anything larger. I go through your answers plus up to ten artefacts you send, we spend ninety minutes on it together, and you get a three page read: where the function actually sits, the constraint costing you the most, and what the first thirty days should be.
-        </p>
-        <p style="margin:0;padding-top:12px;border-top:1px solid #E2E8EC;font:400 13px/1.6 Helvetica,Arial,sans-serif;color:#1A1A2E">
-          <b style="color:#0097A7">Credited in full</b> against the AI Experience Framework, the Design System Build, or the retainer, if you start within thirty days. It does not stack with the Audit, because the Audit is this same work done properly. Decide you do not need me at all and you still keep the read.
-        </p>
-      </td></tr>
-    </table>
+  <tr><td style="padding:16px 34px 0">
+    <p style="margin:0;font:400 14px/1.65 Helvetica,Arial,sans-serif;color:#6B7280">
+      Not ready for a call? Reply to this email with what you are building and I will send the tear sheet for your band, written for where you actually sit rather than in general. No list, no sequence.
+    </p>
   </td></tr>
 
   <tr><td style="padding:22px 34px 30px">
-    <p style="margin:0 0 14px;font:400 14px/1.65 Helvetica,Arial,sans-serif;color:#6B7280">
-      Free either way, and I will tell you honestly if the answer is that you do not need me yet.
-    </p>
     <p style="margin:0 0 14px;font:400 13px/1.6 Helvetica,Arial,sans-serif;color:#9AA5AD">
       Your full read, with both charts and the engagement detail, lives at
       <a href="${REPORT_URL}" style="color:#0097A7;text-decoration:none">this link</a>. It is yours to keep and it prints to a PDF.
