@@ -225,18 +225,74 @@ export default async function handler(req, res) {
 </table>
 </div>`;
 
-    const toAneil = `
-      <div style="font-family:Inter,Helvetica,sans-serif;font-size:15px;max-width:560px">
-        <h2 style="font-family:Georgia,serif;font-weight:400">${b.name || "Someone"} at ${b.company || "an unnamed company"}</h2>
-        <p><b>Email:</b> ${b.email}<br><b>Role:</b> ${b.role || "not given"}<br>
-        <b>Levels:</b> ${b.capability_label} / ${b.ai_label}<br>
-        <b>Designers:</b> ${b.team_size || "not given"} &middot; <b>Stage:</b> ${b.company_stage || "not given"}<br>
-        <b>Stated blocker:</b> ${b.blocker || "not given"}<br>
-        <b>Best fit:</b> ${b.recommended_package}</p>
-        <p style="color:#6B7280">Capability: ${dims(b.capability_breakdown)}</p>
-        <p style="color:#6B7280">AI: ${dims(b.ai_breakdown)}</p>
-        <p style="color:#6B7280">Pull the matching tear sheet before you reply.</p>
-      </div>`;
+    const toAneil = `<div style="background:#F4F6F8;padding:24px 12px">
+<table role="presentation" cellpadding="0" cellspacing="0" style="max-width:600px;margin:0 auto;width:100%;background:#FFFFFF;border-radius:16px;border-collapse:separate;overflow:hidden">
+  <tr><td style="height:5px;background:#00BCD4;font-size:0;line-height:0">&nbsp;</td></tr>
+  <tr><td style="padding:26px 30px 6px">
+    <div style="font:700 11px/1 Helvetica,Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#0097A7">New lead &middot; maturity assessment</div>
+    <h1 style="margin:11px 0 0;font:400 25px/1.25 Georgia,'Times New Roman',serif;color:#1E3A5F">${b.name || "Someone"}${b.company ? " at " + b.company : ""}</h1>
+    <div style="margin:6px 0 0;font:400 14px/1.5 Helvetica,Arial,sans-serif"><a href="mailto:${b.email}" style="color:#0097A7;text-decoration:none">${b.email}</a></div>
+  </td></tr>
+
+  <tr><td style="padding:18px 30px 0">
+    <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;background:#1E3A5F;border-radius:12px;border-collapse:collapse">
+      <tr>
+        <td valign="middle" style="padding:14px 6px 14px 20px;font:400 30px/1 Georgia,serif;color:#FFFFFF;white-space:nowrap">${_cl} &times; ${_al}</td>
+        <td valign="middle" style="padding:14px 20px 14px 12px;font:400 13.5px/1.5 Helvetica,Arial,sans-serif;color:rgba(255,255,255,.82)">
+          <b style="color:#FFFFFF">${b.capability_label}</b> capability, <b style="color:#FFFFFF">${b.ai_label}</b> on AI
+        </td>
+      </tr>
+    </table>
+  </td></tr>
+
+  <tr><td style="padding:20px 30px 0">
+    <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;font:400 14px/1.5 Helvetica,Arial,sans-serif">
+      <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280;width:38%">Role</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#1A1A2E">${b.role || "not given"}</td></tr>
+      <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280">Designers</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#1A1A2E">${b.team_size || "not given"}</td></tr>
+      <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280">Stage</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#1A1A2E">${b.company_stage || "not given"}</td></tr>
+    </table>
+  </td></tr>
+
+  ${b.blocker ? `<tr><td style="padding:18px 30px 0">
+    <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;background:#FFF1E6;border-radius:10px;border-collapse:collapse">
+      <tr><td style="padding:14px 18px;border-left:4px solid #F97316">
+        <div style="font:700 10px/1 Helvetica,Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#C2410C">What they said is in the way</div>
+        <div style="margin-top:6px;font:400 15px/1.5 Georgia,serif;color:#1A1A2E">${b.blocker}</div>
+      </td></tr>
+    </table>
+  </td></tr>` : ""}
+
+  <tr><td style="padding:20px 30px 0">
+    <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse">
+      <tr>
+        <td width="49%" valign="top">
+          <div style="font:700 10px/1 Helvetica,Arial,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#0097A7;padding-bottom:9px">Design capability</div>
+          <table role="presentation" cellpadding="0" cellspacing="0" style="border-collapse:collapse">${dimRows(b.capability_breakdown, "#00BCD4")}</table>
+        </td>
+        <td width="2%" style="font-size:0;line-height:0">&nbsp;</td>
+        <td width="49%" valign="top">
+          <div style="font:700 10px/1 Helvetica,Arial,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#C2410C;padding-bottom:9px">AI maturity</div>
+          <table role="presentation" cellpadding="0" cellspacing="0" style="border-collapse:collapse">${dimRows(b.ai_breakdown, "#F97316")}</table>
+        </td>
+      </tr>
+    </table>
+  </td></tr>
+
+  <tr><td style="padding:22px 30px 0">
+    <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;background:#0F1923;border-radius:12px;border-collapse:collapse">
+      <tr><td style="padding:20px 22px">
+        <div style="font:700 10px/1 Helvetica,Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#00BCD4">Ranked best fit</div>
+        <div style="font:400 22px/1.25 Georgia,serif;color:#FFFFFF;margin:7px 0 10px">${b.recommended_package}</div>
+        <p style="margin:0;font:400 13.5px/1.6 Helvetica,Arial,sans-serif;color:rgba(255,255,255,.72)">Pull the tear sheet for this band before you reply. They were told to expect the written read now and the tear sheet if they answer.</p>
+      </td></tr>
+    </table>
+  </td></tr>
+
+  <tr><td style="padding:18px 30px 26px">
+    <div style="font:400 12px/1.5 Helvetica,Arial,sans-serif;color:#9AA5AD">Session ${b.session_id || "unknown"}${b.utm_source ? " &middot; via " + b.utm_source : ""}</div>
+  </td></tr>
+</table>
+</div>`;
 
     const isReadiness = (b.source === "readiness");
     const occ   = b.occupation_title || "your occupation";
@@ -300,14 +356,51 @@ export default async function handler(req, res) {
 </table>
 </div>`;
 
-    const toAneilReadiness = `
-<div style="font:400 15px/1.6 Helvetica,Arial,sans-serif;color:#1A1A2E">
-  <h2 style="font:400 22px/1.2 Georgia,serif;color:#1E3A5F;margin:0 0 12px">${b.name || "Someone"} looked up ${occ}</h2>
-  <p style="margin:0 0 6px"><b>Email:</b> ${b.email}</p>
-  <p style="margin:0 0 6px"><b>Occupation:</b> ${occ} (${b.occupation_code || "no SOC"})</p>
-  <p style="margin:0 0 6px"><b>Automation share:</b> ${shareN === null ? "no figure published" : shareN + "%"} &middot; <b>Coverage:</b> ${tierW}</p>
-  <p style="margin:0 0 6px"><b>Typed:</b> ${(b.typed || "not recorded").toString().replace(/[<&]/g, "")}</p>
-  <p style="margin:14px 0 0;color:#6B7280">This is a readiness lookup, not the maturity assessment. They are a person, not a company. Do not pitch a retainer.</p>
+    const toAneilReadiness = `<div style="background:#F4F6F8;padding:24px 12px">
+<table role="presentation" cellpadding="0" cellspacing="0" style="max-width:600px;margin:0 auto;width:100%;background:#FFFFFF;border-radius:16px;border-collapse:separate;overflow:hidden">
+  <tr><td style="height:5px;background:#00BCD4;font-size:0;line-height:0">&nbsp;</td></tr>
+  <tr><td style="padding:26px 30px 6px">
+    <div style="font:700 11px/1 Helvetica,Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#0097A7">Readiness lookup</div>
+    <h1 style="margin:11px 0 0;font:400 25px/1.25 Georgia,'Times New Roman',serif;color:#1E3A5F">${occ}</h1>
+    <div style="margin:6px 0 0;font:400 14px/1.5 Helvetica,Arial,sans-serif;color:#6B7280">${b.name ? b.name + " &middot; " : ""}<a href="mailto:${b.email}" style="color:#0097A7;text-decoration:none">${b.email}</a></div>
+  </td></tr>
+
+  <tr><td style="padding:18px 30px 0">
+    <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;background:${shareN === null ? "#6B7280" : "#C2410C"};border-radius:12px;border-collapse:collapse">
+      <tr>
+        <td valign="middle" style="padding:14px 6px 14px 20px;font:400 30px/1 Georgia,serif;color:#FFFFFF;white-space:nowrap">${shareN === null ? "&mdash;" : shareN + "%"}</td>
+        <td valign="middle" style="padding:14px 20px 14px 12px;font:400 13.5px/1.5 Helvetica,Arial,sans-serif;color:rgba(255,255,255,.85)">
+          ${shareN === null ? "No figure published for this occupation" : "of recorded AI use on this work looked like automation"}
+        </td>
+      </tr>
+    </table>
+  </td></tr>
+
+  <tr><td style="padding:20px 30px 0">
+    <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;font:400 14px/1.5 Helvetica,Arial,sans-serif">
+      <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280;width:38%">They typed</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#1A1A2E">${(b.typed || "not recorded").toString().replace(/[<&]/g, "")}</td></tr>
+      <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280">O*NET code</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#1A1A2E">${b.occupation_code || "none"}</td></tr>
+      <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280">Coverage</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#1A1A2E">${tierW}</td></tr>
+    </table>
+  </td></tr>
+
+  ${taskRows ? `<tr><td style="padding:20px 30px 0">
+    <div style="font:700 10px/1 Helvetica,Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#6B7280;padding-bottom:6px">What they saw, most automated first</div>
+    <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse">${taskRows}</table>
+  </td></tr>` : ""}
+
+  <tr><td style="padding:20px 30px 0">
+    <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;background:#F4F6F8;border-radius:10px;border:1px dashed #CBD5DB;border-collapse:separate">
+      <tr><td style="padding:14px 18px;font:400 13.5px/1.6 Helvetica,Arial,sans-serif;color:#3B4651">
+        <b style="color:#1A1A2E">This is a person, not a company.</b> A readiness lookup is someone asking what AI is doing to their own job. Do not pitch a retainer. If you reply at all, reply about their work.
+      </td></tr>
+    </table>
+  </td></tr>
+
+  <tr><td style="padding:18px 30px 26px">
+    <div style="font:400 12px/1.5 Helvetica,Arial,sans-serif;color:#9AA5AD">Session ${b.session_id || "unknown"}${b.utm_source ? " &middot; via " + b.utm_source : ""}</div>
+  </td></tr>
+</table>
 </div>`;
 
     const send = (to, subject, html) => fetch("https://api.resend.com/emails", {
