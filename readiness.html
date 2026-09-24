@@ -173,6 +173,33 @@ nav.site-nav.scrolled{background:rgba(255,255,255,.97);box-shadow:0 1px 14px rgb
 }
 .wrap{padding-top:5.4rem;}
 
+/* --- sticky jump bar. Only exists once there is a result to jump around. --- */
+.jump{position:fixed;left:0;right:0;top:68px;z-index:55;
+  background:rgba(255,255,255,.93);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);box-shadow:0 1px 10px rgba(0,0,0,.04);
+  transform:translateY(-130%);transition:transform 220ms ease;}
+.jump.on{transform:translateY(0);}
+.jump .in{max-width:56rem;margin:0 auto;padding:.5rem 1.15rem;display:flex;align-items:center;gap:.9rem;}
+.jump .occ{font-size:.86rem;font-weight:700;color:var(--navy);white-space:nowrap;
+  overflow:hidden;text-overflow:ellipsis;flex:0 1 auto;min-width:0;}
+.jump .jl{margin-left:auto;display:flex;gap:.15rem;flex:0 0 auto;}
+.jump .jl a{font-size:.8rem;font-weight:600;color:var(--muted);text-decoration:none;
+  padding:.36rem .6rem;border-radius:999px;white-space:nowrap;transition:background .15s,color .15s;}
+.jump .jl a:hover{color:var(--teal-dark);background:var(--teal-wash);}
+.jump .jl a.here{color:var(--teal-dark);background:var(--teal-wash);}
+/* The result scrolls itself into view, and the nav is fixed on top of the page,
+   so without this the first band of the read lands underneath the nav bar. */
+.res{scroll-margin-top:86px;}
+#sec-read,#taskcard,#tf{scroll-margin-top:122px;}
+@media(max-width:560px){
+  .jump .in{padding:.4rem .75rem;gap:.4rem;}
+  .jump .occ{display:none;}
+  .jump .jl{margin-left:0;width:100%;justify-content:space-between;gap:0;}
+  .jump .jl a{font-size:.78rem;padding:.4rem .35rem;flex:1 1 0;text-align:center;}
+  .res{scroll-margin-top:82px;}
+  #sec-read,#taskcard,#tf{scroll-margin-top:118px;}
+}
+
 /* --- take it further. Free, no gate: the point is that the artifact travels. --- */
 .tf{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);
   padding:1.5rem 1.6rem 1.6rem;margin-top:1.4rem;border-top:5px solid var(--navy);}
@@ -230,6 +257,17 @@ nav.site-nav.scrolled{background:rgba(255,255,255,.97);box-shadow:0 1px 14px rgb
   <button class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 
+
+<div class="jump" id="jump" aria-hidden="true">
+  <div class="in">
+    <span class="occ" id="jumpocc"></span>
+    <span class="jl">
+      <a href="#sec-read" data-j="sec-read">Your read</a>
+      <a href="#taskcard" data-j="taskcard">Tasks</a>
+      <a href="#tf" data-j="tf">Take it further</a>
+    </span>
+  </div>
+</div>
 
 <div class="wrap">
 
@@ -434,7 +472,7 @@ function render(o, typed){
   var f = FAM[mg] || {n:"this family", avg:null, count:0};
   var h = "";
 
-  h += '<div class="card">';
+  h += '<div class="card" id="sec-read">';
   h += '<div class="you">You typed &ldquo;'+esc(typed)+'&rdquo;. In the data that is</div>';
   h += '<h2 class="occ">'+esc(name)+'</h2>';
   h += '<div class="soc">'+esc(code)+' &middot; '+esc(f.n)+'</div>';
@@ -509,6 +547,7 @@ function render(o, typed){
   res.innerHTML = h; res.className = "res on";
   wireTakeFurther();
   wireGrab();
+  armJump(name);
   var ib = document.getElementById("ibtn"), dt = document.getElementById("deftip");
   if(ib && dt) ib.addEventListener("click", function(){
     var open = dt.className.indexOf("on") === -1;
@@ -692,6 +731,60 @@ function slugName(){
   return (LAST && LAST.name ? LAST.name : "occupation").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 }
 
+// The result runs long, so once someone is inside it give them a way back to
+// the top of their own read without scrolling past everything again.
+var jumpArmed = false, jumpTicking = false;
+
+function armJump(name){
+  var bar = document.getElementById("jump");
+  if(!bar) return;
+  var occ = document.getElementById("jumpocc");
+  if(occ) occ.textContent = name || "";
+  bar.setAttribute("aria-hidden", "false");
+
+  if(!jumpArmed){
+    jumpArmed = true;
+    var links = bar.querySelectorAll(".jl a");
+    for(var i = 0; i < links.length; i++){
+      links[i].addEventListener("click", function(e){
+        e.preventDefault();
+        var t = document.getElementById(e.currentTarget.getAttribute("data-j"));
+        if(t){ t.scrollIntoView({behavior:"smooth", block:"start"});
+               track("readiness_jump", {to: e.currentTarget.getAttribute("data-j")}); }
+      });
+    }
+    window.addEventListener("scroll", onJumpScroll, {passive:true});
+    window.addEventListener("resize", onJumpScroll, {passive:true});
+  }
+  onJumpScroll();
+}
+
+function onJumpScroll(){
+  if(jumpTicking) return;
+  jumpTicking = true;
+  window.requestAnimationFrame(function(){
+    jumpTicking = false;
+    var bar = document.getElementById("jump"), read = document.getElementById("sec-read");
+    if(!bar || !read) return;
+
+    // Show it once the top of the read has gone under the nav, and put it away
+    // again at the very bottom so it does not sit over the footer links.
+    var past = read.getBoundingClientRect().top < 56;
+    var atEnd = (window.innerHeight + window.scrollY) >= (document.body.scrollHeight - 8);
+    bar.className = (past && !atEnd) ? "jump on" : "jump";
+
+    var ids = ["sec-read", "taskcard", "tf"], here = ids[0];
+    for(var i = 0; i < ids.length; i++){
+      var el = document.getElementById(ids[i]);
+      if(el && el.getBoundingClientRect().top <= 160) here = ids[i];
+    }
+    var links = bar.querySelectorAll(".jl a");
+    for(var k = 0; k < links.length; k++){
+      links[k].className = (links[k].getAttribute("data-j") === here) ? "here" : "";
+    }
+  });
+}
+
 function takeFurtherCard(){
   var m = moves(), rows = "";
   for(var i = 0; i < m.length; i++){
@@ -808,7 +901,7 @@ function grabCard(){
   return '<div class="grab" id="grab">'
     +  '<h2>Want it in your inbox too?</h2>'
     +  '<p>Optional, and nothing above is behind it. If it is easier to have this waiting for you '
-    +  'later, I will send the same read as an email you can keep. Nothing else, ever.</p>'
+    +  'later, I will send the same read as an email you can keep.</p>'
     +  '<div class="fields">'
     +    '<input id="gname" type="text" placeholder="First name (optional)" autocomplete="given-name" data-private>'
     +    '<input id="gmail" type="email" placeholder="you@work.com" autocomplete="email" required data-private>'

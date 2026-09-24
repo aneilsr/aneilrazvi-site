@@ -50,7 +50,8 @@ const DESTS = {
   panel:    { to: "/maturity.html",             utm: { source: "utdallas",   medium: "event",    campaign: "minicon-oct10" } },
   podcast:  { to: "/maturity.html",             utm: { source: "roads",      medium: "podcast",  campaign: "terri" } },
   check:    { to: "/maturity.html",             utm: { source: "spoken",     medium: "inperson", campaign: "room" } },
-  map:      { to: "/maturity.html",             utm: { source: "tearsheet",  medium: "handout",  campaign: "where-design-starts-paying" } }
+  map:      { to: "/maturity.html",             utm: { source: "tearsheet",  medium: "handout",  campaign: "where-design-starts-paying" } },
+  job:      { to: "/readiness.html",            utm: { source: "aneilrazvi",  medium: "social",   campaign: "ai-readiness-read" } }
 };
 
 const clip = (v, n) => (typeof v === "string" && v.length ? v.slice(0, n) : null);

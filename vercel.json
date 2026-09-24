@@ -20,6 +20,10 @@
     {
       "source": "/map",
       "destination": "/api/go?s=map"
+    },
+    {
+      "source": "/job",
+      "destination": "/api/go?s=job"
     }
   ]
 }
