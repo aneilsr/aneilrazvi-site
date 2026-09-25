@@ -403,6 +403,87 @@ export default async function handler(req, res) {
 </table>
 </div>`;
 
+    // ---- /build : course waiting list. No scores, no read, just a confirmation. ----
+    const isBuild = (b.source === "build");
+
+    const toVisitorBuild = `
+<div style="background:#F4F6F8;padding:28px 12px">
+<table role="presentation" cellpadding="0" cellspacing="0" style="max-width:600px;margin:0 auto;width:100%;background:#FFFFFF;border-radius:16px;border-collapse:separate;overflow:hidden">
+  <tr><td style="height:5px;background:#00BCD4;font-size:0;line-height:0">&nbsp;</td></tr>
+  <tr><td style="padding:30px 34px 8px">
+    <div style="font:700 11px/1 Helvetica,Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#0097A7">The idea map</div>
+    <h1 style="margin:12px 0 6px;font:400 27px/1.25 Georgia,'Times New Roman',serif;color:#1E3A5F">You are on the list</h1>
+    <p style="margin:10px 0 0;font:400 15px/1.65 Helvetica,Arial,sans-serif;color:#3B4651">
+      I am building a course on taking an idea from a sentence to something real and launched. It is not finished. When there is a date and a price, you will get one email from me saying so. That is the whole arrangement.
+    </p>
+  </td></tr>
+
+  <tr><td style="padding:22px 34px 0">
+    <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;background:#F4F6F8;border-radius:12px;border:1px solid #E2E8EC;border-collapse:separate">
+      <tr><td style="padding:20px 22px">
+        <div style="font:700 10px/1 Helvetica,Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#6B7280">Meanwhile, and free</div>
+        <div style="font:400 20px/1.3 Georgia,serif;color:#1E3A5F;margin:7px 0 9px">Run the prompt on your own idea</div>
+        <p style="margin:0 0 15px;font:400 14px/1.6 Helvetica,Arial,sans-serif;color:#3B4651">
+          The prompt on that page is the useful half. Paste it into Claude or ChatGPT, answer the four questions honestly, and it will split your idea into what you actually know, what you are assuming, and what nobody could know yet. You do not need me for that part.
+        </p>
+        <a href="https://aneilrazvi.com/build.html" style="display:inline-block;background:#00BCD4;color:#0F1923;font:700 14px/1 Helvetica,Arial,sans-serif;padding:13px 24px;border-radius:99px;text-decoration:none">Go get the prompt</a>
+      </td></tr>
+    </table>
+  </td></tr>
+
+  <tr><td style="padding:20px 34px 0">
+    <p style="margin:0;font:400 14px/1.65 Helvetica,Arial,sans-serif;color:#6B7280">
+      If you would rather just talk it through, twenty minutes is at
+      <a href="https://cal.com/aneil-razvi" style="color:#0097A7;text-decoration:none">cal.com/aneil-razvi</a>.
+      No pitch and no deck. I take a few of these a month, so if the calendar looks empty it is because I have not opened more yet, and replying to this email works too.
+    </p>
+  </td></tr>
+
+  <tr><td style="padding:22px 34px 30px">
+    <div style="border-top:1px solid #E2E8EC;padding-top:14px">
+      <div style="font:400 15px/1.3 Georgia,serif;color:#1E3A5F">Aneil Razvi</div>
+      <div style="font:400 12px/1.5 Helvetica,Arial,sans-serif;color:#9AA5AD;margin-top:3px">
+        Fractional design and AI experience leadership &middot;
+        <a href="https://aneilrazvi.com" style="color:#0097A7;text-decoration:none">aneilrazvi.com</a>
+      </div>
+    </div>
+  </td></tr>
+</table>
+</div>`;
+
+    const toAneilBuild = `<div style="background:#F4F6F8;padding:24px 12px">
+<table role="presentation" cellpadding="0" cellspacing="0" style="max-width:600px;margin:0 auto;width:100%;background:#FFFFFF;border-radius:16px;border-collapse:separate;overflow:hidden">
+  <tr><td style="height:5px;background:#00BCD4;font-size:0;line-height:0">&nbsp;</td></tr>
+  <tr><td style="padding:26px 30px 6px">
+    <div style="font:700 11px/1 Helvetica,Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#0097A7">Course waiting list</div>
+    <h1 style="margin:11px 0 0;font:400 25px/1.3 Georgia,'Times New Roman',serif;color:#1E3A5F">
+      <a href="mailto:${b.email}" style="color:#1E3A5F;text-decoration:none">${b.email}</a>
+    </h1>
+    <div style="margin:6px 0 0;font:400 14px/1.5 Helvetica,Arial,sans-serif;color:#6B7280">${b.name ? b.name : "No name given"}</div>
+  </td></tr>
+
+  <tr><td style="padding:20px 30px 0">
+    <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;font:400 14px/1.5 Helvetica,Arial,sans-serif">
+      <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280;width:38%">Came in via</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#1A1A2E">${b.utm_source || "direct"}${b.utm_medium ? " / " + b.utm_medium : ""}${b.utm_campaign ? " / " + b.utm_campaign : ""}</td></tr>
+      <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280">Landed on</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#1A1A2E">${b.landing_path || "unknown"}</td></tr>
+      <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280">Referrer</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#1A1A2E">${b.referrer || "none"}</td></tr>
+    </table>
+  </td></tr>
+
+  <tr><td style="padding:20px 30px 0">
+    <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;background:#F4F6F8;border-radius:10px;border:1px dashed #CBD5DB;border-collapse:separate">
+      <tr><td style="padding:14px 18px;font:400 13.5px/1.6 Helvetica,Arial,sans-serif;color:#3B4651">
+        <b style="color:#1A1A2E">This is an idea, not a budget.</b> Someone on the build list is circling a project, often a not-for-profit one, and usually has no money to build it. Do not pitch a retainer. If you reply, ask what the idea is.
+      </td></tr>
+    </table>
+  </td></tr>
+
+  <tr><td style="padding:18px 30px 26px">
+    <div style="font:400 12px/1.5 Helvetica,Arial,sans-serif;color:#9AA5AD">Session ${b.session_id || "unknown"}</div>
+  </td></tr>
+</table>
+</div>`;
+
     const send = (to, subject, html) => fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: { "Authorization": `Bearer ${process.env.RESEND_API_KEY}`, "Content-Type": "application/json" },
@@ -410,14 +491,15 @@ export default async function handler(req, res) {
     }).catch(e => console.error("resend failed", e));
 
     try {
-      await Promise.all([
-        isReadiness
-          ? send(b.email, `Your AI readiness read: ${occ}`, toVisitorReadiness)
-          : send(b.email, `Your design maturity read: ${b.capability_label} / ${b.ai_label}`, toVisitor),
-        isReadiness
-          ? send(t, `Readiness lookup: ${b.email} (${occ})`, toAneilReadiness)
-          : send(t, `New lead: ${b.company || b.email} (${b.quadrant})`, toAneil)
-      ]);
+      const pair = isBuild
+        ? [ send(b.email, "You are on the list for the course", toVisitorBuild),
+            send(t, `Build list: ${b.email}`, toAneilBuild) ]
+        : isReadiness
+        ? [ send(b.email, `Your AI readiness read: ${occ}`, toVisitorReadiness),
+            send(t, `Readiness lookup: ${b.email} (${occ})`, toAneilReadiness) ]
+        : [ send(b.email, `Your design maturity read: ${b.capability_label} / ${b.ai_label}`, toVisitor),
+            send(t, `New lead: ${b.company || b.email} (${b.quadrant})`, toAneil) ];
+      await Promise.all(pair);
       await fetch(`${SB}/rest/v1/leads?session_id=eq.${encodeURIComponent(b.session_id)}`, {
         method: "PATCH", headers: { ...H, "Prefer": "return=minimal" },
         body: JSON.stringify({ report_sent_at: new Date().toISOString() })

@@ -24,6 +24,10 @@
     {
       "source": "/job",
       "destination": "/api/go?s=job"
+    },
+    {
+      "source": "/build",
+      "destination": "/api/go?s=build"
     }
   ]
 }

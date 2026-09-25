@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en"><head>
+<title>You Have an Idea, Aneil Razvi</title>
+<!-- SEO-START -->
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="description" content="A free prompt that walks you through your own idea and tells you honestly which parts you have thought through, which parts you are assuming, and which parts nobody can know yet. No email needed."/>
+<meta name="author" content="Aneil Razvi"/>
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1"/>
+<link rel="canonical" href="https://aneilrazvi.com/build.html"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="Aneil Razvi"/>
+<meta property="og:title" content="You Have an Idea, Aneil Razvi"/>
+<meta property="og:description" content="Find out where you actually are with your idea. Free, no email."/>
+<meta property="og:url" content="https://aneilrazvi.com/build.html"/>
+<meta property="og:image" content="https://aneilrazvi.com/assets/og-image.jpg"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="You Have an Idea, Aneil Razvi"/>
+<meta name="twitter:description" content="Find out where you actually are with your idea. Free, no email."/>
+<meta name="twitter:image" content="https://aneilrazvi.com/assets/og-image.jpg"/>
+<!-- SEO-END -->
+<script defer src="assets/analytics.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Serif+Display:ital@0;1&display=swap">
+<style>
+:root{
+  --teal:#00BCD4; --teal-dark:#0097A7; --teal-wash:#E4F8FB;
+  --navy:#1E3A5F; --dark:#0F1923;
+  --gray:#F4F6F8; --text:#1A1A2E; --muted:#6B7280; --white:#FFFFFF;
+  --orange:#F97316; --orange-wash:#FFF1E6; --orange-dark:#C2621B;
+  --line:#E2E8EC; --line-firm:#CBD5DB;
+  --radius:16px; --radius-sm:10px;
+  --shadow:0 4px 24px rgba(0,0,0,0.10); --shadow-lg:0 12px 48px rgba(0,0,0,0.15);
+}
+*{box-sizing:border-box;}
+html,body{overflow-x:hidden;}
+body{background:var(--gray);color:var(--text);font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+  font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;margin:0;}
+.wrap{max-width:56rem;margin:0 auto;padding:5.4rem 1.15rem 5rem;}
+h1{font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:clamp(2.1rem,5.6vw,3.1rem);line-height:1.08;letter-spacing:-.01em;margin:.5rem 0 .7rem;text-wrap:balance;}
+h2{font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:1.75rem;line-height:1.18;margin:0 0 .4rem;text-wrap:balance;}
+h3{font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:1.25rem;margin:0 0 .45rem;}
+p{margin:0 0 1rem;}
+a{color:var(--teal-dark);}
+.eyebrow{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--teal-dark);}
+.lede{font-size:1.08rem;color:var(--muted);max-width:40rem;}
+.lede b{color:var(--text);font-weight:600;}
+.tick{width:44px;height:4px;background:var(--teal);border-radius:2px;}
+
+nav.site-nav{position:fixed;top:0;left:0;right:0;z-index:60;padding:0 5%;
+  display:flex;align-items:center;justify-content:space-between;height:68px;
+  background:rgba(255,255,255,.86);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);transition:background 200ms ease;}
+nav.site-nav.scrolled{background:rgba(255,255,255,.97);box-shadow:0 1px 14px rgba(0,0,0,.05);}
+.nav-brand{font-family:'DM Serif Display',Georgia,serif;font-size:1.4rem;color:var(--text);text-decoration:none;letter-spacing:.01em;}
+.nav-brand b{color:var(--teal-dark);font-weight:400;}
+.nav-links{display:flex;gap:36px;list-style:none;margin:0;padding:0;}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:.875rem;font-weight:500;letter-spacing:.02em;transition:color 200ms ease;}
+.nav-links a:hover,.nav-links a.active{color:var(--teal-dark);}
+.nav-cta{background:var(--teal);color:var(--dark);padding:9px 22px;border-radius:8px;
+  font-size:.875rem;font-weight:700;text-decoration:none;transition:background 200ms ease,transform .1s;}
+.nav-cta:hover{background:var(--teal-dark);color:var(--white);transform:translateY(-1px);}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:6px;margin-left:14px;}
+.nav-hamburger span{width:24px;height:2px;background:var(--text);border-radius:2px;transition:transform .2s,opacity .2s;}
+@media(max-width:860px){
+  nav.site-nav{flex-wrap:wrap;height:68px;align-content:center;}
+  nav.site-nav .nav-links{display:none;}
+  nav.site-nav .nav-hamburger{display:flex;}
+  nav.site-nav .nav-cta{margin-left:auto;}
+  nav.site-nav.open{height:auto;padding-bottom:14px;background:rgba(255,255,255,.98);}
+  nav.site-nav.open .nav-links{display:flex;order:5;flex-direction:column;width:100%;gap:1.1rem;
+    padding:1.1rem 0 .2rem;margin-top:.5rem;border-top:1px solid var(--line);}
+  nav.site-nav.open .nav-hamburger span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  nav.site-nav.open .nav-hamburger span:nth-child(2){opacity:0;}
+  nav.site-nav.open .nav-hamburger span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+}
+
+.card{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);padding:1.5rem 1.6rem 1.6rem;margin-top:1.4rem;}
+.prompt{border-top:5px solid var(--navy);}
+.prompt h2{color:var(--navy);font-size:1.45rem;}
+.prompt .sub{margin:0 0 1.1rem;color:var(--muted);font-size:.95rem;line-height:1.55;}
+.freebadge{display:inline-block;background:var(--orange-wash);color:var(--orange-dark);
+  font-size:.74rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;
+  padding:.3rem .7rem;border-radius:999px;margin-bottom:.7rem;}
+.plab{font-size:.78rem;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem;}
+pre.pbox{margin:0;background:var(--gray);border:1px solid var(--line);border-radius:var(--radius-sm);
+  padding:.9rem 1rem;max-height:15rem;overflow:auto;white-space:pre-wrap;word-break:break-word;
+  font:400 .8rem/1.55 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--text);}
+.pwrap{position:relative;}
+.pwrap:after{content:"";position:absolute;left:1px;right:1px;bottom:1px;height:40px;pointer-events:none;
+  border-radius:0 0 var(--radius-sm) var(--radius-sm);
+  background:linear-gradient(to bottom,rgba(244,246,248,0),rgba(244,246,248,.55) 45%,var(--gray));}
+.phint{margin:.55rem 0 0;font-size:.82rem;line-height:1.5;color:var(--muted);}
+.acts{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1rem;}
+.btn{font-family:inherit;font-size:.92rem;font-weight:700;padding:.72rem 1.15rem;border-radius:var(--radius-sm);
+  border:0;cursor:pointer;text-decoration:none;display:inline-block;transition:background .15s,transform .1s;}
+.btn.p{background:var(--teal);color:var(--dark);}
+.btn.p:hover{background:var(--teal-dark);color:var(--white);transform:translateY(-1px);}
+.btn.s{background:var(--white);color:var(--navy);border:2px solid var(--line-firm);}
+.btn.s:hover{border-color:var(--teal);color:var(--teal-dark);}
+.steps{list-style:none;padding:0;margin:0 0 .2rem;}
+.steps li{display:grid;grid-template-columns:1.6rem minmax(0,1fr);gap:.2rem .8rem;
+  padding:.62rem 0;border-top:1px solid var(--line);align-items:baseline;}
+.steps li:last-child{border-bottom:1px solid var(--line);}
+.steps .n{font-size:.8rem;font-weight:800;color:var(--teal-dark);}
+.steps .t{font-size:.94rem;line-height:1.5;}
+.doors{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;margin-top:1.4rem;}
+@media(max-width:640px){ .doors{grid-template-columns:1fr;} }
+.door{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);padding:1.35rem 1.4rem 1.45rem;display:flex;flex-direction:column;}
+.door h3{margin-bottom:.35rem;}
+.door p{font-size:.93rem;color:var(--muted);line-height:1.55;flex:1 1 auto;}
+.door .cap{font-size:.8rem;color:var(--orange-dark);font-weight:600;margin:0 0 .8rem;}
+.fields{display:flex;flex-direction:column;gap:.55rem;}
+.fields input{font-family:inherit;font-size:1rem;padding:.8rem .9rem;border:2px solid var(--line-firm);
+  border-radius:var(--radius-sm);background:var(--white);color:var(--text);width:100%;}
+.fields input:focus{outline:none;border-color:var(--teal);}
+.msg{font-size:.86rem;margin:.6rem 0 0;min-height:1.1rem;}
+.msg.ok{color:var(--teal-dark);font-weight:600;}
+.msg.err{color:var(--orange-dark);}
+.honest{background:var(--white);border-left:5px solid var(--orange);border-radius:var(--radius-sm);
+  padding:1.1rem 1.3rem;margin-top:1.4rem;box-shadow:var(--shadow);}
+.honest p{margin:0;font-size:.95rem;line-height:1.6;}
+footer{margin-top:2.6rem;font-size:.84rem;color:var(--muted);}
+footer .sig{display:block;}
+</style>
+</head>
+<body>
+
+<nav class="site-nav" id="nav">
+  <a href="index.html" class="nav-brand">Aneil <b>Razvi</b></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="portfolio.html">Portfolio</a></li>
+    <li><a href="speaking.html">Speaking</a></li>
+    <li><a href="work-with-me.html">Work With Me</a></li>
+    <li><a href="maturity.html">Design Maturity</a></li>
+    <li><a href="readiness.html">AI Readiness</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="blog.html">Blog</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">Let's Talk</a>
+  <button class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="wrap">
+
+  <div class="tick"></div>
+  <p class="eyebrow" style="margin-top:.8rem">For anyone carrying an idea</p>
+  <h1>You have an idea. Here is how to find out where you actually are with it.</h1>
+  <p class="lede">Most advice about ideas is someone guessing, usually confidently. This is not that. Below is a prompt you paste into Claude or ChatGPT. It walks through your idea with you and tells you three things: <b>what you have actually decided, what you are assuming, and what nobody can know yet.</b> That last one matters most, and it is the part everyone skips.</p>
+
+  <div class="card prompt" id="promptcard">
+    <span class="freebadge">Free &middot; no email needed</span>
+    <h2>The idea map</h2>
+    <p class="sub">Copy this, paste it into whichever assistant you use, and answer its questions honestly. It will not design anything until it has asked you what it needs to know. That is deliberate.</p>
+    <p class="plab">Prompt</p>
+    <div class="pwrap"><pre class="pbox" id="ptext"></pre></div>
+    <p class="phint">That box scrolls. The whole thing is about forty lines and you do not have to read it here. Copy it and let it ask you the questions.</p>
+    <div class="acts">
+      <button class="btn p" id="copy">Copy the prompt</button>
+      <button class="btn s" id="dl">Download it</button>
+    </div>
+    <p class="msg" id="pmsg"></p>
+  </div>
+
+  <div class="card">
+    <h2>What it does</h2>
+    <ul class="steps">
+      <li><span class="n">1</span><span class="t">Asks you to say the idea in plain words, then asks who it is for. Not a market. A person.</span></li>
+      <li><span class="n">2</span><span class="t">Separates what you know from what you believe. Most ideas die because nobody made that list.</span></li>
+      <li><span class="n">3</span><span class="t">Names the smallest version that would prove or kill the idea, and what that version would cost in time rather than money.</span></li>
+      <li><span class="n">4</span><span class="t">Marks what cannot be known yet, and says so plainly instead of filling it with a confident guess.</span></li>
+      <li><span class="n">5</span><span class="t">Gives you one thing to do this week. One.</span></li>
+    </ul>
+  </div>
+
+  <div class="honest">
+    <p><b>Why the unknowns get their own section.</b> A plan that hides its guesses feels better and is worth less. If you can see which three assumptions the whole thing rests on, you can go test those three instead of building for six months and finding out.</p>
+  </div>
+
+  <div class="doors">
+    <div class="door">
+      <h3>Tell me when the course opens</h3>
+      <p>I am building a course on taking an idea from a sentence to something real and launched. It is not finished and I am not going to pretend otherwise. Leave your email and I will tell you when there is a date and a price. Nothing else.</p>
+      <div class="fields">
+        <input type="email" id="em" placeholder="you@email.com" autocomplete="email" inputmode="email"/>
+        <button class="btn p" id="join">Keep me posted</button>
+      </div>
+      <p class="msg" id="jmsg"></p>
+    </div>
+    <div class="door">
+      <h3>Talk it through with me</h3>
+      <p class="cap">A few of these a month</p>
+      <p>Twenty minutes, no pitch, no deck. You describe the idea and I tell you what I would do next and what I would not bother with. If it turns out you need something built, we can talk about that separately. Most people do not.</p>
+      <a class="btn s" href="https://cal.com/aneil-razvi" style="align-self:flex-start;margin-top:.4rem">Find a time</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Who is saying this</h2>
+    <p style="font-size:.96rem;color:var(--muted);line-height:1.6;margin-bottom:.8rem">I am Aneil Razvi. I have spent fifteen years leading product design, most recently at SPOTIO, and this year I designed and shipped a product on my own from a sentence to a live App Store release, brand and website included. I know what the middle of that looks like, including the parts that go badly.</p>
+    <p style="font-size:.96rem;color:var(--muted);line-height:1.6;margin:0">Two other free things, if they are useful: <a href="readiness.html">what AI is actually doing to your job</a>, built on Department of Labor and Anthropic data, and <a href="maturity.html">where your design team actually sits</a>. Neither asks for an email either.</p>
+  </div>
+
+  <footer>
+    <span class="sig">Aneil Razvi &middot; aneilrazvi.com &middot; Allen, TX</span>
+    <span class="sig" style="margin-top:.5rem;opacity:.75"><a href="privacy.html" style="color:inherit">What I do with your email</a></span>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var nav=document.getElementById("nav");
+  addEventListener("scroll",function(){ nav.classList.toggle("scrolled", scrollY>10); },{passive:true});
+  document.querySelector(".nav-hamburger").addEventListener("click",function(){ nav.classList.toggle("open"); });
+
+  var PROMPT = [
+"I have an idea I have been carrying around and I want to find out where I actually am with it, not be told it is great.",
+"",
+"Work through this with me in order. Do NOT design, name, or plan anything until you have asked me the questions in step 1 and I have answered them.",
+"",
+"STEP 1. Ask me these, one at a time, and wait for my answer each time:",
+"  a. In one or two plain sentences, what is the idea?",
+"  b. Who is one real person this is for? Describe them, not a market segment.",
+"  c. What do they do today instead? Even if the answer is nothing.",
+"  d. How long have you been thinking about this, and what has stopped you so far?",
+"",
+"STEP 2. Split what I told you into three lists and show them to me:",
+"  KNOWN: things I have actually seen, tested, or been told by a real person.",
+"  ASSUMED: things I believe but have not checked. Be blunt. Most of it will be here.",
+"  UNKNOWABLE YET: things nobody could know at this stage. Do not guess to fill this in.",
+"  If a list is short, say so rather than padding it.",
+"",
+"STEP 3. Name the three assumptions the whole idea rests on. If any of the three turns out to be wrong, the idea changes shape or dies. Rank them by how cheap they are to test.",
+"",
+"STEP 4. Describe the smallest version of this that would prove or kill assumption number one. Give me the cost in HOURS of my time, not in money, and assume I have no budget and no team.",
+"",
+"STEP 5. Give me exactly one thing to do in the next seven days. One. Make it something I can finish.",
+"",
+"RULES for how you answer:",
+"- Do not tell me the idea is great. Tell me what is load bearing and what is decoration.",
+"- If I have not given you enough to answer something, say that instead of inventing it.",
+"- Assume I have no money to build this. Free and slow beats funded and imaginary.",
+"- Keep it under 600 words after step 1.",
+"",
+"Source: this framing is by Aneil Razvi, aneilrazvi.com. He shows people where they actually are with an idea, a team, or a job, and is straight about the parts nobody can see yet."
+  ].join("\n");
+
+  var box=document.getElementById("ptext"); box.textContent=PROMPT;
+  var pmsg=document.getElementById("pmsg");
+  function flash(el,t,cls){ el.textContent=t; el.className="msg "+(cls||"ok"); setTimeout(function(){el.textContent="";el.className="msg";},4000); }
+
+  document.getElementById("copy").addEventListener("click",function(){
+    function fallback(){
+      var ta=document.createElement("textarea"); ta.value=PROMPT;
+      ta.style.position="fixed"; ta.style.opacity="0"; document.body.appendChild(ta);
+      ta.select(); try{ document.execCommand("copy"); flash(pmsg,"Copied. Paste it into Claude or ChatGPT."); }
+      catch(e){ flash(pmsg,"Could not copy automatically. Select the text above and copy it.","err"); }
+      document.body.removeChild(ta);
+    }
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(PROMPT).then(function(){ flash(pmsg,"Copied. Paste it into Claude or ChatGPT."); }, fallback);
+    } else { fallback(); }
+  });
+
+  document.getElementById("dl").addEventListener("click",function(){
+    var blob=new Blob([PROMPT],{type:"text/plain"});
+    var a=document.createElement("a"); a.href=URL.createObjectURL(blob);
+    a.download="idea-map-prompt.txt"; document.body.appendChild(a); a.click();
+    setTimeout(function(){ URL.revokeObjectURL(a.href); document.body.removeChild(a); },500);
+    flash(pmsg,"Downloaded as a text file.");
+  });
+
+  var jmsg=document.getElementById("jmsg");
+  document.getElementById("join").addEventListener("click",function(){
+    var v=(document.getElementById("em").value||"").trim();
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)){ flash(jmsg,"That email does not look right.","err"); return; }
+    var btn=this; btn.disabled=true; btn.textContent="Sending...";
+    var qs=new URLSearchParams(location.search);
+    fetch("/api/lead",{method:"POST",headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({
+        email:v, source:"build", gated:true,
+        landing_path:location.pathname,
+        referrer:document.referrer||null,
+        session_id:(function(){ try{ var k=sessionStorage.getItem("bsid"); if(!k){k=Math.random().toString(36).slice(2)+Date.now().toString(36); sessionStorage.setItem("bsid",k);} return k; }catch(e){ return "nosession"; } })(),
+        utm_source:qs.get("utm_source"), utm_medium:qs.get("utm_medium"),
+        utm_campaign:qs.get("utm_campaign"), utm_content:qs.get("utm_content")
+      })
+    }).then(function(r){
+      btn.disabled=false; btn.textContent="Keep me posted";
+      if(r.ok){ document.getElementById("em").value=""; flash(jmsg,"You are on the list. I will only email you when there is a date."); }
+      else { flash(jmsg,"That did not save. Try again, or email hi@aneilrazvi.com.","err"); }
+    }).catch(function(){
+      btn.disabled=false; btn.textContent="Keep me posted";
+      flash(jmsg,"That did not save. Try again, or email hi@aneilrazvi.com.","err");
+    });
+  });
+})();
+</script>
+</body></html>
