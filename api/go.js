@@ -1,5 +1,5 @@
 // Speakable short links, counted.  Repo path: api/go.js
-// Live: /workshop /panel /podcast /check /map /job /build, rewritten by vercel.json
+// Live: /workshop /panel /podcast /check /map /job /build /squares, rewritten by vercel.json
 //
 // These used to be plain redirects in vercel.json. A redirect renders no HTML,
 // so assets/analytics.js never loads and PostHog never fires: every click was
@@ -52,7 +52,8 @@ const DESTS = {
   check:    { to: "/maturity.html",             utm: { source: "spoken",     medium: "inperson", campaign: "room" } },
   map:      { to: "/maturity.html",             utm: { source: "tearsheet",  medium: "handout",  campaign: "where-design-starts-paying" } },
   job:      { to: "/readiness.html",            utm: { source: "aneilrazvi",  medium: "social",   campaign: "ai-readiness-read" } },
-  build:    { to: "/build.html",                utm: { source: "kelly",      medium: "qr",       campaign: "design-for-good" } }
+  build:    { to: "/build.html",                utm: { source: "kelly",      medium: "qr",       campaign: "design-for-good" } },
+  squares:  { to: "/thirty-six-squares.pdf",    utm: { source: "followup",   medium: "email",    campaign: "where-design-starts-paying" } }
 };
 
 const clip = (v, n) => (typeof v === "string" && v.length ? v.slice(0, n) : null);

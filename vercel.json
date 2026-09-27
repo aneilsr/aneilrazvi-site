@@ -28,6 +28,10 @@
     {
       "source": "/build",
       "destination": "/api/go?s=build"
+    },
+    {
+      "source": "/squares",
+      "destination": "/api/go?s=squares"
     }
   ]
 }

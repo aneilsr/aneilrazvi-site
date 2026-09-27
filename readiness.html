@@ -939,7 +939,7 @@ function grabCard(){
   return '<div class="grab" id="grab">'
     +  '<h2>Want it in your inbox too?</h2>'
     +  '<p>Optional, and nothing above is behind it. If it is easier to have this waiting for you '
-    +  'later, I will send the same read as an email you can keep.</p>'
+    +  'later, I will send the same read, with your ninety days and the prompt, as an email you can keep.</p>'
     +  '<div class="fields">'
     +    '<input id="gname" type="text" placeholder="First name (optional)" autocomplete="given-name" data-private>'
     +    '<input id="gmail" type="email" placeholder="you@work.com" autocomplete="email" required data-private>'
@@ -973,6 +973,8 @@ function wireGrab(){
         occupation_title: LAST ? LAST.name : null,
         automation_share: LAST ? LAST.share : null,
         coverage_tier: LAST ? LAST.tier : null,
+        matched: LAST ? LAST.matched : null,
+        total: LAST ? LAST.total : null,
         typed: LAST ? LAST.typed : null,
         top_tasks: LAST ? LAST.tasks : [],
         referrer: document.referrer || null,
@@ -980,13 +982,23 @@ function wireGrab(){
         utm_source: qp.get("utm_source"), utm_medium: qp.get("utm_medium"),
         utm_campaign: qp.get("utm_campaign"), utm_content: qp.get("utm_content")
       })
+    }).then(function(r){
+      // Only say "on its way" when the server confirms the email was accepted.
+      // fetch() resolves on a 500 too, so a bare .then() used to claim success
+      // for messages that never left.
+      return r.json().catch(function(){ return {}; }).then(function(j){
+        if(!r.ok || !j || j.mailed !== true) throw new Error("not sent");
+      });
     }).then(function(){
       track("readiness_email_given", { occupation: LAST && LAST.name });
       var g = document.getElementById("grab");
       if(g) g.innerHTML = '<h2>On its way</h2><p class="done">Check ' + esc(em)
         + '. If it is not there in a minute, look in spam and drag it out, that helps more than you would think.</p>';
     }).catch(function(){
+      track("readiness_email_failed", { occupation: LAST && LAST.name });
       btn.disabled = false; btn.textContent = "Try again";
+      var f = document.querySelector("#grab .fine");
+      if(f) f.textContent = "That did not send. Nothing is lost: the prompt and the PDF above are yours either way.";
     });
   });
 }

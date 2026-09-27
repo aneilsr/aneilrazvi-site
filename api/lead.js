@@ -68,9 +68,15 @@ export default async function handler(req, res) {
   } catch (e) { console.error("supabase upsert threw", e); }
 
   // Only email on the gated call, and never let a mail failure block the visitor.
+  let mailed = null;
   if (b.gated && b.email && process.env.RESEND_API_KEY) {
     const t = process.env.LEAD_NOTIFY_TO || "hi@aneilrazvi.com";
-    const from = process.env.LEAD_FROM || "Aneil Razvi <hi@aneilrazvi.com>";
+    // Every email this site sends comes from hi@. Fixed here on purpose, with no
+    // environment override, so a stray variable can never change the sender.
+    const from = "Aneil Razvi <hi@aneilrazvi.com>";
+    const escH = (s) => String(s == null ? "" : s)
+      .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+    const clipS = (s, n) => String(s == null ? "" : s).replace(/[\u0000-\u001f\u007f]/g, " ").trim().slice(0, n);
     const BOOKING = "https://cal.com/aneil-razvi/maturity-read";
     const REPORT_URL = `https://aneilrazvi.com/report.html?s=${encodeURIComponent(b.session_id || "")}`;
     const dims = (o) => o ? Object.keys(o).map(k => `${k}: ${o[k]}/5`).join(" &middot; ") : "";
@@ -309,7 +315,7 @@ export default async function handler(req, res) {
     const tasks = Array.isArray(b.top_tasks) ? b.top_tasks.slice(0, 6) : [];
 
     const shareLine = shareN === null
-      ? `The Anthropic Economic Index does not publish a figure for ${occ} yet, so there is no number to give you. That is coverage, not safety, and it is worth knowing which one you are looking at.`
+      ? `The Anthropic Economic Index does not publish a figure for ${escH(occ)} yet, so there is no number to give you. That is coverage, not safety, and it is worth knowing which one you are looking at.`
       : `Of the AI conversations recorded against this kind of work, <b>${shareN}%</b> looked like automation, AI completing the task, rather than augmentation, a person working with AI alongside them.`;
 
     const taskRows = tasks.length ? tasks.map(t =>
@@ -317,13 +323,111 @@ export default async function handler(req, res) {
       `<td style="padding:9px 0 9px 14px;border-bottom:1px solid #E2E8EC;text-align:right;white-space:nowrap;font:700 13.5px/1.45 Helvetica,Arial,sans-serif;color:${(t.pct === null || t.pct === undefined) ? "#9AA5AD" : (Number(t.pct) >= 50 ? "#C2621B" : "#0097A7")}">${(t.pct === null || t.pct === undefined) ? "no data" : Number(t.pct) + "%"}</td></tr>`
     ).join("") : "";
 
+    // ---- readiness: the ninety days and the prompt ----
+    // The page promises "the same read as an email you can keep", and the page's
+    // read includes a ninety day plan and a prompt carrying the visitor's results.
+    // Both are rebuilt here from the same structured fields the page used, so the
+    // email carries what the page showed. Keep readinessMoves() and
+    // readinessPrompt() in step with moves() and promptText() in readiness.html.
+    // Built server side on purpose: this endpoint mails whatever address is typed
+    // into the form, so it must never relay free text supplied by the browser.
+    const rTier = typeof b.coverage_tier === "number"
+      ? b.coverage_tier
+      : ({ full: 2, partial: 1, thin: 0 }[b.coverage_tier] ?? 0);
+    const rTasks = (Array.isArray(b.top_tasks) ? b.top_tasks : []).slice(0, 12).map(x => ({
+      label: clipS(x && x.label, 300),
+      pct: (x && x.pct !== null && x.pct !== undefined && isFinite(Number(x.pct))) ? Number(x.pct) : null
+    })).filter(x => x.label);
+    const rMatched = Number.isFinite(Number(b.matched)) ? Number(b.matched) : null;
+    const rTotal   = Number.isFinite(Number(b.total))   ? Number(b.total)   : null;
+
+    const readinessMoves = () => {
+      const coverageNote = rTier === 2
+        ? "Every task above carries its own measurement, so the ranking is real rather than inferred."
+        : (rTier === 1
+          ? "Only some of your tasks were measured individually, so treat the ranking as a sample, not a census."
+          : "Almost none of your tasks were measured individually. Treat every number here as thin, and weight your own log far above it.");
+      return [
+        ["Days 1-30",  "Log what you actually spend time on, against the task list above. Then pick one repeatable task and run it twice, with AI and without, using the same standard for what counts as finished. Record time, mistakes, and how long review took. " + coverageNote],
+        ["Days 31-60", "Take the one version that measurably won and make it routine, with a human checking the output. Spend only the time you actually measured, not the time you hoped for."],
+        ["Days 61-90", "Write down the before and the after. Teach it to one other person. Then redo your own numbers from the hours you now have rather than the ones you assumed at the start."]
+      ];
+    };
+
+    const SOURCE_LINE = "Source: O*NET 31.0 (US Department of Labor, CC BY 4.0) and the Anthropic Economic Index, "
+      + "2026-06-26 release (CC BY). Occupation match, task ranking and framing by Aneil Razvi, aneilrazvi.com.";
+
+    const readinessPrompt = () => {
+      const L = [];
+      L.push(`I am a ${clipS(b.occupation_title, 200) || "person in my occupation"}${b.occupation_code ? " (O*NET " + clipS(b.occupation_code, 20) + ")" : ""}.`);
+      L.push("");
+      L.push("Public data on my occupation:");
+      L.push(shareN === null
+        ? "- Automation share: no figure is published for this occupation yet. That is missing data, not safety."
+        : `- Automation share: ${shareN} percent of recorded AI use on this kind of work looked like automation, meaning AI completing the task, rather than augmentation, meaning a person working with AI.`);
+      if (rTotal !== null && rMatched !== null)
+        L.push(`- Task coverage: ${rMatched} of ${rTotal} O*NET tasks for this occupation were measured individually.`);
+      if (rTasks.length) {
+        L.push("");
+        L.push("My tasks, most automated first:");
+        rTasks.forEach((x, i) => L.push(`${i + 1}. ${x.label}${x.pct === null ? " (no figure)" : " (" + x.pct + " percent)"}`));
+      }
+      L.push("");
+      L.push("Framing you must not skip:");
+      L.push("- These percentages describe how people use AI on this kind of work today. They are not a forecast, not a probability my job disappears, and not a measure of how much of my work AI is capable of doing.");
+      L.push("- A task with no figure is unmeasured, not safe.");
+      L.push("- You do not know my real hours, my employer, or my performance. Do not assume a forty hour week and do not allocate hours you have not asked me for.");
+      L.push("- Do not tell me my job is safe and do not tell me it is doomed.");
+      L.push("");
+      L.push("What I want from you, in this order:");
+      L.push("1. Ask me which of these tasks I actually spend time on and roughly how many hours a week each one takes. Stop and wait for my answer.");
+      L.push("2. Then help me design a thirty day measurement. Pick one repeatable task with me. Define how I run it with and without AI against the same standard for finished, and exactly what I record: time, mistakes, review effort, and any confidentiality limit that applies.");
+      L.push("3. I will come back in thirty days with real numbers. Then help me decide what becomes routine and what I drop.");
+      L.push("");
+      L.push(SOURCE_LINE);
+      return L.join("\n");
+    };
+
+    const rMoves  = readinessMoves();
+    const rPrompt = readinessPrompt();
+    const movesRows = rMoves.map(m => `<tr>
+        <td valign="top" style="padding:10px 14px 10px 0;border-bottom:1px solid #E2E8EC;white-space:nowrap;font:700 13px/1.5 Helvetica,Arial,sans-serif;color:#0097A7">${m[0]}</td>
+        <td valign="top" style="padding:10px 0;border-bottom:1px solid #E2E8EC;font:400 13.5px/1.55 Helvetica,Arial,sans-serif;color:#1A1A2E">${escH(m[1])}</td></tr>`).join("");
+
+    const textVisitorReadiness = [
+      `THE AI READINESS READ: ${clipS(occ, 200)}`,
+      "",
+      shareN === null
+        ? `The Anthropic Economic Index does not publish a figure for ${clipS(occ, 200)} yet. That is coverage, not safety.`
+        : `Of the AI conversations recorded against this kind of work, ${shareN}% looked like automation, AI completing the task, rather than augmentation, a person working with AI alongside them.`,
+      "",
+      "This describes how people use AI today. It is not a forecast, not a probability your job disappears, and not a measure of how much of the work AI can do.",
+      ...(rTasks.length ? ["", "YOUR TASKS, MOST AUTOMATED FIRST", ...rTasks.map(x => `- ${x.label} (${x.pct === null ? "no data" : x.pct + "%"})`)] : []),
+      "",
+      "YOUR NINETY DAYS",
+      ...rMoves.map(m => `${m[0]}. ${m[1]}`),
+      "",
+      "YOUR PROMPT, READY TO PASTE",
+      "Copy everything between the lines into Claude, ChatGPT or whichever assistant you use.",
+      "----------------------------------------",
+      rPrompt,
+      "----------------------------------------",
+      "",
+      "Your company has a level too. Fifteen questions, about four minutes: https://aneilrazvi.com/maturity.html",
+      "",
+      "If any of this landed badly, reply and tell me what you do. I read every one.",
+      "",
+      "Aneil Razvi",
+      "Fractional design and AI experience leadership · aneilrazvi.com"
+    ].join("\n");
+
     const toVisitorReadiness = `
 <div style="background:#F4F6F8;padding:28px 12px">
 <table role="presentation" cellpadding="0" cellspacing="0" style="max-width:600px;margin:0 auto;width:100%;background:#FFFFFF;border-radius:16px;border-collapse:separate;overflow:hidden">
   <tr><td style="height:5px;background:#00BCD4;font-size:0;line-height:0">&nbsp;</td></tr>
   <tr><td style="padding:30px 34px 8px">
     <div style="font:700 11px/1 Helvetica,Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#0097A7">The AI readiness read</div>
-    <h1 style="margin:12px 0 6px;font:400 27px/1.25 Georgia,'Times New Roman',serif;color:#1E3A5F">${occ}</h1>
+    <h1 style="margin:12px 0 6px;font:400 27px/1.25 Georgia,'Times New Roman',serif;color:#1E3A5F">${escH(occ)}</h1>
     <p style="margin:10px 0 0;font:400 15px/1.65 Helvetica,Arial,sans-serif;color:#3B4651">${shareLine}</p>
     <p style="margin:12px 0 0;font:400 14px/1.6 Helvetica,Arial,sans-serif;color:#6B7280">
       This is a description of how people use AI today. It is not a forecast, not a probability your job disappears, and not a measure of how much of the work AI can do. Coverage for this occupation is <b style="color:#1A1A2E">${tierW}</b>.
@@ -334,6 +438,16 @@ export default async function handler(req, res) {
     <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse">${taskRows}</table>
     <p style="margin:12px 0 0;font:400 13px/1.6 Helvetica,Arial,sans-serif;color:#9AA5AD">The full list, with every task and every source, is on the page you came from.</p>
   </td></tr>` : ""}
+  <tr><td style="padding:26px 34px 0">
+    <div style="font:700 11px/1 Helvetica,Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#6B7280;padding-bottom:4px">Your ninety days</div>
+    <p style="margin:6px 0 4px;font:400 13.5px/1.6 Helvetica,Arial,sans-serif;color:#6B7280">A number is not a plan, and nobody knows your actual week except you. This is the ninety days that would tell you what is really true for your job.</p>
+    <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse">${movesRows}</table>
+  </td></tr>
+  <tr><td style="padding:26px 34px 0">
+    <div style="font:700 11px/1 Helvetica,Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#6B7280;padding-bottom:4px">Your prompt, ready to paste</div>
+    <p style="margin:6px 0 10px;font:400 13.5px/1.6 Helvetica,Arial,sans-serif;color:#6B7280">Copy everything in the box into Claude, ChatGPT or whichever assistant you use. It carries your own results, so the assistant starts from your data rather than a guess.</p>
+    <div style="background:#F4F6F8;border:1px solid #E2E8EC;border-radius:10px;padding:16px 18px;font:400 12.5px/1.6 Menlo,Consolas,'Courier New',monospace;color:#1A1A2E;word-break:break-word">${escH(rPrompt).replace(/\n/g, "<br>")}</div>
+  </td></tr>
   <tr><td style="padding:24px 34px 0">
     <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;background:#0F1923;border-radius:12px;border-collapse:collapse">
       <tr><td style="padding:22px 24px">
@@ -368,7 +482,7 @@ export default async function handler(req, res) {
   <tr><td style="height:5px;background:#00BCD4;font-size:0;line-height:0">&nbsp;</td></tr>
   <tr><td style="padding:26px 30px 6px">
     <div style="font:700 11px/1 Helvetica,Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#0097A7">Readiness lookup</div>
-    <h1 style="margin:11px 0 0;font:400 25px/1.25 Georgia,'Times New Roman',serif;color:#1E3A5F">${occ}</h1>
+    <h1 style="margin:11px 0 0;font:400 25px/1.25 Georgia,'Times New Roman',serif;color:#1E3A5F">${escH(occ)}</h1>
     <div style="margin:6px 0 0;font:400 14px/1.5 Helvetica,Arial,sans-serif;color:#6B7280">${b.name ? b.name + " &middot; " : ""}<a href="mailto:${b.email}" style="color:#0097A7;text-decoration:none">${b.email}</a></div>
   </td></tr>
 
@@ -491,28 +605,45 @@ export default async function handler(req, res) {
 </table>
 </div>`;
 
-    const send = (to, subject, html) => fetch("https://api.resend.com/emails", {
+    // Resolves true only when Resend accepted the message. A rejection (bad sender,
+    // bad address, rate limit) comes back as a normal HTTP response, not a thrown
+    // error, so it has to be checked or it disappears without a trace.
+    const send = (to, subject, html, text) => fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: { "Authorization": `Bearer ${process.env.RESEND_API_KEY}`, "Content-Type": "application/json" },
-      body: JSON.stringify({ from, to: [to], subject, html })
-    }).catch(e => console.error("resend failed", e));
+      body: JSON.stringify(Object.assign({ from, to: [to], subject, html }, text ? { text } : {}))
+    }).then(async r => {
+      if (!r.ok) {
+        console.error("resend rejected", r.status, subject, await r.text().catch(() => ""));
+        return false;
+      }
+      return true;
+    }).catch(e => { console.error("resend failed", e); return false; });
 
     try {
       const pair = isBuild
         ? [ send(b.email, "You are on the list for the course", toVisitorBuild),
             send(t, `Build list: ${b.email}`, toAneilBuild) ]
         : isReadiness
-        ? [ send(b.email, `Your AI readiness read: ${occ}`, toVisitorReadiness),
-            send(t, `Readiness lookup: ${b.email} (${occ})`, toAneilReadiness) ]
+        ? [ send(b.email, `Your AI readiness read: ${clipS(occ, 150)}`, toVisitorReadiness, textVisitorReadiness),
+            send(t, `Readiness lookup: ${b.email} (${clipS(occ, 150)})`, toAneilReadiness) ]
         : [ send(b.email, `Your design maturity read: ${b.capability_label} / ${b.ai_label}`, toVisitor),
             send(t, `New lead: ${b.company || b.email} (${b.quadrant})`, toAneil) ];
-      await Promise.all(pair);
-      await fetch(`${SB}/rest/v1/leads?session_id=eq.${encodeURIComponent(b.session_id)}`, {
-        method: "PATCH", headers: { ...H, "Prefer": "return=minimal" },
-        body: JSON.stringify({ report_sent_at: new Date().toISOString() })
-      });
-    } catch (e) { console.error("notify block threw", e); }
+      const sent = await Promise.all(pair);
+      mailed = sent[0] === true;            // [0] is always the visitor's copy
+      if (mailed) {
+        await fetch(`${SB}/rest/v1/leads?session_id=eq.${encodeURIComponent(b.session_id)}`, {
+          method: "PATCH", headers: { ...H, "Prefer": "return=minimal" },
+          body: JSON.stringify({ report_sent_at: new Date().toISOString() })
+        });
+      }
+    } catch (e) { mailed = false; console.error("notify block threw", e); }
+  } else if (b.gated && b.email) {
+    mailed = false;
+    console.error("gated lead with no RESEND_API_KEY set; nothing was emailed");
   }
 
-  return res.status(200).json({ ok: true });
+  // mailed: true (visitor's email accepted), false (tried and failed), null (no email asked for).
+  // The pages use it so they never say "on its way" about a message that was not sent.
+  return res.status(200).json({ ok: true, mailed });
 }
