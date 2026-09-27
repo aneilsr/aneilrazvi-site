@@ -465,7 +465,40 @@ function pick(i){
   q.value = row[0]; sugg.className = "sugg";
   try{ history.replaceState(null, "", "?q=" + encodeURIComponent(row[0]) + "&soc=" + o[0]); }catch(e){}
   track("readiness_lookup", {occupation: o[1], soc: o[0], tier: o[3], typed_matched_official: row[0] === o[1]});
+  logLookup(o, row[0]);
   render(o, row[0]);
+}
+
+// An anonymous row on every lookup, the way maturity.html has always done it.
+// Without this the leads table only ever sees people who hand over an email, so
+// a page with real traffic and no email captures is indistinguishable from a
+// page nobody visited. Added 2026-09-27 after exactly that confusion.
+// Upserts on session_id, so a person who looks up three jobs is one row, not three,
+// and if they later give an email it enriches this row instead of duplicating it.
+var LOGGED = false;
+function logLookup(o, typed){
+  if(LOGGED) return;            // first lookup of the session is the one that counts
+  LOGGED = true;
+  var qp = new URLSearchParams(location.search);
+  try{
+    fetch("/api/lead", {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      keepalive: true,
+      body: JSON.stringify({
+        session_id: RSID,
+        source: "readiness",
+        gated: false,
+        occupation_code: o[0], occupation_title: o[1],
+        automation_share: o[2], coverage_tier: o[3],
+        typed: typed,
+        referrer: document.referrer || null,
+        landing_path: location.pathname,
+        utm_source: qp.get("utm_source"), utm_medium: qp.get("utm_medium"),
+        utm_campaign: qp.get("utm_campaign"), utm_content: qp.get("utm_content")
+      })
+    }).catch(function(){});
+  }catch(e){}
 }
 
 function tierWord(t){ return t === 2 ? "full" : (t === 1 ? "partial" : "thin"); }
