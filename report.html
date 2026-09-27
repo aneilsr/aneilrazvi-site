@@ -265,9 +265,9 @@ function scatter(cx,ay){
   for(var c=0;c<6;c++) s+='<rect x="'+(L+c*cw)+'" y="'+T+'" width="'+cw+'" height="'+(ch*6)+'" fill="#00BCD4" opacity="'+((dist[c]/49)*0.20).toFixed(3)+'"/>';
   for(var r=0;r<=6;r++) s+='<line x1="'+L+'" y1="'+(T+r*ch)+'" x2="'+(L+6*cw)+'" y2="'+(T+r*ch)+'" stroke="#E2E8EC"/>';
   for(var c2=0;c2<=6;c2++) s+='<line x1="'+(L+c2*cw)+'" y1="'+T+'" x2="'+(L+c2*cw)+'" y2="'+(T+6*ch)+'" stroke="#E2E8EC"/>';
-  for(var r2=0;r2<6;r2++) s+='<text x="'+(L-9)+'" y="'+(T+r2*ch+ch/2+4)+'" text-anchor="end" font-family="Inter,sans-serif" font-size="10.5" fill="#6B7280">'+aiN[r2]+'</text>';
+  for(var r2=0;r2<6;r2++) s+='<text x="'+(L-9)+'" y="'+(T+r2*ch+ch/2+4)+'" text-anchor="end" font-family="Inter,sans-serif" font-size="10.5" fill="#6B7280"><tspan font-weight="700" fill="#0097A7">'+"FEDCBA".charAt(r2)+'</tspan> '+aiN[r2]+'</text>';
   for(var c3=0;c3<6;c3++){
-    s+='<text x="'+(L+c3*cw+cw/2)+'" y="'+(T+6*ch+16)+'" text-anchor="middle" font-family="Inter,sans-serif" font-size="9.5" fill="#6B7280">'+capN[c3]+'</text>';
+    s+='<text x="'+(L+c3*cw+cw/2)+'" y="'+(T+6*ch+16)+'" text-anchor="middle" font-family="Inter,sans-serif" font-size="9.5" fill="#6B7280"><tspan font-weight="700" fill="#0097A7">'+(c3+1)+'</tspan> '+capN[c3]+'</text>';
     s+='<text x="'+(L+c3*cw+cw/2)+'" y="'+(T+6*ch+30)+'" text-anchor="middle" font-family="Inter,sans-serif" font-size="9.5" font-weight="700" fill="#0097A7">'+dist[c3]+'%</text>';
   }
   var px=L+cx*cw+cw/2, py=T+(5-ay)*ch+ch/2;
@@ -405,14 +405,14 @@ function draw(d){
       (dateStr ? ' &nbsp;·&nbsp; '+esc(dateStr) : '')+
       ' &nbsp;·&nbsp; the scores are exactly what you saw on the page</div>'+
     '<div class="rule"></div>'+
-    '<div class="sqr"><span class="sqn">'+(cl+1)+' &times; '+(al+1)+'</span>'+
+    '<div class="sqr"><span class="sqn">'+(cl+1)+"ABCDEF".charAt(al)+'</span>'+
       '<span class="sqt"><b>Your square.</b> Capability '+(cl+1)+', '+esc(C.n)+'. '+
-      'AI '+(al+1)+', '+esc(A.n)+'. One of thirty-six.</span></div>'+
+      'AI '+"ABCDEF".charAt(al)+', '+esc(A.n)+'. One of thirty-six.</span></div>'+
     '<div class="bands">'+
       '<div class="band cap"><div class="k">Design capability</div><h2>'+esc(C.n)+'</h2>'+
         '<div class="lv">Level '+(cl+1)+' of 6 &nbsp;·&nbsp; '+cs+' of 30 points</div><p>'+esc(C.d)+'</p></div>'+
       '<div class="band ai"><div class="k">AI maturity</div><h2>'+esc(A.n)+'</h2>'+
-        '<div class="lv">Level '+(al+1)+' of 6 &nbsp;·&nbsp; '+as+' of 30 points</div><p>'+esc(A.d)+'</p></div>'+
+        '<div class="lv">Level '+"ABCDEF".charAt(al)+' on the A to F scale &nbsp;·&nbsp; '+as+' of 30 points</div><p>'+esc(A.d)+'</p></div>'+
     '</div>'+
     '<h3>Your square, on the thirty-six</h3>'+
     '<div class="charts">'+

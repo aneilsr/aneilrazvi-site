@@ -648,9 +648,9 @@ function scatter(cx,ay){
   for(var c=0;c<6;c++) s+='<rect x="'+(L+c*cw)+'" y="'+T+'" width="'+cw+'" height="'+(ch*6)+'" fill="#00BCD4" opacity="'+((dist[c]/49)*0.20).toFixed(3)+'"/>';
   for(var r=0;r<=6;r++) s+='<line x1="'+L+'" y1="'+(T+r*ch)+'" x2="'+(L+6*cw)+'" y2="'+(T+r*ch)+'" stroke="#E2E8EC"/>';
   for(var c2=0;c2<=6;c2++) s+='<line x1="'+(L+c2*cw)+'" y1="'+T+'" x2="'+(L+c2*cw)+'" y2="'+(T+6*ch)+'" stroke="#E2E8EC"/>';
-  for(var r2=0;r2<6;r2++) s+='<text x="'+(L-9)+'" y="'+(T+r2*ch+ch/2+4)+'" text-anchor="end" font-family="Inter,sans-serif" font-size="10.5" fill="#6B7280">'+aiN[r2]+'</text>';
+  for(var r2=0;r2<6;r2++) s+='<text x="'+(L-9)+'" y="'+(T+r2*ch+ch/2+4)+'" text-anchor="end" font-family="Inter,sans-serif" font-size="10.5" fill="#6B7280"><tspan font-weight="700" fill="#0097A7">'+"FEDCBA".charAt(r2)+'</tspan> '+aiN[r2]+'</text>';
   for(var c3=0;c3<6;c3++){
-    s+='<text x="'+(L+c3*cw+cw/2)+'" y="'+(T+6*ch+16)+'" text-anchor="middle" font-family="Inter,sans-serif" font-size="9.5" fill="#6B7280">'+capN[c3]+'</text>';
+    s+='<text x="'+(L+c3*cw+cw/2)+'" y="'+(T+6*ch+16)+'" text-anchor="middle" font-family="Inter,sans-serif" font-size="9.5" fill="#6B7280"><tspan font-weight="700" fill="#0097A7">'+(c3+1)+'</tspan> '+capN[c3]+'</text>';
     s+='<text x="'+(L+c3*cw+cw/2)+'" y="'+(T+6*ch+30)+'" text-anchor="middle" font-family="Inter,sans-serif" font-size="9.5" font-weight="700" fill="#0097A7">'+dist[c3]+'%</text>';
   }
   var px=L+cx*cw+cw/2, py=T+(5-ay)*ch+ch/2;
@@ -722,12 +722,12 @@ function show(){
   $("#result").innerHTML =
     '<div class="tick"></div><div class="eyebrow" style="margin-top:.75rem;">Your read</div>'+
     '<h1>'+C.n+' capability, '+A.n+' on AI</h1><p class="lede">'+gapLine+'</p>'+
-    '<div class="sqr"><span class="sqn">'+(cl+1)+' &times; '+(al+1)+'</span>'+
+    '<div class="sqr"><span class="sqn">'+(cl+1)+"ABCDEF".charAt(al)+'</span>'+
       '<span class="sqt"><b>Your square.</b> Capability '+(cl+1)+', '+C.n+'. '+
-      'AI '+(al+1)+', '+A.n+'. One of thirty-six.</span></div>'+
+      'AI '+"ABCDEF".charAt(al)+', '+A.n+'. One of thirty-six.</span></div>'+
     '<div class="levels">'+
       '<div class="lv"><div class="ax">Design capability</div><div class="nm">'+C.n+'</div><div class="sc">Level '+(cl+1)+' of 6 · '+cs+' of 30 points</div><p>'+C.d+'</p></div>'+
-      '<div class="lv a"><div class="ax">AI maturity</div><div class="nm">'+A.n+'</div><div class="sc">Level '+(al+1)+' of 6 · '+as+' of 30 points</div><p>'+A.d+'</p></div>'+
+      '<div class="lv a"><div class="ax">AI maturity</div><div class="nm">'+A.n+'</div><div class="sc">Level '+"ABCDEF".charAt(al)+' on the A to F scale · '+as+' of 30 points</div><p>'+A.d+'</p></div>'+
     '</div>'+
     '<div class="charts">'+
       '<div class="card"><h3>Your square, on the thirty-six</h3><div class="sub">Six levels of design capability against six of AI adoption. Shading is how many organizations sit in each column.</div><div class="scroller" data-zoom="Your square"><div class="zoomhint" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6M11 8.2v5.6M8.2 11h5.6"/></svg></div>'+scatter(cl,al)+'</div><p class="capt">Almost everyone lands in the middle two columns. The ring is your square.</p></div>'+

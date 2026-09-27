@@ -76,6 +76,8 @@ export default async function handler(req, res) {
     const from = "Aneil Razvi <hi@aneilrazvi.com>";
     const escH = (s) => String(s == null ? "" : s)
       .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+    // AI adoption is lettered A to F, capability is numbered 1 to 6. A square reads 3B.
+    const AIX = ["A","B","C","D","E","F"];
     const clipS = (s, n) => String(s == null ? "" : s).replace(/[\u0000-\u001f\u007f]/g, " ").trim().slice(0, n);
     const BOOKING = "https://cal.com/aneil-razvi/maturity-read";
     const REPORT_URL = `https://aneilrazvi.com/report.html?s=${encodeURIComponent(b.session_id || "")}`;
@@ -107,7 +109,7 @@ export default async function handler(req, res) {
       const rowFromTop = 6 - (Number(b.ai_level) || 1);            // aiN is top-down
       let out = '<table role="presentation" cellpadding="0" cellspacing="0" style="border-collapse:collapse;width:100%">';
       for (let r = 0; r < 6; r++) {
-        out += '<tr><td style="padding:0 8px 0 0;text-align:right;white-space:nowrap;font:400 11px/1 Helvetica,Arial,sans-serif;color:#9AA5AD">' + aiN[r] + '</td>';
+        out += '<tr><td style="padding:0 8px 0 0;text-align:right;white-space:nowrap;font:400 11px/1 Helvetica,Arial,sans-serif;color:#9AA5AD"><b style="color:#0097A7">' + AIX[5 - r] + '</b> ' + aiN[r] + '</td>';
         for (let c = 0; c < 6; c++) {
           const hit = (c === col && r === rowFromTop);
           out += '<td style="border:1px solid #E2E8EC;background:' + (hit ? "#FFF1E6" : tint[c]) +
@@ -121,7 +123,7 @@ export default async function handler(req, res) {
       out += '<tr><td></td>';
       for (let c = 0; c < 6; c++) {
         out += '<td style="padding:6px 2px 0;text-align:center;font:400 10px/1.3 Helvetica,Arial,sans-serif;color:#9AA5AD">' +
-               capN[c] + '<br><span style="font-weight:700;color:#0097A7">' + share[c] + '%</span></td>';
+               '<b style="color:#0097A7">' + (c + 1) + '</b> ' + capN[c] + '<br><span style="font-weight:700;color:#0097A7">' + share[c] + '%</span></td>';
       }
       out += '</tr></table>';
       return out;
@@ -150,9 +152,9 @@ export default async function handler(req, res) {
   <tr><td style="padding:20px 34px 0">
     <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;background:#1E3A5F;border-radius:12px;border-collapse:collapse">
       <tr>
-        <td valign="middle" style="padding:16px 8px 16px 22px;font:400 34px/1 Georgia,serif;color:#FFFFFF;white-space:nowrap">${_cl} &times; ${_al}</td>
+        <td valign="middle" style="padding:16px 8px 16px 22px;font:400 34px/1 Georgia,serif;color:#FFFFFF;white-space:nowrap">${_cl}${AIX[_al - 1] || "A"}</td>
         <td valign="middle" style="padding:16px 22px 16px 14px;font:400 14px/1.5 Helvetica,Arial,sans-serif;color:rgba(255,255,255,.82)">
-          <b style="color:#FFFFFF">Your square.</b> Capability ${_cl}, ${b.capability_label}. AI ${_al}, ${b.ai_label}. One of thirty-six.
+          <b style="color:#FFFFFF">Your square.</b> Capability ${_cl}, ${b.capability_label}. AI ${AIX[_al - 1] || "A"}, ${b.ai_label}. One of thirty-six.
         </td>
       </tr>
     </table>
@@ -170,7 +172,7 @@ export default async function handler(req, res) {
         <td width="49%" valign="top" style="background:#FFF1E6;border-left:4px solid #F97316;border-radius:8px;padding:14px 16px">
           <div style="font:700 10px/1 Helvetica,Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#C2410C">AI maturity</div>
           <div style="font:400 22px/1.15 Georgia,serif;color:#1E3A5F;margin-top:5px">${b.ai_label}</div>
-          <div style="font:400 13px/1.4 Helvetica,Arial,sans-serif;color:#6B7280;margin-top:3px">Level ${b.ai_level} of 6</div>
+          <div style="font:400 13px/1.4 Helvetica,Arial,sans-serif;color:#6B7280;margin-top:3px">Level ${AIX[_al - 1] || "A"} on the A to F scale</div>
         </td>
       </tr>
     </table>
@@ -250,7 +252,7 @@ export default async function handler(req, res) {
   <tr><td style="padding:18px 30px 0">
     <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;background:#1E3A5F;border-radius:12px;border-collapse:collapse">
       <tr>
-        <td valign="middle" style="padding:14px 6px 14px 20px;font:400 30px/1 Georgia,serif;color:#FFFFFF;white-space:nowrap">${_cl} &times; ${_al}</td>
+        <td valign="middle" style="padding:14px 6px 14px 20px;font:400 30px/1 Georgia,serif;color:#FFFFFF;white-space:nowrap">${_cl}${AIX[_al - 1] || "A"}</td>
         <td valign="middle" style="padding:14px 20px 14px 12px;font:400 13.5px/1.5 Helvetica,Arial,sans-serif;color:rgba(255,255,255,.82)">
           <b style="color:#FFFFFF">${b.capability_label}</b> capability, <b style="color:#FFFFFF">${b.ai_label}</b> on AI
         </td>
