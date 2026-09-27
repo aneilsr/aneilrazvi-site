@@ -39,7 +39,14 @@ export default async function handler(req, res) {
     occupation_code: b.occupation_code || null,
     occupation_title: b.occupation_title || null,
     automation_share: b.automation_share ?? null,
-    coverage_tier: b.coverage_tier ?? null,
+    // The column is constrained to full / partial / thin. The readiness page sends
+    // O*NET's numeric tier (2/1/0), which the constraint rejected silently for
+    // every readiness submission ever made. Map it here, where the row is built.
+    coverage_tier: (b.coverage_tier === null || b.coverage_tier === undefined)
+      ? null
+      : (typeof b.coverage_tier === "number"
+          ? (b.coverage_tier === 2 ? "full" : b.coverage_tier === 1 ? "partial" : "thin")
+          : b.coverage_tier),
     completed_at: new Date().toISOString(),
     gated: !!b.gated
   };

@@ -1009,6 +1009,12 @@ function loadTasks(mg, code, name, total){
       LAST.tasks = (measured.length ? measured : list).slice(0, 6).map(function(t){
         return { label: t[0], pct: t[1] };
       });
+      // The prompt box was rendered before this fetch resolved, so it is showing a
+      // version with no tasks in it. The copy button always rebuilt the prompt fresh,
+      // which meant the text on screen and the text on the clipboard were different.
+      // Redraw it now that the tasks are actually here.
+      var pb = document.getElementById("tfprompt");
+      if(pb) pb.textContent = promptText();
     }
     var h = '<h2>Your tasks</h2>';
     if(!list.length){
