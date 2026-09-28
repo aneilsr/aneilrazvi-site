@@ -207,3 +207,21 @@ select * from report_activity;
 select name, company, opens, downloads, real_machines, scanner_hits, likely_forwarded, machines
 from report_forwarding order by downloads desc;
 ```
+
+---
+
+## 28 September 2026: the result chart is now the talk's grid
+
+**What changed.** The "Your square, on the thirty-six" chart on `maturity.html`, `report.html` and the emailed read (`api/lead.js`) used to be a blank 6x6 scatter with capability across the bottom, AI up the side, and column shading for population share. It now draws the same grid as the talk (slide 8), the tear sheet and `thirty-six-squares.pdf`:
+
+- Capability 1 to 6 up the side, AI adoption A to F across the top. The label is **AI adoption** everywhere, not AI maturity.
+- Every square names the form the next dollar buys: Advice, Check-up, Contract, Hire, Beyond buying. The table is `GRID_F` (row 0 = capability 6).
+- Seven areas (`GRID_Z`), each with one sentence (`AREA`), shown under the chart. Same seven as the talk's slide 9.
+- The **orange edge** is capability 1 to 2 with AI D to F (six squares), stroke `#F15A27`. It replaced the old red `#8E3B3A`.
+- The visitor's square gets a dark outline. Population share moved under each capability name.
+
+**Warning rule.** The "more dangerous imbalance" line now fires only on the six orange-edge squares. The other squares where AI is two or more levels ahead (1C, 3E, 3F, 4F) get a softer "heading toward the edge" line. Function: `gapRead(cl, al)` on the pages, `_read` in `lead.js`.
+
+**Colors.** Orange edge `#F15A27`, check-up fill `#FDE8E1`, check-up text `#A83F1C` (5.3:1 on the fill).
+
+**Open question, deliberately left for after the 29 Sep talk.** Whether 3E, 3F and 4F should also carry the orange edge. By the principle ("AI ahead of design") they arguably should.

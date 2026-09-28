@@ -98,43 +98,55 @@ export default async function handler(req, res) {
         <td style="padding:4px 0;font:600 12px/1.35 Helvetica,Arial,sans-serif;color:#1A1A2E;white-space:nowrap">${o[k]}<span style="color:#9AA5AD;font-weight:400">/5</span></td>
       </tr>`).join("");
 
-    // Population matrix, drawn as a table because Gmail strips inline SVG.
-    // Column tints are the page's teal at (share/49)*0.20 opacity, pre-flattened onto white.
+    // The thirty-six squares, drawn as a table because Gmail strips inline SVG.
+    // Same grid as the talk, the tear sheet and the result page: capability rows 6 to 1,
+    // AI columns A to F, each square names the form, the orange edge is capability 1-2 with AI D-F.
     const matrixTable = () => {
-      const capN = ["Absent","Limited","Emergent","Structured","Integrated","User-Driven"];
-      const aiN  = ["Symbiotic","Leading","Embedded","Developing","Reactive","Limited"];
-      const share = [1, 17, 49, 28, 4, 0.04];
-      const tint  = ["#FEFFFF","#EDFAFC","#CCF2F6","#E2F7FA","#FBFEFE","#FFFFFF"];
-      const col = (Number(b.capability_level) || 1) - 1;          // 0..5, left to right
-      const rowFromTop = 6 - (Number(b.ai_level) || 1);            // aiN is top-down
-      let out = '<table role="presentation" cellpadding="0" cellspacing="0" style="border-collapse:collapse;width:100%">';
+      const F = [["A","A","H","B","B","B"],["A","H","H","H","B","B"],["K","K","K","H","H","H"],
+                 ["A","C","K","K","K","K"],["A","A","C","C","C","C"],["A","A","C","C","C","C"]];
+      const FM = { A:["Advice","#E8EFF0","#2E7580"], C:["Check-up","#FDE8E1","#A83F1C"], K:["Contract","#C9DDE0","#22606A"],
+                   H:["Hire","#3C8B94","#FFFFFF"], B:["Beyond buying","#16212B","#FFFFFF"] };
+      const capN = ["User-Driven","Integrated","Structured","Emergent","Limited","Absent"];
+      const aiN  = ["Limited","Reactive","Developing","Embedded","Leading","Symbiotic"];
+      const cl = Number(b.capability_level) || 1, al = Number(b.ai_level) || 1;   // both 1-based
+      let out = '<table role="presentation" cellpadding="0" cellspacing="3" style="border-collapse:separate;width:100%;table-layout:fixed">';
+      out += '<tr><td style="width:21%"></td>';
+      for (let c = 0; c < 6; c++) {
+        out += '<td style="padding:0 0 3px;text-align:center;font:700 10px/1.25 Helvetica,Arial,sans-serif;color:#16212B">' +
+               '<span style="color:#2E7580">' + AIX[c] + '</span><br>' + aiN[c] + '</td>';
+      }
+      out += '</tr>';
       for (let r = 0; r < 6; r++) {
-        out += '<tr><td style="padding:0 8px 0 0;text-align:right;white-space:nowrap;font:400 11px/1 Helvetica,Arial,sans-serif;color:#9AA5AD"><b style="color:#0097A7">' + AIX[5 - r] + '</b> ' + aiN[r] + '</td>';
+        const lv = 6 - r;
+        out += '<tr><td style="padding:0 6px 0 0;text-align:right;font:700 10px/1.2 Helvetica,Arial,sans-serif;color:#16212B">' +
+               capN[r] + ' <span style="color:#2E7580">' + lv + '</span></td>';
         for (let c = 0; c < 6; c++) {
-          const hit = (c === col && r === rowFromTop);
-          out += '<td style="border:1px solid #E2E8EC;background:' + (hit ? "#FFF1E6" : tint[c]) +
-                 ';height:34px;width:15%;text-align:center;font-size:0;line-height:0' +
-                 (hit ? ';border:2px solid #F97316' : '') + '">' +
-                 (hit ? '<span style="display:inline-block;width:15px;height:15px;background:#F97316;border-radius:50%;font-size:0;line-height:0">&nbsp;</span>' : '&nbsp;') +
-                 '</td>';
+          const f = FM[F[r][c]], edge = (lv <= 2 && c >= 3), you = (lv === cl && c + 1 === al);
+          const bd = you ? "3px solid #16212B" : (edge ? "2px solid #F15A27" : "2px solid " + f[1]);
+          out += '<td style="border:' + bd + ';background:' + f[1] + ';height:32px;padding:0 2px;text-align:center;border-radius:5px;' +
+                 'font:700 9.5px/1.2 Helvetica,Arial,sans-serif;color:' + f[2] + '">' + f[0] + '</td>';
         }
         out += '</tr>';
       }
-      out += '<tr><td></td>';
-      for (let c = 0; c < 6; c++) {
-        out += '<td style="padding:6px 2px 0;text-align:center;font:400 10px/1.3 Helvetica,Arial,sans-serif;color:#9AA5AD">' +
-               '<b style="color:#0097A7">' + (c + 1) + '</b> ' + capN[c] + '<br><span style="font-weight:700;color:#0097A7">' + share[c] + '%</span></td>';
-      }
-      out += '</tr></table>';
+      out += '</table>';
       return out;
     };
+    const _BUY = (() => {
+      const F = [["A","A","H","B","B","B"],["A","H","H","H","B","B"],["K","K","K","H","H","H"],
+                 ["A","C","K","K","K","K"],["A","A","C","C","C","C"],["A","A","C","C","C","C"]];
+      const k = F[6 - (Number(b.capability_level) || 1)][(Number(b.ai_level) || 1) - 1];
+      return { A:"advice", C:"a check-up", K:"a contract", H:"a hire", B:"nothing external" }[k] || "advice";
+    })();
 
     const _cl = Number(b.capability_level) || 1, _al = Number(b.ai_level) || 1;
     const _gap = _cl - _al;
-    const _read = _gap >= 2
-      ? "Your design practice is meaningfully ahead of your AI adoption. That is the safer imbalance, but a team with your process discipline would compound AI faster than most, and is not."
+    const _edge = (_cl <= 2 && _al >= 4);
+    const _read = _edge
+      ? "You are on the orange edge. AI is built into how you work, and there is no design practice checking what it makes. That is the more dangerous imbalance: you are shipping plausible and wrong, faster than anyone can catch it."
       : _gap <= -2
-      ? "Your AI adoption is running ahead of your design practice. That is the more dangerous imbalance, because AI accelerates whatever process you already have."
+      ? "Your AI adoption is running ahead of your design practice. You are not on the orange edge, but you are heading toward it. AI accelerates whatever process you already have, so the standard has to keep pace with the output."
+      : _gap >= 2
+      ? "Your design practice is meaningfully ahead of your AI adoption. That is the safer imbalance, but a team with your process discipline would compound AI faster than most, and is not."
       : "Your two axes are roughly in step, which is less common than it sounds. The work now is moving both together rather than letting one sprint ahead.";
 
     const toVisitor = `
@@ -170,7 +182,7 @@ export default async function handler(req, res) {
         </td>
         <td width="2%" style="font-size:0;line-height:0">&nbsp;</td>
         <td width="49%" valign="top" style="background:#FFF1E6;border-left:4px solid #F97316;border-radius:8px;padding:14px 16px">
-          <div style="font:700 10px/1 Helvetica,Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#C2410C">AI maturity</div>
+          <div style="font:700 10px/1 Helvetica,Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#C2410C">AI adoption</div>
           <div style="font:400 22px/1.15 Georgia,serif;color:#1E3A5F;margin-top:5px">${b.ai_label}</div>
           <div style="font:400 13px/1.4 Helvetica,Arial,sans-serif;color:#6B7280;margin-top:3px">Level ${AIX[_al - 1] || "A"} on the A to F scale</div>
         </td>
@@ -182,7 +194,7 @@ export default async function handler(req, res) {
     <div style="font:700 11px/1 Helvetica,Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#6B7280;padding-bottom:10px">Your square, on the thirty-six</div>
     ${matrixTable()}
     <p style="margin:12px 0 0;font:400 13px/1.6 Helvetica,Arial,sans-serif;color:#9AA5AD">
-      Six levels of design capability run left to right, with the share of organizations in each column. Six levels of AI adoption run bottom to top. Thirty-six squares, and the orange marker is yours.
+      Capability up the side, AI adoption across the top, and each square names what the next dollar buys. The dark outline is your square, and it says <b style="color:#16212B">${_BUY}</b>. The orange edge is where AI has run ahead of design.
     </p>
     <p style="margin:12px 0 0;font:400 14px/1.65 Helvetica,Arial,sans-serif;color:#3B4651">${_read}</p>
   </td></tr>
@@ -196,7 +208,7 @@ export default async function handler(req, res) {
         </td>
         <td width="2%" style="font-size:0;line-height:0">&nbsp;</td>
         <td width="49%" valign="top">
-          <div style="font:700 10px/1 Helvetica,Arial,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#C2410C;padding-bottom:9px">AI maturity</div>
+          <div style="font:700 10px/1 Helvetica,Arial,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#C2410C;padding-bottom:9px">AI adoption</div>
           <table role="presentation" cellpadding="0" cellspacing="0" style="border-collapse:collapse">${dimRows(b.ai_breakdown, "#F97316")}</table>
         </td>
       </tr>
@@ -286,7 +298,7 @@ export default async function handler(req, res) {
         </td>
         <td width="2%" style="font-size:0;line-height:0">&nbsp;</td>
         <td width="49%" valign="top">
-          <div style="font:700 10px/1 Helvetica,Arial,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#C2410C;padding-bottom:9px">AI maturity</div>
+          <div style="font:700 10px/1 Helvetica,Arial,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#C2410C;padding-bottom:9px">AI adoption</div>
           <table role="presentation" cellpadding="0" cellspacing="0" style="border-collapse:collapse">${dimRows(b.ai_breakdown, "#F97316")}</table>
         </td>
       </tr>
