@@ -80,6 +80,26 @@ export default async function handler(req, res) {
     const AIX = ["A","B","C","D","E","F"];
     const clipS = (s, n) => String(s == null ? "" : s).replace(/[\u0000-\u001f\u007f]/g, " ").trim().slice(0, n);
     const BOOKING = "https://cal.com/aneil-razvi/maturity-read";
+    // One footer for every email a visitor receives: wordmark, phone, email, site, LinkedIn,
+    // and the booking link. Same block as the Gmail signature on hi@ (29 Sep 2026).
+    const SIG_HTML = `<div style="border-top:1px solid #E2E8EC;padding-top:16px">
+      <a href="https://aneilrazvi.com" style="text-decoration:none"><img src="https://aneilrazvi.com/assets/email/aneil-razvi-wordmark.png" width="188" height="28" alt="Aneil Razvi" style="display:block;border:0;width:188px;height:28px;font:700 18px Georgia,serif;color:#0C1622"></a>
+      <div style="font:400 12px/1.5 Helvetica,Arial,sans-serif;color:#6E7A85;margin-top:8px">Fractional design and AI experience leadership</div>
+      <div style="font:400 13px/1.7 Helvetica,Arial,sans-serif;color:#3B4651;margin-top:4px">
+        <a href="tel:+14692614282" style="color:#3B4651;text-decoration:none">469.261.4282</a> &nbsp;&middot;&nbsp;
+        <a href="mailto:hi@aneilrazvi.com" style="color:#3B4651;text-decoration:none">hi@aneilrazvi.com</a><br>
+        <a href="https://aneilrazvi.com" style="color:#0097A7;text-decoration:none">aneilrazvi.com</a> &nbsp;&middot;&nbsp;
+        <a href="https://www.linkedin.com/in/aneilrazvi" style="color:#0097A7;text-decoration:none">linkedin.com/in/aneilrazvi</a><br>
+        <a href="https://cal.com/aneil-razvi" style="color:#0097A7;font-weight:700;text-decoration:none">Book a time: cal.com/aneil-razvi</a>
+      </div>
+    </div>`;
+    const SIG_TEXT = [
+      "Aneil Razvi",
+      "Fractional design and AI experience leadership",
+      "469.261.4282 · hi@aneilrazvi.com",
+      "aneilrazvi.com · linkedin.com/in/aneilrazvi",
+      "Book a time: https://cal.com/aneil-razvi"
+    ];
     const REPORT_URL = `https://aneilrazvi.com/report.html?s=${encodeURIComponent(b.session_id || "")}`;
     const dims = (o) => o ? Object.keys(o).map(k => `${k}: ${o[k]}/5`).join(" &middot; ") : "";
 
@@ -241,13 +261,7 @@ export default async function handler(req, res) {
       Your full read, with both charts and the engagement detail, lives at
       <a href="${REPORT_URL}" style="color:#0097A7;text-decoration:none">this link</a>. It is yours to keep and it prints to a PDF.
     </p>
-    <div style="border-top:1px solid #E2E8EC;padding-top:14px">
-      <div style="font:400 15px/1.3 Georgia,serif;color:#1E3A5F">Aneil Razvi</div>
-      <div style="font:400 12px/1.5 Helvetica,Arial,sans-serif;color:#9AA5AD;margin-top:3px">
-        Fractional design and AI experience leadership ·
-        <a href="https://aneilrazvi.com" style="color:#0097A7;text-decoration:none">aneilrazvi.com</a>
-      </div>
-    </div>
+    ${SIG_HTML}
   </td></tr>
 </table>
 </div>`;
@@ -431,8 +445,7 @@ export default async function handler(req, res) {
       "",
       "If any of this landed badly, reply and tell me what you do. I read every one.",
       "",
-      "Aneil Razvi",
-      "Fractional design and AI experience leadership · aneilrazvi.com"
+      ...SIG_TEXT
     ].join("\n");
 
     const toVisitorReadiness = `
@@ -480,13 +493,7 @@ export default async function handler(req, res) {
     </p>
   </td></tr>
   <tr><td style="padding:22px 34px 30px">
-    <div style="border-top:1px solid #E2E8EC;padding-top:14px">
-      <div style="font:400 15px/1.3 Georgia,serif;color:#1E3A5F">Aneil Razvi</div>
-      <div style="font:400 12px/1.5 Helvetica,Arial,sans-serif;color:#9AA5AD;margin-top:3px">
-        Fractional design and AI experience leadership &middot;
-        <a href="https://aneilrazvi.com" style="color:#0097A7;text-decoration:none">aneilrazvi.com</a>
-      </div>
-    </div>
+    ${SIG_HTML}
   </td></tr>
 </table>
 </div>`;
@@ -575,13 +582,7 @@ export default async function handler(req, res) {
   </td></tr>
 
   <tr><td style="padding:22px 34px 30px">
-    <div style="border-top:1px solid #E2E8EC;padding-top:14px">
-      <div style="font:400 15px/1.3 Georgia,serif;color:#1E3A5F">Aneil Razvi</div>
-      <div style="font:400 12px/1.5 Helvetica,Arial,sans-serif;color:#9AA5AD;margin-top:3px">
-        Fractional design and AI experience leadership &middot;
-        <a href="https://aneilrazvi.com" style="color:#0097A7;text-decoration:none">aneilrazvi.com</a>
-      </div>
-    </div>
+    ${SIG_HTML}
   </td></tr>
 </table>
 </div>`;
