@@ -23,7 +23,7 @@ Regular hyphens and colons are fine. En-dashes are allowed only for ranges like 
 - Add a Speaking item: edit `speaking.html`, copy a `.talk-card` block, change the text.
 - Add a Testimonial (Work With Me): edit `work-with-me.html`, copy a `.rec` block; drop a square photo in `assets/work/` and point the `<img class="av">` at it.
 - Add or change a portfolio piece: the case studies are generated. Edit `scripts/build_cases.py` (the `CASES` list), then run `python3 scripts/build_cases.py` from this folder. It rewrites the case `.html` files. (Or hand it to Claude and say what to change.)
-- Swap an image: replace the file in `assets/` using the same filename. Selected-Work images are 1600x1000 (16:10); About portrait/personal are 1200x1500 (4:5); blog thumbs 1200x675 (16:9); the social share card `assets/og-image.jpg` is 1200x630.
+- Swap an image: replace the file in `assets/` using the same filename. Selected-Work images are 1600x1000 (16:10); About portrait/personal are 1200x1500 (4:5); blog thumbs 1200x675 (16:9); the social share card `assets/og-image-v2.jpg` is 1200x630 (renamed 30 Sep 2026 so LinkedIn and Slack drop their cached copy of the old "20+ years" card; `og-image.jpg` is the retired version).
 - Add or remove a page: also update the slug list in `scripts/seo_inject.py` and re-run it so the sitemap stays correct.
 - Booking link: search-replace the Calendar schedule id if your Google booking link changes.
 
