@@ -171,6 +171,23 @@
   .ws-close p{max-width:1040px;margin:1.3rem auto 0;padding:0 6%;color:rgba(255,255,255,.7);
     font-family:'DM Serif Display',serif;font-size:clamp(1.05rem,2vw,1.3rem);font-weight:400;line-height:1.5}
   @media(max-width:820px){.ws-case{grid-template-columns:1fr}.wm-tablist{gap:1.4rem}.wsx>summary{padding:1.15rem 1.2rem}.wsx .body{padding:0 1.2rem 1.3rem}}
+  /* price ladder, 2026-10-04 (item 279) */
+  .wm-start{max-width:1140px;margin:0 auto;padding:3.6rem 6% 1rem}
+  .wm-start .eyebrow{color:var(--teal);font-size:.72rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase}
+  .wm-start h2{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,3.2vw,2.5rem);color:#fff;font-weight:400;margin:.5rem 0 1.8rem}
+  .wm-offers{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem}
+  .wm-offer{background:#0c1620;border:1px solid rgba(255,255,255,.08);border-top:2px solid var(--teal);border-radius:var(--radius-sm);padding:1.3rem 1.2rem 1.4rem}
+  .wm-offer .tag{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:.5rem}
+  .wm-offer h3{font-family:'DM Serif Display',serif;font-size:1.25rem;color:#fff;font-weight:400;margin:0 0 .45rem}
+  .wm-offer .price{color:#fff;font-weight:700;font-size:1.05rem;margin:0 0 .7rem}
+  .wm-offer .price span{color:rgba(255,255,255,.55);font-weight:400;font-size:.86rem}
+  .wm-offer p{color:rgba(255,255,255,.66);font-size:.9rem;line-height:1.6;font-weight:300;margin:0}
+  .wm-offer p a{color:var(--teal);text-decoration:none}
+  .wm-startcta{margin:2rem 0 0;display:flex;align-items:center;gap:1.4rem;flex-wrap:wrap}
+  .wm-startcta a{background:var(--teal);color:#062028;padding:14px 30px;border-radius:8px;font-weight:700;text-decoration:none;display:inline-block}
+  .wm-startcta p{color:rgba(255,255,255,.6);font-size:.92rem;font-weight:300;margin:0;max-width:420px}
+  @media(max-width:980px){.wm-offers{grid-template-columns:1fr 1fr}}
+  @media(max-width:560px){.wm-offers{grid-template-columns:1fr}}
 </style>
 <script defer src="assets/analytics.js"></script>
 </head>
@@ -194,6 +211,42 @@
   <p>I partner with companies that need senior design leadership and the hands to back it up. Sometimes that's a full-time executive role. Sometimes it's a fractional engagement where you get the strategy, the team-building, and the craft without the full-time hire. Either way I sit on the same side of the table as you and your team, focused on what we can actually ship.</p>
 </section>
 <div class="wm-heroimg"><img src="assets/work/work-with-me-hero.jpg" alt="Aneil Razvi facilitating a workshop, with the logos of companies he has run sessions for" width="2000" height="1250"></div>
+
+<!-- 2026-10-04: price ladder (tracker item 279). Prices match Working-with-Aneil-Razvi.pdf (Sept 2026) and the maturity result cards. -->
+<section class="wm-start" id="start">
+  <div class="eyebrow">Prices, up front</div>
+  <h2>Four ways to start</h2>
+  <div class="wm-offers">
+    <div class="wm-offer">
+      <div class="tag">Not sure yet</div>
+      <h3>First Look</h3>
+      <div class="price">$2,500 <span>· one week</span></div>
+      <p>Ninety minutes with me, then a three-page written read: where design sits, the constraint costing you most, and your first thirty days. Credited in full if you start a bigger engagement within thirty days.</p>
+    </div>
+    <div class="wm-offer">
+      <div class="tag">A fixed project</div>
+      <h3>Scoped sprint</h3>
+      <div class="price">$7,500 to $22,000 <span>· two to five weeks</span></div>
+      <p>The Audit ($7,500, two weeks), an AI Experience Framework ($15,000, three weeks), or a Design System Build ($22,000, five weeks). Fixed scope, fixed price.</p>
+    </div>
+    <div class="wm-offer">
+      <div class="tag">A hire, without the hire</div>
+      <h3>Fractional design leader</h3>
+      <div class="price">$16,000 <span>a month · two days a week</span></div>
+      <p>A senior owner for design decisions, on the same days every week: direction, critique, hiring input and hands on the work that matters most. Not exclusive.</p>
+    </div>
+    <div class="wm-offer">
+      <div class="tag">A day with your team</div>
+      <h3>Workshop</h3>
+      <div class="price">From $9,500 <span>· up to 20 people</span></div>
+      <p>Half a day or a full day, hands on, built around your team's real work. <a href="#workshop" onclick="var t=document.getElementById('tab-workshop');if(t){t.click();t.scrollIntoView({behavior:'smooth'});}return false;">See the nine workshops</a>.</p>
+    </div>
+  </div>
+  <div class="wm-startcta">
+    <a href="https://cal.com/aneil-razvi" target="_blank" rel="noopener">Book a free 20-minute call →</a>
+    <p>Not sure which one fits? Start with the call. If you don't need me yet, I'll say so.</p>
+  </div>
+</section>
 
 <div class="wm-tabs">
   <div class="wm-tablist" role="tablist" aria-label="Two ways to work together">
