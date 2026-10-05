@@ -1,22 +1,22 @@
 <!doctype html>
 <html lang="en"><head>
-<title>You Have an Idea, Aneil Razvi</title>
+<title>Build Your Own App, Aneil Razvi</title>
 <!-- SEO-START -->
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<meta name="description" content="A free prompt that walks you through your own idea and tells you honestly which parts you have thought through, which parts you are assuming, and which parts nobody can know yet. No email needed."/>
+<meta name="description" content="AI, Built On Paper: a course that takes your idea from a sentence to a tested paper prototype, a plan any AI tool can follow, and an app live at a real web address. No coding background needed. Plus a free prompt to start tonight."/>
 <meta name="author" content="Aneil Razvi"/>
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1"/>
 <link rel="canonical" href="https://aneilrazvi.com/build.html"/>
 <meta property="og:type" content="website"/>
 <meta property="og:site_name" content="Aneil Razvi"/>
-<meta property="og:title" content="You Have an Idea, Aneil Razvi"/>
-<meta property="og:description" content="Find out where you actually are with your idea. Free, no email."/>
+<meta property="og:title" content="Build Your Own App, Aneil Razvi"/>
+<meta property="og:description" content="Your idea on paper, tested, then live. The AI, Built On Paper course, plus a free prompt to start tonight."/>
 <meta property="og:url" content="https://aneilrazvi.com/build.html"/>
 <meta property="og:image" content="https://aneilrazvi.com/assets/og-image-v2.jpg"/>
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="You Have an Idea, Aneil Razvi"/>
-<meta name="twitter:description" content="Find out where you actually are with your idea. Free, no email."/>
+<meta name="twitter:title" content="Build Your Own App, Aneil Razvi"/>
+<meta name="twitter:description" content="Your idea on paper, tested, then live. The AI, Built On Paper course, plus a free prompt to start tonight."/>
 <meta name="twitter:image" content="https://aneilrazvi.com/assets/og-image-v2.jpg"/>
 <!-- SEO-END -->
 <script defer src="assets/analytics.js"></script>
@@ -121,6 +121,42 @@ pre.pbox{margin:0;background:var(--gray);border:1px solid var(--line);border-rad
 .honest p{margin:0;font-size:.95rem;line-height:1.6;}
 footer{margin-top:2.6rem;font-size:.84rem;color:var(--muted);}
 footer .sig{display:block;}
+
+/* course page additions, 5 Oct 2026 */
+.hero{padding-bottom:.4rem;}
+.promise{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin-top:1.4rem;}
+@media(max-width:720px){ .promise{grid-template-columns:1fr;} }
+.promise div{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);padding:1.1rem 1.2rem;}
+.promise b{display:block;font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:1.2rem;color:var(--navy);margin-bottom:.3rem;}
+.promise span{font-size:.92rem;color:var(--muted);line-height:1.5;}
+.phase{margin-top:1rem;}
+.phase h3{color:var(--navy);margin-bottom:.2rem;}
+.phase .plab{margin:.2rem 0 .4rem;}
+.doors.three{grid-template-columns:repeat(3,minmax(0,1fr));}
+@media(max-width:900px){ .doors.three{grid-template-columns:1fr;} }
+.door .price{font-family:'DM Serif Display',Georgia,serif;font-size:1.5rem;color:var(--navy);margin:.1rem 0 .5rem;}
+.door .price small{font-family:'Inter',sans-serif;font-size:.8rem;color:var(--muted);}
+.door ul{margin:0 0 1rem;padding-left:1.1rem;font-size:.9rem;color:var(--muted);line-height:1.5;}
+.door ul li{margin-bottom:.25rem;}
+.door.feature{border-top:5px solid var(--teal);}
+.interest{display:flex;flex-direction:column;gap:.45rem;margin:.2rem 0 .7rem;font-size:.9rem;}
+.interest label{display:flex;gap:.55rem;align-items:flex-start;cursor:pointer;}
+.interest input{margin-top:.25rem;width:1.05rem;height:1.05rem;accent-color:var(--teal-dark);}
+.ready{list-style:none;padding:0;margin:.4rem 0 0;}
+.ready li{display:flex;gap:.7rem;align-items:baseline;padding:.5rem 0;border-top:1px solid var(--line);font-size:.93rem;}
+.ready li:last-child{border-bottom:1px solid var(--line);}
+.ready .st{flex:0 0 7.4rem;font-size:.72rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;}
+.ready .st.done{color:var(--teal-dark);} .ready .st.doing{color:var(--orange-dark);} .ready .st.next{color:var(--muted);}
+@media(max-width:520px){ .ready li{flex-direction:column;gap:.15rem;} .ready .st{flex:none;} }
+.faq details{border-top:1px solid var(--line);padding:.7rem 0;}
+.faq details:last-child{border-bottom:1px solid var(--line);}
+.faq summary{cursor:pointer;font-weight:600;color:var(--navy);list-style:none;position:relative;padding-left:1.4rem;}
+.faq summary::-webkit-details-marker{display:none;}
+.faq summary::before{content:"+";position:absolute;left:0;top:-.05rem;color:var(--teal);font-weight:700;font-size:1.1rem;}
+.faq details[open] summary::before{content:"\2212";}
+.faq summary:focus-visible,.btn:focus-visible,.interest input:focus-visible{outline:3px solid var(--teal);outline-offset:2px;}
+.faq p{margin:.5rem 0 0;font-size:.93rem;color:var(--muted);line-height:1.55;}
+.section-gap{margin-top:2.4rem;}
 </style>
 </head>
 <body>
@@ -132,6 +168,7 @@ footer .sig{display:block;}
     <li><a href="portfolio.html">Portfolio</a></li>
     <li><a href="speaking.html">Speaking</a></li>
     <li><a href="work-with-me.html">Work With Me</a></li>
+    <li><a href="build.html" class="active" aria-current="page">Course</a></li>
     <li><a href="maturity.html">Design Maturity</a></li>
     <li><a href="readiness.html">AI Readiness</a></li>
     <li><a href="about.html">About</a></li>
@@ -143,15 +180,123 @@ footer .sig{display:block;}
 
 <div class="wrap">
 
-  <div class="tick"></div>
-  <p class="eyebrow" style="margin-top:.8rem">For anyone carrying an idea</p>
-  <h1>You have an idea. Here is how to find out where you actually are with it.</h1>
-  <p class="lede">Most advice about ideas is someone guessing, usually confidently. This is not that. Below is a prompt you paste into Claude or ChatGPT. It walks through your idea with you and tells you three things: <b>what you have actually decided, what you are assuming, and what nobody can know yet.</b> That last one matters most, and it is the part everyone skips.</p>
+  <section class="hero" aria-labelledby="h-course">
+    <div class="tick"></div>
+    <p class="eyebrow" style="margin-top:.8rem">AI, Built On Paper &middot; the course</p>
+    <h1 id="h-course">Build your own app. Start on paper.</h1>
+    <p class="lede">You have an idea and no coding background. This course takes you from one sentence to <b>your whole app on paper, tested on real people</b>, then to <b>a plan any AI tool can follow</b>, then to <b>an app live at a real web address</b> that can take money. You do the work. You keep everything you make.</p>
+    <div class="acts">
+      <a class="btn p" href="#ways">See the ways in</a>
+      <a class="btn s" href="#free">Start free tonight</a>
+    </div>
+  </section>
 
+  <div class="promise" role="list" aria-label="What you leave with">
+    <div role="listitem"><b>Your whole app, on paper</b><span>Every part of it sketched, one sheet per part, and tested on people who have never seen it.</span></div>
+    <div role="listitem"><b>A plan an AI tool can follow</b><span>Four short documents, written with Claude or ChatGPT, kept where every later conversation can see them.</span></div>
+    <div role="listitem"><b>An app at a real address</b><span>The whole app clickable, with home and your first part actually working, and a way to take money.</span></div>
+  </div>
+
+  <div class="card section-gap" aria-labelledby="h-steps">
+    <h2 id="h-steps">The ten steps</h2>
+    <p class="sub" style="color:var(--muted);font-size:.95rem;margin:0 0 .4rem">Steps, not weeks. Every exercise has a timer, and you move at your own pace.</p>
+
+    <div class="phase">
+      <h3>On paper</h3>
+      <ul class="steps">
+        <li><span class="n">0</span><span class="t">Before you start: your idea in one sentence.</span></li>
+        <li><span class="n">1</span><span class="t">Outcome first: who it is for, and the one job it does.</span></li>
+        <li><span class="n">2</span><span class="t">Mind dump: everything it could do, sorted into areas and parts.</span></li>
+        <li><span class="n">3</span><span class="t">Paper the whole app, starting at sign-up or the home screen. One sheet per part.</span></li>
+        <li><span class="n">4</span><span class="t">Break it, twice: hand it to someone, give them a task, and watch. Where something isn't drawn, ask what they expected to see.</span></li>
+        <li><span class="n">5</span><span class="t">Change it: fix the paper from what you saw, and photograph every sheet.</span></li>
+      </ul>
+    </div>
+    <div class="phase">
+      <h3>In order</h3>
+      <ul class="steps">
+        <li><span class="n">6</span><span class="t">Set up a project in Claude or ChatGPT, then translate: our prompt, your photos and its questions turn into four documents.</span></li>
+        <li><span class="n">7</span><span class="t">Put the parts in build order and pick your tools.</span></li>
+      </ul>
+    </div>
+    <div class="phase">
+      <h3>To ship</h3>
+      <ul class="steps">
+        <li><span class="n">8</span><span class="t">Build it: the whole app clickable first, then one part at a time made real.</span></li>
+        <li><span class="n">9</span><span class="t">Business basics, and a named expert for the specifics.</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="honest">
+    <p><b>You follow one example the whole way.</b> At every step you see the same recipe app at that same stage: the mind dump, the paper, the test, the documents, the live app. You build your own app; the recipe app shows you what done looks like.</p>
+  </div>
+
+  <h2 class="section-gap" id="ways">Ways in</h2>
+  <div class="doors three">
+    <div class="door feature">
+      <h3>Founding live cohort</h3>
+      <div class="price">$897 <small>per seat &middot; 8 seats</small></div>
+      <ul>
+        <li>Seven live sessions, Saturdays 10 to 11:30am Central, starting 31 Oct</li>
+        <li>Every test video reviewed by me</li>
+        <li>The self-paced course, for life</li>
+        <li>Full refund until session 2</li>
+      </ul>
+      <p class="cap">Runs if at least five people join by Sat 24 Oct. If it doesn't run, every dollar comes back.</p>
+    </div>
+    <div class="door">
+      <h3>Self-paced course</h3>
+      <div class="price">$397</div>
+      <ul>
+        <li>Steps 0 to 8, every prompt and template</li>
+        <li>The recipe example at every step</li>
+        <li>Opens after the founding cohort</li>
+      </ul>
+    </div>
+    <div class="door">
+      <h3>In person</h3>
+      <div class="price" style="font-size:1.15rem">Steps 1 to 5 in one afternoon</div>
+      <ul>
+        <li><b>Colleges and student groups:</b> free this fall. Students continue online for free</li>
+        <li><b>Your team or organization:</b> a private workshop for up to 20</li>
+      </ul>
+      <a class="btn s" href="https://cal.com/aneil-razvi/intro" style="align-self:flex-start;margin-top:auto">Book a 15-minute intro</a>
+    </div>
+  </div>
+
+  <div class="card" id="join-card" aria-labelledby="h-join">
+    <h2 id="h-join">Hold your place</h2>
+    <p class="sub" style="color:var(--muted);font-size:.95rem">Leave your email and tick what you want. I'll send the seat link when the founding cohort opens, and nothing else.</p>
+    <div class="fields">
+      <fieldset class="interest" style="border:0;padding:0;margin:0">
+        <legend class="plab">I'm interested in</legend>
+        <label><input type="checkbox" name="interest" value="founding-cohort" checked/> A seat in the founding live cohort</label>
+        <label><input type="checkbox" name="interest" value="self-paced"/> The self-paced course when it opens</label>
+        <label><input type="checkbox" name="interest" value="in-person"/> An in-person workshop for my school or team</label>
+      </fieldset>
+      <label for="em" class="plab" style="margin:0">Email</label>
+      <input type="email" id="em" placeholder="you@email.com" autocomplete="email" inputmode="email"/>
+      <button class="btn p" id="join">Hold my place</button>
+    </div>
+    <p class="msg" id="jmsg" role="status" aria-live="polite"></p>
+  </div>
+
+  <div class="card" aria-labelledby="h-ready">
+    <h2 id="h-ready">What's ready</h2>
+    <p class="sub" style="color:var(--muted);font-size:.95rem;margin:0 0 .3rem">I'm building this in the open. This list changes as it does.</p>
+    <ul class="ready">
+      <li><span class="st done">Written</span><span>Step 1, outcome first, and its worksheet</span></li>
+      <li><span class="st doing">In progress</span><span>Step 2, the mind dump, and the recipe example for steps 0 to 2</span></li>
+      <li><span class="st next">With the cohort</span><span>Steps 3 to 9, taught live first, then recorded for the self-paced course</span></li>
+    </ul>
+  </div>
+
+  <h2 class="section-gap" id="free">Start free tonight</h2>
   <div class="card prompt" id="promptcard">
     <span class="freebadge">Free &middot; no email needed</span>
     <h2>The idea map</h2>
-    <p class="sub">Copy this, paste it into whichever assistant you use, and answer its questions honestly. It will not design anything until it has asked you what it needs to know. That is deliberate.</p>
+    <p class="sub">Not ready for a course? Copy this, paste it into whichever assistant you use, and answer its questions honestly. It tells you what you have actually decided, what you are assuming, and what nobody can know yet. It will not design anything until it has asked what it needs to know.</p>
     <p class="plab">Prompt</p>
     <div class="pwrap"><pre class="pbox" id="ptext"></pre></div>
     <p class="phint">That box scrolls. The whole thing is about forty lines and you do not have to read it here. Copy it and let it ask you the questions.</p>
@@ -159,45 +304,21 @@ footer .sig{display:block;}
       <button class="btn p" id="copy">Copy the prompt</button>
       <button class="btn s" id="dl">Download it</button>
     </div>
-    <p class="msg" id="pmsg"></p>
+    <p class="msg" id="pmsg" role="status" aria-live="polite"></p>
+  </div>
+
+  <div class="card faq" aria-labelledby="h-faq">
+    <h2 id="h-faq">Questions</h2>
+    <details><summary>Do I need to know how to code?</summary><p>No. The course is built for people who don't. You think on paper, test with real people, and then give an AI tool a plan clear enough to build from.</p></details>
+    <details><summary>How much time does it take?</summary><p>It depends on you, which is why there are steps instead of weeks. Every exercise has a timer, and when it ends you stop. The founding cohort meets for seven 90-minute Saturday sessions, with work in between.</p></details>
+    <details><summary>What if I miss a live session?</summary><p>Every session is recorded and posted within a day, and you get one short catch-up call with me. If life gets in the way, you can move to a later cohort once, free.</p></details>
+    <details><summary>Will my whole app be finished?</summary><p>Your whole app will be on paper, tested and planned, and clickable at a real address, with home and your first part working. You leave knowing how to build every other part the same way, one at a time.</p></details>
+    <details><summary>Who owns what I make?</summary><p>You do: your app, your paper and your documents. The course prompts and templates are for your own project.</p></details>
   </div>
 
   <div class="card">
-    <h2>What it does</h2>
-    <ul class="steps">
-      <li><span class="n">1</span><span class="t">Asks you to say the idea in plain words, then asks who it is for. Not a market. A person.</span></li>
-      <li><span class="n">2</span><span class="t">Separates what you know from what you believe. Most ideas die because nobody made that list.</span></li>
-      <li><span class="n">3</span><span class="t">Names the smallest version that would prove or kill the idea, and what that version would cost in time rather than money.</span></li>
-      <li><span class="n">4</span><span class="t">Marks what cannot be known yet, and says so plainly instead of filling it with a confident guess.</span></li>
-      <li><span class="n">5</span><span class="t">Gives you one thing to do this week. One.</span></li>
-    </ul>
-  </div>
-
-  <div class="honest">
-    <p><b>Why the unknowns get their own section.</b> A plan that hides its guesses feels better and is worth less. If you can see which three assumptions the whole thing rests on, you can go test those three instead of building for six months and finding out.</p>
-  </div>
-
-  <div class="doors">
-    <div class="door">
-      <h3>Tell me when the course opens</h3>
-      <p>I am building a course on taking an idea from a sentence to something real and launched. It is not finished and I am not going to pretend otherwise. Leave your email and I will tell you when there is a date and a price. Nothing else.</p>
-      <div class="fields">
-        <input type="email" id="em" placeholder="you@email.com" autocomplete="email" inputmode="email"/>
-        <button class="btn p" id="join">Keep me posted</button>
-      </div>
-      <p class="msg" id="jmsg"></p>
-    </div>
-    <div class="door">
-      <h3>Talk it through with me</h3>
-      <p class="cap">A few of these a month</p>
-      <p>Fifteen minutes, no pitch, no deck. You describe the idea and I tell you what I would do next and what I would not bother with. If it turns out you need something built, we can talk about that separately. Most people do not.</p>
-      <a class="btn s" href="https://cal.com/aneil-razvi/intro" style="align-self:flex-start;margin-top:.4rem">Find a time</a>
-    </div>
-  </div>
-
-  <div class="card">
-    <h2>Who is saying this</h2>
-    <p style="font-size:.96rem;color:var(--muted);line-height:1.6;margin-bottom:.8rem">I am Aneil Razvi. I have spent fifteen years leading product design, most recently at SPOTIO, and this year I designed and shipped a product on my own from a sentence to a live App Store release, brand and website included. I know what the middle of that looks like, including the parts that go badly.</p>
+    <h2>Who is teaching this</h2>
+    <p style="font-size:.96rem;color:var(--muted);line-height:1.6;margin-bottom:.8rem">I am Aneil Razvi. I have spent 15+ years leading product design and AI experience, most recently at SPOTIO, and I helped build the product design department at Southern New Hampshire University. This year I designed and shipped a product on my own, from a sentence to a live App Store release, brand and website included. I know what the middle of that looks like, including the parts that go badly.</p>
     <p style="font-size:.96rem;color:var(--muted);line-height:1.6;margin:0">Two other free things, if they are useful: <a href="readiness.html">what AI is actually doing to your job</a>, built on Department of Labor and Anthropic data, and <a href="maturity.html">where your design team actually sits</a>. Neither asks for an email either.</p>
   </div>
 
@@ -281,6 +402,8 @@ footer .sig{display:block;}
     fetch("/api/lead",{method:"POST",headers:{"Content-Type":"application/json"},
       body:JSON.stringify({
         email:v, source:"build", gated:true,
+        recommended_package:(function(){ var s=[].slice.call(document.querySelectorAll('input[name="interest"]:checked')).map(function(i){return i.value;}); return s.join(",")||null; })(),
+        answers:{ interest:[].slice.call(document.querySelectorAll('input[name="interest"]:checked')).map(function(i){return i.value;}), page:"course" },
         landing_path:location.pathname,
         referrer:document.referrer||null,
         session_id:(function(){ try{ var k=sessionStorage.getItem("bsid"); if(!k){k=Math.random().toString(36).slice(2)+Date.now().toString(36); sessionStorage.setItem("bsid",k);} return k; }catch(e){ return "nosession"; } })(),
@@ -288,11 +411,11 @@ footer .sig{display:block;}
         utm_campaign:qs.get("utm_campaign"), utm_content:qs.get("utm_content")
       })
     }).then(function(r){
-      btn.disabled=false; btn.textContent="Keep me posted";
-      if(r.ok){ document.getElementById("em").value=""; flash(jmsg,"You are on the list. I will only email you when there is a date."); }
+      btn.disabled=false; btn.textContent="Hold my place";
+      if(r.ok){ document.getElementById("em").value=""; flash(jmsg,"You are on the list. I will only email you when your seat link or a date is ready."); }
       else { flash(jmsg,"That did not save. Try again, or email hi@aneilrazvi.com.","err"); }
     }).catch(function(){
-      btn.disabled=false; btn.textContent="Keep me posted";
+      btn.disabled=false; btn.textContent="Hold my place";
       flash(jmsg,"That did not save. Try again, or email hi@aneilrazvi.com.","err");
     });
   });
