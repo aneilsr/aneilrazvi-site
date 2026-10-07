@@ -32,6 +32,14 @@
     {
       "source": "/squares",
       "destination": "/api/go?s=squares"
+    },
+    {
+      "source": "/build/how-it-works",
+      "destination": "/build/how-it-works.html"
+    },
+    {
+      "source": "/build/faq",
+      "destination": "/build/faq.html"
     }
   ]
 }
