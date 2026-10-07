@@ -565,7 +565,8 @@ export default async function handler(req, res) {
     let bScopeHtml = "";
     if (bScope) {
       const who = bWho[bScope.who] || "Someone";
-      const doneLine = bScope.done ? `${escH(who)} can ${escH(bScope.done)}, without asking you how.` : "Not written yet. That is the first thing to fix, and it is step 1 of the course.";
+      const doneLC = bScope.done ? (/^[A-Z][a-z]/.test(bScope.done) ? bScope.done.charAt(0).toLowerCase() + bScope.done.slice(1) : bScope.done) : "";
+      const doneLine = bScope.done ? `${escH(who)} can ${escH(doneLC)}, without asking you how.` : "Not written yet. That is the first thing to fix, and it is step 1 of the course.";
       const screens = Array.isArray(bScope.screens) ? bScope.screens.slice(0, 5).map(x => `<li style="margin:3px 0">${escH(x)}</li>`).join("") : "";
       bScopeHtml = `
   <tr><td style="padding:6px 34px 4px">
@@ -581,11 +582,51 @@ export default async function handler(req, res) {
     </table>
   </td></tr>`;
     }
+    const IDEA_MAP_PROMPT = [
+      "I have an idea I have been carrying around and I want to find out where I actually am with it, not be told it is great.",
+      "",
+      "Work through this with me in order. Do NOT design, name, or plan anything until you have asked me the questions in step 1 and I have answered them.",
+      "",
+      "STEP 1. Ask me these, one at a time, and wait for my answer each time:",
+      "  a. In one or two plain sentences, what is the idea?",
+      "  b. Who is one real person this is for? Describe them, not a market segment.",
+      "  c. What do they do today instead? Even if the answer is nothing.",
+      "  d. How long have you been thinking about this, and what has stopped you so far?",
+      "",
+      "STEP 2. Split what I told you into three lists and show them to me:",
+      "  KNOWN: things I have actually seen, tested, or been told by a real person.",
+      "  ASSUMED: things I believe but have not checked. Be blunt. Most of it will be here.",
+      "  UNKNOWABLE YET: things nobody could know at this stage. Do not guess to fill this in.",
+      "  If a list is short, say so rather than padding it.",
+      "",
+      "STEP 3. Name the three assumptions the whole idea rests on. If any of the three turns out to be wrong, the idea changes shape or dies. Rank them by how cheap they are to test.",
+      "",
+      "STEP 4. Describe the smallest version of this that would prove or kill assumption number one. Give me the cost in HOURS of my time, not in money, and assume I have no budget and no team.",
+      "",
+      "STEP 5. Give me exactly one thing to do in the next seven days. One. Make it something I can finish.",
+      "",
+      "RULES for how you answer:",
+      "- Do not tell me the idea is great. Tell me what is load bearing and what is decoration.",
+      "- If I have not given you enough to answer something, say that instead of inventing it.",
+      "- Assume I have no money to build this. Free and slow beats funded and imaginary.",
+      "- Keep it under 600 words after step 1.",
+      "",
+      "Source: this framing is by Aneil Razvi, aneilrazvi.com."
+    ].join("\n");
+    const bStep = "margin:6px 0 0;font:400 14.5px/1.6 Helvetica,Arial,sans-serif;color:#3B4651";
     const bIdeaMap = (bScope || bInt.includes("scope")) ? `
-  <tr><td style="padding:14px 34px 4px">
+  <tr><td style="padding:16px 34px 4px">
     <div style="${bH2}">Pressure-test it: the idea map</div>
-    <p style="${bP}">Paste this prompt into Claude or ChatGPT and answer its questions honestly. It splits your idea into what you actually know, what you are assuming, and what nobody can know yet.</p>
-    <a href="https://aneilrazvi.com/idea-map.html" style="${bBtn}">Get the idea map prompt</a>
+    <p style="${bP}">This is a prompt: a set of instructions you give to an AI assistant. It asks you hard questions about your idea, then sorts what you actually know from what you are guessing.</p>
+    <div style="${bLab}">How to use it</div>
+    <p style="${bStep}"><b>1.</b> Copy everything inside the grey box below, from "I have an idea" down to the last line.</p>
+    <p style="${bStep}"><b>2.</b> Open <a href="https://chatgpt.com" style="color:#0097A7">ChatGPT</a> or <a href="https://claude.ai" style="color:#0097A7">Claude</a>, start a new chat, and paste it in.</p>
+    <p style="${bStep}"><b>3.</b> Answer its questions one at a time.${bScope && bScope.idea ? ` For the first one, you can start with what you wrote: "${escH(bScope.idea)}"` : ""}</p>
+    <div style="${bLab}">Copy everything in this box</div>
+    <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;background:#F4F6F8;border:1px solid #CBD5DB;border-radius:10px;border-collapse:separate">
+      <tr><td style="padding:14px 16px;font:400 13px/1.55 Menlo,Consolas,'Courier New',monospace;color:#1A1A2E;white-space:pre-wrap;word-break:break-word">${escH(IDEA_MAP_PROMPT)}</td></tr>
+    </table>
+    <p style="margin:10px 0 0;font:400 13px/1.55 Helvetica,Arial,sans-serif;color:#6B7280">On a phone? <a href="https://aneilrazvi.com/idea-map.html" style="color:#0097A7">Open the idea map on the site</a>, where one button copies it for you.</p>
   </td></tr>` : "";
     const bCohort = wantsCohort ? `
   <tr><td style="padding:14px 34px 4px">
@@ -600,7 +641,7 @@ export default async function handler(req, res) {
     const bRoom = wantsRoom ? `
   <tr><td style="padding:14px 34px 4px">
     <div style="${bH2}">A workshop for your school or team</div>
-    <p style="${bP}">Reply with who it is for and a rough date, or grab 15 minutes at <a href="https://cal.com/aneil-razvi/intro" style="color:#0097A7">cal.com/aneil-razvi/intro</a>. Colleges and student groups are free this fall.</p>
+    <p style="${bP}">Reply with who it is for and a rough date, or grab 15 minutes at <a href="https://cal.com/aneil-razvi" style="color:#0097A7">cal.com/aneil-razvi</a>. Colleges and student groups are free this fall.</p>
   </td></tr>` : "";
     const bTitle = (bScope && !wantsCohort && !wantsSelf && !wantsRoom) ? "Your paper scope" : "You are on the list";
 
@@ -616,7 +657,7 @@ export default async function handler(req, res) {
   ${bScopeHtml}${bCohort}${bSelf}${bRoom}${bIdeaMap}
   <tr><td style="padding:18px 34px 6px">
     <p style="${bP}">If you would rather talk it through first, 15 minutes is at
-      <a href="https://cal.com/aneil-razvi/intro" style="color:#0097A7">cal.com/aneil-razvi/intro</a>. Replying to this email works too.</p>
+      <a href="https://cal.com/aneil-razvi" style="color:#0097A7">cal.com/aneil-razvi</a>. Replying to this email works too.</p>
   </td></tr>
   <tr><td style="padding:16px 34px 30px">
     ${SIG_HTML}
@@ -625,6 +666,17 @@ export default async function handler(req, res) {
 </div>`;
     const bSubject = bTitle === "Your paper scope" ? "Your paper scope" : (bScope ? "Your paper scope, and you are on the list" : "You are on the list for the course");
 
+    const aWho = { me: "Just them", team: "Their team or club", customers: "Their customers", community: "A community or group" };
+    const aMust = { signin: "people sign in", payments: "takes payments", photos: "photos or files", maps: "maps or location", messages: "messages or reminders", ai: "an AI helper inside" };
+    const aSize = { small: "Small", medium: "Medium", big: "Big" };
+    const aExp = { never: "Never", chat: "Has used ChatGPT or Claude", built: "Has built something" };
+    const aNote = wantsCohort
+      ? `<b style="color:#1A1A2E">Wants a founding seat.</b> Send the seat link within a day, with one line about their idea. The cohort runs with as few as one person.`
+      : wantsSelf
+      ? `<b style="color:#1A1A2E">Waiting for the self-paced course.</b> They get one email when it opens. Nothing to do now.`
+      : wantsRoom
+      ? `<b style="color:#1A1A2E">Asked about an in-person workshop.</b> Reply within a day and ask who it is for and when.`
+      : `<b style="color:#1A1A2E">Scoped an idea and left an email.</b> Their scope and the idea map prompt are already in their inbox. If you reply, keep it to one useful line about their idea and ask what has stopped them so far. No pitch.`;
     const toAneilBuild = `<div style="background:#F4F6F8;padding:24px 12px">
 <table role="presentation" cellpadding="0" cellspacing="0" style="max-width:600px;margin:0 auto;width:100%;background:#FFFFFF;border-radius:16px;border-collapse:separate;overflow:hidden">
   <tr><td style="height:5px;background:#00BCD4;font-size:0;line-height:0">&nbsp;</td></tr>
@@ -638,11 +690,14 @@ export default async function handler(req, res) {
 
   <tr><td style="padding:20px 30px 0">
     <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;font:400 14px/1.5 Helvetica,Arial,sans-serif">
-      <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280;width:38%">Interested in</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#1A1A2E;font-weight:700">${bInt.length ? escH(bInt.join(", ")) : "not stated"}</td></tr>
+      <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280;width:38%">Interested in</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#1A1A2E;font-weight:700">${bInt.length ? escH(bInt.map(k => ({ "scope": "Scoped an idea", "founding-cohort": "Founding cohort", "self-paced": "Self-paced", "in-person": "In-person workshop" })[k] || k).join(", ")) : "not stated"}</td></tr>
       ${bScope ? `<tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280;width:38%">Their idea</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#1A1A2E">${escH(bScope.idea || "")}</td></tr>
       <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280;width:38%">Done when someone can</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#1A1A2E">${escH(bScope.done || "not written")}</td></tr>
-      <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280;width:38%">Users, today, size</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#1A1A2E">${escH([bScope.who, bScope.today, bScope.size].filter(Boolean).join(" / "))}</td></tr>
-      <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280;width:38%">Must have, experience</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#1A1A2E">${escH([(bScope.must || []).join(", "), bScope.experience].filter(Boolean).join(" / "))}</td></tr>` : ""}
+      <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280;width:38%">Who it's for</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#1A1A2E">${escH(aWho[bScope.who] || bScope.who || "not picked")}</td></tr>
+      <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280;width:38%">What they use today</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#1A1A2E">${escH(bScope.today || "not picked")}</td></tr>
+      <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280;width:38%">Must have</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#1A1A2E">${escH((bScope.must || []).map(k => aMust[k] || k).join(", ") || "nothing picked")}</td></tr>
+      <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280;width:38%">How big</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#1A1A2E">${escH(aSize[bScope.size] || bScope.size || "")}</td></tr>
+      <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280;width:38%">Built anything before</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#1A1A2E">${escH(aExp[bScope.experience] || "not picked")}</td></tr>` : ""}
       <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280;width:38%">Came in via</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#1A1A2E">${b.utm_source || "direct"}${b.utm_medium ? " / " + b.utm_medium : ""}${b.utm_campaign ? " / " + b.utm_campaign : ""}</td></tr>
       <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280">Landed on</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#1A1A2E">${b.landing_path || "unknown"}</td></tr>
       <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280">Referrer</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#1A1A2E">${b.referrer || "none"}</td></tr>
@@ -652,7 +707,7 @@ export default async function handler(req, res) {
   <tr><td style="padding:20px 30px 0">
     <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;background:#F4F6F8;border-radius:10px;border:1px dashed #CBD5DB;border-collapse:separate">
       <tr><td style="padding:14px 18px;font:400 13.5px/1.6 Helvetica,Arial,sans-serif;color:#3B4651">
-        <b style="color:#1A1A2E">This is an idea, not a budget.</b> Someone on the build list is circling a project, often a not-for-profit one, and usually has no money to build it. Do not pitch a retainer. If you reply, ask what the idea is.
+        ${aNote}
       </td></tr>
     </table>
   </td></tr>
