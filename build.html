@@ -4,19 +4,19 @@
 <!-- SEO-START -->
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<meta name="description" content="AI, Built On Paper: a course that takes your idea from a sentence to a tested paper prototype, a plan any AI tool can follow, and an app live at a real web address. No coding background needed. Plus a free prompt to start tonight."/>
+<meta name="description" content="AI, Built On Paper: a small, live course for people with an idea and no coding background. Put your whole app on paper, test it on real people, then hand an AI tool a plan clear enough to build it. Founding cohort starts Sat 31 Oct."/>
 <meta name="author" content="Aneil Razvi"/>
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1"/>
 <link rel="canonical" href="https://aneilrazvi.com/build.html"/>
 <meta property="og:type" content="website"/>
 <meta property="og:site_name" content="Aneil Razvi"/>
 <meta property="og:title" content="Build Your Own App, Aneil Razvi"/>
-<meta property="og:description" content="Your idea on paper, tested, then live. The AI, Built On Paper course, plus a free prompt to start tonight."/>
+<meta property="og:description" content="Your idea on paper, tested, then live. A small, live course for non-coders. Founding cohort starts Sat 31 Oct."/>
 <meta property="og:url" content="https://aneilrazvi.com/build.html"/>
 <meta property="og:image" content="https://aneilrazvi.com/assets/og-image-v2.jpg"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="Build Your Own App, Aneil Razvi"/>
-<meta name="twitter:description" content="Your idea on paper, tested, then live. The AI, Built On Paper course, plus a free prompt to start tonight."/>
+<meta name="twitter:description" content="Your idea on paper, tested, then live. A small, live course for non-coders. Founding cohort starts Sat 31 Oct."/>
 <meta name="twitter:image" content="https://aneilrazvi.com/assets/og-image-v2.jpg"/>
 <!-- SEO-END -->
 <script defer src="assets/analytics.js"></script>
@@ -61,7 +61,7 @@ nav.site-nav.scrolled{background:rgba(255,255,255,.97);box-shadow:0 1px 14px rgb
 .nav-cta:hover{background:var(--teal-dark);color:var(--white);transform:translateY(-1px);}
 .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:6px;margin-left:14px;}
 .nav-hamburger span{width:24px;height:2px;background:var(--text);border-radius:2px;transition:transform .2s,opacity .2s;}
-@media(max-width:860px){
+@media(max-width:960px){
   nav.site-nav{flex-wrap:wrap;height:68px;align-content:center;}
   nav.site-nav .nav-links{display:none;}
   nav.site-nav .nav-hamburger{display:flex;}
@@ -122,32 +122,108 @@ pre.pbox{margin:0;background:var(--gray);border:1px solid var(--line);border-rad
 footer{margin-top:2.6rem;font-size:.84rem;color:var(--muted);}
 footer .sig{display:block;}
 
-/* course page additions, 5 Oct 2026 */
-.hero{padding-bottom:.4rem;}
-.promise{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin-top:1.4rem;}
-@media(max-width:720px){ .promise{grid-template-columns:1fr;} }
-.promise div{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);padding:1.1rem 1.2rem;}
-.promise b{display:block;font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:1.2rem;color:var(--navy);margin-bottom:.3rem;}
-.promise span{font-size:.92rem;color:var(--muted);line-height:1.5;}
-.phase{margin-top:1rem;}
-.phase h3{color:var(--navy);margin-bottom:.2rem;}
-.phase .plab{margin:.2rem 0 .4rem;}
-.doors.three{grid-template-columns:repeat(3,minmax(0,1fr));}
-@media(max-width:900px){ .doors.three{grid-template-columns:1fr;} }
-.door .price{font-family:'DM Serif Display',Georgia,serif;font-size:1.5rem;color:var(--navy);margin:.1rem 0 .5rem;}
+/* course page v2, 5 Oct 2026: sales-first, swipe cards, scoper */
+.hero{padding-bottom:.2rem;}
+.facts{display:flex;flex-wrap:wrap;gap:.45rem;margin:1rem 0 1.1rem;padding:0;list-style:none;}
+.facts li{background:var(--white);border:1px solid var(--line);border-radius:999px;padding:.32rem .75rem;font-size:.82rem;font-weight:600;color:var(--navy);}
+.buy{display:flex;flex-wrap:wrap;align-items:center;gap:.8rem 1.2rem;}
+.buy .amt{font-family:'DM Serif Display',Georgia,serif;font-size:2.1rem;line-height:1;color:var(--navy);}
+.buy .amt small{display:block;font-family:'Inter',sans-serif;font-size:.74rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--orange-dark);margin-top:.3rem;}
+.buy .acts{margin-top:0;}
+.micro{font-size:.84rem;color:var(--muted);margin:.7rem 0 0;}
+.micro b{color:var(--text);font-weight:600;}
+.cred{margin-top:1.3rem;padding-top:1rem;border-top:1px solid var(--line);font-size:.86rem;color:var(--muted);line-height:1.55;}
+.cred b{color:var(--navy);font-weight:600;}
+.why{margin-top:2.4rem;}
+.why p{font-size:1.02rem;color:var(--muted);max-width:42rem;}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin-top:1.1rem;}
+.grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem;margin-top:1.1rem;}
+@media(max-width:860px){ .grid4{grid-template-columns:repeat(2,minmax(0,1fr));} }
+@media(max-width:560px){ .grid2,.grid4{grid-template-columns:1fr;} }
+.tile{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);padding:1.1rem 1.2rem;}
+.tile b{display:block;font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:1.15rem;color:var(--navy);margin-bottom:.3rem;line-height:1.25;}
+.tile span{font-size:.9rem;color:var(--muted);line-height:1.5;display:block;}
+.fit ul{list-style:none;padding:0;margin:.4rem 0 0;}
+.fit li{position:relative;padding:.35rem 0 .35rem 1.6rem;font-size:.93rem;line-height:1.5;}
+.fit li::before{position:absolute;left:0;top:.33rem;font-weight:800;}
+.fit .yes li::before{content:"\2713";color:var(--teal-dark);}
+.fit .no li::before{content:"\00D7";color:var(--orange-dark);font-size:1.1rem;top:.22rem;}
+.fit h3{font-size:1.1rem;color:var(--navy);}
+/* swipe rails */
+.rail{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:1rem;margin-top:1.1rem;padding:.3rem .15rem 1rem;
+  overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch;}
+.rail::-webkit-scrollbar{display:none;}
+.rail > *{scroll-snap-align:start;}
+.railnav{display:none;align-items:center;justify-content:space-between;gap:.8rem;margin-top:-.2rem;}
+.railnav .count{font-size:.82rem;font-weight:600;color:var(--muted);}
+.railnav button{width:44px;height:44px;border-radius:50%;border:2px solid var(--line-firm);background:var(--white);color:var(--navy);
+  font:700 1.1rem/1 'Inter',sans-serif;cursor:pointer;}
+.railnav button:disabled{opacity:.35;cursor:default;}
+.railnav button:focus-visible{outline:3px solid var(--teal);outline-offset:2px;}
+@media(max-width:860px){
+  .rail{grid-auto-columns:86%;margin-left:-1.15rem;margin-right:-1.15rem;padding-left:1.15rem;padding-right:1.15rem;scroll-padding-left:1.15rem;}
+  .railnav{display:flex;}
+}
+.phase{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);padding:1.2rem 1.25rem;display:flex;flex-direction:column;}
+.phase .k{font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--teal-dark);}
+.phase h3{color:var(--navy);margin:.25rem 0 .35rem;}
+.phase p{font-size:.9rem;color:var(--muted);line-height:1.5;margin:0 0 .8rem;flex:1 1 auto;}
+.phase .out{font-size:.82rem;font-weight:600;color:var(--navy);border-top:1px solid var(--line);padding-top:.6rem;}
+.door{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);padding:1.35rem 1.4rem 1.45rem;display:flex;flex-direction:column;}
+.door h3{margin-bottom:.2rem;}
+.door .tag{align-self:flex-start;font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:.25rem .6rem;border-radius:999px;background:var(--teal-wash);color:var(--teal-dark);margin-bottom:.6rem;}
+.door .price{font-family:'DM Serif Display',Georgia,serif;font-size:1.7rem;color:var(--navy);margin:.1rem 0 .6rem;}
 .door .price small{font-family:'Inter',sans-serif;font-size:.8rem;color:var(--muted);}
-.door ul{margin:0 0 1rem;padding-left:1.1rem;font-size:.9rem;color:var(--muted);line-height:1.5;}
-.door ul li{margin-bottom:.25rem;}
-.door.feature{border-top:5px solid var(--teal);}
+.door ul{margin:0 0 1rem;padding-left:1.1rem;font-size:.9rem;color:var(--muted);line-height:1.5;flex:1 1 auto;}
+.door ul li{margin-bottom:.3rem;}
+.door .small{font-size:.8rem;color:var(--muted);margin:.6rem 0 0;line-height:1.45;flex:none;}
+.door.feature{border-top:5px solid var(--teal);box-shadow:var(--shadow-lg);}
+.door .btn{text-align:center;}
+.note{font-size:.88rem;color:var(--muted);margin:.4rem 0 0;}
+.sched{list-style:none;padding:0;margin:.6rem 0 0;counter-reset:s;}
+.sched li{display:flex;gap:.9rem;align-items:baseline;padding:.55rem 0;border-top:1px solid var(--line);font-size:.93rem;}
+.sched li:last-child{border-bottom:1px solid var(--line);}
+.sched .d{flex:0 0 6.6rem;font-weight:700;color:var(--navy);}
+.sched li.skip{color:var(--muted);font-size:.85rem;}
+.founding{background:var(--navy);color:#fff;border-radius:var(--radius);padding:1.5rem 1.6rem;margin-top:1.4rem;}
+.founding h2{color:#fff;}
+.founding p{color:rgba(255,255,255,.82);font-size:.97rem;margin:0 0 .8rem;}
+.founding .btn.p{margin-top:.3rem;}
+/* scoper */
+.scoper .q{margin:0 0 1rem;}
+.scoper label.l,.scoper .l{display:block;font-weight:600;font-size:.93rem;color:var(--navy);margin-bottom:.4rem;}
+.scoper input[type=text]{font-family:inherit;font-size:1rem;padding:.75rem .85rem;border:2px solid var(--line-firm);border-radius:var(--radius-sm);width:100%;background:var(--white);color:var(--text);}
+.scoper input[type=text]:focus{outline:none;border-color:var(--teal);}
+.chips{display:flex;flex-wrap:wrap;gap:.45rem;}
+.chips label{position:relative;}
+.chips input{position:absolute;opacity:0;width:1px;height:1px;}
+.chips span{display:inline-block;padding:.5rem .85rem;border:2px solid var(--line-firm);border-radius:999px;font-size:.88rem;cursor:pointer;background:var(--white);min-height:40px;}
+.chips input:checked + span{border-color:var(--teal-dark);background:var(--teal-wash);color:var(--teal-dark);font-weight:600;}
+.chips input:focus-visible + span{outline:3px solid var(--teal);outline-offset:2px;}
+.result{display:none;margin-top:1.2rem;border:2px dashed var(--teal);border-radius:var(--radius);padding:1.2rem 1.25rem;background:#FBFEFF;}
+.result.on{display:block;}
+.result h3{color:var(--navy);}
+.result dl{margin:.4rem 0 0;}
+.result dt{font-size:.72rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--teal-dark);margin-top:.8rem;}
+.result dd{margin:.2rem 0 0;font-size:.95rem;line-height:1.55;}
+.result ol{margin:.2rem 0 0;padding-left:1.2rem;}
+.result .gate{margin-top:1.1rem;padding-top:1rem;border-top:1px solid var(--line);}
+.optin{display:flex;gap:.55rem;align-items:flex-start;font-size:.88rem;margin:.6rem 0 .2rem;cursor:pointer;}
+.optin input{margin-top:.2rem;width:1.05rem;height:1.05rem;accent-color:var(--teal-dark);}
+/* sticky mobile bar */
+.stickybar{position:fixed;left:0;right:0;bottom:0;z-index:50;display:none;align-items:center;justify-content:space-between;gap:.8rem;
+  padding:.65rem 1rem calc(.65rem + env(safe-area-inset-bottom));background:rgba(255,255,255,.97);border-top:1px solid var(--line);box-shadow:0 -6px 20px rgba(0,0,0,.08);}
+.stickybar .t{font-size:.84rem;line-height:1.3;color:var(--navy);}
+.stickybar .t b{display:block;font-size:.95rem;}
+.stickybar .btn{padding:.65rem 1rem;white-space:nowrap;}
+@media(max-width:760px){ .stickybar.show{display:flex;} body{padding-bottom:4.6rem;} }
+.final{text-align:center;margin-top:2.6rem;}
+section[id],.card[id]{scroll-margin-top:84px;}
+.final p{color:var(--muted);}
+.final .acts{justify-content:center;}
 .interest{display:flex;flex-direction:column;gap:.45rem;margin:.2rem 0 .7rem;font-size:.9rem;}
 .interest label{display:flex;gap:.55rem;align-items:flex-start;cursor:pointer;}
 .interest input{margin-top:.25rem;width:1.05rem;height:1.05rem;accent-color:var(--teal-dark);}
-.ready{list-style:none;padding:0;margin:.4rem 0 0;}
-.ready li{display:flex;gap:.7rem;align-items:baseline;padding:.5rem 0;border-top:1px solid var(--line);font-size:.93rem;}
-.ready li:last-child{border-bottom:1px solid var(--line);}
-.ready .st{flex:0 0 7.4rem;font-size:.72rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;}
-.ready .st.done{color:var(--teal-dark);} .ready .st.doing{color:var(--orange-dark);} .ready .st.next{color:var(--muted);}
-@media(max-width:520px){ .ready li{flex-direction:column;gap:.15rem;} .ready .st{flex:none;} }
 .faq details{border-top:1px solid var(--line);padding:.7rem 0;}
 .faq details:last-child{border-bottom:1px solid var(--line);}
 .faq summary{cursor:pointer;font-weight:600;color:var(--navy);list-style:none;position:relative;padding-left:1.4rem;}
@@ -157,6 +233,10 @@ footer .sig{display:block;}
 .faq summary:focus-visible,.btn:focus-visible,.interest input:focus-visible{outline:3px solid var(--teal);outline-offset:2px;}
 .faq p{margin:.5rem 0 0;font-size:.93rem;color:var(--muted);line-height:1.55;}
 .section-gap{margin-top:2.4rem;}
+
+/* NAV FIT (5 Oct 2026): ten links, every label on one line; menu button below 961px */
+.nav-links a{white-space:nowrap}
+@media (min-width:961px) and (max-width:1279px){.nav-links{gap:clamp(12px,1.6vw,26px)}.nav-links a{font-size:.8125rem;letter-spacing:0}nav.site-nav{padding:0 3%}}
 </style>
 </head>
 <body>
@@ -182,151 +262,242 @@ footer .sig{display:block;}
 
   <section class="hero" aria-labelledby="h-course">
     <div class="tick"></div>
-    <p class="eyebrow" style="margin-top:.8rem">AI, Built On Paper &middot; the course</p>
+    <p class="eyebrow" style="margin-top:.8rem">AI, Built On Paper &middot; founding cohort</p>
     <h1 id="h-course">Build your own app. Start on paper.</h1>
-    <p class="lede">You have an idea and no coding background. This course takes you from one sentence to <b>your whole app on paper, tested on real people</b>, then to <b>a plan any AI tool can follow</b>, then to <b>an app live at a real web address</b> that can take money. You do the work. You keep everything you make.</p>
-    <div class="acts">
-      <a class="btn p" href="#ways">See the ways in</a>
-      <a class="btn s" href="#free">Start free tonight</a>
+    <p class="lede">A small, live course for people with an idea and no coding background. You put your whole app on paper, test it on real people, then hand an AI tool a plan clear enough to build it.</p>
+    <ul class="facts" aria-label="Course facts">
+      <li>Starts Sat 31 Oct</li>
+      <li>7 live sessions</li>
+      <li>Saturdays, 10 to 11:30am CT</li>
+      <li>Online</li>
+      <li>8 seats max</li>
+    </ul>
+    <div class="buy">
+      <div class="amt">$897<small>Founding price</small></div>
+      <div class="acts">
+        <a class="btn p" href="#seat" data-pick="founding-cohort">Hold a founding seat</a>
+        <a class="btn s" href="#scope">Scope your idea free</a>
+      </div>
+    </div>
+    <p class="micro"><b>Full refund until session 2.</b> No coding needed. Enrollment closes Sat 24 Oct.</p>
+    <p class="cred">Taught by <b>Aneil Razvi</b>: 15+ years leading product design and AI experience at SPOTIO, Omnitracs, Capital One and Citi. Helped build the product design department at Southern New Hampshire University.</p>
+  </section>
+
+  <section class="why" aria-labelledby="h-why">
+    <h2 id="h-why">AI will build whatever you describe. Including the wrong thing.</h2>
+    <p>Building used to be slow, and the slowness caught bad ideas before they cost much. That safety net is gone. This course puts it back where it's cheapest: on paper, in front of real people, before anything gets built.</p>
+  </section>
+
+  <section class="section-gap" aria-labelledby="h-leave">
+    <h2 id="h-leave">What you leave with</h2>
+    <div class="grid4">
+      <div class="tile"><b>Your whole app, on paper</b><span>Every part sketched, and tested on people who have never seen it.</span></div>
+      <div class="tile"><b>A plan any AI tool can follow</b><span>Four short documents, kept in a Claude or ChatGPT Project.</span></div>
+      <div class="tile"><b>Your app at a real web address</b><span>The whole thing clickable, with home and your first part working.</span></div>
+      <div class="tile"><b>A way to take money</b><span>Plus the questions to ask an accountant before you do.</span></div>
     </div>
   </section>
 
-  <div class="promise" role="list" aria-label="What you leave with">
-    <div role="listitem"><b>Your whole app, on paper</b><span>Every part of it sketched, one sheet per part, and tested on people who have never seen it.</span></div>
-    <div role="listitem"><b>A plan an AI tool can follow</b><span>Four short documents, written with Claude or ChatGPT, kept where every later conversation can see them.</span></div>
-    <div role="listitem"><b>An app at a real address</b><span>The whole app clickable, with home and your first part actually working, and a way to take money.</span></div>
-  </div>
+  <section class="section-gap fit" aria-labelledby="h-fit">
+    <h2 id="h-fit">Is this for you?</h2>
+    <div class="grid2">
+      <div class="tile yes"><h3>Yes, if</h3><ul>
+        <li>You have an idea you keep coming back to</li>
+        <li>You've never written code, or don't want to</li>
+        <li>You'd rather test it on people than guess</li>
+        <li>You can give it Saturday mornings and a few evenings</li>
+      </ul></div>
+      <div class="tile no"><h3>Skip it if</h3><ul>
+        <li>You want someone to build it for you</li>
+        <li>You want to learn to code</li>
+        <li>You're looking for a get-rich-quick app</li>
+      </ul></div>
+    </div>
+  </section>
 
-  <div class="card section-gap" aria-labelledby="h-steps">
-    <h2 id="h-steps">The ten steps</h2>
-    <p class="sub" style="color:var(--muted);font-size:.95rem;margin:0 0 .4rem">Steps, not weeks. Every exercise has a timer, and you move at your own pace.</p>
+  <section class="section-gap" aria-labelledby="h-how">
+    <h2 id="h-how">How it works</h2>
+    <p class="note">Ten steps in four stages. Each stage ends with something you can hold.</p>
+    <div class="rail" id="rail-how" tabindex="0" aria-label="The four stages, swipe for more">
+      <article class="phase"><span class="k">Stage 1 &middot; Steps 0 to 2</span><h3>Define</h3><p>Your idea in one sentence, what done looks like, and everything it could do, sorted on one page.</p><div class="out">You leave with: the whole app on one page</div></article>
+      <article class="phase"><span class="k">Stage 2 &middot; Step 3</span><h3>Paper</h3><p>Every part of your app on paper, one sheet per part, starting where your users start.</p><div class="out">You leave with: the product, before spending a dollar</div></article>
+      <article class="phase"><span class="k">Stage 3 &middot; Steps 4 and 5</span><h3>Test</h3><p>Hand it to people who have never seen it, watch where they get lost, and fix the paper.</p><div class="out">You leave with: a tested design, in photos</div></article>
+      <article class="phase"><span class="k">Stage 4 &middot; Steps 6 to 9</span><h3>Build and ship</h3><p>Turn the paper into a plan an AI can follow, build it one part at a time, and set up how it takes money.</p><div class="out">You leave with: your app, live</div></article>
+    </div>
+    <div class="railnav" data-rail="rail-how"><button type="button" class="prev" aria-label="Previous stage">&#8592;</button><span class="count" aria-live="polite">1 of 4</span><button type="button" class="next" aria-label="Next stage">&#8594;</button></div>
+    <p class="note">You follow one worked example all the way through: a recipe app we build alongside you, so you always see what done looks like at the step you're on.</p>
+  </section>
 
-    <div class="phase">
-      <h3>On paper</h3>
-      <ul class="steps">
-        <li><span class="n">0</span><span class="t">Before you start: your idea in one sentence.</span></li>
-        <li><span class="n">1</span><span class="t">Outcome first: who it is for, and the one job it does.</span></li>
-        <li><span class="n">2</span><span class="t">Mind dump: everything it could do, sorted into areas and parts.</span></li>
-        <li><span class="n">3</span><span class="t">Paper the whole app, starting at sign-up or the home screen. One sheet per part.</span></li>
-        <li><span class="n">4</span><span class="t">Break it, twice: hand it to someone, give them a task, and watch. Where something isn't drawn, ask what they expected to see.</span></li>
-        <li><span class="n">5</span><span class="t">Change it: fix the paper from what you saw, and photograph every sheet.</span></li>
-      </ul>
+  <section class="section-gap" id="ways" aria-labelledby="h-ways">
+    <h2 id="h-ways">Ways in</h2>
+    <div class="rail" id="rail-ways" tabindex="0" aria-label="Ways in, swipe for more">
+      <article class="door feature">
+        <span class="tag">Starts Sat 31 Oct</span>
+        <h3>Founding live cohort</h3>
+        <div class="price">$897 <small>or two payments of $459</small></div>
+        <ul>
+          <li>Seven live sessions, Saturdays 10 to 11:30am Central</li>
+          <li>Every test video reviewed by me</li>
+          <li>The self-paced course, yours for life</li>
+          <li>Sit in on future cohorts' live sessions, free</li>
+        </ul>
+        <a class="btn p" href="#seat" data-pick="founding-cohort">Hold a founding seat</a>
+        <p class="small">Small by design: 1 to 8 people. It runs even if you're the first one in. Full refund until session 2.</p>
+      </article>
+      <article class="door">
+        <span class="tag">Opens after the cohort</span>
+        <h3>Self-paced</h3>
+        <div class="price">$397</div>
+        <ul>
+          <li>Steps 0 to 8, every kit and template</li>
+          <li>The worked example at every step</li>
+          <li>Go at your own speed</li>
+        </ul>
+        <a class="btn s" href="#seat" data-pick="self-paced">Tell me when it opens</a>
+      </article>
+      <article class="door">
+        <span class="tag">Schools and teams</span>
+        <h3>In person</h3>
+        <div class="price">One afternoon</div>
+        <ul>
+          <li>Steps 1 to 5 in a room, laptops closed</li>
+          <li>Colleges and student groups: free this fall</li>
+          <li>Your team or organization: a private workshop</li>
+        </ul>
+        <a class="btn s" href="https://cal.com/aneil-razvi/intro" target="_blank" rel="noopener">Book a 15-minute intro</a>
+      </article>
     </div>
-    <div class="phase">
-      <h3>In order</h3>
-      <ul class="steps">
-        <li><span class="n">6</span><span class="t">Set up a project in Claude or ChatGPT, then translate: our prompt, your photos and its questions turn into four documents.</span></li>
-        <li><span class="n">7</span><span class="t">Put the parts in build order and pick your tools.</span></li>
-      </ul>
-    </div>
-    <div class="phase">
-      <h3>To ship</h3>
-      <ul class="steps">
-        <li><span class="n">8</span><span class="t">Build it: the whole app clickable first, then one part at a time made real.</span></li>
-        <li><span class="n">9</span><span class="t">Business basics, and a named expert for the specifics.</span></li>
-      </ul>
-    </div>
-  </div>
+    <div class="railnav" data-rail="rail-ways"><button type="button" class="prev" aria-label="Previous option">&#8592;</button><span class="count" aria-live="polite">1 of 3</span><button type="button" class="next" aria-label="Next option">&#8594;</button></div>
+  </section>
 
-  <div class="honest">
-    <p><b>You follow one example the whole way.</b> At every step you see the same recipe app at that same stage: the mind dump, the paper, the test, the documents, the live app. You build your own app; the recipe app shows you what done looks like.</p>
-  </div>
+  <section class="card" aria-labelledby="h-sched">
+    <h2 id="h-sched">The founding cohort, session by session</h2>
+    <p class="note">Saturdays, 10 to 11:30am Central, online. Every session is recorded.</p>
+    <ol class="sched">
+      <li><span class="d">Sat 31 Oct</span>Session 1</li>
+      <li><span class="d">Sat 7 Nov</span>Session 2</li>
+      <li><span class="d">Sat 14 Nov</span>Session 3</li>
+      <li><span class="d">Sat 21 Nov</span>Session 4</li>
+      <li class="skip"><span class="d">Sat 28 Nov</span>No session, Thanksgiving weekend</li>
+      <li><span class="d">Sat 5 Dec</span>Session 5</li>
+      <li><span class="d">Sat 12 Dec</span>Session 6</li>
+      <li><span class="d">Sat 19 Dec</span>Session 7: demo day, show your app</li>
+    </ol>
+  </section>
 
-  <h2 class="section-gap" id="ways">Ways in</h2>
-  <div class="doors three">
-    <div class="door feature">
-      <h3>Founding live cohort</h3>
-      <div class="price">$897 <small>per seat &middot; 8 seats</small></div>
-      <ul>
-        <li>Seven live sessions, Saturdays 10 to 11:30am Central, starting 31 Oct</li>
-        <li>Every test video reviewed by me</li>
-        <li>The self-paced course, for life</li>
-        <li>Full refund until session 2</li>
-      </ul>
-      <p class="cap">Runs if at least five people join by Sat 24 Oct. If it doesn't run, every dollar comes back.</p>
-    </div>
-    <div class="door">
-      <h3>Self-paced course</h3>
-      <div class="price">$397</div>
-      <ul>
-        <li>Steps 0 to 8, every prompt and template</li>
-        <li>The recipe example at every step</li>
-        <li>Opens after the founding cohort</li>
-      </ul>
-    </div>
-    <div class="door">
-      <h3>In person</h3>
-      <div class="price" style="font-size:1.15rem">Steps 1 to 5 in one afternoon</div>
-      <ul>
-        <li><b>Colleges and student groups:</b> free this fall. Students continue online for free</li>
-        <li><b>Your team or organization:</b> a private workshop for up to 20</li>
-      </ul>
-      <a class="btn s" href="https://cal.com/aneil-razvi/intro" style="align-self:flex-start;margin-top:auto">Book a 15-minute intro</a>
-    </div>
-  </div>
+  <section class="founding" aria-labelledby="h-founding">
+    <h2 id="h-founding">Why it's called founding</h2>
+    <p>You're the first group through. You get the lowest price, the most of my time, and a say in how the course takes shape. In return I ask for honest feedback and, only if you're happy to, a few words about it afterward.</p>
+    <p>A group of one or two is fine. You just get more of me.</p>
+    <a class="btn p" href="#seat" data-pick="founding-cohort">Hold a founding seat</a>
+  </section>
 
-  <div class="card" id="join-card" aria-labelledby="h-join">
-    <h2 id="h-join">Hold your place</h2>
-    <p class="sub" style="color:var(--muted);font-size:.95rem">Leave your email and tick what you want. I'll send the seat link when the founding cohort opens, and nothing else.</p>
+  <section class="card scoper" id="scope" aria-labelledby="h-scope">
+    <h2 id="h-scope">Not ready yet? Scope your idea in two minutes.</h2>
+    <p class="note" style="margin-bottom:1.1rem">Six quick questions. You get your paper scope right here: what done looks like, the screens to sketch first, and roughly how big it is. Free.</p>
+    <form id="scopeform" novalidate>
+      <div class="q"><label class="l" for="s-idea">1. Your idea in one sentence</label><input type="text" id="s-idea" maxlength="200" placeholder="A recipe app that cooks from what's already in the house"></div>
+      <div class="q"><span class="l" id="l-who">2. Who will use it?</span><div class="chips" role="radiogroup" aria-labelledby="l-who">
+        <label><input type="radio" name="who" value="me"><span>Just me</span></label>
+        <label><input type="radio" name="who" value="team"><span>My team or club</span></label>
+        <label><input type="radio" name="who" value="customers"><span>My customers</span></label>
+        <label><input type="radio" name="who" value="community"><span>A community or group</span></label>
+      </div></div>
+      <div class="q"><label class="l" for="s-done">3. It's done when someone can...</label><input type="text" id="s-done" maxlength="160" placeholder="pick tonight's dinner in under two minutes"><span class="note" style="display:block">...without asking you how.</span></div>
+      <div class="q"><span class="l" id="l-today">4. What do they use today instead?</span><div class="chips" role="radiogroup" aria-labelledby="l-today">
+        <label><input type="radio" name="today" value="paper or notes"><span>Paper or notes</span></label>
+        <label><input type="radio" name="today" value="a spreadsheet"><span>A spreadsheet</span></label>
+        <label><input type="radio" name="today" value="group texts or email"><span>Group texts or email</span></label>
+        <label><input type="radio" name="today" value="another app"><span>Another app</span></label>
+        <label><input type="radio" name="today" value="nothing yet"><span>Nothing yet</span></label>
+      </div></div>
+      <div class="q"><span class="l" id="l-must">5. Must it have any of these? Pick all that apply.</span><div class="chips" aria-labelledby="l-must">
+        <label><input type="checkbox" name="must" value="signin"><span>People sign in</span></label>
+        <label><input type="checkbox" name="must" value="payments"><span>Takes payments</span></label>
+        <label><input type="checkbox" name="must" value="photos"><span>Photos or files</span></label>
+        <label><input type="checkbox" name="must" value="maps"><span>Maps or location</span></label>
+        <label><input type="checkbox" name="must" value="messages"><span>Messages or reminders</span></label>
+        <label><input type="checkbox" name="must" value="ai"><span>An AI helper inside</span></label>
+      </div></div>
+      <div class="q"><span class="l" id="l-exp">6. Have you built anything before?</span><div class="chips" role="radiogroup" aria-labelledby="l-exp">
+        <label><input type="radio" name="exp" value="never"><span>Never</span></label>
+        <label><input type="radio" name="exp" value="chat"><span>I've used ChatGPT or Claude</span></label>
+        <label><input type="radio" name="exp" value="built"><span>I've built something</span></label>
+      </div></div>
+      <button type="submit" class="btn p">Show my paper scope</button>
+      <p class="msg" id="smsg" role="status" aria-live="polite"></p>
+    </form>
+
+    <div class="result" id="result" aria-live="polite">
+      <h3>Your paper scope</h3>
+      <dl>
+        <dt>Done looks like</dt><dd id="r-done"></dd>
+        <dt>Sketch these first</dt><dd><ol id="r-screens"></ol></dd>
+        <dt>How big is it</dt><dd id="r-size"></dd>
+        <dt>What you're up against</dt><dd id="r-today"></dd>
+        <dt>Where you'd start</dt><dd id="r-start"></dd>
+      </dl>
+      <div class="gate">
+        <p style="margin:0 0 .6rem;font-weight:600;color:var(--navy)">Want it in your inbox, plus the idea map prompt that pressure-tests it?</p>
+        <div class="fields"><input type="email" id="sem" placeholder="you@email.com" autocomplete="email" aria-label="Your email"></div>
+        <label class="optin"><input type="checkbox" id="sopt"> Also tell me about the founding cohort</label>
+        <button class="btn p" id="ssend" type="button">Email me my scope</button>
+        <p class="msg" id="semsg" role="status" aria-live="polite"></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="card" id="seat" aria-labelledby="h-seat">
+    <h2 id="h-seat">Hold your place</h2>
+    <p class="note" style="margin-bottom:.9rem">Leave your email and tick what you want. For the founding cohort, I'll send your seat link. No payment yet.</p>
+    <p class="plab" style="margin-bottom:.4rem">I'm interested in</p>
+    <div class="interest">
+      <label><input type="checkbox" name="interest" value="founding-cohort" checked> A seat in the founding live cohort</label>
+      <label><input type="checkbox" name="interest" value="self-paced"> The self-paced course when it opens</label>
+      <label><input type="checkbox" name="interest" value="in-person"> An in-person workshop for my school or team</label>
+    </div>
     <div class="fields">
-      <fieldset class="interest" style="border:0;padding:0;margin:0">
-        <legend class="plab">I'm interested in</legend>
-        <label><input type="checkbox" name="interest" value="founding-cohort" checked/> A seat in the founding live cohort</label>
-        <label><input type="checkbox" name="interest" value="self-paced"/> The self-paced course when it opens</label>
-        <label><input type="checkbox" name="interest" value="in-person"/> An in-person workshop for my school or team</label>
-      </fieldset>
-      <label for="em" class="plab" style="margin:0">Email</label>
-      <input type="email" id="em" placeholder="you@email.com" autocomplete="email" inputmode="email"/>
-      <button class="btn p" id="join">Hold my place</button>
+      <label class="plab" for="em" style="margin:0">Email</label>
+      <input type="email" id="em" placeholder="you@email.com" autocomplete="email">
+      <button class="btn p" id="join" type="button">Hold my place</button>
     </div>
     <p class="msg" id="jmsg" role="status" aria-live="polite"></p>
-  </div>
+  </section>
 
-  <div class="card" aria-labelledby="h-ready">
-    <h2 id="h-ready">What's ready</h2>
-    <p class="sub" style="color:var(--muted);font-size:.95rem;margin:0 0 .3rem">I'm building this in the open. This list changes as it does.</p>
-    <ul class="ready">
-      <li><span class="st done">Written</span><span>Step 1, outcome first, and its worksheet</span></li>
-      <li><span class="st doing">In progress</span><span>Step 2, the mind dump, and the recipe example for steps 0 to 2</span></li>
-      <li><span class="st next">With the cohort</span><span>Steps 3 to 9, taught live first, then recorded for the self-paced course</span></li>
-    </ul>
-  </div>
-
-  <h2 class="section-gap" id="free">Start free tonight</h2>
-  <div class="card prompt" id="promptcard">
-    <span class="freebadge">Free &middot; no email needed</span>
-    <h2>The idea map</h2>
-    <p class="sub">Not ready for a course? Copy this, paste it into whichever assistant you use, and answer its questions honestly. It tells you what you have actually decided, what you are assuming, and what nobody can know yet. It will not design anything until it has asked what it needs to know.</p>
-    <p class="plab">Prompt</p>
-    <div class="pwrap"><pre class="pbox" id="ptext"></pre></div>
-    <p class="phint">That box scrolls. The whole thing is about forty lines and you do not have to read it here. Copy it and let it ask you the questions.</p>
-    <div class="acts">
-      <button class="btn p" id="copy">Copy the prompt</button>
-      <button class="btn s" id="dl">Download it</button>
-    </div>
-    <p class="msg" id="pmsg" role="status" aria-live="polite"></p>
-  </div>
-
-  <div class="card faq" aria-labelledby="h-faq">
+  <section class="card faq" aria-labelledby="h-faq">
     <h2 id="h-faq">Questions</h2>
     <details><summary>Do I need to know how to code?</summary><p>No. The course is built for people who don't. You think on paper, test with real people, and then give an AI tool a plan clear enough to build from.</p></details>
-    <details><summary>How much time does it take?</summary><p>It depends on you, which is why there are steps instead of weeks. Every exercise has a timer, and when it ends you stop. The founding cohort meets for seven 90-minute Saturday sessions, with work in between.</p></details>
-    <details><summary>What if I miss a live session?</summary><p>Every session is recorded and posted within a day, and you get one short catch-up call with me. If life gets in the way, you can move to a later cohort once, free.</p></details>
-    <details><summary>Will my whole app be finished?</summary><p>Your whole app will be on paper, tested and planned, and clickable at a real address, with home and your first part working. You leave knowing how to build every other part the same way, one at a time.</p></details>
+    <details><summary>How much time does it take?</summary><p>Seven 90-minute Saturday sessions, plus a few hours of work between them. Every exercise has a timer, and when it ends you stop. That keeps you out of rabbit holes.</p></details>
+    <details><summary>What if only one or two people join?</summary><p>It still runs. A small group just means more of my time on your app.</p></details>
+    <details><summary>What if I miss a session?</summary><p>Every session is recorded and posted within a day, and you get one 15-minute catch-up call with me. If life gets in the way, you can move to a later cohort once, free.</p></details>
+    <details><summary>Can I get a refund?</summary><p>Yes, a full refund up to the start of session 2. After that, you can move to a later cohort instead.</p></details>
+    <details><summary>Will my whole app be finished?</summary><p>Your whole app will be on paper, tested and planned, and clickable at a real address, with home and your first part working. You leave knowing how to build every other part the same way.</p></details>
+    <details><summary>Is the course already recorded?</summary><p>The founding cohort is taught live, and each session becomes part of the self-paced course. You're not buying a video library. You're getting me, live, while it's being made.</p></details>
     <details><summary>Who owns what I make?</summary><p>You do: your app, your paper and your documents. The course prompts and templates are for your own project.</p></details>
-  </div>
+  </section>
 
-  <div class="card">
-    <h2>Who is teaching this</h2>
-    <p style="font-size:.96rem;color:var(--muted);line-height:1.6;margin-bottom:.8rem">I am Aneil Razvi. I have spent 15+ years leading product design and AI experience, most recently at SPOTIO, and I helped build the product design department at Southern New Hampshire University. This year I designed and shipped a product on my own, from a sentence to a live App Store release, brand and website included. I know what the middle of that looks like, including the parts that go badly.</p>
-    <p style="font-size:.96rem;color:var(--muted);line-height:1.6;margin:0">Two other free things, if they are useful: <a href="readiness.html">what AI is actually doing to your job</a>, built on Department of Labor and Anthropic data, and <a href="maturity.html">where your design team actually sits</a>. Neither asks for an email either.</p>
-  </div>
+  <section class="card" aria-labelledby="h-who">
+    <h2 id="h-who">Who is teaching this</h2>
+    <p style="font-size:.96rem;color:var(--muted);line-height:1.6;margin-bottom:.8rem">I'm Aneil Razvi. I've spent 15+ years leading product design and AI experience, most recently at SPOTIO, and I helped build the product design department at Southern New Hampshire University. This year I designed and shipped a product on my own, from a sentence to a live App Store release, brand and website included. I know what the middle of that looks like, including the parts that go badly.</p>
+    <p style="font-size:.96rem;margin:0"><a href="about.html">More about me</a></p>
+  </section>
+
+  <section class="final" aria-labelledby="h-final">
+    <h2 id="h-final">The founding cohort starts Sat 31 Oct.</h2>
+    <p>Enrollment closes Sat 24 Oct. Full refund until session 2.</p>
+    <div class="acts"><a class="btn p" href="#seat" data-pick="founding-cohort">Hold a founding seat</a><a class="btn s" href="https://cal.com/aneil-razvi/intro" target="_blank" rel="noopener">Ask me first (15 minutes)</a></div>
+  </section>
 
   <footer>
     <span class="sig">Aneil Razvi &middot; aneilrazvi.com &middot; Allen, TX</span>
-    <span class="sig" style="margin-top:.5rem;opacity:.75"><a href="privacy.html" style="color:inherit">What I do with your email</a></span>
+    <span class="sig" style="margin-top:.5rem;opacity:.75">Free tools: <a href="readiness.html" style="color:inherit">AI and your job</a> &middot; <a href="maturity.html" style="color:inherit">Design maturity</a> &middot; <a href="privacy.html" style="color:inherit">What I do with your email</a></span>
   </footer>
 
+</div>
+
+<div class="stickybar" id="stickybar" aria-hidden="true">
+  <span class="t"><b>Founding cohort &middot; $897</b>Starts Sat 31 Oct</span>
+  <a class="btn p" href="#seat" data-pick="founding-cohort" tabindex="-1">Hold a seat</a>
 </div>
 
 <script>
@@ -336,88 +507,113 @@ footer .sig{display:block;}
   addEventListener("scroll",function(){ nav.classList.toggle("scrolled", scrollY>10); },{passive:true});
   document.querySelector(".nav-hamburger").addEventListener("click",function(){ nav.classList.toggle("open"); });
 
-  var PROMPT = [
-"I have an idea I have been carrying around and I want to find out where I actually am with it, not be told it is great.",
-"",
-"Work through this with me in order. Do NOT design, name, or plan anything until you have asked me the questions in step 1 and I have answered them.",
-"",
-"STEP 1. Ask me these, one at a time, and wait for my answer each time:",
-"  a. In one or two plain sentences, what is the idea?",
-"  b. Who is one real person this is for? Describe them, not a market segment.",
-"  c. What do they do today instead? Even if the answer is nothing.",
-"  d. How long have you been thinking about this, and what has stopped you so far?",
-"",
-"STEP 2. Split what I told you into three lists and show them to me:",
-"  KNOWN: things I have actually seen, tested, or been told by a real person.",
-"  ASSUMED: things I believe but have not checked. Be blunt. Most of it will be here.",
-"  UNKNOWABLE YET: things nobody could know at this stage. Do not guess to fill this in.",
-"  If a list is short, say so rather than padding it.",
-"",
-"STEP 3. Name the three assumptions the whole idea rests on. If any of the three turns out to be wrong, the idea changes shape or dies. Rank them by how cheap they are to test.",
-"",
-"STEP 4. Describe the smallest version of this that would prove or kill assumption number one. Give me the cost in HOURS of my time, not in money, and assume I have no budget and no team.",
-"",
-"STEP 5. Give me exactly one thing to do in the next seven days. One. Make it something I can finish.",
-"",
-"RULES for how you answer:",
-"- Do not tell me the idea is great. Tell me what is load bearing and what is decoration.",
-"- If I have not given you enough to answer something, say that instead of inventing it.",
-"- Assume I have no money to build this. Free and slow beats funded and imaginary.",
-"- Keep it under 600 words after step 1.",
-"",
-"Source: this framing is by Aneil Razvi, aneilrazvi.com. He shows people where they actually are with an idea, a team, or a job, and is straight about the parts nobody can see yet."
-  ].join("\n");
+  function flash(el,t,cls,keep){ el.textContent=t; el.className="msg "+(cls||"ok"); if(!keep){ setTimeout(function(){el.textContent="";el.className="msg";},5000); } }
+  function $(id){ return document.getElementById(id); }
+  function sid(){ try{ var k=sessionStorage.getItem("bsid"); if(!k){k=Math.random().toString(36).slice(2)+Date.now().toString(36); sessionStorage.setItem("bsid",k);} return k; }catch(e){ return "ns-"+Math.random().toString(36).slice(2); } }
+  var qs=new URLSearchParams(location.search);
+  var lastScope=null;
 
-  var box=document.getElementById("ptext"); box.textContent=PROMPT;
-  var pmsg=document.getElementById("pmsg");
-  function flash(el,t,cls){ el.textContent=t; el.className="msg "+(cls||"ok"); setTimeout(function(){el.textContent="";el.className="msg";},4000); }
-
-  document.getElementById("copy").addEventListener("click",function(){
-    function fallback(){
-      var ta=document.createElement("textarea"); ta.value=PROMPT;
-      ta.style.position="fixed"; ta.style.opacity="0"; document.body.appendChild(ta);
-      ta.select(); try{ document.execCommand("copy"); flash(pmsg,"Copied. Paste it into Claude or ChatGPT."); }
-      catch(e){ flash(pmsg,"Could not copy automatically. Select the text above and copy it.","err"); }
-      document.body.removeChild(ta);
-    }
-    if(navigator.clipboard && navigator.clipboard.writeText){
-      navigator.clipboard.writeText(PROMPT).then(function(){ flash(pmsg,"Copied. Paste it into Claude or ChatGPT."); }, fallback);
-    } else { fallback(); }
+  /* swipe rails: counter + arrows, mobile only (desktop shows every card) */
+  [].forEach.call(document.querySelectorAll(".railnav"),function(nv){
+    var rail=$(nv.getAttribute("data-rail")); if(!rail) return;
+    var cards=rail.children, prev=nv.querySelector(".prev"), next=nv.querySelector(".next"), count=nv.querySelector(".count");
+    function idx(){ var w=cards[0].getBoundingClientRect().width+16; return Math.min(cards.length-1, Math.max(0, Math.round(rail.scrollLeft/w))); }
+    function upd(){ var i=idx(); count.textContent=(i+1)+" of "+cards.length; prev.disabled=(i===0); next.disabled=(i===cards.length-1); }
+    function go(d){ var i=idx()+d; if(i<0||i>=cards.length) return; rail.scrollTo({left:cards[i].offsetLeft-rail.offsetLeft-parseFloat(getComputedStyle(rail).paddingLeft||0),behavior:"smooth"}); }
+    prev.addEventListener("click",function(){ go(-1); }); next.addEventListener("click",function(){ go(1); });
+    rail.addEventListener("scroll",function(){ window.requestAnimationFrame(upd); },{passive:true});
+    upd();
   });
 
-  document.getElementById("dl").addEventListener("click",function(){
-    var blob=new Blob([PROMPT],{type:"text/plain"});
-    var a=document.createElement("a"); a.href=URL.createObjectURL(blob);
-    a.download="idea-map-prompt.txt"; document.body.appendChild(a); a.click();
-    setTimeout(function(){ URL.revokeObjectURL(a.href); document.body.removeChild(a); },500);
-    flash(pmsg,"Downloaded as a text file.");
-  });
-
-  var jmsg=document.getElementById("jmsg");
-  document.getElementById("join").addEventListener("click",function(){
-    var v=(document.getElementById("em").value||"").trim();
-    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)){ flash(jmsg,"That email does not look right.","err"); return; }
-    var btn=this; btn.disabled=true; btn.textContent="Sending...";
-    var qs=new URLSearchParams(location.search);
-    fetch("/api/lead",{method:"POST",headers:{"Content-Type":"application/json"},
-      body:JSON.stringify({
-        email:v, source:"build", gated:true,
-        recommended_package:(function(){ var s=[].slice.call(document.querySelectorAll('input[name="interest"]:checked')).map(function(i){return i.value;}); return s.join(",")||null; })(),
-        answers:{ interest:[].slice.call(document.querySelectorAll('input[name="interest"]:checked')).map(function(i){return i.value;}), page:"course" },
-        landing_path:location.pathname,
-        referrer:document.referrer||null,
-        session_id:(function(){ try{ var k=sessionStorage.getItem("bsid"); if(!k){k=Math.random().toString(36).slice(2)+Date.now().toString(36); sessionStorage.setItem("bsid",k);} return k; }catch(e){ return "nosession"; } })(),
-        utm_source:qs.get("utm_source"), utm_medium:qs.get("utm_medium"),
-        utm_campaign:qs.get("utm_campaign"), utm_content:qs.get("utm_content")
-      })
-    }).then(function(r){
-      btn.disabled=false; btn.textContent="Hold my place";
-      if(r.ok){ document.getElementById("em").value=""; flash(jmsg,"You are on the list. I will only email you when your seat link or a date is ready."); }
-      else { flash(jmsg,"That did not save. Try again, or email hi@aneilrazvi.com.","err"); }
-    }).catch(function(){
-      btn.disabled=false; btn.textContent="Hold my place";
-      flash(jmsg,"That did not save. Try again, or email hi@aneilrazvi.com.","err");
+  /* any "Hold a seat" style link ticks the matching interest box */
+  [].forEach.call(document.querySelectorAll("[data-pick]"),function(a){
+    a.addEventListener("click",function(){
+      var v=a.getAttribute("data-pick"), box=document.querySelector('input[name="interest"][value="'+v+'"]');
+      if(box) box.checked=true;
+      setTimeout(function(){ var e=$("em"); if(e) e.focus({preventScroll:true}); },450);
     });
+  });
+
+  /* sticky bar on phones once the hero is out of view */
+  var bar=$("stickybar"), hero=document.querySelector(".hero"), seat=$("seat");
+  if("IntersectionObserver" in window && bar && hero){
+    var heroGone=false, seatIn=false;
+    function sync(){ var on=heroGone && !seatIn; bar.classList.toggle("show",on); bar.setAttribute("aria-hidden",on?"false":"true"); }
+    new IntersectionObserver(function(es){ heroGone=!es[0].isIntersecting; sync(); }).observe(hero);
+    new IntersectionObserver(function(es){ seatIn=es[0].isIntersecting; sync(); }).observe(seat);
+  }
+
+  /* the scoper */
+  function val(name){ var c=document.querySelector('input[name="'+name+'"]:checked'); return c?c.value:""; }
+  function vals(name){ return [].slice.call(document.querySelectorAll('input[name="'+name+'"]:checked')).map(function(i){return i.value;}); }
+  function esc(s){ return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];}); }
+  var WHO={me:"You",team:"Someone on your team",customers:"One of your customers",community:"Someone in your group"};
+  var SCREEN={signin:"Sign up and sign in",payments:"Checkout",photos:"Add a photo or file",maps:"The map",messages:"Reminders and messages",ai:"Ask the helper"};
+  var HEAVY=["signin","payments","maps","ai"];
+
+  $("scopeform").addEventListener("submit",function(ev){
+    ev.preventDefault();
+    var idea=$("s-idea").value.trim(), done=$("s-done").value.trim().replace(/[.\s]+$/,""), who=val("who"), today=val("today"), must=vals("must"), exp=val("exp");
+    var m=$("smsg");
+    if(!idea){ flash(m,"Start with your idea in one sentence.","err"); $("s-idea").focus(); return; }
+    if(!who){ flash(m,"Pick who will use it.","err"); return; }
+    var whoP=WHO[who]||"Someone";
+    var doneTxt = done ? (whoP+" can "+done+", without asking you how.") : "Not written yet. That's the first thing to fix, and it's step 1 of the course.";
+    var screens=["Home: what they see first"];
+    if(done) screens.push("The screen where they "+done);
+    must.forEach(function(k){ if(SCREEN[k]) screens.push(SCREEN[k]); });
+    screens=screens.slice(0,5);
+    var heavy=must.filter(function(k){ return HEAVY.indexOf(k)>-1; }).length;
+    var size = heavy<=1 ? "Small. A few weekends on paper and a first version you can click."
+             : heavy===2 ? "Medium. A few weeks of evenings. Paper first will save you most of them."
+             : "Big. Very doable, but plan the hardest part on paper before anything gets built.";
+    var flags=[];
+    if(must.indexOf("payments")>-1) flags.push("Payments mean a real business account. Step 9 covers what to ask.");
+    if(must.indexOf("signin")>-1) flags.push("Sign-in means you're keeping people's data. Decide on paper what you actually need.");
+    if(must.indexOf("ai")>-1) flags.push("An AI helper is its own part. Test it on paper like everything else.");
+    var todayTxt = today ? ("Today they use "+today+". Your app has to be easier than that, or they won't switch. Keep it in mind when you test.") : "Ask three people what they do today instead. That's your real competition.";
+    var start = done ? "Step 2, the mind dump. You already know what done looks like, so the next move is getting everything else out of your head." : "Step 1, outcome first. Ten minutes, and everything after it gets easier.";
+    $("r-done").textContent=doneTxt;
+    $("r-screens").innerHTML=screens.map(function(s){ return "<li>"+esc(s)+"</li>"; }).join("");
+    $("r-size").innerHTML=esc(size)+(flags.length?"<br><span style=\"color:var(--muted);font-size:.88rem\">"+flags.map(esc).join(" ")+"</span>":"");
+    $("r-today").textContent=todayTxt;
+    $("r-start").textContent=start;
+    lastScope={ idea:idea, who:who, done:done, today:today, must:must, experience:exp, size:(heavy<=1?"small":heavy===2?"medium":"big"), screens:screens };
+    var r=$("result"); r.classList.add("on");
+    r.scrollIntoView({behavior:"smooth",block:"start"});
+    try{ fetch("/api/lead",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(base({ answers:{page:"course",scope:lastScope}, recommended_package:"scope" }))}); }catch(e){}
+  });
+
+  function base(extra){
+    var o={ source:"build", landing_path:location.pathname, referrer:document.referrer||null, session_id:sid(),
+      utm_source:qs.get("utm_source"), utm_medium:qs.get("utm_medium"), utm_campaign:qs.get("utm_campaign"), utm_content:qs.get("utm_content") };
+    for(var k in extra){ o[k]=extra[k]; } return o;
+  }
+  function send(payload,btn,label,msg,okText,input){
+    btn.disabled=true; btn.textContent="Sending...";
+    fetch("/api/lead",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)})
+    .then(function(r){ btn.disabled=false; btn.textContent=label;
+      if(r.ok){ input.value=""; flash(msg,okText,"ok",true); } else { flash(msg,"That did not save. Try again, or email hi@aneilrazvi.com.","err"); } })
+    .catch(function(){ btn.disabled=false; btn.textContent=label; flash(msg,"That did not save. Try again, or email hi@aneilrazvi.com.","err"); });
+  }
+  function okEmail(v){ return /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v); }
+
+  $("ssend").addEventListener("click",function(){
+    var v=($("sem").value||"").trim(), m=$("semsg");
+    if(!okEmail(v)){ flash(m,"That email does not look right.","err"); return; }
+    var interest=["scope"]; if($("sopt").checked) interest.push("founding-cohort");
+    send(base({ email:v, gated:true, recommended_package:interest.join(","), answers:{page:"course",scope:lastScope,interest:interest} }),
+      this,"Email me my scope",m,"Sent. Check your inbox for your scope and the idea map prompt.",$("sem"));
+  });
+
+  $("join").addEventListener("click",function(){
+    var v=($("em").value||"").trim(), m=$("jmsg");
+    if(!okEmail(v)){ flash(m,"That email does not look right.","err"); return; }
+    var interest=vals("interest");
+    if(!interest.length){ flash(m,"Tick at least one option above.","err"); return; }
+    var ans={page:"course",interest:interest}; if(lastScope) ans.scope=lastScope;
+    send(base({ email:v, gated:true, recommended_package:interest.join(","), answers:ans }),
+      this,"Hold my place",m,"You're on the list. Check your inbox: I've sent what happens next.",$("em"));
   });
 })();
 </script>

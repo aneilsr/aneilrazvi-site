@@ -548,44 +548,82 @@ export default async function handler(req, res) {
     // ---- /build : course waiting list. No scores, no read, just a confirmation. ----
     const isBuild = (b.source === "build");
 
+    const bAns = (b.answers && typeof b.answers === "object") ? b.answers : {};
+    const bInt = Array.isArray(bAns.interest) ? bAns.interest : [];
+    const bScope = (bAns.scope && typeof bAns.scope === "object") ? bAns.scope : null;
+    const wantsCohort = bInt.includes("founding-cohort");
+    const wantsSelf = bInt.includes("self-paced");
+    const wantsRoom = bInt.includes("in-person");
+    const bP = "margin:10px 0 0;font:400 15px/1.65 Helvetica,Arial,sans-serif;color:#3B4651";
+    const bLab = "font:700 11px/1 Helvetica,Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#0097A7;margin:16px 0 6px";
+    const bH2 = "margin:0 0 4px;font:400 19px/1.3 Georgia,'Times New Roman',serif;color:#1E3A5F";
+    const bBtn = "display:inline-block;margin-top:12px;background:#00BCD4;color:#0F1923;font:700 14px/1 Helvetica,Arial,sans-serif;text-decoration:none;padding:12px 18px;border-radius:8px";
+    const bWho = { me: "You", team: "Someone on your team", customers: "One of your customers", community: "Someone in your group" };
+    const bSize = { small: "Small. A few weekends on paper and a first version you can click.",
+                    medium: "Medium. A few weeks of evenings. Paper first will save you most of them.",
+                    big: "Big. Very doable, but plan the hardest part on paper before anything gets built." };
+    let bScopeHtml = "";
+    if (bScope) {
+      const who = bWho[bScope.who] || "Someone";
+      const doneLine = bScope.done ? `${escH(who)} can ${escH(bScope.done)}, without asking you how.` : "Not written yet. That is the first thing to fix, and it is step 1 of the course.";
+      const screens = Array.isArray(bScope.screens) ? bScope.screens.slice(0, 5).map(x => `<li style="margin:3px 0">${escH(x)}</li>`).join("") : "";
+      bScopeHtml = `
+  <tr><td style="padding:6px 34px 4px">
+    <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;border:2px dashed #00BCD4;border-radius:12px;border-collapse:separate">
+      <tr><td style="padding:16px 18px 18px;font:400 14.5px/1.6 Helvetica,Arial,sans-serif;color:#1A1A2E">
+        <div style="${bH2}">Your paper scope</div>
+        ${bScope.idea ? `<div style="color:#6B7280;font-size:13.5px">${escH(bScope.idea)}</div>` : ""}
+        <div style="${bLab}">Done looks like</div><div>${doneLine}</div>
+        ${screens ? `<div style="${bLab}">Sketch these first</div><ol style="margin:0;padding-left:20px">${screens}</ol>` : ""}
+        ${bSize[bScope.size] ? `<div style="${bLab}">How big it is</div><div>${bSize[bScope.size]}</div>` : ""}
+        ${bScope.today ? `<div style="${bLab}">What you're up against</div><div>Today they use ${escH(bScope.today)}. Your app has to be easier than that, or they won't switch.</div>` : ""}
+      </td></tr>
+    </table>
+  </td></tr>`;
+    }
+    const bIdeaMap = (bScope || bInt.includes("scope")) ? `
+  <tr><td style="padding:14px 34px 4px">
+    <div style="${bH2}">Pressure-test it: the idea map</div>
+    <p style="${bP}">Paste this prompt into Claude or ChatGPT and answer its questions honestly. It splits your idea into what you actually know, what you are assuming, and what nobody can know yet.</p>
+    <a href="https://aneilrazvi.com/idea-map.html" style="${bBtn}">Get the idea map prompt</a>
+  </td></tr>` : "";
+    const bCohort = wantsCohort ? `
+  <tr><td style="padding:14px 34px 4px">
+    <div style="${bH2}">Your founding seat</div>
+    <p style="${bP}">Seven live sessions on Saturdays, 10 to 11:30am Central, starting Sat 31 Oct. $897, or two payments of $459. Full refund until session 2, and it runs even with a small group. I will send your seat link in the next few days. Any question before then, just reply to this email.</p>
+  </td></tr>` : "";
+    const bSelf = wantsSelf ? `
+  <tr><td style="padding:14px 34px 4px">
+    <div style="${bH2}">The self-paced course</div>
+    <p style="${bP}">It opens after the founding cohort finishes. You will get one email from me when it does, and nothing else in between.</p>
+  </td></tr>` : "";
+    const bRoom = wantsRoom ? `
+  <tr><td style="padding:14px 34px 4px">
+    <div style="${bH2}">A workshop for your school or team</div>
+    <p style="${bP}">Reply with who it is for and a rough date, or grab 15 minutes at <a href="https://cal.com/aneil-razvi/intro" style="color:#0097A7">cal.com/aneil-razvi/intro</a>. Colleges and student groups are free this fall.</p>
+  </td></tr>` : "";
+    const bTitle = (bScope && !wantsCohort && !wantsSelf && !wantsRoom) ? "Your paper scope" : "You are on the list";
+
     const toVisitorBuild = `
 <div style="background:#F4F6F8;padding:28px 12px">
 <table role="presentation" cellpadding="0" cellspacing="0" style="max-width:600px;margin:0 auto;width:100%;background:#FFFFFF;border-radius:16px;border-collapse:separate;overflow:hidden">
   <tr><td style="height:5px;background:#00BCD4;font-size:0;line-height:0">&nbsp;</td></tr>
   <tr><td style="padding:30px 34px 8px">
-    <div style="font:700 11px/1 Helvetica,Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#0097A7">The idea map</div>
-    <h1 style="margin:12px 0 6px;font:400 27px/1.25 Georgia,'Times New Roman',serif;color:#1E3A5F">You are on the list</h1>
-    <p style="margin:10px 0 0;font:400 15px/1.65 Helvetica,Arial,sans-serif;color:#3B4651">
-      I am building a course on taking an idea from a sentence to something real and launched. It is not finished. When there is a date and a price, you will get one email from me saying so. That is the whole arrangement.
-    </p>
+    <div style="font:700 11px/1 Helvetica,Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#0097A7">AI, Built On Paper</div>
+    <h1 style="margin:12px 0 6px;font:400 27px/1.25 Georgia,'Times New Roman',serif;color:#1E3A5F">${bTitle}</h1>
+    <p style="${bP}">Thanks for your interest in the course. Here is what happens next.</p>
   </td></tr>
-
-  <tr><td style="padding:22px 34px 0">
-    <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;background:#F4F6F8;border-radius:12px;border:1px solid #E2E8EC;border-collapse:separate">
-      <tr><td style="padding:20px 22px">
-        <div style="font:700 10px/1 Helvetica,Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#6B7280">Meanwhile, and free</div>
-        <div style="font:400 20px/1.3 Georgia,serif;color:#1E3A5F;margin:7px 0 9px">Run the prompt on your own idea</div>
-        <p style="margin:0 0 15px;font:400 14px/1.6 Helvetica,Arial,sans-serif;color:#3B4651">
-          The prompt on that page is the useful half. Paste it into Claude or ChatGPT, answer the four questions honestly, and it will split your idea into what you actually know, what you are assuming, and what nobody could know yet. You do not need me for that part.
-        </p>
-        <a href="https://aneilrazvi.com/build.html" style="display:inline-block;background:#00BCD4;color:#0F1923;font:700 14px/1 Helvetica,Arial,sans-serif;padding:13px 24px;border-radius:99px;text-decoration:none">Go get the prompt</a>
-      </td></tr>
-    </table>
+  ${bScopeHtml}${bCohort}${bSelf}${bRoom}${bIdeaMap}
+  <tr><td style="padding:18px 34px 6px">
+    <p style="${bP}">If you would rather talk it through first, 15 minutes is at
+      <a href="https://cal.com/aneil-razvi/intro" style="color:#0097A7">cal.com/aneil-razvi/intro</a>. Replying to this email works too.</p>
   </td></tr>
-
-  <tr><td style="padding:20px 34px 0">
-    <p style="margin:0;font:400 14px/1.65 Helvetica,Arial,sans-serif;color:#6B7280">
-      If you would rather just talk it through, twenty minutes is at
-      <a href="https://cal.com/aneil-razvi" style="color:#0097A7;text-decoration:none">cal.com/aneil-razvi</a>.
-      No pitch and no deck. I take a few of these a month, so if the calendar looks empty it is because I have not opened more yet, and replying to this email works too.
-    </p>
-  </td></tr>
-
-  <tr><td style="padding:22px 34px 30px">
+  <tr><td style="padding:16px 34px 30px">
     ${SIG_HTML}
   </td></tr>
 </table>
 </div>`;
+    const bSubject = bTitle === "Your paper scope" ? "Your paper scope" : (bScope ? "Your paper scope, and you are on the list" : "You are on the list for the course");
 
     const toAneilBuild = `<div style="background:#F4F6F8;padding:24px 12px">
 <table role="presentation" cellpadding="0" cellspacing="0" style="max-width:600px;margin:0 auto;width:100%;background:#FFFFFF;border-radius:16px;border-collapse:separate;overflow:hidden">
@@ -600,6 +638,11 @@ export default async function handler(req, res) {
 
   <tr><td style="padding:20px 30px 0">
     <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;font:400 14px/1.5 Helvetica,Arial,sans-serif">
+      <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280;width:38%">Interested in</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#1A1A2E;font-weight:700">${bInt.length ? escH(bInt.join(", ")) : "not stated"}</td></tr>
+      ${bScope ? `<tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280;width:38%">Their idea</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#1A1A2E">${escH(bScope.idea || "")}</td></tr>
+      <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280;width:38%">Done when someone can</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#1A1A2E">${escH(bScope.done || "not written")}</td></tr>
+      <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280;width:38%">Users, today, size</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#1A1A2E">${escH([bScope.who, bScope.today, bScope.size].filter(Boolean).join(" / "))}</td></tr>
+      <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280;width:38%">Must have, experience</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#1A1A2E">${escH([(bScope.must || []).join(", "), bScope.experience].filter(Boolean).join(" / "))}</td></tr>` : ""}
       <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280;width:38%">Came in via</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#1A1A2E">${b.utm_source || "direct"}${b.utm_medium ? " / " + b.utm_medium : ""}${b.utm_campaign ? " / " + b.utm_campaign : ""}</td></tr>
       <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280">Landed on</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#1A1A2E">${b.landing_path || "unknown"}</td></tr>
       <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280">Referrer</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#1A1A2E">${b.referrer || "none"}</td></tr>
@@ -637,8 +680,8 @@ export default async function handler(req, res) {
 
     try {
       const pair = isBuild
-        ? [ send(b.email, "You are on the list for the course", toVisitorBuild),
-            send(t, `Build list: ${b.email}`, toAneilBuild) ]
+        ? [ send(b.email, bSubject, toVisitorBuild),
+            send(t, `Build list: ${b.email}${bInt.length ? " (" + bInt.join(", ") + ")" : ""}`, toAneilBuild) ]
         : isReadiness
         ? [ send(b.email, `Your AI readiness read: ${clipS(occ, 150)}`, toVisitorReadiness, textVisitorReadiness),
             send(t, `Readiness lookup: ${b.email} (${clipS(occ, 150)})`, toAneilReadiness) ]
