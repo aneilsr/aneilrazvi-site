@@ -1,24 +1,28 @@
 <!doctype html>
 <html lang="en"><head>
-<title>How It Works, AI Built On Paper, Aneil Razvi</title>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<meta name="description" content="The ten steps of AI, Built On Paper, in four stages: define, paper, test, build and ship. Follow one worked example from a sentence to a first version of your app, live online."/>
+<title>How It Works, AI Built On Paper, Aneil Razvi</title>
+<meta name="description" content="The ten steps of AI, Built On Paper, in four stages: define, paper, test, build. Paper Day covers steps 1 to 5, the Build cohort covers 6 to 9, and Self-paced covers all ten."/>
 <meta name="author" content="Aneil Razvi"/>
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1"/>
 <link rel="canonical" href="https://aneilrazvi.com/build/how-it-works"/>
 <meta property="og:type" content="website"/>
 <meta property="og:site_name" content="Aneil Razvi"/>
-<meta property="og:title" content="How It Works, AI Built On Paper, Aneil Razvi"/>
-<meta property="og:description" content="The ten steps of AI, Built On Paper, in four stages: define, paper, test, build and ship. Follow one worked example from a sentence to a first version of your app, live online."/>
+<meta property="og:title" content="How It Works, AI Built On Paper"/>
+<meta property="og:description" content="Ten steps, four stages, one app. Follow one worked example from a sentence to a first version, live online. No coding."/>
 <meta property="og:url" content="https://aneilrazvi.com/build/how-it-works"/>
 <meta property="og:image" content="https://aneilrazvi.com/assets/og-image-v2.jpg"/>
 <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="How It Works, AI Built On Paper"/>
+<meta name="twitter:description" content="Ten steps, four stages, one app. Follow one worked example from a sentence to a first version, live online. No coding."/>
+<meta name="twitter:image" content="https://aneilrazvi.com/assets/og-image-v2.jpg"/>
 <script defer src="/assets/analytics.js"></script>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Serif+Display:ital@0;1&display=swap">
-<link rel="stylesheet" href="/build.css">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=DM+Serif+Display&display=swap">
+<link rel="stylesheet" href="/build-v2.css">
 </head>
-<body class="has-subnav">
+<body>
 
 <nav class="site-nav" id="nav">
   <a href="/index.html" class="nav-brand">Aneil <b>Razvi</b></a>
@@ -27,117 +31,218 @@
     <li><a href="/portfolio.html">Portfolio</a></li>
     <li><a href="/speaking.html">Speaking</a></li>
     <li><a href="/work-with-me.html">Work With Me</a></li>
-    <li><a href="/build.html" class="active" aria-current="page">Course</a></li>
+    <li><a href="/build.html" class="active">Course</a></li>
     <li><a href="/maturity.html">Design Maturity</a></li>
     <li><a href="/readiness.html">AI Readiness</a></li>
     <li><a href="/about.html">About</a></li>
     <li><a href="/blog.html">Blog</a></li>
   </ul>
   <a href="/contact.html" class="nav-cta">Let's Talk</a>
-  <button class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  <button class="nav-hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
 </nav>
-<div class="subnav" role="navigation" aria-label="Course pages"><div class="in">
-  <span class="lbl">The course</span>
-  <a href="/build.html">Overview</a>
-  <a href="/build/how-it-works" aria-current="page">How it works</a>
-  <a href="/build.html#ways">Live cohort</a>
-  <a href="/build.html#scope">Idea scoper</a>
-  <a href="/build/faq">FAQ</a>
-  <a class="cta" href="/build.html#seat">Hold a seat</a>
-</div></div>
 
-<div class="wrap">
-
-  <section class="hero" aria-labelledby="h-how">
-    <div class="tick"></div>
-    <p class="eyebrow" style="margin-top:.8rem">AI, Built On Paper &middot; how it works</p>
-    <h1 id="h-how">Ten steps, four stages, one app.</h1>
-    <p class="lede">You start with a sentence and finish with a first version of your app, live online. Each stage ends with something you can hold, and you follow one worked example the whole way: a recipe app that cooks from what's already in the house.</p>
+<header class="band subhero" id="top">
+  <div class="wrap">
+    <nav class="tabs" aria-label="Course pages">
+      <a href="/build.html">Overview</a>
+      <a href="/build/how-it-works" aria-current="page">How it works</a>
+      <a href="/build/faq">FAQ</a>
+      <a class="go" href="/build.html#reserve">Reserve a seat</a>
+    </nav>
+    <p class="eyebrow">AI, Built On Paper &middot; how it works</p>
+    <h1>Ten steps, four stages, one app.</h1>
+    <p class="lead">You start with a sentence and finish with a first version of your app, live online. Each stage ends with something you can hold, and you follow one worked example the whole way: a recipe app that cooks from what's already in the house.</p>
     <ul class="jump" aria-label="Jump to a stage">
-      <li><a href="#define">1 &middot; Define</a></li>
-      <li><a href="#paper">2 &middot; Paper</a></li>
-      <li><a href="#test">3 &middot; Test</a></li>
-      <li><a href="#build">4 &middot; Build and ship</a></li>
+      <li><a href="#define"><span class="num">1</span>Define</a></li>
+      <li><a href="#paper"><span class="num">2</span>Paper</a></li>
+      <li><a href="#test"><span class="num">3</span>Test</a></li>
+      <li><a href="#build"><span class="num">4</span>Build</a></li>
     </ul>
-  </section>
+  </div>
+</header>
 
-  <section class="stage" id="define" aria-labelledby="h-define">
-    <div class="head"><span class="k">Stage 1 &middot; Steps 0 to 2</span><h2 id="h-define">Define</h2></div>
-    <p class="lede2">Your idea in one sentence, what done looks like, and everything it could do, sorted on one page.</p>
-      <div class="stepcard"><div class="num">0<small>Step</small></div><div><h3>Before you start</h3><p>A short welcome video, watched before the first session, so you arrive knowing how the next weeks run.</p></div></div>
-      <div class="stepcard"><div class="num">1<small>Step</small></div><div><h3>Outcome first</h3><p>Write what done looks like in one line: someone can do one specific thing, without asking you how. Everything after this gets easier.</p><div class="ex"><b>In the recipe example:</b> done when someone can pick tonight&#39;s dinner from what&#39;s in the house in under two minutes.</div></div></div>
-      <div class="stepcard"><div class="num">2<small>Step</small></div><div><h3>Mind dump</h3><p>Get everything your app could do out of your head and onto paper. Then sort it, star what matters, and circle the one part you build first.</p><div class="ex"><b>In the recipe example:</b> pantry, recipes, a shopping list and the household who shares them, sorted on one page.</div></div></div>
-    <p class="out2">the whole app on one page</p>
-  </section>
+<main>
+<section class="wrap section" id="plan" aria-labelledby="h-plan">
+  <p class="eyebrow">The plan at a glance</p>
+  <h2 class="big" id="h-plan">Three ways through the same ten steps.</h2>
+  <p class="intro">Paper Day covers steps 1 to 5. The Build cohort picks up at step 6. Self-paced covers all ten, at your own speed.</p>
 
-  <section class="stage" id="paper" aria-labelledby="h-paper">
-    <div class="head"><span class="k">Stage 2 &middot; Step 3</span><h2 id="h-paper">Paper</h2></div>
-    <p class="lede2">Every part of your app on paper, one sheet per part, starting where your users start.</p>
-      <div class="stepcard"><div class="num">3<small>Step</small></div><div><h3>Build it in paper</h3><p>Sketch every part of the app, one sheet per part, starting where your users start. Paper is fast, cheap and easy to throw away, which is the point.</p><div class="ex"><b>In the recipe example:</b> one sheet each for home, the pantry, a recipe and the shopping list.</div></div></div>
-    <p class="out2">the product, before spending a dollar</p>
-  </section>
-
-  <section class="stage" id="test" aria-labelledby="h-test">
-    <div class="head"><span class="k">Stage 3 &middot; Steps 4 and 5</span><h2 id="h-test">Test</h2></div>
-    <p class="lede2">Hand it to people who have never seen it, watch where they get lost, and fix the paper.</p>
-      <div class="stepcard"><div class="num">4<small>Step</small></div><div><h3>Break it, twice</h3><p>Two people who have never seen your app each try one task per part while you stay quiet and watch. The paper goes back to the start before every task.</p><div class="ex"><b>In the recipe example:</b> a tester tries to find something to cook with what&#39;s in the pantry.</div></div></div>
-      <div class="stepcard"><div class="num">5<small>Step</small></div><div><h3>Fix the paper</h3><p>Change what broke, after the tester leaves, then photograph the new version. Finding this on paper costs minutes, not weeks.</p><div class="ex"><b>In the recipe example:</b> if a tester can&#39;t find the pantry, the pantry moves.</div></div></div>
-    <p class="out2">a tested design, in photos</p>
-  </section>
-
-  <section class="stage" id="build" aria-labelledby="h-build">
-    <div class="head"><span class="k">Stage 4 &middot; Steps 6 to 9</span><h2 id="h-build">Build and ship</h2></div>
-    <p class="lede2">Turn the paper into a plan an AI can follow, build it one part at a time, and set up how it takes money.</p>
-      <div class="stepcard"><div class="num">6<small>Step</small></div><div><h3>Write the plan</h3><p>Make a Project in Claude or ChatGPT and write four short documents in it: vision, rules, backlog and parking lot. This is what the AI builds from.</p><div class="ex"><b>In the recipe example:</b> the four documents for the recipe app, in one Project.</div></div></div>
-      <div class="stepcard"><div class="num">7<small>Step</small></div><div><h3>Pick your stack</h3><p>One page on what your app runs on, written in the same Project, so the AI and you agree on the tools before anything gets built.</p></div></div>
-      <div class="stepcard"><div class="num">8<small>Step</small></div><div><h3>Build one part at a time</h3><p>Build one part per loop, and end every loop by checking it against the &quot;done when&quot; line from your backlog. Home and your first part go live at a web address you can share.</p><div class="ex"><b>In the recipe example:</b> home and the pantry, built, checked and live.</div></div></div>
-      <div class="stepcard"><div class="num">9<small>Step</small></div><div><h3>Take money (optional)</h3><p>If your app will charge, set up how it takes money, with the questions to ask an accountant or attorney before you do.</p></div></div>
-    <p class="out2">a first version of your app, live</p>
-  </section>
-
-  <section class="formats" aria-labelledby="h-formats">
-    <h2 id="h-formats">Three ways through the same steps</h2>
-    <div class="grid4" style="grid-template-columns:repeat(3,minmax(0,1fr))">
-      <div class="tile"><b>Founding live cohort</b><span>Every step, live with me over seven Saturdays, starting Sat 31 Oct. $897.</span></div>
-      <div class="tile"><b>Self-paced</b><span>Steps 0 to 8 at your own speed, with every kit and template. Opens after the cohort. $397.</span></div>
-      <div class="tile"><b>In person</b><span>Steps 1 to 5 in one afternoon for a school or team, then online from step 6.</span></div>
+  <div class="plan">
+    <div class="gantt" role="img" aria-label="Course plan. Paper Day covers steps 1 to 5. The Build cohort covers steps 6 to 9. Self-paced covers all ten steps, 0 to 9.">
+      <div class="stage" style="grid-column:2/5"><span class="num">1</span>Define</div>
+      <div class="stage" style="grid-column:5/6"><span class="num">2</span>Paper</div>
+      <div class="stage" style="grid-column:6/8"><span class="num">3</span>Test</div>
+      <div class="stage" style="grid-column:8/12"><span class="num">4</span>Build</div>
+      <div class="step s0" style="grid-column:2"><b>Step 0</b>Before you start</div>
+      <div class="step s1" style="grid-column:3"><b>Step 1</b>Outcome first</div>
+      <div class="step s2" style="grid-column:4"><b>Step 2</b>Mind dump</div>
+      <div class="step s3" style="grid-column:5"><b>Step 3</b>Build it in paper</div>
+      <div class="step s4" style="grid-column:6"><b>Step 4</b>Break it, twice</div>
+      <div class="step s5" style="grid-column:7"><b>Step 5</b>Fix the paper</div>
+      <div class="step s6" style="grid-column:8"><b>Step 6</b>Write the plan</div>
+      <div class="step s7" style="grid-column:9"><b>Step 7</b>Pick your stack</div>
+      <div class="step s8" style="grid-column:10"><b>Step 8</b>Build one part at a time</div>
+      <div class="step s9" style="grid-column:11"><b>Step 9</b>Take money</div>
+      <div class="lab" style="grid-row:3"><b>Paper Day</b><span>One morning &middot; in person or at home</span></div>
+      <div class="lane" style="grid-row:3"><div class="bar paper">Steps 1 to 5 <span class="leave">App on paper, tested</span></div></div>
+      <div class="lab" style="grid-row:4"><b>Build cohort</b><span>Live &middot; bring your laptop</span></div>
+      <div class="lane" style="grid-row:4"><div class="bar build">Steps 6 to 9 <span class="leave">One part built</span></div></div>
+      <div class="lab" style="grid-row:5"><b>Self-paced</b><span>Online &middot; at your pace</span></div>
+      <div class="lane" style="grid-row:5"><div class="bar self">All ten steps <span class="leave">The whole plan pack</span></div></div>
     </div>
-    <a class="more" href="/build.html#ways">Compare the ways in &#8594;</a>
-  </section>
 
-  <section class="card faq" aria-labelledby="h-faq">
+    <div class="plan-v" aria-hidden="true">
+      <div class="legend"><span class="chip paper">Paper Day &middot; steps 1 to 5</span><span class="chip build">Build cohort &middot; 6 to 9</span><span class="chip self">Self-paced &middot; all ten</span></div>
+      <div class="vplan">
+        <div class="tr" style="grid-column:2;grid-row:1/15"></div><div class="tr" style="grid-column:3;grid-row:1/15"></div><div class="tr" style="grid-column:4;grid-row:1/15"></div>
+        <div class="tr on paper" style="grid-column:2;grid-row:3/10;margin:6px 0"></div>
+        <div class="tr on build" style="grid-column:3;grid-row:11/15;margin:6px 0"></div>
+        <div class="tr on self" style="grid-column:4;grid-row:2/15;margin:6px 0"></div>
+        <div class="sh" style="grid-row:1;grid-column:1"><span class="num">1</span>Define</div>
+        <div class="row" style="grid-row:2"><b>Step 0</b>Before you start</div>
+        <div class="row" style="grid-row:3"><b>Step 1</b>Outcome first</div>
+        <div class="row" style="grid-row:4"><b>Step 2</b>Mind dump</div>
+        <div class="sh" style="grid-row:5;grid-column:1"><span class="num">2</span>Paper</div>
+        <div class="row" style="grid-row:6"><b>Step 3</b>Build it in paper</div>
+        <div class="sh" style="grid-row:7;grid-column:1"><span class="num">3</span>Test</div>
+        <div class="row" style="grid-row:8"><b>Step 4</b>Break it, twice</div>
+        <div class="row" style="grid-row:9"><b>Step 5</b>Fix the paper<br><span class="leave">Paper Day ends: app on paper, tested</span></div>
+        <div class="sh" style="grid-row:10;grid-column:1"><span class="num">4</span>Build</div>
+        <div class="row" style="grid-row:11"><b>Step 6</b>Write the plan</div>
+        <div class="row" style="grid-row:12"><b>Step 7</b>Pick your stack</div>
+        <div class="row" style="grid-row:13"><b>Step 8</b>Build one part at a time</div>
+        <div class="row" style="grid-row:14"><b>Step 9</b>Take money<br><span class="leave">Build ends: one part built</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap stg" id="define" aria-labelledby="h-define">
+  <div class="side">
+    <div class="head">
+      <span class="mark circle" aria-hidden="true">1</span>
+      <span class="k">Stage 1 &middot; Steps 0 to 2</span>
+      <h2 id="h-define">Define</h2>
+    </div>
+    <p class="lede">Your idea in one sentence, what done looks like, and everything it could do, sorted on one page.</p>
+    <p class="ways"><span class="chip paper">Paper Day &middot; steps 1 and 2</span><span class="chip self">Self-paced</span></p>
+    <p class="out"><span class="leave">You leave with: the whole app on one page</span></p>
+  </div>
+  <div class="stepcards">
+    <article class="stepcard"><div class="c"><span class="sn">Step 0</span><h3>Before you start</h3><p>A short welcome video, so you arrive knowing how the steps run and what to bring.</p></div></article>
+    <article class="stepcard"><div class="c"><span class="sn">Step 1</span><h3>Outcome first</h3><p>Write what done looks like in one line: someone can do one specific thing, without asking you how. Everything after this gets easier.</p></div><p class="ex"><b>In the recipe example:</b> done when someone can pick tonight's dinner from what's in the house in under two minutes.</p></article>
+    <article class="stepcard"><div class="c"><span class="sn">Step 2</span><h3>Mind dump</h3><p>Get everything your app could do out of your head and onto paper. Then sort it, star what matters, and circle the one part you build first.</p></div><p class="ex"><b>In the recipe example:</b> pantry, recipes, a shopping list and the household who shares them, sorted on one page.</p></article>
+  </div>
+</section>
+
+<section class="wrap stg" id="paper" aria-labelledby="h-paper">
+  <div class="side">
+    <div class="head">
+      <span class="mark square" aria-hidden="true">2</span>
+      <span class="k">Stage 2 &middot; Step 3</span>
+      <h2 id="h-paper">Paper</h2>
+    </div>
+    <p class="lede">Every part of your app on paper, one sheet per part, starting where your users start.</p>
+    <p class="ways"><span class="chip paper">Paper Day</span><span class="chip self">Self-paced</span></p>
+    <p class="out"><span class="leave">You leave with: the product, before spending a dollar</span></p>
+  </div>
+  <div class="stepcards">
+    <article class="stepcard"><div class="c"><span class="sn">Step 3</span><h3>Build it in paper</h3><p>Sketch every part of the app, one sheet per part, starting where your users start. Paper is fast, cheap and easy to throw away, which is the point.</p></div><p class="ex"><b>In the recipe example:</b> one sheet each for home, the pantry, a recipe and the shopping list.</p></article>
+  </div>
+</section>
+
+<section class="wrap stg" id="test" aria-labelledby="h-test">
+  <div class="side">
+    <div class="head">
+      <span class="mark square" aria-hidden="true">3</span>
+      <span class="k">Stage 3 &middot; Steps 4 and 5</span>
+      <h2 id="h-test">Test</h2>
+    </div>
+    <p class="lede">Hand it to people who have never seen it, watch where they get lost, and fix the paper.</p>
+    <p class="ways"><span class="chip paper">Paper Day</span><span class="chip self">Self-paced</span></p>
+    <p class="out"><span class="leave">You leave with: a tested design, in photos</span></p>
+  </div>
+  <div class="stepcards">
+    <article class="stepcard"><div class="c"><span class="sn">Step 4</span><h3>Break it, twice</h3><p>Two people who have never seen your app each try one task per part while you stay quiet and watch. The paper goes back to the start before every task.</p></div><p class="ex"><b>In the recipe example:</b> a tester tries to find something to cook with what's in the pantry.</p></article>
+    <article class="stepcard"><div class="c"><span class="sn">Step 5</span><h3>Fix the paper</h3><p>Change what broke, after the tester leaves, then photograph the new version. Finding this on paper costs minutes, not weeks.</p></div><p class="ex"><b>In the recipe example:</b> if a tester can't find the pantry, the pantry moves.</p></article>
+  </div>
+</section>
+
+<section class="wrap stg" id="build" aria-labelledby="h-build">
+  <div class="side">
+    <div class="head">
+      <span class="mark shield" aria-hidden="true">4</span>
+      <span class="k">Stage 4 &middot; Steps 6 to 9</span>
+      <h2 id="h-build">Build</h2>
+    </div>
+    <p class="lede">Turn the paper into a plan an AI can follow, build it one part at a time, and set up how it takes money.</p>
+    <p class="ways"><span class="chip build">Build cohort</span><span class="chip self">Self-paced</span></p>
+    <p class="out"><span class="leave">You leave with: a first version of your app, live</span></p>
+  </div>
+  <div class="stepcards">
+    <article class="stepcard"><div class="c"><span class="sn">Step 6</span><h3>Write the plan</h3><p>Make a Project in Claude or ChatGPT and write four short documents in it: vision, rules, backlog and parking lot. This is what the AI builds from.</p></div><p class="ex"><b>In the recipe example:</b> the four documents for the recipe app, in one Project.</p></article>
+    <article class="stepcard"><div class="c"><span class="sn">Step 7</span><h3>Pick your stack</h3><p>One page on what your app runs on, written in the same Project, so the AI and you agree on the tools before anything gets built.</p></div></article>
+    <article class="stepcard"><div class="c"><span class="sn">Step 8</span><h3>Build one part at a time</h3><p>Build one part per loop, and end every loop by checking it against the "done when" line from your backlog. Home and your first part go live at a web address you can share.</p></div><p class="ex"><b>In the recipe example:</b> home and the pantry, built, checked and live.</p></article>
+    <article class="stepcard"><div class="c"><span class="sn">Step 9</span><h3>Take money (optional)</h3><p>If your app will charge, set up how it takes money, with the questions to ask an accountant or attorney before you do.</p></div></article>
+  </div>
+</section>
+
+<section class="wrap" id="ways" aria-labelledby="h-ways">
+  <div class="reserve">
+    <h2 id="h-ways">Pick your way in</h2>
+    <p class="note">No payment yet. Pick one, leave your email, and you'll get the date, the place and your seat link before anyone else.</p>
+    <div class="options">
+      <a class="opt" href="/build.html#reserve"><b>Paper Day</b><span>Steps 1 to 5. One four-hour session in Dallas-Fort Worth, or at home with a print kit</span><em>$99 founding &rarr;</em></a>
+      <a class="opt" href="/build.html#reserve-build"><b>Build cohort</b><span>Steps 6 to 9. Live online on Saturday mornings, after Paper Day</span><em>$897 founding &rarr;</em></a>
+      <a class="opt" href="/build.html#reserve-self"><b>Self-paced</b><span>All ten steps, online at your pace. Opens soon</span><em>$397 &rarr;</em></a>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" aria-labelledby="h-faq">
+  <div class="box">
     <h2 id="h-faq">Two questions people ask here</h2>
-    <details><summary>Do I need to know how to code?</summary><p>No. The course is built for people who don't. You think on paper, test with real people, and then give an AI tool a plan clear enough to build from.</p></details>
-    <details><summary>Will my whole app be finished?</summary><p>Not every part, and that's on purpose. Your whole app will be designed on paper, tested with real people and planned. Then you build a first working version with an AI tool: real software, live at a web address anyone can open on their phone, with the home screen and your first part working. You leave knowing how to build every other part the same way.</p></details>
-    <a class="more" href="/build/faq">All questions &#8594;</a>
-  </section>
+    <div class="qs">
+      <details><summary>Do I need to know how to code?</summary><p>No. The course is built for people who don't. You think on paper, test with real people, and then give an AI tool a plan clear enough to build from.</p></details>
+      <details><summary>Will my whole app be finished?</summary><p>Not every part, and that's on purpose. Your whole app will be designed on paper, tested with real people and planned. Then you build a first working version with an AI tool: real software, live at a web address anyone can open on their phone, with the home screen and your first part working. You leave knowing how to build every other part the same way.</p></details>
+    </div>
+    <p class="plan-more"><a href="/build/faq">All questions &rarr;</a></p>
+  </div>
+</section>
+</main>
 
-  <section class="final" aria-labelledby="h-final">
-    <h2 id="h-final">The founding cohort starts Sat 31 Oct.</h2>
-    <p>Enrollment closes Sat 24 Oct. Full refund until session 2.</p>
-    <div class="acts"><a class="btn p" href="/build.html#seat">Hold a founding seat</a><a class="btn s" href="/build.html#scope">Scope your idea free</a></div>
-  </section>
+<section class="band final" id="final" aria-labelledby="h-final">
+  <div class="wrap">
+    <h2 id="h-final">Your idea is ready for paper.</h2>
+    <p>Paper Day, Dallas-Fort Worth. Date and room coming soon. The list gets first pick.</p>
+    <div class="acts"><a class="btn light" href="/build.html#reserve">Reserve a seat</a><a class="btn ghost" href="/idea-map.html">Try the free idea map</a></div>
+  </div>
+</section>
 
+<footer class="wrap">
+  <span class="sig">Aneil Razvi &middot; aneilrazvi.com &middot; Allen, TX</span>
+  <span class="sig" style="margin-top:.5rem;opacity:.85">Free tools: <a href="/readiness.html" style="color:inherit">AI and your job</a> &middot; <a href="/maturity.html" style="color:inherit">Design maturity</a> &middot; <a href="/privacy.html" style="color:inherit">What I do with your email</a> &middot; <a href="/build/faq" style="color:inherit">Course FAQ</a></span>
+</footer>
 
-  <footer>
-    <span class="sig">Aneil Razvi &middot; aneilrazvi.com &middot; Allen, TX</span>
-    <span class="sig" style="margin-top:.5rem;opacity:.75">Free tools: <a href="/readiness.html" style="color:inherit">AI and your job</a> &middot; <a href="/maturity.html" style="color:inherit">Design maturity</a> &middot; <a href="/privacy.html" style="color:inherit">What I do with your email</a></span>
-  </footer>
-</div>
-
-<div class="stickybar" id="stickybar" aria-hidden="true">
-  <span class="t"><b>Founding cohort &middot; $897</b>Starts Sat 31 Oct</span>
-  <a class="btn p" href="/build.html#seat" tabindex="-1">Hold a seat</a>
+<div class="sticky" id="stickybar" aria-hidden="true">
+  <div class="t"><b>Paper Day &middot; $99</b>DFW area &middot; date coming soon</div>
+  <a class="btn" href="/build.html#reserve" tabindex="-1">Reserve</a>
 </div>
 
 <script>
 (function(){
   "use strict";
-  var nav=document.getElementById("nav"), bar=document.getElementById("stickybar");
-  function onScroll(){ nav.classList.toggle("scrolled", scrollY>10); var on=scrollY>320; bar.classList.toggle("show",on); bar.setAttribute("aria-hidden",on?"false":"true"); }
-  addEventListener("scroll",onScroll,{passive:true}); onScroll();
-  document.querySelector(".nav-hamburger").addEventListener("click",function(){ nav.classList.toggle("open"); });
-  var cur=document.querySelector('.subnav a[aria-current="page"]'); if(cur&&cur.scrollIntoView){ cur.parentNode.scrollLeft=cur.offsetLeft-24; }
+  var nav=document.getElementById("nav"), ham=document.querySelector(".nav-hamburger");
+  addEventListener("scroll",function(){ nav.classList.toggle("scrolled", scrollY>10); },{passive:true});
+  ham.addEventListener("click",function(){ var o=nav.classList.toggle("open"); ham.setAttribute("aria-expanded",o?"true":"false"); });
+  /* phone sticky bar: after the header, hidden once the closing band is on screen */
+  var bar=document.getElementById("stickybar"), top=document.getElementById("top"), fin=document.getElementById("final");
+  if("IntersectionObserver" in window && bar && top && fin){
+    var topGone=false, finIn=false;
+    function sync(){ var on=topGone && !finIn; bar.classList.toggle("show",on); bar.setAttribute("aria-hidden",on?"false":"true"); bar.querySelector("a").tabIndex=on?0:-1; }
+    new IntersectionObserver(function(es){ topGone=!es[0].isIntersecting; sync(); }).observe(top);
+    new IntersectionObserver(function(es){ finIn=es[0].isIntersecting; sync(); }).observe(fin);
+  }
 })();
 </script>
 </body></html>

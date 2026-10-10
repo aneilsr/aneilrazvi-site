@@ -634,12 +634,12 @@ export default async function handler(req, res) {
     const bCohort = wantsCohort ? `
   <tr><td style="padding:14px 34px 4px">
     <div style="${bH2}">Your founding seat</div>
-    <p style="${bP}">Seven live sessions on Saturdays, 10 to 11:30am Central, starting Sat 31 Oct. $897, or two payments of $459. Full refund until session 2, and it runs even with a small group. I will send your seat link in the next few days. Any question before then, just reply to this email.</p>
+    <p style="${bP}">The founding cohort is now the Build cohort: steps 6 to 9, live on video on Saturday mornings, right after the first Paper Day. Same founding price, $897 or two payments of $459, with a full refund until session 2. It starts with Paper Day, where your idea goes on paper and gets tested, and what you pay for Paper Day counts toward the cohort. You will get the dates first. Any question before then, just reply to this email.</p>
   </td></tr>` : "";
     const bSelf = wantsSelf ? `
   <tr><td style="padding:14px 34px 4px">
     <div style="${bH2}">The self-paced course</div>
-    <p style="${bP}">It opens after the founding cohort finishes. You will get one email from me when it does, and nothing else in between.</p>
+    <p style="${bP}">It opens soon: all ten steps, with every kit and template. You will get one email from me when it does, and nothing else in between.</p>
   </td></tr>` : "";
     const bRoom = wantsRoom ? `
   <tr><td style="padding:14px 34px 4px">
@@ -695,7 +695,7 @@ export default async function handler(req, res) {
       : wantsHome
       ? `<b style="color:#1A1A2E">Waiting for Paper Day at home.</b> One email when the print kit opens. Nothing to do now.`
       : wantsCohort
-      ? `<b style="color:#1A1A2E">Wants a founding seat.</b> Send the seat link within a day, with one line about their idea. The cohort runs with as few as one person.`
+      ? `<b style="color:#1A1A2E">Wants a founding seat (old page).</b> The founding cohort is now the Build cohort. Point them to Paper Day first, and send the Build cohort dates when they are set.`
       : wantsSelf
       ? `<b style="color:#1A1A2E">Waiting for the self-paced course.</b> They get one email when it opens. Nothing to do now.`
       : wantsRoom
