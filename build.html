@@ -21,6 +21,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=DM+Serif+Display&family=Permanent+Marker&display=swap">
 <link rel="stylesheet" href="/build-v2.css">
+<link rel="stylesheet" href="/assets/reserve.css">
 </head>
 <body>
 
@@ -308,123 +309,22 @@
   <a class="btn" href="#reserve" data-open="paper-day" tabindex="-1">Reserve</a>
 </div>
 
-<div class="scrim" id="scrim"></div>
-<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="dr-title" aria-hidden="true">
-  <div class="grab" aria-hidden="true"></div>
-  <div class="dh">
-    <p class="eyebrow">No payment today</p>
-    <button class="x" type="button" data-close-drawer aria-label="Close"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M3 3l12 12M15 3L3 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
-  </div>
-  <div class="db">
-    <h2 id="dr-title">Reserve your seat</h2>
-    <p class="dlab" id="dr-pick-lab">Pick one or more</p>
-    <div class="picks" id="dr-paths" role="group" aria-labelledby="dr-pick-lab">
-      <div class="pickc" data-path="paper-day">
-        <button type="button" class="ph" role="checkbox" aria-checked="true">
-          <span class="chk" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2.5 7.5l3 3 6-7" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <span class="nm">Paper Day</span>
-          <span class="pr" id="dr-paper-price">$99<small>founding</small></span>
-          <span class="sb">Steps 1 to 5 &middot; one four-hour session</span>
-        </button>
-        <div class="pb">
-          <div class="count" data-count="paper-day" aria-live="polite"></div>
-          <p class="pline"><span id="dr-paper-where">In person, DFW area</span> &middot; <button type="button" class="linkbtn" id="dr-mode-switch">Do it at home instead</button></p>
-        </div>
-      </div>
-      <div class="pickc" data-path="build-cohort">
-        <button type="button" class="ph" role="checkbox" aria-checked="false">
-          <span class="chk" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2.5 7.5l3 3 6-7" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <span class="nm">Build cohort</span>
-          <span class="pr">$897<small>or 2 &times; $459</small></span>
-          <span class="sb">Steps 6 to 9 &middot; live online</span>
-        </button>
-        <div class="pb">
-          <div class="count" data-count="build-cohort" aria-live="polite"></div>
-          <p class="pline" id="dr-build-when">Saturday mornings, after the first Paper Day</p>
-          <p class="pline" id="dr-needs">Builds from your Paper Day paper. <button type="button" class="linkbtn" id="dr-addpaper">Add Paper Day</button></p>
-        </div>
-      </div>
-      <div class="pickc" data-path="self-paced">
-        <button type="button" class="ph" role="checkbox" aria-checked="false">
-          <span class="chk" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2.5 7.5l3 3 6-7" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <span class="nm">Self-paced</span>
-          <span class="pr">$397<small>opens soon</small></span>
-          <span class="sb">All ten steps &middot; at your pace</span>
-        </button>
-        <div class="pb">
-          <p class="pline">No seat limit. One email when it opens.</p>
-        </div>
-      </div>
-    </div>
 
-    <div class="stepper" id="dr-seats">
-      <b>How many people?</b>
-      <div class="ctl"><button type="button" data-step="-1" aria-label="One fewer person">&minus;</button><output id="dr-count" aria-live="polite">1</output><button type="button" data-step="1" aria-label="One more person">+</button></div>
-    </div>
-
-    <div class="lines" id="dr-lines"></div>
-
-    <p class="small">When the date is set, you pay through a secure Stripe checkout.</p>
-    <a class="alt" href="https://cal.com/aneil-razvi/intro" target="_blank" rel="noopener">Questions first? Grab 15 minutes &rarr;</a>
-
-    <div class="done" id="dr-done">
-      <p class="eyebrow">You're on the list</p>
-      <h3>Check your inbox</h3>
-      <p>I've sent what happens next. When the date and room are set, you'll get first pick and a secure checkout link.</p>
-      <button class="btn solid" type="button" data-close-drawer>Back to the page</button>
-    </div>
-  </div>
-  <div class="df">
-    <div class="row">
-      <label class="sr" for="dr-email">Email</label>
-      <input type="email" id="dr-email" placeholder="you@email.com" autocomplete="email">
-      <button class="btn solid" id="dr-submit" type="button">Hold my seat</button>
-    </div>
-    <p class="msg" id="dr-msg" role="status" aria-live="polite"></p>
-  </div>
-</aside>
-
+<script src="/assets/reserve.js"></script>
 <script>
 (function(){
   "use strict";
-  /* SEATS: the one place seat counts and dates live. Update "taken" as seats sell; every meter, count and line follows.
-     Set "date" (for example "2026-11-14") when a date is booked: the cards and the drawer switch from "date coming soon"
-     to the date and a countdown of days to go. When checkout goes live, this object gets filled from the bookings. */
-  var SEATS = {
-    "paper-day":    { total: 12, taken: 0, date: null },
-    "build-cohort": { total: 8,  taken: 0, date: null }
-  };
-  var PRICES = { "paper-day": 99, "paper-day-home": 0, "build-cohort": 897, "self-paced": 397 };
-  var NAMES = { "paper-day": "Paper Day", "paper-day-home": "Paper Day at home", "build-cohort": "Build cohort", "self-paced": "Self-paced" };
-  var CAP = { "paper-day": 6, "build-cohort": 4 };   /* most seats one person can hold at once */
-  var ORDER = ["paper-day","build-cohort","self-paced"];
+  /* Seat counts, dates and the reserve panel live in /assets/reserve.js (SEATS). This page only draws the Next rooms cards from it. */
+  var R=window.AneilReserve;
   function $(id){ return document.getElementById(id); }
-  function left(k){ var s=SEATS[k]; return s ? Math.max(0, s.total - s.taken) : 0; }
-  function money(n){ return "$"+n.toLocaleString("en-US"); }
-  var DAY=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"], MON=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
-  function asDate(iso){ var p=String(iso).split("-"); return new Date(+p[0], +p[1]-1, +p[2]); }
-  function fmt(iso){ var d=asDate(iso); return DAY[d.getDay()]+" "+d.getDate()+" "+MON[d.getMonth()]; }
-  function daysTo(iso){ var t=new Date(); t.setHours(0,0,0,0); return Math.round((asDate(iso)-t)/86400000); }
-  function untilText(iso){ var n=daysTo(iso); return n>1 ? n+" days to go" : n===1 ? "Tomorrow" : n===0 ? "Today" : ""; }
-  function seatsText(k){
-    var n=left(k), tot=SEATS[k].total;
-    if(n===0) return "Full. The list gets first pick of the next room.";
-    if(n<=3) return "Only "+n+" of "+tot+" seats left.";
-    return n+" of "+tot+" seats left."+(k==="paper-day" ? " The list gets first pick." : " Founding price.");
+  if(R){
+    [].forEach.call(document.querySelectorAll("[data-seats]"),function(el){ var k=el.getAttribute("data-seats"); if(R.SEATS[k]) el.innerHTML=R.meter(k,0); });
+    [].forEach.call(document.querySelectorAll("[data-seats-text]"),function(el){ var k=el.getAttribute("data-seats-text"); if(R.SEATS[k]) el.textContent=R.seatsText(k); });
+    [].forEach.call(document.querySelectorAll("[data-date]"),function(el){
+      var s=R.SEATS[el.getAttribute("data-date")]; if(!s || !s.date) return;
+      el.innerHTML=R.fmt(s.date)+(R.untilText(s.date) ? ' <small class="until">'+R.untilText(s.date)+'</small>' : '');
+    });
   }
-
-  /* page: meters, seat counts and dates on the Next rooms cards */
-  function meter(k, mine){
-    var s=SEATS[k], h="", m=Math.min(mine||0, left(k));
-    for(var i=0;i<s.total;i++){ h+='<i'+(i<s.taken ? '' : i<s.taken+m ? ' class="mine"' : ' class="open"')+'></i>'; }
-    return h;
-  }
-  [].forEach.call(document.querySelectorAll("[data-seats]"),function(el){ var k=el.getAttribute("data-seats"); if(SEATS[k]) el.innerHTML=meter(k,0); });
-  [].forEach.call(document.querySelectorAll("[data-seats-text]"),function(el){ var k=el.getAttribute("data-seats-text"); if(SEATS[k]) el.textContent=seatsText(k); });
-  [].forEach.call(document.querySelectorAll("[data-date]"),function(el){
-    var s=SEATS[el.getAttribute("data-date")]; if(!s || !s.date) return;
-    el.innerHTML=fmt(s.date)+(untilText(s.date) ? ' <small class="until">'+untilText(s.date)+'</small>' : '');
-  });
 
   /* nav */
   var nav=$("nav"), ham=document.querySelector(".nav-hamburger");
@@ -460,136 +360,14 @@
   addEventListener("resize",notch,{passive:true});
   place();
 
-  /* Paper Day card: in person or at home */
-  var homeMode=false;
+  /* Paper Day card: in person or at home. The reserve panel opens in the same mode. */
   var tg=[].slice.call(document.querySelectorAll(".toggle button"));
   tg.forEach(function(b){ b.addEventListener("click",function(){
     tg.forEach(function(x){ x.setAttribute("aria-pressed", x===b?"true":"false"); });
-    homeMode=b.getAttribute("data-mode")==="at-home";
-    $("paper-mode").textContent= homeMode ? "Paper Day · at home" : "Paper Day · in person";
+    var home=b.getAttribute("data-mode")==="at-home";
+    if(R) R.setHomeMode(home);
+    $("paper-mode").textContent= home ? "Paper Day · at home" : "Paper Day · in person";
   }); });
-
-  /* ---------- the reserve drawer: pick one or more ---------- */
-  var dr=$("drawer"), scrim=$("scrim"), lastFocus=null;
-  var state={ picks:{"paper-day":true,"build-cohort":false,"self-paced":false}, mode:"in-person", seats:1, shown:{} };
-  function keyOf(p){ return p==="paper-day" && state.mode==="at-home" ? "paper-day-home" : p; }
-  function picked(){ return ORDER.filter(function(p){ return state.picks[p]; }); }
-  function counted(){ return picked().map(keyOf).filter(function(k){ return !!SEATS[k]; }); }   /* picks that take a seat in a room */
-  function maxSeats(){ var c=counted(); if(!c.length) return 1; return Math.max(1, Math.min.apply(null, c.map(function(k){ return Math.min(CAP[k], left(k) || 1); }))); }
-
-  /* one compact line per room: a seat bar and "12 of 12 seats left → 11 after yours". The second number counts down as people are added. */
-  function renderCount(p){
-    var box=dr.querySelector('[data-count="'+p+'"]'); if(!box) return;
-    var k=keyOf(p);
-    if(!SEATS[k]){ box.style.display="none"; return; }
-    box.style.display="";
-    var s=SEATS[k], n=left(k), mine=state.picks[p] ? Math.min(state.seats, n) : 0, after=n-mine, prev=state.shown[k];
-    box.className="count"+(n>0 && n<=3 ? " low" : "");
-    box.innerHTML='<span class="meter" aria-hidden="true">'+meter(k, mine)+'</span>'+
-      (n===0 ? '<span class="ct">Full. You\'ll get first pick of the next room.</span>'
-             : '<span class="ct"><b>'+n+'</b> of '+s.total+' seats left'+(mine ? ' <span class="after">&rarr; <b class="n2">'+after+'</b> after yours</span>' : '')+'</span>');
-    if(prev!==undefined && prev!==after){ var t=box.querySelector(".n2"); if(t) t.classList.add("tick"); }
-    state.shown[k]=after;
-  }
-  function whenText(k, soon){ var s=SEATS[k]; return s && s.date ? fmt(s.date)+(untilText(s.date) ? ", "+untilText(s.date) : "") : soon; }
-
-  function render(){
-    var sel=picked(), home=state.mode==="at-home";
-    [].forEach.call(dr.querySelectorAll(".pickc"),function(c){
-      var p=c.getAttribute("data-path"), on=!!state.picks[p];
-      c.classList.toggle("on",on); c.querySelector(".ph").setAttribute("aria-checked",on?"true":"false");
-    });
-    $("dr-paper-price").innerHTML = home ? "Price<small>at launch</small>" : "$99<small>founding</small>";
-    $("dr-paper-where").textContent = home ? "At home, with a print kit. Opens soon" : "In person, DFW area. "+whenText("paper-day","Date coming soon");
-    $("dr-mode-switch").textContent = home ? "Do it in person instead" : "Do it at home instead";
-    $("dr-build-when").textContent = "Live online, Saturday mornings. "+whenText("build-cohort","Starts after the first Paper Day");
-    $("dr-needs").style.display = (state.picks["build-cohort"] && !state.picks["paper-day"]) ? "" : "none";
-
-    var anySeat=counted().length>0, mx=maxSeats();
-    if(!anySeat) state.seats=1;
-    state.seats=Math.max(1, Math.min(state.seats, mx));
-    $("dr-seats").style.display = anySeat ? "" : "none";
-    $("dr-count").textContent=state.seats;
-    $("dr-seats").querySelector('[data-step="-1"]').disabled = state.seats<=1;
-    $("dr-seats").querySelector('[data-step="1"]').disabled = state.seats>=mx;
-    ORDER.forEach(renderCount);
-
-    var ppl=state.seats, rows=[];
-    sel.forEach(function(p){
-      var k=keyOf(p), price=PRICES[k];
-      rows.push(price ? [NAMES[k]+(ppl>1 ? " × "+ppl : ""), money(price*ppl)] : [NAMES[k], "Price at launch"]);
-    });
-    if(state.picks["paper-day"] && !home && (state.picks["build-cohort"] || state.picks["self-paced"])){
-      rows.push(["Paper Day counts toward "+(state.picks["build-cohort"] ? "the Build cohort" : "Self-paced"), "&minus;"+money(PRICES["paper-day"]*ppl), "credit"]);
-    }
-    $("dr-lines").innerHTML = rows.map(function(r){ return '<div class="ln'+(r[2]?" "+r[2]:"")+'"><span>'+r[0]+'</span><span>'+r[1]+'</span></div>'; }).join("") +
-      '<div class="ln total"><span>Due today</span><span>$0</span></div>';
-    $("dr-submit").textContent = anySeat ? (ppl>1 ? "Hold my seats" : "Hold my seat") : "Tell me when it opens";
-  }
-
-  function flash(t,cls){ var m=$("dr-msg"); m.textContent=t; m.className="msg "+(cls||"ok"); }
-  [].forEach.call(dr.querySelectorAll(".pickc .ph"),function(b){ b.addEventListener("click",function(){
-    var p=b.parentNode.getAttribute("data-path");
-    if(state.picks[p] && picked().length===1){ flash("Pick at least one.","err"); return; }
-    state.picks[p]=!state.picks[p]; $("dr-msg").textContent=""; render();
-  }); });
-  $("dr-mode-switch").addEventListener("click",function(){ state.mode = state.mode==="at-home" ? "in-person" : "at-home"; render(); });
-  $("dr-addpaper").addEventListener("click",function(){ state.picks["paper-day"]=true; render(); dr.querySelector('[data-path="paper-day"] .ph').focus(); });
-  [].forEach.call(dr.querySelectorAll("[data-step]"),function(b){ b.addEventListener("click",function(){ state.seats+=+b.getAttribute("data-step"); render(); }); });
-
-  function focusables(){ return [].slice.call(dr.querySelectorAll('button,a[href],input')).filter(function(e){ return e.offsetParent!==null && !e.disabled; }); }
-  function openDrawer(pathKey){
-    lastFocus=document.activeElement;
-    if(pathKey){
-      state.picks={"paper-day":false,"build-cohort":false,"self-paced":false};
-      if(pathKey==="paper-day-home"){ state.picks["paper-day"]=true; state.mode="at-home"; }
-      else { state.picks[pathKey]=true; if(pathKey==="paper-day") state.mode = homeMode ? "at-home" : "in-person"; }
-    }
-    state.shown={};
-    dr.classList.remove("sent"); $("dr-msg").textContent=""; render();
-    dr.classList.add("on"); scrim.classList.add("on"); dr.setAttribute("aria-hidden","false");
-    document.documentElement.classList.add("locked");
-    setTimeout(function(){ var f=dr.querySelector('.pickc.on .ph'); if(f) f.focus(); },60);
-  }
-  function closeDrawer(){
-    dr.classList.remove("on"); scrim.classList.remove("on"); dr.setAttribute("aria-hidden","true");
-    document.documentElement.classList.remove("locked");
-    if(lastFocus && lastFocus.focus) lastFocus.focus();
-  }
-  [].forEach.call(document.querySelectorAll("[data-open]"),function(a){ a.addEventListener("click",function(e){ e.preventDefault(); openDrawer(a.getAttribute("data-open")); }); });
-  [].forEach.call(document.querySelectorAll("[data-close-drawer]"),function(b){ b.addEventListener("click",closeDrawer); });
-  scrim.addEventListener("click",closeDrawer);
-  document.addEventListener("keydown",function(e){
-    if(!dr.classList.contains("on")) return;
-    if(e.key==="Escape"){ closeDrawer(); return; }
-    if(e.key==="Tab"){ var f=focusables(); if(!f.length) return; var a=f[0], z=f[f.length-1];
-      if(e.shiftKey && document.activeElement===a){ e.preventDefault(); z.focus(); } else if(!e.shiftKey && document.activeElement===z){ e.preventDefault(); a.focus(); } }
-  });
-
-  /* links from other pages and old emails open the drawer: #reserve, #seat, #reserve-home, #reserve-build, #reserve-self */
-  function fromHash(){
-    var map={"#reserve":"paper-day","#seat":"paper-day","#reserve-home":"paper-day-home","#reserve-build":"build-cohort","#reserve-self":"self-paced"};
-    if(map[location.hash]) openDrawer(map[location.hash]);
-  }
-  fromHash(); addEventListener("hashchange",fromHash);
-
-  /* submit: same lead API as before */
-  var qs=new URLSearchParams(location.search);
-  function sid(){ try{ var k=sessionStorage.getItem("bsid"); if(!k){k=Math.random().toString(36).slice(2)+Date.now().toString(36); sessionStorage.setItem("bsid",k);} return k; }catch(e){ return "ns-"+Math.random().toString(36).slice(2); } }
-  var FAIL="That did not save. Try again, or email hi@aneilrazvi.com.";
-  $("dr-submit").addEventListener("click",function(){
-    var btn=this, v=($("dr-email").value||"").trim();
-    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)){ flash("That email does not look right.","err"); $("dr-email").focus(); return; }
-    var interest=picked().map(keyOf);
-    var payload={ source:"build", landing_path:location.pathname, referrer:document.referrer||null, session_id:sid(),
-      utm_source:qs.get("utm_source"), utm_medium:qs.get("utm_medium"), utm_campaign:qs.get("utm_campaign"), utm_content:qs.get("utm_content"),
-      email:v, gated:true, recommended_package:interest.join(","), answers:{ page:"course-v2", interest:interest, seats:state.seats } };
-    var label=btn.textContent; btn.disabled=true; btn.textContent="Sending...";
-    fetch("/api/lead",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)})
-      .then(function(r){ btn.disabled=false; btn.textContent=label;
-        if(r.ok){ $("dr-email").value=""; dr.classList.add("sent"); var d=dr.querySelector(".done .btn"); if(d) d.focus(); } else { flash(FAIL,"err"); } })
-      .catch(function(){ btn.disabled=false; btn.textContent=label; flash(FAIL,"err"); });
-  });
 
   /* phone sticky bar: after the hero, hidden once the closing band is on screen */
   var bar=$("stickybar"), hero=document.querySelector(".hero"), fin=$("final");
