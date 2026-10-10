@@ -70,6 +70,8 @@ html.rsv-locked,html.rsv-locked body{overflow:hidden}
 .rsv-ctl button{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--r-line-strong);background:transparent;color:var(--r-heading);font:600 1.1rem/1 'Inter',sans-serif;cursor:pointer;padding:0}
 .rsv-ctl button:disabled{opacity:.35;cursor:default}
 .rsv-ctl output{min-width:20px;text-align:center;font-weight:700}
+.rsv-capnote{font-size:.85rem;color:var(--r-muted);margin:.55rem 2px 0}
+.rsv-capnote a{color:var(--r-accent);font-weight:600;text-decoration:underline;text-underline-offset:2px}
 .rsv-lines{margin-top:14px;font-size:.9rem}
 .rsv-ln{display:flex;justify-content:space-between;gap:12px;padding:6px 0;color:var(--r-muted);border-bottom:1px solid var(--r-line)}
 .rsv-ln.credit span:last-child{color:var(--r-ok);font-weight:600}

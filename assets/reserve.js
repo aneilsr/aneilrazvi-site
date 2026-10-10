@@ -72,6 +72,7 @@
         '</div>'+
         '<div class="rsv-stepper" id="rsv-seats"><b>How many people?</b>'+
           '<div class="rsv-ctl"><button type="button" data-rsv-step="-1" aria-label="One fewer person">&minus;</button><output id="rsv-count" aria-live="polite">1</output><button type="button" data-rsv-step="1" aria-label="One more person">+</button></div></div>'+
+        '<p class="rsv-capnote" id="rsv-capnote" aria-live="polite" style="display:none"></p>'+
         '<div class="rsv-lines" id="rsv-lines"></div>'+
         '<p class="rsv-small">When the date is set, you pay through a secure Stripe checkout.</p>'+
         '<a class="rsv-alt" href="https://cal.com/aneil-razvi/intro" target="_blank" rel="noopener">Questions first? Grab 15 minutes &rarr;</a>'+
@@ -128,6 +129,11 @@
     $("rsv-count").textContent=state.seats;
     dr.querySelector('[data-rsv-step="-1"]').disabled = state.seats<=1;
     dr.querySelector('[data-rsv-step="1"]').disabled = state.seats>=mx;
+    /* At the most one booking can hold, point bigger groups to a 15-minute call instead of a dead + button. */
+    var atCap = anySeat && mx>1 && state.seats>=mx, note=$("rsv-capnote");
+    var lim = counted().filter(function(k){ return Math.min(CAP[k], left(k) || 1)===mx; })[0];
+    note.style.display = atCap ? "" : "none";
+    note.innerHTML = atCap ? 'Bringing more than '+mx+'? <a href="https://cal.com/aneil-razvi/intro" target="_blank" rel="noopener">Let\'s set up '+(lim==="paper-day" ? "a private room" : "a private cohort")+' &rarr;</a>' : "";
     ORDER.forEach(renderCount);
 
     var ppl=state.seats, rows=[];
