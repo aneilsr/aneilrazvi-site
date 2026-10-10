@@ -66,7 +66,7 @@
       <article class="room">
         <div class="kind">Paper Day</div>
         <div class="day">Saturday morning</div>
-        <div class="date">Date coming soon</div>
+        <div class="date" data-date="paper-day">Date coming soon</div>
         <div class="meta">DFW area &middot; location coming soon</div>
         <div class="meter" data-seats="paper-day" aria-hidden="true"></div>
         <div class="seats" data-seats-text="paper-day">12 seats open. The list gets first pick.</div>
@@ -74,7 +74,7 @@
       <article class="room">
         <div class="kind">Build cohort</div>
         <div class="day">Saturday mornings, live online</div>
-        <div class="date">After Paper Day</div>
+        <div class="date" data-date="build-cohort">After Paper Day</div>
         <div class="meta">Bring your laptop</div>
         <div class="meter" data-seats="build-cohort" aria-hidden="true"></div>
         <div class="seats" data-seats-text="build-cohort">8 seats open. Founding price.</div>
@@ -292,11 +292,73 @@
 <section class="wrap" id="reserve" aria-labelledby="h-reserve">
   <div class="reserve">
     <h2 id="h-reserve">Reserve a seat</h2>
-    <p class="note">No payment yet. Pick a way in, leave your email, and you'll get the date, the place and your seat link before anyone else.</p>
+    <p class="note">No payment yet. Pick one or more, leave your email, and you'll get the date, the place and your seat link before anyone else. Not ready? <a href="#scope">Scope your idea free</a>.</p>
     <div class="options">
       <button class="opt" type="button" data-open="paper-day"><b>Paper Day</b><span>One four-hour session in Dallas-Fort Worth, or at home</span><em>$99 founding &rarr;</em></button>
       <button class="opt" type="button" data-open="build-cohort"><b>Build cohort</b><span>Live online after Paper Day. Bring your laptop</span><em>$897 founding &rarr;</em></button>
       <button class="opt" type="button" data-open="self-paced"><b>Self-paced</b><span>All ten steps, online at your pace</span><em>$397 &rarr;</em></button>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" id="scope" aria-labelledby="h-scope">
+  <div class="scoper">
+    <div class="sc-head">
+      <p class="eyebrow">Free &middot; two minutes</p>
+      <h2 id="h-scope">Not ready to reserve? Scope your idea first.</h2>
+      <p class="note">Six quick questions. Your paper scope shows up right here: what done looks like, the screens to sketch first, and roughly how big it is. No email needed.</p>
+    </div>
+    <div class="sc-body">
+      <form id="scopeform" novalidate>
+        <div class="sq"><label class="l" for="s-idea">1. Your idea in one sentence</label><input type="text" id="s-idea" maxlength="200" placeholder="A recipe app that cooks from what's already in the house"></div>
+        <div class="sq"><span class="l" id="l-who">2. Who will use it?</span><div class="chips" role="radiogroup" aria-labelledby="l-who">
+          <label><input type="radio" name="who" value="me"><span>Just me</span></label>
+          <label><input type="radio" name="who" value="team"><span>My team or club</span></label>
+          <label><input type="radio" name="who" value="customers"><span>My customers</span></label>
+          <label><input type="radio" name="who" value="community"><span>A community or group</span></label>
+        </div></div>
+        <div class="sq"><label class="l" for="s-done">3. It's done when someone can...</label><input type="text" id="s-done" maxlength="160" placeholder="pick tonight's dinner in under two minutes"><span class="hint">...without asking you how.</span></div>
+        <div class="sq"><span class="l" id="l-today">4. What do they use today instead?</span><div class="chips" role="radiogroup" aria-labelledby="l-today">
+          <label><input type="radio" name="today" value="paper or notes"><span>Paper or notes</span></label>
+          <label><input type="radio" name="today" value="a spreadsheet"><span>A spreadsheet</span></label>
+          <label><input type="radio" name="today" value="group texts or email"><span>Group texts or email</span></label>
+          <label><input type="radio" name="today" value="another app"><span>Another app</span></label>
+          <label><input type="radio" name="today" value="nothing yet"><span>Nothing yet</span></label>
+        </div></div>
+        <div class="sq"><span class="l" id="l-must">5. Must it have any of these? Pick all that apply.</span><div class="chips" role="group" aria-labelledby="l-must">
+          <label><input type="checkbox" name="must" value="signin"><span>People sign in</span></label>
+          <label><input type="checkbox" name="must" value="payments"><span>Takes payments</span></label>
+          <label><input type="checkbox" name="must" value="photos"><span>Photos or files</span></label>
+          <label><input type="checkbox" name="must" value="maps"><span>Maps or location</span></label>
+          <label><input type="checkbox" name="must" value="messages"><span>Messages or reminders</span></label>
+          <label><input type="checkbox" name="must" value="ai"><span>An AI helper inside</span></label>
+        </div></div>
+        <div class="sq"><span class="l" id="l-exp">6. Have you built anything before?</span><div class="chips" role="radiogroup" aria-labelledby="l-exp">
+          <label><input type="radio" name="exp" value="never"><span>Never</span></label>
+          <label><input type="radio" name="exp" value="chat"><span>I've used ChatGPT or Claude</span></label>
+          <label><input type="radio" name="exp" value="built"><span>I've built something</span></label>
+        </div></div>
+        <button type="submit" class="btn solid">Show my paper scope</button>
+        <p class="msg" id="smsg" role="status" aria-live="polite"></p>
+      </form>
+
+      <div class="result" id="result" aria-live="polite">
+        <h3>Your paper scope</h3>
+        <dl>
+          <dt>Done looks like</dt><dd id="r-done"></dd>
+          <dt>Sketch these first</dt><dd><ol id="r-screens"></ol></dd>
+          <dt>How big it is</dt><dd id="r-size"></dd>
+          <dt>What you're up against</dt><dd id="r-today"></dd>
+          <dt>Where you'd start</dt><dd id="r-start"></dd>
+        </dl>
+        <div class="gate">
+          <p><b>Want it in your inbox?</b> I'll also send the idea map: a ready-made prompt you paste into Claude or ChatGPT, which asks you the hard questions about your idea.</p>
+          <div class="row"><label class="sr" for="sem">Email</label><input type="email" id="sem" placeholder="you@email.com" autocomplete="email"><button class="btn solid" id="ssend" type="button">Email me my scope</button></div>
+          <label class="optin"><input type="checkbox" id="sopt"> Also tell me when Paper Day dates are set</label>
+          <p class="msg" id="semsg" role="status" aria-live="polite"></p>
+        </div>
+        <div class="cta-row"><button class="btn outline" type="button" data-open="paper-day">Reserve a Paper Day seat</button></div>
+      </div>
     </div>
   </div>
 </section>
@@ -306,7 +368,7 @@
   <div class="wrap">
     <h2 id="h-final">Your idea is ready for paper.</h2>
     <p>Paper Day, Dallas-Fort Worth. Date and room coming soon. The list gets first pick.</p>
-    <div class="acts"><a class="btn light" href="#reserve" data-open="paper-day">Reserve a seat</a><a class="btn ghost" href="https://cal.com/aneil-razvi" target="_blank" rel="noopener">Ask me a question</a></div>
+    <div class="acts"><a class="btn light" href="#reserve" data-open="paper-day">Reserve a seat</a><a class="btn ghost" href="https://cal.com/aneil-razvi/intro" target="_blank" rel="noopener">Ask me a question</a></div>
   </div>
 </section>
 
@@ -324,57 +386,80 @@
 <aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="dr-title" aria-hidden="true">
   <div class="grab" aria-hidden="true"></div>
   <div class="dh">
-    <p class="eyebrow" id="dr-eyebrow">Small rooms &middot; 8 to 12 seats</p>
+    <p class="eyebrow" id="dr-eyebrow">Small rooms</p>
     <button class="x" type="button" data-close-drawer aria-label="Close"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M3 3l12 12M15 3L3 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
   </div>
   <div class="db">
     <h2 id="dr-title">Reserve your seat</h2>
-    <div class="seg" role="radiogroup" aria-label="Way in" id="dr-paths">
-      <button type="button" role="radio" data-path="paper-day" aria-checked="true">Paper Day</button>
-      <button type="button" role="radio" data-path="build-cohort" aria-checked="false">Build cohort</button>
-      <button type="button" role="radio" data-path="self-paced" aria-checked="false">Self-paced</button>
-    </div>
-    <div class="seg sm" role="radiogroup" aria-label="How you do Paper Day" id="dr-mode">
-      <button type="button" role="radio" data-mode="in-person" aria-checked="true">In person &middot; DFW</button>
-      <button type="button" role="radio" data-mode="at-home" aria-checked="false">At home &middot; print kit</button>
-    </div>
-    <ul class="facts" id="dr-facts"></ul>
+    <p class="dlab" id="dr-pick-lab">Pick one or more</p>
+    <div class="picks" id="dr-paths" role="group" aria-labelledby="dr-pick-lab">
 
-    <div id="dr-date">
-      <div class="dlab">Your date <span class="marker" style="font-size:.78rem">date coming soon</span></div>
-      <div class="slotcard">
-        <span class="dot" aria-hidden="true"></span>
-        <div class="t"><b id="dr-slot-title">First Paper Day</b><span id="dr-slot-sub">DFW area. Location coming soon. You get first pick.</span></div>
-        <span class="badge" id="dr-slot-badge">12 open</span>
+      <div class="pickc" data-path="paper-day">
+        <button type="button" class="ph" role="checkbox" aria-checked="true">
+          <span class="chk" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2.5 7.5l3 3 6-7" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span class="nm">Paper Day</span>
+          <span class="pr" id="dr-paper-price">$99<small>founding</small></span>
+          <span class="sb">Steps 1 to 5 &middot; one four-hour session</span>
+        </button>
+        <div class="pb">
+          <div class="seg sm" role="radiogroup" aria-label="How you do Paper Day" id="dr-mode">
+            <button type="button" role="radio" data-mode="in-person" aria-checked="true">In person &middot; DFW</button>
+            <button type="button" role="radio" data-mode="at-home" aria-checked="false">At home &middot; print kit</button>
+          </div>
+          <ul class="facts" data-facts="paper-day"></ul>
+          <div class="count" data-count="paper-day" aria-live="polite"></div>
+          <div id="dr-days">
+            <p class="dlab">What works best for you?</p>
+            <div class="seg sm" role="group" aria-label="Days that work for you">
+              <button type="button" aria-pressed="false" data-day="saturday-morning">Saturday morning</button>
+              <button type="button" aria-pressed="false" data-day="weekday-evening">Weekday evening</button>
+              <button type="button" aria-pressed="false" data-day="any">Any day works</button>
+            </div>
+          </div>
+          <div class="bringbox" id="dr-bring">
+            <p><b>You bring:</b> an idea and your phone.</p>
+            <p><b>We bring:</b> paper, phone and tablet frames, wireframe pieces, tape and pencils.</p>
+          </div>
+        </div>
       </div>
-      <div id="dr-days">
-        <div class="dlab">What works best for you?</div>
-        <div class="seg sm" role="group" aria-label="Days that work for you">
-          <button type="button" aria-pressed="false" data-day="saturday-morning">Saturday morning</button>
-          <button type="button" aria-pressed="false" data-day="weekday-evening">Weekday evening</button>
-          <button type="button" aria-pressed="false" data-day="any">Any day works</button>
+
+      <div class="pickc" data-path="build-cohort">
+        <button type="button" class="ph" role="checkbox" aria-checked="false">
+          <span class="chk" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2.5 7.5l3 3 6-7" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span class="nm">Build cohort</span>
+          <span class="pr">$897<small>or 2 &times; $459</small></span>
+          <span class="sb">Steps 6 to 9 &middot; live online</span>
+        </button>
+        <div class="pb">
+          <ul class="facts" data-facts="build-cohort"></ul>
+          <div class="count" data-count="build-cohort" aria-live="polite"></div>
+          <div class="needs" id="dr-needs"><span>It builds from your Paper Day paper, in person or at home.</span><button type="button" id="dr-addpaper">Add Paper Day</button></div>
+        </div>
+      </div>
+
+      <div class="pickc" data-path="self-paced">
+        <button type="button" class="ph" role="checkbox" aria-checked="false">
+          <span class="chk" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2.5 7.5l3 3 6-7" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span class="nm">Self-paced</span>
+          <span class="pr">$397<small>opens soon</small></span>
+          <span class="sb">All ten steps &middot; at your pace</span>
+        </button>
+        <div class="pb">
+          <ul class="facts" data-facts="self-paced"></ul>
         </div>
       </div>
     </div>
 
-    <div class="bringbox" id="dr-bring">
-      <p><b>You bring:</b> an idea and your phone.</p>
-      <p><b>We bring:</b> paper, phone and tablet frames, wireframe pieces, tape and pencils.</p>
-    </div>
-
     <div class="stepper" id="dr-seats">
-      <div><b>Seats</b><a href="https://cal.com/aneil-razvi" target="_blank" rel="noopener">Bringing a team? Ask about a private room</a></div>
-      <div class="ctl"><button type="button" data-step="-1" aria-label="One fewer seat">&minus;</button><output id="dr-count" aria-live="polite">1</output><button type="button" data-step="1" aria-label="One more seat">+</button></div>
+      <div><b>How many people?</b><a href="https://cal.com/aneil-razvi" target="_blank" rel="noopener">Bringing a team? Ask about a private room</a></div>
+      <div class="ctl"><button type="button" data-step="-1" aria-label="One fewer person">&minus;</button><output id="dr-count" aria-live="polite">1</output><button type="button" data-step="1" aria-label="One more person">+</button></div>
     </div>
 
-    <div class="lines">
-      <div class="ln"><span id="dr-line">Paper Day &times; 1 seat</span><span id="dr-line-amt">$99</span></div>
-      <div class="ln total"><span>Due today</span><span>$0</span></div>
-    </div>
+    <div class="lines" id="dr-lines"></div>
 
     <p class="small">No payment today. When the date is set, you pay through a secure Stripe checkout.</p>
-    <a class="alt" href="https://cal.com/aneil-razvi" target="_blank" rel="noopener">Questions first? Grab 15 minutes &rarr;</a>
-    <a class="alt" href="/idea-map.html">Not ready? Try the free idea map &rarr;</a>
+    <a class="alt" href="https://cal.com/aneil-razvi/intro" target="_blank" rel="noopener">Questions first? Grab 15 minutes &rarr;</a>
+    <a class="alt" href="#scope" data-goto="scope">Not ready? Scope your idea free &rarr;</a>
 
     <div class="done" id="dr-done">
       <p class="eyebrow">You're on the list</p>
@@ -396,24 +481,43 @@
 <script>
 (function(){
   "use strict";
-  /* SEATS: the one place seat counts live. Update "taken" as seats sell; every meter, badge and line on the page follows.
-     When checkout goes live, this object gets filled from the bookings instead of by hand. */
+  /* SEATS: the one place seat counts and dates live. Update "taken" as seats sell; every meter, count and line follows.
+     Set "date" (for example "2026-11-14") when a date is booked: the cards and the drawer switch from "date coming soon"
+     to the date and a countdown of days to go. When checkout goes live, this object gets filled from the bookings. */
   var SEATS = {
-    "paper-day":    { total: 12, taken: 0 },
-    "build-cohort": { total: 8,  taken: 0 }
+    "paper-day":    { total: 12, taken: 0, date: null },
+    "build-cohort": { total: 8,  taken: 0, date: null }
   };
   var PRICES = { "paper-day": 99, "paper-day-home": 0, "build-cohort": 897, "self-paced": 397 };
+  var NAMES = { "paper-day": "Paper Day", "paper-day-home": "Paper Day at home", "build-cohort": "Build cohort", "self-paced": "Self-paced" };
+  var CAP = { "paper-day": 6, "build-cohort": 4 };   /* most seats one person can hold at once */
+  var ORDER = ["paper-day","build-cohort","self-paced"];
   function $(id){ return document.getElementById(id); }
-  function open(k){ var s=SEATS[k]; return s ? Math.max(0, s.total - s.taken) : 0; }
+  function left(k){ var s=SEATS[k]; return s ? Math.max(0, s.total - s.taken) : 0; }
+  function money(n){ return "$"+n.toLocaleString("en-US"); }
+  var DAY=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"], MON=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+  function asDate(iso){ var p=String(iso).split("-"); return new Date(+p[0], +p[1]-1, +p[2]); }
+  function fmt(iso){ var d=asDate(iso); return DAY[d.getDay()]+" "+d.getDate()+" "+MON[d.getMonth()]; }
+  function daysTo(iso){ var t=new Date(); t.setHours(0,0,0,0); return Math.round((asDate(iso)-t)/86400000); }
+  function untilText(iso){ var n=daysTo(iso); return n>1 ? n+" days to go" : n===1 ? "Tomorrow" : n===0 ? "Today" : ""; }
+  function seatsText(k){
+    var n=left(k), tot=SEATS[k].total;
+    if(n===0) return "Full. The list gets first pick of the next room.";
+    if(n<=3) return "Only "+n+" of "+tot+" seats left.";
+    return n+" of "+tot+" seats left."+(k==="paper-day" ? " The list gets first pick." : " Founding price.");
+  }
 
-  /* meters and seat text */
-  [].forEach.call(document.querySelectorAll("[data-seats]"),function(m){
-    var s=SEATS[m.getAttribute("data-seats")]; if(!s) return; var h="";
-    for(var i=0;i<s.total;i++){ h+='<i'+(i<s.taken?'':' class="open"')+'></i>'; } m.innerHTML=h;
-  });
-  [].forEach.call(document.querySelectorAll("[data-seats-text]"),function(t){
-    var k=t.getAttribute("data-seats-text"), n=open(k);
-    t.textContent = k==="paper-day" ? (n+" seats open. The list gets first pick.") : (n+" seats open. Founding price.");
+  /* page: meters, seat counts and dates on the Next rooms cards */
+  function meter(k, mine){
+    var s=SEATS[k], h="", m=Math.min(mine||0, left(k));
+    for(var i=0;i<s.total;i++){ h+='<i'+(i<s.taken ? '' : i<s.taken+m ? ' class="mine"' : ' class="open"')+'></i>'; }
+    return h;
+  }
+  [].forEach.call(document.querySelectorAll("[data-seats]"),function(el){ var k=el.getAttribute("data-seats"); if(SEATS[k]) el.innerHTML=meter(k,0); });
+  [].forEach.call(document.querySelectorAll("[data-seats-text]"),function(el){ var k=el.getAttribute("data-seats-text"); if(SEATS[k]) el.textContent=seatsText(k); });
+  [].forEach.call(document.querySelectorAll("[data-date]"),function(el){
+    var s=SEATS[el.getAttribute("data-date")]; if(!s || !s.date) return;
+    el.innerHTML=fmt(s.date)+(untilText(s.date) ? ' <small class="until">'+untilText(s.date)+'</small>' : '');
   });
 
   /* nav */
@@ -459,77 +563,129 @@
     $("paper-mode").textContent= homeMode ? "Paper Day · at home" : "Paper Day · in person";
   }); });
 
-  /* ---------- the reserve drawer ---------- */
+  /* ---------- the reserve drawer: pick one or more ---------- */
   var dr=$("drawer"), scrim=$("scrim"), lastFocus=null;
-  var state={ path:"paper-day", mode:"in-person", seats:1, days:[] };
+  var state={ picks:{"paper-day":true,"build-cohort":false,"self-paced":false}, mode:"in-person", seats:1, shown:{} };
   var ICON={
     pin:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>',
     clock:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>',
     people:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.5"/><path d="M15.5 14.2A5 5 0 0 1 21 19"/></svg>'
   };
   var FACTS={
-    "paper-day":[["pin","In person, Dallas-Fort Worth. Location coming soon."],["clock","One four-hour session"],["people","8 to 12 people, each building their own idea"]],
+    "paper-day":[["pin","In person, Dallas-Fort Worth. Location coming soon."],["clock","One four-hour session, most likely a Saturday morning"],["people","8 to 12 people, each building their own idea"]],
     "paper-day-home":[["pin","At home, with a print kit and short videos"],["clock","The same five steps, each on a timer"],["people","Opens soon. One email when it does"]],
     "build-cohort":[["pin","Live online, Saturday mornings"],["clock","Starts right after the first Paper Day"],["people","Up to 8 people. Bring your laptop"]],
-    "self-paced":[["pin","Online, at your own pace"],["clock","All ten steps, every kit and template"],["people","Opens soon. One email when it does"]]
+    "self-paced":[["pin","Online, at your own pace"],["clock","All ten steps, every kit and template"],["people","No seat limit. Opens soon, one email when it does"]]
   };
-  function key(){ return state.path==="paper-day" && state.mode==="at-home" ? "paper-day-home" : state.path; }
-  function money(n){ return "$"+n.toLocaleString("en-US"); }
-  function render(){
-    var k=key();
-    [].forEach.call($("dr-paths").children,function(b){ b.setAttribute("aria-checked", b.getAttribute("data-path")===state.path?"true":"false"); });
-    [].forEach.call($("dr-mode").children,function(b){ b.setAttribute("aria-checked", b.getAttribute("data-mode")===state.mode?"true":"false"); });
-    $("dr-mode").style.display = state.path==="paper-day" ? "" : "none";
-    $("dr-facts").innerHTML = FACTS[k].map(function(f){ return "<li>"+ICON[f[0]]+"<span>"+f[1]+"</span></li>"; }).join("");
-    var dated = (k==="paper-day"||k==="build-cohort");
-    $("dr-date").style.display = dated ? "" : "none";
-    $("dr-days").style.display = k==="paper-day" ? "" : "none";
-    $("dr-bring").style.display = (k==="paper-day") ? "" : "none";
-    if(dated){
-      var n=open(k), tot=SEATS[k].total;
-      $("dr-slot-title").textContent = k==="paper-day" ? "First Paper Day" : "First Build cohort";
-      $("dr-slot-sub").textContent = k==="paper-day" ? "DFW area. Location coming soon. You get first pick." : "Starts after the first Paper Day. You get the dates first.";
-      $("dr-slot-badge").textContent = n+" open";
-      $("dr-eyebrow").textContent = k==="paper-day" ? "Small rooms · 8 to 12 seats" : "Small cohort · up to "+tot+" seats";
-    } else { $("dr-eyebrow").textContent = "Opens soon"; }
-    var max = k==="paper-day" ? Math.min(6, open(k)) : (k==="build-cohort" ? Math.min(4, open(k)) : 1);
-    if(state.seats>max) state.seats=Math.max(1,max);
-    $("dr-seats").style.display = (k==="paper-day"||k==="build-cohort") ? "" : "none";
-    $("dr-count").textContent = state.seats;
-    $("dr-seats").querySelector('[data-step="-1"]').disabled = state.seats<=1;
-    $("dr-seats").querySelector('[data-step="1"]').disabled = state.seats>=max;
-    var names={"paper-day":"Paper Day","paper-day-home":"Paper Day at home","build-cohort":"Build cohort","self-paced":"Self-paced"};
-    var price=PRICES[k];
-    $("dr-line").textContent = names[k] + (price ? " × "+state.seats+(state.seats>1?" seats":" seat") : "");
-    $("dr-line-amt").textContent = price ? money(price*state.seats)+(k==="paper-day"?" founding":"") : "Price at launch";
-    $("dr-submit").textContent = (k==="paper-day"||k==="build-cohort") ? "Hold my seat" : "Tell me when it opens";
+  function keyOf(p){ return p==="paper-day" && state.mode==="at-home" ? "paper-day-home" : p; }
+  function picked(){ return ORDER.filter(function(p){ return state.picks[p]; }); }
+  function counted(){ return picked().map(keyOf).filter(function(k){ return !!SEATS[k]; }); }   /* picks that use a seat in a room */
+  function maxSeats(){ var c=counted(); if(!c.length) return 1; return Math.max(1, Math.min.apply(null, c.map(function(k){ return Math.min(CAP[k], left(k) || 1); }))); }
+
+  function renderCount(p){
+    var box=dr.querySelector('[data-count="'+p+'"]'); if(!box) return;
+    var k=keyOf(p);
+    if(!SEATS[k]){ box.style.display="none"; return; }
+    box.style.display="";
+    var s=SEATS[k], n=left(k), mine=state.picks[p] ? Math.min(state.seats, n) : 0, after=n-mine;
+    var when = s.date ? fmt(s.date)+(untilText(s.date) ? " · "+untilText(s.date) : "") : (k==="paper-day" ? "Date coming soon. The list gets first pick." : "Starts after the first Paper Day.");
+    var prev=state.shown[k];
+    box.className="count"+(n>0 && n<=3 ? " low" : "")+(n===0 ? " full" : "");
+    box.innerHTML='<div class="meter" aria-hidden="true">'+meter(k, mine)+'</div>'+
+      (n===0 ? '<p class="ct"><b>0</b> seats left. You\'ll get first pick of the next room.</p>'
+             : '<p class="ct"><b>'+n+'</b> of '+s.total+' seats left'+(mine ? ' <span class="after">&rarr; <b class="n2">'+after+'</b> after yours</span>' : '')+'</p>')+
+      '<p class="when">'+when+'</p>';
+    if(prev!==undefined && prev!==after){ var t=box.querySelector(".n2"); if(t){ t.classList.add("tick"); } }
+    state.shown[k]=after;
   }
-  [].forEach.call($("dr-paths").children,function(b){ b.addEventListener("click",function(){ state.path=b.getAttribute("data-path"); render(); }); });
-  [].forEach.call($("dr-mode").children,function(b){ b.addEventListener("click",function(){ state.mode=b.getAttribute("data-mode"); render(); }); });
-  [].forEach.call(document.querySelectorAll("[data-day]"),function(b){ b.addEventListener("click",function(){
-    var on=b.getAttribute("aria-pressed")!=="true"; b.setAttribute("aria-pressed",on?"true":"false");
-    b.style.borderColor=on?"#2948A8":""; b.style.background=on?"var(--callout)":"";
+
+  function render(){
+    var sel=picked();
+    [].forEach.call(dr.querySelectorAll(".pickc"),function(c){
+      var p=c.getAttribute("data-path"), on=!!state.picks[p];
+      c.classList.toggle("on",on); c.querySelector(".ph").setAttribute("aria-checked",on?"true":"false");
+      var f=c.querySelector("[data-facts]"); if(f){ f.innerHTML=FACTS[keyOf(p)].map(function(x){ return "<li>"+ICON[x[0]]+"<span>"+x[1]+"</span></li>"; }).join(""); }
+    });
+    [].forEach.call($("dr-mode").children,function(b){ b.setAttribute("aria-checked", b.getAttribute("data-mode")===state.mode?"true":"false"); });
+    var home = state.mode==="at-home";
+    $("dr-paper-price").innerHTML = home ? "Price<small>at launch</small>" : "$99<small>founding</small>";
+    $("dr-days").style.display = home ? "none" : "";
+    $("dr-bring").style.display = home ? "none" : "";
+    $("dr-needs").style.display = (state.picks["build-cohort"] && !state.picks["paper-day"]) ? "" : "none";
+
+    var mx=maxSeats(); if(state.seats>mx) state.seats=mx; if(state.seats<1) state.seats=1;
+    var anySeat=counted().length>0;
+    $("dr-seats").style.display = anySeat ? "" : "none";
+    if(!anySeat) state.seats=1;
+    $("dr-count").textContent=state.seats;
+    $("dr-seats").querySelector('[data-step="-1"]').disabled = state.seats<=1;
+    $("dr-seats").querySelector('[data-step="1"]').disabled = state.seats>=mx;
+    ORDER.forEach(renderCount);
+
+    /* eyebrow: seats left in each room you picked */
+    var eb=counted().map(function(k){ var n=left(k); return NAMES[k]+": "+(n ? n+" left" : "full"); });
+    $("dr-eyebrow").textContent = eb.length ? (eb.length===1 ? eb[0].replace(" left"," seats left") : eb.join(" · ")) : "Opens soon";
+
+    /* lines */
+    var rows=[], total=0, ppl=state.seats;
+    sel.forEach(function(p){
+      var k=keyOf(p), price=PRICES[k];
+      if(price){ var amt=price*ppl; total+=amt; rows.push([NAMES[k]+" × "+ppl+(ppl>1?" people":" person"), money(amt)+(k==="paper-day"?" founding":"")]); }
+      else rows.push([NAMES[k], "Price at launch"]);
+    });
+    var credit=0;
+    if(state.picks["paper-day"] && !home && (state.picks["build-cohort"] || state.picks["self-paced"])){
+      credit=PRICES["paper-day"]*ppl; total-=credit;
+      rows.push(["Paper Day counts toward "+(state.picks["build-cohort"] ? "the Build cohort" : "Self-paced"), "&minus;"+money(credit), "credit"]);
+    }
+    var h=rows.map(function(r){ return '<div class="ln'+(r[2]?" "+r[2]:"")+'"><span>'+r[0]+'</span><span>'+r[1]+'</span></div>'; }).join("");
+    if(total>0 && sel.length>1) h+='<div class="ln sum"><span>Total at checkout, once dates are set</span><span>'+money(total)+'</span></div>';
+    h+='<div class="ln total"><span>Due today</span><span>$0</span></div>';
+    $("dr-lines").innerHTML=h;
+
+    var holds = counted().length>0;
+    $("dr-submit").textContent = holds ? (state.seats>1 ? "Hold my seats" : "Hold my seat") : "Tell me when it opens";
+  }
+
+  function flash(t,cls){ var m=$("dr-msg"); m.textContent=t; m.className="msg "+(cls||"ok"); }
+  [].forEach.call(dr.querySelectorAll(".pickc .ph"),function(b){ b.addEventListener("click",function(){
+    var p=b.parentNode.getAttribute("data-path");
+    if(state.picks[p] && picked().length===1){ flash("Pick at least one way in.","err"); return; }
+    state.picks[p]=!state.picks[p]; $("dr-msg").textContent=""; render();
   }); });
-  [].forEach.call(document.querySelectorAll("[data-step]"),function(b){ b.addEventListener("click",function(){ state.seats+=+b.getAttribute("data-step"); render(); }); });
+  [].forEach.call($("dr-mode").children,function(b){ b.addEventListener("click",function(){ state.mode=b.getAttribute("data-mode"); render(); }); });
+  $("dr-addpaper").addEventListener("click",function(){ state.picks["paper-day"]=true; render(); dr.querySelector('[data-path="paper-day"] .ph').focus(); });
+  [].forEach.call(dr.querySelectorAll("[data-day]"),function(b){ b.addEventListener("click",function(){
+    b.setAttribute("aria-pressed", b.getAttribute("aria-pressed")==="true" ? "false" : "true");
+  }); });
+  [].forEach.call(dr.querySelectorAll("[data-step]"),function(b){ b.addEventListener("click",function(){ state.seats+=+b.getAttribute("data-step"); render(); }); });
 
   function focusables(){ return [].slice.call(dr.querySelectorAll('button,a[href],input')).filter(function(e){ return e.offsetParent!==null && !e.disabled; }); }
   function openDrawer(pathKey){
     lastFocus=document.activeElement;
-    if(pathKey==="paper-day-home"){ state.path="paper-day"; state.mode="at-home"; }
-    else if(pathKey){ state.path=pathKey; if(pathKey==="paper-day") state.mode = homeMode ? "at-home" : "in-person"; }
+    if(pathKey){
+      state.picks={"paper-day":false,"build-cohort":false,"self-paced":false};
+      if(pathKey==="paper-day-home"){ state.picks["paper-day"]=true; state.mode="at-home"; }
+      else { state.picks[pathKey]=true; if(pathKey==="paper-day") state.mode = homeMode ? "at-home" : "in-person"; }
+    }
+    state.shown={};
     dr.classList.remove("sent"); $("dr-msg").textContent=""; render();
     dr.classList.add("on"); scrim.classList.add("on"); dr.setAttribute("aria-hidden","false");
     document.documentElement.classList.add("locked");
-    setTimeout(function(){ var f=$("dr-paths").querySelector('[aria-checked="true"]'); if(f) f.focus(); },60);
+    setTimeout(function(){ var f=dr.querySelector('.pickc.on .ph'); if(f) f.focus(); },60);
   }
-  function closeDrawer(){
+  function closeDrawer(noRefocus){
     dr.classList.remove("on"); scrim.classList.remove("on"); dr.setAttribute("aria-hidden","true");
     document.documentElement.classList.remove("locked");
-    if(lastFocus && lastFocus.focus) lastFocus.focus();
+    if(!noRefocus && lastFocus && lastFocus.focus) lastFocus.focus();
   }
   [].forEach.call(document.querySelectorAll("[data-open]"),function(a){ a.addEventListener("click",function(e){ e.preventDefault(); openDrawer(a.getAttribute("data-open")); }); });
-  [].forEach.call(document.querySelectorAll("[data-close-drawer]"),function(b){ b.addEventListener("click",closeDrawer); });
-  scrim.addEventListener("click",closeDrawer);
+  [].forEach.call(document.querySelectorAll("[data-close-drawer]"),function(b){ b.addEventListener("click",function(){ closeDrawer(); }); });
+  [].forEach.call(document.querySelectorAll("[data-goto]"),function(a){ a.addEventListener("click",function(e){
+    e.preventDefault(); closeDrawer(true); var t=$(a.getAttribute("data-goto"));
+    if(t){ setTimeout(function(){ t.scrollIntoView({behavior:"smooth",block:"start"}); var f=t.querySelector("input"); if(f) f.focus({preventScroll:true}); },320); }
+  }); });
+  scrim.addEventListener("click",function(){ closeDrawer(); });
   document.addEventListener("keydown",function(e){
     if(!dr.classList.contains("on")) return;
     if(e.key==="Escape"){ closeDrawer(); return; }
@@ -537,38 +693,99 @@
       if(e.shiftKey && document.activeElement===a){ e.preventDefault(); z.focus(); } else if(!e.shiftKey && document.activeElement===z){ e.preventDefault(); a.focus(); } }
   });
 
-  /* links from other pages and old emails: /build.html#reserve, #reserve-build, #reserve-self, #reserve-home, #seat; #scope goes to the idea map */
+  /* links from other pages and old emails: #reserve, #reserve-build, #reserve-self, #reserve-home, #seat open the drawer. #scope scrolls to the scoper. */
   function fromHash(){
-    var h=location.hash, map={"#reserve":"paper-day","#seat":"paper-day","#reserve-home":"paper-day-home","#reserve-build":"build-cohort","#reserve-self":"self-paced"};
-    if(map[h]){ openDrawer(map[h]); } else if(h==="#scope"){ location.replace("/idea-map.html"); }
+    var map={"#reserve":"paper-day","#seat":"paper-day","#reserve-home":"paper-day-home","#reserve-build":"build-cohort","#reserve-self":"self-paced"};
+    if(map[location.hash]) openDrawer(map[location.hash]);
   }
   fromHash(); addEventListener("hashchange",fromHash);
 
-  /* submit: same lead API as the live course page */
+  /* lead API: shared by the drawer and the scoper */
   var qs=new URLSearchParams(location.search);
   function sid(){ try{ var k=sessionStorage.getItem("bsid"); if(!k){k=Math.random().toString(36).slice(2)+Date.now().toString(36); sessionStorage.setItem("bsid",k);} return k; }catch(e){ return "ns-"+Math.random().toString(36).slice(2); } }
-  function flash(t,cls){ var m=$("dr-msg"); m.textContent=t; m.className="msg "+(cls||"ok"); }
+  function base(extra){
+    var o={ source:"build", landing_path:location.pathname, referrer:document.referrer||null, session_id:sid(),
+      utm_source:qs.get("utm_source"), utm_medium:qs.get("utm_medium"), utm_campaign:qs.get("utm_campaign"), utm_content:qs.get("utm_content") };
+    for(var k in extra){ o[k]=extra[k]; } return o;
+  }
+  function okEmail(v){ return /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v); }
+  var FAIL="That did not save. Try again, or email hi@aneilrazvi.com.";
+
   $("dr-submit").addEventListener("click",function(){
     var btn=this, v=($("dr-email").value||"").trim();
-    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)){ flash("That email does not look right.","err"); $("dr-email").focus(); return; }
-    var k=key(), days=[].slice.call(document.querySelectorAll('[data-day][aria-pressed="true"]')).map(function(b){ return b.getAttribute("data-day"); });
-    var payload={ source:"build", landing_path:location.pathname, referrer:document.referrer||null, session_id:sid(),
-      utm_source:qs.get("utm_source"), utm_medium:qs.get("utm_medium"), utm_campaign:qs.get("utm_campaign"), utm_content:qs.get("utm_content"),
-      email:v, gated:true, recommended_package:k, answers:{ page:"course-v2", interest:[k], seats:state.seats, days:days } };
+    if(!okEmail(v)){ flash("That email does not look right.","err"); $("dr-email").focus(); return; }
+    var interest=picked().map(keyOf), days=[].slice.call(dr.querySelectorAll('[data-day][aria-pressed="true"]')).map(function(b){ return b.getAttribute("data-day"); });
+    var payload=base({ email:v, gated:true, recommended_package:interest.join(","), answers:{ page:"course-v2", interest:interest, seats:state.seats, days:days } });
     var label=btn.textContent; btn.disabled=true; btn.textContent="Sending...";
     fetch("/api/lead",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)})
       .then(function(r){ btn.disabled=false; btn.textContent=label;
-        if(r.ok){ $("dr-email").value=""; dr.classList.add("sent"); var d=dr.querySelector(".done .btn"); if(d) d.focus(); } else { flash("That did not save. Try again, or email hi@aneilrazvi.com.","err"); } })
-      .catch(function(){ btn.disabled=false; btn.textContent=label; flash("That did not save. Try again, or email hi@aneilrazvi.com.","err"); });
+        if(r.ok){ $("dr-email").value=""; dr.classList.add("sent"); var d=dr.querySelector(".done .btn"); if(d) d.focus(); } else { flash(FAIL,"err"); } })
+      .catch(function(){ btn.disabled=false; btn.textContent=label; flash(FAIL,"err"); });
   });
 
-  /* phone sticky bar: after the hero, hidden near the reserve section and while the drawer is open */
-  var bar=$("stickybar"), hero=document.querySelector(".hero"), seat=$("reserve");
-  if("IntersectionObserver" in window && bar && hero && seat){
-    var heroGone=false, seatIn=false;
-    function sync(){ var on=heroGone && !seatIn; bar.classList.toggle("show",on); bar.setAttribute("aria-hidden",on?"false":"true"); bar.querySelector("a").tabIndex=on?0:-1; }
+  /* ---------- the scoper: free, no email needed. The idea map prompt goes by email only. ---------- */
+  var lastScope=null;
+  function val(name){ var c=document.querySelector('input[name="'+name+'"]:checked'); return c?c.value:""; }
+  function vals(name){ return [].slice.call(document.querySelectorAll('input[name="'+name+'"]:checked')).map(function(i){return i.value;}); }
+  function esc(s){ return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];}); }
+  function say(el,t,cls){ el.textContent=t; el.className="msg "+(cls||"ok"); }
+  var WHO={me:"You",team:"Someone on your team",customers:"One of your customers",community:"Someone in your group"};
+  var SCREEN={signin:"Sign up and sign in",payments:"Checkout",photos:"Add a photo or file",maps:"The map",messages:"Reminders and messages",ai:"Ask the helper"};
+  var HEAVY=["signin","payments","maps","ai"];
+  $("scopeform").addEventListener("submit",function(ev){
+    ev.preventDefault();
+    var idea=$("s-idea").value.trim();
+    var done=$("s-done").value.trim().replace(/[.\s]+$/,"");
+    if(/^[A-Z][a-z]/.test(done)) done=done.charAt(0).toLowerCase()+done.slice(1);
+    var who=val("who"), today=val("today"), must=vals("must"), exp=val("exp"), m=$("smsg");
+    if(!idea){ say(m,"Start with your idea in one sentence.","err"); $("s-idea").focus(); return; }
+    if(!who){ say(m,"Pick who will use it.","err"); return; }
+    m.textContent="";
+    var whoP=WHO[who]||"Someone";
+    var doneTxt = done ? (whoP+" can "+done+", without asking you how.") : "Not written yet. That's the first thing to fix, and it's step 1 of the course.";
+    var screens=["Home: what they see first"];
+    if(done) screens.push("The screen where they "+done);
+    must.forEach(function(k){ if(SCREEN[k]) screens.push(SCREEN[k]); });
+    screens=screens.slice(0,5);
+    var heavy=must.filter(function(k){ return HEAVY.indexOf(k)>-1; }).length;
+    var size = heavy<=1 ? "Small. A few weekends on paper and a first version you can click."
+             : heavy===2 ? "Medium. A few weeks of evenings. Paper first will save you most of them."
+             : "Big. Very doable, but plan the hardest part on paper before anything gets built.";
+    var flags=[];
+    if(must.indexOf("payments")>-1) flags.push("Payments mean a real business account. Step 9 covers what to ask.");
+    if(must.indexOf("signin")>-1) flags.push("Sign-in means you're keeping people's data. Decide on paper what you actually need.");
+    if(must.indexOf("ai")>-1) flags.push("An AI helper is its own part. Test it on paper like everything else.");
+    var todayTxt = today ? ("Today they use "+today+". Your app has to be easier than that, or they won't switch. Keep it in mind when you test.") : "Ask three people what they do today instead. That's your real competition.";
+    var start = done ? "Step 2, the mind dump. You already know what done looks like, so the next move is getting everything else out of your head." : "Step 1, outcome first. Ten minutes, and everything after it gets easier.";
+    $("r-done").textContent=doneTxt;
+    $("r-screens").innerHTML=screens.map(function(s){ return "<li>"+esc(s)+"</li>"; }).join("");
+    $("r-size").innerHTML=esc(size)+(flags.length?'<span class="flags">'+flags.map(esc).join(" ")+'</span>':"");
+    $("r-today").textContent=todayTxt;
+    $("r-start").textContent=start;
+    lastScope={ idea:idea, who:who, done:done, today:today, must:must, experience:exp, size:(heavy<=1?"small":heavy===2?"medium":"big"), screens:screens };
+    var r=$("result"); r.classList.add("on");
+    r.scrollIntoView({behavior:"smooth",block:"start"});
+    try{ fetch("/api/lead",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(base({ answers:{page:"course-v2",scope:lastScope}, recommended_package:"scope" }))}); }catch(e){}
+  });
+  $("ssend").addEventListener("click",function(){
+    var btn=this, v=($("sem").value||"").trim(), m=$("semsg");
+    if(!okEmail(v)){ say(m,"That email does not look right.","err"); $("sem").focus(); return; }
+    var interest=["scope"]; if($("sopt").checked) interest.push("paper-day");
+    var label=btn.textContent; btn.disabled=true; btn.textContent="Sending...";
+    fetch("/api/lead",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(base({ email:v, gated:true, recommended_package:interest.join(","), answers:{page:"course-v2",scope:lastScope,interest:interest} }))})
+      .then(function(r){ btn.disabled=false; btn.textContent=label;
+        if(r.ok){ $("sem").value=""; say(m,"Sent. Check your inbox: your scope, plus the idea map prompt to paste into Claude or ChatGPT.","ok"); } else { say(m,FAIL,"err"); } })
+      .catch(function(){ btn.disabled=false; btn.textContent=label; say(m,FAIL,"err"); });
+  });
+
+  /* phone sticky bar: after the hero, hidden while the reserve section or the scoper is on screen, and while the drawer is open */
+  var bar=$("stickybar"), hero=document.querySelector(".hero"), seat=$("reserve"), scope=$("scope");
+  if("IntersectionObserver" in window && bar && hero && seat && scope){
+    var heroGone=false, seatIn=false, scopeIn=false;
+    function sync(){ var on=heroGone && !seatIn && !scopeIn; bar.classList.toggle("show",on); bar.setAttribute("aria-hidden",on?"false":"true"); bar.querySelector("a").tabIndex=on?0:-1; }
     new IntersectionObserver(function(es){ heroGone=!es[0].isIntersecting; sync(); }).observe(hero);
     new IntersectionObserver(function(es){ seatIn=es[0].isIntersecting; sync(); }).observe(seat);
+    new IntersectionObserver(function(es){ scopeIn=es[0].isIntersecting; sync(); }).observe(scope);
   }
 })();
 </script>
