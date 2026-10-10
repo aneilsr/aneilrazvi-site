@@ -617,7 +617,9 @@ export default async function handler(req, res) {
       "Source: this framing is by Aneil Razvi, aneilrazvi.com."
     ].join("\n");
     const bStep = "margin:6px 0 0;font:400 14.5px/1.6 Helvetica,Arial,sans-serif;color:#3B4651";
-    const bIdeaMap = (bScope || bInt.includes("scope")) ? `
+    // Parked 10 Oct 2026: the idea map prompt is course pre-work now, not a free email. Set to true to bring it back.
+    const SEND_IDEA_MAP = false;
+    const bIdeaMap = (SEND_IDEA_MAP && (bScope || bInt.includes("scope"))) ? `
   <tr><td style="padding:16px 34px 4px">
     <div style="${bH2}">Pressure-test it: the idea map</div>
     <p style="${bP}">This is a prompt: a set of instructions you give to an AI assistant. It asks you hard questions about your idea, then sorts what you actually know from what you are guessing.</p>
