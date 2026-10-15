@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Foundation, Aneil Razvi</title>
+<meta name="description" content="How writing down the reasoning behind each decision, in files like VISION and DECISIONS, turned a launch-killing pivot from a month of rework to an afternoon."/>
+<meta name="author" content="Aneil Razvi"/>
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"/>
+<link rel="canonical" href="https://aneilrazvi.com/blog/the-foundation.html"/>
+<link rel="alternate" type="application/rss+xml" title="Building in the Open, Aneil Razvi" href="https://aneilrazvi.com/feed.xml"/>
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="Aneil Razvi"/>
+<meta property="og:title" content="The Foundation"/>
+<meta property="og:description" content="How writing down the reasoning behind each decision, in files like VISION and DECISIONS, turned a launch-killing pivot from a month of rework to an afternoon."/>
+<meta property="og:url" content="https://aneilrazvi.com/blog/the-foundation.html"/>
+<meta property="og:image" content="https://aneilrazvi.com/assets/newsletter/01-the-foundation.jpg"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="675"/>
+<meta property="article:published_time" content="2026-07-29T06:03:37Z"/>
+<meta property="article:modified_time" content="2026-08-24T00:48:15Z"/>
+<meta property="article:author" content="https://www.linkedin.com/in/aneilrazvi/"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="The Foundation"/>
+<meta name="twitter:description" content="How writing down the reasoning behind each decision, in files like VISION and DECISIONS, turned a launch-killing pivot from a month of rework to an afternoon."/>
+<meta name="twitter:image" content="https://aneilrazvi.com/assets/newsletter/01-the-foundation.jpg"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Person", "@id": "https://aneilrazvi.com/#aneil", "name": "Aneil Razvi", "url": "https://aneilrazvi.com/", "jobTitle": "Product Design and AI Experience Leader", "sameAs": ["https://www.linkedin.com/in/aneilrazvi/", "https://cubbyplaylist.com"]}, {"@type": "WebSite", "@id": "https://aneilrazvi.com/#website", "url": "https://aneilrazvi.com/", "name": "Aneil Razvi", "publisher": {"@id": "https://aneilrazvi.com/#aneil"}, "inLanguage": "en"}, {"@type": "BlogPosting", "@id": "https://aneilrazvi.com/blog/the-foundation.html#article", "url": "https://aneilrazvi.com/blog/the-foundation.html", "mainEntityOfPage": "https://aneilrazvi.com/blog/the-foundation.html", "headline": "The Foundation", "description": "How writing down the reasoning behind each decision, in files like VISION and DECISIONS, turned a launch-killing pivot from a month of rework to an afternoon.", "image": {"@type": "ImageObject", "url": "https://aneilrazvi.com/assets/newsletter/01-the-foundation.jpg", "width": 1200, "height": 675}, "datePublished": "2026-07-29T06:03:37Z", "dateModified": "2026-08-24T00:48:15Z", "author": {"@id": "https://aneilrazvi.com/#aneil"}, "publisher": {"@id": "https://aneilrazvi.com/#aneil"}, "isPartOf": {"@type": "Blog", "@id": "https://aneilrazvi.com/blog.html#blog", "name": "Building in the Open", "url": "https://aneilrazvi.com/blog.html"}, "articleSection": "Building in the Open", "position": "Issue no. 01", "wordCount": 1689, "timeRequired": "PT7M", "inLanguage": "en", "sameAs": "https://www.linkedin.com/pulse/foundation-aneil-razvi-hbfpc"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://aneilrazvi.com/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://aneilrazvi.com/blog.html"}, {"@type": "ListItem", "position": 3, "name": "The Foundation", "item": "https://aneilrazvi.com/blog/the-foundation.html"}]}]}</script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/site.css">
+<style>
+  .ar-hero{max-width:760px;margin:0 auto;padding:8.5rem 6% 1.6rem}
+  .ar-eyebrow{color:var(--teal);font-size:.74rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase}
+  .ar-eyebrow a{color:inherit;text-decoration:none}
+  .ar-hero h1{font-family:'DM Serif Display',serif;font-size:clamp(2.2rem,5.4vw,3.4rem);color:#fff;font-weight:400;line-height:1.1;margin:.55rem 0 .9rem}
+  .ar-dek{color:rgba(255,255,255,.74);font-size:1.16rem;line-height:1.65;font-weight:300;margin:0 0 1.2rem}
+  .ar-meta{color:rgba(255,255,255,.55);font-size:.9rem;display:flex;flex-wrap:wrap;gap:.35rem .9rem}
+  .ar-meta b{color:rgba(255,255,255,.85);font-weight:600}
+  .ar-cover{max-width:960px;margin:0 auto;padding:0 6%}
+  .ar-cover img{width:100%;height:auto;display:block;border-radius:14px;border:1px solid rgba(255,255,255,.1)}
+  .ar-body{max-width:720px;margin:0 auto;padding:2.4rem 6% 1rem;color:rgba(255,255,255,.86);font-size:1.12rem;line-height:1.8;font-weight:300}
+  .ar-body p{margin:0 0 1.25rem}
+  .ar-body h2,.ar-body h3{font-family:'DM Serif Display',serif;color:#fff;font-weight:400;line-height:1.25;margin:2.2rem 0 .8rem}
+  .ar-body h2{font-size:1.7rem}.ar-body h3{font-size:1.4rem}
+  .ar-body strong{color:#fff;font-weight:600}
+  .ar-body a{color:var(--teal);text-decoration:none;border-bottom:1px solid rgba(0,188,212,.4)}
+  .ar-body ul,.ar-body ol{margin:0 0 1.25rem 1.3rem;padding:0}
+  .ar-body li{margin:.35rem 0}
+  .ar-body blockquote{margin:1.6rem 0;padding:.2rem 0 .2rem 1.2rem;border-left:3px solid var(--teal);color:#fff;font-size:1.2rem}
+  .ar-body pre{white-space:pre-wrap;overflow-x:auto;font-size:.95rem}
+  .ar-body hr{border:0;border-top:1px solid rgba(255,255,255,.12);margin:2.2rem 0}
+  .ar-source{max-width:720px;margin:0 auto;padding:0 6% 1rem;color:rgba(255,255,255,.55);font-size:.92rem;line-height:1.6}
+  .ar-source a{color:var(--teal);text-decoration:none}
+  .ar-box{max-width:720px;margin:1.6rem auto 0;padding:0 6%}
+  .ar-box .in{background:linear-gradient(135deg,rgba(0,188,212,.12),rgba(0,188,212,.03));border:1px solid rgba(0,188,212,.35);border-radius:16px;padding:1.6rem 1.8rem}
+  .ar-box h2{font-family:'DM Serif Display',serif;color:#fff;font-weight:400;font-size:1.5rem;margin:0 0 .5rem}
+  .ar-box p{color:rgba(255,255,255,.74);margin:0 0 1rem;line-height:1.6;font-weight:300}
+  .ar-box a.btn{display:inline-block;background:var(--teal);color:#062028;padding:11px 22px;border-radius:8px;font-weight:700;text-decoration:none;font-size:.92rem;margin:0 .5rem .4rem 0}
+  .ar-box a.btn.ghost{background:transparent;color:var(--teal);border:1px solid rgba(0,188,212,.5)}
+  .ar-pager{max-width:720px;margin:2.4rem auto 3.4rem;padding:0 6%;display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  .ar-pager a{display:block;border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:1rem 1.1rem;text-decoration:none;color:#fff}
+  .ar-pager a:hover{border-color:rgba(0,188,212,.5)}
+  .ar-pager span{display:block;color:rgba(255,255,255,.5);font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;margin-bottom:.3rem}
+  .ar-pager b{font-family:'DM Serif Display',serif;font-weight:400;font-size:1.08rem;line-height:1.3}
+  .ar-pager .next{text-align:right;grid-column:2}
+  @media(max-width:640px){.ar-pager{grid-template-columns:1fr}.ar-pager .next{grid-column:1;text-align:left}}
+</style>
+<script defer src="/assets/analytics.js"></script>
+</head>
+<body>
+<nav class="site-nav" id="nav"><a href="/index.html" class="nav-brand">Aneil <b>Razvi</b></a>
+<ul class="nav-links">
+<li><a href="/index.html">Home</a></li>
+<li><a href="/portfolio.html">Portfolio</a></li>
+<li><a href="/speaking.html">Speaking</a></li>
+<li><a href="/work-with-me.html">Work With Me</a></li>
+<li><a href="/build.html">Course</a></li>
+<li><a href="/maturity.html">Design Maturity</a></li>
+<li><a href="/readiness.html">AI Readiness</a></li>
+<li><a href="/about.html">About</a></li>
+<li><a href="/blog.html" class="active">Blog</a></li>
+</ul>
+<a href="/contact.html" class="nav-cta">Let's Talk</a><button class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button></nav>
+<main>
+<article>
+<header class="ar-hero" style="margin-top:68px">
+  <div class="ar-eyebrow"><a href="/blog.html">Building in the Open</a> · Issue no. 01</div>
+  <h1>The Foundation</h1>
+  <p class="ar-dek">Two days before launch a rule killed the product I had built. The pivot took an afternoon instead of a month, and only because I had written down why I made each decision.</p>
+  <div class="ar-meta"><b>Aneil Razvi</b><span>·</span><time datetime="2026-07-29">29 July 2026</time><span>·</span><span>7 min read</span></div>
+</header>
+<div class="ar-cover"><img src="/assets/newsletter/01-the-foundation.jpg" alt="The Foundation, Issue no. 01" width="1200" height="675"></div>
+<div class="ar-body">
+<h3>How to set up a project so it survives being wrong</h3>
+<p>Two days before launch, I found the line that killed it.</p>
+<p>I had built a video app for children under 13. Parents pick the library, kids only watch what's approved. It worked. It was on a device, in review, days from being real.</p>
+<p>Then I read one rule in the app store guidelines carefully for the first time, and understood that the entire audience I had built for made the product untenable. Not a bug I could fix. A wall I had built straight into.</p>
+<p>So I changed who it was for. From young children to teens and adults with autism and intellectual disabilities. Same product. Different people.</p>
+<p>And it survived.</p>
+<p>That last part is the whole story. Most solo builders in that position start over, and they start over for a reason that has nothing to do with laziness: they genuinely cannot tell which of their decisions were about the thing and which were about the people they built it for. Once you can't separate those two, every choice you ever made is suspect, and burning it down feels safer than auditing a thousand decisions you no longer remember making.</p>
+<p>I could separate them. Not because I have a better memory than anyone else. Because I had written down why I made each one, the day I made it.</p>
+<p>AI makes code cheap. Context is what survives. I can regenerate a screen in an afternoon. I cannot regenerate the reasoning behind a decision I made six weeks ago. That reasoning is the only thing that made the pivot a Tuesday instead of a funeral.</p>
+<p>Here is what that afternoon actually looked like, and the system that made it possible.</p>
+<hr/>
+<h3>The audit</h3>
+<p>When I changed the audience, I did not open the code. I opened a single file called DECISIONS.md, and I went through it one entry at a time, asking each one the same question:</p>
+<p>Does this still hold, for different people?</p>
+<p>The locked-down player. The thing that guarantees a viewer can never wander off into recommendations. Still holds. Holds harder, actually, for an audience that needs predictability even more than a child does. Keep.</p>
+<p>The entire children's-privacy apparatus. Everything I'd built to comply with laws about kids. Gone. Not modified. Deleted, along with every constraint that came with it. The wall I'd hit simply stopped existing for the new audience.</p>
+<p>The visual design. Bright, playful, built for a five-year-old. Actively wrong now. An adult with a disability is not a child, and a product that treats them like one is insulting. Replaced, not tweaked.</p>
+<p>The role model. Who can do what. This one needed real rethinking, because an adult who can manage their own library deserves a kind of dignity a child's account never has to consider.</p>
+<p>That audit took an afternoon. Without the file, it's weeks of archaeology, and I get a meaningful chunk of it wrong, because I'm reconstructing my own reasoning from memory under deadline pressure. The foundation is what turns "start over" into "re-evaluate."</p>
+<p>Every one of those four answers came out of a file I'd written on an ordinary day, when it felt like pure overhead. Here's the system those files belong to.</p>
+<hr/>
+<h3>The two files that saved the pivot</h3>
+<p>There are more, and I'll get to them. But if you build nothing else, build these two. They answer the only two questions that matter when everything changes: what are we trying to do, and why did we do it that way.</p>
+<p>VISION.md. What you're building, and for whom. The document everything else gets measured against. Without it you cannot evaluate a single decision, because you have no standard to hold it up to. It holds who this is for in one sentence specific enough to exclude people, the problem in their words rather than your framing, what success actually looks like as an observable outcome, what you will deliberately not build, and the claims you'll never make about the product. When the audience changed, this was the first file I rewrote, and rewriting it is what told me which of the other decisions were now suspect.</p>
+<p>DECISIONS.md. Why each choice was made. The most valuable file by a distance, and the one you just watched save an entire product. One entry per real decision: the date, what you chose, the full reasoning including what you rejected and why, what the choice rules out downstream, and what would make you revisit it.</p>
+<p>There's a test for whether an entry is actually finished: does it survive someone asking "why?"</p>
+<p>"We use a locked-down player" is documentation. "We use a locked-down player because the core promise is that a viewer can never wander into recommendations, and that is the product, not a feature" is a decision. Only the second one is any use to you a month later, when you're standing in the wreckage asking which pieces are load-bearing.</p>
+<hr/>
+<h3>The rest, and the day each one earns its place</h3>
+<p>You don't build these on day one. You add each one the first time you feel its specific absence. Build them all up front and it becomes homework, and you quietly stop.</p>
+<p>RULES.md (name it CLAUDE.md or AGENTS.md so the agent reads it automatically). The guard-rail file. Without it, every session starts cold and you retype the same constraints into every prompt until the day you forget one. It holds what the product is, which files to read first and which are dead, the hard rules that must never be broken, and the standard for what counts as proof. The rules that stick are the ones with the incident attached: "be careful with data" gets rationalized away, but "a real profile was destroyed this way once, do not repeat it" does not. You'll add this file the first time an agent does something you never told it not to.</p>
+<p>VALIDATION.md. The proof gate. It holds the specific question you're testing, the decision rule written before you have any data, and the date you wrote that rule, so it's provably before the results came in. Why the date matters: I know I'd move the goalposts. Everyone does. A rule written before the evidence is one you can't quietly bend afterward. You'll add this the first time you catch yourself hoping for a result.</p>
+<p>ARCHITECTURE.md. The technical map. Every external system and the one job it does, how data moves between them, and every fact tagged verified, intended, or unverified with the date it was last checked. Why the tags: mine once listed a database detail that had been true a month earlier and quietly wasn't anymore. "Verified six weeks ago" tells you exactly how much weight to put on it. You'll add this the first time you can't remember how two systems connect.</p>
+<p>DESIGN_SYSTEM.md. The design language. Tokens for color, type, spacing, motion; the prohibitions with their reasons ("never pure black, it causes glare and visual fatigue"); and which source wins when the document and the code disagree. You'll add this the first time your screens stop matching each other.</p>
+<p>DESIGN.md. The build spec. Screen by screen: what it shows, what it does, and what it must never do. The invariants stated as behavior, not code: the things that can never regress.</p>
+<p>BACKLOG.md. The live queue. What's next in priority order, plus the findings you noticed but didn't fix, written with enough context to act on months later. Add this one early, not because it saves you, but because it's the file you touch daily, and daily use is what keeps the whole habit alive.</p>
+<p>CHANGELOG.md. What actually shipped, and when. Kept separate from the backlog on purpose. One is intent, the other is record.</p>
+<p>ACCOUNTS.md. Where things live, not what they are. Which service, which identity, what it's for, and where the real credential lives (a password manager, a secret store). It holds no passwords, keys, or tokens, because anything in a repository is in its history forever, and any agent you run inherits access to all of it.</p>
+<hr/>
+<h3>The dead file you keep on purpose</h3>
+<p>One of my files is wrong. It's a pre-pivot overview, and almost every fact in it is now false.</p>
+<p>I did not delete it. I put a line at the top saying it's dead and must not be trusted, and I noted that in the other files too.</p>
+<p>Deleting is cleaner and worse. Old documents get quoted from memory, resurface in someone's downloads, or get pulled up by an AI that doesn't know they're stale. Stale documentation is more dangerous than none, because it carries the authority of having been written down. A file marked dead is defused. A file deleted is a landmine you forgot you buried.</p>
+<hr/>
+<h3>The uncomfortable part</h3>
+<p>All of this only works if you write things down while they're boring. Before you're stuck, before it's urgent, before you have a shred of evidence you'll ever need them.</p>
+<p>Every entry felt like overhead the day I wrote it. Every single one. The value didn't arrive gradually. It arrived all at once, weeks later, on the worst day of the project, in the form of an afternoon that should have been a month.</p>
+<p>That's the deal, and it's worth being honest about: the foundation is built on the good days and spent on the bad ones. You will never feel it paying off in the moment you're building it. You'll only feel it the day the wall shows up.</p>
+<p>Start with two files. VISION and DECISIONS. Add the rest the first time each one's absence costs you something.</p>
+<p>Then when your own wall arrives, and it will, you get to re-read your reasoning instead of reconstructing it, and the question changes from do I start over to which of these still holds.</p>
+<hr/>
+<p>I am Aneil Razvi, a product design and AI experience leader. Cubby, my personal project, is a caregiver-curated video app for teens and adults with autism and intellectual disabilities.</p>
+<p>Available for fractional design leadership and advisory work.</p>
+<p>If you are building something and you hit a wall, I would like to hear which one.</p>
+</div>
+<p class="ar-source">First published on LinkedIn on 29 July 2026. <a href="https://www.linkedin.com/pulse/foundation-aneil-razvi-hbfpc" target="_blank" rel="noopener">Read the comments there &rarr;</a></p>
+</article>
+<aside class="ar-box"><div class="in">
+  <h2>Get the next one</h2>
+  <p>Building in the Open is a running account of designing and shipping real products with AI as a partner. New issues land on LinkedIn first.</p>
+  <a class="btn" href="https://www.linkedin.com/newsletters/building-in-the-open-7488094002198753281/" target="_blank" rel="noopener">Subscribe on LinkedIn</a><a class="btn ghost" href="/build.html">See the course</a>
+</div></aside>
+<nav class="ar-pager" aria-label="More from the series"><a class="next" href="/blog/the-wall.html"><span>Next &rarr;</span><b>The Wall</b></a></nav>
+</main>
+<footer style="background:#0a1420;border-top:1px solid rgba(255,255,255,.08);padding:40px 6%;text-align:center;color:rgba(255,255,255,.6)"><div style="font-family:'DM Serif Display',serif;font-size:1.2rem;color:#fff;margin-bottom:12px">Aneil <span style="color:var(--teal)">Razvi</span></div><div style="font-size:.9rem"><a style="color:#cfe;text-decoration:none;margin:0 10px" href="https://www.linkedin.com/in/aneilrazvi/" target="_blank" rel="noopener">LinkedIn</a>·<a style="color:#cfe;text-decoration:none;margin:0 10px" href="https://cal.com/aneil-razvi" target="_blank" rel="noopener">Book a call</a>·<a style="color:#cfe;text-decoration:none;margin:0 10px" href="mailto:hi@aneilrazvi.com">Email</a>·<a style="color:#cfe;text-decoration:none;margin:0 10px" href="/privacy.html">Privacy</a></div><div style="font-size:.78rem;color:rgba(255,255,255,.4);margin-top:14px">© 2026 Aneil Razvi · Allen, TX</div></footer>
+<script>var nv=document.getElementById('nav');window.addEventListener('scroll',function(){nv.classList.toggle('scrolled',window.scrollY>40);});</script>
+<script>(function(){var h=document.querySelector(".nav-hamburger"),n=document.getElementById("nav");if(h&&n)h.addEventListener("click",function(){n.classList.toggle("open");});})();</script>
+</body>
+</html>

@@ -1,0 +1,765 @@
+# Aneil Razvi: writing, full text
+
+> The complete text of Aneil Razvi's articles, published at https://aneilrazvi.com/blog.html and first on LinkedIn. Cite the aneilrazvi.com URL for each piece.
+
+## When Your AI Says It's Done
+
+Issue no. 09 · 2026-10-13 · https://aneilrazvi.com/blog/when-your-ai-says-its-done.html
+
+More of us are building software after work now. In a spare hour, at the kitchen table, with an AI writing most of the code. You describe what you want, it produces something, it tells you it's finished, and the little checkmarks turn green.
+
+Here is the trap I fell into, and I have been doing this for years: "the build passed" and "this actually works for a real person" are two completely different claims. The AI can only see the first one. It cannot open your app on a phone and notice the button does nothing.
+
+I learned this the hard way. I once shipped a screen full of settings that looked perfect and did nothing, because a piece of the page quietly replaced the part my code was talking to. Everything passed. Nothing worked. I only caught it by using the app like a stranger would.
+
+So when your AI says it's done, don't take its word for it. Run this first:
+
+Open the real thing, not the preview. Load the actual app, on an actual phone if that's where people will use it. The preview lies more than you'd think.
+
+Do the boring path a real person does. Sign out, sign back in, tap it twice, hit back. Bugs live in the steps you'd never bother to test.
+
+Try to break it on purpose. Leave a field blank. Type something silly. Drop your internet for a second. "Works when everything goes right" is not the same as works.
+
+Check the thing you didn't change. New code has a way of quietly breaking old code two rooms over. Look at the screen next door.
+
+Ask what it isn't telling you. "Done" usually means "done with the happy path." The edges are where your users actually live.
+
+None of this requires you to be an engineer. It requires you to be a suspicious user for ten minutes. That is the whole skill.
+
+The people shipping good things from their garages right now aren't the ones with the best prompts. They're the ones who stopped trusting "done" and started checking it. AI made building faster. It did not make verifying optional. If anything it moved that job squarely onto you, because you're now the only one in the room who can tell looks-finished from is-finished.
+
+Build fast. Just don't confuse the green checkmark for a happy user.
+
+I write Building in the Open about designing and shipping a real product in public, one honest week at a time.
+
+Curious how solid your own build-with-AI process is? Take the 4-minute check → aneilrazvi.com/maturity.html
+
+---
+
+## Priced Like a Toy, Built Like a Tool
+
+Issue no. 08 · 2026-10-06 · https://aneilrazvi.com/blog/priced-like-a-toy-built-like-a-tool.html
+
+I priced my app for a customer I do not have. It took me a while to notice, because the number felt completely reasonable.
+
+When you decide what to charge, you glance at the shelf next to yours. I built a curated, locked-down video app, so I glanced at other video apps for families and set a price in the same neighborhood as those. A few dollars a month. It felt right.
+
+The problem is that those apps live on a shelf where they compete with free. There are good, free versions of "kid-safe video," backed by enormous companies. If you are on that shelf, your price is pinned near the floor whether you like it or not, because the thing next to you costs nothing.
+
+But Cubby is not really on that shelf. It is for caregivers of teens and adults with autism and intellectual and developmental disabilities. And the tools those families actually rely on, the communication apps, the scheduling and sensory tools, are not free and are not cheap. Families in this world are used to paying real money for something specialized that genuinely helps, and they often have funding to do it. Those tools, not the free video apps, are my real neighbors.
+
+So I had done something quietly backwards. I built a specialized tool for a market that expects to pay for specialized tools, and then I priced it like a mass-market toy competing with free. I was cheaper than the products I actually sit beside, for something more specialized than any of them.
+
+The lesson is not "charge more." The lesson is that your price is a claim about which shelf you are on, and if you pick the wrong shelf, the number will feel fine and still be wrong. Before you set a price, figure out who your customer's real alternatives are. Not the products that look like yours, the products that solve the same problem in that person's actual life. That is the shelf you are on, and that is the shelf whose prices matter.
+
+I am still working out the right answer, and I am doing it the honest way: by asking the people I built this for what it is worth to them, before I decide for them. But I already know the first mistake was letting the wrong shelf set the number.
+
+Look at your product for a second and ask: what shelf did I price this on, and is it the right one?
+
+I write Building in the Open about designing and shipping a real product in public, one honest week at a time.
+
+See what I'm building → cubbyplaylist.com
+
+---
+
+## The Ad-Free Promise I Almost Made
+
+Sidenote no. 02 · 2026-09-29 · https://aneilrazvi.com/blog/the-ad-free-promise-i-almost-made.html
+
+Sidenote. A short one about the most dangerous kind of fact: the one everybody already "knows."
+
+Cubby plays videos through YouTube's own player. That means it can show YouTube's ads, and I cannot remove them. For a calm app made for people who can find ads genuinely distressing, that is a real tension, and I wanted to give families an honest answer about it.
+
+The answer I was about to give: "If you want to avoid the ads, subscribe to the paid YouTube tier." It sounds obviously true. A paid tier removes ads. Everyone knows that. When I asked my AI assistant, it agreed without hesitation. I had the sentence written.
+
+Then I did the boring thing and read the actual documentation for the specific player I use. It turns out the paid tier does not reliably remove ads in the kind of embedded, signed-out player Cubby uses. The setting I relied on is there for a privacy reason, not an ad-blocking one. The ads can still play.
+
+So the confident, obvious, universally-agreed answer was wrong for my exact situation. If I had shipped it, I would have made a promise to caregivers that the product could not keep. They would have paid money expecting quiet, and gotten ads anyway. That is the kind of small dishonesty that quietly ends trust.
+
+I pulled the sentence.
+
+Here is the part worth keeping, whatever you are building: the most dangerous facts are the ones nobody bothers to check, because they feel settled. "Everyone knows" is not a source. Neither is a confident AI, and neither, frankly, was I. The only thing that actually settled it was the primary document, written by the people who built the thing.
+
+Now I have a simple rule. Before I promise anything to a customer, I ask one question: do I actually know this, or do I just believe it because it is what everyone says? If it is the second one, I go find where it is written down before my name is attached to it.
+
+The reward for reading the boring documentation is that you get to keep your word. That turns out to be the whole game.
+
+I write Building in the Open about designing and shipping a real product in public, one honest week at a time.
+
+See what I'm building → cubbyplaylist.com
+
+---
+
+## Why I Test the Same Thing Five Times
+
+Issue no. 07 · 2026-09-22 · https://aneilrazvi.com/blog/why-i-test-the-same-thing-five-times.html
+
+When you build software, the computer will happily tell you everything is fine while something is quietly broken. Learning not to believe it is most of the job.
+
+Here is the trap. Code "compiles." Tests "pass." A little checkmark turns green. All of that means the same small thing: the machine could assemble the parts without choking. It says nothing about whether a real person, on a real phone, gets what you promised them.
+
+I learned this the embarrassing way. Early on I "fixed" something and confirmed it by searching the finished code for the change. The change was right there. I moved on. The behavior was still broken one layer up, where the search could not see it. Then I found three more problems that all would have passed the same check, and were only caught by opening the actual app and using it like a stranger.
+
+So now I test the same thing more than once, on purpose, in different ways:
+
+Once in the code, to see the change is there.
+
+Once in the real product, on the device people will actually use.
+
+Once as a suspicious stranger, doing the clumsy things real people do.
+
+Once at the edges, where I try to break it instead of prove it.
+
+Once on the screen next door, because new work has a way of quietly breaking old work.
+
+That sounds slow. It is slower than trusting the checkmark. It is a lot faster than shipping a broken thing to a real person and finding out from them.
+
+The one-line version I say to myself: a passing build proves nothing about correctness. It proves the parts fit together. Whether the thing actually works is a separate question, and the only way to answer it is to go look.
+
+This matters more now, not less, because more of us are building with an AI writing the code. The AI is confident by design. It will tell you it is done in the same cheerful tone whether it is done or not, because it cannot open your app and see the button do nothing. That check moved to you. It is now the most valuable ten minutes in your whole process.
+
+Trust the build to be fast. Trust your own eyes to be right.
+
+I write Building in the Open about designing and shipping a real product in public, one honest week at a time.
+
+Curious how solid your own build-with-AI process is? Take the 4-minute check → aneilrazvi.com/maturity.html
+
+---
+
+## The Beta
+
+Issue no. 06 · 2026-09-15 · https://aneilrazvi.com/blog/the-beta.html
+
+The hardest part of launching wasn't building the app. It was getting twelve people to open it.
+
+I spent months on Cubby. The architecture, the design system, a hundred small decisions. None of that was the hard part.
+
+The hard part was a number: twelve invited, five installed.
+
+I sent my first testers a personal invitation. These were people who had said yes, who wanted to help. More than half never got past the email. One opened it two dozen times. A few opened it here and there. Several never opened it at all.
+
+That gap has a name in the industry, the activation funnel, but you do not need the jargon to feel it. Every step between "I'd love to try that" and "I actually opened it" loses people. Downloading is a step. Signing in is a step. Finding the thing you were promised is a step. At each one a few people quietly fall away, and none of them are being rude. Life is busy, and your app is not their priority the way it is yours.
+
+I am living the sequel right now on Android. To put Cubby in Google's store, I need a group of testers to install it and keep it for two straight weeks before I'm allowed to go live. Not sign up. Install, and stay. So the whole job this month is not code. It is the unglamorous work of asking real people, one at a time, to do a small favor, and then actually getting them to do it.
+
+Here is the lesson, and it holds whether you are shipping software or launching anything at all: building the thing and getting the thing used are two different jobs. Most of us are good at the first and assume the second takes care of itself. It does not. A great product with no testers is a rehearsal in an empty theater.
+
+The fix is not clever. It is closer to the ground than any founder wants to admit. Make the ask small and specific. Remove every step you can, so the link goes straight to the thing and not to a homepage. Follow up without apologizing for following up. And count honestly. "Twelve invited, five installed" is not a number to hide. It is the real shape of the work, and seeing the shape is how you get to twelve.
+
+I would rather learn from the five who showed up than flatter myself with the twelve who said yes.
+
+I write Building in the Open about designing and shipping a real product in public, one honest week at a time.
+
+Join the Android test (about 30 seconds): https://lnkd.in/gMzd-dX5 See
+
+what it's about: https://cubbyplaylist.com On
+
+an iPhone? It's live here: https://lnkd.in/gSEsH8Q7
+
+---
+
+## Your Design System Is Becoming a Rules Engine
+
+Sidenote no. 01 · 2026-09-08 · https://aneilrazvi.com/blog/your-design-system-is-becoming-a-rules-engine.html
+
+Sidenote. What localization and white-labeling taught me about where design systems go next, and why Jakob Nielsen got to the same place from a different door.
+
+Someone asked me last week what I paid attention to when I was designing UI for SaaS products. The honest answer is localization and white-labeling, which sounds like a boring answer until you sit with what those two things actually do to you.
+
+They force you to stop designing a screen and start designing the conditions under which a screen gets assembled.
+
+I did not have language for that at the time. I do now, and I think it is the most useful way to describe where design systems are headed: the design system is turning into a rules engine for UI.
+
+### Someone else got here first
+
+Before I go further: in March, Jakob Nielsen published a capability maturity model for AI in design . It runs six levels, from Limited up to Symbiotic. His description of the top one:
+
+"Designers shift from architects of screens to architects of systems, defining constraints while AI generates interfaces in real-time."
+
+That is designers setting the physics of a product and letting the system assemble the interface from user context.
+
+I had been circling the same idea from the localization and white-labeling side, which is a much less glamorous door into the same room. When two people arrive somewhere from different directions, it is a reasonable bet there is something actually there.
+
+So take the rest of this as the practitioner's route to a conclusion someone with far better data reached independently.
+
+### The convention that just broke
+
+For about a decade the working agreement was: build from generalized specs, publish them, and have everyone adapt to them. One set of patterns, one canonical dashboard, and if a customer wanted something different they filed a request and waited two quarters.
+
+That agreement held because buyers accepted it. They do not anymore.
+
+Part of it is AI. People now use software that reshapes itself to them inside a single turn of conversation. Once that is your baseline, a dashboard that shows every customer the same nine modules regardless of what they bought reads as lazy in a way it did not three years ago. The expectation is software shaped to what a company actually does.
+
+The other part is quieter and older: acquisitions. Nobody buys one product anymore. They buy a portfolio and then have to make it feel like one thing. At Omnitracs I worked on unifying acquired products into a single system serving more than 30,000 fleets, roughly a million vehicles, in over 60 countries. You do not merge four products by picking a winner and redrawing the other three. You go underneath them and find the rules they all share.
+
+That is the same job. It just used to be a special case.
+
+### What a rules engine for UI actually means
+
+A component library answers one question: what does a button look like.
+
+A rules engine answers a harder one: which button does this tenant get, in this locale, with this feature set, at this permission level, on this plan.
+
+That means three things stop being decisions a designer makes in a file and start being data the system reads.
+
+Entitlement. What did this customer buy. A tenant on three of nine modules should not see six empty rooms with upgrade prompts nailed to the walls. The system needs to know not to draw them, and the layout needs to still hold when it does not.
+
+Locale. Not just translated strings. German runs about a third longer than English. Arabic reverses the reading direction of your entire information hierarchy. Japanese has no spaces to wrap on. If your navigation is pixel tuned to English, it is not localized, it is decorated.
+
+Role. What is this person allowed to see, and what does the interface look like when the answer is "less than the person next to them." Most systems handle this by hiding things, which leaves holes. A rules engine reflows.
+
+None of that is exotic. What is new is that the rules have to be written down somewhere a machine can read, not held in the heads of the three people who have been there longest.
+
+### The test I use
+
+Can a new tenant be configured without a designer in the room.
+
+If the answer is yes, you have a rules engine. If the answer is "well, someone would need to look at it," you have a component library with good documentation, which is a fine thing to have and a different thing entirely.
+
+Most teams I have worked with think they are in the first category and are actually in the second. The tell is usually a Figma file named something like Acme - custom.
+
+### Where AI actually helps, and where it does not
+
+The temptation right now is to point a model at your design files and ask it to generate the variants. That mostly does not work, and the reason is instructive.
+
+A model cannot infer your entitlement logic from a picture of a dashboard. It cannot see that the reason the reports tab is missing in one screenshot is a plan tier and not an oversight. Your constraints are invisible to it unless you have made them explicit.
+
+Which means the teams getting real leverage out of AI in product design are not the ones with the best prompts. They are the ones who wrote their rules down first. This is, I think, the mechanism underneath Nielsen's top level. You do not get to a system that assembles itself by context until the context is written somewhere a machine can read. The system becomes legible to a machine at exactly the same moment it becomes legible to a new hire, and for the same reason.
+
+That is a satisfying thing to notice. The work that makes AI useful is the same work that makes your team faster without it.
+
+### The honest cost
+
+This is slower up front, and it is slower in a way that is hard to defend in a sprint review, because you are designing a system that produces designs instead of designing the thing someone asked for.
+
+It also fails in a specific way: the moment a rule lives in a person rather than in the system, the whole thing quietly reverts to a component library and nobody notices for two quarters. The rules engine is not the tooling. It is the discipline of writing the condition down every single time instead of just handling it.
+
+I have watched that discipline slip on teams that had every other advantage. It slips because writing the rule down takes twenty minutes and handling the exception takes five.
+
+### Same shape, much smaller
+
+I have been building a personal project this year, a caregiver-curated video app for teens and adults with autism and intellectual and developmental disabilities. One product, one tenant, no acquisitions, nothing enterprise about it.
+
+It still needed a rules layer, because a caregiver configures what each viewer can see, and two viewers in the same household get materially different interfaces. Designing and shipping that solo, without a team to absorb the exceptions for me, made the cost of every un-written rule immediate. If I did not encode it, nobody else was going to.
+
+That turned out to teach me more about what a design system actually owes a product than any project with a full team ever did.
+
+### If you want to start Monday
+
+Write down your entitlement matrix. Modules by plan tier, in a table, in one place. Most teams have never seen theirs written out and are surprised by it. Pick your longest locale and design to it. Not your prettiest one. The one that breaks your nav. Audit three components for hardcoded assumptions. Fixed widths, English-shaped labels, icons that mean something specific in one culture. Ask the configuration question out loud. Can a new tenant be stood up without a designer. Sit with the answer.
+
+- Write down your entitlement matrix. Modules by plan tier, in a table, in one place. Most teams have never seen theirs written out and are surprised by it.
+
+- Pick your longest locale and design to it. Not your prettiest one. The one that breaks your nav.
+
+- Audit three components for hardcoded assumptions. Fixed widths, English-shaped labels, icons that mean something specific in one culture.
+
+- Ask the configuration question out loud. Can a new tenant be stood up without a designer. Sit with the answer.
+
+The shift is from a catalog of parts to a set of decisions the product can make without you in the room. That is uncomfortable, because a lot of us built our careers on being in the room.
+
+It is also the only version of this that scales.
+
+I write Building in the Open about designing and shipping products with AI in the loop.
+
+If you want to know where your own team actually sits on this, I built a short assessment that scores two axes separately: how mature your design practice is, and how far your AI adoption has really gone. Most companies are further along on one than the other, and the gap is usually the thing causing the trouble. Fifteen questions, about four minutes, and every benchmark in it is cited. Where you land is free. The full written read comes by email.
+
+Take the assessment
+
+---
+
+## What I'd Tell a Designer Who Wants to Build
+
+Issue no. 05 · 2026-09-01 · https://aneilrazvi.com/blog/what-id-tell-a-designer-who-wants-to-build.html
+
+### You don't need to become an engineer. You need to get dangerous with judgment
+
+Every designer I talk to right now is having the same quiet thought: could I just build the thing myself? A year ago the honest answer was no, not without a team. Now it is yes, but not for the reason people assume. The bottleneck was never the code. It was the judgment.
+
+Here is what I would tell you before you start.
+
+1. Stop waiting to feel ready
+
+I am a designer. I had no engineering team. I started anyway, shipped, hit a wall that forced me to rethink who the product was even for, and rebuilt around a different audience, in weeks. If I had waited until I felt qualified, there would be nothing to show. I remodel houses the same way. I do not wait until I am an expert to pick up the tool. I start, I learn on the job, and I fix what I get wrong. Action teaches faster than planning ever will.
+
+2. Direct the AI. Do not defer to it
+
+The leverage is real, and so are the confident mistakes. The one that stays with me: my app has a PIN wall that is supposed to keep a viewer out of the admin area. It built clean. I even confirmed the right code had shipped. And it did nothing. The guard logic quietly let any signed-in session straight through, so the admin area was reachable just by typing the address into the bar. The build was green and the product was broken. That is the sentence I keep taped to the inside of my head now. A passing build proves nothing about correctness. You have to drive the real thing.
+
+There is a subtler kind of wrong, too. My AI helper confidently told me a paid tier would remove the ads in my video player, and it was flat wrong. I only caught it by reading the platform's own documentation, which said plainly that it does not work that way in the embed I use. If I had trusted the confident answer, I would have made a false promise to caregivers about ads in a product built for a vulnerable audience. The value of AI is not what it hands you. It is what you do after.
+
+3. Make it a partner, not a yes-man
+
+Here is the thing nobody tells you: an AI will happily agree with you straight into a wall. Ask it "is this good?" and it will find reasons to say yes. The quality of what you get back is set almost entirely by how you talk to it. My best work comes when I say things like "this is just my current thinking, poke holes in it," or "I am open to being wrong here," or simply "keep me honest." Those few words flip it from a mirror into a sparring partner. It starts telling me what I got wrong instead of what I want to hear, and that is the version of the tool that actually makes you better.
+
+And if you are reading all of this thinking you are not technical enough to drive, that is exactly the reason to drive. You do not need to already know. You need to be willing to ask the dumb question, sit in not-knowing for a minute, and let the tool teach you as you go. The people who get the most out of AI are not the ones who arrive knowing the most. They are the ones who stay curious, take the wheel, and treat the machine as a partner they are actively questioning, not an oracle they are quietly obeying.
+
+4. Your design skills matter more now, not less
+
+The biggest decision in this entire project was not a line of code. I started out building for kids. Then I watched a free, better-funded product eat that exact idea, and I realized the real gap was somewhere else entirely: caregiver-curated video for autistic and IDD teens and adults, an audience whose own complaint is that everything is built for five-year-olds. No model handed me that. It came from reading a market and listening to a community. When anyone can generate a screen in seconds, the scarce thing is knowing which screen is even worth generating. That is taste, and taste is design.
+
+5. Keep a hand on the wheel
+
+The rule that saved me: the thing writing the code cannot be the thing approving it. Separate building from checking. Drive the real product yourself, on the real screens, and read what it actually does instead of what the code claims it does. Verify a claim before you repeat it. Own the direction, because deciding what the thing should be is the one job no model can take from you.
+
+6. Do not sell the "AI-built" story
+
+It is a worse story than the truth. "AI-built" erases the part that is actually hard and actually yours: the decisions, the reversals, the taste, the calls no model can make for you. Say what really happened. A designer with no team started, hit a wall, rethought the whole audience, caught the machine being confidently wrong, and rebuilt. That is a better story, and it has the advantage of being the real one.
+
+### The short version
+
+Start before you feel ready. The readiness comes from starting AI is leverage, not a decision-maker. A green build is not a working product Talk to it like a partner. Ask it to keep you honest and it will, agree with you and it will do that too Taste and judgment are the scarce skills now, and yours already qualify you Separate who builds from who checks, and always drive the real thing Tell the true story, not the impressive one
+
+- Start before you feel ready. The readiness comes from starting
+
+- AI is leverage, not a decision-maker. A green build is not a working product
+
+- Talk to it like a partner. Ask it to keep you honest and it will, agree with you and it will do that too
+
+- Taste and judgment are the scarce skills now, and yours already qualify you
+
+- Separate who builds from who checks, and always drive the real thing
+
+- Tell the true story, not the impressive one
+
+I am Aneil Razvi, a product design and AI experience leader. Cubby, my personal project, is a caregiver-curated video app for teens and adults with autism and intellectual disabilities.
+
+Available for fractional design leadership and advisory work.
+
+---
+
+## The Gate
+
+Issue no. 04 · 2026-08-25 · https://aneilrazvi.com/blog/the-gate.html
+
+### What it's like to hand your work to a black box and wait
+
+For weeks you are in total control. Every screen, every rule, every decision is yours, and you can change any of it in minutes. Then you package it up, hand it to a reviewer you will never speak to, and wait.
+
+Building solo, the hardest part was not the building. It was the gate at the end of it. Here is the honest version of what that gate was actually like.
+
+A confession about how my app is really built
+
+My iOS app is my website in a wrapper. The native shell loads the live site, so most of my review fixes shipped as ordinary web deploys, not new app binaries. When I bumped the build number, half the time it was not to change the code. It was just to send a fresh copy back into the review queue. That one architectural choice shaped everything that followed, including the mistakes.
+
+Rejection one: my entire marketing site was inside the app
+
+The first rejection taught me something I should have caught. Because the native shell points at my real website, technically the whole site was in the app, every marketing route included. A reviewer tapped Back on the sign-in screen and landed on my full landing page, pricing and all, inside a native app that is not allowed to sell that way. I had bolted the front door and left a hallway wide open. I fixed it, redeployed, and resubmitted the same day.
+
+Rejection two: the rule I did not know I was breaking
+
+The second rejection was a deeper problem. Even after I hid every price and every plan, the reviewer flagged that I still let people create an account on the phone. There is a specific rule for apps like mine: if an account can eventually reach paid content, you cannot offer sign-up inside the app at all, even with no prices shown anywhere. That is not a bug you patch. It is a decision you make about what the product is.
+
+So I made it. On iOS the app became sign-in and watch only. Accounts get created and managed on the web. Billing lives on the web. That was not a workaround to sneak past review. It was me finally understanding the model I was actually building in, and committing to it fully.
+
+The twist: I un-approved my own approved app
+
+Then the part I am oddly proud of. The next build was approved. Green light, sitting there ready to release. And I pulled it back myself.
+
+The reason had nothing to do with the code. My App Store screenshots showed real creators and their copyrighted content, because that is what I happened to have loaded while testing. Approved or not, that was not clean, and this is a product I need to be clean. I replaced every screenshot with a fictional library I built from scratch, channels and videos that do not exist, and sent it back in. Choosing to un-approve your own approved app, for a reason no reviewer even raised, was the moment I decided to trust my own bar over the finish line.
+
+There is always another gate
+
+While all of that was happening, a completely separate review was running in the background: the one that decides whether my app is allowed to read from YouTube at all. Domain verification, a recorded demo of the consent screen, a written justification for every permission I request, a questionnaire. Clearing the app store is one gate. There are others standing behind it that you do not even see until you are already there.
+
+What the gate made me get right
+
+Preparing for review forced me to say, in plain language, exactly what data my product touches and why. The sharpest thing I did in that process was collect less. I do not store a user's age or date of birth anywhere, on purpose, because storing it would create legal obligations I would rather design around than take on. I removed photo upload for the same reason. Account deletion is real and lives inside the app, not an "email us and we will get to it" promise. The PIN is labeled honestly, as a boundary between an adult admin and their viewer, not dressed up as something it is not. For a product used by people with disabilities and the people who care for them, getting that part exactly right is not a formality. It is the point.
+
+What I am bracing for next
+
+I have only been through Apple's gate. Google's is still ahead of me, and its rules for any audience that might include kids are broader, which is part of why I made the choices I made. I am not going to narrate a review I have not been through yet. When I go through it, I will tell you what it was actually like, the same way.
+
+I am still in the middle of all of this as I write it. That is the honest status. The full story gets told when I am through it, not before.
+
+### The short version
+
+Know how your app is really built, because the architecture quietly decides which mistakes you will make Guard the whole product, not just the front door Some review flags are not bugs to fix, they are decisions about what the product actually is Trust your own bar over the finish line, even when it costs you an approval you already had The real privacy win is usually collecting less, not disclosing more There is always another gate behind the one you can see
+
+- Know how your app is really built, because the architecture quietly decides which mistakes you will make
+
+- Guard the whole product, not just the front door
+
+- Some review flags are not bugs to fix, they are decisions about what the product actually is
+
+- Trust your own bar over the finish line, even when it costs you an approval you already had
+
+- The real privacy win is usually collecting less, not disclosing more
+
+- There is always another gate behind the one you can see
+
+I am Aneil Razvi, a product design and AI experience leader. Cubby, my personal project, is a caregiver-curated video app for teens and adults with autism and intellectual disabilities.
+
+Available for fractional design leadership and advisory work.
+
+---
+
+## Building Solo With AI
+
+Issue no. 03 · 2026-08-16 · https://aneilrazvi.com/blog/building-solo-with-ai.html
+
+### What actually worked, and what nearly cost me
+
+I lead design teams for a living. For this project I had no team, just me and AI. I shipped a working product, hit a legal wall, pivoted the entire audience, and rebuilt it.
+
+That is the headline. Here is the part people skip.
+
+AI confidently told me things that were not true, wrote a report about work it never did, and deleted real data while testing. None of that showed up as an error message. All of it looked like progress.
+
+The difference between AI making you fast and AI making you wrong is almost entirely about what you do after it hands you something.
+
+### 1. Split the work by what each side is good at
+
+The setup that worked:
+
+Architecture, decisions, documentation, review: one AI session with full project context. It holds the whole picture and catches contradictions Implementation: a separate coding agent working in the repository. It does the work and does not need the strategy Verification, commits, deploys: back to the first session. Nothing ships without independent review Judgment, direction, device testing: me. Only I can decide what the product should be
+
+- Architecture, decisions, documentation, review: one AI session with full project context. It holds the whole picture and catches contradictions
+
+- Implementation: a separate coding agent working in the repository. It does the work and does not need the strategy
+
+- Verification, commits, deploys: back to the first session. Nothing ships without independent review
+
+- Judgment, direction, device testing: me. Only I can decide what the product should be
+
+The key move is that the thing writing the code is not the thing approving it. When one session both implements and verifies, "I checked it and it is fine" is worth nothing.
+
+### 2. A passing build proves nothing
+
+This is the single most expensive lesson.
+
+Real bugs I shipped, each of which passed every automated check:
+
+A security gate that used "or" instead of "and", so any logged-in session bypassed the PIN entirely. The wall was decorative Accessibility settings applied to an element the video player replaces at runtime, silently wiping every setting. Every control appeared to work. None did Two style rules with identical priority, where the wrong one won. The theme switch flipped and nothing changed A menu that rendered behind the navigation bar, so its options could not be tapped
+
+- A security gate that used "or" instead of "and", so any logged-in session bypassed the PIN entirely. The wall was decorative
+
+- Accessibility settings applied to an element the video player replaces at runtime, silently wiping every setting. Every control appeared to work. None did
+
+- Two style rules with identical priority, where the wrong one won. The theme switch flipped and nothing changed
+
+- A menu that rendered behind the navigation bar, so its options could not be tapped
+
+Not one of these was visible in code review. Every one was obvious within ten seconds of driving the actual running app.
+
+The rule I now follow: if a change touches security, permissions, or anything visual, someone drives the live product and confirms the behaviour. Not the build log. The behaviour.
+
+### 3. Verify claims about what exists, including your own
+
+The most insidious failure is not bad code. It is confident wrong facts.
+
+I was told a whole feature had never been built. I repeated it. I re-prioritised around it. It had been built the entire time. It just looked old, so it read as missing.
+
+"Not redesigned" is not the same as "not built." That one conflation cost me real decisions.
+
+The discipline that fixes it: any claim about what exists gets checked before it is said. Open the file. Query the database. Look at the deployment. Conversation history is not evidence, and neither is your own earlier statement.
+
+### 4. Assume the report might be fiction
+
+Once, an agent produced a detailed report. Files changed, tests run, results tabulated. None of it existed. The working directory was untouched.
+
+I only caught it because I checked the repository instead of reading the summary.
+
+Trust the artifact, not the account of the artifact. Files, database rows, deployment logs. Those are real. A description of work is a story about work.
+
+### 5. Write the guard rails down, with the reason attached
+
+An agent deleted a real profile, with its videos and history, while testing a delete function. It was following my instructions. My instructions were the problem. I had asked for behavioural verification without saying "never against real data."
+
+Now the project has a standing instructions file the AI reads at the start of every session. The rules that stick are the ones with the incident attached:
+
+"Never run destructive tests against production data. A real profile was destroyed this way once, do not repeat it."
+
+"Be careful with data" gets rationalised away. "This exact thing happened" does not.
+
+Other rules worth having:
+
+Never authenticate as me. No passwords, no stored credentials Commit nothing, deploy nothing. Leave work for review Preserve what works. Extend rather than rewrite If you could not verify something, say so plainly
+
+- Never authenticate as me. No passwords, no stored credentials
+
+- Commit nothing, deploy nothing. Leave work for review
+
+- Preserve what works. Extend rather than rewrite
+
+- If you could not verify something, say so plainly
+
+### 6. Let it disagree with you
+
+The best moment in the whole project: I gave the AI a task built on a premise. Instead of building, it went and checked, came back and said the premise was wrong, and showed me the file that proved it.
+
+It was right. I would have wasted a day.
+
+The same session later refused to write "passed" next to tests it could not run, and refused to click a delete button on my real account after the earlier incident.
+
+An AI that pushes back is more valuable than one that agrees. If yours never does, your prompts are probably asking for compliance rather than judgment.
+
+### 7. Do not overstate what the AI did
+
+I built this. AI made it possible to move at a pace that would normally need a team, and it caught things I would have missed. It also made confident mistakes that only a human paying attention would catch.
+
+Both things are true. "AI-built" is a worse story than the real one, which is that a designer with no engineering team shipped, hit a wall, pivoted an entire audience, and rebuilt, in weeks.
+
+The leverage is real. The judgment still has to be yours.
+
+### The short version
+
+Separate who builds from who verifies A passing build proves nothing. Drive the real thing Check claims about what exists before repeating them Trust artifacts, not reports about artifacts Write guard rails down, with the incident attached Reward disagreement Be honest about who did what
+
+- Separate who builds from who verifies
+
+- A passing build proves nothing. Drive the real thing
+
+- Check claims about what exists before repeating them
+
+- Trust artifacts, not reports about artifacts
+
+- Write guard rails down, with the incident attached
+
+- Reward disagreement
+
+- Be honest about who did what
+
+I am Aneil Razvi, a product design and AI experience leader. Cubby, my personal project, is a caregiver-curated video app for teens and adults with autism and intellectual disabilities.
+
+Available for fractional design leadership and advisory work.
+
+---
+
+## The Wall
+
+Issue no. 02 · 2026-08-05 · https://aneilrazvi.com/blog/the-wall.html
+
+### A field guide to the rules that kill products right before launch
+
+Two days before launch, one line in the app store rules killed a product I had already built.
+
+Not a bug. Not a rejection. A rule that had been sitting there the whole time, that I had no reason to read until the thing I had built ran straight into it.
+
+The frustrating part is that none of these rules are hidden. They are published. They are searchable. They just do not announce themselves while you are designing, and by the time they matter you have already built the thing they forbid.
+
+This is the list I wish someone had handed me at the start.
+
+### The five walls
+
+### 1. The audience wall
+
+The rule. The moment a product is directed to children, an entirely separate body of law switches on. In the US that is COPPA. Google Play has its own version, and its Families policy triggers when your audience merely includes children, not only when it is exclusively children.
+
+Why it bites late. You do not declare your audience in code. You declare it in your marketing, your screenshots, your app store category, your icon. Regulators look at all of it. You can build something technically neutral and still be considered child-directed because of how you sold it.
+
+The trap I hit. My app embedded a third-party video player. That player shows its own ads. Once a product is child-directed, the developer carries responsibility for those ads, not the platform serving them. "They are the same ads as the regular site" is not a defence.
+
+Spot it early. Write your app store description on day one. If it implies children, you have just chosen a legal regime. Choose it deliberately.
+
+### 2. The payments wall
+
+The rule. App stores take a cut of digital purchases made inside the app, and they are specific about what you may show. Some apps qualify as reader apps and can keep purchases outside the app entirely, but then the app must show no pricing, no plans, and no path to checkout.
+
+Why it bites late. Pricing UI is something you build early and casually. A plan comparison table feels like a design problem. It is a compliance surface.
+
+Spot it early. Decide your payment model before you design a single pricing screen. If you go the reader route, every price and tier must be conditional on platform from the first line of code. Retrofitting it means auditing every screen.
+
+### 3. The account deletion wall
+
+The rule. If your app lets people create an account, it must let them delete it. Apple requires it. Reviewers test it by tapping the button.
+
+Why it bites late. Deletion is the least glamorous screen in any product, so it gets stubbed. Mine signed the user out and deleted nothing. A button that lied, sitting in production, until I checked.
+
+It is also not only an app store issue. Under GDPR and CCPA, "delete my account" is a promise with legal weight behind it.
+
+Spot it early. Build deletion when you build signup. Test it by actually deleting something, then querying the database to confirm it is gone. A success message proves nothing.
+
+### 4. The "is it really an app" wall
+
+The rule. App stores reject apps that are thin wrappers around a website with little native value.
+
+Why it bites late. Wrapping a web app is the fastest way to ship to mobile, and it works beautifully, right up until review.
+
+Spot it early. Know what makes your app worth installing rather than bookmarking, and be able to say it in one sentence.
+
+### 5. The claims wall
+
+The rule. What you say about your product is part of your product. Marketing copy is evidence. Evidence of who your audience is, of what you promised, of what you are liable for.
+
+Why it bites late. Copy is written last, often quickly, usually by whoever is least worried about it.
+
+The discipline. Write down the claims you will never make, before you need them. My list includes never claiming the app blocks ads, because it embeds a player that shows them. What I can say honestly is what the product actually does: no recommendations, no autoplay, no wandering off. That is a better line anyway, because it describes a benefit instead of a technicality.
+
+### The pattern underneath all five
+
+Every one of these walls has the same shape.
+
+A constraint that lives outside your codebase, that you cannot see from inside your product, that becomes unavoidable at the exact moment you try to ship.
+
+You cannot debug your way past them. You cannot design around them once you have hit them. The only defence is to go find them before they find you.
+
+### A pre-launch checklist
+
+Run this at the start of a project, not the end.
+
+Audience
+
+Who is this for, by age? Write it down Does anything about my marketing, category, icon, or screenshots suggest a younger audience than I intend? If my audience includes minors, which regimes attach, and have I read them rather than skimmed a summary?
+
+- Who is this for, by age? Write it down
+
+- Does anything about my marketing, category, icon, or screenshots suggest a younger audience than I intend?
+
+- If my audience includes minors, which regimes attach, and have I read them rather than skimmed a summary?
+
+Money
+
+How do people pay, and where does that transaction happen? Does any purchase interface appear inside the app? Should it? Is pricing conditional on platform from the first line of code?
+
+- How do people pay, and where does that transaction happen?
+
+- Does any purchase interface appear inside the app? Should it?
+
+- Is pricing conditional on platform from the first line of code?
+
+Third parties
+
+What do I embed that I do not control? Ads, players, trackers If a regulator held me responsible for what that third party does to my users, would I still ship it?
+
+- What do I embed that I do not control? Ads, players, trackers
+
+- If a regulator held me responsible for what that third party does to my users, would I still ship it?
+
+Promises
+
+Does every button do what it says? Especially delete Have I verified deletion by checking the data is actually gone? What claims will I never make? Write the list before you need it
+
+- Does every button do what it says? Especially delete
+
+- Have I verified deletion by checking the data is actually gone?
+
+- What claims will I never make? Write the list before you need it
+
+Reality
+
+Does my app justify being an app? Have I read the actual guidelines, or only what people say about them?
+
+- Does my app justify being an app?
+
+- Have I read the actual guidelines, or only what people say about them?
+
+### The one that saved me
+
+When I hit the wall, the instinct was to fight it. Find a workaround, argue the edge case, engineer around the rule.
+
+What actually worked was changing who the product was for.
+
+Same product. Different audience. Every legal wall dissolved, and it turned out there was a community being served badly by everyone: teens and adults with autism and intellectual disabilities, using tools designed for small children.
+
+Sometimes the wall is not telling you to build differently. It is telling you that you built the right thing for the wrong people.
+
+This is a practitioner's field guide, not legal advice. The rules change, they vary by region, and the specifics of your product matter. When something here applies to you, read the current source and talk to a lawyer.
+
+I am Aneil Razvi, a product design and AI experience leader. Cubby, my personal project, is a caregiver-curated video app for teens and adults with autism and intellectual disabilities.
+
+Available for fractional design leadership and advisory work.
+
+---
+
+## The Foundation
+
+Issue no. 01 · 2026-07-29 · https://aneilrazvi.com/blog/the-foundation.html
+
+### How to set up a project so it survives being wrong
+
+Two days before launch, I found the line that killed it.
+
+I had built a video app for children under 13. Parents pick the library, kids only watch what's approved. It worked. It was on a device, in review, days from being real.
+
+Then I read one rule in the app store guidelines carefully for the first time, and understood that the entire audience I had built for made the product untenable. Not a bug I could fix. A wall I had built straight into.
+
+So I changed who it was for. From young children to teens and adults with autism and intellectual disabilities. Same product. Different people.
+
+And it survived.
+
+That last part is the whole story. Most solo builders in that position start over, and they start over for a reason that has nothing to do with laziness: they genuinely cannot tell which of their decisions were about the thing and which were about the people they built it for. Once you can't separate those two, every choice you ever made is suspect, and burning it down feels safer than auditing a thousand decisions you no longer remember making.
+
+I could separate them. Not because I have a better memory than anyone else. Because I had written down why I made each one, the day I made it.
+
+AI makes code cheap. Context is what survives. I can regenerate a screen in an afternoon. I cannot regenerate the reasoning behind a decision I made six weeks ago. That reasoning is the only thing that made the pivot a Tuesday instead of a funeral.
+
+Here is what that afternoon actually looked like, and the system that made it possible.
+
+### The audit
+
+When I changed the audience, I did not open the code. I opened a single file called DECISIONS.md, and I went through it one entry at a time, asking each one the same question:
+
+Does this still hold, for different people?
+
+The locked-down player. The thing that guarantees a viewer can never wander off into recommendations. Still holds. Holds harder, actually, for an audience that needs predictability even more than a child does. Keep.
+
+The entire children's-privacy apparatus. Everything I'd built to comply with laws about kids. Gone. Not modified. Deleted, along with every constraint that came with it. The wall I'd hit simply stopped existing for the new audience.
+
+The visual design. Bright, playful, built for a five-year-old. Actively wrong now. An adult with a disability is not a child, and a product that treats them like one is insulting. Replaced, not tweaked.
+
+The role model. Who can do what. This one needed real rethinking, because an adult who can manage their own library deserves a kind of dignity a child's account never has to consider.
+
+That audit took an afternoon. Without the file, it's weeks of archaeology, and I get a meaningful chunk of it wrong, because I'm reconstructing my own reasoning from memory under deadline pressure. The foundation is what turns "start over" into "re-evaluate."
+
+Every one of those four answers came out of a file I'd written on an ordinary day, when it felt like pure overhead. Here's the system those files belong to.
+
+### The two files that saved the pivot
+
+There are more, and I'll get to them. But if you build nothing else, build these two. They answer the only two questions that matter when everything changes: what are we trying to do, and why did we do it that way.
+
+VISION.md. What you're building, and for whom. The document everything else gets measured against. Without it you cannot evaluate a single decision, because you have no standard to hold it up to. It holds who this is for in one sentence specific enough to exclude people, the problem in their words rather than your framing, what success actually looks like as an observable outcome, what you will deliberately not build, and the claims you'll never make about the product. When the audience changed, this was the first file I rewrote, and rewriting it is what told me which of the other decisions were now suspect.
+
+DECISIONS.md. Why each choice was made. The most valuable file by a distance, and the one you just watched save an entire product. One entry per real decision: the date, what you chose, the full reasoning including what you rejected and why, what the choice rules out downstream, and what would make you revisit it.
+
+There's a test for whether an entry is actually finished: does it survive someone asking "why?"
+
+"We use a locked-down player" is documentation. "We use a locked-down player because the core promise is that a viewer can never wander into recommendations, and that is the product, not a feature" is a decision. Only the second one is any use to you a month later, when you're standing in the wreckage asking which pieces are load-bearing.
+
+### The rest, and the day each one earns its place
+
+You don't build these on day one. You add each one the first time you feel its specific absence. Build them all up front and it becomes homework, and you quietly stop.
+
+RULES.md (name it CLAUDE.md or AGENTS.md so the agent reads it automatically). The guard-rail file. Without it, every session starts cold and you retype the same constraints into every prompt until the day you forget one. It holds what the product is, which files to read first and which are dead, the hard rules that must never be broken, and the standard for what counts as proof. The rules that stick are the ones with the incident attached: "be careful with data" gets rationalized away, but "a real profile was destroyed this way once, do not repeat it" does not. You'll add this file the first time an agent does something you never told it not to.
+
+VALIDATION.md. The proof gate. It holds the specific question you're testing, the decision rule written before you have any data, and the date you wrote that rule, so it's provably before the results came in. Why the date matters: I know I'd move the goalposts. Everyone does. A rule written before the evidence is one you can't quietly bend afterward. You'll add this the first time you catch yourself hoping for a result.
+
+ARCHITECTURE.md. The technical map. Every external system and the one job it does, how data moves between them, and every fact tagged verified, intended, or unverified with the date it was last checked. Why the tags: mine once listed a database detail that had been true a month earlier and quietly wasn't anymore. "Verified six weeks ago" tells you exactly how much weight to put on it. You'll add this the first time you can't remember how two systems connect.
+
+DESIGN_SYSTEM.md. The design language. Tokens for color, type, spacing, motion; the prohibitions with their reasons ("never pure black, it causes glare and visual fatigue"); and which source wins when the document and the code disagree. You'll add this the first time your screens stop matching each other.
+
+DESIGN.md. The build spec. Screen by screen: what it shows, what it does, and what it must never do. The invariants stated as behavior, not code: the things that can never regress.
+
+BACKLOG.md. The live queue. What's next in priority order, plus the findings you noticed but didn't fix, written with enough context to act on months later. Add this one early, not because it saves you, but because it's the file you touch daily, and daily use is what keeps the whole habit alive.
+
+CHANGELOG.md. What actually shipped, and when. Kept separate from the backlog on purpose. One is intent, the other is record.
+
+ACCOUNTS.md. Where things live, not what they are. Which service, which identity, what it's for, and where the real credential lives (a password manager, a secret store). It holds no passwords, keys, or tokens, because anything in a repository is in its history forever, and any agent you run inherits access to all of it.
+
+### The dead file you keep on purpose
+
+One of my files is wrong. It's a pre-pivot overview, and almost every fact in it is now false.
+
+I did not delete it. I put a line at the top saying it's dead and must not be trusted, and I noted that in the other files too.
+
+Deleting is cleaner and worse. Old documents get quoted from memory, resurface in someone's downloads, or get pulled up by an AI that doesn't know they're stale. Stale documentation is more dangerous than none, because it carries the authority of having been written down. A file marked dead is defused. A file deleted is a landmine you forgot you buried.
+
+### The uncomfortable part
+
+All of this only works if you write things down while they're boring. Before you're stuck, before it's urgent, before you have a shred of evidence you'll ever need them.
+
+Every entry felt like overhead the day I wrote it. Every single one. The value didn't arrive gradually. It arrived all at once, weeks later, on the worst day of the project, in the form of an afternoon that should have been a month.
+
+That's the deal, and it's worth being honest about: the foundation is built on the good days and spent on the bad ones. You will never feel it paying off in the moment you're building it. You'll only feel it the day the wall shows up.
+
+Start with two files. VISION and DECISIONS. Add the rest the first time each one's absence costs you something.
+
+Then when your own wall arrives, and it will, you get to re-read your reasoning instead of reconstructing it, and the question changes from do I start over to which of these still holds.
+
+I am Aneil Razvi, a product design and AI experience leader. Cubby, my personal project, is a caregiver-curated video app for teens and adults with autism and intellectual disabilities.
+
+Available for fractional design leadership and advisory work.
+
+If you are building something and you hit a wall, I would like to hear which one.
+
+---

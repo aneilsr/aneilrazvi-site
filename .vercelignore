@@ -5,3 +5,5 @@ scripts/
 Photos - to pull from/
 *.md
 .DS_Store
+*.bak
+*.bak-*

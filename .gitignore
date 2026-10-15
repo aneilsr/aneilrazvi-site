@@ -18,3 +18,7 @@ _*/
 
 # FUSE mount artifacts. Created when a file is replaced while open.
 .fuse_hidden*
+
+# Backups never ship (Vercel serves every committed file)
+*.bak
+*.bak-*

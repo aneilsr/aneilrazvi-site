@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>Building in the Open, Aneil Razvi</title>
+  <link>https://aneilrazvi.com/blog.html</link>
+  <atom:link href="https://aneilrazvi.com/feed.xml" rel="self" type="application/rss+xml"/>
+  <description>Designing and building real products with AI as a partner. The decisions, the trade-offs, and what actually ships.</description>
+  <language>en</language>
+  <lastBuildDate>Thu, 15 Oct 2026 14:56:52 +0000</lastBuildDate>
+  <item>
+    <title>When Your AI Says It&#x27;s Done</title>
+    <link>https://aneilrazvi.com/blog/when-your-ai-says-its-done.html</link>
+    <guid isPermaLink="true">https://aneilrazvi.com/blog/when-your-ai-says-its-done.html</guid>
+    <pubDate>Tue, 13 Oct 2026 12:00:52 +0000</pubDate>
+    <description>More of us are building after work with an AI writing the code. It will tell you it is finished. Here is the ten minute check that tells you whether that is true.</description>
+    <category>Building in the Open</category>
+  </item>
+  <item>
+    <title>Priced Like a Toy, Built Like a Tool</title>
+    <link>https://aneilrazvi.com/blog/priced-like-a-toy-built-like-a-tool.html</link>
+    <guid isPermaLink="true">https://aneilrazvi.com/blog/priced-like-a-toy-built-like-a-tool.html</guid>
+    <pubDate>Tue, 06 Oct 2026 12:01:08 +0000</pubDate>
+    <description>I set my price by looking at the wrong shelf. The number felt right, and it was aimed at a customer I do not actually have.</description>
+    <category>Building in the Open</category>
+  </item>
+  <item>
+    <title>The Ad-Free Promise I Almost Made</title>
+    <link>https://aneilrazvi.com/blog/the-ad-free-promise-i-almost-made.html</link>
+    <guid isPermaLink="true">https://aneilrazvi.com/blog/the-ad-free-promise-i-almost-made.html</guid>
+    <pubDate>Tue, 29 Sep 2026 12:05:03 +0000</pubDate>
+    <description>Everyone assumed one thing was true, including me, including the AI. I was a sentence away from promising it to customers. Then I read the actual documentation.</description>
+    <category>Sidenotes</category>
+  </item>
+  <item>
+    <title>Why I Test the Same Thing Five Times</title>
+    <link>https://aneilrazvi.com/blog/why-i-test-the-same-thing-five-times.html</link>
+    <guid isPermaLink="true">https://aneilrazvi.com/blog/why-i-test-the-same-thing-five-times.html</guid>
+    <pubDate>Tue, 22 Sep 2026 12:03:24 +0000</pubDate>
+    <description>A green checkmark is not a working feature. The habit that separates people who ship reliable things from people who ship surprises.</description>
+    <category>Building in the Open</category>
+  </item>
+  <item>
+    <title>The Beta</title>
+    <link>https://aneilrazvi.com/blog/the-beta.html</link>
+    <guid isPermaLink="true">https://aneilrazvi.com/blog/the-beta.html</guid>
+    <pubDate>Tue, 15 Sep 2026 12:31:55 +0000</pubDate>
+    <description>Twelve people said yes. Five actually installed. The real story of a launch is the quiet funnel between &quot;I would love to try that&quot; and &quot;I opened it.&quot;</description>
+    <category>Building in the Open</category>
+  </item>
+  <item>
+    <title>Your Design System Is Becoming a Rules Engine</title>
+    <link>https://aneilrazvi.com/blog/your-design-system-is-becoming-a-rules-engine.html</link>
+    <guid isPermaLink="true">https://aneilrazvi.com/blog/your-design-system-is-becoming-a-rules-engine.html</guid>
+    <pubDate>Tue, 08 Sep 2026 15:00:04 +0000</pubDate>
+    <description>Localization and white-labeling force you to stop designing a screen and start designing the conditions under which one gets assembled. That is a rules engine, not a catalog of parts.</description>
+    <category>Sidenotes</category>
+  </item>
+  <item>
+    <title>What I&#x27;d Tell a Designer Who Wants to Build</title>
+    <link>https://aneilrazvi.com/blog/what-id-tell-a-designer-who-wants-to-build.html</link>
+    <guid isPermaLink="true">https://aneilrazvi.com/blog/what-id-tell-a-designer-who-wants-to-build.html</guid>
+    <pubDate>Tue, 01 Sep 2026 12:00:03 +0000</pubDate>
+    <description>The bottleneck was never the code. It was the judgment. Start before you feel ready, direct the tools instead of deferring to them, and tell the true story rather than the impressive one.</description>
+    <category>Building in the Open</category>
+  </item>
+  <item>
+    <title>The Gate</title>
+    <link>https://aneilrazvi.com/blog/the-gate.html</link>
+    <guid isPermaLink="true">https://aneilrazvi.com/blog/the-gate.html</guid>
+    <pubDate>Tue, 25 Aug 2026 12:00:12 +0000</pubDate>
+    <description>Handing your work to a reviewer you will never speak to. Two rejections taught me that some review flags are not bugs you patch, they are decisions about what the product actually is.</description>
+    <category>Building in the Open</category>
+  </item>
+  <item>
+    <title>Building Solo With AI</title>
+    <link>https://aneilrazvi.com/blog/building-solo-with-ai.html</link>
+    <guid isPermaLink="true">https://aneilrazvi.com/blog/building-solo-with-ai.html</guid>
+    <pubDate>Sun, 16 Aug 2026 20:27:52 +0000</pubDate>
+    <description>A passing build proves nothing. The thing writing the code cannot be the thing approving it, and everything the AI got confidently wrong looked exactly like progress.</description>
+    <category>Building in the Open</category>
+  </item>
+  <item>
+    <title>The Wall</title>
+    <link>https://aneilrazvi.com/blog/the-wall.html</link>
+    <guid isPermaLink="true">https://aneilrazvi.com/blog/the-wall.html</guid>
+    <pubDate>Wed, 05 Aug 2026 15:30:02 +0000</pubDate>
+    <description>None of these rules are hidden. They just do not announce themselves while you are designing, and by the time they matter you have already built the thing they forbid.</description>
+    <category>Building in the Open</category>
+  </item>
+  <item>
+    <title>The Foundation</title>
+    <link>https://aneilrazvi.com/blog/the-foundation.html</link>
+    <guid isPermaLink="true">https://aneilrazvi.com/blog/the-foundation.html</guid>
+    <pubDate>Wed, 29 Jul 2026 06:03:37 +0000</pubDate>
+    <description>Two days before launch a rule killed the product I had built. The pivot took an afternoon instead of a month, and only because I had written down why I made each decision.</description>
+    <category>Building in the Open</category>
+  </item>
+</channel>
+</rss>
