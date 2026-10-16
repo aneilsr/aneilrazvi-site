@@ -6,7 +6,7 @@
   <atom:link href="https://aneilrazvi.com/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Designing and building real products with AI as a partner. The decisions, the trade-offs, and what actually ships.</description>
   <language>en</language>
-  <lastBuildDate>Thu, 15 Oct 2026 14:56:52 +0000</lastBuildDate>
+  <lastBuildDate>Thu, 15 Oct 2026 17:31:13 +0000</lastBuildDate>
   <item>
     <title>When Your AI Says It&#x27;s Done</title>
     <link>https://aneilrazvi.com/blog/when-your-ai-says-its-done.html</link>
@@ -14,6 +14,12 @@
     <pubDate>Tue, 13 Oct 2026 12:00:52 +0000</pubDate>
     <description>More of us are building after work with an AI writing the code. It will tell you it is finished. Here is the ten minute check that tells you whether that is true.</description>
     <category>Building in the Open</category>
+    <category>BuildingInPublic</category>
+    <category>VibeCoding</category>
+    <category>AITools</category>
+    <category>BuildingSolo</category>
+    <category>Startups</category>
+    <category>Testing</category>
   </item>
   <item>
     <title>Priced Like a Toy, Built Like a Tool</title>
@@ -22,6 +28,11 @@
     <pubDate>Tue, 06 Oct 2026 12:01:08 +0000</pubDate>
     <description>I set my price by looking at the wrong shelf. The number felt right, and it was aimed at a customer I do not actually have.</description>
     <category>Building in the Open</category>
+    <category>Startups</category>
+    <category>Pricing</category>
+    <category>ProductStrategy</category>
+    <category>AssistiveTech</category>
+    <category>Founders</category>
   </item>
   <item>
     <title>The Ad-Free Promise I Almost Made</title>
@@ -30,6 +41,12 @@
     <pubDate>Tue, 29 Sep 2026 12:05:03 +0000</pubDate>
     <description>Everyone assumed one thing was true, including me, including the AI. I was a sentence away from promising it to customers. Then I read the actual documentation.</description>
     <category>Sidenotes</category>
+    <category>BuildingInPublic</category>
+    <category>ProductStrategy</category>
+    <category>Startups</category>
+    <category>Trust</category>
+    <category>Founders</category>
+    <category>AI</category>
   </item>
   <item>
     <title>Why I Test the Same Thing Five Times</title>
@@ -38,6 +55,10 @@
     <pubDate>Tue, 22 Sep 2026 12:03:24 +0000</pubDate>
     <description>A green checkmark is not a working feature. The habit that separates people who ship reliable things from people who ship surprises.</description>
     <category>Building in the Open</category>
+    <category>VibeCoding</category>
+    <category>AITools</category>
+    <category>Startups</category>
+    <category>Testing</category>
   </item>
   <item>
     <title>The Beta</title>
@@ -46,6 +67,11 @@
     <pubDate>Tue, 15 Sep 2026 12:31:55 +0000</pubDate>
     <description>Twelve people said yes. Five actually installed. The real story of a launch is the quiet funnel between &quot;I would love to try that&quot; and &quot;I opened it.&quot;</description>
     <category>Building in the Open</category>
+    <category>BuildingInPublic</category>
+    <category>Startups</category>
+    <category>BuildingSolo</category>
+    <category>Launch</category>
+    <category>AssistiveTech</category>
   </item>
   <item>
     <title>Your Design System Is Becoming a Rules Engine</title>
@@ -54,6 +80,9 @@
     <pubDate>Tue, 08 Sep 2026 15:00:04 +0000</pubDate>
     <description>Localization and white-labeling force you to stop designing a screen and start designing the conditions under which one gets assembled. That is a rules engine, not a catalog of parts.</description>
     <category>Sidenotes</category>
+    <category>DesignSystems</category>
+    <category>ProductDesign</category>
+    <category>AI</category>
   </item>
   <item>
     <title>What I&#x27;d Tell a Designer Who Wants to Build</title>
@@ -62,6 +91,11 @@
     <pubDate>Tue, 01 Sep 2026 12:00:03 +0000</pubDate>
     <description>The bottleneck was never the code. It was the judgment. Start before you feel ready, direct the tools instead of deferring to them, and tell the true story rather than the impressive one.</description>
     <category>Building in the Open</category>
+    <category>BuildingInPublic</category>
+    <category>AI</category>
+    <category>ProductDesign</category>
+    <category>DesignLeadership</category>
+    <category>AITools</category>
   </item>
   <item>
     <title>The Gate</title>
@@ -70,6 +104,11 @@
     <pubDate>Tue, 25 Aug 2026 12:00:12 +0000</pubDate>
     <description>Handing your work to a reviewer you will never speak to. Two rejections taught me that some review flags are not bugs you patch, they are decisions about what the product actually is.</description>
     <category>Building in the Open</category>
+    <category>BuildingInPublic</category>
+    <category>AppStore</category>
+    <category>BuildingSolo</category>
+    <category>ProductDesign</category>
+    <category>AI</category>
   </item>
   <item>
     <title>Building Solo With AI</title>
@@ -78,6 +117,11 @@
     <pubDate>Sun, 16 Aug 2026 20:27:52 +0000</pubDate>
     <description>A passing build proves nothing. The thing writing the code cannot be the thing approving it, and everything the AI got confidently wrong looked exactly like progress.</description>
     <category>Building in the Open</category>
+    <category>BuildingInPublic</category>
+    <category>AI</category>
+    <category>BuildingSolo</category>
+    <category>AITools</category>
+    <category>ProductDesign</category>
   </item>
   <item>
     <title>The Wall</title>
@@ -86,6 +130,9 @@
     <pubDate>Wed, 05 Aug 2026 15:30:02 +0000</pubDate>
     <description>None of these rules are hidden. They just do not announce themselves while you are designing, and by the time they matter you have already built the thing they forbid.</description>
     <category>Building in the Open</category>
+    <category>AppStore</category>
+    <category>ProductDesign</category>
+    <category>BuildingInPublic</category>
   </item>
   <item>
     <title>The Foundation</title>
@@ -94,6 +141,12 @@
     <pubDate>Wed, 29 Jul 2026 06:03:37 +0000</pubDate>
     <description>Two days before launch a rule killed the product I had built. The pivot took an afternoon instead of a month, and only because I had written down why I made each decision.</description>
     <category>Building in the Open</category>
+    <category>BuildingInPublic</category>
+    <category>BuildingSolo</category>
+    <category>AI</category>
+    <category>ProductDesign</category>
+    <category>Startups</category>
+    <category>Documentation</category>
   </item>
 </channel>
 </rss>
