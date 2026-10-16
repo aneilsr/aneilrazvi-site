@@ -69,6 +69,15 @@
   .sp-feat p{color:rgba(255,255,255,.72);font-size:1rem;line-height:1.68;font-weight:300;margin:0 0 1.4rem}
   .sp-community{display:flex;flex-wrap:wrap;gap:.6rem}
   .sp-community span{font-size:.8rem;font-weight:600;color:#bfeaf1;background:rgba(0,188,212,.1);border:1px solid rgba(0,188,212,.28);padding:6px 13px;border-radius:100px}
+  /* latest appearance: gallery, credit, quote */
+  .sp-gal{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-top:.6rem}
+  .sp-feat-in .sp-gal img{aspect-ratio:3/2;object-fit:cover;border-radius:10px;height:auto}
+  .sp-feat-in .fig > img{height:auto}
+  .sp-feat .credit{color:rgba(255,255,255,.4);font-size:.74rem;margin-top:.55rem}
+  .sp-quote{margin:0 0 1.3rem;padding:.15rem 0 .15rem 1rem;border-left:3px solid var(--teal);color:#fff;font-size:1.02rem;line-height:1.6}
+  .sp-quote cite{display:block;color:rgba(255,255,255,.55);font-size:.82rem;font-style:normal;margin-top:.45rem}
+  .sp-quote cite a,.sp-feat .more a{color:var(--teal);text-decoration:none;border-bottom:1px solid rgba(0,188,212,.4)}
+  .sp-feat .more{font-size:.86rem;color:rgba(255,255,255,.6);margin-top:1rem}
   /* timeline */
   .tl-group{margin-top:2.4rem}
   .tl-year{font-family:'DM Serif Display',serif;color:var(--teal);font-size:1.4rem;margin:0 0 1.1rem;padding-bottom:.55rem;border-bottom:1px solid rgba(255,255,255,.1)}
@@ -152,7 +161,7 @@
   <div class="sp-proof-in">
     <div class="pf"><div class="n">20+ talks</div><div class="l">Keynotes, panels &amp; workshops since 2017</div></div>
     <div class="pf"><div class="n">Vista UX Summit</div><div class="l">Recurring speaker, 2017-2020</div></div>
-    <div class="pf"><div class="n">AIGA Dallas</div><div class="l">Guest speaker, expert &amp; mentor</div></div>
+    <div class="pf"><div class="n">AIGA Dallas</div><div class="l">Guest speaker, panelist, expert &amp; mentor</div></div>
     <div class="pf"><div class="n">Behance</div><div class="l">Portfolio-review facilitator</div></div>
   </div>
 </div>
@@ -219,6 +228,33 @@
   </div>
 </section>
 
+<!-- LATEST APPEARANCE -->
+<div class="sp-feat" id="minicon-2026">
+  <div class="sp-feat-in">
+    <div class="fig">
+      <img src="assets/speaking/minicon-2026-panel.jpg" alt="Aneil Razvi answering a student question on the AIGA Dallas Mini-Con 2026 industry panel at UT Dallas" width="1600" height="900" loading="lazy">
+      <div class="sp-gal">
+        <img src="assets/speaking/minicon-2026-intro.jpg" alt="The Mini-Con 2026 industry panel being introduced at UT Dallas" width="1600" height="1050" loading="lazy">
+        <img src="assets/speaking/minicon-2026-room.jpg" alt="Design students listening to the Mini-Con 2026 industry panel" width="1600" height="1066" loading="lazy">
+      </div>
+      <div class="credit">Photos: Tim Harris Photography for AIGA Dallas</div>
+    </div>
+    <div>
+      <span class="sp-eyebrow">Latest appearance</span>
+      <div class="venue">AIGA Dallas Mini-Con 2026 · UT Dallas · 10 October 2026</div>
+      <h3>Industry panel for the next generation of designers</h3>
+      <p>Mini-Con is AIGA Dallas's student design conference. I joined the industry panel with Erika Udstuen and Mackensie DeBello for an open Q&amp;A with the students in the room.</p>
+      <blockquote class="sp-quote">"He did a fantastic job sharing his insights and adding to the conversations throughout the event."<cite>Dr Geanie Asante, Mini-Con 2026 speaker · <a href="https://www.linkedin.com/feed/update/urn:li:ugcPost:7515745356144611328/" target="_blank" rel="noopener">on LinkedIn</a></cite></blockquote>
+      <div class="sp-community">
+        <span>AIGA Dallas</span>
+        <span>UT Dallas</span>
+        <span>Student design conference</span>
+      </div>
+      <p class="more"><a href="https://www.linkedin.com/posts/aigadallas-designcommunity-dallasdesigners-ugcPost-7515489772862099456-v_B-/" target="_blank" rel="noopener">AIGA Dallas's Mini-Con recap</a></p>
+    </div>
+  </div>
+</div>
+
 <!-- FEATURED APPEARANCE -->
 <div class="sp-feat">
   <div class="sp-feat-in">
@@ -246,13 +282,21 @@
   <div class="tl-group">
     <h3 class="tl-year">Upcoming</h3>
     <div class="tl-list">
-      <div class="tl-item"><div class="tl-ev">Tue 29 Sep 2026 &middot; 11am CT<span class="sub">Texas Startup &amp; Tech Week</span></div><div class="tl-body"><h4><a href="https://aneilrazvi.com/workshop" target="_blank" rel="noopener">Where Design Starts Paying</a></h4><p>A working hour for founders on the four forms design takes, what each one costs, and why picking the wrong one is how first design hires go sideways. Online, so anywhere in Texas.</p></div></div>
-      <div class="tl-item"><div class="tl-ev">Sat 10 Oct 2026 &middot; 11am&ndash;5:30pm<span class="sub">AIGA Dallas at UT Dallas</span></div><div class="tl-body"><h4><a href="https://aneilrazvi.com/panel" target="_blank" rel="noopener">Design minicon, UT Dallas</a></h4><p>Hosted by AIGA Dallas at the Harry W. Bass Jr. School of Arts, Humanities and Technology.</p></div></div>
+      <div class="tl-item"><div class="tl-ev">Thu 22 Oct 2026 &middot; 2pm CT<span class="sub">Go Fractional Demo Day &middot; Online</span></div><div class="tl-body"><h4>Demo Day: Cubby</h4><p>Presenting Cubby, my personal project: a caregiver-curated video app, designed and shipped solo using AI-assisted tools.</p></div></div>
     </div>
   </div>
 
   <div class="tl-group">
-    <h3 class="tl-year">Recent · AIGA Dallas</h3>
+    <h3 class="tl-year">2026</h3>
+    <div class="tl-list">
+      <div class="tl-item"><div class="tl-ev">Sat 10 Oct 2026<span class="sub">AIGA Dallas Mini-Con &middot; UT Dallas &middot; Panel</span></div><div class="tl-body"><h4><a href="#minicon-2026">Industry panel, Mini-Con 2026</a></h4><p>Open Q&amp;A with design students at AIGA Dallas's student design conference.</p><p class="cospk">with Erika Udstuen &amp; Mackensie DeBello</p></div></div>
+      <div class="tl-item"><div class="tl-ev">Tue 29 Sep 2026<span class="sub">Texas Startup &amp; Tech Week &middot; Online</span></div><div class="tl-body"><h4>Where Design Starts Paying</h4><p>A working hour for founders on the four forms design takes, what each one costs, and why picking the wrong one is how first design hires go sideways.</p></div></div>
+      <div class="tl-item"><div class="tl-ev">Sep 2026<span class="sub">Ramblings of a Designer &middot; Podcast guest</span></div><div class="tl-body"><h4>Guest episode, coming soon</h4><p>A conversation with host Terri Rodriguez-Hong on her podcast for designers.</p></div></div>
+    </div>
+  </div>
+
+  <div class="tl-group">
+    <h3 class="tl-year">AIGA Dallas</h3>
     <div class="tl-list">
       <div class="tl-item"><div class="tl-ev">AIGA Dallas Creator Lab<span class="sub">Guest speaker</span></div><div class="tl-body"><h4><a href="https://dallas.aiga.org/event/aiga-dallas-creator-lab/" target="_blank" rel="noopener">An evening of AI, tools &amp; real-world creativity</a></h4><p>Speaking on how design leaders move past AI hype to tools and practices that hold up in real work.</p></div></div>
       <div class="tl-item"><div class="tl-ev">Creative Career Corner<span class="sub">Invited expert</span></div><div class="tl-body"><h4><a href="https://dallas.aiga.org/creative-career-corner-experts/" target="_blank" rel="noopener">Career &amp; portfolio guidance for designers</a></h4><p>One of the invited experts helping emerging designers navigate career questions and portfolio decisions.</p></div></div>
