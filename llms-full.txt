@@ -1,6 +1,96 @@
 # Aneil Razvi: writing, full text
 
-> The complete text of Aneil Razvi's articles, published at https://aneilrazvi.com/blog.html and first on LinkedIn. Cite the aneilrazvi.com URL for each piece.
+> The complete text of Aneil Razvi's articles, published at https://aneilrazvi.com/blog.html (most first appear on LinkedIn). Cite the aneilrazvi.com URL for each piece.
+
+## Build Something While You Don't Need It
+
+Conversation no. 01 · 2026-10-19 · https://aneilrazvi.com/blog/build-something-while-you-dont-need-it.html
+
+Terri found me through a LinkedIn post. She read it on a Sunday, we talked that week, and a few days later I was on her show, Ramblings of a Designer, with her co-host Laszlo. That post did about 32,000 impressions, and I haven't been off the phone since: people starting businesses, people figuring out what's next, old friends I hadn't heard from in years.
+
+That's the first lesson, and I didn't plan it. Putting yourself out there is the thing that makes you different from everyone else. You never know where it lands.
+
+Here's what we talked about, cleaned up, with the parts I'd underline.
+
+### The short version
+
+- Build something while you don't need it, so it's there when you do.
+
+- Sharing is caring. The knowledge you hoard is the knowledge that leaves with you.
+
+- AI is a tool. You still check the work, and your name still goes on it.
+
+- Draw it first. If you can describe the system on paper, the AI builds what you meant.
+
+- Starting out? Put a hundred dollars into a business and try to lose it.
+
+### Two rules
+
+Every person I've hired hears the same two rules.
+
+Sharing is caring. Barney had it right. You can't hold anything close to the chest. The knowledge you hoard is the knowledge that leaves with you.
+
+Have a side hustle. Build something while you don't need it, so it's there when you do. The guy who owns the car wash should own the umbrella shop too. Then it doesn't matter what the weather does, something is still bringing money in.
+
+I have two kinds of conversations with my team: one as their manager and one as a brother. As a manager I help them build. As a brother I tell them to look at their career from a different angle, because I'm looking out for them, not just for this quarter. If someone leaves my team without something they can carry with them, I feel like I failed.
+
+### Work yourself out of the job
+
+I've built design teams in a lot of different companies, and the pattern is always the same. I come in, map what's there, set up the structure the business actually needs for its maturity, hire the right people, and then make sure it runs without me.
+
+My favorite proof: I took three weeks off and came back to zero emails. Not because nobody was working. Because the team was empowered to make the call.
+
+Laszlo put it well on the show. If you're a good leader, you can step away and the castle doesn't crumble. No news is good news. That can be scary for a leader, but it's the whole point.
+
+### Why people are scared of AI
+
+When I bring AI to a team, I always meet the same resistance, and it usually isn't about the technology. People are scared because they don't know what they want. Not knowing what you want is a scary place to be.
+
+A lot of designers and engineers are ninjas. They're incredibly good at swinging the blade. And now swinging the blade is something almost anyone can do. So the question moves up a level: do you know what you're trying to build, and why?
+
+An architect has to see the building before drawing the plans. That's the skill that matters now. And here's the part people miss: you still keep your craft, and you get a seat at the decision table. All the things you've been complaining about for years, you can now raise, prototype, and test with real users quickly. Once people see that, they stop asking whether AI will replace them and start asking what they can finally get done.
+
+### It's a tool. Check your work.
+
+AI is a tool in your tool belt. People got upset about the calculator too. It's no different from a paintbrush, or a keyboard for a coder.
+
+But a tool doesn't take responsibility. If you were lazy before AI, you're lazier with it, shipping whatever comes out without checking. Think of Santa with his list: he checks it twice. Naughty or nice. At the end of the day, someone has to sign off, and an AI can't be held accountable. You're the one who says "I approve," and whatever goes out the door has your name on it.
+
+The good ones zoom in and zoom out. A painter makes a brushstroke, then steps back to see the whole canvas. That's what problem solvers do: get into the details, then come back out and look at the full picture.
+
+### Draw it first
+
+My career has had a few big turns. The scariest was moving from print to digital, because I wasn't a coder and I thought I had to be. What I learned is that you don't have to touch the code. You have to understand the system: what's happening behind the screen, not just on it.
+
+That's why I run a workshop where the computers stay closed. Pencil and paper. You draw your app, move the pieces around, and work out what happens behind every screen. When you understand that, you can describe it clearly to an AI, and the AI builds what you meant instead of what you said.
+
+### Titles are going away
+
+I think we'll see job titles fade. A company is a big machine with moving parts, and those parts are skills and functions. People will show proof that they can do those things: here's the skill, here's where I used it, here's the project.
+
+I've started writing my own resume that way, leading with who I am, what I've done, and what I did in each place. It's working better.
+
+### Build your own app, even once
+
+If you work with product managers or engineers, build an app yourself, start to finish. You'll understand your coworkers in a completely different way.
+
+You'll design the whole thing, hand it to the AI, and watch it choke because it's too much at once. Then you'll break it down, and break it down again, into smaller and smaller pieces. That's exactly how every business works. Design tickets are big. Development tickets are small. Now you'll feel why.
+
+One of the most useful things I did on my own app was ask Claude to map it. I'd started in Figma, built it out with AI, and lost my bearings. So I asked for a map of the whole system: every screen, error state, success state, and how they connect, as a flow diagram and then as one big relationship view.
+
+Big companies pay a lot for exactly that, because many don't know what they have anymore. At one company we turned off servers to see who complained. That's what happens when the tribal knowledge walks out the door.
+
+### If I were starting today
+
+If I were a student right now, I'd take a hundred dollars and try to lose it. Seriously. Start a business with the goal of losing that money. If you make money instead, oh darn, the business worked.
+
+Either way, you'll learn more from that than from almost anything else. You'll understand everything around you, because you built the whole thing. Be okay with failing. You'll learn more from messing up than from doing it perfectly, and doing it perfectly every time gets boring.
+
+* * *
+
+Thanks to Terri and Laszlo for having me. If you want to try the paper-first approach, my workshops and course live at aneilrazvi.com/build .
+
+---
 
 ## When Your AI Says It's Done
 

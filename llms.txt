@@ -46,7 +46,7 @@ A course for people with an app idea and no coding background. Define the proble
 
 ## Writing: Building in the Open
 
-A weekly LinkedIn newsletter about designing and building a real product with AI as a partner. Every issue is also published in full on this site. Full text of all issues: https://aneilrazvi.com/llms-full.txt. RSS: https://aneilrazvi.com/feed.xml. Index: https://aneilrazvi.com/blog.html
+A weekly LinkedIn newsletter about designing and building a real product with AI as a partner. Every issue is also published in full on this site, along with Conversations: podcast appearances written up as articles. Full text of all issues: https://aneilrazvi.com/llms-full.txt. RSS: https://aneilrazvi.com/feed.xml. Index: https://aneilrazvi.com/blog.html
 
 - Issue no. 01, "The Foundation" (2026-07-29): Two days before launch a rule killed the product I had built. The pivot took an afternoon instead of a month, and only because I had written down why I made each decision. https://aneilrazvi.com/blog/the-foundation.html
 - Issue no. 02, "The Wall" (2026-08-05): None of these rules are hidden. They just do not announce themselves while you are designing, and by the time they matter you have already built the thing they forbid. https://aneilrazvi.com/blog/the-wall.html
@@ -59,6 +59,7 @@ A weekly LinkedIn newsletter about designing and building a real product with AI
 - Sidenote no. 02, "The Ad-Free Promise I Almost Made" (2026-09-29): Everyone assumed one thing was true, including me, including the AI. I was a sentence away from promising it to customers. Then I read the actual documentation. https://aneilrazvi.com/blog/the-ad-free-promise-i-almost-made.html
 - Issue no. 08, "Priced Like a Toy, Built Like a Tool" (2026-10-06): I set my price by looking at the wrong shelf. The number felt right, and it was aimed at a customer I do not actually have. https://aneilrazvi.com/blog/priced-like-a-toy-built-like-a-tool.html
 - Issue no. 09, "When Your AI Says It's Done" (2026-10-13): More of us are building after work with an AI writing the code. It will tell you it is finished. Here is the ten minute check that tells you whether that is true. https://aneilrazvi.com/blog/when-your-ai-says-its-done.html
+- Conversation no. 01, "Build Something While You Don't Need It" (2026-10-19): On Ramblings of a Designer I talked about side hustles, why people are scared of AI, drawing it on paper first, and what I would do with a hundred dollars if I were starting today. https://aneilrazvi.com/blog/build-something-while-you-dont-need-it.html
 
 ## Speaking
 
