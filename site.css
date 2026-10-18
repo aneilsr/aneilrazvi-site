@@ -564,6 +564,7 @@ textarea.form-input { min-height: 140px; resize: vertical; }
 }
 
 .nav-brand{font-family:'DM Serif Display',serif;font-size:1.4rem;color:#fff;text-decoration:none;letter-spacing:.01em}
+.nav-mark{width:30px;height:30px;border-radius:7px;display:inline-block;vertical-align:middle;margin:0 10px 0 0;position:relative;top:-3px}
 .nav-brand b{color:var(--teal);font-weight:400}
 
 /* ── HOME: work cards with visuals ── */

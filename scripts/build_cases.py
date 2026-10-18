@@ -64,7 +64,7 @@ def nav(active):
     def it(h,l):
         cls=' class="active"' if l==active else ''
         return f'<li><a href="{h}"{cls}>{l}</a></li>'
-    return ('<nav class="site-nav" id="nav"><a href="index.html" class="nav-brand">Aneil <b>Razvi</b></a>'
+    return ('<nav class="site-nav" id="nav"><a href="index.html" class="nav-brand"><img class="nav-mark" src="/assets/brand/a-mark-light-tile.svg" alt="" width="30" height="30">Aneil <b>Razvi</b></a>'
             '<ul class="nav-links">'+it("index.html","Home")+it("portfolio.html","Portfolio")+it("speaking.html","Speaking")
             +it("work-with-me.html","Work With Me")+it("about.html","About")+it("blog.html","Blog")+'</ul>'
             '<a href="contact.html" class="nav-cta">Let\'s Talk</a>'
