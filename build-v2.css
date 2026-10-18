@@ -338,3 +338,7 @@ a.opt{text-decoration:none}
 .ideamap .msg{text-align:left}
 
 @media (prefers-reduced-motion: reduce){ *{transition:none!important;scroll-behavior:auto!important;animation:none!important} }
+/* the a mark (18 Oct): dark tile on light, light tile in dark mode */
+.nav-mark{width:30px;height:30px;border-radius:7px;display:inline-block;vertical-align:middle;margin:0 10px 0 0;position:relative;top:-3px}
+.foot-mark{width:20px;height:20px;border-radius:5px;display:inline-block;vertical-align:-4px;margin:0 8px 0 0}
+@media(max-width:340px){.nav-mark{display:none}}

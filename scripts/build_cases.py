@@ -3,7 +3,7 @@ FONTS='<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ita
 
 # ---- SEO / AEO shared entities (kept in sync with scripts/seo_inject.py) ----
 SEO_BASE="https://aneilrazvi.com"
-SEO_OG=f"{SEO_BASE}/assets/og-image.jpg"
+SEO_OG=f"{SEO_BASE}/assets/og-image-v4.jpg"
 SEO_PERSON={
     "@type":"Person","@id":f"{SEO_BASE}/#aneil","name":"Aneil Razvi","url":f"{SEO_BASE}/",
     "image":SEO_OG,"jobTitle":"VP of Product Design & AI Experience",
@@ -70,7 +70,7 @@ def nav(active):
             '<a href="contact.html" class="nav-cta">Let\'s Talk</a>'
             '<button class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button></nav>')
 FOOT=('<footer style="background:#0a1420;border-top:1px solid rgba(255,255,255,.08);padding:40px 6%;text-align:center;color:rgba(255,255,255,.6)">'
-      '<div style="font-family:\'DM Serif Display\',serif;font-size:1.2rem;color:#fff;margin-bottom:12px">Aneil <span style="color:var(--teal)">Razvi</span></div>'
+      '<div style="font-family:\'DM Serif Display\',serif;font-size:1.2rem;color:#fff;margin-bottom:12px"><img src="/assets/brand/a-mark-light-tile.svg" alt="" width="26" height="26" style="width:26px;height:26px;border-radius:6px;vertical-align:middle;margin:0 10px 0 0;position:relative;top:-3px">Aneil <span style="color:var(--teal)">Razvi</span></div>'
       '<div style="font-size:.9rem"><a style="color:#cfe;text-decoration:none;margin:0 10px" href="https://www.linkedin.com/in/aneilrazvi/" target="_blank">LinkedIn</a>·'
       '<a style="color:#cfe;text-decoration:none;margin:0 10px" href="https://calendar.app.google/insHQBTTsdfgxxMz5" target="_blank">Book a call</a>·'
       '<a style="color:#cfe;text-decoration:none;margin:0 10px" href="mailto:aneilsr@gmail.com">Email</a></div>'

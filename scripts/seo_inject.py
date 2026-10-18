@@ -6,7 +6,7 @@ Run from the site root (where the .html files live)."""
 import html, json, re, os
 
 BASE = "https://aneilrazvi.com"
-OG = f"{BASE}/assets/og-image.jpg"
+OG = f"{BASE}/assets/og-image-v4.jpg"
 LINKEDIN = "https://www.linkedin.com/in/aneilrazvi/"
 
 # ---- shared entity nodes (identical on every page, so each page is self-describing) ----
