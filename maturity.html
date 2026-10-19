@@ -340,9 +340,53 @@ body.lit .fadein{opacity:1;transform:none;}
 .nav-brand{white-space:nowrap;flex-shrink:0}
 @media(max-width:1100px){.nav-links{gap:20px}}
 @media(max-width:960px){.nav-links{gap:12px}}
+
+/* ===== Site chrome, 19 Oct 2026. One nav geometry and one footer layout on every page; the colors follow the page:
+   light page, light chrome; dark page, dark chrome. Geometry mirrors site.css; keep the two in step. ===== */
+nav.site-nav{--rzn-bg:rgba(15,25,35,.85);--rzn-bg2:rgba(15,25,35,.97);--rzn-open:rgba(15,25,35,.98);--rzn-text:#fff;--rzn-link:rgba(255,255,255,.8);--rzn-accent:#00BCD4;--rzn-line:rgba(255,255,255,.06);--rzn-div:rgba(255,255,255,.08);--rzn-shadow:none}
+nav.site-nav.rz-light,nav.site-nav.rz-auto{--rzn-bg:rgba(255,255,255,.9);--rzn-bg2:rgba(255,255,255,.97);--rzn-open:rgba(255,255,255,.98);--rzn-text:#1A1A2E;--rzn-link:#6B7280;--rzn-accent:#0097A7;--rzn-line:#E2E8EC;--rzn-div:#E2E8EC;--rzn-shadow:0 1px 14px rgba(0,0,0,.05)}
+@media (prefers-color-scheme: dark){nav.site-nav.rz-auto{--rzn-bg:rgba(16,42,76,.94);--rzn-bg2:rgba(16,42,76,.97);--rzn-open:rgba(16,42,76,.98);--rzn-text:#fff;--rzn-link:rgba(238,244,249,.75);--rzn-accent:#00BCD4;--rzn-line:rgba(255,255,255,.10);--rzn-div:rgba(255,255,255,.10);--rzn-shadow:0 1px 14px rgba(0,0,0,.3)}}
+nav.site-nav{position:fixed;top:0;left:0;right:0;height:68px;padding:0 5%;line-height:normal;font-size:16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:nowrap;gap:0;background:var(--rzn-bg);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--rzn-line);box-shadow:none}
+nav.site-nav.scrolled{background:var(--rzn-bg2);box-shadow:var(--rzn-shadow)}
+nav.site-nav .nav-brand{font-family:'DM Serif Display',Georgia,serif;font-size:1.4rem;line-height:normal;color:var(--rzn-text);text-decoration:none;letter-spacing:.01em;white-space:nowrap;flex-shrink:0}
+nav.site-nav .nav-brand b{color:var(--rzn-accent);font-weight:400}
+nav.site-nav .nav-mark{width:30px;height:30px;border-radius:7px;display:inline-block;vertical-align:middle;margin:0 10px 0 0;position:relative;top:-3px}
+nav.site-nav .nav-links{display:flex;flex-direction:row;gap:36px;list-style:none;margin:0;padding:0;border:0;width:auto;order:0}
+nav.site-nav .nav-links a{color:var(--rzn-link);font-size:.875rem;font-weight:500;letter-spacing:.02em;line-height:normal;text-decoration:none;white-space:nowrap}
+nav.site-nav .nav-links a:hover,nav.site-nav .nav-links a.active{color:var(--rzn-accent)}
+nav.site-nav .nav-cta{background:#00BCD4;color:#0F1923;padding:9px 22px;border-radius:8px;font-size:.875rem;font-weight:700;line-height:normal;text-decoration:none;white-space:nowrap;margin-left:0}
+nav.site-nav .nav-cta:hover{background:#26D9EE;color:#0F1923;transform:translateY(-1px)}
+nav.site-nav .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:6px;margin-left:14px}
+nav.site-nav .nav-hamburger span{width:24px;height:2px;background:var(--rzn-text);border-radius:2px;transition:transform .2s,opacity .2s}
+@media (min-width:1024px) and (max-width:1279px){nav.site-nav{padding:0 3%}nav.site-nav .nav-links{gap:clamp(12px,1.6vw,26px)}nav.site-nav .nav-links a{font-size:.8125rem;letter-spacing:0}}
+@media (max-width:1023px){
+  nav.site-nav{flex-wrap:wrap;align-content:center}
+  nav.site-nav .nav-links{display:none}
+  nav.site-nav .nav-hamburger{display:flex}
+  nav.site-nav .nav-cta{margin-left:auto}
+  nav.site-nav.open{height:auto;padding-bottom:14px;background:var(--rzn-open)}
+  nav.site-nav.open .nav-links{display:flex;order:5;flex-direction:column;width:100%;gap:1.1rem;padding:1.1rem 0 .2rem;margin-top:.5rem;border-top:1px solid var(--rzn-div)}
+  nav.site-nav.open .nav-links a{font-size:1rem}
+  nav.site-nav.open .nav-hamburger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  nav.site-nav.open .nav-hamburger span:nth-child(2){opacity:0}
+  nav.site-nav.open .nav-hamburger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+}
+@media (max-width:340px){nav.site-nav .nav-mark{display:none}}
+/* footer: same layout as the site footer */
+footer.rz-footer{--rzf-bg:#0a1420;--rzf-line:rgba(255,255,255,.08);--rzf-name:#fff;--rzf-accent:#00BCD4;--rzf-link:#cfe;--rzf-muted:rgba(255,255,255,.4)}
+footer.rz-footer.rz-light,footer.rz-footer.rz-auto{--rzf-bg:#fff;--rzf-line:#E2E8EC;--rzf-name:#1A1A2E;--rzf-accent:#0097A7;--rzf-link:#1E3A5F;--rzf-muted:#6B7280}
+@media (prefers-color-scheme: dark){footer.rz-footer.rz-auto{--rzf-bg:#0B2240;--rzf-line:rgba(255,255,255,.10);--rzf-name:#fff;--rzf-accent:#00BCD4;--rzf-link:#CFE5F7;--rzf-muted:rgba(238,244,249,.6)}}
+footer.rz-footer{display:block;margin:0;padding:40px 6%;text-align:center;line-height:normal;font-size:1rem;background:var(--rzf-bg);border-top:1px solid var(--rzf-line);color:var(--rzf-muted);flex-wrap:nowrap}
+footer.rz-footer .rz-f-name{font-family:'DM Serif Display',Georgia,serif;font-size:1.2rem;color:var(--rzf-name);margin-bottom:12px}
+footer.rz-footer .rz-f-name span{color:var(--rzf-accent)}
+footer.rz-footer .rz-f-name img{width:26px;height:26px;border-radius:6px;vertical-align:middle;margin:0 10px 0 0;position:relative;top:-3px;display:inline-block;max-width:none}
+footer.rz-footer .rz-f-links{font-size:.9rem;color:var(--rzf-muted)}
+footer.rz-footer .rz-f-links a{color:var(--rzf-link);text-decoration:none;margin:0 10px;font-weight:400;font-size:inherit}
+footer.rz-footer .rz-f-copy{font-size:.78rem;color:var(--rzf-muted);margin-top:14px}
+body{margin:0}
 </style>
 
-<nav class="site-nav" id="nav"><a href="index.html" class="nav-brand"><img class="nav-mark" src="/assets/brand/a-mark-dark-tile.svg" alt="" width="30" height="30">Aneil <b>Razvi</b></a>
+<nav class="site-nav rz-light" id="nav"><a href="index.html" class="nav-brand"><img class="nav-mark" src="/assets/brand/a-mark-dark-tile.svg" alt="" width="30" height="30">Aneil <b>Razvi</b></a>
 <ul class="nav-links">
 <li><a href="index.html">Home</a></li>
 <li><a href="portfolio.html">Portfolio</a></li>
@@ -910,3 +954,4 @@ function show(){
     </div>
   </div>
 </div>
+<footer class="rz-footer rz-light"><div class="rz-f-name"><img src="/assets/brand/a-mark-dark-tile.svg" alt="" width="26" height="26">Aneil <span>Razvi</span></div><div class="rz-f-links"><a href="https://www.linkedin.com/in/aneilrazvi/" target="_blank" rel="noopener">LinkedIn</a>·<a href="https://cal.com/aneil-razvi" target="_blank" rel="noopener">Book a call</a>·<a href="mailto:hi@aneilrazvi.com">Email</a>·<a href="/privacy.html">Privacy</a></div><div class="rz-f-copy">© 2026 Aneil Razvi · Allen, TX</div></footer>

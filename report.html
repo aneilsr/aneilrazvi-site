@@ -147,6 +147,19 @@ table.rank td.n{font-weight:600;color:var(--dark)} table.rank td.f{text-align:ri
   h3{break-after:avoid;page-break-after:avoid}
   a[href]:after{content:""}
 }
+
+/* footer: same layout as the site footer */
+footer.rz-footer{--rzf-bg:#0a1420;--rzf-line:rgba(255,255,255,.08);--rzf-name:#fff;--rzf-accent:#00BCD4;--rzf-link:#cfe;--rzf-muted:rgba(255,255,255,.4)}
+footer.rz-footer.rz-light,footer.rz-footer.rz-auto{--rzf-bg:#fff;--rzf-line:#E2E8EC;--rzf-name:#1A1A2E;--rzf-accent:#0097A7;--rzf-link:#1E3A5F;--rzf-muted:#6B7280}
+@media (prefers-color-scheme: dark){footer.rz-footer.rz-auto{--rzf-bg:#0B2240;--rzf-line:rgba(255,255,255,.10);--rzf-name:#fff;--rzf-accent:#00BCD4;--rzf-link:#CFE5F7;--rzf-muted:rgba(238,244,249,.6)}}
+footer.rz-footer{display:block;margin:0;padding:40px 6%;text-align:center;line-height:normal;font-size:1rem;background:var(--rzf-bg);border-top:1px solid var(--rzf-line);color:var(--rzf-muted);flex-wrap:nowrap}
+footer.rz-footer .rz-f-name{font-family:'DM Serif Display',Georgia,serif;font-size:1.2rem;color:var(--rzf-name);margin-bottom:12px}
+footer.rz-footer .rz-f-name span{color:var(--rzf-accent)}
+footer.rz-footer .rz-f-name img{width:26px;height:26px;border-radius:6px;vertical-align:middle;margin:0 10px 0 0;position:relative;top:-3px;display:inline-block;max-width:none}
+footer.rz-footer .rz-f-links{font-size:.9rem;color:var(--rzf-muted)}
+footer.rz-footer .rz-f-links a{color:var(--rzf-link);text-decoration:none;margin:0 10px;font-weight:400;font-size:inherit}
+footer.rz-footer .rz-f-copy{font-size:.78rem;color:var(--rzf-muted);margin-top:14px}
+footer.rz-footer{margin-top:40px}
 </style><script defer src="assets/analytics.js"></script>
 </head><body>
 <div class="wrap" id="root"><div class="state"><h2>Loading your read</h2><p>One moment.</p></div></div>
@@ -514,7 +527,5 @@ function draw(d){
     .catch(function(){ fail("We could not find that read."); });
 })();
 </script>
-<footer style="padding:28px 6%;text-align:center;font-size:.8rem;color:var(--muted);border-top:1px solid var(--line);margin-top:40px">
-  &copy; 2026 Aneil Razvi &middot; <a href="privacy.html" style="color:var(--teal-dark);text-decoration:none">What I do with your answers</a>
-</footer>
+<footer class="rz-footer rz-light"><div class="rz-f-name"><img src="/assets/brand/a-mark-dark-tile.svg" alt="" width="26" height="26">Aneil <span>Razvi</span></div><div class="rz-f-links"><a href="https://www.linkedin.com/in/aneilrazvi/" target="_blank" rel="noopener">LinkedIn</a>·<a href="https://cal.com/aneil-razvi" target="_blank" rel="noopener">Book a call</a>·<a href="mailto:hi@aneilrazvi.com">Email</a>·<a href="/privacy.html">Privacy</a></div><div class="rz-f-copy">© 2026 Aneil Razvi · Allen, TX</div></footer>
 </body></html>
