@@ -4,6 +4,10 @@ generate sitemap.xml, robots.txt, llms.txt. Idempotent: re-running replaces
 the block between <!-- SEO-START --> and <!-- SEO-END -->.
 Run from the site root (where the .html files live)."""
 import html, json, re, os
+import sys
+if "--force" not in sys.argv:
+    sys.exit("Legacy (Aug 2026). Page heads are hand-maintained now, and sitemap.xml and llms.txt come from "
+             "_source/linkedin-import/site_files.py. Running this would overwrite both. Pass --force only if you mean it.")
 
 BASE = "https://aneilrazvi.com"
 OG = f"{BASE}/assets/og-image-v4.jpg"
@@ -17,7 +21,7 @@ PERSON = {
     "url": f"{BASE}/",
     "image": OG,
     "jobTitle": "VP of Product Design & AI Experience",
-    "description": ("Product design and AI experience leader with 15+ years building design teams, "
+    "description": ("Product design and AI experience leader building design teams, "
                     "AI-native products, and 0 to 1 experiences across enterprise and startups."),
     "address": {"@type": "PostalAddress", "addressLocality": "Allen", "addressRegion": "TX", "addressCountry": "US"},
     "sameAs": [LINKEDIN, "https://cubbyplaylist.com"],
@@ -44,7 +48,7 @@ PAGES = {
     "index.html": {
         "slug": "", "type": "website", "pagetype": "WebPage",
         "title": "Aneil Razvi, VP of Product Design & AI Experience",
-        "desc": ("Aneil Razvi is a product design and AI experience leader in Allen, Texas, with 15+ years "
+        "desc": ("Aneil Razvi is a product design and AI experience leader in Allen, Texas, "
                  "building design teams, AI-native products, and 0 to 1 experiences."),
         "crumbs": [],
     },
