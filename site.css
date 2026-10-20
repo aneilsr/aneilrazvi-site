@@ -184,7 +184,7 @@ footer.site-footer {
 .marquee-wrap { overflow: hidden; }
 .marquee-track {
   display: flex; gap: 60px; align-items: center;
-  white-space: nowrap; animation: marquee 40s linear infinite;
+  white-space: nowrap; animation: marquee 70s linear infinite;
   width: max-content;
 }
 .marquee-track:hover { animation-play-state: paused; }
