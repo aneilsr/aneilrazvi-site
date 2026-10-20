@@ -95,6 +95,9 @@
   .tl-body h4 a:hover{border-bottom-color:var(--teal)}
   .tl-body p{color:rgba(255,255,255,.6);font-size:.9rem;line-height:1.55;font-weight:300;margin:0}
   .tl-body .cospk{color:rgba(255,255,255,.4);font-size:.8rem;font-style:italic;margin-top:.35rem}
+  .tl-list .tl-item::after{content:none} /* the home page's timeline rail (site.css) was drawing a line through the dates here */
+  .tl-body p a{color:var(--teal);text-decoration:none;border-bottom:1px solid rgba(0,188,212,.35);font-weight:400}
+  .tl-body p a:hover{color:#fff;border-bottom-color:var(--teal)}
   @media(max-width:700px){.tl-item{grid-template-columns:1fr;gap:.35rem}}
   /* formats */
   .sp-formats{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem}
