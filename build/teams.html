@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#0F1923">
+<title>Bring AI, Built On Paper to your team | Aneil Razvi</title>
+<meta name="description" content="A hands-on session for design, product and engineering teams. Your team tests one idea on paper, then writes the plan AI and engineering build from. In person in Dallas-Fort Worth or online, up to 20 people."/>
+<meta name="author" content="Aneil Razvi"/>
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1"/>
+<link rel="canonical" href="https://aneilrazvi.com/build/teams"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="Aneil Razvi"/>
+<meta property="og:title" content="Bring AI, Built On Paper to your team"/>
+<meta property="og:description" content="Your designers hand AI and engineering a plan they can build. A half-day workshop, a virtual team track, or seats in the Build cohort."/>
+<meta property="og:url" content="https://aneilrazvi.com/build/teams"/>
+<meta property="og:image" content="https://aneilrazvi.com/assets/og-image-v4.jpg"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Bring AI, Built On Paper to your team"/>
+<meta name="twitter:description" content="Your designers hand AI and engineering a plan they can build. A half-day workshop, a virtual team track, or seats in the Build cohort."/>
+<meta name="twitter:image" content="https://aneilrazvi.com/assets/og-image-v4.jpg"/>
+<script defer src="/assets/analytics.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=DM+Serif+Display&display=swap">
+<link rel="stylesheet" href="/build-v2.css">
+<style>
+/* Teams page: built only from the course page tokens in build-v2.css */
+.subhero .acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:1.6rem}
+.tk-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:clamp(20px,3vw,28px)}
+.tk-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:clamp(18px,2vw,24px);display:flex;flex-direction:column;gap:8px;min-width:0}
+.tk-card .n{font:700 .7rem/1 'Inter',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.tk-card h3{font:400 clamp(1.3rem,1.1rem + .6vw,1.6rem)/1.15 'DM Serif Display',Georgia,serif;color:var(--heading);margin:0}
+.tk-card p{margin:0;color:var(--muted);font-size:.95rem}
+.tk-card .price{margin-top:auto;padding-top:12px;border-top:1px solid var(--line);font:400 1.5rem/1.1 'DM Serif Display',Georgia,serif;color:var(--heading)}
+.tk-card .price small{display:block;font:500 .82rem/1.4 'Inter',sans-serif;color:var(--muted);margin-top:4px}
+.tk-card .meta{font-size:.85rem;font-weight:600;color:var(--body)}
+.tk-note{color:var(--muted);font-size:.92rem;margin:14px 0 0;max-width:46rem}
+.tk-leave{margin-top:clamp(20px,3vw,28px);background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:clamp(18px,3vw,28px)}
+.tk-mails{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:clamp(20px,3vw,28px)}
+.tk-mail{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:clamp(16px,2vw,22px);display:flex;flex-direction:column;gap:10px;min-width:0}
+.tk-mail .top{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.tk-mail h3{font:400 1.3rem/1.15 'DM Serif Display',Georgia,serif;color:var(--heading);margin:0}
+.tk-mail .use{margin:0;color:var(--muted);font-size:.9rem}
+.tk-mail pre{margin:0;white-space:pre-wrap;overflow-wrap:anywhere;font:400 .9rem/1.55 'Inter',sans-serif;color:var(--body);background:var(--callout);border-radius:12px;padding:14px 16px}
+.tk-copy{font:700 .85rem/1 'Inter',sans-serif;padding:10px 14px;border-radius:10px;border:1.5px solid var(--line-strong);background:transparent;color:var(--accent);cursor:pointer;white-space:nowrap}
+.tk-copy:hover{border-color:var(--accent)}
+.tk-copy.done{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.tk-ref{margin-top:clamp(40px,5vw,56px);background:var(--callout);border-radius:20px;padding:clamp(20px,3vw,32px);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px 32px;align-items:center}
+.tk-ref h2{font:400 clamp(1.6rem,1.2rem + 1.2vw,2.1rem)/1.1 'DM Serif Display',Georgia,serif;color:var(--heading);margin:.4rem 0 .6rem}
+.tk-ref p{margin:0;color:var(--body);max-width:44rem}
+.tk-ref .small{color:var(--muted);font-size:.9rem;margin-top:.6rem}
+.guide .tk-cred{list-style:none;margin:.6rem 0 1rem;padding:0;display:grid;gap:6px}
+.guide .tk-cred li{color:var(--body);padding-left:18px;position:relative}
+.guide .tk-cred li::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:8px;border-radius:2px;background:var(--accent)}
+@media (max-width:960px){ .tk-grid{grid-template-columns:minmax(0,1fr)} .tk-mails{grid-template-columns:minmax(0,1fr)} }
+@media (max-width:760px){ .tk-ref{grid-template-columns:minmax(0,1fr)} .subhero .acts .btn{flex:1 1 100%} }
+</style>
+</head>
+<body>
+
+<nav class="site-nav rz-auto" id="nav">
+  <a href="/index.html" class="nav-brand"><picture><source srcset="/assets/brand/a-mark-light-tile.svg" media="(prefers-color-scheme: dark)"><img class="nav-mark" src="/assets/brand/a-mark-dark-tile.svg" alt="" width="30" height="30"></picture>Aneil <b>Razvi</b></a>
+  <ul class="nav-links">
+    <li><a href="/index.html">Home</a></li>
+    <li><a href="/portfolio.html">Portfolio</a></li>
+    <li><a href="/speaking.html">Speaking</a></li>
+    <li><a href="/work-with-me.html">Work With Me</a></li>
+    <li><a href="/build.html" class="active">Course</a></li>
+    <li><a href="/maturity.html">Design Maturity</a></li>
+    <li><a href="/readiness.html">AI Readiness</a></li>
+    <li><a href="/about.html">About</a></li>
+    <li><a href="/blog.html">Blog</a></li>
+  </ul>
+  <a href="/contact.html" class="nav-cta">Let's Talk</a>
+  <button class="nav-hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</nav>
+
+<header class="band subhero" id="top">
+  <div class="wrap">
+    <nav class="tabs" aria-label="Course pages">
+      <a href="/build.html">Overview</a>
+      <a href="/build/how-it-works">How it works</a>
+      <a href="/build/faq">FAQ</a>
+      <a href="/build/teams" aria-current="page">Teams</a>
+      <a class="go" href="https://cal.com/aneil-razvi/intro" target="_blank" rel="noopener">Book 15 minutes</a>
+    </nav>
+    <p class="eyebrow">AI, Built On Paper &middot; for teams</p>
+    <h1>Your designers hand AI and engineering a plan they can build.</h1>
+    <p class="lead">A hands-on session for design, product and engineering teams. Everyone works from one plan, tested on paper first, so AI tools and your engineers build what the team actually decided.</p>
+    <div class="acts">
+      <a class="btn light" href="https://cal.com/aneil-razvi/intro" target="_blank" rel="noopener">Book 15 minutes</a>
+      <a class="btn ghost" href="/assets/course/team-one-pager.pdf" target="_blank" rel="noopener">Download the one-pager</a>
+    </div>
+    <ul class="jump" aria-label="Jump to a section">
+      <li><a href="#problem">The problem</a></li>
+      <li><a href="#leave">What you leave with</a></li>
+      <li><a href="#formats">Formats and prices</a></li>
+      <li><a href="#manager">Get your manager on board</a></li>
+      <li><a href="#refer">Refer your team</a></li>
+      <li><a href="#questions">Questions</a></li>
+    </ul>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="section" id="problem" aria-labelledby="h-problem">
+    <p class="eyebrow">The problem</p>
+    <h2 class="big" id="h-problem">AI made building fast. It didn't make deciding easier.</h2>
+    <div class="tk-grid">
+      <div class="tk-card"><span class="n">1</span><h3>AI builds whatever it's told.</h3><p>Give it a vague idea and it fills the gaps with guesses. The team spends weeks fixing work nobody asked for.</p></div>
+      <div class="tk-card"><span class="n">2</span><h3>Plans get lost between departments.</h3><p>Design sketches one thing, product writes another, engineering builds a third. Every handoff loses a little of what you meant.</p></div>
+      <div class="tk-card"><span class="n">3</span><h3>The fix is one shared plan, tested on paper first.</h3><p>Your team sketches it, watches real people try it, then writes the plan AI and engineering build from. Cheap to change, clear to everyone.</p></div>
+    </div>
+  </section>
+
+  <section class="section" id="leave" aria-labelledby="h-leave">
+    <p class="eyebrow">What your team leaves with</p>
+    <h2 class="big" id="h-leave">Something real, not a slide deck.</h2>
+    <div class="tk-leave">
+      <ul class="outs">
+        <li><span class="ico" aria-hidden="true">1</span><div><b>A tested design</b><span>Every screen on paper, tried by people who'd never seen it, and fixed where it broke.</span></div></li>
+        <li><span class="ico" aria-hidden="true">2</span><div><b>The four plan documents</b><span>Vision, rules, backlog and parking lot, in plain English, ready for AI tools and your engineers.</span></div></li>
+        <li><span class="ico" aria-hidden="true">3</span><div><b>A first part built</b><span>One piece working, built from the plan, so the team has seen the whole loop end to end.</span></div></li>
+      </ul>
+    </div>
+    <p class="tk-note">The half-day workshop covers the tested design and gets the plan started. The virtual team track and Build cohort seats carry it through the four documents and a first part built.</p>
+  </section>
+
+  <section class="section" id="formats" aria-labelledby="h-formats">
+    <p class="eyebrow">Formats and prices</p>
+    <h2 class="big" id="h-formats">Pick the format that fits your team.</h2>
+    <div class="tk-grid">
+      <div class="tk-card"><span class="n">Private workshop</span><h3>Half a day, together</h3><p class="meta">In person in Dallas-Fort Worth or online &middot; up to 20 people</p><p>Sketch to Ship for your team: steps 1 to 5 on one real idea, plus a self-paced seat for everyone in the room.</p><div class="price">$9,500<small>One invoice for the whole group</small></div></div>
+      <div class="tk-card"><span class="n">Virtual team track</span><h3>Four live sessions</h3><p class="meta">Online &middot; your team only</p><p>Your team goes from paper to the four plan documents and a first part built, together, at a pace that fits the work week.</p><div class="price">Price on request<small>Sized to your team and goal</small></div></div>
+      <div class="tk-card"><span class="n">Build cohort seats</span><h3>Send one or two people</h3><p class="meta">Live online &middot; Saturday mornings</p><p>A seat in the public Build cohort. A good way to test the waters before a team session.</p><div class="price">$897 each<small>Or two payments of $459</small></div></div>
+    </div>
+  </section>
+
+  <section class="guide" aria-labelledby="h-guide">
+    <div class="photo"><img src="/assets/hero-aiga.jpg" alt="Aneil Razvi teaching a workshop" loading="lazy"></div>
+    <div>
+      <p class="eyebrow">Who leads it</p>
+      <h2 id="h-guide">Aneil Razvi</h2>
+      <p>Aneil leads every session himself.</p>
+      <ul class="tk-cred">
+        <li>Led product design at SPOTIO</li>
+        <li>Helped build Southern New Hampshire University's product design department</li>
+        <li>Worked at Capital One and Citi</li>
+        <li>Designed and shipped an app solo with AI-assisted tools, a personal project, so he teaches the loop he uses himself</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="manager" aria-labelledby="h-manager">
+    <p class="eyebrow">Get your manager on board</p>
+    <h2 class="big" id="h-manager">Two emails, ready to send.</h2>
+    <p class="intro">Copy one, fill in the brackets, and send it. For the team email, <a href="/assets/course/team-one-pager.pdf" target="_blank" rel="noopener">download the one-pager</a> and attach it.</p>
+    <div class="tk-mails">
+      <article class="tk-mail">
+        <div class="top"><h3>Ask for one seat</h3><button class="tk-copy" type="button" data-copy="mail-seat">Copy email</button></div>
+        <p class="use">Use your learning budget for yourself.</p>
+<pre id="mail-seat">Subject: Learning budget request: AI, Built On Paper
+
+Hi [Manager's name],
+
+I'd like to use my learning budget for AI, Built On Paper. It's a hands-on course on planning a product on paper, testing it with real people, and turning it into a plan an AI tool can build from.
+
+Why it matters for our team: [one line, for example: we're building with AI tools now, and I want us shipping what we decided, not what the AI guessed].
+
+The options: the self-paced course is $397, or the live path is Sketch to Ship ($99) plus the Build cohort ($897). Details are at aneilrazvi.com/build.
+
+Can we approve one seat?
+
+Thanks,
+[Your name]</pre>
+      </article>
+      <article class="tk-mail">
+        <div class="top"><h3>Pitch a team session</h3><button class="tk-copy" type="button" data-copy="mail-team">Copy email</button></div>
+        <p class="use">Bring the workshop to your whole team.</p>
+<pre id="mail-team">Subject: A team session idea: AI, Built On Paper
+
+Hi [Name],
+
+Our design, product and engineering folks keep losing the plan between handoffs, and AI tools only make that faster. I found a hands-on session that fixes it: AI, Built On Paper, led by Aneil Razvi.
+
+The team sketches one idea on paper, tests it with real people, and leaves with a shared plan that AI and engineering can build from. It runs as a half-day workshop, in person in Dallas-Fort Worth or online, for up to 20 people. The one-pager is attached.
+
+Would you be open to a 15-minute call with Aneil to see if it fits? He books at cal.com/aneil-razvi/intro.
+
+Thanks,
+[Your name]</pre>
+      </article>
+    </div>
+  </section>
+
+  <section class="tk-ref" id="refer" aria-labelledby="h-refer">
+    <div>
+      <p class="eyebrow">Refer your team</p>
+      <h2 id="h-refer">Open the door, and it pays you back.</h2>
+      <p>If you get AI, Built On Paper into your organization, you earn 10% of the first engagement, paid after your company pays. If your employer doesn't allow that, choose a free Build cohort seat or a donation in your name.</p>
+      <p class="small">Check your company's policy first. Tell me you're the referral when you book, so it's on record from day one.</p>
+    </div>
+    <a class="btn solid" href="https://cal.com/aneil-razvi/intro" target="_blank" rel="noopener">Book 15 minutes</a>
+  </section>
+
+  <section class="faqg" id="questions" aria-labelledby="h-q" style="margin-top:clamp(40px,5vw,56px)">
+    <div><p class="eyebrow">For procurement</p><h2 id="h-q">Questions</h2></div>
+    <div class="qs">
+      <details><summary>Can you invoice our company?</summary><p>Yes. I invoice your company directly and can send a W-9 for your vendor setup.</p></details>
+      <details><summary>Will you sign an NDA?</summary><p>Yes. Send yours over, or I can send a simple mutual one.</p></details>
+      <details><summary>In person or online?</summary><p>Either. In person anywhere in Dallas-Fort Worth, at your office or a room I book. Online for teams anywhere.</p></details>
+      <details><summary>How big can the group be?</summary><p>Up to 20 for the workshop. For bigger groups, we run it twice or split by team.</p></details>
+      <details><summary>Can we use a real project?</summary><p>Yes. Bring one real idea for the whole team, or each person brings their own.</p></details>
+      <details><summary>How does scheduling work?</summary><p>Book 15 minutes. We talk through your team and goal, pick a date, and I send a short agreement and the invoice.</p></details>
+      <details><summary>Do people need to know how to code?</summary><p>No. Designers, product managers and engineers all work on paper first. The plan is in plain English.</p></details>
+    </div>
+  </section>
+</main>
+
+<section class="band final" id="final" aria-labelledby="h-final">
+  <div class="wrap">
+    <h2 id="h-final">Bring it to your team.</h2>
+    <p>Grab 15 minutes. Bring your team's goal, and I'll tell you which format fits.</p>
+    <div class="acts"><a class="btn light" href="https://cal.com/aneil-razvi/intro" target="_blank" rel="noopener">Book 15 minutes</a><a class="btn ghost" href="/assets/course/team-one-pager.pdf" target="_blank" rel="noopener">Download the one-pager</a></div>
+  </div>
+</section>
+
+<footer class="rz-footer rz-auto"><div class="rz-f-name"><picture><source srcset="/assets/brand/a-mark-light-tile.svg" media="(prefers-color-scheme: dark)"><img src="/assets/brand/a-mark-dark-tile.svg" alt="" width="26" height="26"></picture>Aneil <span>Razvi</span></div><div class="rz-f-links"><a href="https://www.linkedin.com/in/aneilrazvi/" target="_blank" rel="noopener">LinkedIn</a>·<a href="https://cal.com/aneil-razvi" target="_blank" rel="noopener">Book a call</a>·<a href="mailto:hi@aneilrazvi.com">Email</a>·<a href="/privacy.html">Privacy</a></div><div class="rz-f-copy">© 2026 Aneil Razvi · Allen, TX</div></footer>
+
+<div class="sticky" id="stickybar" aria-hidden="true">
+  <div class="t"><b>Team sessions</b>Up to 20 &middot; in person or online</div>
+  <a class="btn" href="https://cal.com/aneil-razvi/intro" target="_blank" rel="noopener" tabindex="-1">Book 15 minutes</a>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var nav=document.getElementById("nav"), ham=document.querySelector(".nav-hamburger");
+  addEventListener("scroll",function(){ nav.classList.toggle("scrolled", scrollY>10); },{passive:true});
+  ham.addEventListener("click",function(){ var o=nav.classList.toggle("open"); ham.setAttribute("aria-expanded",o?"true":"false"); });
+  /* copy-ready emails */
+  function fallbackCopy(text){ var t=document.createElement("textarea"); t.value=text; t.setAttribute("readonly",""); t.style.position="fixed"; t.style.opacity="0"; document.body.appendChild(t); t.select(); var ok=false; try{ ok=document.execCommand("copy"); }catch(e){} document.body.removeChild(t); return ok; }
+  Array.prototype.forEach.call(document.querySelectorAll(".tk-copy"),function(b){
+    b.addEventListener("click",function(){
+      var src=document.getElementById(b.getAttribute("data-copy")); if(!src) return;
+      var text=src.textContent, label=b.textContent;
+      function done(){ b.classList.add("done"); b.textContent="Copied"; setTimeout(function(){ b.classList.remove("done"); b.textContent=label; },2000); }
+      if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(text).then(done,function(){ if(fallbackCopy(text)) done(); }); }
+      else if(fallbackCopy(text)) done();
+    });
+  });
+  /* phone sticky bar: after the header, hidden once the closing band is on screen */
+  var bar=document.getElementById("stickybar"), top=document.getElementById("top"), fin=document.getElementById("final");
+  if("IntersectionObserver" in window && bar && top && fin){
+    var topGone=false, finIn=false;
+    function sync(){ var on=topGone && !finIn; bar.classList.toggle("show",on); bar.setAttribute("aria-hidden",on?"false":"true"); bar.querySelector("a").tabIndex=on?0:-1; }
+    new IntersectionObserver(function(es){ topGone=!es[0].isIntersecting; sync(); }).observe(top);
+    new IntersectionObserver(function(es){ finIn=es[0].isIntersecting; sync(); }).observe(fin);
+  }
+})();
+</script>
+</body></html>

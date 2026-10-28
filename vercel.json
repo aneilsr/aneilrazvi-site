@@ -40,6 +40,10 @@
     {
       "source": "/build/faq",
       "destination": "/build/faq.html"
+    },
+    {
+      "source": "/build/teams",
+      "destination": "/build/teams.html"
     }
   ]
 }

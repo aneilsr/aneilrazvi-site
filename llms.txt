@@ -40,6 +40,7 @@ AI product design, AI experience strategy, human-in-the-loop AI, product design 
 ## Course: AI, Built On Paper
 
 A course for designers and creatives, including students and career switchers, who want to turn a sketch into a live, AI-built product and a portfolio case study that shows they directed the AI. No coding. Define the problem, design it on paper, test it with people, then let AI build it from the plan. Formats: Sketch to Ship, an in-person day in Dallas-Fort Worth; a live online Build cohort; and Self-paced. Student pricing is available, and private sessions are offered for design and product teams.
+Team sessions: a half-day private workshop for up to 20 people ($9,500), a virtual team track, or Build cohort seats, with copy-ready manager emails and a one-page PDF. https://aneilrazvi.com/build/teams
 - Course page: https://aneilrazvi.com/build.html
 - How it works (ten steps in four stages: define, paper, test, build): https://aneilrazvi.com/build/how-it-works.html
 - FAQ: https://aneilrazvi.com/build/faq.html
