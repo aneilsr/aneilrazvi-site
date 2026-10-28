@@ -11,11 +11,11 @@
   /* Update "taken" as seats sell. Set "date" (for example "2026-11-14") when a date is booked:
      the cards and this panel switch from "date coming soon" to the date and a countdown of days to go. */
   var SEATS = {
-    "paper-day":    { total: 12, taken: 0, date: null },
+    "paper-day":    { total: 12, taken: 0, date: "2026-12-05" },
     "build-cohort": { total: 8,  taken: 0, date: null }
   };
   var PRICES = { "paper-day": 99, "paper-day-home": 0, "build-cohort": 897, "self-paced": 397 };
-  var NAMES = { "paper-day": "Paper Day", "paper-day-home": "Paper Day at home", "build-cohort": "Build cohort", "self-paced": "Self-paced" };
+  var NAMES = { "paper-day": "Sketch to Ship", "paper-day-home": "Sketch to Ship at home", "build-cohort": "Build cohort", "self-paced": "Self-paced" };
   var CAP = { "paper-day": 6, "build-cohort": 4 };   /* most seats one person can hold at once */
   var ORDER = ["paper-day","build-cohort","self-paced"];
   var HASH = { "#reserve":"paper-day", "#seat":"paper-day", "#reserve-home":"paper-day-home", "#reserve-build":"build-cohort", "#reserve-self":"self-paced" };
@@ -60,13 +60,13 @@
         '<h2 class="rsv-title" id="rsv-title">Reserve your seat</h2>'+
         '<p class="rsv-dlab" id="rsv-pick-lab">Pick one or more</p>'+
         '<div class="rsv-picks" role="group" aria-labelledby="rsv-pick-lab">'+
-          pick("paper-day","Paper Day","$99","founding","Steps 1 to 5 &middot; one four-hour session",
+          pick("paper-day","Sketch to Ship","$99","founding","Steps 1 to 5 &middot; one four-hour session",
             '<div class="rsv-count" data-count="paper-day" aria-live="polite"></div>'+
             '<p class="rsv-pline"><span id="rsv-paper-where">In person, DFW area</span> &middot; <button type="button" class="rsv-linkbtn" id="rsv-mode-switch">Do it at home instead</button></p>')+
           pick("build-cohort","Build cohort","$897","or 2 &times; $459","Steps 6 to 9 &middot; live online",
             '<div class="rsv-count" data-count="build-cohort" aria-live="polite"></div>'+
             '<p class="rsv-pline" id="rsv-build-when">Live online, Saturday mornings</p>'+
-            '<p class="rsv-pline" id="rsv-needs">Builds from your Paper Day paper. <button type="button" class="rsv-linkbtn" id="rsv-addpaper">Add Paper Day</button></p>')+
+            '<p class="rsv-pline" id="rsv-needs">Builds from your Sketch to Ship paper. <button type="button" class="rsv-linkbtn" id="rsv-addpaper">Add Sketch to Ship</button></p>')+
           pick("self-paced","Self-paced","$397","opens soon","All ten steps &middot; at your pace",
             '<p class="rsv-pline">No seat limit. One email when it opens.</p>')+
         '</div>'+
@@ -119,7 +119,7 @@
     $("rsv-paper-price").innerHTML = home ? "Price<small>at launch</small>" : "$99<small>founding</small>";
     $("rsv-paper-where").textContent = home ? "At home, with a print kit. Opens soon" : "In person, DFW area. "+whenText("paper-day","Date coming soon");
     $("rsv-mode-switch").textContent = home ? "Do it in person instead" : "Do it at home instead";
-    $("rsv-build-when").textContent = "Live online, Saturday mornings. "+whenText("build-cohort","Starts after the first Paper Day");
+    $("rsv-build-when").textContent = "Live online, Saturday mornings. "+whenText("build-cohort","Starts after the first Sketch to Ship");
     $("rsv-needs").style.display = (state.picks["build-cohort"] && !state.picks["paper-day"]) ? "" : "none";
 
     var anySeat=counted().length>0, mx=maxSeats();
@@ -142,7 +142,7 @@
       rows.push(price ? [NAMES[k]+(ppl>1 ? " × "+ppl : ""), money(price*ppl)] : [NAMES[k], "Price at launch"]);
     });
     if(state.picks["paper-day"] && !home && (state.picks["build-cohort"] || state.picks["self-paced"])){
-      rows.push(["Paper Day counts toward "+(state.picks["build-cohort"] ? "the Build cohort" : "Self-paced"), "&minus;"+money(PRICES["paper-day"]*ppl), "credit"]);
+      rows.push(["Sketch to Ship counts toward "+(state.picks["build-cohort"] ? "the Build cohort" : "Self-paced"), "&minus;"+money(PRICES["paper-day"]*ppl), "credit"]);
     }
     $("rsv-lines").innerHTML = rows.map(function(r){ return '<div class="rsv-ln'+(r[2]?" "+r[2]:"")+'"><span>'+r[0]+'</span><span>'+r[1]+'</span></div>'; }).join("") +
       '<div class="rsv-ln total"><span>Due today</span><span>$0</span></div>';

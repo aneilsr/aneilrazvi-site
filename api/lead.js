@@ -636,7 +636,7 @@ export default async function handler(req, res) {
     const bCohort = wantsCohort ? `
   <tr><td style="padding:14px 34px 4px">
     <div style="${bH2}">Your founding seat</div>
-    <p style="${bP}">The founding cohort is now the Build cohort: steps 6 to 9, live on video on Saturday mornings, right after the first Paper Day. Same founding price, $897 or two payments of $459, with a full refund until session 2. It starts with Paper Day, where your idea goes on paper and gets tested, and what you pay for Paper Day counts toward the cohort. You will get the dates first. Any question before then, just reply to this email.</p>
+    <p style="${bP}">The founding cohort is now the Build cohort: steps 6 to 9, live on video on Saturday mornings, right after the first Sketch to Ship. Same founding price, $897 or two payments of $459, with a full refund until session 2. It starts with Sketch to Ship, where your idea goes on paper and gets tested, and what you pay for Sketch to Ship counts toward the cohort. You will get the dates first. Any question before then, just reply to this email.</p>
   </td></tr>` : "";
     const bSelf = wantsSelf ? `
   <tr><td style="padding:14px 34px 4px">
@@ -650,18 +650,18 @@ export default async function handler(req, res) {
   </td></tr>` : "";
     const bPaper = wantsPaper ? `
   <tr><td style="padding:14px 34px 4px">
-    <div style="${bH2}">Paper Day, in person</div>
+    <div style="${bH2}">Sketch to Ship, in person</div>
     <p style="${bP}">One hands-on Saturday morning in the Dallas-Fort Worth area. The date and the room are being set now, and you will hear before anyone else, with the address. The first two rooms are $99, and that counts in full toward the Build cohort or the self-paced course if you keep going. Any question before then, just reply to this email.</p>
   </td></tr>` : "";
     const bHome = wantsHome ? `
   <tr><td style="padding:14px 34px 4px">
-    <div style="${bH2}">Paper Day at home</div>
+    <div style="${bH2}">Sketch to Ship at home</div>
     <p style="${bP}">The same five steps with a print kit and short videos. You will get one email from me when it opens, and nothing else in between.</p>
   </td></tr>` : "";
     const bBuild = wantsBuild ? `
   <tr><td style="padding:14px 34px 4px">
     <div style="${bH2}">The Build cohort</div>
-    <p style="${bP}">Steps 6 to 9, live on video on Saturday mornings, right after the first Paper Day. $897 founding price, or two payments of $459, with a full refund until session 2. You will get the dates first.</p>
+    <p style="${bP}">Steps 6 to 9, live on video on Saturday mornings, right after the first Sketch to Ship. $897 founding price, or two payments of $459, with a full refund until session 2. You will get the dates first.</p>
   </td></tr>` : "";
     const bTitle = (bScope && !wantsCohort && !wantsSelf && !wantsRoom && !wantsPaper && !wantsHome && !wantsBuild) ? "Your paper scope" : "You are on the list";
 
@@ -691,13 +691,13 @@ export default async function handler(req, res) {
     const aSize = { small: "Small", medium: "Medium", big: "Big" };
     const aExp = { never: "Never", chat: "Has used ChatGPT or Claude", built: "Has built something" };
     const aNote = wantsPaper
-      ? `<b style="color:#1A1A2E">Wants a Paper Day seat.</b> Add them to the first-pick list. Send the date and address as soon as the room is set.`
+      ? `<b style="color:#1A1A2E">Wants a Sketch to Ship seat.</b> Add them to the first-pick list. Send the date and address as soon as the room is set.`
       : wantsBuild
-      ? `<b style="color:#1A1A2E">Wants the Build cohort.</b> They get the dates first. If they have not done Paper Day, point them to it.`
+      ? `<b style="color:#1A1A2E">Wants the Build cohort.</b> They get the dates first. If they have not done Sketch to Ship, point them to it.`
       : wantsHome
-      ? `<b style="color:#1A1A2E">Waiting for Paper Day at home.</b> One email when the print kit opens. Nothing to do now.`
+      ? `<b style="color:#1A1A2E">Waiting for Sketch to Ship at home.</b> One email when the print kit opens. Nothing to do now.`
       : wantsCohort
-      ? `<b style="color:#1A1A2E">Wants a founding seat (old page).</b> The founding cohort is now the Build cohort. Point them to Paper Day first, and send the Build cohort dates when they are set.`
+      ? `<b style="color:#1A1A2E">Wants a founding seat (old page).</b> The founding cohort is now the Build cohort. Point them to Sketch to Ship first, and send the Build cohort dates when they are set.`
       : wantsSelf
       ? `<b style="color:#1A1A2E">Waiting for the self-paced course.</b> They get one email when it opens. Nothing to do now.`
       : wantsRoom
@@ -716,7 +716,7 @@ export default async function handler(req, res) {
 
   <tr><td style="padding:20px 30px 0">
     <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;font:400 14px/1.5 Helvetica,Arial,sans-serif">
-      <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280;width:38%">Interested in</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#1A1A2E;font-weight:700">${bInt.length ? escH(bInt.map(k => ({ "scope": "Scoped an idea", "founding-cohort": "Founding cohort", "paper-day": "Paper Day (in person)", "paper-day-home": "Paper Day at home", "build-cohort": "Build cohort", "self-paced": "Self-paced", "in-person": "In-person workshop" })[k] || k).join(", ")) : "not stated"}</td></tr>
+      <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280;width:38%">Interested in</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#1A1A2E;font-weight:700">${bInt.length ? escH(bInt.map(k => ({ "scope": "Scoped an idea", "founding-cohort": "Founding cohort", "paper-day": "Sketch to Ship (in person)", "paper-day-home": "Sketch to Ship at home", "build-cohort": "Build cohort", "self-paced": "Self-paced", "in-person": "In-person workshop" })[k] || k).join(", ")) : "not stated"}</td></tr>
       ${bScope ? `<tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280;width:38%">Their idea</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#1A1A2E">${escH(bScope.idea || "")}</td></tr>
       <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280;width:38%">Done when someone can</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#1A1A2E">${escH(bScope.done || "not written")}</td></tr>
       <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280;width:38%">Who it's for</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#1A1A2E">${escH(aWho[bScope.who] || bScope.who || "not picked")}</td></tr>
