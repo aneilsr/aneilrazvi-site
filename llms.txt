@@ -44,6 +44,7 @@ Team sessions: a half-day private workshop for up to 20 people ($9,500), a virtu
 - Course page: https://aneilrazvi.com/build.html
 - How it works (ten steps in four stages: define, paper, test, build): https://aneilrazvi.com/build/how-it-works.html
 - FAQ: https://aneilrazvi.com/build/faq.html
+- If I Had AI Then, a 1:1 portfolio add-on: rework one existing project into an honest Then & Now case study that shows how you'd run it today, clearly labeled as a retrospective. One project $395 (two 1-hour sessions plus written notes), each extra project $195, a 1-hour advice session $175, $295 for course buyers. Students get a monthly group clinic in Student Plus instead of 1:1. https://aneilrazvi.com/build/portfolio
 
 ## Writing: Building in the Open
 
@@ -71,6 +72,7 @@ Signature talks:
 - Building Solo With AI: what changes when one person can take a product from concept to the App Store with AI-assisted tools, and where craft, taste and judgment still decide the outcome.
 - Calmer Products, Systems Thinking and Cognitive Load: reducing friction as the highest-leverage design skill, and taming dense, data-heavy products.
 - Right-Sizing Design, Do You Even Need a Team Yet?: how to read design maturity and pick the right level of investment.
+- If I Had AI Then, The Portfolio After AI: anyone can make a screen look good now, so a portfolio has to show judgment instead. Given as a talk, or as a hands-on workshop where people rework one real project. For design schools, AIGA chapters, creative communities and creative recruiters.
 
 Recent appearances: Go Fractional Demo Day (22 Oct 2026, online); AIGA Dallas Mini-Con industry panel at UT Dallas (10 Oct 2026); Ramblings of a Designer podcast, episode 177 (9 Oct 2026, written up at https://aneilrazvi.com/blog/build-something-while-you-dont-need-it.html); Texas Startup & Tech Week working session "Where Design Starts Paying" (29 Sep 2026).
 
