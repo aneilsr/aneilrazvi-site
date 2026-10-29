@@ -30,7 +30,7 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="site.css">
 <style>
-  .fx-hero{max-width:1080px;margin:0 auto;padding:9rem 6% 2.5rem}
+  .fx-hero{max-width:1080px;margin:0 auto;padding:4.5rem 6% 2.5rem}
   .fx-eyebrow{color:var(--teal);font-size:.75rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;display:block;margin-bottom:.7rem}
   .fx-hero h1{font-family:'DM Serif Display',serif;font-size:clamp(2.4rem,5.4vw,4rem);color:#fff;font-weight:400;line-height:1.06;margin:0 0 1.2rem}
   .fx-hero h1 em{font-style:italic;color:var(--teal)}
@@ -96,12 +96,17 @@
 <li><a href="speaking.html">Speaking</a></li>
 <li><a href="work-with-me.html" class="active">Work With Me</a></li>
 <li><a href="build.html">Course</a></li>
-<li><a href="maturity.html">Design Maturity</a></li>
-<li><a href="readiness.html">AI Readiness</a></li>
 <li><a href="about.html">About</a></li>
 <li><a href="blog.html">Blog</a></li>
 </ul>
 <a href="contact.html" class="nav-cta">Let's Talk</a><button class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button></nav>
+<nav class="subnav" aria-label="Work With Me pages"><div class="subnav-in">
+  <a href="work-with-me.html" aria-current="page">Engagements</a>
+  <a href="workshops.html">Workshops</a>
+  <a href="maturity.html">Design Maturity</a>
+  <a href="readiness.html">AI Readiness</a>
+</div></nav>
+<script>/* keep the current page pill in view on narrow screens */(function(){var a=document.querySelector('nav.subnav a[aria-current="page"]');if(!a)return;var c=a.parentNode,d=a.getBoundingClientRect().right-c.getBoundingClientRect().right;if(d>0)c.scrollLeft+=d+24;})();</script>
 
 <!-- HERO -->
 <section class="fx-hero">

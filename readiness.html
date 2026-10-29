@@ -298,6 +298,19 @@ footer.rz-footer .rz-f-name img{width:26px;height:26px;border-radius:6px;vertica
 footer.rz-footer .rz-f-links{font-size:.9rem;color:var(--rzf-muted)}
 footer.rz-footer .rz-f-links a{color:var(--rzf-link);text-decoration:none;margin:0 10px;font-weight:400;font-size:inherit}
 footer.rz-footer .rz-f-copy{font-size:.78rem;color:var(--rzf-muted);margin-top:14px}
+/* ===== Secondary nav, Work With Me group (28 Oct 2026): Engagements, Workshops, Design Maturity, AI Readiness.
+   Same pill language as the course tabs on /build. Colors follow the page chrome: default dark, rz-light, rz-auto. ===== */
+nav.subnav{--rzs-bg:#0c1620;--rzs-line:rgba(255,255,255,.08);--rzs-link:#F4F8FB;--rzs-border:rgba(244,248,251,.38);--rzs-hover:rgba(255,255,255,.08);--rzs-on-bg:#F4F8FB;--rzs-on-text:#0F1923;--rzs-focus:#00BCD4}
+nav.subnav.rz-light,nav.subnav.rz-auto{--rzs-bg:#FFFFFF;--rzs-line:#E2E8EC;--rzs-link:#1E3A5F;--rzs-border:#CBD5DC;--rzs-hover:#F0F4F7;--rzs-on-bg:#1E3A5F;--rzs-on-text:#FFFFFF;--rzs-focus:#0097A7}
+@media (prefers-color-scheme: dark){nav.subnav.rz-auto{--rzs-bg:#0B2240;--rzs-line:rgba(255,255,255,.10);--rzs-link:#EEF4F9;--rzs-border:rgba(238,244,249,.35);--rzs-hover:rgba(255,255,255,.08);--rzs-on-bg:#EEF4F9;--rzs-on-text:#0B2240;--rzs-focus:#00BCD4}}
+nav.subnav{display:block;margin-top:68px;background:var(--rzs-bg);border-bottom:1px solid var(--rzs-line);position:relative;z-index:5}
+nav.subnav .subnav-in{max-width:1140px;margin:0 auto;padding:12px 5%;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+nav.subnav .subnav-in::-webkit-scrollbar{display:none}
+nav.subnav a{flex:0 0 auto;color:var(--rzs-link);text-decoration:none;font:600 .85rem/1 'Inter',-apple-system,BlinkMacSystemFont,sans-serif;padding:9px 14px;border-radius:999px;border:1px solid var(--rzs-border);white-space:nowrap;transition:background .2s ease,color .2s ease}
+nav.subnav a:hover{background:var(--rzs-hover)}
+nav.subnav a[aria-current="page"]{background:var(--rzs-on-bg);color:var(--rzs-on-text);border-color:var(--rzs-on-bg)}
+nav.subnav a:focus-visible{outline:2px solid var(--rzs-focus);outline-offset:2px}
+nav.subnav ~ .wrap{padding-top:1.6rem}
 </style></head><body>
 <nav class="site-nav rz-light" id="nav">
   <a href="index.html" class="nav-brand"><img class="nav-mark" src="/assets/brand/a-mark-dark-tile.svg" alt="" width="30" height="30">Aneil <b>Razvi</b></a>
@@ -305,16 +318,21 @@ footer.rz-footer .rz-f-copy{font-size:.78rem;color:var(--rzf-muted);margin-top:1
     <li><a href="index.html">Home</a></li>
     <li><a href="portfolio.html">Portfolio</a></li>
     <li><a href="speaking.html">Speaking</a></li>
-    <li><a href="work-with-me.html">Work With Me</a></li>
+    <li><a href="work-with-me.html" class="active">Work With Me</a></li>
     <li><a href="build.html">Course</a></li>
-    <li><a href="maturity.html">Design Maturity</a></li>
-    <li><a href="readiness.html" class="active">AI Readiness</a></li>
     <li><a href="about.html">About</a></li>
     <li><a href="blog.html">Blog</a></li>
   </ul>
   <a href="contact.html" class="nav-cta">Let's Talk</a>
   <button class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
+<nav class="subnav rz-light" aria-label="Work With Me pages"><div class="subnav-in">
+  <a href="work-with-me.html">Engagements</a>
+  <a href="workshops.html">Workshops</a>
+  <a href="maturity.html">Design Maturity</a>
+  <a href="readiness.html" aria-current="page">AI Readiness</a>
+</div></nav>
+<script>/* keep the current page pill in view on narrow screens */(function(){var a=document.querySelector('nav.subnav a[aria-current="page"]');if(!a)return;var c=a.parentNode,d=a.getBoundingClientRect().right-c.getBoundingClientRect().right;if(d>0)c.scrollLeft+=d+24;})();</script>
 
 
 <div class="jump" id="jump" aria-hidden="true">

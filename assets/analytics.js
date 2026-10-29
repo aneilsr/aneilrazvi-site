@@ -129,6 +129,9 @@
         from: location.pathname
       });
     });
+    on('.subnav a', 'click', function (t) {
+      cap('subnav_click', { label: (t.textContent || '').trim(), href: t.getAttribute('href'), from: location.pathname });
+    });
     on('.nav-hamburger', 'click', function () {
       cap('nav_menu_toggle', { page: location.pathname });
     });
