@@ -34,6 +34,10 @@
       "destination": "/api/go?s=squares"
     },
     {
+      "source": "/seat",
+      "destination": "/api/go?s=seat"
+    },
+    {
       "source": "/build/how-it-works",
       "destination": "/build/how-it-works.html"
     },

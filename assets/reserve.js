@@ -20,6 +20,8 @@
   var ORDER = ["paper-day","build-cohort","self-paced"];
   var HASH = { "#reserve":"paper-day", "#seat":"paper-day", "#reserve-home":"paper-day-home", "#reserve-build":"build-cohort", "#reserve-self":"self-paced" };
   var COURSE_PATHS = { "/build.html":1, "/build":1, "/build/":1 };
+  /* The exact words a visitor agrees to. They are saved with the number, so keep this and privacy.html#texts in step. */
+  var SMS_TEXT = "Text me the address and a reminder before my session. Up to 3 texts, from Aneil. Msg and data rates may apply. Reply STOP to opt out.";
 
   function left(k){ var s=SEATS[k]; return s ? Math.max(0, s.total - s.taken) : 0; }
   function money(n){ return "$"+n.toLocaleString("en-US"); }
@@ -80,7 +82,13 @@
           '<p>I\'ve sent what happens next. When the date and room are set, you\'ll get first pick and a secure checkout link.</p>'+
           '<button class="rsv-btn" type="button" data-rsv-close>Back to the page</button></div>'+
       '</div>'+
-      '<div class="rsv-df"><div class="rsv-row"><label class="rsv-sr" for="rsv-email">Email</label>'+
+      '<div class="rsv-df">'+
+        '<div class="rsv-row rsv-who"><label class="rsv-sr" for="rsv-name">First name</label>'+
+          '<input class="rsv-input" type="text" id="rsv-name" placeholder="First name" autocomplete="given-name" maxlength="60">'+
+          '<label class="rsv-sr" for="rsv-phone">Mobile number, optional</label>'+
+          '<input class="rsv-input" type="tel" id="rsv-phone" placeholder="Mobile (optional)" autocomplete="tel-national" inputmode="tel" maxlength="20"></div>'+
+        '<label class="rsv-consent" id="rsv-consent"><input type="checkbox" id="rsv-sms"><span>'+SMS_TEXT+' <a href="/privacy.html#texts" target="_blank" rel="noopener">Privacy</a></span></label>'+
+        '<div class="rsv-row"><label class="rsv-sr" for="rsv-email">Email</label>'+
         '<input class="rsv-input" type="email" id="rsv-email" placeholder="you@email.com" autocomplete="email">'+
         '<button class="rsv-btn" id="rsv-submit" type="button">Hold my seat</button></div>'+
         '<p class="rsv-msg" id="rsv-msg" role="status" aria-live="polite"></p></div>'+
@@ -147,6 +155,9 @@
     $("rsv-lines").innerHTML = rows.map(function(r){ return '<div class="rsv-ln'+(r[2]?" "+r[2]:"")+'"><span>'+r[0]+'</span><span>'+r[1]+'</span></div>'; }).join("") +
       '<div class="rsv-ln total"><span>Due today</span><span>$0</span></div>';
     $("rsv-submit").textContent = anySeat ? (ppl>1 ? "Hold my seats" : "Hold my seat") : "Tell me when it opens";
+    /* Texts are only for a reserved session, so the number and the box hide for the opens-soon lists. */
+    $("rsv-phone").style.display = anySeat ? "" : "none";
+    $("rsv-consent").style.display = anySeat ? "" : "none";
   }
 
   function flash(t,cls){ var m=$("rsv-msg"); m.textContent=t; m.className="rsv-msg "+(cls||"ok"); }
@@ -190,14 +201,25 @@
   function submit(){
     var btn=$("rsv-submit"), v=($("rsv-email").value||"").trim();
     if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)){ flash("That email does not look right.","err"); $("rsv-email").focus(); return; }
+    var nm=($("rsv-name").value||"").trim().slice(0,60), ph=($("rsv-phone").value||"").trim(), ok=$("rsv-sms").checked, tel=null;
+    var askTel = $("rsv-phone").style.display!=="none";
+    /* A number only counts with a ticked box, and a ticked box needs a number. US mobiles only, saved as +1XXXXXXXXXX. */
+    if(askTel && ph){
+      var dg=ph.replace(/\D/g,""); if(dg.length===11 && dg.charAt(0)==="1") dg=dg.slice(1);
+      if(dg.length!==10){ flash("That mobile number does not look right. Ten digits, US numbers only.","err"); $("rsv-phone").focus(); return; }
+      if(!ok){ flash("Tick the box so I can text you, or leave the number blank.","err"); $("rsv-sms").focus(); return; }
+      tel="+1"+dg;
+    } else if(askTel && ok){ flash("Add your mobile number, or untick the text box.","err"); $("rsv-phone").focus(); return; }
     var interest=picked().map(keyOf);
     var payload={ source:"build", landing_path:location.pathname, referrer:document.referrer||null, session_id:sid(),
       utm_source:qs.get("utm_source"), utm_medium:qs.get("utm_medium"), utm_campaign:qs.get("utm_campaign"), utm_content:qs.get("utm_content"),
       email:v, gated:true, recommended_package:interest.join(","), answers:{ page:"course-v2", interest:interest, seats:state.seats } };
+    if(nm) payload.name=nm;
+    if(tel){ payload.phone=tel; payload.sms_consent=true; payload.sms_consent_text=SMS_TEXT; }
     var label=btn.textContent; btn.disabled=true; btn.textContent="Sending...";
     fetch("/api/lead",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)})
       .then(function(r){ btn.disabled=false; btn.textContent=label;
-        if(r.ok){ $("rsv-email").value=""; dr.classList.add("sent"); var d=dr.querySelector(".rsv-done .rsv-btn"); if(d) d.focus(); } else { flash(FAIL,"err"); } })
+        if(r.ok){ $("rsv-email").value=""; $("rsv-name").value=""; $("rsv-phone").value=""; $("rsv-sms").checked=false; dr.classList.add("sent"); var d=dr.querySelector(".rsv-done .rsv-btn"); if(d) d.focus(); } else { flash(FAIL,"err"); } })
       .catch(function(){ btn.disabled=false; btn.textContent=label; flash(FAIL,"err"); });
   }
 
@@ -217,7 +239,7 @@
     [].forEach.call(document.querySelectorAll("[data-rsv-close]"),function(b){ b.addEventListener("click",closeDrawer); });
     scrim.addEventListener("click",closeDrawer);
     $("rsv-submit").addEventListener("click",submit);
-    $("rsv-email").addEventListener("keydown",function(e){ if(e.key==="Enter") submit(); });
+    ["rsv-email","rsv-name","rsv-phone"].forEach(function(id){ $(id).addEventListener("keydown",function(e){ if(e.key==="Enter") submit(); }); });
     document.addEventListener("keydown",function(e){
       if(!dr.classList.contains("on")) return;
       if(e.key==="Escape"){ closeDrawer(); return; }

@@ -54,6 +54,16 @@ export default async function handler(req, res) {
   if (b.name)    row.name = b.name;
   if (b.company) row.company = b.company;
   if (b.role)    row.role = b.role;
+  // Mobile number and text consent come only from the course reserve panel.
+  // A number is saved only with a ticked box, along with the exact words they agreed to.
+  const tel = (typeof b.phone === "string" && /^\+1\d{10}$/.test(b.phone)) ? b.phone : null;
+  const texts = !!tel && b.sms_consent === true;
+  if (texts) {
+    row.phone = tel;
+    row.sms_consent = true;
+    row.sms_consent_at = new Date().toISOString();
+    row.sms_consent_text = typeof b.sms_consent_text === "string" ? b.sms_consent_text.slice(0, 400) : null;
+  }
   if (b.blocker) row.notes = "Stated blocker: " + b.blocker;
   if (b.gated)   row.status = "New";
 
@@ -724,6 +734,7 @@ export default async function handler(req, res) {
       <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280;width:38%">Must have</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#1A1A2E">${escH((bScope.must || []).map(k => aMust[k] || k).join(", ") || "nothing picked")}</td></tr>
       <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280;width:38%">How big</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#1A1A2E">${escH(aSize[bScope.size] || bScope.size || "")}</td></tr>
       <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280;width:38%">Built anything before</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#1A1A2E">${escH(aExp[bScope.experience] || "not picked")}</td></tr>` : ""}
+      <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280;width:38%">Texts</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#1A1A2E">${texts ? escH(tel) + " &middot; agreed to reminder texts" : "No number given"}</td></tr>
       <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280;width:38%">Came in via</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#1A1A2E">${b.utm_source || "direct"}${b.utm_medium ? " / " + b.utm_medium : ""}${b.utm_campaign ? " / " + b.utm_campaign : ""}</td></tr>
       <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280">Landed on</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#1A1A2E">${b.landing_path || "unknown"}</td></tr>
       <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280">Referrer</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#1A1A2E">${b.referrer || "none"}</td></tr>

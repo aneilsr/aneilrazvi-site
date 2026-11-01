@@ -90,6 +90,12 @@ html.rsv-locked,html.rsv-locked body{overflow:hidden}
 .rsv-btn{flex:1 1 160px;display:inline-flex;align-items:center;justify-content:center;padding:13px 24px;border-radius:10px;font:700 .95rem/1.2 'Inter',sans-serif;border:0;cursor:pointer;background:var(--r-btn-bg);color:var(--r-btn-fg);text-decoration:none}
 .rsv-btn:disabled{opacity:.6;cursor:default}
 .rsv-msg{margin:.6rem 0 0;font-size:.9rem;text-align:center}
+/* Name and mobile sit above the email row; the text-consent box is never pre-ticked. */
+.rsv-who{margin:0 0 10px}
+.rsv-who .rsv-input{flex:1 1 150px}
+.rsv-consent{display:flex;gap:9px;align-items:flex-start;margin:0 0 12px;font-size:.78rem;line-height:1.45;color:var(--r-muted);cursor:pointer}
+.rsv-consent input{flex:none;width:18px;height:18px;margin:1px 0 0;accent-color:var(--r-accent);cursor:pointer}
+.rsv-consent a{color:var(--r-accent)}
 .rsv-msg:empty{display:none}
 .rsv-msg.ok{color:var(--r-ok)} .rsv-msg.err{color:var(--r-err)}
 

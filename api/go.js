@@ -53,6 +53,7 @@ const DESTS = {
   map:      { to: "/maturity.html",             utm: { source: "tearsheet",  medium: "handout",  campaign: "where-design-starts-paying" } },
   job:      { to: "/readiness.html",            utm: { source: "aneilrazvi",  medium: "social",   campaign: "ai-readiness-read" } },
   build:    { to: "/build.html",                utm: { source: "kelly",      medium: "qr",       campaign: "design-for-good" } },
+  seat:     { to: "/build.html",               utm: { source: "linkedin",   medium: "dm",       campaign: "sketch-to-ship-dec5" } },
   squares:  { to: "/thirty-six-squares.pdf",    utm: { source: "followup",   medium: "email",    campaign: "where-design-starts-paying" } }
 };
 
