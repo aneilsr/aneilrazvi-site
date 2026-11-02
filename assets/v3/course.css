@@ -1,0 +1,83 @@
+/* ==========================================================================
+   v3 theme for the course pages (build.html and build/*).
+   Loaded after build-v2.css, reserve.css and v3.css. Remaps the paper-blue
+   tokens to the site's dark navy + teal, forces the dark scheme, and adds the
+   v3 details (mono labels, condensed titles, blueprint grid, crisp corners).
+   ========================================================================== */
+html:root{
+  --page:#0F1923; --surface:#13212E; --callout:rgba(255,255,255,.06); --heading:#FFFFFF; --body:#E9F2F7; --muted:rgba(226,240,247,.72);
+  --accent:#00BCD4; --on-accent:#062A30; --line:rgba(255,255,255,.11); --line-strong:rgba(255,255,255,.34);
+  --inv:#0B1622; --inv-raised:#13212E; --inv-text:#FFFFFF; --inv-accent:#00BCD4; --inv-muted:rgba(226,240,247,.8); --grid:rgba(255,255,255,.07);
+  --paper:#00838F; --build:#1E3A5F; --self:#3F4A9E; --paper-tint:#10303A; --build-tint:#14263B; --self-tint:#1C2244;
+  --on-path:#FFFFFF; --on-path-soft:rgba(255,255,255,.12); --on-path-line:rgba(255,255,255,.28);
+  --ink:#0A1A33; --nav-bg:rgba(7,12,18,.88); --nav-text:#FFFFFF; --nav-muted:rgba(226,240,247,.72); --nav-line:rgba(255,255,255,.09);
+  --shadow:0 18px 40px rgba(0,0,0,.35); --r:6px;
+  color-scheme:dark;
+}
+html body{background:var(--page);color:var(--body)}
+
+/* nav: identical to the rest of the site */
+html nav.site-nav.rz-auto,html nav.site-nav.rz-light{--rzn-bg:rgba(15,25,35,.86);--rzn-bg2:rgba(7,12,18,.92);--rzn-open:rgba(7,12,18,.98);--rzn-text:#fff;--rzn-link:rgba(255,255,255,.8);--rzn-accent:#00BCD4;--rzn-line:rgba(255,255,255,.07);--rzn-div:rgba(255,255,255,.09);--rzn-shadow:none}
+html nav.site-nav .nav-links a{font:500 11.5px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase}
+html nav.site-nav .nav-cta{border-radius:4px}
+
+/* labels */
+.eyebrow,.tabs a,.jump a,.room .kind,.room .meta,.room .seats,.chip,.legend,.stg .k,.stepcard .sn,.path .price small,.opt em,.rooms .head .note,.sticky .t{font-family:var(--mono)!important;letter-spacing:.12em}
+.eyebrow{font-weight:500!important;display:inline-flex;align-items:center;gap:12px}
+.eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(0,188,212,.18);flex:none}
+.tabs a,.jump a{text-transform:uppercase;font-size:11px!important}
+
+/* condensed titles and numbers */
+.path h3,.stepcard h3,.room .day,.opt b,.guide h2 .cond,.gantt .lab b{font-family:var(--cond)!important;font-weight:800!important;text-transform:uppercase;letter-spacing:.01em;line-height:1}
+.path h3{font-size:2rem}
+.stepcard h3{font-size:1.45rem}
+.room .day{font-size:2.6rem}
+.path .price,.num,.stepcard .c{font-family:var(--cond)!important;font-weight:800!important}
+
+/* blueprint band and section grids */
+.band,header.band,.subhero{background-color:var(--inv)!important;background-image:linear-gradient(rgba(255,255,255,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.055) 1px,transparent 1px)!important;background-size:88px 88px!important}
+.final{background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:88px 88px}
+
+/* crisper corners everywhere */
+.btn,.room,.path,.panel,.opt,.stepcard,.box,.photos img,.hero .photo,.hero .photo img,.guide .photo img,.qs details,.toggle,.toggle button,.chip,.sticky,.ideamap .pbox{border-radius:6px!important}
+.btn{border-radius:4px!important}
+
+/* corner brackets on the cards people click */
+.room,.opt,.stepcard,.box{position:relative}
+.room::after,.opt::after,.stepcard::after,.box::after{
+  --c:rgba(0,188,212,.55);content:"";position:absolute;inset:0;pointer-events:none;z-index:2;
+  background-image:linear-gradient(var(--c),var(--c)),linear-gradient(var(--c),var(--c)),linear-gradient(var(--c),var(--c)),linear-gradient(var(--c),var(--c)),linear-gradient(var(--c),var(--c)),linear-gradient(var(--c),var(--c)),linear-gradient(var(--c),var(--c)),linear-gradient(var(--c),var(--c));
+  background-repeat:no-repeat;background-size:12px 1.5px,1.5px 12px,12px 1.5px,1.5px 12px,12px 1.5px,1.5px 12px,12px 1.5px,1.5px 12px;
+  background-position:0 0,0 0,100% 0,100% 0,0 100%,0 100%,100% 100%,100% 100%;opacity:.75}
+
+/* buttons read like the rest of the site */
+.btn.solid,.btn.light{background:var(--accent)!important;color:#062A30!important;border-color:var(--accent)!important}
+.btn.ghost,.btn.outline{color:#fff!important;border-color:rgba(255,255,255,.45)!important;background:transparent!important}
+
+/* reserve panel: dark, teal, matching */
+html .rsv-drawer,html .rsv-scrim{
+  --r-surface:#13212E; --r-page:#0F1923; --r-callout:rgba(255,255,255,.06); --r-heading:#FFFFFF; --r-body:#E9F2F7; --r-muted:rgba(226,240,247,.72);
+  --r-accent:#00BCD4; --r-pick:#00BCD4; --r-line:rgba(255,255,255,.12); --r-line-strong:rgba(255,255,255,.34);
+  --r-ok:#7EE2A8; --r-err:#FF9A8B; --r-btn-bg:#00BCD4; --r-btn-fg:#062A30; --r-check:#062A30}
+html .rsv-eyebrow{font-family:var(--mono)}
+
+/* tokens v3.css and the shared footer expect (course pages do not load site.css) */
+html:root{--teal:#00BCD4;--navy:#0F1923}
+
+/* Teams and Portfolio kit cards */
+.tk-card .n,.tk-copy{font-family:var(--mono)!important;font-weight:500!important;letter-spacing:.12em}
+.tk-copy{text-transform:uppercase;font-size:.72rem!important;border-radius:4px!important}
+.tk-card h3,.tk-mail h3{font-family:var(--cond)!important;font-weight:800!important;text-transform:uppercase;letter-spacing:.01em;line-height:1.02}
+.tk-card h3{font-size:1.65rem}
+.tk-mail h3{font-size:1.45rem}
+.tk-card .price{font-family:var(--cond)!important;font-weight:800!important}
+.tk-card,.tk-mail,.tk-leave,.tk-ref,.tk-mail pre,.tk-why .honest{border-radius:6px!important}
+.tk-card{position:relative}
+.tk-card::after{--c:rgba(0,188,212,.55);content:"";position:absolute;inset:0;pointer-events:none;z-index:2;
+  background-image:linear-gradient(var(--c),var(--c)),linear-gradient(var(--c),var(--c)),linear-gradient(var(--c),var(--c)),linear-gradient(var(--c),var(--c)),linear-gradient(var(--c),var(--c)),linear-gradient(var(--c),var(--c)),linear-gradient(var(--c),var(--c)),linear-gradient(var(--c),var(--c));
+  background-repeat:no-repeat;background-size:12px 1.5px,1.5px 12px,12px 1.5px,1.5px 12px,12px 1.5px,1.5px 12px,12px 1.5px,1.5px 12px;
+  background-position:0 0,0 0,100% 0,100% 0,0 100%,0 100%,100% 100%,100% 100%;opacity:.75}
+
+/* numbered markers read on dark */
+.outs .ico{background:rgba(0,188,212,.1)!important;border:1.5px solid rgba(0,188,212,.6)!important;color:var(--accent)!important;border-radius:4px!important;font:800 1.2rem/1 var(--cond)!important}
+.guide .photo img,.photos img{border-radius:6px!important}

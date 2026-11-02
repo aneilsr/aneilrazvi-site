@@ -1,0 +1,61 @@
+/* ==========================================================================
+   v3 theme for the tools (maturity, readiness, report, links).
+   Loaded after each page's own <style> and after v3.css. The working surface
+   stays light so long answers and reports stay easy to read; the chrome, type
+   and corners match the rest of the site. Remove the <link> to roll back.
+   ========================================================================== */
+:root{--radius:6px;--radius-sm:4px;--teal-dark:#00838F}
+
+/* light blueprint grid behind the top of each tool */
+body::before{content:"";position:absolute;left:0;right:0;top:0;height:780px;z-index:-1;pointer-events:none;
+  background-image:linear-gradient(var(--grid-l) 1px,transparent 1px),linear-gradient(90deg,var(--grid-l) 1px,transparent 1px);
+  background-size:88px 88px;background-position:-1px -1px;
+  -webkit-mask-image:linear-gradient(180deg,#000 35%,transparent);mask-image:linear-gradient(180deg,#000 35%,transparent)}
+
+/* subnav pills: same mono labels as the rest of the site */
+nav.subnav a{font:500 11px/1 var(--mono)!important;letter-spacing:.12em;text-transform:uppercase;border-radius:4px!important;padding:10px 14px!important}
+
+/* eyebrows: dot + mono, replaces the teal tick */
+.tick{display:none!important}
+.eyebrow{font-family:var(--mono)!important;font-weight:500!important;letter-spacing:.16em!important;display:inline-flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 4px rgba(0,188,212,.18);flex:none}
+
+/* small labels in mono */
+.q .axis,.lv .ax,.railtop,.field label,.opt .k,.kick,.jump .jl a,.tf .plab,.keys,.band .k,.rec .k,.fl .k,.fl .hd,.grab .fine,.srcbox summary{font-family:var(--mono)!important;font-weight:500!important;letter-spacing:.12em}
+
+/* numbers and level names condensed, like the stat strips on the home page */
+.fact .n,.sqr .sqn,.big .n,.rec .amt,.lv .nm,.band .lv{font-family:var(--cond)!important;font-weight:800!important;letter-spacing:.01em}
+.lv .nm,.band .lv{text-transform:uppercase}
+.fact .n{font-size:2.4rem}
+.lv .nm{font-size:2.3rem}
+
+/* flat cards with a hairline, crisp corners */
+.q,.gate,.lv,.fact,.card,.grab,.tf,.srcbox,.res .card{box-shadow:none!important;border:1px solid var(--line)}
+.q,.gate,.lv,.fact,.card,.grab,.tf,.srcbox,.sqr,.cta,.plain,.nonum,.deftip,.sugg{border-radius:6px!important}
+.opt,.chip,.field input,.searchbox input,.grab input,.ibtn,.sugg b{border-radius:4px!important}
+.btn,.b,.tf button,.grab button,.cta a.btn,.more{border-radius:4px!important;box-shadow:none!important}
+
+/* corner brackets on the cards people work in */
+.q,.gate,.lv,.fact{position:relative}
+.q::after,.gate::after,.lv::after,.fact::after{
+  --c:rgba(0,151,167,.6);content:"";position:absolute;inset:0;pointer-events:none;z-index:2;
+  background-image:linear-gradient(var(--c),var(--c)),linear-gradient(var(--c),var(--c)),linear-gradient(var(--c),var(--c)),linear-gradient(var(--c),var(--c)),linear-gradient(var(--c),var(--c)),linear-gradient(var(--c),var(--c)),linear-gradient(var(--c),var(--c)),linear-gradient(var(--c),var(--c));
+  background-repeat:no-repeat;background-size:12px 1.5px,1.5px 12px,12px 1.5px,1.5px 12px,12px 1.5px,1.5px 12px,12px 1.5px,1.5px 12px;
+  background-position:0 0,0 0,100% 0,100% 0,0 100%,0 100%,100% 100%,100% 100%;opacity:.8}
+
+/* the link-in-bio page (links.html) */
+.tag,.loc{font-family:var(--mono)!important;font-weight:500!important}
+.tag{letter-spacing:.16em}
+.loc{font-size:.78rem!important;letter-spacing:.08em}
+.lnk,.qr{border-radius:6px!important}
+.lnk .ic{border-radius:4px!important}
+.avatar{border-radius:14px!important}
+
+@media print{body::before{display:none}.v3-footer{display:none!important}}
+
+/* nav reads solid over the light surface */
+nav.site-nav{--rzn-bg:rgba(7,12,18,.94);--rzn-bg2:rgba(7,12,18,.97)}
+/* the report page styles every li with a bullet; keep the shared footer clean */
+.v3-footer li{padding:0!important;margin:0!important;list-style:none!important}
+.v3-footer li::before,.v3-footer li:before{content:none!important;display:none!important}
+.v3-footer a[href]:after{content:none!important}
