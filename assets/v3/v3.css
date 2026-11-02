@@ -135,3 +135,17 @@ nav.subnav a.go:hover{filter:brightness(1.06);color:#14161A}
   background-repeat:no-repeat;background-size:12px 1.5px,1.5px 12px,12px 1.5px,1.5px 12px,12px 1.5px,1.5px 12px,12px 1.5px,1.5px 12px;
   background-position:0 0,0 0,100% 0,100% 0,0 100%,0 100%,100% 100%,100% 100%}
 .ls-on{background:rgba(0,188,212,.12);box-shadow:-10px 0 0 rgba(0,188,212,.12),10px 0 0 rgba(0,188,212,.12);border-radius:2px;transition:background .3s}
+
+/* ---------- a slow, slight zoom on every hero image (like the home page) ---------- */
+@keyframes v3zoom{from{transform:scale(1)}to{transform:scale(1.07)}}
+html body .abx-portrait,html body .csx-img,html body .hero .photo,html body .p-zoom,html body .pf-feat-img{overflow:hidden}
+html body .p-zoom{display:block;border-radius:4px;line-height:0}
+html body .abx-portrait img,html body .csx-img img,html body .hero .photo img,html body .p-zoom img{
+  animation:v3zoom 24s ease-in-out infinite alternate;transform-origin:55% 45%;will-change:transform}
+/* the portfolio flagship image is a background, so a layer inside it does the zooming */
+html body .pf-feat-img{position:relative}
+html body .pf-feat-img::before{content:"";position:absolute;inset:0;background-image:inherit;background-size:cover;background-position:inherit;
+  animation:v3zoom 24s ease-in-out infinite alternate;transform-origin:55% 45%}
+@media (max-width:1000px){html body .bx-feature .p-zoom{order:-1}}
+@media (prefers-reduced-motion:reduce){
+  html body .abx-portrait img,html body .csx-img img,html body .hero .photo img,html body .p-zoom img,html body .pf-feat-img::before{animation:none}}

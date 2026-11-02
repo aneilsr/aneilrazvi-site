@@ -498,3 +498,8 @@
    cover then guarantees no gaps at any width or height. */
 .v3m-ws .ph-img{right:-28%;background-size:cover;background-position:100% 45%}
 @media (max-width:900px){.v3m-ws .ph-img{right:-40%;background-position:100% 40%}}
+/* Workshops: close the empty band between the price line and the workshop list (Aneil, 2 Nov) */
+.v3m-ws .ws-lead.ws-intro{padding-bottom:0}
+.v3m-ws .ws-intro .ws-price{margin-bottom:0}
+.v3m-ws .ws-intro + .ws-list,.v3m-ws .ws-list#workshops{padding-top:4.5rem}
+@media (max-width:640px){.v3m-ws .ws-lead.ws-intro{padding-bottom:0}.v3m-ws .ws-list#workshops{padding-top:3.2rem}}
