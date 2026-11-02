@@ -79,8 +79,12 @@
     u.onend = function () { if (my !== gen || !playing) return; idx++; status(); speak(); };
     u.onerror = function (e) { if (my !== gen || (e && (e.error === 'interrupted' || e.error === 'canceled'))) return; playing = false; ui(); };
     mark(c.el);
-    var r = c.el.getBoundingClientRect();
-    if (r.top < 90 || r.bottom > innerHeight - 40) c.el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    // follow along inside the article only, and only once the reading moves below the screen;
+    // never jump back up to the headline when someone taps play
+    if (body.contains(c.el)) {
+      var r = c.el.getBoundingClientRect();
+      if (r.bottom > innerHeight - 40) c.el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
     synth.speak(u);
   }
   function ui() {

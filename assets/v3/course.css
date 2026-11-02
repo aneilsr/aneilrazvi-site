@@ -1,12 +1,12 @@
 /* ==========================================================================
    v3 theme for the course pages (build.html and build/*).
    Loaded last, after build-v2.css, reserve.css and v3.css.
-   The course has its own color theme so it reads as its own thing inside the site.
-   Theme A is the default. B and C can be previewed with ?theme=b or ?theme=c
-   (remembered for the visit). The site chrome (main nav, footer) stays teal.
+   The course has its own color theme, Graphite and Marigold (picked 2 Nov 2026),
+   so it reads as its own thing inside the site. The site chrome (main nav, footer) stays teal.
+   Alternatives that were considered (Forest and Lime, Paper and Tomato) are in SITE-V3-BUILD-2026-11-02.md.
    ========================================================================== */
 
-/* ---------- theme A: Graphite and Marigold (pencil and sticky note) ---------- */
+/* ---------- Graphite and Marigold (pencil and sticky note) ---------- */
 html:root{
   --page:#141518; --surface:#1D1F23; --callout:rgba(255,255,255,.06); --heading:#FBF7EE; --body:#ECE7DC; --muted:rgba(236,231,220,.72);
   --ca:#F2B632; --ca-rgb:242,182,50; --ca-text:#F2B632; --on-ca:#1A1407;
@@ -15,33 +15,11 @@ html:root{
   --paper:#F2B632; --build:#9CC3A5; --self:#E9936B;
   --paper-tint:#2A2416; --build-tint:#1C2A22; --self-tint:#2D201A;
   --on-path:#17140D; --on-path-soft:rgba(0,0,0,.08); --on-path-line:rgba(0,0,0,.2);
-  --highlight:#F2B632; --marker:#F2B632; --marker-ink:#17140D; --ink:#17140D;
+  --highlight:#F2B632; --marker:#F6EEDC; --marker-ink:#17140D; --ink:#17140D;
   --nav-bg:rgba(7,12,18,.88); --nav-text:#FFFFFF; --nav-muted:rgba(226,240,247,.72); --nav-line:rgba(255,255,255,.09);
   --shadow:0 18px 40px rgba(0,0,0,.35); --r:6px;
   --teal:#00BCD4; --navy:#0F1923;
   color-scheme:dark;
-}
-/* ---------- theme B: Forest and Lime ---------- */
-html[data-ct="b"]:root{
-  --page:#0F1D19; --surface:#152822; --heading:#F1F6EF; --body:#E3ECE4; --muted:rgba(227,236,228,.72);
-  --ca:#C6F062; --ca-rgb:198,240,98; --ca-text:#C6F062; --on-ca:#13200A;
-  --inv:#0B1714; --inv-raised:#152822; --inv-text:#F1F6EF; --inv-accent:#C6F062; --inv-muted:rgba(227,236,228,.8);
-  --paper:#C6F062; --build:#86CDB0; --self:#E8D7A6;
-  --paper-tint:#1F2D14; --build-tint:#15302A; --self-tint:#2B2919;
-  --on-path:#0F1A0A; --highlight:#C6F062; --marker:#C6F062; --marker-ink:#0F1A0A; --ink:#0F1A0A;
-}
-/* ---------- theme C: Paper and Tomato (light pages, dark bands) ---------- */
-html[data-ct="c"]:root{
-  --page:#F4EFE6; --surface:#FFFFFF; --callout:rgba(224,82,43,.07); --heading:#1B1C1F; --body:#2B2D31; --muted:#5F6168;
-  --ca:#E0522B; --ca-rgb:224,82,43; --ca-text:#C8441F; --on-ca:#FFFFFF;
-  --line:rgba(27,28,31,.12); --line-strong:rgba(27,28,31,.3);
-  --inv:#1C1D20; --inv-raised:#2A2B30; --inv-text:#FBF7EE; --inv-accent:#FF8A65; --inv-muted:rgba(251,247,238,.8);
-  --paper:#E0522B; --build:#2F6B5E; --self:#33415C;
-  --paper-tint:#FBE4DA; --build-tint:#DCEBE6; --self-tint:#DFE4EE;
-  --on-path:#FFFFFF; --on-path-soft:rgba(255,255,255,.16); --on-path-line:rgba(255,255,255,.32);
-  --highlight:#FFB703; --marker:#FFB703; --marker-ink:#1B1C1F; --ink:#1B1C1F;
-  --shadow:0 14px 34px rgba(27,28,31,.10);
-  color-scheme:light;
 }
 html body{background:var(--page);color:var(--body)}
 
@@ -130,7 +108,6 @@ html .rsv-drawer,html .rsv-scrim{
   --r-surface:var(--surface); --r-page:var(--page); --r-callout:rgba(var(--ca-rgb),.08); --r-heading:var(--heading); --r-body:var(--body); --r-muted:var(--muted);
   --r-accent:var(--ca-text); --r-pick:var(--ca); --r-line:var(--line); --r-line-strong:var(--line-strong);
   --r-highlight:var(--ca); --r-ok:#7EE2A8; --r-err:#FF9A8B; --r-btn-bg:var(--ca); --r-btn-fg:var(--on-ca); --r-check:var(--on-ca)}
-html[data-ct="c"] .rsv-drawer{--r-ok:#1F7A4D;--r-err:#B3261E}
 html .rsv-scrim{background:rgba(5,6,8,.62)}
 html .rsv-drawer{border-left:1px solid var(--line);box-shadow:-24px 0 60px rgba(0,0,0,.4)}
 html .rsv-dh{padding:18px 24px}
@@ -173,3 +150,10 @@ html .rsv-done h3{font:800 2.2rem/1 var(--cond);text-transform:uppercase;letter-
   html .rsv-df{padding:12px 18px calc(14px + env(safe-area-inset-bottom))}
   html .rsv-pb{margin:0 14px 14px 20px}
 }
+
+/* ---------- highlighted labels: paper-tape cream, so they never blend into the marigold ---------- */
+.leave{background:var(--marker)!important;color:var(--marker-ink)!important;border-radius:3px!important;font-family:var(--mono)!important;font-weight:500!important;letter-spacing:.04em}
+.leave::before{background:var(--marker-ink)!important}
+.marker{box-shadow:2px 2px 0 rgba(0,0,0,.35)}
+/* timeline bars: dark text on the light path colors, crisp ends */
+.bar.paper,.bar.build,.bar.self{color:var(--on-path)!important;border-radius:6px!important}
