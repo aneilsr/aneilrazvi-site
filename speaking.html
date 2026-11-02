@@ -33,6 +33,7 @@
 <link rel="stylesheet" href="site.css">
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="/assets/v3/v3.css" />
+<link rel="stylesheet" href="/assets/v3/pages.css" />
 <style>
   .sp-hero{max-width:1240px;margin:0 auto;padding:9rem 6% 3rem;display:grid;grid-template-columns:1.05fr .95fr;gap:3.5rem;align-items:center}
   .sp-hero .eyebrow{color:var(--teal);font-size:.78rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase}
@@ -155,7 +156,7 @@
 </style>
 <script defer src="assets/analytics.js"></script>
 </head>
-<body>
+<body class="v3p v3p-speaking">
 <nav class="site-nav" id="nav"><a href="index.html" class="nav-brand"><img class="nav-mark" src="/assets/brand/a-mark-light-tile.svg" alt="" width="30" height="30">Aneil <b>Razvi</b></a>
 <ul class="nav-links">
 <li><a href="index.html">Home</a></li>
@@ -169,7 +170,7 @@
 <a href="contact.html" class="nav-cta">Let's Talk</a><button class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button></nav>
 
 <!-- HERO -->
-<section class="sp-hero">
+<section class="sp-hero p-hero-grid">
   <div>
     <div class="eyebrow">Keynotes · Fireside chats · Workshops</div>
     <h1>Talks that make AI feel <em>human</em>, not hyped</h1>
@@ -179,10 +180,12 @@
       <a class="sp-btn ghost" href="#topics">See the topics</a>
     </div>
   </div>
-  <div class="sp-heroimg">
+  <div class="sp-heroimg xh">
     <img src="assets/speaking.jpg" alt="Aneil Razvi speaking to an audience">
   </div>
 </section>
+<nav class="p-jump" aria-label="On this page"><div class="in"><a href="#topics"><span>01</span>Topics</a><a href="#future-of-ai-dallas-2026"><span>02</span>Appearances</a><a href="#talks"><span>03</span>Talks</a><a href="#formats"><span>04</span>Formats</a><a href="#organizers"><span>05</span>For organizers</a><a href="#faq"><span>06</span>FAQ</a></div></nav>
+
 
 <!-- CREDIBILITY STRIP -->
 <div class="sp-proof">
@@ -196,12 +199,12 @@
 
 <!-- TOPICS -->
 <section class="sp-sec" id="topics">
-  <span class="sp-eyebrow">What I speak on</span>
+  <span class="sp-eyebrow p-num">What I speak on</span>
   <h2 class="sp-h2">Signature topics</h2>
   <p class="sp-lead">Each talk flexes to a keynote, a fireside chat, or a hands-on workshop, and I tailor the examples to your audience. Here's what people walk away with.</p>
   <div class="sp-topics">
 
-    <div class="topic">
+    <div class="topic xh">
       <span class="tnum">01</span>
       <h3>Designing for AI Without the Hype</h3>
       <p>Where AI actually belongs in a product, and a framework your team can design against instead of bolting features onto a roadmap.</p>
@@ -214,7 +217,7 @@
       <div class="who"><b>For:</b> product &amp; design teams, and the leaders who set their direction</div>
     </div>
 
-    <div class="topic">
+    <div class="topic xh">
       <span class="tnum">02</span>
       <h3>Building Solo With AI</h3>
       <p>How AI coding agents let one person take a real product from concept to the App Store: what changes, what doesn't, and what it means for how teams work.</p>
@@ -227,7 +230,7 @@
       <div class="who"><b>For:</b> designers, founders, and product leaders</div>
     </div>
 
-    <div class="topic">
+    <div class="topic xh">
       <span class="tnum">03</span>
       <h3>Calmer Products: Systems Thinking &amp; Cognitive Load</h3>
       <p>Why reducing friction is the highest-leverage design skill, and how to build that discipline into a team instead of leaving it to heroics.</p>
@@ -240,7 +243,7 @@
       <div class="who"><b>For:</b> product &amp; design teams working on complex software</div>
     </div>
 
-    <div class="topic">
+    <div class="topic xh">
       <span class="tnum">04</span>
       <h3>Right-Sizing Design: Do You Even Need a Team Yet?</h3>
       <p>Most orgs over-invest in design too early or starve it too long. I help teams read their own design and research maturity, then pick the right level (from AI-assisted, to a fractional lead, to a full in-house function) and build it when they're actually ready.</p>
@@ -253,7 +256,7 @@
       <div class="who"><b>For:</b> founders, heads of design, and leaders deciding how much design to invest in</div>
     </div>
 
-    <div class="topic">
+    <div class="topic xh">
       <span class="tnum">05</span>
       <h3>If I Had AI Then: The Portfolio After AI</h3>
       <p>Anyone can make a screen look good now, so a beautiful portfolio no longer proves what it used to. What's left is judgment: what you chose, what you rejected, and where AI earns its place. Given as a talk, or as a hands-on workshop where people rework one real project live.</p>
@@ -338,8 +341,8 @@
 </div>
 
 <!-- TALKS TIMELINE -->
-<section class="sp-sec" id="talks">
-  <span class="sp-eyebrow">The receipts</span>
+<div class="p-light"><section class="sp-sec" id="talks">
+  <span class="sp-eyebrow p-num">The receipts</span>
   <h2 class="sp-h2">Talks &amp; appearances</h2>
   <p class="sp-lead">A selection of keynotes, panels, and workshops, from enterprise summits to the Dallas design community.</p>
 
@@ -418,39 +421,39 @@
     </div>
   </div>
 
-</section>
+</section></div>
 
 <!-- FORMATS -->
-<section class="sp-sec">
-  <span class="sp-eyebrow">How it can show up</span>
+<section class="sp-sec" id="formats">
+  <span class="sp-eyebrow p-num">How it can show up</span>
   <h2 class="sp-h2">Formats</h2>
   <p class="sp-lead">Same substance, shaped to your event. Tell me the room and the goal, and I'll shape the talk to fit.</p>
   <div class="sp-formats">
-    <div class="fmt"><h4>Keynote</h4><p>A 20-45 minute talk that sets the tone or sends the room out with a point of view and something to do about it.</p></div>
-    <div class="fmt"><h4>Fireside chat</h4><p>A guided conversation: I'll bring the stories and the candor; you bring the questions your audience actually has.</p></div>
-    <div class="fmt"><h4>Workshop</h4><p>Hands-on and practical. The audience leaves having done the thing, not just heard about it.</p></div>
-    <div class="fmt"><h4>Panel</h4><p>A clear, generous voice on a panel, moving the discussion forward instead of competing for airtime.</p></div>
+    <div class="fmt xh"><h4>Keynote</h4><p>A 20-45 minute talk that sets the tone or sends the room out with a point of view and something to do about it.</p></div>
+    <div class="fmt xh"><h4>Fireside chat</h4><p>A guided conversation: I'll bring the stories and the candor; you bring the questions your audience actually has.</p></div>
+    <div class="fmt xh"><h4>Workshop</h4><p>Hands-on and practical. The audience leaves having done the thing, not just heard about it.</p></div>
+    <div class="fmt xh"><h4>Panel</h4><p>A clear, generous voice on a panel, moving the discussion forward instead of competing for airtime.</p></div>
   </div>
 </section>
 
 <!-- TESTIMONIALS -->
 <section class="sp-sec" style="padding-top:0">
-  <span class="sp-eyebrow">What people say</span>
+  <span class="sp-eyebrow p-num">What people say</span>
   <h2 class="sp-h2">How I show up in a room</h2>
   <div class="sp-quotes">
-    <div class="qt">
+    <div class="qt xh">
       <p>"He leads with solutions. Where others see roadblocks, Aneil sees the next move. He takes ambiguous problems, rallies the people around him, and drives toward outcomes that actually matter to the end user."</p>
       <div class="who"><img class="av" src="assets/work/testimonial-michael.jpg" alt="Michael Grigone"><div><div class="nm"><a href="https://www.linkedin.com/in/michael-grigone-696a8a197/" target="_blank" rel="noopener">Michael Grigone</a></div><div class="rl">Account Executive, SPOTIO</div></div></div>
     </div>
-    <div class="qt">
+    <div class="qt xh">
       <p>"What makes him truly exceptional is how he balances creative passion with a highly organized approach. He fosters an environment where people feel supported, inspired, and empowered to do their best work."</p>
       <div class="who"><img class="av" src="assets/work/testimonial-amira.jpg" alt="Amira Maruf"><div><div class="nm"><a href="https://www.linkedin.com/in/amiramaruf/" target="_blank" rel="noopener">Amira Maruf</a></div><div class="rl">Senior UX Designer, SPOTIO</div></div></div>
     </div>
-    <div class="qt">
+    <div class="qt xh">
       <p>"Aneil is one of those dynamic creative leaders that lights up any room he walks into. If you need an energetic and charismatic speaker to help empower your organization, you need an Aneil."</p>
       <div class="who"><div class="av-ini">SM</div><div><div class="nm"><a href="https://www.linkedin.com/in/suleeux/" target="_blank" rel="noopener">Su Milazzo</a></div><div class="rl">Design &amp; Product Ops Practitioner</div></div></div>
     </div>
-    <div class="qt">
+    <div class="qt xh">
       <p>"His presentations and engagements with my channel partners fostered a deep sense of teamwork and engagement. He has always been a sought-after contributor to partner conferences."</p>
       <div class="who"><div class="av-ini">EB</div><div><div class="nm"><a href="https://www.linkedin.com/in/ericbraswell/" target="_blank" rel="noopener">Eric Braswell</a></div><div class="rl">Chief Revenue Officer</div></div></div>
     </div>
@@ -458,8 +461,8 @@
 </section>
 
 <!-- FOR ORGANIZERS -->
-<section class="sp-sec" id="organizers" style="padding-top:0">
-  <span class="sp-eyebrow">For event organizers</span>
+<div class="p-light"><section class="sp-sec" id="organizers" style="padding-top:0">
+  <span class="sp-eyebrow p-num">For event organizers</span>
   <h2 class="sp-h2">Booking at a glance</h2>
   <p class="sp-lead">What program committees usually ask for, in one place. Copy anything here into your program.</p>
   <div class="gx-grid">
@@ -473,16 +476,16 @@
       <div><dt>Fees</dt><dd>They depend on the format and travel. Ask and you'll get a straight answer.</dd></div>
     </dl>
     <div>
-      <div class="gx-bio"><h3>Short bio</h3><p>Aneil Razvi is a product design and AI experience leader based in Dallas-Fort Worth. He helps companies decide where AI belongs in their products, and builds the design teams that ship them. He designed and shipped Cubby, his personal project, solo using AI-assisted tools.</p></div>
-      <div class="gx-bio"><h3>Long bio</h3><p>Aneil Razvi leads product design and AI experience. He built the design function at SPOTIO, where he set the AI experience strategy and helped shape DASH, an AI co-pilot for sales teams with human approval built in. He helped build the product design department at Southern New Hampshire University, unified Omnitracs's fleet platform, and led design work for Citi, Capital One and Kalkomey. His point of view: design should be sized to where a company actually is, and AI should earn its place in a product instead of being bolted on. He has spoken at Vista UX Summit and AIGA Dallas, teaches AI, Built On Paper, and designed and shipped Cubby, his personal project, solo using AI-assisted tools.</p></div>
-      <div class="gx-bio"><h3>Introduction to read on stage</h3><p>Our next speaker turns complicated products into calm ones. Aneil Razvi built the design function at SPOTIO, helped build the product design department at Southern New Hampshire University, and designed and shipped an app solo using AI-assisted tools. Please welcome Aneil Razvi.</p><p class="note">Photos and a headshot on request.</p></div>
+      <div class="gx-bio xh"><h3>Short bio</h3><p>Aneil Razvi is a product design and AI experience leader based in Dallas-Fort Worth. He helps companies decide where AI belongs in their products, and builds the design teams that ship them. He designed and shipped Cubby, his personal project, solo using AI-assisted tools.</p></div>
+      <div class="gx-bio xh"><h3>Long bio</h3><p>Aneil Razvi leads product design and AI experience. He built the design function at SPOTIO, where he set the AI experience strategy and helped shape DASH, an AI co-pilot for sales teams with human approval built in. He helped build the product design department at Southern New Hampshire University, unified Omnitracs's fleet platform, and led design work for Citi, Capital One and Kalkomey. His point of view: design should be sized to where a company actually is, and AI should earn its place in a product instead of being bolted on. He has spoken at Vista UX Summit and AIGA Dallas, teaches AI, Built On Paper, and designed and shipped Cubby, his personal project, solo using AI-assisted tools.</p></div>
+      <div class="gx-bio xh"><h3>Introduction to read on stage</h3><p>Our next speaker turns complicated products into calm ones. Aneil Razvi built the design function at SPOTIO, helped build the product design department at Southern New Hampshire University, and designed and shipped an app solo using AI-assisted tools. Please welcome Aneil Razvi.</p><p class="note">Photos and a headshot on request.</p></div>
     </div>
   </div>
-</section>
+</section></div>
 
 <!-- FAQ -->
 <section class="sp-sec" id="faq" style="padding-top:0">
-  <span class="sp-eyebrow">Questions organizers ask</span>
+  <span class="sp-eyebrow p-num">Questions organizers ask</span>
   <h2 class="sp-h2">Before you book</h2>
 <details class="gx-q"><summary>What does Aneil Razvi speak about?</summary><div class="gx-a"><p>Human-centered AI product design: where AI belongs in a product and how to keep the trust of the people using it. He also speaks on building solo with AI-assisted tools, reducing cognitive load in complex products, and sizing design to a company&#x27;s maturity. Each talk works as a keynote, a fireside chat or a hands-on workshop.</p></div></details>
 <details class="gx-q"><summary>Is Aneil Razvi available for international events?</summary><div class="gx-a"><p>Yes. He is based in Dallas-Fort Worth, Texas, and travels for events worldwide. He has worked on-site with teams abroad, including in Poland, and he also speaks virtually.</p></div></details>
@@ -493,14 +496,14 @@
 </section>
 
 <!-- BOOKING CTA -->
-<section class="sp-book">
+<section class="sp-book"><div class="p-cta-in">
   <h2>Bring this to your stage</h2>
   <p>Conference, team offsite, podcast, or panel: if your audience cares about AI, design, and building things that actually ship, let's talk about what would land for them.</p>
   <div class="row">
     <a class="sp-btn" href="https://cal.com/aneil-razvi" target="_blank" rel="noopener">Book a call →</a>
     <a class="sp-btn ghost" href="mailto:hi@aneilrazvi.com?subject=Speaking%20inquiry">Email a speaking inquiry</a>
   </div>
-</section>
+</div></section>
 
 <footer class="v3-footer">
   <div class="v3f-top">

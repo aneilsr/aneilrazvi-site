@@ -33,6 +33,7 @@
 <link rel="stylesheet" href="site.css">
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="/assets/v3/v3.css" />
+<link rel="stylesheet" href="/assets/v3/pages.css" />
 <style>
   /* HERO split */
   .abx-hero{max-width:1200px;margin:0 auto;padding:8.5rem 6% 2rem;display:grid;grid-template-columns:1.05fr .95fr;gap:3.5rem;align-items:center}
@@ -113,7 +114,7 @@
 </style>
 <script defer src="assets/analytics.js"></script>
 </head>
-<body>
+<body class="v3p v3p-about">
 <nav class="site-nav" id="nav"><a href="index.html" class="nav-brand"><img class="nav-mark" src="/assets/brand/a-mark-light-tile.svg" alt="" width="30" height="30">Aneil <b>Razvi</b></a>
 <ul class="nav-links">
 <li><a href="index.html">Home</a></li>
@@ -127,7 +128,7 @@
 <a href="contact.html" class="nav-cta">Let's Talk</a><button class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button></nav>
 
 <!-- HERO -->
-<section class="abx-hero">
+<section class="abx-hero p-hero-grid">
   <div>
     <div class="eyebrow">About</div>
     <h1>A design leader who <em>still builds</em></h1>
@@ -137,55 +138,57 @@
       <a class="g" href="portfolio.html">See my work</a>
     </div>
   </div>
-  <div class="abx-portrait"><img src="assets/work/about-hero.jpg" alt="Aneil Razvi"></div>
+  <div class="abx-portrait xh"><img src="assets/work/about-hero.jpg" alt="Aneil Razvi"></div>
 </section>
+<nav class="p-jump" aria-label="On this page"><div class="in"><a href="#lead"><span>01</span>How I lead</a><a href="#career"><span>02</span>Career</a><a href="#cubby"><span>03</span>Cubby</a><a href="#outside"><span>04</span>Outside the work</a><a href="#credentials"><span>05</span>Credentials</a></div></nav>
+
 
 <!-- FACTS -->
-<div class="abx-facts">
+<div class="p-band light"><div class="abx-facts">
   <div class="fact"><span class="n">Team builder</span><span class="l">Leading &amp; scaling design teams</span></div>
   <div class="fact"><span class="n">Lead + build</span><span class="l">Strategy and hands-on craft</span></div>
   <div class="fact"><span class="n">Personal Project</span><span class="l">Cubby, shipped solo, live on iOS</span></div>
   <div class="fact"><span class="n">In the field</span><span class="l">AIGA DFW board · ADPList mentor</span></div>
-</div>
+</div></div>
 
 <!-- HOW I LEAD -->
-<section class="abx-sec alt">
+<section id="lead" class="abx-sec alt">
   <div class="abx-wrap">
-    <span class="abx-eyebrow">How I lead</span>
+    <span class="abx-eyebrow p-num">How I lead</span>
     <h2 class="abx-h2">I build teams, and I build product</h2>
     <p class="abx-lead">As a player-coach I set the design vision and the metrics design maps to, grow multidisciplinary teams and the next generation of leaders, and stay close enough to the craft to ship alongside them.</p>
     <div class="abx-principles">
-      <div class="principle"><h3>Player-coach</h3><p>I set direction and still do the work: standing up teams, research practices, and design systems, while prototyping and testing alongside the team.</p></div>
-      <div class="principle"><h3>A peer to product &amp; engineering</h3><p>I partner across the table, not from a silo. Design maps to outcomes: task success, time-to-value, adoption.</p></div>
-      <div class="principle"><h3>AI with judgment, not hype</h3><p>I bring AI into the work where it genuinely helps a person in the moment: a framework to design against, not features bolted on.</p></div>
-      <div class="principle"><h3>Design at the right maturity</h3><p>Not every company needs a full design team yet. I read where an org actually is and build to that: AI-assisted, a fractional lead, or a full function, so you invest in design exactly when it starts to pay off.</p></div>
+      <div class="principle xh"><h3>Player-coach</h3><p>I set direction and still do the work: standing up teams, research practices, and design systems, while prototyping and testing alongside the team.</p></div>
+      <div class="principle xh"><h3>A peer to product &amp; engineering</h3><p>I partner across the table, not from a silo. Design maps to outcomes: task success, time-to-value, adoption.</p></div>
+      <div class="principle xh"><h3>AI with judgment, not hype</h3><p>I bring AI into the work where it genuinely helps a person in the moment: a framework to design against, not features bolted on.</p></div>
+      <div class="principle xh"><h3>Design at the right maturity</h3><p>Not every company needs a full design team yet. I read where an org actually is and build to that: AI-assisted, a fractional lead, or a full function, so you invest in design exactly when it starts to pay off.</p></div>
     </div>
   </div>
 </section>
 
 <!-- WHERE I'VE BEEN -->
-<section class="abx-sec">
+<section id="career" class="abx-sec light">
   <div class="abx-wrap">
-    <span class="abx-eyebrow">Where I've been</span>
+    <span class="abx-eyebrow p-num">Where I've been</span>
     <h2 class="abx-h2">Career at a glance</h2>
     <div class="tl">
-      <div class="tl-row"><div class="role">Cubby, Personal Project</div><div class="meta"><b>2026-Present</b> · Caregiver-curated video for autism &amp; IDD, shipped solo</div></div>
-      <div class="tl-row"><div class="role">Director of Product Design &amp; AI Experience, SPOTIO</div><div class="meta"><b>2025-2026</b> · B2B field-sales SaaS · reported to the CEO</div></div>
-      <div class="tl-row"><div class="role">Director of Creative Technology, TPN (Omnicom)</div><div class="meta"><b>2024-2025</b> · AI-driven brand experiences for AT&amp;T, Caterpillar</div></div>
-      <div class="tl-row"><div class="role">Director of Product Design, Southern New Hampshire University</div><div class="meta"><b>2021-2023</b> · Helped build the Product Design department</div></div>
-      <div class="tl-row"><div class="role">Director of Product / UX, Kalkomey</div><div class="meta"><b>2020-2021</b> · Owned strategy &amp; roadmap · +225% content sales</div></div>
-      <div class="tl-row"><div class="role">UX Manager → Sr. Manager, Omnitracs</div><div class="meta"><b>2016-2020</b> · Founded UX Research · 'Logic Blocks' design system</div></div>
-      <div class="tl-row"><div class="role">Lead UX Designer, Citi</div><div class="meta"><b>2014-2016</b> · Bank-wide design system · first Apple Watch app</div></div>
-      <div class="tl-row"><div class="role">Earlier: brand &amp; creative direction</div><div class="meta">Agencies including The Richards Group</div></div>
+      <div class="tl-row"><div class="when">2026 to now</div><div class="role">Cubby, Personal Project</div><div class="meta">Caregiver-curated video for autism &amp; IDD, shipped solo</div></div>
+      <div class="tl-row"><div class="when">2025 to 2026</div><div class="role">Director of Product Design &amp; AI Experience, SPOTIO</div><div class="meta">B2B field-sales SaaS · reported to the CEO</div></div>
+      <div class="tl-row"><div class="when">2024 to 2025</div><div class="role">Director of Creative Technology, TPN (Omnicom)</div><div class="meta">AI-driven brand experiences for AT&amp;T, Caterpillar</div></div>
+      <div class="tl-row"><div class="when">2021 to 2023</div><div class="role">Director of Product Design, Southern New Hampshire University</div><div class="meta">Helped build the Product Design department</div></div>
+      <div class="tl-row"><div class="when">2020 to 2021</div><div class="role">Director of Product / UX, Kalkomey</div><div class="meta">Owned strategy &amp; roadmap · +225% content sales</div></div>
+      <div class="tl-row"><div class="when">2016 to 2020</div><div class="role">UX Manager → Sr. Manager, Omnitracs</div><div class="meta">Founded UX Research · 'Logic Blocks' design system</div></div>
+      <div class="tl-row"><div class="when">2014 to 2016</div><div class="role">Lead UX Designer, Citi</div><div class="meta">Bank-wide design system · first Apple Watch app</div></div>
+      <div class="tl-row"><div class="when">Earlier</div><div class="role">Earlier: brand &amp; creative direction</div><div class="meta">Agencies including The Richards Group</div></div>
     </div>
   </div>
 </section>
 
 <!-- CUBBY CALLOUT -->
-<section class="abx-sec alt">
-  <div class="abx-callout">
+<section id="cubby" class="abx-sec alt">
+  <div class="abx-callout xh"><div class="p-img" role="img" aria-label="Cubby, the app Aneil designed and shipped"></div>
     <div class="txt">
-      <span class="abx-eyebrow">I still ship</span>
+      <span class="abx-eyebrow p-num">I still ship</span>
       <h2>Cubby: concept to App Store, solo</h2>
       <p>I designed and shipped Cubby, a caregiver-curated, accessibility-first iOS app for teens and adults with autism and IDD, solo and end to end on an AI-assisted stack. Proof that an AI-fluent design leader can still take something from concept to a working product.</p>
       <div class="cta-row"><a class="p" href="cubby.html">See the Cubby case study →</a><a class="appstore" href="https://apps.apple.com/us/app/cubby-curated-video/id6762105730" target="_blank" rel="noopener"><svg viewBox="0 0 384 512" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>Download on the App Store</a></div>
@@ -194,9 +197,9 @@
 </section>
 
 <!-- OUTSIDE THE WORK -->
-<section class="abx-sec">
+<section id="outside" class="abx-sec">
   <div class="abx-wrap">
-    <span class="abx-eyebrow">Personal</span>
+    <span class="abx-eyebrow p-num">Personal</span>
     <h2 class="abx-h2">Outside the work</h2>
     <p class="abx-lead">I came up as a visual person and I never left it. I'm a working artist, and I believe people should see what they want in a piece. An artist shouldn't dictate how it's interpreted. I'm a tinkerer by nature; I build things to understand them. My taste comes from outside the screen too: architecture, industrial design, and fashion are constant inputs. And I give a lot of it back: portfolio reviews, mentorship, and career coaching. At home, the smallest member of the family is very much the boss.</p>
     <div class="abx-photos">
@@ -208,20 +211,20 @@
 </section>
 
 <!-- CREDENTIALS -->
-<section class="abx-sec alt">
+<section id="credentials" class="abx-sec alt light">
   <div class="abx-wrap">
-    <span class="abx-eyebrow">Credentials</span>
+    <span class="abx-eyebrow p-num">Credentials</span>
     <h2 class="abx-h2">Education &amp; training</h2>
     <div class="abx-creds">
-      <div class="cred"><h3>Education</h3><ul>
+      <div class="cred xh"><h3>Education</h3><ul>
         <li>BFA, Visual Communications<span>Minor, Art History · Southern Illinois University</span></li>
       </ul></div>
-      <div class="cred"><h3>Certifications</h3><ul>
+      <div class="cred xh"><h3>Certifications</h3><ul>
         <li>IDEO U, Design Thinking</li>
         <li>Certified Agile Leadership (CAL-I)<span>Scrum Alliance</span></li>
         <li>Red Hat, Open Innovation Labs</li>
       </ul></div>
-      <div class="cred"><h3>Community</h3><ul>
+      <div class="cred xh"><h3>Community</h3><ul>
         <li>ADPList Mentor</li>
         <li>AIGA DFW<span>Former board member</span></li>
         <li>Actively mentoring<span>Portfolio reviews &amp; career coaching</span></li>
@@ -231,10 +234,10 @@
 </section>
 
 <!-- CTA -->
-<section class="abx-cta">
+<section class="abx-cta"><div class="p-cta-in">
   <h2>Let's build something</h2>
   <a href="https://cal.com/aneil-razvi" target="_blank">Book a call →</a>
-</section>
+</div></section>
 
 <footer class="v3-footer">
   <div class="v3f-top">

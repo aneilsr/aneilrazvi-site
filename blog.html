@@ -31,6 +31,7 @@
 <link rel="stylesheet" href="/site.css">
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="/assets/v3/v3.css" />
+<link rel="stylesheet" href="/assets/v3/pages.css" />
 <script defer src="/assets/analytics.js"></script>
 <style>
   :root{--wx-line:rgba(255,255,255,.12);--wx-soft:rgba(255,255,255,.6);--wx-ink:#fff}
@@ -188,7 +189,7 @@
   @media(max-width:620px){.bx-item a{grid-template-columns:1fr;gap:.8rem}.bx-hero{padding-top:96px}}
 </style>
 </head>
-<body>
+<body class="v3p v3p-blog">
 <nav class="site-nav" id="nav"><a href="/index.html" class="nav-brand"><img class="nav-mark" src="/assets/brand/a-mark-light-tile.svg" alt="" width="30" height="30">Aneil <b>Razvi</b></a>
 <ul class="nav-links">
 <li><a href="/index.html">Home</a></li>
@@ -201,13 +202,13 @@
 </ul>
 <a href="/contact.html" class="nav-cta">Let's Talk</a><button class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button></nav>
 <main>
-<header class="bx-hero"><div class="wx-wrap">
-  <div class="eyebrow">Writing</div>
+<header class="bx-hero"><div class="p-wm" aria-hidden="true">Writing</div><div class="wx-wrap">
+  <div class="eyebrow">Writing · Building in the Open</div>
   <h1>Building <em>in the open</em></h1>
   <p>Designing and building products with AI in the loop: the decisions, the trade-offs, and what actually ships. Most pieces run on LinkedIn first, where the comments are. Use a feed reader like Feedly? <a href="/feed.xml" style="color:var(--teal);text-decoration:none" title="RSS: a feed that sends new posts to your reader app">Follow by RSS</a>.</p>
-</div></header>
+<div class="p-meta"><span><b>12</b> posts</span><span>New every Monday</span><span>On LinkedIn first</span></div></div></header>
 <section class="wx-wrap" aria-label="Latest">
-  <a class="bx-feature" href="/blog/build-something-while-you-dont-need-it.html">
+  <a class="bx-feature xh" href="/blog/build-something-while-you-dont-need-it.html">
     <div>
       <div class="wx-chips"><span class="wx-chip solid">Latest</span><span class="wx-chip teal">Podcast</span><span class="wx-chip">Ramblings of a Designer, ep. 177</span></div>
       <p class="wx-date">Oct 16, 2026 · 6 min read</p>
