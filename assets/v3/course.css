@@ -157,3 +157,27 @@ html .rsv-done h3{font:800 2.2rem/1 var(--cond);text-transform:uppercase;letter-
 .marker{box-shadow:2px 2px 0 rgba(0,0,0,.35)}
 /* timeline bars: dark text on the light path colors, crisp ends */
 .bar.paper,.bar.build,.bar.self{color:var(--on-path)!important;border-radius:6px!important}
+
+/* the docked page menu uses the course color */
+html:root{--pj-accent:var(--ca)}
+
+/* ---------- course page menus (How it works, FAQ, Teams, If I Had AI Then):
+   the pill chips become the same page menu bar as the rest of the site, numbered, in the course color,
+   sitting on the bottom edge of the hero band. They dock on scroll like everywhere else (pagenav.js). */
+.subhero:has(ul.jump){padding-bottom:0!important}
+ul.jump{position:relative;list-style:none;margin:2.6rem 0 0!important;padding:0!important;display:flex!important;flex-wrap:nowrap!important;gap:0!important;
+  overflow-x:auto;overflow-y:hidden;scrollbar-width:none;counter-reset:pj}
+ul.jump::-webkit-scrollbar{display:none}
+.subhero:has(ul.jump){position:relative;isolation:isolate;overflow:hidden}
+.subhero:has(ul.jump) .wrap{position:relative}
+ul.jump li{counter-increment:pj;flex:none}
+ul.jump a{display:flex!important;align-items:center;gap:10px;height:52px;padding:0 18px 0 0!important;margin-right:18px;background:none!important;border:0!important;border-right:1px solid rgba(255,255,255,.1)!important;
+  border-radius:0!important;font:500 11px/1 var(--mono)!important;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.62)!important;white-space:nowrap}
+ul.jump li:last-child a{border-right:0!important;margin-right:0}
+ul.jump a::before{content:counter(pj,decimal-leading-zero);color:var(--ca)}
+ul.jump a .num{display:none!important}
+ul.jump a:hover{color:#fff!important}
+@media (max-width:760px){ul.jump{margin-top:2rem!important}ul.jump a{font-size:10px!important;letter-spacing:.12em;height:48px;padding:0 14px 0 0!important;margin-right:14px}.subhero:has(ul.jump)::after{height:48px}}
+/* the band behind the course page menu runs edge to edge (the menu itself scrolls sideways on phones, so the band lives on the hero) */
+.subhero:has(ul.jump)::after{content:"";position:absolute;left:0;right:0;bottom:0;height:52px;z-index:0;pointer-events:none;background:rgba(0,0,0,.28);border-top:1px solid rgba(255,255,255,.1)}
+.subhero:has(ul.jump) .wrap{z-index:1}

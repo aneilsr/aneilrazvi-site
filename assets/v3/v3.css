@@ -160,11 +160,11 @@ html body .pf-feat-img::before{content:"";position:absolute;inset:0;background-i
 .pj-dock a{flex:none;display:flex;align-items:center;padding:0 18px 0 0;margin-right:18px;font:500 11px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;
   color:rgba(255,255,255,.62);text-decoration:none;border-right:1px solid rgba(255,255,255,.1);white-space:nowrap;position:relative}
 .pj-dock a:last-child{border-right:0;margin-right:0}
-.pj-dock a span{color:#00BCD4;margin-right:10px}
+.pj-dock a span{color:var(--pj-accent,#00BCD4);margin-right:10px}
 .pj-dock a:hover,.pj-dock a.on{color:#fff}
-.pj-dock a.on::after{content:"";position:absolute;left:0;right:18px;bottom:0;height:2px;background:#00BCD4}
+.pj-dock a.on::after{content:"";position:absolute;left:0;right:18px;bottom:0;height:2px;background:var(--pj-accent,#00BCD4)}
 .pj-dock a:last-child.on::after{right:0}
-.pj-prog{position:absolute;left:0;right:0;bottom:-1px;height:2px;background:#00BCD4;transform-origin:0 50%;transform:scaleX(0);opacity:.5}
+.pj-prog{position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--pj-accent,#00BCD4);transform-origin:0 50%;transform:scaleX(0);opacity:.5}
 html.pj nav.site-nav{transition:transform .28s ease,background .3s}
 html.pj nav.subnav{transition:transform .28s ease}
 html.pj-sub.pj-down nav.subnav{transform:translateY(calc(-100% - 1px))}

@@ -1,5 +1,5 @@
 /* Page menu that follows you (v3, Nov 2026).
-   Scrolling down past the page menu (.p-jump) docks a copy of it at the top. Scrolling up brings the
+   Scrolling down past the page menu (.p-jump, the home hero's .jump, or a course page's ul.jump) docks a copy of it at the top. Scrolling up brings the
    site menus back. Rule: at most two bars on a computer, one bar while reading on a phone.
    - Computer, no section menu: main nav + page menu (both directions).
    - Computer, with section menu (nav.subnav): down = main nav + page menu (section menu tucks away);
@@ -7,7 +7,8 @@
    - Phone: down = page menu alone at the top; up = main nav + page menu, or main nav + section menu.
    Also: current section underlined, a reading-progress line, and taps land below whatever bars show. */
 (function () {
-  var jump = document.querySelector('.p-jump');
+  // the page's own section menu: v3 pages (.p-jump), the home hero (.h-hero .jump), the course pages (ul.jump)
+  var jump = document.querySelector('.p-jump') || document.querySelector('.h-hero .jump') || document.querySelector('ul.jump');
   if (!jump) return;
   var nav = document.querySelector('nav.site-nav');
   var sub = document.querySelector('nav.subnav');
@@ -18,7 +19,13 @@
   var dock = document.createElement('nav');
   dock.className = 'pj-dock';
   dock.setAttribute('aria-label', 'On this page');
-  dock.innerHTML = '<div class="in">' + jump.querySelector('.in').innerHTML + '</div><i class="pj-prog" aria-hidden="true"></i>';
+  // rebuild the links in one format: <a href="#id"><span>01</span>Label</a>
+  var src = [].slice.call(jump.querySelectorAll('a[href^="#"]'));
+  dock.innerHTML = '<div class="in">' + src.map(function (a, i) {
+    var c = a.cloneNode(true); [].forEach.call(c.querySelectorAll('span'), function (x) { x.remove(); });
+    var n = i + 1;
+    return '<a href="' + a.getAttribute('href') + '"><span>' + (n < 10 ? '0' + n : n) + '</span>' + c.textContent.trim() + '</a>';
+  }).join('') + '</div><i class="pj-prog" aria-hidden="true"></i>';
   dock.setAttribute('aria-hidden', 'true');
   document.body.appendChild(dock);
   root.classList.add('pj');
@@ -36,6 +43,11 @@
   function dockH() { return dock.offsetHeight || 46; }
   function menuOpen() { return nav && nav.classList.contains('open'); }
 
+  function align() {
+    var first = src[0]; if (!first) return;
+    var x = Math.max(16, Math.round(first.getBoundingClientRect().left));
+    inner.style.maxWidth = 'none'; inner.style.margin = '0'; inner.style.paddingLeft = x + 'px'; inner.style.paddingRight = x + 'px';
+  }
   function state() {
     var y = window.scrollY, d = y - lastY;
     if (Math.abs(d) > 6) { dir = d > 0 ? 'down' : 'up'; lastY = y; }
@@ -72,7 +84,7 @@
     return navH() + subH();
   }
   addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(state); } }, { passive: true });
-  addEventListener('resize', state);
+  addEventListener('resize', function () { align(); state(); });
 
   // taps land just below the bars that will be showing when the scroll ends
   function go(e) {
@@ -87,5 +99,6 @@
   }
   dock.addEventListener('click', go);
   jump.addEventListener('click', go);
+  align();
   state();
 })();
