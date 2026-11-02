@@ -149,3 +149,26 @@ html body .pf-feat-img::before{content:"";position:absolute;inset:0;background-i
 @media (max-width:1000px){html body .bx-feature .p-zoom{order:-1}}
 @media (prefers-reduced-motion:reduce){
   html body .abx-portrait img,html body .csx-img img,html body .hero .photo img,html body .p-zoom img,html body .pf-feat-img::before{animation:none}}
+
+/* ---------- page menu that follows you (assets/v3/pagenav.js) ----------
+   at most two bars on a computer, one bar while reading on a phone */
+.pj-dock{position:fixed;left:0;right:0;top:68px;z-index:990;height:48px;background:rgba(7,12,18,.95);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(255,255,255,.1);transform:translateY(-110%);opacity:0;visibility:hidden;transition:transform .28s ease,opacity .2s,visibility .28s,top .28s ease}
+.pj-dock.on{transform:none;opacity:1;visibility:visible}
+.pj-dock .in{max-width:1200px;margin:0 auto;padding:0 6%;display:flex;height:100%;overflow-x:auto;scrollbar-width:none}
+.pj-dock .in::-webkit-scrollbar{display:none}
+.pj-dock a{flex:none;display:flex;align-items:center;padding:0 18px 0 0;margin-right:18px;font:500 11px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;
+  color:rgba(255,255,255,.62);text-decoration:none;border-right:1px solid rgba(255,255,255,.1);white-space:nowrap;position:relative}
+.pj-dock a:last-child{border-right:0;margin-right:0}
+.pj-dock a span{color:#00BCD4;margin-right:10px}
+.pj-dock a:hover,.pj-dock a.on{color:#fff}
+.pj-dock a.on::after{content:"";position:absolute;left:0;right:18px;bottom:0;height:2px;background:#00BCD4}
+.pj-dock a:last-child.on::after{right:0}
+.pj-prog{position:absolute;left:0;right:0;bottom:-1px;height:2px;background:#00BCD4;transform-origin:0 50%;transform:scaleX(0);opacity:.5}
+html.pj nav.site-nav{transition:transform .28s ease,background .3s}
+html.pj nav.subnav{transition:transform .28s ease}
+html.pj-sub.pj-down nav.subnav{transform:translateY(calc(-100% - 1px))}
+html.pj-phone.pj-down nav.site-nav{transform:translateY(-100%)}
+html.pj-phone.pj-down nav.subnav{transform:translateY(calc(-100% - 70px))}
+@media (max-width:900px){.pj-dock{height:44px}.pj-dock a{font-size:10px;letter-spacing:.12em;padding-right:14px;margin-right:14px}.pj-dock a.on::after{right:14px}}
+@media (prefers-reduced-motion:reduce){.pj-dock,html.pj nav.site-nav,html.pj nav.subnav{transition:none}}
