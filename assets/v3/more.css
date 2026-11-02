@@ -489,3 +489,12 @@
 @media (max-width:900px){.v3m-wwm .ph-img{left:0;-webkit-mask-image:none;mask-image:none;background-position:80% 30%}}
 @media (max-width:640px){.v3m-wwm .ph-shade{background:linear-gradient(0deg,rgba(7,12,18,.97) 0%,rgba(7,12,18,.9) 60%,rgba(7,12,18,.78) 100%)}}
 .v3m-wwm .ph-img{left:46%}@media (max-width:900px){.v3m-wwm .ph-img{left:0}}
+/* Workshops: photo mirrored (Aneil, 2 Nov), so the room and people sit on the right, clear of the text */
+.v3m-ws .ph-img{transform:scaleX(-1) scale(1.04);animation-name:phdriftflip}
+@keyframes phdriftflip{from{transform:scaleX(-1) scale(1.04) translateX(0)}to{transform:scaleX(-1) scale(1.09) translateX(-1.2%)}}
+@media (prefers-reduced-motion:reduce){.v3m-ws .ph-img{animation:none;transform:scaleX(-1) scale(1.04)}}
+/* mirrored photo zoomed a touch so the printed signs (now backwards) fall outside the frame.
+   The layer is made wider than the band (right:-28%) and anchored so the sign side is clipped;
+   cover then guarantees no gaps at any width or height. */
+.v3m-ws .ph-img{right:-28%;background-size:cover;background-position:100% 45%}
+@media (max-width:900px){.v3m-ws .ph-img{right:-40%;background-position:100% 40%}}
