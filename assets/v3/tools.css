@@ -12,8 +12,6 @@ body::before{content:"";position:absolute;left:0;right:0;top:0;height:780px;z-in
   background-size:88px 88px;background-position:-1px -1px;
   -webkit-mask-image:linear-gradient(180deg,#000 35%,transparent);mask-image:linear-gradient(180deg,#000 35%,transparent)}
 
-/* subnav pills: same mono labels as the rest of the site */
-nav.subnav a{font:500 11px/1 var(--mono)!important;letter-spacing:.12em;text-transform:uppercase;border-radius:4px!important;padding:10px 14px!important}
 
 /* eyebrows: dot + mono, replaces the teal tick */
 .tick{display:none!important}
@@ -31,6 +29,9 @@ nav.subnav a{font:500 11px/1 var(--mono)!important;letter-spacing:.12em;text-tra
 
 /* flat cards with a hairline, crisp corners */
 .q,.gate,.lv,.fact,.card,.grab,.tf,.srcbox,.res .card{box-shadow:none!important;border:1px solid var(--line)}
+/* Sources box: one padded card on both tools (maturity's was a bare divider) */
+.srcbox{background:var(--white,#fff);padding:1rem 1.3rem!important}
+.srcbox summary{padding:0}
 .q,.gate,.lv,.fact,.card,.grab,.tf,.srcbox,.sqr,.cta,.plain,.nonum,.deftip,.sugg{border-radius:6px!important}
 .opt,.chip,.field input,.searchbox input,.grab input,.ibtn,.sugg b{border-radius:4px!important}
 .btn,.b,.tf button,.grab button,.cta a.btn,.more{border-radius:4px!important;box-shadow:none!important}
@@ -54,8 +55,15 @@ nav.subnav a{font:500 11px/1 var(--mono)!important;letter-spacing:.12em;text-tra
 @media print{body::before{display:none}.v3-footer{display:none!important}}
 
 /* nav reads solid over the light surface */
-nav.site-nav{--rzn-bg:rgba(7,12,18,.94);--rzn-bg2:rgba(7,12,18,.97)}
+nav.site-nav{--rzn-bg:rgba(13,20,27,.98);--rzn-bg2:rgba(13,20,27,.98)}
+nav.site-nav .nav-links a{font:500 11.5px/1 var(--mono)!important;letter-spacing:.14em!important;text-transform:uppercase}
 /* the report page styles every li with a bullet; keep the shared footer clean */
 .v3-footer li{padding:0!important;margin:0!important;list-style:none!important}
 .v3-footer li::before,.v3-footer li:before{content:none!important;display:none!important}
 .v3-footer a[href]:after{content:none!important}
+
+/* the secondary nav sticks under the main nav; overflow-x:hidden on html/body would stop that */
+html,body{overflow-x:hidden}
+@supports (overflow:clip){html,body{overflow-x:clip}}
+/* quiz progress rail sits below both navs */
+.rail{top:121px!important}

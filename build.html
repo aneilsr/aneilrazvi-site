@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en"><head>
+<script>/* course color theme preview: ?theme=b or ?theme=c, remembered for the visit; ?theme=a resets */(function(){try{var k="ct",q=new URLSearchParams(location.search).get("theme");if(q){q=q.toLowerCase();if(q==="a")sessionStorage.removeItem(k);else sessionStorage.setItem(k,q);}var t=q||sessionStorage.getItem(k);if(t&&t!=="a")document.documentElement.setAttribute("data-ct",t);}catch(e){}})();</script>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <link rel="icon" href="/favicon.ico" sizes="48x48">
@@ -48,16 +49,18 @@
   <button class="nav-hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
 </nav>
 
-<header class="band" id="top">
-  <div class="wrap hero">
-    <nav class="tabs" aria-label="Course pages">
+<nav class="subnav course-sub" aria-label="Course pages"><div class="subnav-in" data-label="Course">
       <a href="/build.html" aria-current="page">Overview</a>
       <a href="/build/how-it-works">How it works</a>
       <a href="/build/faq">FAQ</a>
       <a href="/build/teams">Teams</a>
       <a href="/build/portfolio">If I Had AI Then</a>
       <a class="go" href="#reserve" data-open="paper-day">Reserve a seat</a>
-    </nav>
+</div></nav>
+<script>/* keep the current tab in view on narrow screens */(function(){var a=document.querySelector('nav.subnav a[aria-current="page"]');if(!a)return;var c=a.parentNode,d=a.getBoundingClientRect().right-c.getBoundingClientRect().right;if(d>0)c.scrollLeft+=d+24;})();</script>
+
+<header class="band" id="top">
+  <div class="wrap hero">
     <div class="grid">
       <div>
         <p class="eyebrow">For designers and creatives &middot; Dallas-Fort Worth</p>
@@ -405,4 +408,5 @@
   }
 })();
 </script>
+<script>/* the whole course card opens its details, not just the words */(function(){[].forEach.call(document.querySelectorAll(".path"),function(c){var m=c.querySelector(".more");if(!m)return;c.addEventListener("click",function(e){if(e.target.closest("button,a,input,label,select,textarea,.slot,.toggle"))return;m.click();});});})();</script>
 </body></html>

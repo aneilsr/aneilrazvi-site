@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en"><head>
+<script>/* course color theme preview: ?theme=b or ?theme=c, remembered for the visit; ?theme=a resets */(function(){try{var k="ct",q=new URLSearchParams(location.search).get("theme");if(q){q=q.toLowerCase();if(q==="a")sessionStorage.removeItem(k);else sessionStorage.setItem(k,q);}var t=q||sessionStorage.getItem(k);if(t&&t!=="a")document.documentElement.setAttribute("data-ct",t);}catch(e){}})();</script>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <link rel="icon" href="/favicon.ico" sizes="48x48">
@@ -49,16 +50,18 @@
   <button class="nav-hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
 </nav>
 
-<header class="band subhero" id="top">
-  <div class="wrap">
-    <nav class="tabs" aria-label="Course pages">
+<nav class="subnav course-sub" aria-label="Course pages"><div class="subnav-in" data-label="Course">
       <a href="/build.html">Overview</a>
       <a href="/build/how-it-works">How it works</a>
       <a href="/build/faq" aria-current="page">FAQ</a>
       <a href="/build/teams">Teams</a>
       <a href="/build/portfolio">If I Had AI Then</a>
       <a class="go" href="/build.html#reserve">Reserve a seat</a>
-    </nav>
+</div></nav>
+<script>/* keep the current tab in view on narrow screens */(function(){var a=document.querySelector('nav.subnav a[aria-current="page"]');if(!a)return;var c=a.parentNode,d=a.getBoundingClientRect().right-c.getBoundingClientRect().right;if(d>0)c.scrollLeft+=d+24;})();</script>
+
+<header class="band subhero" id="top">
+  <div class="wrap">
     <p class="eyebrow">AI, Built On Paper &middot; questions</p>
     <h1>Frequently asked questions</h1>
     <p class="lead">Everything people ask before they join, grouped by topic. Don't see yours? <a href="https://cal.com/aneil-razvi/intro" target="_blank" rel="noopener">Ask me in a 15-minute call</a>.</p>

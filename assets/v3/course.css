@@ -1,70 +1,116 @@
 /* ==========================================================================
    v3 theme for the course pages (build.html and build/*).
-   Loaded after build-v2.css, reserve.css and v3.css. Remaps the paper-blue
-   tokens to the site's dark navy + teal, forces the dark scheme, and adds the
-   v3 details (mono labels, condensed titles, blueprint grid, crisp corners).
+   Loaded last, after build-v2.css, reserve.css and v3.css.
+   The course has its own color theme so it reads as its own thing inside the site.
+   Theme A is the default. B and C can be previewed with ?theme=b or ?theme=c
+   (remembered for the visit). The site chrome (main nav, footer) stays teal.
    ========================================================================== */
+
+/* ---------- theme A: Graphite and Marigold (pencil and sticky note) ---------- */
 html:root{
-  --page:#0F1923; --surface:#13212E; --callout:rgba(255,255,255,.06); --heading:#FFFFFF; --body:#E9F2F7; --muted:rgba(226,240,247,.72);
-  --accent:#00BCD4; --on-accent:#062A30; --line:rgba(255,255,255,.11); --line-strong:rgba(255,255,255,.34);
-  --inv:#0B1622; --inv-raised:#13212E; --inv-text:#FFFFFF; --inv-accent:#00BCD4; --inv-muted:rgba(226,240,247,.8); --grid:rgba(255,255,255,.07);
-  --paper:#00838F; --build:#1E3A5F; --self:#3F4A9E; --paper-tint:#10303A; --build-tint:#14263B; --self-tint:#1C2244;
-  --on-path:#FFFFFF; --on-path-soft:rgba(255,255,255,.12); --on-path-line:rgba(255,255,255,.28);
-  --ink:#0A1A33; --nav-bg:rgba(7,12,18,.88); --nav-text:#FFFFFF; --nav-muted:rgba(226,240,247,.72); --nav-line:rgba(255,255,255,.09);
+  --page:#141518; --surface:#1D1F23; --callout:rgba(255,255,255,.06); --heading:#FBF7EE; --body:#ECE7DC; --muted:rgba(236,231,220,.72);
+  --ca:#F2B632; --ca-rgb:242,182,50; --ca-text:#F2B632; --on-ca:#1A1407;
+  --accent:var(--ca-text); --on-accent:var(--on-ca); --line:rgba(255,255,255,.11); --line-strong:rgba(255,255,255,.32);
+  --inv:#0F1012; --inv-raised:#1D1F23; --inv-text:#FBF7EE; --inv-accent:#F2B632; --inv-muted:rgba(236,231,220,.8); --grid:rgba(255,255,255,.06);
+  --paper:#F2B632; --build:#9CC3A5; --self:#E9936B;
+  --paper-tint:#2A2416; --build-tint:#1C2A22; --self-tint:#2D201A;
+  --on-path:#17140D; --on-path-soft:rgba(0,0,0,.08); --on-path-line:rgba(0,0,0,.2);
+  --highlight:#F2B632; --marker:#F2B632; --marker-ink:#17140D; --ink:#17140D;
+  --nav-bg:rgba(7,12,18,.88); --nav-text:#FFFFFF; --nav-muted:rgba(226,240,247,.72); --nav-line:rgba(255,255,255,.09);
   --shadow:0 18px 40px rgba(0,0,0,.35); --r:6px;
+  --teal:#00BCD4; --navy:#0F1923;
   color-scheme:dark;
+}
+/* ---------- theme B: Forest and Lime ---------- */
+html[data-ct="b"]:root{
+  --page:#0F1D19; --surface:#152822; --heading:#F1F6EF; --body:#E3ECE4; --muted:rgba(227,236,228,.72);
+  --ca:#C6F062; --ca-rgb:198,240,98; --ca-text:#C6F062; --on-ca:#13200A;
+  --inv:#0B1714; --inv-raised:#152822; --inv-text:#F1F6EF; --inv-accent:#C6F062; --inv-muted:rgba(227,236,228,.8);
+  --paper:#C6F062; --build:#86CDB0; --self:#E8D7A6;
+  --paper-tint:#1F2D14; --build-tint:#15302A; --self-tint:#2B2919;
+  --on-path:#0F1A0A; --highlight:#C6F062; --marker:#C6F062; --marker-ink:#0F1A0A; --ink:#0F1A0A;
+}
+/* ---------- theme C: Paper and Tomato (light pages, dark bands) ---------- */
+html[data-ct="c"]:root{
+  --page:#F4EFE6; --surface:#FFFFFF; --callout:rgba(224,82,43,.07); --heading:#1B1C1F; --body:#2B2D31; --muted:#5F6168;
+  --ca:#E0522B; --ca-rgb:224,82,43; --ca-text:#C8441F; --on-ca:#FFFFFF;
+  --line:rgba(27,28,31,.12); --line-strong:rgba(27,28,31,.3);
+  --inv:#1C1D20; --inv-raised:#2A2B30; --inv-text:#FBF7EE; --inv-accent:#FF8A65; --inv-muted:rgba(251,247,238,.8);
+  --paper:#E0522B; --build:#2F6B5E; --self:#33415C;
+  --paper-tint:#FBE4DA; --build-tint:#DCEBE6; --self-tint:#DFE4EE;
+  --on-path:#FFFFFF; --on-path-soft:rgba(255,255,255,.16); --on-path-line:rgba(255,255,255,.32);
+  --highlight:#FFB703; --marker:#FFB703; --marker-ink:#1B1C1F; --ink:#1B1C1F;
+  --shadow:0 14px 34px rgba(27,28,31,.10);
+  color-scheme:light;
 }
 html body{background:var(--page);color:var(--body)}
 
-/* nav: identical to the rest of the site */
+/* ---------- main nav: identical to the rest of the site ---------- */
 html nav.site-nav.rz-auto,html nav.site-nav.rz-light{--rzn-bg:rgba(15,25,35,.86);--rzn-bg2:rgba(7,12,18,.92);--rzn-open:rgba(7,12,18,.98);--rzn-text:#fff;--rzn-link:rgba(255,255,255,.8);--rzn-accent:#00BCD4;--rzn-line:rgba(255,255,255,.07);--rzn-div:rgba(255,255,255,.09);--rzn-shadow:none}
 html nav.site-nav .nav-links a{font:500 11.5px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase}
 html nav.site-nav .nav-cta{border-radius:4px}
 
-/* labels */
-.eyebrow,.tabs a,.jump a,.room .kind,.room .meta,.room .seats,.chip,.legend,.stg .k,.stepcard .sn,.path .price small,.opt em,.rooms .head .note,.sticky .t{font-family:var(--mono)!important;letter-spacing:.12em}
-.eyebrow{font-weight:500!important;display:inline-flex;align-items:center;gap:12px}
-.eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(0,188,212,.18);flex:none}
-.tabs a,.jump a{text-transform:uppercase;font-size:11px!important}
+/* ---------- secondary nav: same component as Work With Me, in the course color ---------- */
+nav.subnav.course-sub{--sub-accent:var(--ca);--sub-go:var(--ca)}
+nav.subnav.course-sub a.go{color:var(--on-ca)}
+/* the band now clears the fixed nav, so the hero no longer needs to */
+nav.subnav ~ header.band .hero,nav.subnav ~ header.band.subhero{padding-top:clamp(40px,4vw,64px)}
 
-/* condensed titles and numbers */
+/* ---------- labels ---------- */
+.eyebrow,.jump a,.room .kind,.room .meta,.room .seats,.chip,.legend,.stg .k,.stepcard .sn,.path .price small,.opt em,.rooms .head .note,.sticky .t,.path .steps,.toggle button{font-family:var(--mono)!important;letter-spacing:.1em}
+.eyebrow{font-weight:500!important;display:inline-flex;align-items:center;gap:12px;color:var(--ca-text)}
+.band .eyebrow{color:var(--inv-accent)}
+.eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--ca);box-shadow:0 0 0 4px rgba(var(--ca-rgb),.2);flex:none}
+.jump a{text-transform:uppercase;font-size:11px!important}
+.path .steps,.toggle button{font-weight:500!important;font-size:10.5px!important;text-transform:uppercase}
+
+/* ---------- condensed titles and numbers ---------- */
 .path h3,.stepcard h3,.room .day,.opt b,.guide h2 .cond,.gantt .lab b{font-family:var(--cond)!important;font-weight:800!important;text-transform:uppercase;letter-spacing:.01em;line-height:1}
-.path h3{font-size:2rem}
+.path h3{font-size:2.1rem}
 .stepcard h3{font-size:1.45rem}
 .room .day{font-size:2.6rem}
 .path .price,.num,.stepcard .c{font-family:var(--cond)!important;font-weight:800!important}
+.path .price{font-size:1.35rem;letter-spacing:.01em}
 
-/* blueprint band and section grids */
-.band,header.band,.subhero{background-color:var(--inv)!important;background-image:linear-gradient(rgba(255,255,255,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.055) 1px,transparent 1px)!important;background-size:88px 88px!important}
+/* ---------- blueprint band and section grids ---------- */
+.band,header.band,.subhero{background-color:var(--inv)!important;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px)!important;background-size:88px 88px!important}
 .final{background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:88px 88px}
 
-/* crisper corners everywhere */
-.btn,.room,.path,.panel,.opt,.stepcard,.box,.photos img,.hero .photo,.hero .photo img,.guide .photo img,.qs details,.toggle,.toggle button,.chip,.sticky,.ideamap .pbox{border-radius:6px!important}
-.btn{border-radius:4px!important}
+/* ---------- crisper corners everywhere ---------- */
+.btn,.room,.path,.panel,.opt,.stepcard,.box,.photos img,.hero .photo,.hero .photo img,.guide .photo img,.qs details,.toggle,.chip,.sticky,.ideamap .pbox{border-radius:6px!important}
+.btn,.toggle button{border-radius:4px!important}
 
-/* corner brackets on the cards people click */
-.room,.opt,.stepcard,.box{position:relative}
-.room::after,.opt::after,.stepcard::after,.box::after{
-  --c:rgba(0,188,212,.55);content:"";position:absolute;inset:0;pointer-events:none;z-index:2;
+/* ---------- corner brackets on the cards people click ---------- */
+.room,.opt,.stepcard,.box,.tk-card{position:relative}
+.room::after,.opt::after,.stepcard::after,.box::after,.tk-card::after{
+  --c:rgba(var(--ca-rgb),.6);content:"";position:absolute;inset:0;pointer-events:none;z-index:2;
   background-image:linear-gradient(var(--c),var(--c)),linear-gradient(var(--c),var(--c)),linear-gradient(var(--c),var(--c)),linear-gradient(var(--c),var(--c)),linear-gradient(var(--c),var(--c)),linear-gradient(var(--c),var(--c)),linear-gradient(var(--c),var(--c)),linear-gradient(var(--c),var(--c));
   background-repeat:no-repeat;background-size:12px 1.5px,1.5px 12px,12px 1.5px,1.5px 12px,12px 1.5px,1.5px 12px,12px 1.5px,1.5px 12px;
-  background-position:0 0,0 0,100% 0,100% 0,0 100%,0 100%,100% 100%,100% 100%;opacity:.75}
+  background-position:0 0,0 0,100% 0,100% 0,0 100%,0 100%,100% 100%,100% 100%;opacity:.8}
 
-/* buttons read like the rest of the site */
-.btn.solid,.btn.light{background:var(--accent)!important;color:#062A30!important;border-color:var(--accent)!important}
-.btn.ghost,.btn.outline{color:#fff!important;border-color:rgba(255,255,255,.45)!important;background:transparent!important}
+/* ---------- buttons ---------- */
+.btn.solid,.btn.light{background:var(--ca)!important;color:var(--on-ca)!important;border-color:var(--ca)!important}
+.band .btn.ghost,.band .btn.outline,.final .btn.ghost,.final .btn.outline{color:var(--inv-text)!important;border-color:rgba(255,255,255,.45)!important;background:transparent!important}
 
-/* reserve panel: dark, teal, matching */
-html .rsv-drawer,html .rsv-scrim{
-  --r-surface:#13212E; --r-page:#0F1923; --r-callout:rgba(255,255,255,.06); --r-heading:#FFFFFF; --r-body:#E9F2F7; --r-muted:rgba(226,240,247,.72);
-  --r-accent:#00BCD4; --r-pick:#00BCD4; --r-line:rgba(255,255,255,.12); --r-line-strong:rgba(255,255,255,.34);
-  --r-ok:#7EE2A8; --r-err:#FF9A8B; --r-btn-bg:#00BCD4; --r-btn-fg:#062A30; --r-check:#062A30}
-html .rsv-eyebrow{font-family:var(--mono)}
+/* ---------- "Pick how you want to build": the whole card opens it, and the toggle is a real button ---------- */
+.path{cursor:pointer;border-width:2px!important;transition:transform .2s,box-shadow .2s,border-color .2s}
+.path.paper{--pb:var(--paper)} .path.build{--pb:var(--build)} .path.self{--pb:var(--self)}
+.path:hover{transform:translateY(-3px);box-shadow:0 18px 38px rgba(0,0,0,.28)}
+.path.open{border-color:var(--heading)!important}
+.path .slot{cursor:auto}
+.path h3,.path > p,.path .price,.path .foot{color:var(--on-path)!important}
+.path > p{opacity:.88}
+.toggle{background:var(--on-path-soft)!important;border-color:var(--on-path-line)!important;padding:3px!important}
+.toggle button{color:var(--on-path)!important;padding:8px 10px!important}
+.toggle button[aria-pressed="true"]{background:var(--on-path)!important;color:var(--pb)!important}
+.path .more{background:var(--on-path)!important;color:var(--pb)!important;border:1.5px solid var(--on-path)!important;border-radius:4px;
+  padding:11px 14px!important;font:500 11px/1 var(--mono)!important;letter-spacing:.12em;text-transform:uppercase;gap:8px!important}
+.path .more:hover{filter:brightness(1.1)}
+.path.open .more{background:transparent!important;color:var(--on-path)!important}
+.path .more:focus-visible{outline:3px solid var(--heading);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){.path:hover{transform:none}}
 
-/* tokens v3.css and the shared footer expect (course pages do not load site.css) */
-html:root{--teal:#00BCD4;--navy:#0F1923}
-
-/* Teams and Portfolio kit cards */
+/* ---------- Teams and Portfolio kit cards ---------- */
 .tk-card .n,.tk-copy{font-family:var(--mono)!important;font-weight:500!important;letter-spacing:.12em}
 .tk-copy{text-transform:uppercase;font-size:.72rem!important;border-radius:4px!important}
 .tk-card h3,.tk-mail h3{font-family:var(--cond)!important;font-weight:800!important;text-transform:uppercase;letter-spacing:.01em;line-height:1.02}
@@ -72,12 +118,58 @@ html:root{--teal:#00BCD4;--navy:#0F1923}
 .tk-mail h3{font-size:1.45rem}
 .tk-card .price{font-family:var(--cond)!important;font-weight:800!important}
 .tk-card,.tk-mail,.tk-leave,.tk-ref,.tk-mail pre,.tk-why .honest{border-radius:6px!important}
-.tk-card{position:relative}
-.tk-card::after{--c:rgba(0,188,212,.55);content:"";position:absolute;inset:0;pointer-events:none;z-index:2;
-  background-image:linear-gradient(var(--c),var(--c)),linear-gradient(var(--c),var(--c)),linear-gradient(var(--c),var(--c)),linear-gradient(var(--c),var(--c)),linear-gradient(var(--c),var(--c)),linear-gradient(var(--c),var(--c)),linear-gradient(var(--c),var(--c)),linear-gradient(var(--c),var(--c));
-  background-repeat:no-repeat;background-size:12px 1.5px,1.5px 12px,12px 1.5px,1.5px 12px,12px 1.5px,1.5px 12px,12px 1.5px,1.5px 12px;
-  background-position:0 0,0 0,100% 0,100% 0,0 100%,0 100%,100% 100%,100% 100%;opacity:.75}
 
-/* numbered markers read on dark */
-.outs .ico{background:rgba(0,188,212,.1)!important;border:1.5px solid rgba(0,188,212,.6)!important;color:var(--accent)!important;border-radius:4px!important;font:800 1.2rem/1 var(--cond)!important}
-.guide .photo img,.photos img{border-radius:6px!important}
+/* numbered markers */
+.outs .ico{background:rgba(var(--ca-rgb),.12)!important;border:1.5px solid rgba(var(--ca-rgb),.65)!important;color:var(--ca-text)!important;border-radius:4px!important;font:800 1.2rem/1 var(--cond)!important}
+
+/* ==========================================================================
+   Reserve panel, redesigned: crisp cards with a path-colored edge, mono labels,
+   condensed names and prices, square controls. Colors come from the course theme.
+   ========================================================================== */
+html .rsv-drawer,html .rsv-scrim{
+  --r-surface:var(--surface); --r-page:var(--page); --r-callout:rgba(var(--ca-rgb),.08); --r-heading:var(--heading); --r-body:var(--body); --r-muted:var(--muted);
+  --r-accent:var(--ca-text); --r-pick:var(--ca); --r-line:var(--line); --r-line-strong:var(--line-strong);
+  --r-highlight:var(--ca); --r-ok:#7EE2A8; --r-err:#FF9A8B; --r-btn-bg:var(--ca); --r-btn-fg:var(--on-ca); --r-check:var(--on-ca)}
+html[data-ct="c"] .rsv-drawer{--r-ok:#1F7A4D;--r-err:#B3261E}
+html .rsv-scrim{background:rgba(5,6,8,.62)}
+html .rsv-drawer{border-left:1px solid var(--line);box-shadow:-24px 0 60px rgba(0,0,0,.4)}
+html .rsv-dh{padding:18px 24px}
+html .rsv-eyebrow{font:500 10.5px/1 var(--mono);letter-spacing:.18em;display:inline-flex;align-items:center;gap:10px}
+html .rsv-eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--ca);box-shadow:0 0 0 4px rgba(var(--ca-rgb),.2)}
+html .rsv-x{border-radius:4px;border:1px solid var(--line)}
+html .rsv-db{padding:22px 24px 24px}
+html .rsv-title{margin-bottom:18px}
+html .rsv-dlab{font:500 10.5px/1.2 var(--mono);letter-spacing:.16em;color:var(--muted);margin-bottom:10px}
+html .rsv-picks{gap:8px}
+html .rsv-pick{border:1px solid var(--line-strong);border-radius:6px;position:relative;overflow:hidden;background:var(--surface)}
+html .rsv-pick::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--pc,var(--ca))}
+html .rsv-pick[data-path="paper-day"]{--pc:var(--paper)} html .rsv-pick[data-path="build-cohort"]{--pc:var(--build)} html .rsv-pick[data-path="self-paced"]{--pc:var(--self)}
+html .rsv-pick.on{border-color:var(--ca);background:rgba(var(--ca-rgb),.07);box-shadow:0 0 0 1px var(--ca) inset}
+html .rsv-ph{padding:14px 16px 14px 20px;border-radius:0}
+html .rsv-chk{border-radius:4px;border-width:1.5px}
+html .rsv-nm{font:800 1.4rem/1 var(--cond);text-transform:uppercase;letter-spacing:.01em;margin-top:1px}
+html .rsv-sb{font:500 10.5px/1.5 var(--mono);letter-spacing:.06em;margin-top:4px}
+html .rsv-pr{font:800 1.45rem/1 var(--cond);letter-spacing:.01em}
+html .rsv-pr small{font:500 10px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;margin-top:3px}
+html .rsv-pb{margin:0 16px 14px 54px}
+html .rsv-meter{gap:3px}
+html .rsv-meter i{width:12px;height:6px;border-radius:1px}
+html .rsv-stepper{border-radius:6px;padding:12px 16px}
+html .rsv-ctl button{border-radius:4px;border-width:1px}
+html .rsv-lines{font-size:.88rem}
+html .rsv-ln{padding:8px 0}
+html .rsv-ln.total{font:500 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;padding-top:12px}
+html .rsv-ln.total span:last-child{font:800 2.2rem/1 var(--cond);letter-spacing:.01em;text-transform:none}
+html .rsv-df{padding:16px 24px 20px;border-top:1px solid var(--line)}
+html .rsv-input{border-radius:4px;border-width:1px;background:var(--page)}
+html .rsv-input:focus{border-color:var(--ca);outline:none;box-shadow:0 0 0 3px rgba(var(--ca-rgb),.22)}
+html .rsv-btn{border-radius:4px;font-weight:700;letter-spacing:.01em}
+html .rsv-btn:hover{filter:brightness(1.06)}
+html .rsv-done h3{font:800 2.2rem/1 var(--cond);text-transform:uppercase;letter-spacing:.01em}
+@media (max-width:760px){
+  html .rsv-drawer{border-left:0;border-top:1px solid var(--line);border-radius:12px 12px 0 0}
+  html .rsv-dh{padding:10px 18px 12px}
+  html .rsv-db{padding:16px 18px 18px}
+  html .rsv-df{padding:12px 18px calc(14px + env(safe-area-inset-bottom))}
+  html .rsv-pb{margin:0 14px 14px 20px}
+}

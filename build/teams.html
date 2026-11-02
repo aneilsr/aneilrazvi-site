@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en"><head>
+<script>/* course color theme preview: ?theme=b or ?theme=c, remembered for the visit; ?theme=a resets */(function(){try{var k="ct",q=new URLSearchParams(location.search).get("theme");if(q){q=q.toLowerCase();if(q==="a")sessionStorage.removeItem(k);else sessionStorage.setItem(k,q);}var t=q||sessionStorage.getItem(k);if(t&&t!=="a")document.documentElement.setAttribute("data-ct",t);}catch(e){}})();</script>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <link rel="icon" href="/favicon.ico" sizes="48x48">
@@ -79,16 +80,18 @@
   <button class="nav-hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
 </nav>
 
-<header class="band subhero" id="top">
-  <div class="wrap">
-    <nav class="tabs" aria-label="Course pages">
+<nav class="subnav course-sub" aria-label="Course pages"><div class="subnav-in" data-label="Course">
       <a href="/build.html">Overview</a>
       <a href="/build/how-it-works">How it works</a>
       <a href="/build/faq">FAQ</a>
       <a href="/build/teams" aria-current="page">Teams</a>
       <a href="/build/portfolio">If I Had AI Then</a>
       <a class="go" href="https://cal.com/aneil-razvi/intro" target="_blank" rel="noopener">Book 15 minutes</a>
-    </nav>
+</div></nav>
+<script>/* keep the current tab in view on narrow screens */(function(){var a=document.querySelector('nav.subnav a[aria-current="page"]');if(!a)return;var c=a.parentNode,d=a.getBoundingClientRect().right-c.getBoundingClientRect().right;if(d>0)c.scrollLeft+=d+24;})();</script>
+
+<header class="band subhero" id="top">
+  <div class="wrap">
     <p class="eyebrow">AI, Built On Paper &middot; for teams</p>
     <h1>Your designers hand AI and engineering a plan they can build.</h1>
     <p class="lead">A hands-on session for design, product and engineering teams. Everyone works from one plan, tested on paper first, so AI tools and your engineers build what the team actually decided.</p>
