@@ -309,3 +309,18 @@
 }
 @media (prefers-reduced-motion:reduce){.v3p-speaking .sp-ph{animation:none}}
 @media (max-width:640px){.v3p-speaking .sp-top .p-wm{display:none}}
+
+/* speaking hero, tightened (Aneil, 2 Nov): no tall empty band on top, and the grid covers the whole
+   photo area with its first line sitting exactly on the bottom edge of the 68px nav */
+.v3p-speaking .sp-top{min-height:0;justify-content:flex-start}
+.v3p-speaking .sp-top::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background-image:linear-gradient(rgba(255,255,255,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.055) 1px,transparent 1px);
+  background-size:88px 88px;background-position:-1px 67px;
+  -webkit-mask-image:linear-gradient(180deg,#000 72%,transparent);mask-image:linear-gradient(180deg,#000 72%,transparent)}
+.v3p-speaking .sp-top .sp-hero.p-hero-grid::before{display:none}
+.v3p-speaking .sp-top .sp-hero{padding-top:calc(68px + 4.5rem);padding-bottom:4.2rem}
+.v3p-speaking .sp-top .p-wm{top:auto;bottom:72px}
+@media (max-width:640px){.v3p-speaking .sp-top .sp-hero{padding-top:calc(68px + 2.6rem);padding-bottom:3rem}}
+.v3p-speaking .sp-top .p-wm{top:82px;bottom:auto;font-size:clamp(72px,8vw,118px)}
+/* heroes that start at the top of the page: first grid line sits on the bottom edge of the 68px nav */
+.v3p-about .p-hero-grid::before,.v3p-blog .bx-hero::before{background-position:-1px 67px}
