@@ -1,0 +1,179 @@
+/* ==========================================================================
+   v3 case studies (Nov 2026): SPOTIO, Cubby, Omnitracs, SNHU, Kalkomey, Citi,
+   Capital One, TPN, PhzMe. Same language as About and Speaking.
+   Loaded after site.css, v3.css and pages.css. Body: .v3p .v3p-case .cs-<page>.
+   Markup additions come from _build/cases.py: .csx-txt / .csx-img in the
+   hero, a .p-jump bar, the stats in a .p-band.light, section ids and tone classes
+   (.csx-a / .csx-b dark, .csx-light paper, .csx-grid Impact), .csx-rows,
+   .csx-cards, .csx-steps lists, .csx-photo closing band, .csx-assess band.
+   ========================================================================== */
+.v3p-case{--body-l:#3A4552}
+
+/* ---------- one container everywhere: 1200px, 6% side padding ---------- */
+.v3p-case .cs2-hero-inner,
+.v3p-case .cs2-wrap,
+.v3p-case .csx-stats .cs2-stats{max-width:1200px;margin:0 auto;padding:0 6%;box-sizing:border-box}
+
+/* ---------- hero: copy left, the case image framed right, on the grid ---------- */
+.v3p-case .cs2-hero{background:#0F1923!important;padding:9rem 0 4.5rem;text-align:left;overflow:hidden}
+.v3p-case .cs2-hero-inner{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);gap:4rem;align-items:center}
+.v3p-case .csx-txt{position:relative;z-index:1;min-width:0}
+.v3p-case .cs2-hero .cs2-eyebrow{display:inline-flex;align-items:flex-start;gap:12px;font:500 11.5px/1.5 var(--mono)!important;letter-spacing:.16em!important;color:var(--teal);margin:0}
+.v3p-case .cs2-hero .cs2-eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 4px rgba(0,188,212,.18);flex:none;margin-top:.45em}
+.v3p-case .cs2-hero h1{font-size:clamp(2.4rem,3.9vw,3.5rem);line-height:1.02;letter-spacing:-.015em;margin:1rem 0 1.4rem;text-wrap:balance}
+.v3p-case .cs2-role{font:500 11.5px/1.6 var(--mono);letter-spacing:.12em;color:rgba(255,255,255,.62);margin:0 0 1.2rem}
+.v3p-case .cs2-hero .cs2-lead{margin:0;max-width:600px;font-size:1.08rem;line-height:1.75;color:rgba(235,246,250,.82)}
+.v3p-case .csx-img{position:relative;z-index:1;border-radius:6px;box-shadow:0 30px 70px rgba(0,0,0,.45)}
+.v3p-case .csx-img img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;border-radius:6px}
+
+/* ---------- stats: paper band with condensed numbers (like About facts) ---------- */
+.v3p-case .csx-stats .cs2-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin-top:0;border-top:0;justify-content:stretch}
+.v3p-case .csx-stats .cs2-stats.n3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.v3p-case .csx-stats .cs2-stats > div{border-right:1px solid var(--line-l);padding:2rem 1.6rem 1.8rem;text-align:left;min-width:0}
+.v3p-case .csx-stats .cs2-stats > div:first-child{padding-left:0}
+.v3p-case .csx-stats .cs2-stats > div:last-child{border-right:0}
+.v3p-case .csx-stats .cs2-stats .n{font:800 clamp(1.9rem,2.8vw,2.6rem)/.95 var(--cond)!important;text-transform:uppercase;color:var(--ink-2);letter-spacing:.005em}
+.v3p-case .csx-stats .cs2-stats .l{font:500 10.5px/1.5 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted-l);margin-top:.8rem}
+
+/* jump bar: a page with seven sections sizes each link to its label so the row still fits */
+.v3p-case .csx-jump.many a{flex:1 0 auto;min-width:0;padding-right:12px;margin-right:12px;letter-spacing:.13em}
+@media (max-width:1180px){.v3p-case .csx-jump.many a{padding-right:9px;margin-right:9px}}
+
+/* ---------- sections ---------- */
+.v3p-case .cs2-sec{padding:6.5rem 0;scroll-margin-top:68px}
+.v3p-case .csx-a{background:#0F1923}
+.v3p-case .csx-b{background:#0B141C}
+.v3p-case .csx-grid{background-color:#0B141C;border-top:1px solid var(--line-d)}
+.v3p-case .cs2-sec .cs2-eyebrow{font:500 11.5px/1 var(--mono)!important;letter-spacing:.16em!important;color:var(--teal);display:flex;align-items:center;margin:0 0 1.2rem}
+.v3p-case .cs2-sec .cs2-eyebrow::after{content:"";flex:1;height:1px;background:currentColor;opacity:.25;margin-left:16px}
+.v3p-case .cs2-sec h2{font-size:clamp(2.2rem,4.2vw,3.4rem);line-height:1.04;letter-spacing:-.01em;margin:0 0 1.4rem;max-width:920px;text-wrap:balance}
+.v3p-case .cs2-sec .cs2-wrap > p{max-width:760px;font-size:1.06rem;line-height:1.8;color:rgba(235,246,250,.78)}
+/* site.css says these get more room below, but `.cs2-sec p` (more specific) flattened them to 16px */
+.v3p-case .cs2-sec p.story-note,.v3p-case .cs2-sec p.cs2-vid-lead{margin:0 0 2.2rem;max-width:760px}
+.v3p-case .cs2-sec p.bugs-rule{margin:30px 0 0}
+
+/* paper bands */
+.v3p-case .csx-light{background:var(--paper);color:var(--ink)}
+.v3p-case .csx-light .cs2-eyebrow,.v3p-case .csx-light .p-num::before{color:#00838F}
+.v3p-case .csx-light h2{color:var(--ink)}
+.v3p-case .csx-light .cs2-wrap > p,.v3p-case .csx-light p.story-note{color:var(--body-l)}
+
+/* What I Did: numbered rows, like the About career list */
+.v3p-case .csx-rows{counter-reset:row;margin-top:2.2rem;border-top:1px solid var(--line-l);max-width:960px}
+.v3p-case .csx-rows li{counter-increment:row;padding:1.15rem 0 1.15rem 76px;font-size:1rem;line-height:1.7;color:#2A3542;border-bottom:1px solid var(--line-l)}
+.v3p-case .csx-rows li::before{content:counter(row,decimal-leading-zero);top:1.15rem;left:0;width:auto;height:auto;background:none;border-radius:0;
+  font-family:var(--mono);font-weight:500;font-size:12px;line-height:1.7rem;letter-spacing:.12em;color:#00838F}
+.v3p-case .csx-rows strong,.v3p-case .csx-rows b{color:var(--ink)}
+
+/* Impact: numbered bracket cards */
+.v3p-case .csx-cards{counter-reset:card;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:2.2rem}
+.v3p-case .csx-cards li{counter-increment:card;border:1px solid var(--line-d);border-radius:6px;background:rgba(255,255,255,.035);padding:1.6rem 1.4rem 1.7rem;font-size:1.02rem;line-height:1.6;color:rgba(235,246,250,.86)}
+.v3p-case .csx-cards li::before{content:counter(card,decimal-leading-zero);position:static;display:block;width:auto;height:auto;background:none;border-radius:0;
+  font:500 11px/1 var(--mono);letter-spacing:.14em;color:var(--teal);margin-bottom:1.5rem}
+.v3p-case .cs2-tags{margin-top:2rem;gap:8px}
+.v3p-case .cs2-tags span,.v3p-case .spot-pills span{border-radius:3px;font:500 10.5px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;padding:8px 11px}
+
+/* dated steps (PhzMe, The Build): bracket cards, the bold lead-in becomes a condensed title */
+.v3p-case .csx-steps{counter-reset:step;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;margin-top:2.2rem}
+.v3p-case .csx-steps li{counter-increment:step;border:1px solid var(--line-d);border-radius:6px;background:rgba(255,255,255,.035);padding:1.6rem 1.4rem 1.7rem;font-size:.97rem;line-height:1.65;color:rgba(235,246,250,.76)}
+.v3p-case .csx-steps li::before{content:counter(step,decimal-leading-zero);position:static;display:block;width:auto;height:auto;background:none;border-radius:0;
+  font:500 11px/1 var(--mono);letter-spacing:.14em;color:var(--teal);margin-bottom:1.3rem}
+.v3p-case .csx-steps li b{display:block;font:800 1.5rem/1.02 var(--cond);text-transform:uppercase;letter-spacing:.01em;color:#fff;margin-bottom:.7rem}
+
+/* ---------- Selected Work spotlight ---------- */
+.v3p-case .cs2-spot{margin-top:2.4rem}
+.v3p-case .spot-panel.active{gap:3rem}
+.v3p-case .spot-figure{border:0;border-radius:6px;overflow:visible;background:none;box-shadow:0 24px 60px rgba(0,0,0,.4)}
+.v3p-case .spot-figure img{border-radius:6px}
+.v3p-case .spot-arrow{border-radius:4px}
+.v3p-case .spot-copy .spot-n{font:500 11px/1 var(--mono);letter-spacing:.14em;color:var(--teal)}
+.v3p-case .spot-copy .spot-eyebrow{font:500 10.5px/1.4 var(--mono);letter-spacing:.14em;margin:14px 0 0}
+.v3p-case .spot-copy h3{font-size:clamp(1.7rem,2.4vw,2.2rem);margin:.9rem 0 1rem}
+.v3p-case .spot-copy p{color:rgba(235,246,250,.78)}
+.v3p-case .spot-link{font:500 11.5px/1.4 var(--mono);letter-spacing:.12em;text-transform:uppercase;margin-top:22px}
+.v3p-case .spot-thumbs{gap:14px;margin-top:2rem}
+.v3p-case .spot-thumb img{border-radius:4px}
+.v3p-case .spot-thumb span{font:500 10px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;margin-top:10px}
+
+/* ---------- video walkthroughs ---------- */
+.v3p-case .vidframe{border-radius:6px}
+.v3p-case .vidnav{border-radius:4px}
+.v3p-case .vidmeta{margin-top:18px}
+.v3p-case .vidmeta .vidnum{font:500 11px/1.6 var(--mono);letter-spacing:.14em;margin-top:0}
+.v3p-case .vidmeta h4{font:800 1.4rem/1.02 var(--cond);text-transform:uppercase;letter-spacing:.01em;margin:0 0 6px}
+.v3p-case .viddot.active{border-radius:2px}
+
+/* ---------- Cubby: the turn (paper cards) ---------- */
+.v3p-case .story-steps{gap:1.2rem}
+.v3p-case .csx-light .story-step{background:#fff;border:1px solid var(--line-l);border-radius:6px;padding:12px 12px 1.8rem}
+.v3p-case .csx-light .story-figure{border:0;border-radius:4px;margin-bottom:1.5rem}
+.v3p-case .csx-light .story-copy{padding:0 .9rem}
+.v3p-case .csx-light .story-eyebrow{font:500 10.5px/1 var(--mono);letter-spacing:.16em;color:#00838F;margin-bottom:.9rem}
+.v3p-case .csx-light .story-copy h3{font:800 clamp(1.5rem,2vw,1.85rem)/1.02 var(--cond);text-transform:uppercase;letter-spacing:.01em;color:var(--ink);margin:0 0 .8rem}
+.v3p-case .csx-light .story-copy p{color:var(--body-l)}
+
+/* ---------- Cubby: decisions ---------- */
+.v3p-case .dec{margin-top:2.2rem}
+.v3p-case .dec-tabs{border-bottom-color:var(--line-d)}
+.v3p-case .dec-tab-n{font:500 11px/1 var(--mono);letter-spacing:.14em}
+.v3p-case .dec-tab-l{font:500 11px/1.2 var(--mono);letter-spacing:.12em;text-transform:uppercase}
+.v3p-case .dec-tab:focus-visible{border-radius:4px}
+.v3p-case .dec-viz{border-radius:6px;background:#08131C;border-color:var(--line-d)}
+.v3p-case .dec-copy h3{font:800 clamp(1.7rem,2.4vw,2.1rem)/1.02 var(--cond);text-transform:uppercase;letter-spacing:.01em}
+.v3p-case .mx{border-radius:4px}
+.v3p-case .rv-col,.v3p-case .sv-mode,.v3p-case .sv-gate{border-radius:4px}
+.v3p-case .rv-tag,.v3p-case .sv-chip{border-radius:3px}
+.v3p-case .mx-h,.v3p-case .mx-gap-l,.v3p-case .mx-ax,.v3p-case .rv-h,.v3p-case .rv-tag,.v3p-case .bug-l,.v3p-case .rt .scope td:first-child{font-family:var(--mono);font-weight:500}
+
+/* ---------- Cubby: what I got wrong ---------- */
+.v3p-case .bugs{gap:1rem;margin-top:.4rem}
+.v3p-case .bug{border-radius:6px;background:rgba(255,255,255,.035);border-color:var(--line-d);padding:1.5rem 1.4rem 1.6rem}
+.v3p-case .bug-n{font:500 11px/1 var(--mono);letter-spacing:.14em;color:var(--teal);margin-bottom:1rem}
+.v3p-case .bug-code{border-radius:4px;font-family:var(--mono)}
+
+/* ---------- closing band with a photo, like About and Speaking ---------- */
+.v3p-case .csx-photo{position:relative;isolation:isolate;overflow:hidden;text-align:left;padding:7rem 0;background:#070C12}
+.v3p-case .csx-photo::before{content:"";position:absolute;inset:0;z-index:-2;background:url(/assets/v3/img/workshop-future-thinking_duotone_21x9.jpg) 70% 45%/cover no-repeat;opacity:.55}
+.v3p-case .csx-photo::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(7,12,18,.96) 0%,rgba(7,12,18,.78) 50%,rgba(7,12,18,.35) 100%)}
+.v3p-case .csx-photo h2{font-size:clamp(2.6rem,5vw,4.2rem);line-height:1;margin:0 0 2rem;max-width:760px}
+.v3p-case .csx-photo .cs2-cta-btns{justify-content:flex-start;gap:12px}
+.v3p-case .cs2-btn{display:inline-flex;align-items:center;gap:9px;padding:15px 24px;font-size:.95rem;letter-spacing:.02em}
+.v3p-case .cs2-btn.ghost{border-color:rgba(255,255,255,.45)}
+.v3p-case .cs2-btn.ghost:hover{background:rgba(255,255,255,.08)}
+
+/* ---------- assessment band: paper, on the same left edge ---------- */
+.v3p-case .csx-assess{background:var(--paper)!important;border-top:3px solid var(--teal)!important;padding:5.5rem 0!important}
+.v3p-case .csx-assess > div{max-width:1200px!important;margin:0 auto!important;padding:0 6%!important;text-align:left!important;box-sizing:border-box}
+.v3p-case .csx-assess > div > div:first-child{font:500 11.5px/1 var(--mono)!important;letter-spacing:.16em!important;color:#00838F!important;display:flex;align-items:center}
+.v3p-case .csx-assess > div > div:first-child::after{content:"";flex:1;height:1px;background:currentColor;opacity:.25;margin-left:16px}
+.v3p-case .csx-assess h2{color:var(--ink)!important;font-size:clamp(2.2rem,4.2vw,3.4rem)!important;line-height:1.04!important;letter-spacing:-.01em;margin:1.2rem 0 1rem!important;max-width:900px}
+.v3p-case .csx-assess p{color:var(--body-l)!important;margin:0 0 1.8rem!important;max-width:640px!important}
+.v3p-case .csx-assess a{border-radius:4px!important;padding:15px 24px!important;font-size:.95rem!important;letter-spacing:.02em}
+
+/* ---------- responsive ---------- */
+@media (max-width:900px){
+  .v3p-case .cs2-hero{padding-top:7.5rem}
+  .v3p-case .cs2-hero-inner{grid-template-columns:1fr;gap:2.6rem}
+  .v3p-case .csx-img{max-width:620px}
+  .v3p-case .csx-stats .cs2-stats.n4{grid-template-columns:1fr 1fr}
+  .v3p-case .csx-stats .cs2-stats.n4 > div:nth-child(2){border-right:0}
+  .v3p-case .csx-stats .cs2-stats.n4 > div:nth-child(-n+2){border-bottom:1px solid var(--line-l)}
+  .v3p-case .csx-stats .cs2-stats.n4 > div:nth-child(3){padding-left:0}
+}
+@media (max-width:640px){
+  .v3p-case .cs2-sec{padding:4.5rem 0}
+  .v3p-case .csx-stats .cs2-stats > div{padding:1.4rem 1rem 1.3rem}
+  .v3p-case .csx-stats .cs2-stats.n3{grid-template-columns:1fr 1fr}
+  .v3p-case .csx-stats .cs2-stats.n3 > div:nth-child(2){border-right:0}
+  .v3p-case .csx-stats .cs2-stats.n3 > div:nth-child(-n+2){border-bottom:1px solid var(--line-l)}
+  .v3p-case .csx-stats .cs2-stats.n3 > div:nth-child(3){grid-column:1/-1;padding-left:0}
+  .v3p-case .csx-stats .cs2-stats .n{font-size:1.75rem!important}
+  .v3p-case .csx-rows li{padding-left:48px}
+  .v3p-case .csx-steps{grid-template-columns:1fr}
+  .v3p-case .csx-photo{padding:5rem 0}
+  .v3p-case .csx-assess{padding:4.5rem 0!important}
+  .v3p-case .csx-light .story-copy{padding:0 .5rem}
+  .v3p-case .dec-tabs{row-gap:6px}
+  .v3p-case .csx-cards li,.v3p-case .csx-steps li{padding:1.3rem 1.2rem 1.4rem}
+  .v3p-case .csx-cards li::before,.v3p-case .csx-steps li::before{margin-bottom:1rem}
+}

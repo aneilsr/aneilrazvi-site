@@ -37,6 +37,8 @@
 <link rel="stylesheet" href="site.css">
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="/assets/v3/v3.css" />
+<link rel="stylesheet" href="/assets/v3/pages.css" />
+<link rel="stylesheet" href="/assets/v3/more.css" />
 <style>
   .wm-hero{padding:4.5rem 6% 2rem;max-width:1140px;margin:0 auto}
   .wm-hero .eyebrow{color:var(--teal);font-size:.78rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase}
@@ -112,7 +114,7 @@
 </style>
 <script defer src="assets/analytics.js"></script>
 </head>
-<body>
+<body class="v3p v3m v3m-wwm v3m-sub">
 <nav class="site-nav" id="nav"><a href="index.html" class="nav-brand"><img class="nav-mark" src="/assets/brand/a-mark-light-tile.svg" alt="" width="30" height="30">Aneil <b>Razvi</b></a>
 <ul class="nav-links">
 <li><a href="index.html">Home</a></li>
@@ -132,37 +134,40 @@
 </div></nav>
 <script>/* keep the current page pill in view on narrow screens */(function(){var a=document.querySelector('nav.subnav a[aria-current="page"]');if(!a)return;var c=a.parentNode,d=a.getBoundingClientRect().right-c.getBoundingClientRect().right;if(d>0)c.scrollLeft+=d+24;})();</script>
 
-<section class="wm-hero">
-  <div class="eyebrow">Work With Me</div>
+<section class="wm-hero p-hero-grid">
+  <div class="mx-ht">  <div class="eyebrow">Work With Me</div>
   <h1>Senior design leadership, <em>and the hands</em> to back it up</h1>
   <p>I partner with companies that need senior design leadership and the hands to back it up. Sometimes that's a full-time executive role. Sometimes it's a fractional engagement where you get the strategy, the team-building, and the craft without the full-time hire. Either way I sit on the same side of the table as you and your team, focused on what we can actually ship.</p>
+  </div>
+  <div class="wm-heroimg xh"><img src="assets/work/work-with-me-hero.jpg" alt="Aneil Razvi facilitating a workshop, with the logos of companies he has run sessions for" width="2000" height="1250"></div>
 </section>
-<div class="wm-heroimg"><img src="assets/work/work-with-me-hero.jpg" alt="Aneil Razvi facilitating a workshop, with the logos of companies he has run sessions for" width="2000" height="1250"></div>
+<nav class="p-jump" aria-label="On this page"><div class="in"><a href="#start"><span>01</span>Four ways to start</a><a href="#services"><span>02</span>What I can do</a><a href="#maturity"><span>03</span>How much design</a><a href="#how"><span>04</span>How it works</a><a href="#recommendations"><span>05</span>Recommendations</a></div></nav>
+
 
 <!-- 2026-10-04: price ladder (tracker item 279). Prices match Working-with-Aneil-Razvi.pdf (Sept 2026) and the maturity result cards. -->
-<section class="wm-start" id="start">
-  <div class="eyebrow">Prices, up front</div>
+<div class="p-light mx-band"><section class="wm-start" id="start">
+  <div class="eyebrow mx-lab p-num">Prices, up front</div>
   <h2>Four ways to start</h2>
   <div class="wm-offers">
-    <div class="wm-offer">
+    <div class="wm-offer xh">
       <div class="tag">Not sure yet</div>
       <h3>First Look</h3>
       <div class="price">$2,500 <span>· one week</span></div>
       <p>Ninety minutes with me, then a three-page written read: where design sits, the constraint costing you most, and your first thirty days. Credited in full if you start a bigger engagement within thirty days.</p>
     </div>
-    <div class="wm-offer">
+    <div class="wm-offer xh">
       <div class="tag">A fixed project</div>
       <h3>Scoped sprint</h3>
       <div class="price">$7,500 to $22,000 <span>· two to five weeks</span></div>
       <p>The Audit ($7,500, two weeks), an AI Experience Framework ($15,000, three weeks), or a Design System Build ($22,000, five weeks). Fixed scope, fixed price.</p>
     </div>
-    <div class="wm-offer">
+    <div class="wm-offer xh">
       <div class="tag">A hire, without the hire</div>
       <h3>Fractional design leader</h3>
       <div class="price">$16,000 <span>a month · two days a week</span></div>
       <p>A senior owner for design decisions, on the same days every week: direction, critique, hiring input and hands on the work that matters most. Not exclusive.</p>
     </div>
-    <div class="wm-offer">
+    <div class="wm-offer xh">
       <div class="tag">A day with your team</div>
       <h3>Workshop</h3>
       <div class="price">From $9,500 <span>· up to 20 people</span></div>
@@ -177,31 +182,32 @@
 
 <div class="wm-season">
   <p>An engagement is a season. A workshop is a day. Most people start with the second one. <a href="workshops.html">See the nine workshops &rarr;</a></p>
-</div>
+</div></div>
 
-<section class="wm-sec">
+<section class="wm-sec" id="services">
+  <span class="mx-lab p-num" aria-hidden="true"></span>
   <h2>What I can do for you</h2>
   <div class="wm-services">
-    <div class="wm-card"><h3>Fractional Head or VP of Design, or CXO</h3><p>Set the design direction, build and coach the team, and raise the bar on craft and process. <a href="fractional-head-of-design.html" style="color:var(--teal);text-decoration:none;font-weight:600">How it works for AI products →</a></p></div>
-    <div class="wm-card"><h3>AI experience strategy</h3><p>Define where AI genuinely belongs in your product, and a framework your team can design against, instead of bolting on features.</p></div>
-    <div class="wm-card"><h3>0-to-1 and R&D</h3><p>Take a concept from someone's head to a working, shippable product with a lean team and a fast clock.</p></div>
-    <div class="wm-card"><h3>Design org and operations</h3><p>Stand up the function, set the career ladders and rituals, and build the research and design-ops backbone that lets it scale.</p></div>
-    <div class="wm-card"><h3>Brand and experience direction</h3><p>Identity, motion, and the through-line that makes a product feel like one thing.</p></div>
-    <div class="wm-card"><h3>Design maturity assessment</h3><p>Figure out whether you're ready for design and research, and at what level: AI-assisted, fractional, contract, agency, or a full team. A clear read, not a pitch for a big hire.</p></div>
+    <div class="wm-card xh"><h3>Fractional Head or VP of Design, or CXO</h3><p>Set the design direction, build and coach the team, and raise the bar on craft and process. <a href="fractional-head-of-design.html" style="color:var(--teal);text-decoration:none;font-weight:600">How it works for AI products →</a></p></div>
+    <div class="wm-card xh"><h3>AI experience strategy</h3><p>Define where AI genuinely belongs in your product, and a framework your team can design against, instead of bolting on features.</p></div>
+    <div class="wm-card xh"><h3>0-to-1 and R&D</h3><p>Take a concept from someone's head to a working, shippable product with a lean team and a fast clock.</p></div>
+    <div class="wm-card xh"><h3>Design org and operations</h3><p>Stand up the function, set the career ladders and rituals, and build the research and design-ops backbone that lets it scale.</p></div>
+    <div class="wm-card xh"><h3>Brand and experience direction</h3><p>Identity, motion, and the through-line that makes a product feel like one thing.</p></div>
+    <div class="wm-card xh"><h3>Design maturity assessment</h3><p>Figure out whether you're ready for design and research, and at what level: AI-assisted, fractional, contract, agency, or a full team. A clear read, not a pitch for a big hire.</p></div>
   </div>
 </section>
 
-<section class="wm-maturity">
+<section class="wm-maturity" id="maturity">
   <div class="wm-maturity-in">
-    <div class="eyebrow">Start here if you're not sure</div>
+    <div class="eyebrow mx-lab p-num">Start here if you're not sure</div>
     <h2>How much design do you actually need?</h2>
     <p class="sub">Most companies over-invest in design too early or starve it for too long. Before you hire anyone, I'll read where your org actually is and point you to the right level of investment for your stage.</p>
     <div class="wm-ladder">
-      <div class="rung"><div class="lvl">Level 01</div><h4>AI-assisted</h4><p>The right tools, no dedicated designers. Enough to ship and learn while design isn't the bottleneck yet.</p></div>
-      <div class="rung"><div class="lvl">Level 02</div><h4>Fractional lead</h4><p>One senior designer, part-time. Direction and craft without a full-time hire. Often where I come in.</p></div>
-      <div class="rung"><div class="lvl">Level 03</div><h4>Independent contractors</h4><p>A few specialists for the moment. Flexible hands when the work comes in bursts.</p></div>
-      <div class="rung"><div class="lvl">Level 04</div><h4>External firm</h4><p>An agency for a big, bounded push. Capacity and polish, on a clock.</p></div>
-      <div class="rung"><div class="lvl">Level 05</div><h4>In-house team</h4><p>A built-out design org. The right call once design is core to how you compete.</p></div>
+      <div class="rung xh"><div class="lvl">Level 01</div><h4>AI-assisted</h4><p>The right tools, no dedicated designers. Enough to ship and learn while design isn't the bottleneck yet.</p></div>
+      <div class="rung xh"><div class="lvl">Level 02</div><h4>Fractional lead</h4><p>One senior designer, part-time. Direction and craft without a full-time hire. Often where I come in.</p></div>
+      <div class="rung xh"><div class="lvl">Level 03</div><h4>Independent contractors</h4><p>A few specialists for the moment. Flexible hands when the work comes in bursts.</p></div>
+      <div class="rung xh"><div class="lvl">Level 04</div><h4>External firm</h4><p>An agency for a big, bounded push. Capacity and polish, on a clock.</p></div>
+      <div class="rung xh"><div class="lvl">Level 05</div><h4>In-house team</h4><p>A built-out design org. The right call once design is core to how you compete.</p></div>
     </div>
     <p class="closer">I'll tell you which rung you're actually on, even when the honest answer is "you don't need me yet." I would rather lose the work than sell you the wrong shape of it.</p>
     <p style="margin:1.8rem 0 0"><a href="maturity.html" style="display:inline-block;background:#00BCD4;color:#0F1923;font-weight:700;font-size:.98rem;padding:.85rem 1.8rem;border-radius:99px;text-decoration:none">Take the assessment, free</a>
@@ -209,31 +215,33 @@
   </div>
 </section>
 
-<section class="wm-sec" style="background:#0c1620;max-width:none;padding-left:0;padding-right:0">
+<section class="wm-sec mx-how" id="how" style="background:#0c1620;max-width:none;padding-left:0;padding-right:0">
   <div style="max-width:1040px;margin:0 auto;padding:0 6%">
+    <span class="mx-lab p-num" aria-hidden="true"></span>
     <h2>How it works</h2>
     <div class="wm-steps">
-      <div class="wm-step"><span class="n">01</span><h3>Talk</h3><p>A short conversation about where you are and what is in the way.</p></div>
-      <div class="wm-step"><span class="n">02</span><h3>Scope</h3><p>We pick the shape together: usually a one to two days a week retainer, sometimes a scoped sprint. You start in days, not months.</p></div>
-      <div class="wm-step"><span class="n">03</span><h3>Ship</h3><p>Embedded with your team from week one. Senior judgment and hands-on work, not a deck and a goodbye.</p></div>
+      <div class="wm-step xh"><span class="n">01</span><h3>Talk</h3><p>A short conversation about where you are and what is in the way.</p></div>
+      <div class="wm-step xh"><span class="n">02</span><h3>Scope</h3><p>We pick the shape together: usually a one to two days a week retainer, sometimes a scoped sprint. You start in days, not months.</p></div>
+      <div class="wm-step xh"><span class="n">03</span><h3>Ship</h3><p>Embedded with your team from week one. Senior judgment and hands-on work, not a deck and a goodbye.</p></div>
     </div>
   </div>
 </section>
 
-<section class="wm-sec">
+<section class="wm-sec" id="recommendations">
+  <span class="mx-lab p-num" aria-hidden="true"></span>
   <h2>Recommendations</h2>
   <div class="wm-recs">
-    <div class="rec"><p class="q">"Aneil is a visionary leader, and his contributions to the establishment and success of our product design department were invaluable."</p><div class="who"><img class="av" src="assets/work/testimonial-willard.jpg" alt="Travis Willard"><div><div class="nm"><a href="https://www.linkedin.com/in/tdoubleu/" target="_blank">Travis Willard</a></div><div class="rl">Chief Product and Technology Executive</div></div></div></div>
-    <div class="rec"><p class="q">"He leads with solutions. Where others see roadblocks, Aneil sees the next move. He takes ambiguous problems, rallies the people around him, and drives toward outcomes that actually matter to the end user."</p><div class="who"><img class="av" src="assets/work/testimonial-michael.jpg" alt="Michael Grigone"><div><div class="nm"><a href="https://www.linkedin.com/in/michael-grigone-696a8a197/" target="_blank">Michael Grigone</a></div><div class="rl">Account Executive, SPOTIO</div></div></div></div>
-    <div class="rec"><p class="q">"What makes him truly exceptional is how he balances creative passion with a highly organized, process-driven approach. He fosters a collaborative environment where designers feel supported, inspired, and empowered to do their best work."</p><div class="who"><img class="av" src="assets/work/testimonial-amira.jpg" alt="Amira Maruf"><div><div class="nm"><a href="https://www.linkedin.com/in/amiramaruf/" target="_blank">Amira Maruf</a></div><div class="rl">Senior UX Designer, SPOTIO</div></div></div></div>
-    <div class="rec"><p class="q">"I watched Aneil set the UX vision for an entirely new platform that brought 3 separate product lines into a single unified solution. With 1MM+ vehicles under the SaaS model, that isn't easy. I'd recommend him for senior leadership roles."</p><div class="who"><img class="av" src="assets/work/testimonial-tyler.jpg" alt="Tyler Forcum"><div><div class="nm"><a href="https://www.linkedin.com/in/tyler-forcum-04a51419/" target="_blank">Tyler Forcum</a></div><div class="rl">Product Manager, Omnitracs</div></div></div></div>
+    <div class="rec xh"><p class="q">"Aneil is a visionary leader, and his contributions to the establishment and success of our product design department were invaluable."</p><div class="who"><img class="av" src="assets/work/testimonial-willard.jpg" alt="Travis Willard"><div><div class="nm"><a href="https://www.linkedin.com/in/tdoubleu/" target="_blank">Travis Willard</a></div><div class="rl">Chief Product and Technology Executive</div></div></div></div>
+    <div class="rec xh"><p class="q">"He leads with solutions. Where others see roadblocks, Aneil sees the next move. He takes ambiguous problems, rallies the people around him, and drives toward outcomes that actually matter to the end user."</p><div class="who"><img class="av" src="assets/work/testimonial-michael.jpg" alt="Michael Grigone"><div><div class="nm"><a href="https://www.linkedin.com/in/michael-grigone-696a8a197/" target="_blank">Michael Grigone</a></div><div class="rl">Account Executive, SPOTIO</div></div></div></div>
+    <div class="rec xh"><p class="q">"What makes him truly exceptional is how he balances creative passion with a highly organized, process-driven approach. He fosters a collaborative environment where designers feel supported, inspired, and empowered to do their best work."</p><div class="who"><img class="av" src="assets/work/testimonial-amira.jpg" alt="Amira Maruf"><div><div class="nm"><a href="https://www.linkedin.com/in/amiramaruf/" target="_blank">Amira Maruf</a></div><div class="rl">Senior UX Designer, SPOTIO</div></div></div></div>
+    <div class="rec xh"><p class="q">"I watched Aneil set the UX vision for an entirely new platform that brought 3 separate product lines into a single unified solution. With 1MM+ vehicles under the SaaS model, that isn't easy. I'd recommend him for senior leadership roles."</p><div class="who"><img class="av" src="assets/work/testimonial-tyler.jpg" alt="Tyler Forcum"><div><div class="nm"><a href="https://www.linkedin.com/in/tyler-forcum-04a51419/" target="_blank">Tyler Forcum</a></div><div class="rl">Product Manager, Omnitracs</div></div></div></div>
   </div>
 </section>
 
-<section class="wm-cta">
+<section class="wm-cta mx-cta"><div class="p-cta-in">
   <h2>Ready to talk?</h2>
   <a href="https://cal.com/aneil-razvi" target="_blank">Book an intro call →</a>
-</section>
+</div></section>
 
 <footer class="v3-footer">
   <div class="v3f-top">

@@ -31,6 +31,8 @@
 <link rel="stylesheet" href="site.css">
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="/assets/v3/v3.css" />
+<link rel="stylesheet" href="/assets/v3/pages.css" />
+<link rel="stylesheet" href="/assets/v3/more.css" />
 <style>
   .fx-hero{max-width:1080px;margin:0 auto;padding:4.5rem 6% 2.5rem}
   .fx-eyebrow{color:var(--teal);font-size:.75rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;display:block;margin-bottom:.7rem}
@@ -90,7 +92,7 @@
 </style>
 <script defer src="assets/analytics.js"></script>
 </head>
-<body>
+<body class="v3p v3m v3m-fx v3m-sub">
 <nav class="site-nav" id="nav"><a href="index.html" class="nav-brand"><img class="nav-mark" src="/assets/brand/a-mark-light-tile.svg" alt="" width="30" height="30">Aneil <b>Razvi</b></a>
 <ul class="nav-links">
 <li><a href="index.html">Home</a></li>
@@ -111,18 +113,22 @@
 <script>/* keep the current page pill in view on narrow screens */(function(){var a=document.querySelector('nav.subnav a[aria-current="page"]');if(!a)return;var c=a.parentNode,d=a.getBoundingClientRect().right-c.getBoundingClientRect().right;if(d>0)c.scrollLeft+=d+24;})();</script>
 
 <!-- HERO -->
-<section class="fx-hero">
-  <span class="fx-eyebrow">Work With Me · Fractional design leadership</span>
+<section class="fx-hero p-hero-grid">
+  <div class="mx-hl">  <span class="fx-eyebrow">Work With Me · Fractional design leadership</span>
   <h1>Fractional head of design for <em>AI products</em></h1>
-  <p>A fractional head of design is a senior design leader you share with other companies: part of the week, on a retainer, without a full-time hire. I do this for companies building AI products. I set the design direction, decide where AI earns its place in the product, build or coach the team, and stay hands-on with the work that matters most. Remote for teams anywhere, based in Dallas-Fort Worth.</p>
+  </div>
+  <div class="mx-hr">  <p>A fractional head of design is a senior design leader you share with other companies: part of the week, on a retainer, without a full-time hire. I do this for companies building AI products. I set the design direction, decide where AI earns its place in the product, build or coach the team, and stay hands-on with the work that matters most. Remote for teams anywhere, based in Dallas-Fort Worth.</p>
   <div class="fx-cta">
     <a class="fx-btn" href="https://cal.com/aneil-razvi" target="_blank" rel="noopener">Book a free 15-minute intro →</a>
     <a class="fx-btn ghost" href="work-with-me.html">See prices</a>
   </div>
+  </div>
 </section>
+<nav class="p-jump" aria-label="On this page"><div class="in"><a href="#fit"><span>01</span>Good fit</a><a href="#why-ai"><span>02</span>Why AI</a><a href="#first-90-days"><span>03</span>First 90 days</a><a href="#led"><span>04</span>Where I've led</a><a href="#compare"><span>05</span>Compared</a><a href="#recommendations"><span>06</span>Recommendations</a><a href="#faq"><span>07</span>Questions</a></div></nav>
+
 
 <!-- IN SHORT -->
-<section class="fx-sec" style="padding-top:1rem">
+<div class="p-band light mx-facts"><section class="fx-sec" style="padding-top:1rem">
   <dl class="fx-facts">
     <div><dt>The role</dt><dd>Fractional head of design, VP of design, or chief experience officer</dd></div>
     <div><dt>Best for</dt><dd>Startups and scaleups building AI products, and teams with designers but no senior design owner</dd></div>
@@ -131,20 +137,21 @@
     <div><dt>Starts</dt><dd>In days, not months</dd></div>
     <div><dt>Prices</dt><dd>Published up front on <a href="work-with-me.html">Work With Me</a></dd></div>
   </dl>
-</section>
+</section></div>
 
 <!-- FIT -->
-<section class="fx-sec">
+<section class="fx-sec" id="fit">
+  <span class="mx-lab p-num" aria-hidden="true"></span>
   <h2 class="fx-h2">When it makes sense, and when it doesn't</h2>
   <p class="fx-lead">I'd rather lose the work than sell you the wrong shape of it.</p>
   <div class="fx-two">
-    <div class="fx-card"><h3>A good fit</h3><ul>
+    <div class="fx-card xh"><h3>A good fit</h3><ul>
       <li>You're adding AI to a product and nobody owns how it should behave for the person using it.</li>
       <li>You have designers, but no senior design leader setting direction.</li>
       <li>You need design decisions made this quarter, before a full-time executive makes sense.</li>
       <li>You've merged products or platforms, and the experience has split into pieces.</li>
     </ul></div>
-    <div class="fx-card no"><h3>Not a fit</h3><ul>
+    <div class="fx-card no xh"><h3>Not a fit</h3><ul>
       <li>You need someone five days a week, every week. Hire full-time; I'll help you shape the role.</li>
       <li>You don't need design leadership yet. The free <a href="maturity.html" style="color:var(--teal)">Design Maturity Assessment</a> will tell you, and so will I.</li>
     </ul></div>
@@ -152,24 +159,27 @@
 </section>
 
 <!-- AI -->
-<section class="fx-sec">
+<div class="mx-alt"><section class="fx-sec" id="why-ai">
+  <span class="mx-lab p-num" aria-hidden="true"></span>
   <h2 class="fx-h2">Why AI products need a design lead</h2>
   <p class="body">Most AI features fail on trust, not on the model. People stop using them when they can't tell what the system did, why it did it, or how to correct it. Deciding where AI belongs, where a person stays in the loop, and what the product says when it's unsure are design decisions. Someone senior has to own them.</p>
   <p class="body">At SPOTIO I set the AI experience strategy and helped shape DASH, an AI co-pilot for sales teams with human approval built in. At Omnitracs I designed an ML next-best-action framework into a fleet platform used by fleets running about one million vehicles. The pattern is the same: AI suggests, people decide, and the product makes that easy.</p>
-</section>
+</section></div>
 
 <!-- 90 DAYS -->
-<section class="fx-sec">
+<div class="p-light"><section class="fx-sec" id="first-90-days">
+  <span class="mx-lab p-num" aria-hidden="true"></span>
   <h2 class="fx-h2">The first 90 days</h2>
   <div class="fx-steps">
-    <div class="fx-step"><span class="d">Days 1 to 30</span><h3>Read the product</h3><p>Meet the team, audit the experience and every AI touchpoint, and land two quick wins.</p></div>
-    <div class="fx-step"><span class="d">Days 31 to 60</span><h3>Set direction</h3><p>An AI experience framework the team can design against, standards, and the rituals that keep quality up.</p></div>
-    <div class="fx-step"><span class="d">Days 61 to 90</span><h3>Prove it</h3><p>Measure against the goals we agreed, write the system down, and decide together: extend, hire, or hand off.</p></div>
+    <div class="fx-step xh"><span class="d">Days 1 to 30</span><h3>Read the product</h3><p>Meet the team, audit the experience and every AI touchpoint, and land two quick wins.</p></div>
+    <div class="fx-step xh"><span class="d">Days 31 to 60</span><h3>Set direction</h3><p>An AI experience framework the team can design against, standards, and the rituals that keep quality up.</p></div>
+    <div class="fx-step xh"><span class="d">Days 61 to 90</span><h3>Prove it</h3><p>Measure against the goals we agreed, write the system down, and decide together: extend, hire, or hand off.</p></div>
   </div>
-</section>
+</section></div>
 
 <!-- PROOF -->
-<section class="fx-sec">
+<section class="fx-sec" id="led">
+  <span class="mx-lab p-num" aria-hidden="true"></span>
   <h2 class="fx-h2">Where I've led design</h2>
   <div class="fx-tablewrap"><table class="fx-table">
     <thead><tr><th>Company</th><th>What I did</th></tr></thead>
@@ -185,7 +195,8 @@
 </section>
 
 <!-- COMPARE -->
-<section class="fx-sec">
+<div class="p-light"><section class="fx-sec" id="compare">
+  <span class="mx-lab p-num" aria-hidden="true"></span>
   <h2 class="fx-h2">Compared with the alternatives</h2>
   <div class="fx-tablewrap"><table class="fx-table">
     <thead><tr><th></th><th>Fractional head of design</th><th>Full-time head of design</th><th>Design agency</th><th>Freelance designer</th></tr></thead>
@@ -197,19 +208,21 @@
       <tr><td>Best when</td><td class="me">You need senior judgment now, not forty hours of it</td><td>Design is core and the work is full-time</td><td>A big, bounded push</td><td>Defined tasks with clear direction</td></tr>
     </tbody>
   </table></div>
-</section>
+</section></div>
 
 <!-- QUOTES -->
-<section class="fx-sec">
+<section class="fx-sec" id="recommendations">
+  <span class="mx-lab p-num" aria-hidden="true"></span>
   <h2 class="fx-h2">Recommendations</h2>
   <div class="fx-quotes">
-    <blockquote class="fx-quote"><p>"Aneil is a visionary leader, and his contributions to the establishment and success of our product design department were invaluable."</p><cite>Travis Willard, Chief Product and Technology Executive</cite></blockquote>
-    <blockquote class="fx-quote"><p>"I watched Aneil set the UX vision for an entirely new platform that brought 3 separate product lines into a single unified solution. With 1MM+ vehicles under the SaaS model, that isn't easy. I'd recommend him for senior leadership roles."</p><cite>Tyler Forcum, Product Manager, Omnitracs</cite></blockquote>
+    <blockquote class="fx-quote xh"><p>"Aneil is a visionary leader, and his contributions to the establishment and success of our product design department were invaluable."</p><cite>Travis Willard, Chief Product and Technology Executive</cite></blockquote>
+    <blockquote class="fx-quote xh"><p>"I watched Aneil set the UX vision for an entirely new platform that brought 3 separate product lines into a single unified solution. With 1MM+ vehicles under the SaaS model, that isn't easy. I'd recommend him for senior leadership roles."</p><cite>Tyler Forcum, Product Manager, Omnitracs</cite></blockquote>
   </div>
 </section>
 
 <!-- FAQ -->
-<section class="fx-sec" id="faq">
+<div class="mx-alt"><section class="fx-sec" id="faq">
+  <span class="mx-lab p-num" aria-hidden="true"></span>
   <h2 class="fx-h2">Questions</h2>
 <details class="gx-q"><summary>What does a fractional head of design do?</summary><div class="gx-a"><p>A fractional head of design owns design decisions for part of the week: direction, critique, standards, hiring input, and hands-on work on the most important problems. For an AI product, Aneil Razvi also decides where AI belongs and how it should behave for the person using it.</p></div></details>
 <details class="gx-q"><summary>How many days a week does a fractional head of design work?</summary><div class="gx-a"><p>With Aneil Razvi, usually two days a week, on the same days every week. Some engagements start smaller, as a one-week First Look or a fixed-scope sprint.</p></div></details>
@@ -218,17 +231,17 @@
 <details class="gx-q"><summary>Can a fractional head of design lead an existing design team?</summary><div class="gx-a"><p>Yes. Aneil coaches the team, sets career ladders and rituals, gives hiring input, and raises the bar on craft and process while staying hands-on.</p></div></details>
 <details class="gx-q"><summary>What if we don't need a head of design yet?</summary><div class="gx-a"><p>Then I'll say so. The free <a href="maturity.html">Design Maturity Assessment</a> takes about four minutes and points to the right level for your stage: AI-assisted, fractional, contractors, an agency, or a full team.</p></div></details>
 <details class="gx-q"><summary>How fast can a fractional head of design start?</summary><div class="gx-a"><p>Usually within days: a short call, then you pick the shape of the engagement together, and he is embedded with your team from week one.</p></div></details>
-</section>
+</section></div>
 
 <!-- BOOK -->
-<section class="fx-book">
+<section class="fx-book mx-cta"><div class="p-cta-in">
   <h2>Tell me what's in the way</h2>
   <p>A short call about where you are. If you don't need me yet, I'll say so.</p>
   <div class="row">
     <a class="fx-btn" href="https://cal.com/aneil-razvi" target="_blank" rel="noopener">Book a free 15-minute intro →</a>
     <a class="fx-btn ghost" href="mailto:hi@aneilrazvi.com?subject=Fractional%20design%20leadership">Email me</a>
   </div>
-</section>
+</div></section>
 
 <footer class="v3-footer">
   <div class="v3f-top">

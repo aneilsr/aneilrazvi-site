@@ -280,3 +280,11 @@
 .v3p-post .wx-sub,.v3p-post .wx-fig img{border-radius:6px!important}
 .v3p-blog .bx-hero .p-wm{top:auto;bottom:22px}
 @media (max-width:640px){.v3p-blog .bx-hero .p-wm{display:none}}
+
+/* blog rail: it sticks while you read, so it must scroll on its own when it is taller than the screen */
+@media (min-width:901px){
+  .v3p-blog .wx-rail .stick,.v3p-post .wx-rail .stick{max-height:calc(100vh - 112px);overflow-y:auto;overscroll-behavior:contain;
+    scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.25) transparent;padding-right:10px;margin-right:-10px}
+  .v3p-blog .wx-rail .stick::-webkit-scrollbar,.v3p-post .wx-rail .stick::-webkit-scrollbar{width:6px}
+  .v3p-blog .wx-rail .stick::-webkit-scrollbar-thumb,.v3p-post .wx-rail .stick::-webkit-scrollbar-thumb{background:rgba(255,255,255,.22);border-radius:3px}
+}

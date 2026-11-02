@@ -29,7 +29,9 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="site.css">
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="/assets/v3/v3.css" /><style>
+<link rel="stylesheet" href="/assets/v3/v3.css" />
+<link rel="stylesheet" href="/assets/v3/pages.css" />
+<link rel="stylesheet" href="/assets/v3/more.css" /><style>
 .pf-wrap{max-width:1180px;margin:0 auto;padding:0 5% 90px}
 .pf-section-label{display:flex;align-items:center;gap:14px;margin:40px 0 22px}
 .pf-section-label span{font-size:.74rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.6)}
@@ -59,7 +61,7 @@
 @media(max-width:860px){.pf-feature{grid-template-columns:1fr}.pf-feat-img{min-height:230px}.pf-grid{grid-template-columns:1fr}.pf-tier2{grid-template-columns:1fr 1fr}}
 @media(max-width:520px){.pf-tier2{grid-template-columns:1fr}}
 </style><script defer src="assets/analytics.js"></script>
-</head><body>
+</head><body class="v3p v3m v3m-pf">
 <nav class="site-nav" id="nav">
   <a href="index.html" class="nav-brand"><img class="nav-mark" src="/assets/brand/a-mark-light-tile.svg" alt="" width="30" height="30">Aneil <b>Razvi</b></a>
   <ul class="nav-links">
@@ -73,13 +75,17 @@
   </ul>
   <a href="contact.html" class="nav-cta">Let's Talk</a>
 <button class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button></nav>
-<section class="page-hero">
-  <div class="section-tag">Selected Work</div><h1>Portfolio</h1>
-  <p>Design and AI product leadership across enterprise software, financial services, education, and consumer. Start with the flagship, then dig in.</p>
+<section class="page-hero p-hero-grid">
+  <div class="mx-hl">  <div class="section-tag">Selected Work</div><h1>Portfolio</h1>
+  </div>
+  <div class="mx-hr">  <p>Design and AI product leadership across enterprise software, financial services, education, and consumer. Start with the flagship, then dig in.</p>
+  </div>
 </section>
+<nav class="p-jump" aria-label="On this page"><div class="in"><a href="#flagship"><span>01</span>Flagship</a><a href="#more-work"><span>02</span>More work</a><a href="#workshops"><span>03</span>Workshops</a></div></nav>
+
 <div class="pf-wrap">
-  <div class="pf-section-label"><span>Flagship</span><i></i></div>
-  <a class="pf-feature" href="cubby.html">
+  <div class="pf-section-label p-num" id="flagship"><span>Flagship</span><i></i></div>
+  <a class="pf-feature xh" href="cubby.html">
   <div class="pf-feat-img" style="background-image:url('assets/work/cubby.jpg')"></div>
   <div class="pf-feat-body">
     <div class="pf-eyebrow">Flagship · Personal Project</div>
@@ -101,7 +107,9 @@
   <div class="pf-card-img" style="background-image:url('assets/work/kalkomey.jpg')"></div>
   <div class="pf-card-body"><div class="pf-eyebrow">Director of Product / UX</div><h3>Kalkomey</h3><p>Drove 225%+ content-sales growth through a rapid, user-centered product pivot during market disruption.</p>
   <div class="pf-pills"><span class="pf-pill">Product Strategy</span><span class="pf-pill">Growth</span><span class="pf-pill">Consumer</span></div><div class="pf-view">View Case Study &rarr;</div></div></a></div>
-  <div class="pf-section-label"><span>More work</span><i></i></div>
+  </div>
+<div class="p-light mx-band"><div class="pf-wrap">
+  <div class="pf-section-label p-num" id="more-work"><span>More work</span><i></i></div>
   <div class="pf-tier2"><a class="pf-card pf-compact" href="citi.html">
   <div class="pf-card-img sm" style="background-image:url('assets/work/citi.jpg')"></div>
   <div class="pf-card-body"><div class="pf-eyebrow">Lead UX Designer</div><h4>Citi</h4><p>Bank-wide design system + Citi's first Apple Watch app.</p><span class="pf-pill">Financial Services</span></div></a><a class="pf-card pf-compact" href="capital-one.html">
@@ -111,8 +119,10 @@
   <div class="pf-card-body"><div class="pf-eyebrow">Director of Creative Technology</div><h4>TPN (Omnicom)</h4><p>AI-augmented brand experiences for Fortune 500 retail.</p><span class="pf-pill">Advertising</span></div></a><a class="pf-card pf-compact" href="phzme.html">
   <div class="pf-card-img sm" style="background-image:url('assets/work/phzme.jpg')"></div>
   <div class="pf-card-body"><div class="pf-eyebrow">Chief Experience Officer</div><h4>PhzMe</h4><p>Brand, product, and fundraising for an early-stage marketplace.</p><span class="pf-pill">Startup</span></div></a></div>
-  <div class="pf-section-label"><span>Workshops</span><i></i></div>
-  <a class="pf-feature" href="workshops.html">
+  </div></div>
+<div class="pf-wrap mx-pf3">
+  <div class="pf-section-label p-num" id="workshops"><span>Workshops</span><i></i></div>
+  <a class="pf-feature xh" href="workshops.html">
   <div class="pf-feat-img" style="background-image:url('assets/work/workshop-band.jpg')"></div>
   <div class="pf-feat-body">
     <div class="pf-eyebrow">Facilitation</div>
@@ -122,7 +132,7 @@
     <div class="pf-view">See the workshops &rarr;</div>
   </div></a>
 </div>
-<section style="background:#0c1620;border-top:1px solid rgba(255,255,255,.08);padding:3.6rem 6%">
+<section class="mx-cta mx-pfcta" style="background:#0c1620;border-top:1px solid rgba(255,255,255,.08);padding:3.6rem 6%">
   <div style="max-width:900px;margin:0 auto;text-align:center">
     <div style="color:#00BCD4;font-size:.72rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase">Before you hire anyone</div>
     <h2 style="font-family:'DM Serif Display',serif;font-size:clamp(1.6rem,3vw,2.2rem);color:#fff;font-weight:400;margin:.6rem 0 .8rem">Where does your design function actually sit?</h2>

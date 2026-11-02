@@ -33,6 +33,8 @@
 <link rel="stylesheet" href="site.css">
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="/assets/v3/v3.css" />
+<link rel="stylesheet" href="/assets/v3/pages.css" />
+<link rel="stylesheet" href="/assets/v3/more.css" />
 <style>
   .wm-hero{padding:9rem 6% 2rem;max-width:1140px;margin:0 auto}
   .wm-hero .eyebrow{color:var(--teal);font-size:.78rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase}
@@ -173,7 +175,7 @@
 </style>
 <script defer src="assets/analytics.js"></script>
 </head>
-<body>
+<body class="v3p v3m v3m-ws v3m-sub">
 <nav class="site-nav" id="nav"><a href="index.html" class="nav-brand"><img class="nav-mark" src="/assets/brand/a-mark-light-tile.svg" alt="" width="30" height="30">Aneil <b>Razvi</b></a>
 <ul class="nav-links">
 <li><a href="index.html">Home</a></li>
@@ -194,24 +196,32 @@
 <script>/* keep the current page pill in view on narrow screens */(function(){var a=document.querySelector('nav.subnav a[aria-current="page"]');if(!a)return;var c=a.parentNode,d=a.getBoundingClientRect().right-c.getBoundingClientRect().right;if(d>0)c.scrollLeft+=d+24;})();</script>
 
 <main>
+  <div class="mx-top p-hero-grid">
   <div class="ws-lead ws-top">
-    <div class="kicker">Workshop with me</div>
+    <div class="mx-hl">    <div class="kicker">Workshop with me</div>
     <h1>It starts with point of view</h1>
-    <p>Every function in your company sees the same product differently. Sales sees the objection. Support sees the ticket. Engineering sees the constraint. Design sees the seam. Nobody is wrong, and nobody has the whole thing. A workshop is the day those perspectives get laid side by side and pointed at one goal.</p>
+    </div>
+    <div class="mx-hr">    <p>Every function in your company sees the same product differently. Sales sees the objection. Support sees the ticket. Engineering sees the constraint. Design sees the seam. Nobody is wrong, and nobody has the whole thing. A workshop is the day those perspectives get laid side by side and pointed at one goal.</p>
     <p>That is what companies actually buy. <b>Alignment they can point at. A decision the room owns instead of one that gets relitigated on Monday. And something tangible on the wall the next morning that people keep using.</b></p>
     <p>The shift underneath all of it is reactive to proactive. Most teams spend the week answering what already happened. The work is getting them to where the puck is going to be and building for that instead, and you cannot do that from one point of view. You need all of them in the room at the same time.</p>
     <p>I facilitate, I do not lecture. The room does the thinking. My job is to keep it moving, keep it honest, and make sure nobody leaves without something written down with their name on it.</p>
     <p class="ws-price">Nine sessions, plus an honest conversation about which one you actually need. From $9,500 for up to 20 people, half a day or a full day, built around your team&#39;s real work.</p>
+  
+    </div>
   </div>
 
   <figure class="ws-band">
     <img src="assets/work/workshop-band.jpg" alt="A workshop room with a wall of coloured sticky notes and printed row labels reading ACTION and ACTORS, participants standing at the wall" width="2000" height="860">
     <figcaption>SPOTIO, Poland, June 2025. The printed labels on the left read ACTION and ACTORS. Faces are blurred throughout this page.</figcaption>
   </figure>
+  </div>
+<nav class="p-jump" aria-label="On this page"><div class="in"><a href="#workshops"><span>01</span>Workshops</a><a href="#also"><span>02</span>Also available</a><a href="#receipts"><span>03</span>Receipts</a><a href="#how"><span>04</span>How a workshop goes</a></div></nav>
 
-  <div class="ws-list">
 
-    <details class="wsx" id="ws-anything-is-possible" data-ws="anything-is-possible">
+  <div class="ws-list" id="workshops">
+    <span class="mx-lab p-num" aria-hidden="true"></span>
+
+    <details class="wsx xh" id="ws-anything-is-possible" data-ws="anything-is-possible">
       <summary>
         <div>
           <h3><span class="num">01</span>In a World Where Anything Is Possible</h3>
@@ -228,7 +238,7 @@
       </div>
     </details>
 
-    <details class="wsx" id="ws-experience-context-mapping" data-ws="experience-context-mapping">
+    <details class="wsx xh" id="ws-experience-context-mapping" data-ws="experience-context-mapping">
       <summary>
         <div>
           <h3><span class="num">02</span>Experience and Context Mapping</h3>
@@ -250,7 +260,7 @@
       </div>
     </details>
 
-    <details class="wsx" id="ws-ai-opportunity-mapping" data-ws="ai-opportunity-mapping">
+    <details class="wsx xh" id="ws-ai-opportunity-mapping" data-ws="ai-opportunity-mapping">
       <summary>
         <div>
           <h3><span class="num">03</span>AI Opportunity Mapping</h3>
@@ -272,7 +282,7 @@
       </div>
     </details>
 
-    <details class="wsx" id="ws-global-alignment" data-ws="global-alignment">
+    <details class="wsx xh" id="ws-global-alignment" data-ws="global-alignment">
       <summary>
         <div>
           <h3><span class="num">04</span>Global Alignment</h3>
@@ -294,7 +304,7 @@
       </div>
     </details>
 
-    <details class="wsx" id="ws-future-thinking" data-ws="future-thinking">
+    <details class="wsx xh" id="ws-future-thinking" data-ws="future-thinking">
       <summary>
         <div>
           <h3><span class="num">05</span>Future Thinking</h3>
@@ -315,7 +325,7 @@
       </div>
     </details>
 
-    <details class="wsx" id="ws-design-sprint" data-ws="design-sprint">
+    <details class="wsx xh" id="ws-design-sprint" data-ws="design-sprint">
       <summary>
         <div>
           <h3><span class="num">06</span>The Design Sprint, rebuilt</h3>
@@ -333,7 +343,7 @@
       </div>
     </details>
 
-    <details class="wsx" id="ws-service-blueprint" data-ws="service-blueprint">
+    <details class="wsx xh" id="ws-service-blueprint" data-ws="service-blueprint">
       <summary>
         <div>
           <h3><span class="num">07</span>Service Blueprint</h3>
@@ -350,7 +360,7 @@
       </div>
     </details>
 
-    <details class="wsx" id="ws-design-system" data-ws="design-system">
+    <details class="wsx xh" id="ws-design-system" data-ws="design-system">
       <summary>
         <div>
           <h3><span class="num">08</span>Design System Audit and Build</h3>
@@ -368,7 +378,7 @@
       </div>
     </details>
 
-    <details class="wsx" id="ws-ai-built-on-paper" data-ws="ai-built-on-paper">
+    <details class="wsx xh" id="ws-ai-built-on-paper" data-ws="ai-built-on-paper">
       <summary>
         <div>
           <h3><span class="num">09</span>AI, Built On Paper</h3>
@@ -392,17 +402,18 @@
 
   </div>
 
-  <div class="ws-more">
+  <div class="p-light mx-band"><div class="ws-more" id="also">
+    <span class="mx-lab p-num" aria-hidden="true"></span>
     <h3>Also available</h3>
     <p>All of these are written up and ready to run. They sit behind the nine above because they overlap with them, or because they exist to solve one specific problem rather than to be shopped for. Ask about any of them on the call.</p>
     <div class="tags">
       <span>Vision and Goal Alignment</span><span>Design + Disrupt</span><span>Play Thinking</span><span>Design Thinking Series</span><span>UX and UI Series with office hours</span><span>The Figma Series with office hours</span><span>Event Storming</span><span>North Star and Impact Mapping</span><span>Entitlement and Permissions Matrix</span><span>Model in the Loop Mapping</span><span>Process and Handoff</span><span>Career Ladder and Team Shape</span><span>Research Operations</span><span>Persona System</span><span>Retail Experience Observation</span><span>Multi Day Concept Sprint</span><span>AI, Built In Order</span>
     </div>
-  </div>
+  </div></div>
 
-  <section class="ws-proof">
+  <section class="ws-proof" id="receipts">
     <div class="ws-proof-in">
-      <div class="eyebrow">Receipts</div>
+      <div class="eyebrow mx-lab p-num">Receipts</div>
       <h2>Two rooms, in detail</h2>
       <div class="ws-cases">
 
@@ -431,15 +442,16 @@
     </div>
   </section>
 
-  <div class="ws-how">
+  <div class="p-light mx-band"><div class="ws-how" id="how">
+    <span class="mx-lab p-num" aria-hidden="true"></span>
     <h2>How a workshop actually goes</h2>
     <ol>
-      <li><b>A call, and an honest answer about whether you need one</b><span>Some of these questions are cheaper to answer in an afternoon than in a workshop. If yours is, I will say so on the call.</span></li>
-      <li><b>Pre-work, with a deadline</b><span>Not a suggestion. The sessions that work are the ones where the room arrives having already written something down.</span></li>
-      <li><b>The day, standing up</b><span>Remote first on a board, or in a room around a wall. Both work. The wall is better and I will say that too.</span></li>
-      <li><b>The artefact, within a week</b><span>Written up so someone who was not there can follow a decision back to the moment it was made, and so the people who made it get their names on it.</span></li>
+      <li class="xh"><b>A call, and an honest answer about whether you need one</b><span>Some of these questions are cheaper to answer in an afternoon than in a workshop. If yours is, I will say so on the call.</span></li>
+      <li class="xh"><b>Pre-work, with a deadline</b><span>Not a suggestion. The sessions that work are the ones where the room arrives having already written something down.</span></li>
+      <li class="xh"><b>The day, standing up</b><span>Remote first on a board, or in a room around a wall. Both work. The wall is better and I will say that too.</span></li>
+      <li class="xh"><b>The artefact, within a week</b><span>Written up so someone who was not there can follow a decision back to the moment it was made, and so the people who made it get their names on it.</span></li>
     </ol>
-  </div>
+  </div></div>
 
   <section class="ws-close">
     <img src="assets/work/workshop-table.jpg" alt="The workshop group sharing a long lunch together after the session, faces blurred" width="1600" height="873" loading="lazy">
@@ -447,10 +459,10 @@
   </section>
 </main>
 
-<section class="wm-cta">
+<section class="wm-cta mx-cta"><div class="p-cta-in">
   <h2>Ready to talk?</h2>
   <a href="https://cal.com/aneil-razvi" target="_blank">Book an intro call →</a>
-</section>
+</div></section>
 
 <footer class="v3-footer">
   <div class="v3f-top">
