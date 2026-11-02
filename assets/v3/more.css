@@ -430,3 +430,9 @@
 .v3m-fx .p-jump a:last-child{margin-right:0}
 /* once the hero stacks, the photo spans the column, so it shows uncropped */
 @media (max-width:980px){.v3m-wwm .wm-heroimg img{aspect-ratio:2000/1250;object-position:center}}
+
+/* workshops: the band photo sits in the left column under the headline */
+.v3m-ws .mx-hl .ws-band-hl{max-width:none;margin:2.2rem 0 0;padding:0}
+.v3m-ws .mx-hl .ws-band-hl img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;object-position:62% 50%;display:block}
+.v3m-ws .mx-hl .ws-band-hl figcaption{margin-top:.9rem}
+@media (max-width:900px){.v3m-ws .mx-hl .ws-band-hl{margin:1.6rem 0 .4rem}.v3m-ws .mx-hl .ws-band-hl img{aspect-ratio:16/10}}
