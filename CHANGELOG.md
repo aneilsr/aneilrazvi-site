@@ -2,6 +2,21 @@
 
 Newest first. One entry per shipped push, with the proof it works on production.
 
+## 2026-11-02 · Photo heroes on all nine case studies and About
+
+Shipped
+- Case-study heroes (SPOTIO, SNHU, Omnitracs, Kalkomey, Capital One, Citi, TPN, PhzMe, Cubby) now use the homepage treatment:
+  a full-bleed photo with the 24s drift, the left-to-right navy shade and the grid. The framed image box on the right is gone.
+- The client logo, in white, replaces the client name at the top of the copy column; the eyebrow keeps the category line.
+- About uses the same treatment with the fly-fishing photo; the framed portrait is gone.
+- Photos: assets/work/<page>-hero.jpg and about-fishing-hero.jpg, 2400x1350, 280 to 500 KB. Capital One, Omnitracs and Kalkomey
+  are mirrored so the subject sits in the open right half. New logo files: assets/logos/cubby-white.svg (from Figma), phzme-white.png.
+- Styles: one reusable block `.csx-heroph` in assets/v3/cases.css (per-page `--hero`, `--hero-pos`, `--logo-h`) and `.abx-heroph` in pages.css.
+- Motion stops for visitors with reduced motion turned on.
+
+To add a photo hero to a new case study: copy the four hero lines from cubby.html, point `--hero` at a 2400x1350 photo
+(subject on the right, no text in it), and swap the logo file.
+
 ## 2026-11-02 · Readiness keeps UTM tags
 
 Fixed

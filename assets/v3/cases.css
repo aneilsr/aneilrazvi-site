@@ -177,3 +177,24 @@
   .v3p-case .csx-cards li,.v3p-case .csx-steps li{padding:1.3rem 1.2rem 1.4rem}
   .v3p-case .csx-cards li::before,.v3p-case .csx-steps li::before{margin-bottom:1rem}
 }
+
+/* ---------- photo hero (Nov 2026): the homepage treatment on a case study ----------
+   <section class="cs2-hero csx-heroph" style="--hero:url(...);--hero-pos:72% 38%">
+   + .ph (the drifting photo), .shade, .gridov, and .csx-logo in place of .csx-img.
+   Photo: 2400x1350, subject on the right half, no text baked in. */
+.v3p-case .cs2-hero.csx-heroph{position:relative;isolation:isolate;background:#070C12!important;min-height:min(86vh,820px);display:flex;align-items:center;padding:9rem 0 5rem}
+.v3p-case .csx-heroph > .ph{position:absolute;inset:0;z-index:0;background:var(--hero) var(--hero-pos,70% 40%)/cover no-repeat;transform:scale(1.04);animation:csxdrift 24s ease-in-out infinite alternate;will-change:transform}
+@keyframes csxdrift{to{transform:scale(1.1) translate(-1.5%,-1%)}}
+.v3p-case .csx-heroph > .shade{position:absolute;inset:0;z-index:0;background:linear-gradient(90deg,rgba(7,12,18,.94) 0%,rgba(7,12,18,.82) 38%,rgba(7,12,18,.42) 66%,rgba(7,12,18,.2) 100%),linear-gradient(0deg,rgba(7,12,18,.85) 0%,rgba(7,12,18,0) 38%)}
+.v3p-case .csx-heroph > .gridov{position:absolute;inset:0;z-index:0;opacity:.5;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:88px 88px;background-position:-1px -1px}
+.v3p-case .csx-heroph .cs2-hero-inner{position:relative;z-index:1;width:100%}
+/* the client logo replaces the client name at the top of the copy column */
+.v3p-case .csx-logo{margin:0 0 1.4rem}
+.v3p-case .csx-logo img{display:block;height:var(--logo-h,50px);width:auto;max-width:100%;filter:brightness(0) invert(1) drop-shadow(0 2px 14px rgba(0,0,0,.5))}
+@media (prefers-reduced-motion:reduce){.v3p-case .csx-heroph > .ph{animation:none}}
+@media (max-width:900px){
+  .v3p-case .cs2-hero.csx-heroph{min-height:0;padding:7.5rem 0 3.5rem}
+  .v3p-case .csx-heroph > .ph{background-position:var(--hero-pos-m,68% 30%)}
+  .v3p-case .csx-heroph > .shade{background:linear-gradient(0deg,rgba(7,12,18,.95) 0%,rgba(7,12,18,.8) 55%,rgba(7,12,18,.6) 100%)}
+  .v3p-case .csx-logo img{height:calc(var(--logo-h,50px) * .75)}
+}
