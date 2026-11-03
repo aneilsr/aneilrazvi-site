@@ -10,7 +10,7 @@ Shipped
 - The client logo, in white, replaces the client name at the top of the copy column; the eyebrow keeps the category line.
 - About uses the same treatment with the fly-fishing photo; the framed portrait is gone.
 - Photos: assets/work/<page>-hero.jpg and about-fishing-hero.jpg, 2400x1350, 280 to 500 KB. Capital One, Omnitracs and Kalkomey
-  are mirrored so the subject sits in the open right half. New logo files: assets/logos/cubby-white.svg (from Figma), phzme-white.png.
+  are mirrored so the subject sits in the open right half. New logo files: assets/logos/cubby-white.svg (from Figma), phzme-color.png (keeps its orange and white; class keep-color skips the white filter).
 - Styles: one reusable block `.csx-heroph` in assets/v3/cases.css (per-page `--hero`, `--hero-pos`, `--logo-h`) and `.abx-heroph` in pages.css.
 - Motion stops for visitors with reduced motion turned on.
 

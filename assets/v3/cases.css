@@ -191,6 +191,7 @@
 /* the client logo replaces the client name at the top of the copy column */
 .v3p-case .csx-logo{margin:0 0 1.4rem}
 .v3p-case .csx-logo img{display:block;height:var(--logo-h,50px);width:auto;max-width:100%;filter:brightness(0) invert(1) drop-shadow(0 2px 14px rgba(0,0,0,.5))}
+.v3p-case .csx-logo img.keep-color{filter:drop-shadow(0 2px 14px rgba(0,0,0,.5))}
 @media (prefers-reduced-motion:reduce){.v3p-case .csx-heroph > .ph{animation:none}}
 @media (max-width:900px){
   .v3p-case .cs2-hero.csx-heroph{min-height:0;padding:7.5rem 0 3.5rem}
