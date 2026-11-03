@@ -2,6 +2,15 @@
 
 Newest first. One entry per shipped push, with the proof it works on production.
 
+## 2026-11-02 · Color client logos in the case-study heroes
+
+- SPOTIO, Citi, Kalkomey, Capital One, Omnitracs, Cubby and PhzMe now show their brand color in the hero (class `keep-color`
+  skips the white filter). Dark wordmark text was switched to white so it reads on the photo, and the brand accent stays:
+  SPOTIO yellow pin, Citi red arc, Kalkomey red mark, Capital One red swoosh, Omnitracs green ring, Cubby lavender (#C0A8CE, from Figma).
+- Files: assets/logos/<name>-color.svg (omnitracs-color.png and phzme-color.png are PNG). Omnitracs uses the green-ring mark from
+  _source/logos/Omnitracs_Logo.png, which differs from the sun-gear mark in omnitracs.svg.
+- SNHU and TPN stay white: both are one-color brands and white is their on-dark version.
+
 ## 2026-11-02 · Photo heroes on all nine case studies and About
 
 Shipped
