@@ -540,7 +540,9 @@ function pick(i){
     }
   }
   q.value = row[0]; sugg.className = "sugg";
-  try{ history.replaceState(null, "", "?q=" + encodeURIComponent(row[0]) + "&soc=" + o[0]); }catch(e){}
+  /* Keep utm_ tags in the address: both lead calls read them from location.search after this runs. */
+  try{ var utm = location.search.replace(/^\?/, "").split("&").filter(function(p){ return /^utm_/.test(p); });
+       history.replaceState(null, "", "?q=" + encodeURIComponent(row[0]) + "&soc=" + o[0] + (utm.length ? "&" + utm.join("&") : "")); }catch(e){}
   track("readiness_lookup", {occupation: o[1], soc: o[0], tier: o[3], typed_matched_official: row[0] === o[1]});
   logLookup(o, row[0]);
   render(o, row[0]);
