@@ -1,3 +1,8 @@
+import sys
+if "--force" not in sys.argv:
+    sys.exit("Legacy (Oct 2026). The nine case-study pages are hand-maintained now: photo heroes, color logos, "
+             "keyword titles and 1200x630 share images (Nov 2026). Running this would overwrite all of that. "
+             "Pass --force only if you mean it.")
 import re, json, html
 FONTS='<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">'
 

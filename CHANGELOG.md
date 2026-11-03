@@ -2,6 +2,17 @@
 
 Newest first. One entry per shipped push, with the proof it works on production.
 
+## 2026-11-02 · Search Console, runbook, retired generators
+
+- Google Search Console (property https://aneilrazvi.com/): sitemap resubmitted, read the same day, 37 pages discovered (was 34 on 24 Oct).
+  Indexing requested for /build.html and /spotio-case-study.html (both "Indexing requested", priority crawl queue).
+  Page indexing at the time: 31 indexed, 13 not. 8 of the 13 are alternates with a correct canonical (fine), 1 is /build (the QR redirect, fine),
+  3 are "Discovered, currently not indexed" (Google has not crawled them yet), 1 is a duplicate without a chosen canonical (to check next time).
+- RUNBOOK.md added: how to ship, preview, verify, ping IndexNow, use Search Console, build photo heroes and test lead forms.
+- scripts/: seo_audit.py, indexnow.sh, preview.sh.
+- Retired generators now refuse to run without --force: scripts/build_cases.py (would overwrite all nine case studies)
+  and _source/linkedin-import/site_files.py (would overwrite the hand-kept sitemap.xml and llms.txt). README updated to match.
+
 ## 2026-11-02 · SEO and GEO pass
 
 Audit: every page checked for title, description, canonical, Open Graph, Twitter card, JSON-LD, H1, alt text, sitemap and links

@@ -15,10 +15,12 @@ React site or any external CDN.
 ## What does NOT deploy (kept for editing)
 - `_source/` — high-res masters: original client logos, case-study hero
   images, and all AIGA photos. Re-crop from here when you need a new size.
-- `scripts/` — `build_cases.py` regenerates the 9 case-study pages.
+- `scripts/`: `seo_audit.py`, `indexnow.sh`, `preview.sh`. The old generators (`build_cases.py`, `seo_inject.py`) are retired and refuse to run.
 - `*.md` docs. `.vercelignore` keeps all of this out of the deploy.
 
 ## Docs
+- `RUNBOOK.md`: how to ship, preview, verify, ping search engines, and test the lead forms. Start here.
+- `CHANGELOG.md`: what shipped, newest first, with the proof.
 - `PUBLISHING.md` — how to deploy + point aneilrazvi.com here.
 - `ASSET-CHECKLIST.md` — every image slot, filename, and size.
 - `README-EDITING.md` — how to edit pages and add work/speaking/testimonials.
