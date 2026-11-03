@@ -7,6 +7,7 @@ Newest first. One entry per shipped push, with the proof it works on production.
 Fixed
 - readiness.html: picking a job title rewrote the address to `?q=...&soc=...` and dropped every `utm_` tag
   before the lead was sent, so readiness leads never carried their source. The rewrite now keeps `utm_` params.
+  Verified on production after deploy 584b3db: picking Graphic Designer keeps utm_source and utm_campaign in the address.
   Found by the test lead below: the maturity and Build rows kept utm_source=claude-test, the readiness row had null.
 
 ## 2026-11-02 · v3 supporting materials (commit 277776d)
@@ -29,4 +30,5 @@ Verified on production
 Also tested the same night (aneilsr+sitetest@gmail.com, name Claude Test)
 - Readiness (Graphic Designer): page said "On its way", visitor email and "Readiness lookup" notice to hi@ both arrived, row written with report_sent_at
 - Build list (at-home list): page said "Check your inbox", visitor email "You are on the list for the course" arrived, row written with report_sent_at
+  OPEN: the "Build list: ..." notice to hi@ never arrived (not in inbox, spam or trash 10+ minutes later) and Vercel logged no Resend error. Check Resend > Emails for it.
 - All three test rows were deleted from `leads` afterwards
