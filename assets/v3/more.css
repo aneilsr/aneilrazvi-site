@@ -316,7 +316,7 @@
 .v3m-pf .pf-feature{border-radius:6px;background:#122130;border-color:var(--line-d);overflow:visible}
 .v3m-pf .pf-feat-img{border-radius:6px 0 0 6px}
 .v3m-pf .pf-feat-body{padding:2.8rem 2.6rem}
-.v3m-pf .pf-feat-body h2{font-size:clamp(2.4rem,4vw,3.4rem);line-height:1.02;margin-bottom:1rem}
+.v3m-pf .pf-feat-body h2{font:800 clamp(2.6rem,4vw,3.4rem)/1 var(--cond);text-transform:uppercase;letter-spacing:.01em;margin:0 0 1rem}
 .v3m-pf .pf-eyebrow{font:500 10.5px/1.4 var(--mono);letter-spacing:.14em;margin-bottom:.9rem}
 .v3m-pf .pf-pills{gap:6px;margin:1.3rem 0 .4rem}
 .v3m-pf .pf-pill{font:500 10px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;border-radius:3px;padding:6px 8px;display:inline-block}

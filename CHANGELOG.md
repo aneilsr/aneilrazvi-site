@@ -7,6 +7,7 @@ Newest first. One entry per shipped push, with the proof it works on production.
 - Cubby hero now uses Aneil's CUBBYLOGO.svg in brand purple #906099 (assets/logos/cubby-purple.svg), replacing the lavender variant.
 - SNHU hero now uses the full-color logo (white wordmark, navy shield, blue and gold flame): assets/logos/snhu-color.svg.
 - TPN is the only case-study logo still white.
+- Portfolio page: the featured Cubby title now uses the same condensed uppercase type as the SPOTIO and SNHU cards (more.css .pf-feat-body h2).
 
 ## 2026-11-02 · Color client logos in the case-study heroes
 
