@@ -40,10 +40,11 @@ AI product design, AI experience strategy, human-in-the-loop AI, product design 
 ## Course: AI, Built On Paper
 
 A course for designers and creatives, including students and career switchers, who want to turn a sketch into a live, AI-built product and a portfolio case study that shows they directed the AI. No coding. Define the problem, design it on paper, test it with people, then let AI build it from the plan. Formats: Sketch to Ship, an in-person day in Dallas-Fort Worth; a live online Build cohort; and Self-paced. Student pricing is available, and private sessions are offered for design and product teams.
+Next Sketch to Ship: Saturday 5 December 2026 in the Dallas-Fort Worth area. Founding prices: Sketch to Ship $99, Build cohort $897, Self-paced $397.
 Team sessions: a half-day private workshop for up to 20 people ($9,500), a virtual team track, or Build cohort seats, with copy-ready manager emails and a one-page PDF. https://aneilrazvi.com/build/teams
 - Course page: https://aneilrazvi.com/build.html
-- How it works (ten steps in four stages: define, paper, test, build): https://aneilrazvi.com/build/how-it-works.html
-- FAQ: https://aneilrazvi.com/build/faq.html
+- How it works (ten steps in four stages: define, paper, test, build): https://aneilrazvi.com/build/how-it-works
+- FAQ: https://aneilrazvi.com/build/faq
 - If I Had AI Then, a 1:1 portfolio add-on: rework one existing project into an honest Then & Now case study that shows how you'd run it today, clearly labeled as a retrospective. One project $395 (two 1-hour sessions plus written notes), each extra project $195, a 1-hour advice session $175, $295 for course buyers. Students get a monthly group clinic in Student Plus instead of 1:1. https://aneilrazvi.com/build/portfolio
 
 ## Writing: Building in the Open

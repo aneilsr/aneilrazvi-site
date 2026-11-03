@@ -2,6 +2,29 @@
 
 Newest first. One entry per shipped push, with the proof it works on production.
 
+## 2026-11-02 · SEO and GEO pass
+
+Audit: every page checked for title, description, canonical, Open Graph, Twitter card, JSON-LD, H1, alt text, sitemap and links
+(script: _to_delete/seo_audit.py, not deployed). robots.txt already welcomes AI crawlers; llms.txt and llms-full.txt already strong.
+
+Fixed
+- Case-study titles were "SPOTIO, Aneil Razvi". Now keyword titles under 60 characters, e.g. "SPOTIO: Designing AI for Field Sales | Aneil Razvi".
+  Same for Cubby, Omnitracs, SNHU, Kalkomey, Citi, Capital One, TPN, PhzMe, build.html and build/portfolio. og:title and twitter:title match.
+- Meta descriptions over 160 characters cut to 129 to 160 on 14 pages (case studies, course pages, one blog post); og and twitter match.
+- Share images: case studies used 780x487 thumbnails (LinkedIn shows those small). New 1200x630 images per case study in
+  assets/og/og-<page>.jpg (hero photo, color logo, headline), used for og:image, twitter:image and the JSON-LD image.
+- Structured data added where there was none: build.html (Course with three offers and course instances, plus the 5 Dec Sketch to Ship Event),
+  build/faq (FAQPage with all 27 questions), build/how-it-works, build/teams (Service, $9,500), build/portfolio (Service, $395/$295),
+  maturity.html and readiness.html (free WebApplication). All with Person and BreadcrumbList.
+- Sitemap listed build/*.html while those pages declare build/<slug> as canonical. Sitemap now uses the canonical URLs.
+  lastmod set to 2026-11-02 on the 20 pages changed today.
+- llms.txt: canonical course URLs, plus the next Sketch to Ship date and founding prices.
+- index.html: 16 decorative logo images got alt="".
+
+Left as is
+- maturity.html has no <html>/<head>/doctype wrapper (so no lang attribute). Adding one could change how the page renders; do it with a visual check.
+- links.html and privacy.html stay out of the sitemap on purpose.
+
 ## 2026-11-02 · Cubby and SNHU hero logos from Aneil's files
 
 - Cubby hero now uses Aneil's CUBBYLOGO.svg in brand purple #906099 (assets/logos/cubby-purple.svg), replacing the lavender variant.
