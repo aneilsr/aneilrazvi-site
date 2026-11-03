@@ -30,7 +30,7 @@ Verified on production
 Also tested the same night (aneilsr+sitetest@gmail.com, name Claude Test)
 - Readiness (Graphic Designer): page said "On its way", visitor email and "Readiness lookup" notice to hi@ both arrived, row written with report_sent_at
 - Build list (at-home list): page said "Check your inbox", visitor email "You are on the list for the course" arrived, row written with report_sent_at
-  OPEN: the "Build list: ..." notice to hi@ never reached aneilsr@gmail.com. Resend shows it Sent and Delivered to Google at 8:28 PM
-  (aneilrazvi.com MX is smtp.google.com), so the site code is fine. It was lost inside the hi@ Workspace mailbox or its forwarding.
-  Earlier Build notices (Sep and Oct) did arrive, so this is not every Build notice. Next check: Google Admin > Reporting > Email log search.
+  The "Build list: ..." notice to hi@ is in the hi@ inbox at 8:28 PM (Resend: Delivered). hi@ forwards every message to
+  aneilsr@gmail.com, and this one copy never arrived there, with no bounce in hi@. Gmail dropped the forwarded copy silently.
+  The site code is fine, and earlier Build notices (Sep and Oct) forwarded normally. hi@ inbox is the source of truth for lead notices.
 - All three test rows were deleted from `leads` afterwards
