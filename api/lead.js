@@ -93,14 +93,14 @@ export default async function handler(req, res) {
     // One footer for every email a visitor receives: wordmark, phone, email, site, LinkedIn,
     // and the booking link. Same block as the Gmail signature on hi@ (29 Sep 2026).
     const SIG_HTML = `<div style="border-top:1px solid #E2E8EC;padding-top:16px">
-      <a href="https://aneilrazvi.com" style="text-decoration:none"><img src="https://aneilrazvi.com/assets/email/aneil-razvi-wordmark.png" width="188" height="28" alt="Aneil Razvi" style="display:block;border:0;width:188px;height:28px;font:700 18px Georgia,serif;color:#0C1622"></a>
+      <a href="https://aneilrazvi.com" style="text-decoration:none"><img src="https://aneilrazvi.com/assets/email/aneil-razvi-wordmark.png" width="188" height="28" alt="Aneil Razvi" style="display:block;border:0;width:188px;height:28px;font:700 18px 'DM Serif Display',Georgia,serif;color:#0C1622"></a>
       <div style="font:400 12px/1.5 Helvetica,Arial,sans-serif;color:#6E7A85;margin-top:8px">Fractional design and AI experience leadership</div>
       <div style="font:400 13px/1.7 Helvetica,Arial,sans-serif;color:#3B4651;margin-top:4px">
         <a href="tel:+14692614282" style="color:#3B4651;text-decoration:none">469.261.4282</a> &nbsp;&middot;&nbsp;
         <a href="mailto:hi@aneilrazvi.com" style="color:#3B4651;text-decoration:none">hi@aneilrazvi.com</a><br>
-        <a href="https://aneilrazvi.com" style="color:#0097A7;text-decoration:none">aneilrazvi.com</a> &nbsp;&middot;&nbsp;
-        <a href="https://www.linkedin.com/in/aneilrazvi" style="color:#0097A7;text-decoration:none">linkedin.com/in/aneilrazvi</a><br>
-        <a href="https://cal.com/aneil-razvi" style="color:#0097A7;font-weight:700;text-decoration:none">Book a time: cal.com/aneil-razvi</a>
+        <a href="https://aneilrazvi.com" style="color:#00838F;text-decoration:none">aneilrazvi.com</a> &nbsp;&middot;&nbsp;
+        <a href="https://www.linkedin.com/in/aneilrazvi" style="color:#00838F;text-decoration:none">linkedin.com/in/aneilrazvi</a><br>
+        <a href="https://cal.com/aneil-razvi" style="color:#00838F;font-weight:700;text-decoration:none">Book a time: cal.com/aneil-razvi</a>
       </div>
     </div>`;
     const SIG_TEXT = [
@@ -125,7 +125,7 @@ export default async function handler(req, res) {
       <tr>
         <td style="padding:4px 8px 4px 0;font:400 12px/1.35 Helvetica,Arial,sans-serif;color:#6B7280;white-space:nowrap">${k}</td>
         <td style="padding:4px 8px 4px 0;width:86px">${bar(o[k], 86).replace("#00BCD4", accent)}</td>
-        <td style="padding:4px 0;font:600 12px/1.35 Helvetica,Arial,sans-serif;color:#1A1A2E;white-space:nowrap">${o[k]}<span style="color:#9AA5AD;font-weight:400">/5</span></td>
+        <td style="padding:4px 0;font:600 12px/1.35 Helvetica,Arial,sans-serif;color:#0F1923;white-space:nowrap">${o[k]}<span style="color:#9AA5AD;font-weight:400">/5</span></td>
       </tr>`).join("");
 
     // The thirty-six squares, drawn as a table because Gmail strips inline SVG.
@@ -134,26 +134,26 @@ export default async function handler(req, res) {
     const matrixTable = () => {
       const F = [["A","A","H","B","B","B"],["A","H","H","H","B","B"],["K","K","K","H","H","H"],
                  ["A","C","K","K","K","K"],["A","A","C","C","C","C"],["A","A","C","C","C","C"]];
-      const FM = { A:["Advice","#E8EFF0","#2E7580"], C:["Check-up","#FDE8E1","#A83F1C"], K:["Contract","#C9DDE0","#22606A"],
-                   H:["Hire","#3C8B94","#FFFFFF"], B:["Beyond buying","#16212B","#FFFFFF"] };
+      const FM = { A:["Advice","#E2F4F6","#00838F"], C:["Check-up","#FCE8E0","#A63E19"], K:["Contract","#B7E6EC","#006570"],
+                   H:["Hire","#00838F","#FFFFFF"], B:["Beyond buying","#0F1923","#00BCD4"] };
       const capN = ["User-Driven","Integrated","Structured","Emergent","Limited","Absent"];
       const aiN  = ["Limited","Reactive","Developing","Embedded","Leading","Symbiotic"];
       const cl = Number(b.capability_level) || 1, al = Number(b.ai_level) || 1;   // both 1-based
       let out = '<table role="presentation" cellpadding="0" cellspacing="3" style="border-collapse:separate;width:100%;table-layout:fixed">';
       out += '<tr><td style="width:21%"></td>';
       for (let c = 0; c < 6; c++) {
-        out += '<td style="padding:0 0 3px;text-align:center;font:700 10px/1.25 Helvetica,Arial,sans-serif;color:#16212B">' +
-               '<span style="color:#2E7580">' + AIX[c] + '</span><br>' + aiN[c] + '</td>';
+        out += '<td style="padding:0 0 3px;text-align:center;font:700 10px/1.25 Helvetica,Arial,sans-serif;color:#0F1923">' +
+               '<span style="color:#00838F">' + AIX[c] + '</span><br>' + aiN[c] + '</td>';
       }
       out += '</tr>';
       for (let r = 0; r < 6; r++) {
         const lv = 6 - r;
-        out += '<tr><td style="padding:0 6px 0 0;text-align:right;font:700 10px/1.2 Helvetica,Arial,sans-serif;color:#16212B">' +
-               capN[r] + ' <span style="color:#2E7580">' + lv + '</span></td>';
+        out += '<tr><td style="padding:0 6px 0 0;text-align:right;font:700 10px/1.2 Helvetica,Arial,sans-serif;color:#0F1923">' +
+               capN[r] + ' <span style="color:#00838F">' + lv + '</span></td>';
         for (let c = 0; c < 6; c++) {
           const f = FM[F[r][c]], edge = (lv <= 2 && c >= 3), you = (lv === cl && c + 1 === al);
-          const bd = you ? "3px solid #16212B" : (edge ? "2px solid #F15A27" : "2px solid " + f[1]);
-          out += '<td style="border:' + bd + ';background:' + f[1] + ';height:32px;padding:0 2px;text-align:center;border-radius:5px;' +
+          const bd = you ? "3px solid #0F1923" : (edge ? "2px solid #E8572A" : "2px solid " + f[1]);
+          out += '<td style="border:' + bd + ';background:' + f[1] + ';height:32px;padding:0 2px;text-align:center;border-radius:4px;' +
                  'font:700 9.5px/1.2 Helvetica,Arial,sans-serif;color:' + f[2] + '">' + f[0] + '</td>';
         }
         out += '</tr>';
@@ -180,21 +180,22 @@ export default async function handler(req, res) {
       : "Your two axes are roughly in step, which is less common than it sounds. The work now is moving both together rather than letting one sprint ahead.";
 
     const toVisitor = `
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&amp;family=JetBrains+Mono:wght@500;600&amp;display=swap">
 <div style="background:#F4F6F8;padding:28px 12px">
-<table role="presentation" cellpadding="0" cellspacing="0" style="max-width:600px;margin:0 auto;width:100%;background:#FFFFFF;border-radius:16px;border-collapse:separate;overflow:hidden">
-  <tr><td style="height:5px;background:#00BCD4;font-size:0;line-height:0">&nbsp;</td></tr>
+<table role="presentation" cellpadding="0" cellspacing="0" style="max-width:600px;margin:0 auto;width:100%;background:#FFFFFF;border-radius:6px;border-collapse:separate;overflow:hidden">
+  <tr><td style="background:#FFFFFF;padding:22px 34px 16px;border-bottom:2px solid #00BCD4"><table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse"><tr><td valign="middle"><a href="https://aneilrazvi.com" style="text-decoration:none"><img src="https://aneilrazvi.com/assets/email/aneil-razvi-wordmark.png" width="188" height="28" alt="Aneil Razvi" style="display:block;border:0;width:188px;height:28px;font:400 18px 'DM Serif Display',Georgia,serif;color:#0F1923"></a></td><td valign="middle" align="right" style="font:500 10px/1 'JetBrains Mono',Menlo,Consolas,monospace;letter-spacing:.16em;text-transform:uppercase;color:#00838F;white-space:nowrap">aneilrazvi.com</td></tr></table></td></tr>
   <tr><td style="padding:30px 34px 8px">
-    <div style="font:700 11px/1 Helvetica,Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#0097A7">Your read</div>
-    <h1 style="margin:12px 0 6px;font:400 27px/1.2 Georgia,'Times New Roman',serif;color:#1E3A5F">${b.capability_label} capability, ${b.ai_label} on AI</h1>
+    <div style="font:500 11px/1 'JetBrains Mono',Menlo,Consolas,monospace;letter-spacing:.14em;text-transform:uppercase;color:#00838F">Your read</div>
+    <h1 style="margin:12px 0 6px;font:400 27px/1.2 'DM Serif Display',Georgia,'Times New Roman',serif;color:#0F1923">${b.capability_label} capability, ${b.ai_label} on AI</h1>
     <p style="margin:10px 0 0;font:400 15px/1.65 Helvetica,Arial,sans-serif;color:#6B7280">
       Thanks for taking this. Your full read is below, and the scores are exactly what you saw on the page.
     </p>
   </td></tr>
 
   <tr><td style="padding:20px 34px 0">
-    <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;background:#1E3A5F;border-radius:12px;border-collapse:collapse">
+    <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;background:#0F1923;border-radius:6px;border-collapse:collapse">
       <tr>
-        <td valign="middle" style="padding:16px 8px 16px 22px;font:400 34px/1 Georgia,serif;color:#FFFFFF;white-space:nowrap">${_cl}${AIX[_al - 1] || "A"}</td>
+        <td valign="middle" style="padding:16px 8px 16px 22px;font:400 34px/1 'DM Serif Display',Georgia,serif;color:#FFFFFF;white-space:nowrap">${_cl}${AIX[_al - 1] || "A"}</td>
         <td valign="middle" style="padding:16px 22px 16px 14px;font:400 14px/1.5 Helvetica,Arial,sans-serif;color:rgba(255,255,255,.82)">
           <b style="color:#FFFFFF">Your square.</b> Capability ${_cl}, ${b.capability_label}. AI ${AIX[_al - 1] || "A"}, ${b.ai_label}. One of thirty-six.
         </td>
@@ -205,15 +206,15 @@ export default async function handler(req, res) {
   <tr><td style="padding:20px 34px 0">
     <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse">
       <tr>
-        <td width="49%" valign="top" style="background:#E4F8FB;border-left:4px solid #00BCD4;border-radius:8px;padding:14px 16px">
-          <div style="font:700 10px/1 Helvetica,Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#0097A7">Design capability</div>
-          <div style="font:400 22px/1.15 Georgia,serif;color:#1E3A5F;margin-top:5px">${b.capability_label}</div>
+        <td width="49%" valign="top" style="background:#E2F4F6;border-left:4px solid #00BCD4;border-radius:6px;padding:14px 16px">
+          <div style="font:500 10px/1 'JetBrains Mono',Menlo,Consolas,monospace;letter-spacing:.14em;text-transform:uppercase;color:#00838F">Design capability</div>
+          <div style="font:400 22px/1.15 'DM Serif Display',Georgia,serif;color:#0F1923;margin-top:5px">${b.capability_label}</div>
           <div style="font:400 13px/1.4 Helvetica,Arial,sans-serif;color:#6B7280;margin-top:3px">Level ${b.capability_level} of 6</div>
         </td>
         <td width="2%" style="font-size:0;line-height:0">&nbsp;</td>
-        <td width="49%" valign="top" style="background:#FFF1E6;border-left:4px solid #F97316;border-radius:8px;padding:14px 16px">
-          <div style="font:700 10px/1 Helvetica,Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#C2410C">AI adoption</div>
-          <div style="font:400 22px/1.15 Georgia,serif;color:#1E3A5F;margin-top:5px">${b.ai_label}</div>
+        <td width="49%" valign="top" style="background:#FCE8E0;border-left:4px solid #E8572A;border-radius:6px;padding:14px 16px">
+          <div style="font:500 10px/1 'JetBrains Mono',Menlo,Consolas,monospace;letter-spacing:.14em;text-transform:uppercase;color:#A63E19">AI adoption</div>
+          <div style="font:400 22px/1.15 'DM Serif Display',Georgia,serif;color:#0F1923;margin-top:5px">${b.ai_label}</div>
           <div style="font:400 13px/1.4 Helvetica,Arial,sans-serif;color:#6B7280;margin-top:3px">Level ${AIX[_al - 1] || "A"} on the A to F scale</div>
         </td>
       </tr>
@@ -221,10 +222,10 @@ export default async function handler(req, res) {
   </td></tr>
 
   <tr><td style="padding:24px 34px 0">
-    <div style="font:700 11px/1 Helvetica,Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#6B7280;padding-bottom:10px">Your square, on the thirty-six</div>
+    <div style="font:500 11px/1 'JetBrains Mono',Menlo,Consolas,monospace;letter-spacing:.14em;text-transform:uppercase;color:#6B7280;padding-bottom:10px">Your square, on the thirty-six</div>
     ${matrixTable()}
     <p style="margin:12px 0 0;font:400 13px/1.6 Helvetica,Arial,sans-serif;color:#9AA5AD">
-      Capability up the side, AI adoption across the top, and each square names what the next dollar buys. The dark outline is your square, and it says <b style="color:#16212B">${_BUY}</b>. The orange edge is where AI has run ahead of design.
+      Capability up the side, AI adoption across the top, and each square names what the next dollar buys. The dark outline is your square, and it says <b style="color:#0F1923">${_BUY}</b>. The orange edge is where AI has run ahead of design.
     </p>
     <p style="margin:12px 0 0;font:400 14px/1.65 Helvetica,Arial,sans-serif;color:#3B4651">${_read}</p>
   </td></tr>
@@ -233,13 +234,13 @@ export default async function handler(req, res) {
     <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse">
       <tr>
         <td width="49%" valign="top">
-          <div style="font:700 10px/1 Helvetica,Arial,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#0097A7;padding-bottom:9px">Design capability</div>
+          <div style="font:500 10px/1 'JetBrains Mono',Menlo,Consolas,monospace;letter-spacing:.14em;text-transform:uppercase;color:#00838F;padding-bottom:9px">Design capability</div>
           <table role="presentation" cellpadding="0" cellspacing="0" style="border-collapse:collapse">${dimRows(b.capability_breakdown, "#00BCD4")}</table>
         </td>
         <td width="2%" style="font-size:0;line-height:0">&nbsp;</td>
         <td width="49%" valign="top">
-          <div style="font:700 10px/1 Helvetica,Arial,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#C2410C;padding-bottom:9px">AI adoption</div>
-          <table role="presentation" cellpadding="0" cellspacing="0" style="border-collapse:collapse">${dimRows(b.ai_breakdown, "#F97316")}</table>
+          <div style="font:500 10px/1 'JetBrains Mono',Menlo,Consolas,monospace;letter-spacing:.14em;text-transform:uppercase;color:#A63E19;padding-bottom:9px">AI adoption</div>
+          <table role="presentation" cellpadding="0" cellspacing="0" style="border-collapse:collapse">${dimRows(b.ai_breakdown, "#E8572A")}</table>
         </td>
       </tr>
     </table>
@@ -247,14 +248,14 @@ export default async function handler(req, res) {
   </td></tr>
 
   <tr><td style="padding:24px 34px 0">
-    <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;background:#0F1923;border-radius:12px;border-collapse:collapse">
+    <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;background:#0F1923;border-radius:6px;border-collapse:collapse">
       <tr><td style="padding:22px 24px">
-        <div style="font:700 10px/1 Helvetica,Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#00BCD4">Best fit for where you are</div>
-        <div style="font:400 23px/1.2 Georgia,serif;color:#FFFFFF;margin:8px 0 10px">${b.recommended_package}</div>
+        <div style="font:500 10px/1 'JetBrains Mono',Menlo,Consolas,monospace;letter-spacing:.14em;text-transform:uppercase;color:#00BCD4">Best fit for where you are</div>
+        <div style="font:400 23px/1.2 'DM Serif Display',Georgia,serif;color:#FFFFFF;margin:8px 0 10px">${b.recommended_package}</div>
         <p style="margin:0 0 16px;font:400 14px/1.6 Helvetica,Arial,sans-serif;color:rgba(255,255,255,.7)">
           Ranked against your answers, not a generic order. If that looks close to right, I would like to work with you on it. Twenty minutes, no pitch, and I will tell you honestly if the answer is that you do not need me yet.
         </p>
-        <a href="${BOOKING}" style="display:inline-block;background:#00BCD4;color:#0F1923;font:700 14px/1 Helvetica,Arial,sans-serif;padding:13px 24px;border-radius:99px;text-decoration:none">Book a quick intro call</a>
+        <a href="${BOOKING}" style="display:inline-block;background:#00BCD4;color:#0F1923;font:600 13px/1 'JetBrains Mono',Menlo,Consolas,monospace;letter-spacing:.06em;text-transform:uppercase;padding:14px 22px;border-radius:4px;text-decoration:none">Book a quick intro call</a>
         <a href="${REPORT_URL}" style="display:inline-block;margin-left:10px;color:#00BCD4;font:600 14px/1 Helvetica,Arial,sans-serif;padding:13px 4px;text-decoration:none;border-bottom:1px solid rgba(0,188,212,.45)">Or open your full read</a>
       </td></tr>
     </table>
@@ -269,7 +270,7 @@ export default async function handler(req, res) {
   <tr><td style="padding:22px 34px 30px">
     <p style="margin:0 0 14px;font:400 13px/1.6 Helvetica,Arial,sans-serif;color:#9AA5AD">
       Your full read, with both charts and the engagement detail, lives at
-      <a href="${REPORT_URL}" style="color:#0097A7;text-decoration:none">this link</a>. It is yours to keep and it prints to a PDF.
+      <a href="${REPORT_URL}" style="color:#00838F;text-decoration:none">this link</a>. It is yours to keep and it prints to a PDF.
     </p>
     ${SIG_HTML}
   </td></tr>
@@ -277,18 +278,18 @@ export default async function handler(req, res) {
 </div>`;
 
     const toAneil = `<div style="background:#F4F6F8;padding:24px 12px">
-<table role="presentation" cellpadding="0" cellspacing="0" style="max-width:600px;margin:0 auto;width:100%;background:#FFFFFF;border-radius:16px;border-collapse:separate;overflow:hidden">
-  <tr><td style="height:5px;background:#00BCD4;font-size:0;line-height:0">&nbsp;</td></tr>
+<table role="presentation" cellpadding="0" cellspacing="0" style="max-width:600px;margin:0 auto;width:100%;background:#FFFFFF;border-radius:6px;border-collapse:separate;overflow:hidden">
+  <tr><td style="background:#FFFFFF;padding:22px 34px 16px;border-bottom:2px solid #00BCD4"><table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse"><tr><td valign="middle"><a href="https://aneilrazvi.com" style="text-decoration:none"><img src="https://aneilrazvi.com/assets/email/aneil-razvi-wordmark.png" width="188" height="28" alt="Aneil Razvi" style="display:block;border:0;width:188px;height:28px;font:400 18px 'DM Serif Display',Georgia,serif;color:#0F1923"></a></td><td valign="middle" align="right" style="font:500 10px/1 'JetBrains Mono',Menlo,Consolas,monospace;letter-spacing:.16em;text-transform:uppercase;color:#00838F;white-space:nowrap">aneilrazvi.com</td></tr></table></td></tr>
   <tr><td style="padding:26px 30px 6px">
-    <div style="font:700 11px/1 Helvetica,Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#0097A7">New lead &middot; maturity assessment</div>
-    <h1 style="margin:11px 0 0;font:400 25px/1.25 Georgia,'Times New Roman',serif;color:#1E3A5F">${b.name || "Someone"}${b.company ? " at " + b.company : ""}</h1>
-    <div style="margin:6px 0 0;font:400 14px/1.5 Helvetica,Arial,sans-serif"><a href="mailto:${b.email}" style="color:#0097A7;text-decoration:none">${b.email}</a></div>
+    <div style="font:500 11px/1 'JetBrains Mono',Menlo,Consolas,monospace;letter-spacing:.14em;text-transform:uppercase;color:#00838F">New lead &middot; maturity assessment</div>
+    <h1 style="margin:11px 0 0;font:400 25px/1.25 'DM Serif Display',Georgia,'Times New Roman',serif;color:#0F1923">${b.name || "Someone"}${b.company ? " at " + b.company : ""}</h1>
+    <div style="margin:6px 0 0;font:400 14px/1.5 Helvetica,Arial,sans-serif"><a href="mailto:${b.email}" style="color:#00838F;text-decoration:none">${b.email}</a></div>
   </td></tr>
 
   <tr><td style="padding:18px 30px 0">
-    <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;background:#1E3A5F;border-radius:12px;border-collapse:collapse">
+    <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;background:#0F1923;border-radius:6px;border-collapse:collapse">
       <tr>
-        <td valign="middle" style="padding:14px 6px 14px 20px;font:400 30px/1 Georgia,serif;color:#FFFFFF;white-space:nowrap">${_cl}${AIX[_al - 1] || "A"}</td>
+        <td valign="middle" style="padding:14px 6px 14px 20px;font:400 30px/1 'DM Serif Display',Georgia,serif;color:#FFFFFF;white-space:nowrap">${_cl}${AIX[_al - 1] || "A"}</td>
         <td valign="middle" style="padding:14px 20px 14px 12px;font:400 13.5px/1.5 Helvetica,Arial,sans-serif;color:rgba(255,255,255,.82)">
           <b style="color:#FFFFFF">${b.capability_label}</b> capability, <b style="color:#FFFFFF">${b.ai_label}</b> on AI
         </td>
@@ -298,17 +299,17 @@ export default async function handler(req, res) {
 
   <tr><td style="padding:20px 30px 0">
     <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;font:400 14px/1.5 Helvetica,Arial,sans-serif">
-      <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280;width:38%">Role</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#1A1A2E">${b.role || "not given"}</td></tr>
-      <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280">Designers</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#1A1A2E">${b.team_size || "not given"}</td></tr>
-      <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280">Stage</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#1A1A2E">${b.company_stage || "not given"}</td></tr>
+      <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280;width:38%">Role</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#0F1923">${b.role || "not given"}</td></tr>
+      <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280">Designers</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#0F1923">${b.team_size || "not given"}</td></tr>
+      <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280">Stage</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#0F1923">${b.company_stage || "not given"}</td></tr>
     </table>
   </td></tr>
 
   ${b.blocker ? `<tr><td style="padding:18px 30px 0">
-    <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;background:#FFF1E6;border-radius:10px;border-collapse:collapse">
-      <tr><td style="padding:14px 18px;border-left:4px solid #F97316">
-        <div style="font:700 10px/1 Helvetica,Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#C2410C">What they said is in the way</div>
-        <div style="margin-top:6px;font:400 15px/1.5 Georgia,serif;color:#1A1A2E">${b.blocker}</div>
+    <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;background:#FCE8E0;border-radius:6px;border-collapse:collapse">
+      <tr><td style="padding:14px 18px;border-left:4px solid #E8572A">
+        <div style="font:500 10px/1 'JetBrains Mono',Menlo,Consolas,monospace;letter-spacing:.14em;text-transform:uppercase;color:#A63E19">What they said is in the way</div>
+        <div style="margin-top:6px;font:400 15px/1.5 'DM Serif Display',Georgia,serif;color:#0F1923">${b.blocker}</div>
       </td></tr>
     </table>
   </td></tr>` : ""}
@@ -317,23 +318,23 @@ export default async function handler(req, res) {
     <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse">
       <tr>
         <td width="49%" valign="top">
-          <div style="font:700 10px/1 Helvetica,Arial,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#0097A7;padding-bottom:9px">Design capability</div>
+          <div style="font:500 10px/1 'JetBrains Mono',Menlo,Consolas,monospace;letter-spacing:.14em;text-transform:uppercase;color:#00838F;padding-bottom:9px">Design capability</div>
           <table role="presentation" cellpadding="0" cellspacing="0" style="border-collapse:collapse">${dimRows(b.capability_breakdown, "#00BCD4")}</table>
         </td>
         <td width="2%" style="font-size:0;line-height:0">&nbsp;</td>
         <td width="49%" valign="top">
-          <div style="font:700 10px/1 Helvetica,Arial,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#C2410C;padding-bottom:9px">AI adoption</div>
-          <table role="presentation" cellpadding="0" cellspacing="0" style="border-collapse:collapse">${dimRows(b.ai_breakdown, "#F97316")}</table>
+          <div style="font:500 10px/1 'JetBrains Mono',Menlo,Consolas,monospace;letter-spacing:.14em;text-transform:uppercase;color:#A63E19;padding-bottom:9px">AI adoption</div>
+          <table role="presentation" cellpadding="0" cellspacing="0" style="border-collapse:collapse">${dimRows(b.ai_breakdown, "#E8572A")}</table>
         </td>
       </tr>
     </table>
   </td></tr>
 
   <tr><td style="padding:22px 30px 0">
-    <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;background:#0F1923;border-radius:12px;border-collapse:collapse">
+    <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;background:#0F1923;border-radius:6px;border-collapse:collapse">
       <tr><td style="padding:20px 22px">
-        <div style="font:700 10px/1 Helvetica,Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#00BCD4">Ranked best fit</div>
-        <div style="font:400 22px/1.25 Georgia,serif;color:#FFFFFF;margin:7px 0 10px">${b.recommended_package}</div>
+        <div style="font:500 10px/1 'JetBrains Mono',Menlo,Consolas,monospace;letter-spacing:.14em;text-transform:uppercase;color:#00BCD4">Ranked best fit</div>
+        <div style="font:400 22px/1.25 'DM Serif Display',Georgia,serif;color:#FFFFFF;margin:7px 0 10px">${b.recommended_package}</div>
         <p style="margin:0;font:400 13.5px/1.6 Helvetica,Arial,sans-serif;color:rgba(255,255,255,.72)">Pull the tear sheet for this band before you reply. They were told to expect the written read now and the tear sheet if they answer.</p>
       </td></tr>
     </table>
@@ -357,8 +358,8 @@ export default async function handler(req, res) {
       : `Of the AI conversations recorded against this kind of work, <b>${shareN}%</b> looked like automation, AI completing the task, rather than augmentation, a person working with AI alongside them.`;
 
     const taskRows = tasks.length ? tasks.map(t =>
-      `<tr><td style="padding:9px 0;border-bottom:1px solid #E2E8EC;font:400 13.5px/1.45 Helvetica,Arial,sans-serif;color:#1A1A2E">${String(t.label || "").replace(/[<&]/g, "")}</td>` +
-      `<td style="padding:9px 0 9px 14px;border-bottom:1px solid #E2E8EC;text-align:right;white-space:nowrap;font:700 13.5px/1.45 Helvetica,Arial,sans-serif;color:${(t.pct === null || t.pct === undefined) ? "#9AA5AD" : (Number(t.pct) >= 50 ? "#C2621B" : "#0097A7")}">${(t.pct === null || t.pct === undefined) ? "no data" : Number(t.pct) + "%"}</td></tr>`
+      `<tr><td style="padding:9px 0;border-bottom:1px solid #E2E8EC;font:400 13.5px/1.45 Helvetica,Arial,sans-serif;color:#0F1923">${String(t.label || "").replace(/[<&]/g, "")}</td>` +
+      `<td style="padding:9px 0 9px 14px;border-bottom:1px solid #E2E8EC;text-align:right;white-space:nowrap;font:700 13.5px/1.45 Helvetica,Arial,sans-serif;color:${(t.pct === null || t.pct === undefined) ? "#9AA5AD" : (Number(t.pct) >= 50 ? "#C2621B" : "#00838F")}">${(t.pct === null || t.pct === undefined) ? "no data" : Number(t.pct) + "%"}</td></tr>`
     ).join("") : "";
 
     // ---- readiness: the ninety days and the prompt ----
@@ -429,8 +430,8 @@ export default async function handler(req, res) {
     const rMoves  = readinessMoves();
     const rPrompt = readinessPrompt();
     const movesRows = rMoves.map(m => `<tr>
-        <td valign="top" style="padding:10px 14px 10px 0;border-bottom:1px solid #E2E8EC;white-space:nowrap;font:700 13px/1.5 Helvetica,Arial,sans-serif;color:#0097A7">${m[0]}</td>
-        <td valign="top" style="padding:10px 0;border-bottom:1px solid #E2E8EC;font:400 13.5px/1.55 Helvetica,Arial,sans-serif;color:#1A1A2E">${escH(m[1])}</td></tr>`).join("");
+        <td valign="top" style="padding:10px 14px 10px 0;border-bottom:1px solid #E2E8EC;white-space:nowrap;font:700 13px/1.5 Helvetica,Arial,sans-serif;color:#00838F">${m[0]}</td>
+        <td valign="top" style="padding:10px 0;border-bottom:1px solid #E2E8EC;font:400 13.5px/1.55 Helvetica,Arial,sans-serif;color:#0F1923">${escH(m[1])}</td></tr>`).join("");
 
     const textVisitorReadiness = [
       `THE AI READINESS READ: ${clipS(occ, 200)}`,
@@ -459,41 +460,42 @@ export default async function handler(req, res) {
     ].join("\n");
 
     const toVisitorReadiness = `
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&amp;family=JetBrains+Mono:wght@500;600&amp;display=swap">
 <div style="background:#F4F6F8;padding:28px 12px">
-<table role="presentation" cellpadding="0" cellspacing="0" style="max-width:600px;margin:0 auto;width:100%;background:#FFFFFF;border-radius:16px;border-collapse:separate;overflow:hidden">
-  <tr><td style="height:5px;background:#00BCD4;font-size:0;line-height:0">&nbsp;</td></tr>
+<table role="presentation" cellpadding="0" cellspacing="0" style="max-width:600px;margin:0 auto;width:100%;background:#FFFFFF;border-radius:6px;border-collapse:separate;overflow:hidden">
+  <tr><td style="background:#FFFFFF;padding:22px 34px 16px;border-bottom:2px solid #00BCD4"><table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse"><tr><td valign="middle"><a href="https://aneilrazvi.com" style="text-decoration:none"><img src="https://aneilrazvi.com/assets/email/aneil-razvi-wordmark.png" width="188" height="28" alt="Aneil Razvi" style="display:block;border:0;width:188px;height:28px;font:400 18px 'DM Serif Display',Georgia,serif;color:#0F1923"></a></td><td valign="middle" align="right" style="font:500 10px/1 'JetBrains Mono',Menlo,Consolas,monospace;letter-spacing:.16em;text-transform:uppercase;color:#00838F;white-space:nowrap">aneilrazvi.com</td></tr></table></td></tr>
   <tr><td style="padding:30px 34px 8px">
-    <div style="font:700 11px/1 Helvetica,Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#0097A7">The AI readiness read</div>
-    <h1 style="margin:12px 0 6px;font:400 27px/1.25 Georgia,'Times New Roman',serif;color:#1E3A5F">${escH(occ)}</h1>
+    <div style="font:500 11px/1 'JetBrains Mono',Menlo,Consolas,monospace;letter-spacing:.14em;text-transform:uppercase;color:#00838F">The AI readiness read</div>
+    <h1 style="margin:12px 0 6px;font:400 27px/1.25 'DM Serif Display',Georgia,'Times New Roman',serif;color:#0F1923">${escH(occ)}</h1>
     <p style="margin:10px 0 0;font:400 15px/1.65 Helvetica,Arial,sans-serif;color:#3B4651">${shareLine}</p>
     <p style="margin:12px 0 0;font:400 14px/1.6 Helvetica,Arial,sans-serif;color:#6B7280">
-      This is a description of how people use AI today. It is not a forecast, not a probability your job disappears, and not a measure of how much of the work AI can do. Coverage for this occupation is <b style="color:#1A1A2E">${tierW}</b>.
+      This is a description of how people use AI today. It is not a forecast, not a probability your job disappears, and not a measure of how much of the work AI can do. Coverage for this occupation is <b style="color:#0F1923">${tierW}</b>.
     </p>
   </td></tr>
   ${taskRows ? `<tr><td style="padding:22px 34px 0">
-    <div style="font:700 11px/1 Helvetica,Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#6B7280;padding-bottom:6px">Your tasks, most automated first</div>
+    <div style="font:500 11px/1 'JetBrains Mono',Menlo,Consolas,monospace;letter-spacing:.14em;text-transform:uppercase;color:#6B7280;padding-bottom:6px">Your tasks, most automated first</div>
     <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse">${taskRows}</table>
     <p style="margin:12px 0 0;font:400 13px/1.6 Helvetica,Arial,sans-serif;color:#9AA5AD">The full list, with every task and every source, is on the page you came from.</p>
   </td></tr>` : ""}
   <tr><td style="padding:26px 34px 0">
-    <div style="font:700 11px/1 Helvetica,Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#6B7280;padding-bottom:4px">Your ninety days</div>
+    <div style="font:500 11px/1 'JetBrains Mono',Menlo,Consolas,monospace;letter-spacing:.14em;text-transform:uppercase;color:#6B7280;padding-bottom:4px">Your ninety days</div>
     <p style="margin:6px 0 4px;font:400 13.5px/1.6 Helvetica,Arial,sans-serif;color:#6B7280">A number is not a plan, and nobody knows your actual week except you. This is the ninety days that would tell you what is really true for your job.</p>
     <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse">${movesRows}</table>
   </td></tr>
   <tr><td style="padding:26px 34px 0">
-    <div style="font:700 11px/1 Helvetica,Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#6B7280;padding-bottom:4px">Your prompt, ready to paste</div>
+    <div style="font:500 11px/1 'JetBrains Mono',Menlo,Consolas,monospace;letter-spacing:.14em;text-transform:uppercase;color:#6B7280;padding-bottom:4px">Your prompt, ready to paste</div>
     <p style="margin:6px 0 10px;font:400 13.5px/1.6 Helvetica,Arial,sans-serif;color:#6B7280">Copy everything in the box into Claude, ChatGPT or whichever assistant you use. It carries your own results, so the assistant starts from your data rather than a guess.</p>
-    <div style="background:#F4F6F8;border:1px solid #E2E8EC;border-radius:10px;padding:16px 18px;font:400 12.5px/1.6 Menlo,Consolas,'Courier New',monospace;color:#1A1A2E;word-break:break-word">${escH(rPrompt).replace(/\n/g, "<br>")}</div>
+    <div style="background:#F4F6F8;border:1px solid #E2E8EC;border-radius:6px;padding:16px 18px;font:400 12.5px/1.6 Menlo,Consolas,'Courier New',monospace;color:#0F1923;word-break:break-word">${escH(rPrompt).replace(/\n/g, "<br>")}</div>
   </td></tr>
   <tr><td style="padding:24px 34px 0">
-    <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;background:#0F1923;border-radius:12px;border-collapse:collapse">
+    <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;background:#0F1923;border-radius:6px;border-collapse:collapse">
       <tr><td style="padding:22px 24px">
-        <div style="font:700 10px/1 Helvetica,Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#00BCD4">The other half of this</div>
-        <div style="font:400 22px/1.25 Georgia,serif;color:#FFFFFF;margin:8px 0 10px">Your company has a level too</div>
+        <div style="font:500 10px/1 'JetBrains Mono',Menlo,Consolas,monospace;letter-spacing:.14em;text-transform:uppercase;color:#00BCD4">The other half of this</div>
+        <div style="font:400 22px/1.25 'DM Serif Display',Georgia,serif;color:#FFFFFF;margin:8px 0 10px">Your company has a level too</div>
         <p style="margin:0 0 16px;font:400 14px/1.6 Helvetica,Arial,sans-serif;color:rgba(255,255,255,.72)">
           This read is about your tasks. There is a companion read for the organization you work in, scoring how mature its design practice is against how far AI has actually moved into it. Fifteen questions, about four minutes.
         </p>
-        <a href="https://aneilrazvi.com/maturity.html" style="display:inline-block;background:#00BCD4;color:#0F1923;font:700 14px/1 Helvetica,Arial,sans-serif;padding:13px 24px;border-radius:99px;text-decoration:none">Take the organizational read</a>
+        <a href="https://aneilrazvi.com/maturity.html" style="display:inline-block;background:#00BCD4;color:#0F1923;font:600 13px/1 'JetBrains Mono',Menlo,Consolas,monospace;letter-spacing:.06em;text-transform:uppercase;padding:14px 22px;border-radius:4px;text-decoration:none">Take the organizational read</a>
       </td></tr>
     </table>
   </td></tr>
@@ -509,18 +511,18 @@ export default async function handler(req, res) {
 </div>`;
 
     const toAneilReadiness = `<div style="background:#F4F6F8;padding:24px 12px">
-<table role="presentation" cellpadding="0" cellspacing="0" style="max-width:600px;margin:0 auto;width:100%;background:#FFFFFF;border-radius:16px;border-collapse:separate;overflow:hidden">
-  <tr><td style="height:5px;background:#00BCD4;font-size:0;line-height:0">&nbsp;</td></tr>
+<table role="presentation" cellpadding="0" cellspacing="0" style="max-width:600px;margin:0 auto;width:100%;background:#FFFFFF;border-radius:6px;border-collapse:separate;overflow:hidden">
+  <tr><td style="background:#FFFFFF;padding:22px 34px 16px;border-bottom:2px solid #00BCD4"><table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse"><tr><td valign="middle"><a href="https://aneilrazvi.com" style="text-decoration:none"><img src="https://aneilrazvi.com/assets/email/aneil-razvi-wordmark.png" width="188" height="28" alt="Aneil Razvi" style="display:block;border:0;width:188px;height:28px;font:400 18px 'DM Serif Display',Georgia,serif;color:#0F1923"></a></td><td valign="middle" align="right" style="font:500 10px/1 'JetBrains Mono',Menlo,Consolas,monospace;letter-spacing:.16em;text-transform:uppercase;color:#00838F;white-space:nowrap">aneilrazvi.com</td></tr></table></td></tr>
   <tr><td style="padding:26px 30px 6px">
-    <div style="font:700 11px/1 Helvetica,Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#0097A7">Readiness lookup</div>
-    <h1 style="margin:11px 0 0;font:400 25px/1.25 Georgia,'Times New Roman',serif;color:#1E3A5F">${escH(occ)}</h1>
-    <div style="margin:6px 0 0;font:400 14px/1.5 Helvetica,Arial,sans-serif;color:#6B7280">${b.name ? b.name + " &middot; " : ""}<a href="mailto:${b.email}" style="color:#0097A7;text-decoration:none">${b.email}</a></div>
+    <div style="font:500 11px/1 'JetBrains Mono',Menlo,Consolas,monospace;letter-spacing:.14em;text-transform:uppercase;color:#00838F">Readiness lookup</div>
+    <h1 style="margin:11px 0 0;font:400 25px/1.25 'DM Serif Display',Georgia,'Times New Roman',serif;color:#0F1923">${escH(occ)}</h1>
+    <div style="margin:6px 0 0;font:400 14px/1.5 Helvetica,Arial,sans-serif;color:#6B7280">${b.name ? b.name + " &middot; " : ""}<a href="mailto:${b.email}" style="color:#00838F;text-decoration:none">${b.email}</a></div>
   </td></tr>
 
   <tr><td style="padding:18px 30px 0">
-    <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;background:${shareN === null ? "#6B7280" : "#C2410C"};border-radius:12px;border-collapse:collapse">
+    <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;background:${shareN === null ? "#6B7280" : "#A63E19"};border-radius:6px;border-collapse:collapse">
       <tr>
-        <td valign="middle" style="padding:14px 6px 14px 20px;font:400 30px/1 Georgia,serif;color:#FFFFFF;white-space:nowrap">${shareN === null ? "&mdash;" : shareN + "%"}</td>
+        <td valign="middle" style="padding:14px 6px 14px 20px;font:400 30px/1 'DM Serif Display',Georgia,serif;color:#FFFFFF;white-space:nowrap">${shareN === null ? "&mdash;" : shareN + "%"}</td>
         <td valign="middle" style="padding:14px 20px 14px 12px;font:400 13.5px/1.5 Helvetica,Arial,sans-serif;color:rgba(255,255,255,.85)">
           ${shareN === null ? "No figure published for this occupation" : "of recorded AI use on this work looked like automation"}
         </td>
@@ -530,21 +532,21 @@ export default async function handler(req, res) {
 
   <tr><td style="padding:20px 30px 0">
     <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;font:400 14px/1.5 Helvetica,Arial,sans-serif">
-      <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280;width:38%">They typed</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#1A1A2E">${(b.typed || "not recorded").toString().replace(/[<&]/g, "")}</td></tr>
-      <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280">O*NET code</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#1A1A2E">${b.occupation_code || "none"}</td></tr>
-      <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280">Coverage</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#1A1A2E">${tierW}</td></tr>
+      <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280;width:38%">They typed</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#0F1923">${(b.typed || "not recorded").toString().replace(/[<&]/g, "")}</td></tr>
+      <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280">O*NET code</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#0F1923">${b.occupation_code || "none"}</td></tr>
+      <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280">Coverage</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#0F1923">${tierW}</td></tr>
     </table>
   </td></tr>
 
   ${taskRows ? `<tr><td style="padding:20px 30px 0">
-    <div style="font:700 10px/1 Helvetica,Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#6B7280;padding-bottom:6px">What they saw, most automated first</div>
+    <div style="font:500 10px/1 'JetBrains Mono',Menlo,Consolas,monospace;letter-spacing:.14em;text-transform:uppercase;color:#6B7280;padding-bottom:6px">What they saw, most automated first</div>
     <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse">${taskRows}</table>
   </td></tr>` : ""}
 
   <tr><td style="padding:20px 30px 0">
-    <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;background:#F4F6F8;border-radius:10px;border:1px dashed #CBD5DB;border-collapse:separate">
+    <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;background:#F4F6F8;border-radius:6px;border:1px dashed #CBD5DB;border-collapse:separate">
       <tr><td style="padding:14px 18px;font:400 13.5px/1.6 Helvetica,Arial,sans-serif;color:#3B4651">
-        <b style="color:#1A1A2E">This is a person, not a company.</b> A readiness lookup is someone asking what AI is doing to their own job. Do not pitch a retainer. If you reply at all, reply about their work.
+        <b style="color:#0F1923">This is a person, not a company.</b> A readiness lookup is someone asking what AI is doing to their own job. Do not pitch a retainer. If you reply at all, reply about their work.
       </td></tr>
     </table>
   </td></tr>
@@ -568,9 +570,9 @@ export default async function handler(req, res) {
     const wantsHome = bInt.includes("paper-day-home");
     const wantsBuild = bInt.includes("build-cohort");
     const bP = "margin:10px 0 0;font:400 15px/1.65 Helvetica,Arial,sans-serif;color:#3B4651";
-    const bLab = "font:700 11px/1 Helvetica,Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#0097A7;margin:16px 0 6px";
-    const bH2 = "margin:0 0 4px;font:400 19px/1.3 Georgia,'Times New Roman',serif;color:#1E3A5F";
-    const bBtn = "display:inline-block;margin-top:12px;background:#00BCD4;color:#0F1923;font:700 14px/1 Helvetica,Arial,sans-serif;text-decoration:none;padding:12px 18px;border-radius:8px";
+    const bLab = "font:500 11px/1 'JetBrains Mono',Menlo,Consolas,monospace;letter-spacing:.14em;text-transform:uppercase;color:#00838F;margin:16px 0 6px";
+    const bH2 = "margin:0 0 4px;font:400 19px/1.3 'DM Serif Display',Georgia,'Times New Roman',serif;color:#0F1923";
+    const bBtn = "display:inline-block;margin-top:12px;background:#00BCD4;color:#0F1923;font:600 13px/1 'JetBrains Mono',Menlo,Consolas,monospace;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;padding:13px 20px;border-radius:4px";
     const bWho = { me: "You", team: "Someone on your team", customers: "One of your customers", community: "Someone in your group" };
     const bSize = { small: "Small. A few weekends on paper and a first version you can click.",
                     medium: "Medium. A few weeks of evenings. Paper first will save you most of them.",
@@ -583,8 +585,8 @@ export default async function handler(req, res) {
       const screens = Array.isArray(bScope.screens) ? bScope.screens.slice(0, 5).map(x => `<li style="margin:3px 0">${escH(x)}</li>`).join("") : "";
       bScopeHtml = `
   <tr><td style="padding:6px 34px 4px">
-    <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;border:2px dashed #00BCD4;border-radius:12px;border-collapse:separate">
-      <tr><td style="padding:16px 18px 18px;font:400 14.5px/1.6 Helvetica,Arial,sans-serif;color:#1A1A2E">
+    <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;border:2px dashed #00BCD4;border-radius:6px;border-collapse:separate">
+      <tr><td style="padding:16px 18px 18px;font:400 14.5px/1.6 Helvetica,Arial,sans-serif;color:#0F1923">
         <div style="${bH2}">Your paper scope</div>
         ${bScope.idea ? `<div style="color:#6B7280;font-size:13.5px">${escH(bScope.idea)}</div>` : ""}
         <div style="${bLab}">Done looks like</div><div>${doneLine}</div>
@@ -635,13 +637,13 @@ export default async function handler(req, res) {
     <p style="${bP}">This is a prompt: a set of instructions you give to an AI assistant. It asks you hard questions about your idea, then sorts what you actually know from what you are guessing.</p>
     <div style="${bLab}">How to use it</div>
     <p style="${bStep}"><b>1.</b> Copy everything inside the grey box below, from "I have an idea" down to the last line.</p>
-    <p style="${bStep}"><b>2.</b> Open <a href="https://chatgpt.com" style="color:#0097A7">ChatGPT</a> or <a href="https://claude.ai" style="color:#0097A7">Claude</a>, start a new chat, and paste it in.</p>
+    <p style="${bStep}"><b>2.</b> Open <a href="https://chatgpt.com" style="color:#00838F">ChatGPT</a> or <a href="https://claude.ai" style="color:#00838F">Claude</a>, start a new chat, and paste it in.</p>
     <p style="${bStep}"><b>3.</b> Answer its questions one at a time.${bScope && bScope.idea ? ` For the first one, you can start with what you wrote: "${escH(bScope.idea)}"` : ""}</p>
     <div style="${bLab}">Copy everything in this box</div>
-    <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;background:#F4F6F8;border:1px solid #CBD5DB;border-radius:10px;border-collapse:separate">
-      <tr><td style="padding:14px 16px;font:400 13px/1.55 Menlo,Consolas,'Courier New',monospace;color:#1A1A2E;white-space:pre-wrap;word-break:break-word">${escH(IDEA_MAP_PROMPT)}</td></tr>
+    <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;background:#F4F6F8;border:1px solid #CBD5DB;border-radius:6px;border-collapse:separate">
+      <tr><td style="padding:14px 16px;font:400 13px/1.55 Menlo,Consolas,'Courier New',monospace;color:#0F1923;white-space:pre-wrap;word-break:break-word">${escH(IDEA_MAP_PROMPT)}</td></tr>
     </table>
-    <p style="margin:10px 0 0;font:400 13px/1.55 Helvetica,Arial,sans-serif;color:#6B7280">On a phone? <a href="https://aneilrazvi.com/idea-map.html" style="color:#0097A7">Open the idea map on the site</a>, where one button copies it for you.</p>
+    <p style="margin:10px 0 0;font:400 13px/1.55 Helvetica,Arial,sans-serif;color:#6B7280">On a phone? <a href="https://aneilrazvi.com/idea-map.html" style="color:#00838F">Open the idea map on the site</a>, where one button copies it for you.</p>
   </td></tr>` : "";
     const bCohort = wantsCohort ? `
   <tr><td style="padding:14px 34px 4px">
@@ -656,7 +658,7 @@ export default async function handler(req, res) {
     const bRoom = wantsRoom ? `
   <tr><td style="padding:14px 34px 4px">
     <div style="${bH2}">A workshop for your school or team</div>
-    <p style="${bP}">Reply with who it is for and a rough date, or grab 15 minutes at <a href="https://cal.com/aneil-razvi" style="color:#0097A7">cal.com/aneil-razvi</a>. Colleges and student groups are free this fall.</p>
+    <p style="${bP}">Reply with who it is for and a rough date, or grab 15 minutes at <a href="https://cal.com/aneil-razvi" style="color:#00838F">cal.com/aneil-razvi</a>. Colleges and student groups are free this fall.</p>
   </td></tr>` : "";
     const bPaper = wantsPaper ? `
   <tr><td style="padding:14px 34px 4px">
@@ -676,18 +678,19 @@ export default async function handler(req, res) {
     const bTitle = (bScope && !wantsCohort && !wantsSelf && !wantsRoom && !wantsPaper && !wantsHome && !wantsBuild) ? "Your paper scope" : "You are on the list";
 
     const toVisitorBuild = `
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&amp;family=JetBrains+Mono:wght@500;600&amp;display=swap">
 <div style="background:#F4F6F8;padding:28px 12px">
-<table role="presentation" cellpadding="0" cellspacing="0" style="max-width:600px;margin:0 auto;width:100%;background:#FFFFFF;border-radius:16px;border-collapse:separate;overflow:hidden">
-  <tr><td style="height:5px;background:#00BCD4;font-size:0;line-height:0">&nbsp;</td></tr>
+<table role="presentation" cellpadding="0" cellspacing="0" style="max-width:600px;margin:0 auto;width:100%;background:#FFFFFF;border-radius:6px;border-collapse:separate;overflow:hidden">
+  <tr><td style="background:#FFFFFF;padding:22px 34px 16px;border-bottom:2px solid #00BCD4"><table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse"><tr><td valign="middle"><a href="https://aneilrazvi.com" style="text-decoration:none"><img src="https://aneilrazvi.com/assets/email/aneil-razvi-wordmark.png" width="188" height="28" alt="Aneil Razvi" style="display:block;border:0;width:188px;height:28px;font:400 18px 'DM Serif Display',Georgia,serif;color:#0F1923"></a></td><td valign="middle" align="right" style="font:500 10px/1 'JetBrains Mono',Menlo,Consolas,monospace;letter-spacing:.16em;text-transform:uppercase;color:#00838F;white-space:nowrap">aneilrazvi.com</td></tr></table></td></tr>
   <tr><td style="padding:30px 34px 8px">
-    <div style="font:700 11px/1 Helvetica,Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#0097A7">AI, Built On Paper</div>
-    <h1 style="margin:12px 0 6px;font:400 27px/1.25 Georgia,'Times New Roman',serif;color:#1E3A5F">${bTitle}</h1>
+    <div style="font:500 11px/1 'JetBrains Mono',Menlo,Consolas,monospace;letter-spacing:.14em;text-transform:uppercase;color:#00838F">AI, Built On Paper</div>
+    <h1 style="margin:12px 0 6px;font:400 27px/1.25 'DM Serif Display',Georgia,'Times New Roman',serif;color:#0F1923">${bTitle}</h1>
     <p style="${bP}">Thanks for your interest in the course. Here is what happens next.</p>
   </td></tr>
   ${bScopeHtml}${bPaper}${bHome}${bBuild}${bCohort}${bSelf}${bRoom}${bIdeaMap}
   <tr><td style="padding:18px 34px 6px">
     <p style="${bP}">If you would rather talk it through first, 15 minutes is at
-      <a href="https://cal.com/aneil-razvi" style="color:#0097A7">cal.com/aneil-razvi</a>. Replying to this email works too.</p>
+      <a href="https://cal.com/aneil-razvi" style="color:#00838F">cal.com/aneil-razvi</a>. Replying to this email works too.</p>
   </td></tr>
   <tr><td style="padding:16px 34px 30px">
     ${SIG_HTML}
@@ -701,48 +704,48 @@ export default async function handler(req, res) {
     const aSize = { small: "Small", medium: "Medium", big: "Big" };
     const aExp = { never: "Never", chat: "Has used ChatGPT or Claude", built: "Has built something" };
     const aNote = wantsPaper
-      ? `<b style="color:#1A1A2E">Wants a Sketch to Ship seat.</b> Add them to the first-pick list. Send the date and address as soon as the room is set.`
+      ? `<b style="color:#0F1923">Wants a Sketch to Ship seat.</b> Add them to the first-pick list. Send the date and address as soon as the room is set.`
       : wantsBuild
-      ? `<b style="color:#1A1A2E">Wants the Build cohort.</b> They get the dates first. If they have not done Sketch to Ship, point them to it.`
+      ? `<b style="color:#0F1923">Wants the Build cohort.</b> They get the dates first. If they have not done Sketch to Ship, point them to it.`
       : wantsHome
-      ? `<b style="color:#1A1A2E">Waiting for Sketch to Ship at home.</b> One email when the print kit opens. Nothing to do now.`
+      ? `<b style="color:#0F1923">Waiting for Sketch to Ship at home.</b> One email when the print kit opens. Nothing to do now.`
       : wantsCohort
-      ? `<b style="color:#1A1A2E">Wants a founding seat (old page).</b> The founding cohort is now the Build cohort. Point them to Sketch to Ship first, and send the Build cohort dates when they are set.`
+      ? `<b style="color:#0F1923">Wants a founding seat (old page).</b> The founding cohort is now the Build cohort. Point them to Sketch to Ship first, and send the Build cohort dates when they are set.`
       : wantsSelf
-      ? `<b style="color:#1A1A2E">Waiting for the self-paced course.</b> They get one email when it opens. Nothing to do now.`
+      ? `<b style="color:#0F1923">Waiting for the self-paced course.</b> They get one email when it opens. Nothing to do now.`
       : wantsRoom
-      ? `<b style="color:#1A1A2E">Asked about an in-person workshop.</b> Reply within a day and ask who it is for and when.`
-      : `<b style="color:#1A1A2E">Scoped an idea and left an email.</b> Their scope and the idea map prompt are already in their inbox. If you reply, keep it to one useful line about their idea and ask what has stopped them so far. No pitch.`;
+      ? `<b style="color:#0F1923">Asked about an in-person workshop.</b> Reply within a day and ask who it is for and when.`
+      : `<b style="color:#0F1923">Scoped an idea and left an email.</b> Their scope and the idea map prompt are already in their inbox. If you reply, keep it to one useful line about their idea and ask what has stopped them so far. No pitch.`;
     const toAneilBuild = `<div style="background:#F4F6F8;padding:24px 12px">
-<table role="presentation" cellpadding="0" cellspacing="0" style="max-width:600px;margin:0 auto;width:100%;background:#FFFFFF;border-radius:16px;border-collapse:separate;overflow:hidden">
-  <tr><td style="height:5px;background:#00BCD4;font-size:0;line-height:0">&nbsp;</td></tr>
+<table role="presentation" cellpadding="0" cellspacing="0" style="max-width:600px;margin:0 auto;width:100%;background:#FFFFFF;border-radius:6px;border-collapse:separate;overflow:hidden">
+  <tr><td style="background:#FFFFFF;padding:22px 34px 16px;border-bottom:2px solid #00BCD4"><table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse"><tr><td valign="middle"><a href="https://aneilrazvi.com" style="text-decoration:none"><img src="https://aneilrazvi.com/assets/email/aneil-razvi-wordmark.png" width="188" height="28" alt="Aneil Razvi" style="display:block;border:0;width:188px;height:28px;font:400 18px 'DM Serif Display',Georgia,serif;color:#0F1923"></a></td><td valign="middle" align="right" style="font:500 10px/1 'JetBrains Mono',Menlo,Consolas,monospace;letter-spacing:.16em;text-transform:uppercase;color:#00838F;white-space:nowrap">aneilrazvi.com</td></tr></table></td></tr>
   <tr><td style="padding:26px 30px 6px">
-    <div style="font:700 11px/1 Helvetica,Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#0097A7">Course waiting list</div>
-    <h1 style="margin:11px 0 0;font:400 25px/1.3 Georgia,'Times New Roman',serif;color:#1E3A5F">
-      <a href="mailto:${b.email}" style="color:#1E3A5F;text-decoration:none">${b.email}</a>
+    <div style="font:500 11px/1 'JetBrains Mono',Menlo,Consolas,monospace;letter-spacing:.14em;text-transform:uppercase;color:#00838F">Course waiting list</div>
+    <h1 style="margin:11px 0 0;font:400 25px/1.3 'DM Serif Display',Georgia,'Times New Roman',serif;color:#0F1923">
+      <a href="mailto:${b.email}" style="color:#0F1923;text-decoration:none">${b.email}</a>
     </h1>
     <div style="margin:6px 0 0;font:400 14px/1.5 Helvetica,Arial,sans-serif;color:#6B7280">${b.name ? b.name : "No name given"}</div>
   </td></tr>
 
   <tr><td style="padding:20px 30px 0">
     <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;font:400 14px/1.5 Helvetica,Arial,sans-serif">
-      <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280;width:38%">Interested in</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#1A1A2E;font-weight:700">${bInt.length ? escH(bInt.map(k => ({ "scope": "Scoped an idea", "founding-cohort": "Founding cohort", "paper-day": "Sketch to Ship (in person)", "paper-day-home": "Sketch to Ship at home", "build-cohort": "Build cohort", "self-paced": "Self-paced", "in-person": "In-person workshop" })[k] || k).join(", ")) : "not stated"}</td></tr>
-      ${bScope ? `<tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280;width:38%">Their idea</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#1A1A2E">${escH(bScope.idea || "")}</td></tr>
-      <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280;width:38%">Done when someone can</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#1A1A2E">${escH(bScope.done || "not written")}</td></tr>
-      <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280;width:38%">Who it's for</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#1A1A2E">${escH(aWho[bScope.who] || bScope.who || "not picked")}</td></tr>
-      <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280;width:38%">What they use today</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#1A1A2E">${escH(bScope.today || "not picked")}</td></tr>
-      <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280;width:38%">Must have</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#1A1A2E">${escH((bScope.must || []).map(k => aMust[k] || k).join(", ") || "nothing picked")}</td></tr>
-      <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280;width:38%">How big</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#1A1A2E">${escH(aSize[bScope.size] || bScope.size || "")}</td></tr>
-      <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280;width:38%">Built anything before</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#1A1A2E">${escH(aExp[bScope.experience] || "not picked")}</td></tr>` : ""}
-      <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280;width:38%">Texts</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#1A1A2E">${texts ? escH(tel) + " &middot; agreed to reminder texts" : "No number given"}</td></tr>
-      <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280;width:38%">Came in via</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#1A1A2E">${b.utm_source || "direct"}${b.utm_medium ? " / " + b.utm_medium : ""}${b.utm_campaign ? " / " + b.utm_campaign : ""}</td></tr>
-      <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280">Landed on</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#1A1A2E">${b.landing_path || "unknown"}</td></tr>
-      <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280">Referrer</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#1A1A2E">${b.referrer || "none"}</td></tr>
+      <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280;width:38%">Interested in</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#0F1923;font-weight:700">${bInt.length ? escH(bInt.map(k => ({ "scope": "Scoped an idea", "founding-cohort": "Founding cohort", "paper-day": "Sketch to Ship (in person)", "paper-day-home": "Sketch to Ship at home", "build-cohort": "Build cohort", "self-paced": "Self-paced", "in-person": "In-person workshop" })[k] || k).join(", ")) : "not stated"}</td></tr>
+      ${bScope ? `<tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280;width:38%">Their idea</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#0F1923">${escH(bScope.idea || "")}</td></tr>
+      <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280;width:38%">Done when someone can</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#0F1923">${escH(bScope.done || "not written")}</td></tr>
+      <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280;width:38%">Who it's for</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#0F1923">${escH(aWho[bScope.who] || bScope.who || "not picked")}</td></tr>
+      <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280;width:38%">What they use today</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#0F1923">${escH(bScope.today || "not picked")}</td></tr>
+      <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280;width:38%">Must have</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#0F1923">${escH((bScope.must || []).map(k => aMust[k] || k).join(", ") || "nothing picked")}</td></tr>
+      <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280;width:38%">How big</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#0F1923">${escH(aSize[bScope.size] || bScope.size || "")}</td></tr>
+      <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280;width:38%">Built anything before</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#0F1923">${escH(aExp[bScope.experience] || "not picked")}</td></tr>` : ""}
+      <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280;width:38%">Texts</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#0F1923">${texts ? escH(tel) + " &middot; agreed to reminder texts" : "No number given"}</td></tr>
+      <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280;width:38%">Came in via</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#0F1923">${b.utm_source || "direct"}${b.utm_medium ? " / " + b.utm_medium : ""}${b.utm_campaign ? " / " + b.utm_campaign : ""}</td></tr>
+      <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280">Landed on</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#0F1923">${b.landing_path || "unknown"}</td></tr>
+      <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280">Referrer</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#0F1923">${b.referrer || "none"}</td></tr>
     </table>
   </td></tr>
 
   <tr><td style="padding:20px 30px 0">
-    <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;background:#F4F6F8;border-radius:10px;border:1px dashed #CBD5DB;border-collapse:separate">
+    <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;background:#F4F6F8;border-radius:6px;border:1px dashed #CBD5DB;border-collapse:separate">
       <tr><td style="padding:14px 18px;font:400 13.5px/1.6 Helvetica,Arial,sans-serif;color:#3B4651">
         ${aNote}
       </td></tr>
