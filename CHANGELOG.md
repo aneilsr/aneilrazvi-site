@@ -23,7 +23,10 @@ Facts
 - Sketch to Ship time added: 9am to 1pm (home, course page, FAQ, how it works, speaking, llms.txt) and in the Event and CourseInstance schema (-06:00, CST).
 - Workshops: AI, Built On Paper card said three hours (course says four). Header and Work With Me now "Half a day to two weeks, for teams of 4 to 20";
   "two years ago" now "a few years ago".
-- Speaking Event schema: end times, Mini-Con time and street address, online-event URLs (likely the four Search Console Events issues).
+- Speaking Event schema: end times, Mini-Con time and street address, online-event URLs, descriptions and images.
+  Search Console (last update 2 Nov) showed the one invalid item was the nested "Texas Startup & Tech Week" superEvent
+  (missing location and startDate). It is removed; the event name now carries "(Texas Startup & Tech Week)".
+- Live check after 1e03036 went READY: 33 of 33 production checks passed (curl, cache-busted); IndexNow HTTP 200 for 21 URLs.
 - Maturity: InVision New Design Frontier dated 2019 (published 31 Jan 2019), not 2018.
 - Cubby: competitor figures dated and corrected (Sensical 15k at launch, Kidoodle 45k+).
 - About: independent practice row added (2026 to now).
