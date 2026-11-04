@@ -2,6 +2,86 @@
 
 > The complete text of Aneil Razvi's articles, published at https://aneilrazvi.com/blog.html (most first appear on LinkedIn). Cite the aneilrazvi.com URL for each piece.
 
+## Why "Just a Small Change" Is Never Small
+
+Issue no. 11 · 2026-11-03 · https://aneilrazvi.com/blog/why-a-small-change-is-never-small.html
+
+The most expensive four words in software are "just a small change." Not because the change is hard. Because "small" is almost never true.
+
+I changed one color once. One. And it broke the look of every screen in the app at the same time.
+
+Here is why, in plain terms. A product is not a stack of separate pages, each minding its own business. It is more like a house where the wiring and the plumbing run behind all the walls. That one color was not sitting on one screen. It was a single setting that dozens of screens quietly shared. When I changed it in one place, it changed everywhere at once, including a lot of places I was not thinking about and did not test, because in my head I had made a "small" change to "one" thing.
+
+That is the whole trap. The things that make software fast to build, shared settings, shared pieces, one source for a decision, are the exact things that make a small change ripple. The efficiency and the danger are the same feature. A change is only "small" in the place you are looking. Whether it is small everywhere else depends on how many rooms share that wall, and you usually cannot see that from where you are standing.
+
+So when a developer, or a careful builder of any kind, hears "can you just quickly change this," they do not flinch because they are lazy or precious. They flinch because they have been burned by the word "just." They know the change might genuinely be small. They also know the only way to find out is to go check every room that shares the wall, and that checking is the actual work, not the typing.
+
+If you build with AI, this bites harder, not softer. The AI will make your "small" change instantly and confidently in the one spot you asked about. It is not going to wander the other twenty rooms to see what you just knocked loose. That walk is on you.
+
+Here is the useful reframe. "Small change" describes the typing. It does not describe the risk. The risk is set by how connected the thing is, not by how few words it took to change. Before you call something small, ask what shares this. If the answer is "a lot," then it is not a small change. It is a small edit with a large blast radius, and those are the ones that ruin your evening.
+
+Respect the word "just." It is usually lying to you.
+
+I write Building in the Open about designing and shipping a real product in public, one honest week at a time.
+
+Curious how solid your own build-with-AI process is? Take the 4-minute check → aneilrazvi.com/maturity.html
+
+---
+
+## The Screenshot That Un-Launched My App
+
+Issue no. 10 · 2026-10-27 · https://aneilrazvi.com/blog/the-screenshot-that-un-launched-my-app.html
+
+My app got approved. Then I un-approved it myself. On purpose.
+
+Here is what happened. Getting into the App Store is a gauntlet, and I had finally cleared it. The app was accepted, sitting in that lovely state where all I had to do was press a button and it would go live. Weeks of work, done. Press the button.
+
+I did not press the button. I pulled it back instead, and put myself at the back of the line again.
+
+The reason was the screenshots. To show an app in the store, you upload pictures of it in use. Mine looked great, because they showed the app doing its actual job: playing real videos from real creators I admire. And that was the problem. Those were real people's videos, real thumbnails, real names, used to sell my product, without any of them agreeing to it.
+
+Nobody would have caught it. It would almost certainly have been fine. But "almost certainly fine" is a bad foundation to build a company on, especially a company whose entire promise is that it treats people carefully. Using someone's work to advertise mine, without asking, is exactly the kind of corner I do not want to be the kind of person who cuts.
+
+So I built a fresh set of screenshots using an invented library. Made-up shows, made-up channels, a fictional family. Nothing real, nothing borrowed. Then I resubmitted the whole thing and waited again, for a change that a normal person would not even notice.
+
+I think about this one a lot, because it is the cleanest example of a tradeoff every builder faces constantly and mostly resolves the lazy way: doing it right versus doing it fast. Fast said press the button. Right said go to the back of the line. The gap between them was a few days and a small amount of pride, and it was worth it, because the version of me that ships the borrowed screenshots is a slightly worse version of me, and those compound.
+
+You will not get audited for most of the corners you cut. That is exactly why cutting them is tempting, and exactly why not cutting them is a decision about who you are, not who is watching.
+
+I would rather wait a few extra days than build on someone else's work without asking.
+
+I write Building in the Open about designing and shipping a real product in public, one honest week at a time.
+
+See what I'm building → cubbyplaylist.com
+
+---
+
+## I Made It Safer by Collecting Less
+
+Sidenote no. 03 · 2026-10-20 · https://aneilrazvi.com/blog/i-made-it-safer-by-collecting-less.html
+
+Sidenote. The most protective thing I did for people's privacy was to throw away information I had already collected.
+
+When I started, Cubby asked for a birthday. It seemed responsible. You want to know who is using the thing, and age feels like basic, harmless information. I built the whole flow around it.
+
+Then I learned something that changed how I think about data entirely. In this space, knowing someone's age is not a harmless little fact. The moment you store it, you have created a responsibility, and in some cases a legal one, that you did not have a second earlier. You now officially "know" something about who your user is, and a whole set of rules and risks attaches to that knowledge. The data you are holding to be careful becomes the very thing you now have to be careful about.
+
+So I did something that felt backwards. I removed birthdays from the app completely. Not hidden, not encrypted, removed. The app no longer asks, no longer stores it, and there is no box in a database somewhere holding a list of ages waiting to leak or be subpoenaed or be misused. You cannot lose what you never kept.
+
+This is the part people miss about privacy. We tend to think of it as a wall: collect whatever you want, then guard it well. But the strongest wall is the one you do not have to build, because the room behind it is empty. Every piece of personal information you collect is something you now have to protect, justify, store safely, and eventually delete. The cheapest and safest version of all of that is to not collect it in the first place.
+
+It changed my default. Now, before the app asks for anything, I ask myself a blunt question: do I actually need this to do the job, or does it just feel responsible to have it? If I do not truly need it, not collecting it is not laziness. It is the most protective choice available.
+
+Cubby ended up knowing less about the people who use it than it easily could have. That was on purpose. In a world where every week brings another story about data getting out, the quiet luxury I can offer is that a lot of it simply does not exist here to get out.
+
+Collecting less is not the weak option. Handled right, it is the strong one.
+
+I write Building in the Open about designing and shipping a real product in public, one honest week at a time.
+
+How I think about building responsibly → aneilrazvi.com/work-with-me.html
+
+---
+
 ## Build Something While You Don't Need It
 
 Ramblings of a Designer, ep. 177 · 2026-10-16 · https://aneilrazvi.com/blog/build-something-while-you-dont-need-it.html

@@ -26,7 +26,7 @@ AI product design, AI experience strategy, human-in-the-loop AI, product design 
 - Cubby (personal project): designed and shipped solo using AI-assisted tools, a caregiver-curated video app for teens and adults with autism and IDD, live on the App Store. https://aneilrazvi.com/cubby.html and https://cubbyplaylist.com
 - Omnitracs: unified a fragmented global fleet-management platform with a design system and an ML next-best-action framework. https://aneilrazvi.com/omnitracs.html
 - SNHU: helped build the product design department and directed AI and ML learner tools at one of the largest online universities in the U.S. https://aneilrazvi.com/snhu.html
-- Kalkomey: drove 225%+ revenue growth through a user-centered pivot in outdoor-safety education and e-commerce. https://aneilrazvi.com/kalkomey.html
+- Kalkomey: led a user-centered pivot in outdoor-safety education and e-commerce, and saved $300K+ by unifying an acquired platform. https://aneilrazvi.com/kalkomey.html
 - Citi: delivered a bank-wide design system and a first-of-its-kind Apple Watch app. https://aneilrazvi.com/citi.html
 - Capital One: led brand creative and UX for a consumer auto-lending product. https://aneilrazvi.com/capital-one.html
 - TPN (Omnicom): set an AI-augmented creative-technology vision for Fortune 500 retail brand experiences. https://aneilrazvi.com/tpn.html
@@ -40,7 +40,7 @@ AI product design, AI experience strategy, human-in-the-loop AI, product design 
 ## Course: AI, Built On Paper
 
 A course for designers and creatives, including students and career switchers, who want to turn a sketch into a live, AI-built product and a portfolio case study that shows they directed the AI. No coding. Define the problem, design it on paper, test it with people, then let AI build it from the plan. Formats: Sketch to Ship, an in-person day in Dallas-Fort Worth; a live online Build cohort; and Self-paced. Student pricing is available, and private sessions are offered for design and product teams.
-Next Sketch to Ship: Saturday 5 December 2026 in the Dallas-Fort Worth area. Founding prices: Sketch to Ship $99, Build cohort $897, Self-paced $397.
+Next Sketch to Ship: Saturday 5 December 2026, 9am to 1pm, in the Dallas-Fort Worth area. Founding prices: Sketch to Ship $99, Build cohort $897, Self-paced $397.
 Team sessions: a half-day private workshop for up to 20 people ($9,500), a virtual team track, or Build cohort seats, with copy-ready manager emails and a one-page PDF. https://aneilrazvi.com/build/teams
 - Course page: https://aneilrazvi.com/build.html
 - How it works (ten steps in four stages: define, paper, test, build): https://aneilrazvi.com/build/how-it-works
@@ -63,6 +63,9 @@ A weekly LinkedIn newsletter about designing and building a real product with AI
 - Issue no. 08, "Priced Like a Toy, Built Like a Tool" (2026-10-06): I set my price by looking at the wrong shelf. The number felt right, and it was aimed at a customer I do not actually have. https://aneilrazvi.com/blog/priced-like-a-toy-built-like-a-tool.html
 - Issue no. 09, "When Your AI Says It's Done" (2026-10-13): More of us are building after work with an AI writing the code. It will tell you it is finished. Here is the ten minute check that tells you whether that is true. https://aneilrazvi.com/blog/when-your-ai-says-its-done.html
 - Ramblings of a Designer, ep. 177, "Build Something While You Don't Need It" (2026-10-16): On Ramblings of a Designer I talked about side hustles, why people are scared of AI, drawing it on paper first, and what I would do with a hundred dollars if I were starting today. https://aneilrazvi.com/blog/build-something-while-you-dont-need-it.html
+- Sidenote no. 03, "I Made It Safer by Collecting Less" (2026-10-20): The safest privacy decision I made was to delete data I had already built. Collecting less is a real strategy, not a slogan. You cannot lose what you never kept. https://aneilrazvi.com/blog/i-made-it-safer-by-collecting-less.html
+- Issue no. 10, "The Screenshot That Un-Launched My App" (2026-10-27): My app got approved. Then I un-approved it myself, on purpose, over something most people would have shipped without a second thought. https://aneilrazvi.com/blog/the-screenshot-that-un-launched-my-app.html
+- Issue no. 11, "Why 'Just a Small Change' Is Never Small" (2026-11-03): It is a one line change, and then every screen breaks. Why builders flinch at the word just, and why that flinch is a good sign. https://aneilrazvi.com/blog/why-a-small-change-is-never-small.html
 
 ## Book Aneil Razvi to speak
 
@@ -87,7 +90,7 @@ Aneil Razvi works as a fractional head of design, VP of design or chief experien
 
 - Portfolio: https://aneilrazvi.com
 - Work with Aneil: https://aneilrazvi.com/work-with-me.html
-- Workshops (nine team sessions, from $9,500 for up to 20 people): https://aneilrazvi.com/workshops.html
+- Workshops (nine team sessions, from $9,500, half a day to two weeks, for teams of 4 to 20): https://aneilrazvi.com/workshops.html
 - About: https://aneilrazvi.com/about.html
 - Contact and booking: https://aneilrazvi.com/contact.html
 - LinkedIn: https://www.linkedin.com/in/aneilrazvi/

@@ -2,6 +2,33 @@
 
 Newest first. One entry per shipped push, with the proof it works on production.
 
+## 2026-11-04 · Numbers-and-dates audit fixes, three posts caught up
+
+Audit (4 Nov): every number, date and time on the 43 live pages, schema, llms files, sitemap and feed checked against the record.
+Full findings: Résumé project doc SITE-AUDIT-NUMBERS-DATES-2026-11-04.
+
+Blog
+- Added Sidenote no. 03 (20 Oct), Issue no. 10 (27 Oct) and Issue no. 11 (3 Nov) as site posts, built from the live LinkedIn articles
+  (build.py, then the new _source/linkedin-import/v3ify.py; v3ify reproduces all 12 existing posts byte-for-byte). Blog list, Latest feature,
+  post count (15), topic filter, feed.xml, llms-full.txt, llms.txt, sitemap and the homepage Building in the Open cards updated.
+- Cadence corrected to Tuesday ("New every Tuesday", "A new issue every Tuesday") on the blog and every post. Posts go out Tuesdays 7am CT.
+- Coming up now lists Sidenote no. 04, Issue no. 12 and Issue no. 13.
+
+Facts
+- Kalkomey: 225%+ was the whole company's content-sales number, not Aneil's. Reframed everywhere (home stat now $300K+ cost savings,
+  Kalkomey title, description, H1, stats, bullets, schema headline, About, Portfolio, Fractional page, llms.txt); 225% kept only as
+  "company-wide" context on the case study. New share image assets/og/og-kalkomey.jpg.
+- Privacy: "Last updated" was 20 September; the mobile-number and texts section was added 1 November. Date corrected.
+- Omnitracs: "hundreds of thousands of vehicles across dozens of countries" contradicted the page's own ~1M and 60+. Now "about a million vehicles in more than 60 countries" (page, two schema descriptions).
+- Sketch to Ship time added: 9am to 1pm (home, course page, FAQ, how it works, speaking, llms.txt) and in the Event and CourseInstance schema (-06:00, CST).
+- Workshops: AI, Built On Paper card said three hours (course says four). Header and Work With Me now "Half a day to two weeks, for teams of 4 to 20";
+  "two years ago" now "a few years ago".
+- Speaking Event schema: end times, Mini-Con time and street address, online-event URLs (likely the four Search Console Events issues).
+- Maturity: InVision New Design Frontier dated 2019 (published 31 Jan 2019), not 2018.
+- Cubby: competitor figures dated and corrected (Sensical 15k at launch, Kidoodle 45k+).
+- About: independent practice row added (2026 to now).
+- sitemap.xml lastmod set to 4 Nov on every page changed here; three new posts added.
+
 ## 2026-11-02 · Search Console, runbook, retired generators
 
 - Google Search Console (property https://aneilrazvi.com/): sitemap resubmitted, read the same day, 37 pages discovered (was 34 on 24 Oct).

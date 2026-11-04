@@ -80,7 +80,7 @@
 
   <div class="stats"><div class="wrap"><div class="row">
     <div class="stat"><div class="n" data-count="20">20<sup>+</sup></div><div class="l">Talks &amp; workshops</div></div>
-    <div class="stat"><div class="n" data-count="225">225<sup>%+</sup></div><div class="l">Revenue growth · Kalkomey</div></div>
+    <div class="stat"><div class="n" data-count="300" data-pre="$">$300<sup>K+</sup></div><div class="l">Cost savings · Kalkomey</div></div>
     <div class="stat"><div class="n" data-count="1">1<sup>M+</sup></div><div class="l">Vehicles reached · Omnitracs</div></div>
     <div class="stat"><div class="n">0→1</div><div class="l">Cubby · shipped solo with AI</div></div>
   </div></div></div>
@@ -162,7 +162,7 @@
         <a class="wc xh v3rv" data-t="ai con" href="cubby.html"><div class="shot" style="background-image:url(/assets/work/cubby.jpg)"></div><div class="in"><div class="top"><span class="tags">AI · Consumer · 0→1</span><span class="badge">Featured</span></div><h3>Cubby</h3><p>Designed and shipped solo with AI-assisted tools. A caregiver-curated video app, live on the App Store.</p><span class="go">Case study →</span></div></a>
         <a class="wc xh v3rv" data-t="ai ent" href="omnitracs.html"><div class="shot" style="background-image:url(/assets/work/omnitracs.jpg)"></div><div class="in"><div class="top"><span class="tags">AI · Enterprise</span></div><h3>Omnitracs</h3><p>Unified a fragmented global fleet platform with a design system and an ML next-best-action framework.</p><span class="go">Case study →</span></div></a>
         <a class="wc xh v3rv" data-t="ai ent" href="snhu.html"><div class="shot" style="background-image:url(/assets/work/snhu.jpg)"></div><div class="in"><div class="top"><span class="tags">AI · Enterprise</span></div><h3>SNHU</h3><p>Helped build the product design department and directed AI and ML learner tools at one of the largest online universities in the U.S.</p><span class="go">Case study →</span></div></a>
-        <a class="wc xh v3rv" data-t="con" href="kalkomey.html"><div class="shot" style="background-image:url(/assets/work/kalkomey.jpg)"></div><div class="in"><div class="top"><span class="tags">Consumer · Growth</span></div><h3>Kalkomey</h3><p>Drove 225%+ revenue growth through a user-centered pivot in outdoor-safety education and e-commerce.</p><span class="go">Case study →</span></div></a>
+        <a class="wc xh v3rv" data-t="con" href="kalkomey.html"><div class="shot" style="background-image:url(/assets/work/kalkomey.jpg)"></div><div class="in"><div class="top"><span class="tags">Consumer · Growth</span></div><h3>Kalkomey</h3><p>Led a user-centered pivot in outdoor-safety education and e-commerce, and saved $300K+ by unifying an acquired platform.</p><span class="go">Case study →</span></div></a>
         <a class="wc xh v3rv" data-t="ent con" href="citi.html"><div class="shot" style="background-image:url(/assets/work/citi.jpg)"></div><div class="in"><div class="top"><span class="tags">Enterprise · Consumer</span></div><h3>Citi</h3><p>Delivered a bank-wide design system and a first-of-its-kind Apple Watch app.</p><span class="go">Case study →</span></div></a>
       </div>
       <a class="more" href="portfolio.html">All nine case studies →</a>
@@ -181,7 +181,7 @@
             <h3>Sketch to Ship</h3>
             <p>Walk in with a sketch, watch two strangers try it on paper, and walk out with a tested design and the plan an AI tool builds from. No laptops.</p>
             <div class="facts">
-              <div><span>When</span>Saturday 5 December, one morning</div>
+              <div><span>When</span>Saturday 5 December, 9am to 1pm</div>
               <div><span>Where</span>In person, Dallas-Fort Worth</div>
               <div><span>Seats</span>12 seats · $99 founding · $49 students</div>
             </div>
@@ -203,8 +203,8 @@
       <div class="eb"><i></i><span>06 · Building in the Open</span><b></b><em>Weekly on LinkedIn</em></div>
       <h2 class="t v3rv">The bottleneck was never the code.<br><em>It was the judgment.</em></h2>
       <div class="wr">
-        <a class="post v3rv" href="blog/when-your-ai-says-its-done.html"><span class="k">Issue no. 09 · 13 Oct</span><h4>When your AI says it's done</h4><p>It will tell you it is finished. Here is the ten-minute check that tells you whether that is true.</p></a>
-        <a class="post v3rv" href="blog/priced-like-a-toy-built-like-a-tool.html"><span class="k">Issue no. 08 · 6 Oct</span><h4>Priced like a toy, built like a tool</h4><p>I set my price by looking at the wrong shelf, aimed at a customer I do not actually have.</p></a>
+        <a class="post v3rv" href="blog/why-a-small-change-is-never-small.html"><span class="k">Issue no. 11 · 3 Nov</span><h4>Why "just a small change" is never small</h4><p>It is a one-line change, and then every screen breaks. Why builders flinch at the word just.</p></a>
+        <a class="post v3rv" href="blog/the-screenshot-that-un-launched-my-app.html"><span class="k">Issue no. 10 · 27 Oct</span><h4>The screenshot that un-launched my app</h4><p>My app got approved. Then I un-approved it myself, on purpose.</p></a>
         <a class="post v3rv" href="blog/build-something-while-you-dont-need-it.html"><span class="k">Podcast · Ramblings of a Designer</span><h4>Build something while you don't need it</h4><p>Side hustles, why people are scared of AI, and drawing it on paper first.</p></a>
       </div>
       <a class="more" href="blog.html">Every issue →</a>
@@ -248,8 +248,8 @@
   /* Counters start from zero only when JS runs; the HTML already holds the real numbers. */
   var co=new IntersectionObserver(function(es){ es.forEach(function(e){
     if(!e.isIntersecting) return; co.unobserve(e.target);
-    var el=e.target, to=+el.getAttribute('data-count'), sup=el.querySelector('sup').outerHTML, t0=null;
-    function step(t){ if(!t0) t0=t; var p=Math.min(1,(t-t0)/1200), v=Math.round(to*(1-Math.pow(1-p,3))); el.innerHTML=v+sup; if(p<1) requestAnimationFrame(step); }
+    var el=e.target, to=+el.getAttribute('data-count'), pre=el.getAttribute('data-pre')||'', sup=el.querySelector('sup').outerHTML, t0=null;
+    function step(t){ if(!t0) t0=t; var p=Math.min(1,(t-t0)/1200), v=Math.round(to*(1-Math.pow(1-p,3))); el.innerHTML=pre+v+sup; if(p<1) requestAnimationFrame(step); }
     requestAnimationFrame(step);
   }); },{threshold:.5});
   document.querySelectorAll('[data-count]').forEach(function(el){ co.observe(el); });

@@ -6,7 +6,46 @@
   <atom:link href="https://aneilrazvi.com/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Designing and building real products with AI as a partner. The decisions, the trade-offs, and what actually ships.</description>
   <language>en</language>
-  <lastBuildDate>Sun, 18 Oct 2026 19:23:25 +0000</lastBuildDate>
+  <lastBuildDate>Wed, 04 Nov 2026 22:25:54 +0000</lastBuildDate>
+  <item>
+    <title>Why &quot;Just a Small Change&quot; Is Never Small</title>
+    <link>https://aneilrazvi.com/blog/why-a-small-change-is-never-small.html</link>
+    <guid isPermaLink="true">https://aneilrazvi.com/blog/why-a-small-change-is-never-small.html</guid>
+    <pubDate>Tue, 03 Nov 2026 13:02:46 +0000</pubDate>
+    <description>It is a one line change, and then every screen breaks. Why builders flinch at the word just, and why that flinch is a good sign.</description>
+    <category>Building in the Open</category>
+    <category>VibeCoding</category>
+    <category>SoftwareDevelopment</category>
+    <category>BuildingInPublic</category>
+    <category>AITools</category>
+    <category>Startups</category>
+  </item>
+  <item>
+    <title>The Screenshot That Un-Launched My App</title>
+    <link>https://aneilrazvi.com/blog/the-screenshot-that-un-launched-my-app.html</link>
+    <guid isPermaLink="true">https://aneilrazvi.com/blog/the-screenshot-that-un-launched-my-app.html</guid>
+    <pubDate>Tue, 27 Oct 2026 12:04:04 +0000</pubDate>
+    <description>My app got approved. Then I un-approved it myself, on purpose, over something most people would have shipped without a second thought.</description>
+    <category>Building in the Open</category>
+    <category>BuildingInPublic</category>
+    <category>AppStore</category>
+    <category>Startups</category>
+    <category>ProductDesign</category>
+    <category>Founders</category>
+  </item>
+  <item>
+    <title>I Made It Safer by Collecting Less</title>
+    <link>https://aneilrazvi.com/blog/i-made-it-safer-by-collecting-less.html</link>
+    <guid isPermaLink="true">https://aneilrazvi.com/blog/i-made-it-safer-by-collecting-less.html</guid>
+    <pubDate>Tue, 20 Oct 2026 12:01:06 +0000</pubDate>
+    <description>The safest privacy decision I made was to delete data I had already built. Collecting less is a real strategy, not a slogan. You cannot lose what you never kept.</description>
+    <category>Sidenotes</category>
+    <category>Privacy</category>
+    <category>DataProtection</category>
+    <category>Startups</category>
+    <category>ProductDesign</category>
+    <category>BuildingInPublic</category>
+  </item>
   <item>
     <title>Build Something While You Don&#x27;t Need It</title>
     <link>https://aneilrazvi.com/blog/build-something-while-you-dont-need-it.html</link>
