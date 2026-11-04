@@ -360,7 +360,7 @@ That agreement held because buyers accepted it. They do not anymore.
 
 Part of it is AI. People now use software that reshapes itself to them inside a single turn of conversation. Once that is your baseline, a dashboard that shows every customer the same nine modules regardless of what they bought reads as lazy in a way it did not three years ago. The expectation is software shaped to what a company actually does.
 
-The other part is quieter and older: acquisitions. Nobody buys one product anymore. They buy a portfolio and then have to make it feel like one thing. At Omnitracs I worked on unifying acquired products into a single system serving more than 30,000 fleets, roughly a million vehicles, in over 60 countries. You do not merge four products by picking a winner and redrawing the other three. You go underneath them and find the rules they all share.
+The other part is quieter and older: acquisitions. Nobody buys one product anymore. They buy a portfolio and then have to make it feel like one thing. At Omnitracs I worked on unifying acquired products into a single system serving more than 30,000 fleets, roughly a million vehicles, in over 60 countries. You do not merge five products by picking a winner and redrawing the other four. You go underneath them and find the rules they all share.
 
 That is the same job. It just used to be a special case.
 

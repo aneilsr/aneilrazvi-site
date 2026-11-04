@@ -26,6 +26,7 @@ Facts
 - Speaking Event schema: end times, Mini-Con time and street address, online-event URLs, descriptions and images.
   Search Console (last update 2 Nov) showed the one invalid item was the nested "Texas Startup & Tech Week" superEvent
   (missing location and startDate). It is removed; the event name now carries "(Texas Startup & Tech Week)".
+- Omnitracs product count settled at five (Aneil, 4 Nov): the rules-engine post said "merge four products"; now five, matching the case study. Tyler Forcum's testimonial ("3 separate product lines") is left as quoted.
 - Live check after 1e03036 went READY: 33 of 33 production checks passed (curl, cache-busted); IndexNow HTTP 200 for 21 URLs.
 - Maturity: InVision New Design Frontier dated 2019 (published 31 Jan 2019), not 2018.
 - Cubby: competitor figures dated and corrected (Sensical 15k at launch, Kidoodle 45k+).
