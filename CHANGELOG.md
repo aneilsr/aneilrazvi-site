@@ -2,6 +2,21 @@
 
 Newest first. One entry per shipped push, with the proof it works on production.
 
+## 2026-11-05 · Packet cover fixed for macOS Preview, new cover line, Speaking FAQ spacing, Work With Me ladder
+
+- Work With Me "How much design do you actually need?": the five levels were stepped up with margin-top and kept their own heights,
+  so the tops and bottoms were ragged (Aneil's screenshot). Now five equal-height cards on one baseline (grid-auto-rows:1fr), titles
+  get room for two lines so every description starts at the same height, a "Lighter investment -> Heavier investment" axis sits above,
+  and each card has a five-bar meter filled to its level. Under 1100px the cards become equal-height rows; under 640px, stacked cards.
+  Checked at 1440, 1024 and 600 wide.
+- Speaker packet: macOS Preview drew the cover's CSS grid and mask as tiled patterns with visible seams (Aneil's screenshot).
+  The cover photo, navy shade and faint grid are now one flattened JPG (_source/speaker-packet/make_cover.py writes cover-hero.jpg),
+  so the PDF has no masks or pattern fills. Checked with macOS's own renderer (sips, same engine as Preview) on all four pages.
+- Cover line (Aneil, 5 Nov): "Imagination is the new scarcity. Let's design what should exist." replaces "Talks that make AI feel human, not hyped"
+  on the packet. The Speaking page H1 is unchanged.
+- Speaking: the FAQ ("Before you book") had an inline padding-top:0, so its eyebrow sat on the edge of the dark band after the light
+  organizers band. Removed; it now gets the normal section padding (6.5rem desktop, 4.5rem under 700px).
+
 ## 2026-11-05 · Speaker packet; Cubby is a passion project; Behance no longer listed as ongoing
 
 Cubby: "personal project" is now "passion project" everywhere on the site (Aneil, 5 Nov). 41 instances across about, cubby

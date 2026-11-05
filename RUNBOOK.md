@@ -41,6 +41,9 @@ The log of what shipped lives in CHANGELOG.md. Accounts and logins live in Aneil
 - `assets/speaking/aneil-razvi-speaker-packet.pdf`, linked from Speaking > Booking at a glance and from llms.txt.
 - Source `_source/speaker-packet/speaker-packet.html`; render on the Mac with `bash _source/speaker-packet/render.sh` (Google Fonts need the Mac).
 - When speaking.html changes (talks, appearances, bios), update the packet in the same push. Check every page still fits on one letter page.
+- macOS Preview draws CSS masks and repeating-gradient patterns with seams. Keep those out of the packet; bake effects into images
+  (the cover is `make_cover.py` -> `cover-hero.jpg`). render.sh also writes `_to_delete/packet/cover-coregraphics.png` with sips,
+  which uses Preview's renderer: look at it before shipping.
 
 ## Case-study and About heroes
 - Pattern: `<section class="cs2-hero csx-heroph" style="--hero:url('/assets/work/<page>-hero.jpg');--hero-pos:62% 40%;--logo-h:40px">`

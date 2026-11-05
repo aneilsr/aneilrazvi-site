@@ -85,19 +85,27 @@
 .v3m-wwm .wm-card::before{content:counter(sv,decimal-leading-zero);display:block;font:500 11px/1 var(--mono);letter-spacing:.14em;color:var(--teal);margin-bottom:1.5rem}
 .v3m-wwm .wm-card h3{font:800 1.6rem/1.02 var(--cond);text-transform:uppercase;letter-spacing:.01em;margin:0 0 .8rem}
 .v3m-wwm .wm-card p{color:rgba(235,246,250,.7)}
-/* 03 maturity: the five rungs climb like a ladder */
+/* 03 maturity: five equal cards on one baseline; the axis and each card's meter show the climb (5 Nov 2026, was a stepped layout with ragged heights) */
 .v3m-wwm .wm-maturity{background:var(--alt);border:0;padding:0}
 .v3m-wwm .wm-maturity-in{max-width:1200px;padding:6.5rem 6%}
 .v3m-wwm .wm-maturity h2{font-size:clamp(2.2rem,4.2vw,3.4rem);line-height:1.04;letter-spacing:-.01em;margin:0 0 1rem}
 .v3m-wwm .wm-maturity .sub{font-size:1.06rem;color:rgba(235,246,250,.78);margin:0 0 3rem}
-.v3m-wwm .wm-ladder{gap:1rem;align-items:start}
-.v3m-wwm .rung{border:1px solid var(--line-d);border-top:2px solid var(--teal);border-radius:6px;background:rgba(255,255,255,.035);padding:1.4rem 1.3rem 1.5rem}
-.v3m-wwm .rung:nth-child(1){margin-top:6rem}
-.v3m-wwm .rung:nth-child(2){margin-top:4.5rem}
-.v3m-wwm .rung:nth-child(3){margin-top:3rem}
-.v3m-wwm .rung:nth-child(4){margin-top:1.5rem}
-.v3m-wwm .rung .lvl{font:500 10.5px/1 var(--mono);letter-spacing:.14em;color:var(--teal);margin:0 0 1.2rem}
+.v3m-wwm .wm-axis{display:flex;align-items:center;gap:14px;margin:0 0 1rem;font:500 10.5px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:rgba(235,246,250,.5)}
+.v3m-wwm .wm-axis b{flex:1;height:1px;position:relative;background:linear-gradient(90deg,rgba(0,188,212,.12),rgba(0,188,212,.75))}
+.v3m-wwm .wm-axis b::after{content:"";position:absolute;right:-1px;top:-4px;border-style:solid;border-width:4.5px 0 4.5px 7px;border-color:transparent transparent transparent rgba(0,188,212,.75)}
+.v3m-wwm .wm-ladder{gap:1rem;align-items:stretch;grid-auto-rows:1fr}  /* every card the same height, in any layout */
+.v3m-wwm .rung{display:flex;flex-direction:column;margin:0;border:1px solid var(--line-d);border-top:2px solid var(--teal);border-radius:6px;background:rgba(255,255,255,.035);padding:1.4rem 1.3rem 1.5rem}
+.v3m-wwm .rung .lvl{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;font:500 10.5px/1 var(--mono);letter-spacing:.14em;color:var(--teal);margin:0 0 1.2rem}
+.v3m-wwm .rung .meter{display:inline-flex;align-items:flex-end;gap:3px;height:16px;flex:none}
+.v3m-wwm .rung .meter i{display:block;width:5px;border-radius:1px;background:rgba(235,246,250,.16)}
+.v3m-wwm .rung .meter i:nth-child(1){height:4px}
+.v3m-wwm .rung .meter i:nth-child(2){height:7px}
+.v3m-wwm .rung .meter i:nth-child(3){height:10px}
+.v3m-wwm .rung .meter i:nth-child(4){height:13px}
+.v3m-wwm .rung .meter i:nth-child(5){height:16px}
+.v3m-wwm .rung:nth-child(1) .meter i:nth-child(-n+1),.v3m-wwm .rung:nth-child(2) .meter i:nth-child(-n+2),.v3m-wwm .rung:nth-child(3) .meter i:nth-child(-n+3),.v3m-wwm .rung:nth-child(4) .meter i:nth-child(-n+4),.v3m-wwm .rung:nth-child(5) .meter i{background:var(--teal)}
 .v3m-wwm .rung h4{font:800 1.45rem/1.02 var(--cond);text-transform:uppercase;letter-spacing:.01em;margin:0 0 .7rem}
+.v3m-wwm .rung h4{min-height:2.04em}  /* room for two lines, so every description starts at the same height */
 .v3m-wwm .rung p{font-size:.86rem;color:rgba(235,246,250,.66)}
 .v3m-wwm .wm-maturity .closer{margin:2.6rem 0 0;max-width:760px;font-size:1.06rem;padding-left:1.2rem}
 .v3m-wwm .wm-maturity a[href="maturity.html"]{border-radius:4px!important}
@@ -126,6 +134,20 @@
 @media (max-width:980px){
   .v3m-wwm .wm-hero{grid-template-columns:1fr;gap:2.6rem}
   .v3m-wwm .rung{margin-top:0!important}
+}
+@media (max-width:1100px){
+  /* five columns get cramped: the rungs become rows, read top to bottom */
+  .v3m-wwm .wm-axis{display:none}
+  .v3m-wwm .wm-ladder{grid-template-columns:1fr;gap:.6rem}
+  .v3m-wwm .rung{display:grid;grid-template-columns:8.5rem 13rem 1fr;column-gap:1.6rem;align-items:center;padding:1.15rem 1.4rem}
+  .v3m-wwm .rung .lvl{margin:0;justify-content:flex-start;gap:14px}
+  .v3m-wwm .rung h4{margin:0;min-height:0}
+  .v3m-wwm .rung p{margin:0}
+}
+@media (max-width:640px){
+  .v3m-wwm .rung{display:flex;flex-direction:column;align-items:stretch;padding:1.3rem 1.3rem 1.4rem}
+  .v3m-wwm .rung .lvl{justify-content:space-between;margin:0 0 1rem}
+  .v3m-wwm .rung h4{margin:0 0 .6rem}
 }
 @media (max-width:640px){
   .v3m-wwm .wm-hero{padding-top:3.4rem;padding-bottom:3.6rem}
