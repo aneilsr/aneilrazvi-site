@@ -32,6 +32,16 @@ The log of what shipped lives in CHANGELOG.md. Accounts and logins live in Aneil
   URL inspection (search box at the top) > Request indexing for the most important changed pages. Google limits requests per day.
 - After sharing on LinkedIn for the first time after a change, run the URL through linkedin.com/post-inspector to refresh the preview.
 
+## Copy rules
+- Cubby is a "passion project" (Aneil, 5 Nov 2026; it used to say "personal project"): designed and shipped solo using AI-assisted tools. No coding claims.
+- No years-of-experience claims. No em dashes.
+- `_source/linkedin-import/build.py` applies these rules to blog posts on re-import; keep its replacements in step with this list.
+
+## Speaker packet
+- `assets/speaking/aneil-razvi-speaker-packet.pdf`, linked from Speaking > Booking at a glance and from llms.txt.
+- Source `_source/speaker-packet/speaker-packet.html`; render on the Mac with `bash _source/speaker-packet/render.sh` (Google Fonts need the Mac).
+- When speaking.html changes (talks, appearances, bios), update the packet in the same push. Check every page still fits on one letter page.
+
 ## Case-study and About heroes
 - Pattern: `<section class="cs2-hero csx-heroph" style="--hero:url('/assets/work/<page>-hero.jpg');--hero-pos:62% 40%;--logo-h:40px">`
   followed by `.ph`, `.shade`, `.gridov`, then the copy column. The client logo sits at the top of the copy column in `.csx-logo`.

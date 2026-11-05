@@ -23,7 +23,7 @@ AI product design, AI experience strategy, human-in-the-loop AI, product design 
 ## Selected work
 
 - SPOTIO: built the design function and led AI experience strategy for a B2B field-sales platform used by thousands of teams. https://aneilrazvi.com/spotio-case-study.html
-- Cubby (personal project): designed and shipped solo using AI-assisted tools, a caregiver-curated video app for teens and adults with autism and IDD, live on the App Store. https://aneilrazvi.com/cubby.html and https://cubbyplaylist.com
+- Cubby (passion project): designed and shipped solo using AI-assisted tools, a caregiver-curated video app for teens and adults with autism and IDD, live on the App Store. https://aneilrazvi.com/cubby.html and https://cubbyplaylist.com
 - Omnitracs: unified a fragmented global fleet-management platform with a design system and an ML next-best-action framework. https://aneilrazvi.com/omnitracs.html
 - SNHU: helped build the product design department and directed AI and ML learner tools at one of the largest online universities in the U.S. https://aneilrazvi.com/snhu.html
 - Kalkomey: led a user-centered pivot in outdoor-safety education and e-commerce, and saved $300K+ by unifying an acquired platform. https://aneilrazvi.com/kalkomey.html
@@ -80,7 +80,7 @@ Signature talks:
 
 Recent appearances: Future of AI Dallas speaker panel with Iffat Tariq and Ernesto Miranda at The Constellation Club, Irving (29 Oct 2026, https://futureofaidallas.com/speakers); video interview with Abdul Haseeb Asif, "AI, Product Design, and Trust" (29 Oct 2026, https://youtu.be/8chbPiPpw_U); Go Fractional Demo Day (22 Oct 2026, online); AIGA Dallas Mini-Con industry panel at UT Dallas (10 Oct 2026); Ramblings of a Designer podcast, episode 177 (9 Oct 2026, written up at https://aneilrazvi.com/blog/build-something-while-you-dont-need-it.html); Texas Startup & Tech Week working session "Where Design Starts Paying" (29 Sep 2026).
 
-Speaker page, with bios, an on-stage introduction and a booking FAQ: https://aneilrazvi.com/speaking.html. To book: hi@aneilrazvi.com.
+Speaker page, with bios, an on-stage introduction and a booking FAQ: https://aneilrazvi.com/speaking.html. Speaker packet (PDF, 4 pages: bios, talks, introduction, booking details): https://aneilrazvi.com/assets/speaking/aneil-razvi-speaker-packet.pdf. To book: hi@aneilrazvi.com.
 
 ## Hire Aneil Razvi as a fractional head of design
 

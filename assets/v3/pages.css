@@ -173,6 +173,7 @@
 .v3p-speaking .p-light .sp-h2,.v3p-speaking .p-light .tl-body h4,.v3p-speaking .p-light .tl-body h4 a,.v3p-speaking .p-light .gx-bio h3{color:var(--ink)}
 .v3p-speaking .p-light .sp-lead,.v3p-speaking .p-light .tl-body p,.v3p-speaking .p-light .gx-dl dd,.v3p-speaking .p-light .gx-bio p{color:#3A4552}
 .v3p-speaking .p-light .tl-body p a{color:#00838F}
+.v3p-speaking .gx-bio .note a{color:#00838F;font-weight:600;text-decoration:underline;text-underline-offset:3px}
 .v3p-speaking .p-light .tl-body .cospk,.v3p-speaking .p-light .tl-ev .sub,.v3p-speaking .p-light .gx-bio .note{color:var(--muted-l)}
 .v3p-speaking .tl-year{font:800 2.2rem/1 var(--cond)!important;text-transform:uppercase;letter-spacing:.01em;color:var(--ink)!important;border-bottom:2px solid var(--ink)!important;padding-bottom:.7rem!important;margin-top:2.6rem!important}
 .v3p-speaking .tl-list{gap:0}

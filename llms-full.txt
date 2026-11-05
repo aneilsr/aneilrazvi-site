@@ -408,7 +408,7 @@ I have watched that discipline slip on teams that had every other advantage. It 
 
 ### Same shape, much smaller
 
-I have been building a personal project this year, a caregiver-curated video app for teens and adults with autism and intellectual and developmental disabilities. One product, one tenant, no acquisitions, nothing enterprise about it.
+I have been building a passion project this year, a caregiver-curated video app for teens and adults with autism and intellectual and developmental disabilities. One product, one tenant, no acquisitions, nothing enterprise about it.
 
 It still needed a rules layer, because a caregiver configures what each viewer can see, and two viewers in the same household get materially different interfaces. Designing and shipping that solo, without a team to absorb the exceptions for me, made the cost of every un-written rule immediate. If I did not encode it, nobody else was going to.
 
@@ -492,7 +492,7 @@ Start before you feel ready. The readiness comes from starting AI is leverage, n
 
 - Tell the true story, not the impressive one
 
-I am Aneil Razvi, a product design and AI experience leader. Cubby, my personal project, is a caregiver-curated video app for teens and adults with autism and intellectual disabilities.
+I am Aneil Razvi, a product design and AI experience leader. Cubby, my passion project, is a caregiver-curated video app for teens and adults with autism and intellectual disabilities.
 
 Available for fractional design leadership and advisory work.
 
@@ -558,7 +558,7 @@ Know how your app is really built, because the architecture quietly decides whic
 
 - There is always another gate behind the one you can see
 
-I am Aneil Razvi, a product design and AI experience leader. Cubby, my personal project, is a caregiver-curated video app for teens and adults with autism and intellectual disabilities.
+I am Aneil Razvi, a product design and AI experience leader. Cubby, my passion project, is a caregiver-curated video app for teens and adults with autism and intellectual disabilities.
 
 Available for fractional design leadership and advisory work.
 
@@ -690,7 +690,7 @@ Separate who builds from who verifies A passing build proves nothing. Drive the 
 
 - Be honest about who did what
 
-I am Aneil Razvi, a product design and AI experience leader. Cubby, my personal project, is a caregiver-curated video app for teens and adults with autism and intellectual disabilities.
+I am Aneil Razvi, a product design and AI experience leader. Cubby, my passion project, is a caregiver-curated video app for teens and adults with autism and intellectual disabilities.
 
 Available for fractional design leadership and advisory work.
 
@@ -826,7 +826,7 @@ Sometimes the wall is not telling you to build differently. It is telling you th
 
 This is a practitioner's field guide, not legal advice. The rules change, they vary by region, and the specifics of your product matter. When something here applies to you, read the current source and talk to a lawyer.
 
-I am Aneil Razvi, a product design and AI experience leader. Cubby, my personal project, is a caregiver-curated video app for teens and adults with autism and intellectual disabilities.
+I am Aneil Razvi, a product design and AI experience leader. Cubby, my passion project, is a caregiver-curated video app for teens and adults with autism and intellectual disabilities.
 
 Available for fractional design leadership and advisory work.
 
@@ -926,7 +926,7 @@ Start with two files. VISION and DECISIONS. Add the rest the first time each one
 
 Then when your own wall arrives, and it will, you get to re-read your reasoning instead of reconstructing it, and the question changes from do I start over to which of these still holds.
 
-I am Aneil Razvi, a product design and AI experience leader. Cubby, my personal project, is a caregiver-curated video app for teens and adults with autism and intellectual disabilities.
+I am Aneil Razvi, a product design and AI experience leader. Cubby, my passion project, is a caregiver-curated video app for teens and adults with autism and intellectual disabilities.
 
 Available for fractional design leadership and advisory work.
 

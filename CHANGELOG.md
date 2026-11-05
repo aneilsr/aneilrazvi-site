@@ -2,6 +2,30 @@
 
 Newest first. One entry per shipped push, with the proof it works on production.
 
+## 2026-11-05 · Speaker packet; Cubby is a passion project; Behance no longer listed as ongoing
+
+Cubby: "personal project" is now "passion project" everywhere on the site (Aneil, 5 Nov). 41 instances across about, cubby
+(including JSON-LD keywords), portfolio, fractional-head-of-design, speaking, build/teams, the team one-pager, six blog posts,
+llms.txt and llms-full.txt. The linkedin-import build.py, site_files.py and out/ copies are updated so a re-import keeps it.
+Sitemap lastmod set to 2026-11-05 on every changed page.
+
+Speaker packet (Aneil asked for one, 4 Nov)
+- Page 2 adds "Off script is welcome": the five talks are starting points, plus a new talk (Dream It, Then Build It: anyone,
+  creatives most of all, can build what they imagine now; also runs as his workshop for creatives), From Print to Digital,
+  and AI in Plain English. The cover topic list includes the new talk.
+- New 4-page PDF for event organizers: assets/speaking/aneil-razvi-speaker-packet.pdf (cover with short bio and headshot,
+  five signature talks, recent stages and quotes, then intro to read on stage, long and short bios, at a glance, on-the-day needs, booking).
+  Copy matches speaking.html; fee stays "on request".
+- Source: _source/speaker-packet/speaker-packet.html. Re-render on the Mac with `bash _source/speaker-packet/render.sh` (Google Fonts need the Mac).
+  Update it whenever speaking.html changes (talks, appearances, bios).
+- Speaking "Booking at a glance": "Photos and a headshot on request." is now a download link to the packet (styled in assets/v3/pages.css). llms.txt links it too.
+
+Behance: Aneil no longer facilitates Behance Portfolio Reviews (4 Nov).
+- Speaking: removed the "Ongoing" group from Talks and appearances (its only item was Behance Portfolio Reviews).
+- Speaking credibility strip: "Portfolio-review facilitator" now "Portfolio-review facilitator, 3 years" so it reads as a past credential.
+- If I Had AI Then (build/portfolio): "Facilitates Behance Portfolio Reviews" now "Facilitated Behance Portfolio Reviews for 3 years".
+- Kept as history: the "Behance Portfolio Reviews · 3 years" chip on Speaking and the past-appearances list in llms.txt.
+
 ## 2026-11-04 · Numbers-and-dates audit fixes, three posts caught up
 
 Audit (4 Nov): every number, date and time on the 43 live pages, schema, llms files, sitemap and feed checked against the record.
