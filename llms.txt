@@ -23,7 +23,7 @@ AI product design, AI experience strategy, human-in-the-loop AI, product design 
 ## Selected work
 
 - SPOTIO: built the design function and led AI experience strategy for a B2B field-sales platform used by thousands of teams. https://aneilrazvi.com/spotio-case-study.html
-- Cubby (passion project): designed and shipped solo using AI-assisted tools, a caregiver-curated video app for teens and adults with autism and IDD, live on the App Store. https://aneilrazvi.com/cubby.html and https://cubbyplaylist.com
+- Cubby (passion project): designed and shipped solo using AI-assisted tools. A video player tuned to each person's senses (brightness, contrast, color, warmth, dim, a volume ceiling, captions and speed), where a caregiver picks the videos, for autistic teens and adults and people with intellectual and developmental disabilities. On iPhone (App Store) and the web, with Android in beta. https://aneilrazvi.com/cubby.html and https://cubbyplaylist.com
 - Omnitracs: unified a fragmented global fleet-management platform with a design system and an ML next-best-action framework. https://aneilrazvi.com/omnitracs.html
 - SNHU: helped build the product design department and directed AI and ML learner tools at one of the largest online universities in the U.S. https://aneilrazvi.com/snhu.html
 - Kalkomey: led a user-centered pivot in outdoor-safety education and e-commerce, and saved $300K+ by unifying an acquired platform. https://aneilrazvi.com/kalkomey.html

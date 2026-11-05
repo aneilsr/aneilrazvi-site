@@ -2,6 +2,31 @@
 
 Newest first. One entry per shipped push, with the proof it works on production.
 
+## 2026-11-05 · Cubby case study rebuilt around the player; Speaking tagline
+
+Cubby (cubby.html), per Aneil's comments on the 5 Nov markup (Cubby-Case-Study-Markup.html):
+- Positioning: the core is now the player set for each person (brightness, contrast, color, warmth, dim, volume ceiling,
+  captions, speed); the caregiver-picked library is built around it. New H1 "A video app tuned to their senses, designed and
+  shipped solo", a why line from /press, title/description/og/twitter/JSON-LD updated to match.
+- Hero keeps the photo (Aneil: it tells the story) and adds one iPhone (Sam's home, Balanced, from cubbyplaylist.com/press) over
+  the pillow, plus the official App Store badge and "Join the Android beta" (forms.gle/UCoZSuTuahnhNbvW9, the same link as cubbyplaylist.com).
+  On phones the iPhone rises from the bottom edge of the hero.
+- New sections: Why I Care, See It (Shipaton demo zQNVwbs3jtM via youtube-nocookie, the with/without Cubby split from the live
+  landing hero at 2x, Calm/Balanced/Engage phones), What Caregivers Taught Me (anonymized: two hours vs 20 minutes -> bulk add;
+  "no escape" read as a threat -> "No recommendations. No rabbit holes."; picture and sound controls), Today & Next (facts plus
+  the discovery paradox, co-parents, Android to production). Impact is gone; "The hard part" (tech stack, AI coding agents chip) is cut.
+- Language guide: identity-first, intellectual and developmental disabilities spelled out, no "locked-down", "dignity" or "insulting".
+  No coding claims: What I Did 05 now reads Figma -> written build plan -> AI-assisted tools in small batches, checked on a preview.
+- What I Got Wrong adds the November yearly-row bug (looked clickable, wasn't; caught by using the site; yearly was always
+  available in billing).
+- Stats: Live (iPhone + web, Android beta) / Solo / 13+ / WCAG AA. Jump nav is eight sections.
+- New images in assets/work: cubby-phone-{calm,balanced,engage}.jpg (560w), cubby-tune-split.jpg, cubby-story-now.jpg,
+  app-store-badge.svg (Apple's official file, from cubbyplaylist.com). CSS in cases.css under "Cubby rebuild (Nov 2026)".
+- Checked locally at 1440 and at 390 (iframe wrapper, since headless Chrome won't go narrower than ~500).
+
+Speaking: "Imagination is the new scarcity. Let's design what should exist." now sits under the H1 (.sp-tagline in pages.css).
+llms.txt: Cubby line rewritten to the new positioning and language.
+
 ## 2026-11-05 · Packet cover fixed for macOS Preview, new cover line, Speaking FAQ spacing, Work With Me ladder
 
 - Work With Me "How much design do you actually need?": the five levels were stepped up with margin-top and kept their own heights,
