@@ -2,6 +2,14 @@
 
 Newest first. One entry per shipped push, with the proof it works on production.
 
+## 2026-11-05 · Capital One hero photo: a dealership finance desk
+
+Capital One (capital-one.html): the hero background is now a couple talking through car financing with a finance manager on a
+dealership floor (Aneil's photo, 5 Nov), replacing the barista at a coffee counter, which didn't say auto lending.
+New file assets/work/capital-one-hero-dealership.jpg (2400x1350, about 300KB); --hero-pos 60% 40%; aria-label updated.
+The old capital-one-hero.jpg stays in the repo, unused. Sitemap lastmod set to 2026-11-05. Checked locally at 1440.
+Cubby push (a8c9f7b) verified live first: all new sections, images 200, banned words 0. IndexNow 200 for cubby, speaking, llms.txt.
+
 ## 2026-11-05 · Cubby case study rebuilt around the player; Speaking tagline
 
 Cubby (cubby.html), per Aneil's comments on the 5 Nov markup (Cubby-Case-Study-Markup.html):
