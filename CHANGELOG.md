@@ -2,6 +2,18 @@
 
 Newest first. One entry per shipped push, with the proof it works on production.
 
+## 2026-11-07 · Future of AI Dallas: "not a panel, a conversation", event photos
+
+Wording (Aneil, 6 Nov): the organizers bill it "Not a panel. A conversation." (futureofaidallas.com/memory), so every
+"speaker panel" for this event is now "conversation": home chip and On Stage card title, Speaking JSON-LD Event name and
+description, the FAQ answer (visible and JSON-LD), llms.txt, and the speaker packet (re-rendered, still four letter pages).
+The AIGA Mini-Con line stays "panel" because that one was.
+Photos: three event photos by Smagshot Photography replace the promo graphic on Speaking (stage, room, Aneil close-up, same
+.sp-gal pattern as Mini-Con) and on the home On Stage card (home.css background, credit line updated). New files in
+assets/speaking: future-of-ai-dallas-2026-{stage,room,aneil}.jpg, 800x534 (the organizer's web copies; swap in high-res at the
+same names when Aneil downloads them). The old graphic stays in the repo, unused. Sitemap lastmod 2026-11-07 for / and speaking.
+Checked locally at 1440 and 390 (iframe wrapper).
+
 ## 2026-11-05 · Capital One hero photo: a dealership finance desk
 
 Capital One (capital-one.html): the hero background is now a couple talking through car financing with a finance manager on a

@@ -97,7 +97,7 @@ body.home{background:var(--dark);color:#fff;font:400 16px/1.6 'Inter',-apple-sys
 .home .stage{background:var(--dark)}
 .home .stage .layout{display:grid;grid-template-columns:1.15fr .85fr;gap:46px;margin-top:50px}
 .home .feature{position:relative;display:block;color:#fff}
-.home .feature .img{aspect-ratio:16/9;background:url(/assets/speaking/future-of-ai-dallas-2026-10-29.jpg) center/cover;border:1px solid var(--line-d)}
+.home .feature .img{aspect-ratio:16/9;background:url(/assets/speaking/future-of-ai-dallas-2026-stage.jpg) 30% 50%/cover;border:1px solid var(--line-d)}
 .home .feature .lab{position:absolute;left:14px;top:14px;background:var(--orange);color:#1A0A00;font:700 10.5px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;padding:8px 10px}
 .home .feature h3{font:400 30px/1.15 'DM Serif Display',serif;margin:24px 0 8px;color:#fff}
 .home .feature p{color:var(--muted-d);font-size:15.5px;margin:0}
