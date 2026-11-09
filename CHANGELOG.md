@@ -2,6 +2,15 @@
 
 Newest first. One entry per shipped push, with the proof it works on production.
 
+## 2026-11-09 · PostHog follow-up: comment, project settings, proof
+
+Proof for 1512504: live assets/analytics.js 200 with the new key (1 match) and the old key (0); 7 pages load it; www 308s to
+the apex. First events in project 723395 at 14:24 to 14:43 CT ($pageview, $pageleave, $web_vitals, section_viewed,
+scroll_depth, assessment_landed), all with $host aneilrazvi.com. Cubby's project 546540 last saw aneilrazvi.com at 14:11 CT.
+analytics.js line 2 comment now names project 723395. Project settings (in PostHog, not in this repo): timezone
+America/Chicago; web vitals on and click autocapture off, matching what the site sent before; test-account filter keeps
+$host = aneilrazvi.com; new pinned dashboard "Site: leads and assessment".
+
 ## 2026-11-09 · PostHog: the site gets its own project
 
 aneilrazvi.com now reports to its own PostHog organization and project ("aneilrazvi.com" org, project 723395, US Cloud),

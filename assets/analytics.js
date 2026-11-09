@@ -1,5 +1,5 @@
 /* PostHog for aneilrazvi.com
-   Project 546540, US Cloud. The token below is the write-only project key and is
+   Project 723395 (org "aneilrazvi.com"), US Cloud. The token below is the write-only project key and is
    safe in public HTML; PostHog's own settings page labels it that way.
 
    Loaded once per page as: <script defer src="assets/analytics.js"></script>
