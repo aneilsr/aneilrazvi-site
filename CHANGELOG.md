@@ -2,6 +2,13 @@
 
 Newest first. One entry per shipped push, with the proof it works on production.
 
+## 2026-11-09 · PostHog: the site gets its own project
+
+aneilrazvi.com now reports to its own PostHog organization and project ("aneilrazvi.com" org, project 723395, US Cloud),
+instead of sharing Cubby's project 546540. Same PostHog login; the free plan allows one project per organization.
+Only change: the project key on line 12 of assets/analytics.js (old phc_rv6h... out, new phc_nX3y... in). The old key appears
+nowhere else in deployed files. Cubby's project, key and settings are untouched.
+
 ## 2026-11-07 · Future of AI Dallas: "not a panel, a conversation", event photos
 
 Wording (Aneil, 6 Nov): the organizers bill it "Not a panel. A conversation." (futureofaidallas.com/memory), so every

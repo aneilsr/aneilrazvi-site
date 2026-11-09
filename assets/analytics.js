@@ -9,7 +9,7 @@
    finishing the maturity assessment, someone leaving for a newsletter issue, and
    someone reaching for the calendar. Everything else is autocapture noise. */
 (function () {
-  var TOKEN = 'phc_rv6ht5nuMpj4Y6nCUbyunkYXuoLPosouSqVmDjt28YLd';
+  var TOKEN = 'phc_nX3ys4af36KnWpzrCv9q787TnP2YTfFe9ePMKMUaNcmD';
   var HOST = 'https://us.i.posthog.com';
 
   // Respect an explicit Do Not Track signal. Costs almost nothing and it is the
