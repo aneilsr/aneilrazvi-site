@@ -11,7 +11,7 @@
   /* Update "taken" as seats sell. Set "date" (for example "2026-11-14") when a date is booked:
      the cards and this panel switch from "date coming soon" to the date and a countdown of days to go. */
   var SEATS = {
-    "paper-day":    { total: 12, taken: 0, date: "2026-12-05" },
+    "paper-day":    { total: 12, taken: 0, date: null },
     "build-cohort": { total: 8,  taken: 0, date: null }
   };
   var PRICES = { "paper-day": 99, "paper-day-home": 0, "build-cohort": 897, "self-paced": 397 };
@@ -125,7 +125,7 @@
       c.classList.toggle("on",on); c.querySelector(".rsv-ph").setAttribute("aria-checked",on?"true":"false");
     });
     $("rsv-paper-price").innerHTML = home ? "Price<small>at launch</small>" : "$99<small>founding</small>";
-    $("rsv-paper-where").textContent = home ? "At home, with a print kit. Opens soon" : "In person, DFW area. "+whenText("paper-day","Date coming soon");
+    $("rsv-paper-where").textContent = home ? "At home, with a print kit. Opens soon" : "In person, DFW area. "+whenText("paper-day","Date TBD");
     $("rsv-mode-switch").textContent = home ? "Do it in person instead" : "Do it at home instead";
     $("rsv-build-when").textContent = "Live online, Saturday mornings. "+whenText("build-cohort","Starts after the first Sketch to Ship");
     $("rsv-needs").style.display = (state.picks["build-cohort"] && !state.picks["paper-day"]) ? "" : "none";

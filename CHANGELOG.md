@@ -2,6 +2,15 @@
 
 Newest first. One entry per shipped push, with the proof it works on production.
 
+## 2026-11-10 · Sketch to Ship paused: date TBD
+
+Aneil paused the 5 December Sketch to Ship. Every live mention of the date now reads "Date TBD": build.html (date card, FAQ,
+reserve strip, sticky bar), build/faq.html (FAQ and its schema answer), build/how-it-works.html, the home page card and "Next"
+chip (status now "Join the list"), the Speaking timeline, llms.txt, and the speaker packet (re-rendered, 4 pages).
+assets/reserve.js: paper-day date set to null, so the reserve panel says "Date TBD" and no countdown shows. build.html Event
+schema: eventStatus EventPostponed (startDate kept, as schema.org asks for a postponed event with no new date). Seats and
+prices unchanged; the list keeps collecting. Not changed: api/go.js campaign name "sketch-to-ship-dec5" (tracking label only).
+
 ## 2026-11-09 · PostHog follow-up: comment, project settings, proof
 
 Proof for 1512504: live assets/analytics.js 200 with the new key (1 match) and the old key (0); 7 pages load it; www 308s to
