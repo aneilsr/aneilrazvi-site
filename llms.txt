@@ -66,6 +66,7 @@ A weekly LinkedIn newsletter about designing and building a real product with AI
 - Sidenote no. 03, "I Made It Safer by Collecting Less" (2026-10-20): The safest privacy decision I made was to delete data I had already built. Collecting less is a real strategy, not a slogan. You cannot lose what you never kept. https://aneilrazvi.com/blog/i-made-it-safer-by-collecting-less.html
 - Issue no. 10, "The Screenshot That Un-Launched My App" (2026-10-27): My app got approved. Then I un-approved it myself, on purpose, over something most people would have shipped without a second thought. https://aneilrazvi.com/blog/the-screenshot-that-un-launched-my-app.html
 - Issue no. 11, "Why 'Just a Small Change' Is Never Small" (2026-11-03): It is a one line change, and then every screen breaks. Why builders flinch at the word just, and why that flinch is a good sign. https://aneilrazvi.com/blog/why-a-small-change-is-never-small.html
+- Sidenote no. 07, "Follow It Past the Handoff" (2026-11-11): I used to apologize for my zig-zag résumé. Turns out it taught me the one thing AI won't do for you: walk down the hall and see who deals with your work next. https://aneilrazvi.com/blog/follow-it-past-the-handoff.html
 
 ## Book Aneil Razvi to speak
 

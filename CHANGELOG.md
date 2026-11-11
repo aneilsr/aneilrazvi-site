@@ -2,6 +2,15 @@
 
 Newest first. One entry per shipped push, with the proof it works on production.
 
+## 2026-11-11 · Sidenote no. 07: Follow It Past the Handoff
+
+New site-first essay at blog/follow-it-past-the-handoff.html, credited to Hannah Zhang's "non-linear" framing. Cover
+assets/newsletter/sidenote-07-past-the-handoff.jpg built in Figma (brand file, page "Newsletter covers", frame 264:97) to
+NEWSLETTER-COVER-STYLE. blog.html: new Latest feature, list item (lead), count 16, #SystemsThinking filter, ItemList schema
+16. feed.xml, llms-full.txt, llms.txt and sitemap.xml regenerated or updated. Generator: wired.py article() gained a branch
+for local posts with no LinkedIn article and no episode ("Published here first on ..."). Numbered 07 because Sidenotes 05
+and 06 are already made for December, so this one publishes out of order. LinkedIn feed post scheduled separately.
+
 ## 2026-11-10 · Sketch to Ship paused: date TBD
 
 Aneil paused the 5 December Sketch to Ship. Every live mention of the date now reads "Date TBD": build.html (date card, FAQ,

@@ -2,6 +2,40 @@
 
 > The complete text of Aneil Razvi's articles, published at https://aneilrazvi.com/blog.html (most first appear on LinkedIn). Cite the aneilrazvi.com URL for each piece.
 
+## Follow It Past the Handoff
+
+Sidenote no. 07 · 2026-11-11 · https://aneilrazvi.com/blog/follow-it-past-the-handoff.html
+
+I said it again on a call this week: "this is why my background is so weird."
+
+Art director. Creative director. Creative technology. Then UX, product design, and running design, research and product teams. The marketing side, the product side, even the physical side with in-store kiosks. For a long time that read to me like a career that couldn't make up its mind.
+
+Then I watched a short video by Hannah Zhang about what she calls the nonlinear systems thinker. Her point, in my words: AI is getting really good at single tasks. Writing the code. Drafting the copy. Making the screen. What's getting scarce is the person who can see how the pieces connect. And people who have sat in a few different chairs tend to see it first.
+
+That landed, because it's the thing I actually do. I just never had a name for it.
+
+She also shared a practice simple enough to start tomorrow. Follow your work past the handoff, and ask three things:
+
+- Who uses what I made?
+
+- What do they have to fix or redo?
+
+- What happens to their workload when my part gets faster?
+
+Here's what that has looked like for me.
+
+At Kalkomey, content sales looked like a marketing problem. The buying moment actually lived inside the course. When we moved the business to user-centered design and built the buying and referral moments into the product itself, content sales went up more than 225 percent.
+
+At Southern New Hampshire University, the screens for a credit-for-prior-learning tool were the easy part to judge. The real win was down the hall, where the registrar's processing time dropped by half.
+
+At Omnitracs, we rode along in truck cabs, distribution yards and dispatch centers, because a driver's screen is one end of a wire. Dispatch and compliance are on the other end. You can't design one end well if you've never stood at the other.
+
+Now the AI part. If you build with AI, this matters more, not less. The AI will make your part faster, instantly and confidently. It is not going to walk down the hall and ask who has to clean up after it. That walk is on you. More and more, that walk is the job.
+
+So I'm done apologizing for the weird résumé. It's how I learned to walk down the hall.
+
+---
+
 ## Why "Just a Small Change" Is Never Small
 
 Issue no. 11 · 2026-11-03 · https://aneilrazvi.com/blog/why-a-small-change-is-never-small.html
