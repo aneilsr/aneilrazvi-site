@@ -28,7 +28,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Serif+Display:ital@0;1&display=swap">
 <style>
 :root{
-  --teal:#00BCD4; --teal-dark:#0097A7; --teal-wash:#E4F8FB;
+  --teal:#00BCD4; --teal-dark:#007480; --teal-wash:#E4F8FB;
   --navy:#1E3A5F; --dark:#0F1923;
   --gray:#F4F6F8; --text:#1A1A2E; --muted:#6B7280; --white:#FFFFFF;
   --orange:#F97316; --orange-wash:#FFF1E6; --orange-dark:#C2621B;
@@ -259,7 +259,7 @@ nav.site-nav.scrolled{background:rgba(255,255,255,.97);box-shadow:0 1px 14px rgb
 /* ===== Site chrome, 19 Oct 2026. One nav geometry and one footer layout on every page; the colors follow the page:
    light page, light chrome; dark page, dark chrome. Geometry mirrors site.css; keep the two in step. ===== */
 nav.site-nav{--rzn-bg:rgba(15,25,35,.85);--rzn-bg2:rgba(15,25,35,.97);--rzn-open:rgba(15,25,35,.98);--rzn-text:#fff;--rzn-link:rgba(255,255,255,.8);--rzn-accent:#00BCD4;--rzn-line:rgba(255,255,255,.06);--rzn-div:rgba(255,255,255,.08);--rzn-shadow:none}
-nav.site-nav.rz-light,nav.site-nav.rz-auto{--rzn-bg:rgba(255,255,255,.9);--rzn-bg2:rgba(255,255,255,.97);--rzn-open:rgba(255,255,255,.98);--rzn-text:#1A1A2E;--rzn-link:#6B7280;--rzn-accent:#0097A7;--rzn-line:#E2E8EC;--rzn-div:#E2E8EC;--rzn-shadow:0 1px 14px rgba(0,0,0,.05)}
+nav.site-nav.rz-light,nav.site-nav.rz-auto{--rzn-bg:rgba(255,255,255,.9);--rzn-bg2:rgba(255,255,255,.97);--rzn-open:rgba(255,255,255,.98);--rzn-text:#1A1A2E;--rzn-link:#6B7280;--rzn-accent:#007480;--rzn-line:#E2E8EC;--rzn-div:#E2E8EC;--rzn-shadow:0 1px 14px rgba(0,0,0,.05)}
 @media (prefers-color-scheme: dark){nav.site-nav.rz-auto{--rzn-bg:rgba(16,42,76,.94);--rzn-bg2:rgba(16,42,76,.97);--rzn-open:rgba(16,42,76,.98);--rzn-text:#fff;--rzn-link:rgba(238,244,249,.75);--rzn-accent:#00BCD4;--rzn-line:rgba(255,255,255,.10);--rzn-div:rgba(255,255,255,.10);--rzn-shadow:0 1px 14px rgba(0,0,0,.3)}}
 nav.site-nav{position:fixed;top:0;left:0;right:0;height:68px;padding:0 5%;line-height:normal;font-size:16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:nowrap;gap:0;background:var(--rzn-bg);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--rzn-line);box-shadow:none}
 nav.site-nav.scrolled{background:var(--rzn-bg2);box-shadow:var(--rzn-shadow)}
@@ -289,7 +289,7 @@ nav.site-nav .nav-hamburger span{width:24px;height:2px;background:var(--rzn-text
 @media (max-width:340px){nav.site-nav .nav-mark{display:none}}
 /* footer: same layout as the site footer */
 footer.rz-footer{--rzf-bg:#0a1420;--rzf-line:rgba(255,255,255,.08);--rzf-name:#fff;--rzf-accent:#00BCD4;--rzf-link:#cfe;--rzf-muted:rgba(255,255,255,.4)}
-footer.rz-footer.rz-light,footer.rz-footer.rz-auto{--rzf-bg:#fff;--rzf-line:#E2E8EC;--rzf-name:#1A1A2E;--rzf-accent:#0097A7;--rzf-link:#1E3A5F;--rzf-muted:#6B7280}
+footer.rz-footer.rz-light,footer.rz-footer.rz-auto{--rzf-bg:#fff;--rzf-line:#E2E8EC;--rzf-name:#1A1A2E;--rzf-accent:#007480;--rzf-link:#1E3A5F;--rzf-muted:#6B7280}
 @media (prefers-color-scheme: dark){footer.rz-footer.rz-auto{--rzf-bg:#0B2240;--rzf-line:rgba(255,255,255,.10);--rzf-name:#fff;--rzf-accent:#00BCD4;--rzf-link:#CFE5F7;--rzf-muted:rgba(238,244,249,.6)}}
 footer.rz-footer{display:block;margin:0;padding:40px 6%;text-align:center;line-height:normal;font-size:1rem;background:var(--rzf-bg);border-top:1px solid var(--rzf-line);color:var(--rzf-muted);flex-wrap:nowrap}
 footer.rz-footer .rz-f-name{font-family:'DM Serif Display',Georgia,serif;font-size:1.2rem;color:var(--rzf-name);margin-bottom:12px}
@@ -301,7 +301,7 @@ footer.rz-footer .rz-f-copy{font-size:.78rem;color:var(--rzf-muted);margin-top:1
 /* ===== Secondary nav, Work With Me group (28 Oct 2026): Engagements, Workshops, Design Maturity, AI Readiness.
    Same pill language as the course tabs on /build. Colors follow the page chrome: default dark, rz-light, rz-auto. ===== */
 nav.subnav{--rzs-bg:#0c1620;--rzs-line:rgba(255,255,255,.08);--rzs-link:#F4F8FB;--rzs-border:rgba(244,248,251,.38);--rzs-hover:rgba(255,255,255,.08);--rzs-on-bg:#F4F8FB;--rzs-on-text:#0F1923;--rzs-focus:#00BCD4}
-nav.subnav.rz-light,nav.subnav.rz-auto{--rzs-bg:#FFFFFF;--rzs-line:#E2E8EC;--rzs-link:#1E3A5F;--rzs-border:#CBD5DC;--rzs-hover:#F0F4F7;--rzs-on-bg:#1E3A5F;--rzs-on-text:#FFFFFF;--rzs-focus:#0097A7}
+nav.subnav.rz-light,nav.subnav.rz-auto{--rzs-bg:#FFFFFF;--rzs-line:#E2E8EC;--rzs-link:#1E3A5F;--rzs-border:#CBD5DC;--rzs-hover:#F0F4F7;--rzs-on-bg:#1E3A5F;--rzs-on-text:#FFFFFF;--rzs-focus:#007480}
 @media (prefers-color-scheme: dark){nav.subnav.rz-auto{--rzs-bg:#0B2240;--rzs-line:rgba(255,255,255,.10);--rzs-link:#EEF4F9;--rzs-border:rgba(238,244,249,.35);--rzs-hover:rgba(255,255,255,.08);--rzs-on-bg:#EEF4F9;--rzs-on-text:#0B2240;--rzs-focus:#00BCD4}}
 nav.subnav{display:block;margin-top:68px;background:var(--rzs-bg);border-bottom:1px solid var(--rzs-line);position:relative;z-index:5}
 nav.subnav .subnav-in{max-width:1140px;margin:0 auto;padding:12px 5%;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
@@ -340,7 +340,7 @@ nav.subnav ~ .wrap{padding-top:1.6rem}
 <script>/* keep the current page pill in view on narrow screens */(function(){var a=document.querySelector('nav.subnav a[aria-current="page"]');if(!a)return;var c=a.parentNode,d=a.getBoundingClientRect().right-c.getBoundingClientRect().right;if(d>0)c.scrollLeft+=d+24;})();</script>
 
 
-<div class="jump" id="jump" aria-hidden="true">
+<div class="jump" id="jump" aria-hidden="true" inert>
   <div class="in">
     <span class="occ" id="jumpocc"></span>
     <span class="jl">
@@ -858,6 +858,7 @@ function armJump(name){
   var occ = document.getElementById("jumpocc");
   if(occ) occ.textContent = name || "";
   bar.setAttribute("aria-hidden", "false");
+  bar.removeAttribute("inert");
 
   if(!jumpArmed){
     jumpArmed = true;
@@ -984,13 +985,13 @@ function printDoc(){
     + 'body{font:400 10.5pt/1.55 Georgia,"Times New Roman",serif;color:#1A1A2E;'
     +   'margin:0;padding:17mm 16mm 15mm;box-sizing:border-box}'
     + 'h1{font-size:21pt;line-height:1.15;margin:0 0 2mm;color:#1E3A5F;font-weight:400}'
-    + '.kick{font:700 8pt/1 Helvetica,Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#0097A7;margin-bottom:3mm}'
+    + '.kick{font:700 8pt/1 Helvetica,Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#007480;margin-bottom:3mm}'
     + '.meta{font:400 9pt/1.5 Helvetica,Arial,sans-serif;color:#6B7280;margin:0 0 5mm}'
     + '.warn{border-left:3px solid #F97316;background:#FFF6EE;padding:3mm 4mm;margin:0 0 6mm;font-size:9.5pt}'
     + 'h2{font:700 8.5pt/1 Helvetica,Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#6B7280;margin:7mm 0 3mm}'
     + 'table{width:100%;border-collapse:collapse}'
     + 'td{padding:2.6mm 0;border-top:.3pt solid #D8DEE4;vertical-align:top;font-size:9.5pt}'
-    + 'td.d{width:26mm;font:700 8pt/1.5 Helvetica,Arial,sans-serif;letter-spacing:.05em;text-transform:uppercase;color:#0097A7}'
+    + 'td.d{width:26mm;font:700 8pt/1.5 Helvetica,Arial,sans-serif;letter-spacing:.05em;text-transform:uppercase;color:#007480}'
     + 'pre{white-space:pre-wrap;word-break:break-word;font:400 8.2pt/1.5 ui-monospace,Menlo,Consolas,monospace;'
     +   'background:#F4F6F8;border:.3pt solid #D8DEE4;padding:4mm;margin:0}'
     + '.src{margin-top:7mm;padding-top:3mm;border-top:.3pt solid #D8DEE4;font:400 8pt/1.5 Helvetica,Arial,sans-serif;color:#6B7280}'

@@ -4,7 +4,7 @@
    stays light so long answers and reports stay easy to read; the chrome, type
    and corners match the rest of the site. Remove the <link> to roll back.
    ========================================================================== */
-:root{--radius:6px;--radius-sm:4px;--teal-dark:#00838F}
+:root{--radius:6px;--radius-sm:4px;--teal-dark:#007480}
 
 /* light blueprint grid behind the top of each tool */
 body::before{content:"";position:absolute;left:0;right:0;top:0;height:780px;z-index:-1;pointer-events:none;

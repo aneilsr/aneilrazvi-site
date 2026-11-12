@@ -1,5 +1,5 @@
 :root{
-  --teal:#00BCD4; --teal-dark:#0097A7; --teal-wash:#E4F8FB;
+  --teal:#00BCD4; --teal-dark:#007480; --teal-wash:#E4F8FB;
   --navy:#1E3A5F; --dark:#0F1923;
   --gray:#F4F6F8; --text:#1A1A2E; --muted:#6B7280; --white:#FFFFFF;
   --orange:#F97316; --orange-wash:#FFF1E6; --orange-dark:#C2621B;
@@ -262,3 +262,6 @@ section[id],.card[id]{scroll-margin-top:84px;}
 .jump a{display:inline-block;background:var(--white);border:1px solid var(--line);border-radius:999px;padding:.35rem .8rem;font-size:.84rem;font-weight:600;color:var(--navy);text-decoration:none;}
 .jump a:hover{border-color:var(--teal);color:var(--teal-dark);}
 
+
+/* a11y 12 Nov: links inside running text are underlined so they don't rely on color alone */
+:is(p,li,dd,td)>a:not([class]):not(nav a):not(footer a){text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}

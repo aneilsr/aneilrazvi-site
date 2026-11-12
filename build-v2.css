@@ -8,7 +8,7 @@
   --on-path:#FFFFFF; --on-path-soft:rgba(255,255,255,.16); --on-path-line:rgba(255,255,255,.32);
   --ink:#1A2F5A; --highlight:#F6C445; --marker:#FBF719; --marker-ink:#183F64;
   --nav-bg:rgba(255,255,255,.9); --nav-text:#1A1A2E; --nav-muted:#6B7280; --nav-line:#E2E8EC;
-  --teal:#00BCD4; --teal-dark:#0097A7; --dark:#0F1923;
+  --teal:#00BCD4; --teal-dark:#007480; --dark:#0F1923;
   --shadow:0 10px 30px rgba(16,42,76,.10); --r:16px;
   --gutter:clamp(16px,4vw,48px);
   --overlap:clamp(56px,7vw,96px); /* how far the date cards hang below the blueprint band */
@@ -346,7 +346,7 @@ a.opt{text-decoration:none}
 /* ===== Site chrome, 19 Oct 2026. One nav geometry and one footer layout on every page; the colors follow the page:
    light page, light chrome; dark page, dark chrome. Geometry mirrors site.css; keep the two in step. ===== */
 nav.site-nav{--rzn-bg:rgba(15,25,35,.85);--rzn-bg2:rgba(15,25,35,.97);--rzn-open:rgba(15,25,35,.98);--rzn-text:#fff;--rzn-link:rgba(255,255,255,.8);--rzn-accent:#00BCD4;--rzn-line:rgba(255,255,255,.06);--rzn-div:rgba(255,255,255,.08);--rzn-shadow:none}
-nav.site-nav.rz-light,nav.site-nav.rz-auto{--rzn-bg:rgba(255,255,255,.9);--rzn-bg2:rgba(255,255,255,.97);--rzn-open:rgba(255,255,255,.98);--rzn-text:#1A1A2E;--rzn-link:#6B7280;--rzn-accent:#0097A7;--rzn-line:#E2E8EC;--rzn-div:#E2E8EC;--rzn-shadow:0 1px 14px rgba(0,0,0,.05)}
+nav.site-nav.rz-light,nav.site-nav.rz-auto{--rzn-bg:rgba(255,255,255,.9);--rzn-bg2:rgba(255,255,255,.97);--rzn-open:rgba(255,255,255,.98);--rzn-text:#1A1A2E;--rzn-link:#6B7280;--rzn-accent:#007480;--rzn-line:#E2E8EC;--rzn-div:#E2E8EC;--rzn-shadow:0 1px 14px rgba(0,0,0,.05)}
 @media (prefers-color-scheme: dark){nav.site-nav.rz-auto{--rzn-bg:rgba(16,42,76,.94);--rzn-bg2:rgba(16,42,76,.97);--rzn-open:rgba(16,42,76,.98);--rzn-text:#fff;--rzn-link:rgba(238,244,249,.75);--rzn-accent:#00BCD4;--rzn-line:rgba(255,255,255,.10);--rzn-div:rgba(255,255,255,.10);--rzn-shadow:0 1px 14px rgba(0,0,0,.3)}}
 nav.site-nav{position:fixed;top:0;left:0;right:0;height:68px;padding:0 5%;line-height:normal;font-size:16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:nowrap;gap:0;background:var(--rzn-bg);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--rzn-line);box-shadow:none}
 nav.site-nav.scrolled{background:var(--rzn-bg2);box-shadow:var(--rzn-shadow)}
@@ -376,7 +376,7 @@ nav.site-nav .nav-hamburger span{width:24px;height:2px;background:var(--rzn-text
 @media (max-width:340px){nav.site-nav .nav-mark{display:none}}
 /* footer: same layout as the site footer */
 footer.rz-footer{--rzf-bg:#0a1420;--rzf-line:rgba(255,255,255,.08);--rzf-name:#fff;--rzf-accent:#00BCD4;--rzf-link:#cfe;--rzf-muted:rgba(255,255,255,.4)}
-footer.rz-footer.rz-light,footer.rz-footer.rz-auto{--rzf-bg:#fff;--rzf-line:#E2E8EC;--rzf-name:#1A1A2E;--rzf-accent:#0097A7;--rzf-link:#1E3A5F;--rzf-muted:#6B7280}
+footer.rz-footer.rz-light,footer.rz-footer.rz-auto{--rzf-bg:#fff;--rzf-line:#E2E8EC;--rzf-name:#1A1A2E;--rzf-accent:#007480;--rzf-link:#1E3A5F;--rzf-muted:#6B7280}
 @media (prefers-color-scheme: dark){footer.rz-footer.rz-auto{--rzf-bg:#0B2240;--rzf-line:rgba(255,255,255,.10);--rzf-name:#fff;--rzf-accent:#00BCD4;--rzf-link:#CFE5F7;--rzf-muted:rgba(238,244,249,.6)}}
 footer.rz-footer{display:block;margin:0;padding:40px 6%;text-align:center;line-height:normal;font-size:1rem;background:var(--rzf-bg);border-top:1px solid var(--rzf-line);color:var(--rzf-muted);flex-wrap:nowrap}
 footer.rz-footer .rz-f-name{font-family:'DM Serif Display',Georgia,serif;font-size:1.2rem;color:var(--rzf-name);margin-bottom:12px}
@@ -386,3 +386,6 @@ footer.rz-footer .rz-f-links{font-size:.9rem;color:var(--rzf-muted)}
 footer.rz-footer .rz-f-links a{color:var(--rzf-link);text-decoration:none;margin:0 10px;font-weight:400;font-size:inherit}
 footer.rz-footer .rz-f-copy{font-size:.78rem;color:var(--rzf-muted);margin-top:14px}
 @media (max-width:760px){footer.rz-footer{padding-bottom:110px}}
+
+/* a11y 12 Nov: links inside running text are underlined so they don't rely on color alone */
+:is(p,li,dd,td)>a:not([class]):not(nav a):not(footer a){text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
