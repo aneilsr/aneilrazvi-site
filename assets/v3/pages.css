@@ -165,7 +165,7 @@
 .v3p-speaking .sp-feat h3{font-size:clamp(1.9rem,3vw,2.6rem);line-height:1.06}
 .v3p-speaking .sp-feat .venue{font:500 11px/1.5 var(--mono);letter-spacing:.12em;text-transform:uppercase}
 .v3p-speaking .sp-community span{border-radius:3px;font:500 10.5px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;padding:8px 11px}
-.v3p-speaking .sp-feat .credit{font:500 10px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase}
+.v3p-speaking .sp-feat .credit{font:500 10px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.62)!important}
 .v3p-speaking .sp-quote{border-left:2px solid var(--teal)}
 /* talks: light band, date column in mono */
 .v3p-speaking .p-light .sp-eyebrow{color:#007480}

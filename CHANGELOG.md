@@ -2,6 +2,20 @@
 
 Newest first. One entry per shipped push, with the proof it works on production.
 
+## 2026-11-12 · SiteScope fixes: accessibility, security headers, page weight
+
+From the SiteScope scan of 12 Nov (B, 84/100). Checked on the Vercel preview before merge: axe-core 4.10 (contrast, link-in-text-block, frame-title, scrollable-region-focusable, aria-hidden-focus, html-has-lang) came back clean on /, work-with-me, spotio, snhu, omnitracs, kalkomey, readiness, maturity, about, contact, build, workshops, build/portfolio and blog/the-wall. No image rendered stretched (rendered vs natural aspect ratio within 4% on every sized image).
+- maturity.html: added doctype and lang. It now renders in standards mode (was quirks).
+- Dark teal for small text on light backgrounds: #0097A7 and #00838F are now #007480 (5.1:1 on #F4F6F8, was 3.2 and 4.2). Brand teal #00BCD4 unchanged for large type and dark sections.
+- Links inside running text are underlined (rule in v3.css, site.css, build.css, build-v2.css), so they don't rely on color.
+- Low-contrast small text on dark raised to 4.5:1 or better: footer legal line, home photo credit and event facts, speaking photo credits, SPOTIO and SNHU thumbnail captions (inactive opacity .5 to .7).
+- Video iframes on SPOTIO and SNHU have titles. The video carousel is keyboard-focusable. Readiness jump bar is inert until it appears.
+- vercel.json: X-Content-Type-Options nosniff, X-Frame-Options SAMEORIGIN, Referrer-Policy strict-origin-when-cross-origin, CSP frame-ancestors/base-uri/object-src (no script or style limits, so Cal.com, Vimeo and PostHog are untouched).
+- Case-study heroes resized 2400 to 1920 px, quality 78 progressive (about 35% lighter), and preloaded on their pages. build.html hero image fetchpriority high.
+- width/height added to 119 images on 16 pages (layout shift), with a zero-specificity height:auto rule scoped to those images (data-wh).
+- contact.html: "What to expect" block. Answer-first lines under question headings on the home talk card, work-with-me and portfolio.
+- Not changed: build_cases.py is legacy (gated by --force), so the case pages were edited directly.
+
 ## 2026-11-12 · Citi accuracy fix and exact recommendation quotes
 
 citi.html (and scripts/build_cases.py, its generator): removed the virtual-assistant claim (stat, What I Did bullet, Impact
