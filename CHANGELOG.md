@@ -2,6 +2,15 @@
 
 Newest first. One entry per shipped push, with the proof it works on production.
 
+## 2026-11-12 · Citi accuracy fix and exact recommendation quotes
+
+citi.html (and scripts/build_cases.py, its generator): removed the virtual-assistant claim (stat, What I Did bullet, Impact
+card). Aneil confirmed 11 Nov there was no virtual assistant and no AI work at Citi. Replaced with the Apple Watch finding:
+pre-launch user testing showed people didn't trust themselves with that much power on their wrist, so the experience was
+tiered across watch, phone and desktop. work-with-me.html and fractional-head-of-design.html: the four recommendation
+quotes (Travis Willard, Michael Grigone, Amira Maruf, Tyler Forcum) now use their exact LinkedIn words, with "..." marking
+cuts. Links to their profiles unchanged.
+
 ## 2026-11-11 · Sidenote no. 07: Follow It Past the Handoff
 
 New site-first essay at blog/follow-it-past-the-handoff.html, credited to Hannah Zhang's "non-linear" framing. Cover
