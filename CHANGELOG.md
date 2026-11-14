@@ -2,6 +2,21 @@
 
 Newest first. One entry per shipped push, with the proof it works on production.
 
+## 2026-11-14 · nonPareil workshop photos and links
+
+AI, Built On Paper ran at nonPareil in Plano on 13 Nov 2026 (session one of two). Two photos from Colleen Mier's LinkedIn
+post (13 Nov) were pulled at full size (1152x1536), cropped to landscape and pixelated on every participant's face to match
+the page's "faces are blurred" rule; Aneil's face is left clear. New assets: assets/work/workshop-nonpareil-room.jpg
+(1152x648, 85 KB) and assets/work/workshop-nonpareil-paper.jpg (1152x768, 147 KB).
+- workshops.html: workshop 09 gets a nonPareil pill, "Four hours, or two mornings", a paragraph on the two-morning format and a
+  second figure. Receipts is now "Three rooms, in detail" with a nonPareil case (room photo, hosted-by and photo credit line).
+- speaking.html: new top 2026 timeline item, Fri 13 Nov 2026, linking to workshop 09 and the receipts.
+- index.html: the Latest chip now points to the nonPareil receipts (was Future of AI Dallas).
+- Outbound links: nonPareil Plano (https://npusa.org/locations/plano/), Colleen Mier's LinkedIn profile, and her post as the
+  photo source. No mention of who nonPareil serves, by Aneil's call: participants are written about like any other room.
+- llms.txt recent appearances and sitemap lastmod (home, workshops, speaking) updated.
+- assets/v3/more.css: links inside a Receipts case are teal (that dark section had no link color, so they fell back to browser blue).
+
 ## 2026-11-12 · SiteScope fixes: accessibility, security headers, page weight
 
 From the SiteScope scan of 12 Nov (B, 84/100). Checked on the Vercel preview before merge: axe-core 4.10 (contrast, link-in-text-block, frame-title, scrollable-region-focusable, aria-hidden-focus, html-has-lang) came back clean on /, work-with-me, spotio, snhu, omnitracs, kalkomey, readiness, maturity, about, contact, build, workshops, build/portfolio and blog/the-wall. No image rendered stretched (rendered vs natural aspect ratio within 4% on every sized image).
