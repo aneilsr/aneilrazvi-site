@@ -2,6 +2,15 @@
 
 Newest first. One entry per shipped push, with the proof it works on production.
 
+## 2026-11-16 · Speaking page: link the Go Fractional Demo Day recording
+
+Andrea Gutierrez (Go Fractional Community Lead) OK'd linking the unlisted Demo Day recording on the speaking page (Slack DM,
+16 Nov 2026).
+- speaking.html: the Thu 22 Oct 2026 "Demo Day: Cubby" timeline title now links to Aneil's segment
+  (https://youtu.be/TOJLUJs-Umw?t=2216, starts 36:56), plus a "Watch my segment" link and Go Fractional linked to gofractional.com.
+- sitemap.xml: speaking.html lastmod 2026-11-16.
+- llms.txt: the Demo Day appearance now names Cubby and links the recording of his segment.
+
 ## 2026-11-14 · nonPareil workshop photos and links
 
 AI, Built On Paper ran at nonPareil in Plano on 13 Nov 2026 (session one of two). Two photos from Colleen Mier's LinkedIn
