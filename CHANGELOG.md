@@ -2,6 +2,17 @@
 
 Newest first. One entry per shipped push, with the proof it works on production.
 
+## 2026-11-17 · Fractional page: availability pill, contrast line, Field notes
+
+From the BPW reel review (claude/REEL-BPW-FRACTIONAL-SITE-2026-11-17.md), items 2 and 3. Approved by Aneil 17 Nov.
+- fractional-head-of-design.html hero: availability pill "Taking on one new client for January" above the eyebrow, and the
+  contrast line "Most design leads stop at the screens. Most AI advisors stop at the slide deck. I do both: decide where AI
+  belongs, then design how people trust it." above the definition.
+- New Field notes section (#field-notes, on paper) before Questions: intro-call questions answered ungated. Note 01
+  "How do you know a product has a trust problem?" comes from Aneil's own 5 Oct Slack answer about shadow systems.
+- Jump nav: Field notes is 07, Questions is 08. FAQPage JSON-LD gains the note as an 8th Question.
+- sitemap.xml: fractional-head-of-design.html lastmod 2026-11-17. llms.txt: January availability and the field notes link.
+
 ## 2026-11-16 · Speaking page: link the Go Fractional Demo Day recording
 
 Andrea Gutierrez (Go Fractional Community Lead) OK'd linking the unlisted Demo Day recording on the speaking page (Slack DM,
