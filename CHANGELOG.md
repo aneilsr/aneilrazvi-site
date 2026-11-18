@@ -2,6 +2,14 @@
 
 Newest first. One entry per shipped push, with the proof it works on production.
 
+## 2026-11-18 · Sidenote no. 07: LinkedIn link points at the live post
+
+The LinkedIn post for "Follow It Past the Handoff" went live 18 Nov at 1:30 PM CT (urn:li:activity:7528902519981264898),
+with the first comment linking back to the page.
+- blog/follow-it-past-the-handoff.html: "Talk about it on LinkedIn" (action bar) and "Join the conversation on LinkedIn"
+  (source line) now go to the post instead of the profile. Set via discuss= on the POSTS entry in
+  _source/linkedin-import/build.py, rebuilt with build.py + v3ify.py; only this page was copied (two lines changed).
+
 ## 2026-11-17 · Fractional page: availability pill, contrast line, Field notes
 
 From the BPW reel review (claude/REEL-BPW-FRACTIONAL-SITE-2026-11-17.md), items 2 and 3. Approved by Aneil 17 Nov.
