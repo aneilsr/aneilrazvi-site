@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#0F1923">
+<title>Paper Prototype to AI: The Build Prompt | Aneil Razvi</title>
+<meta name="description" content="A free prompt that takes your paper prototype into Claude, ChatGPT or any chat AI: an interview, four plan documents, a project plan, then a clickable app."/>
+<meta name="author" content="Aneil Razvi"/>
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1"/>
+<link rel="canonical" href="https://aneilrazvi.com/build/paper-to-ai"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="Aneil Razvi"/>
+<meta property="og:title" content="Paper Prototype to AI: The Build Prompt"/>
+<meta property="og:description" content="A free prompt that takes your paper prototype into Claude, ChatGPT or any chat AI: an interview, four plan documents, a project plan, then a clickable app."/>
+<meta property="og:url" content="https://aneilrazvi.com/build/paper-to-ai"/>
+<meta property="og:image" content="https://aneilrazvi.com/assets/og-image-v5.jpg"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Paper Prototype to AI: The Build Prompt"/>
+<meta name="twitter:description" content="A free prompt that takes your paper prototype into Claude, ChatGPT or any chat AI: an interview, four plan documents, a project plan, then a clickable app."/>
+<meta name="twitter:image" content="https://aneilrazvi.com/assets/og-image-v5.jpg"/>
+<script defer src="/assets/analytics.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=DM+Serif+Display&display=swap">
+<link rel="stylesheet" href="/build-v2.css">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/assets/v3/v3.css" />
+<link rel="stylesheet" href="/assets/v3/course.css" />
+<style>
+/* paper-to-ai page only */
+.pta-acts{display:flex;gap:12px;flex-wrap:wrap;margin-top:1.6rem}
+.pta-copy{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 22px;min-height:48px;border-radius:6px;border:1.5px solid transparent;background:var(--ca);color:var(--on-ca);font:700 1rem/1.2 'Inter',sans-serif;cursor:pointer}
+.pta-copy:hover{filter:brightness(1.06)}
+.pta-copy:focus-visible,.pta-lines .pta-copy:focus-visible{outline:3px solid #F4F8FB;outline-offset:2px}
+.pta-copy.sm{padding:8px 14px;min-height:44px;font-size:.88rem;background:transparent;color:var(--ca-text);border-color:rgba(var(--ca-rgb),.6);flex:0 0 auto}
+.pta-copy svg{width:18px;height:18px;flex:0 0 auto}
+.pta-grid{display:grid;gap:12px;margin-top:clamp(20px,3vw,28px)}
+@media (min-width:900px){.pta-grid.two{grid-template-columns:1fr 1fr}}
+.pta-steps{margin-top:clamp(20px,3vw,28px)}
+.pta-box{margin-top:clamp(20px,3vw,28px);background:var(--surface);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.pta-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:12px 16px;border-bottom:1px solid var(--line);background:var(--callout)}
+.pta-bar.end{border-bottom:0;border-top:1px solid var(--line)}
+.pta-bar .k{font:700 .7rem/1.3 'Inter',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.pta-prompt{margin:0;padding:clamp(18px,2.6vw,30px);white-space:pre-wrap;overflow-wrap:anywhere;font:400 1rem/1.65 'Inter',sans-serif;color:var(--body);max-width:52rem}
+.pta-lines{list-style:none;margin:clamp(20px,3vw,28px) 0 0;padding:0;display:grid;gap:10px}
+.pta-lines li{display:flex;align-items:center;justify-content:space-between;gap:14px;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:12px 14px}
+.pta-lines .say{display:block;font:600 1rem/1.4 'Inter',sans-serif;color:var(--heading)}
+.pta-lines .when{display:block;font-size:.88rem;color:var(--muted);margin-top:3px}
+.pta-where h3{font:400 1.35rem/1.15 'DM Serif Display',Georgia,serif;color:var(--heading);margin:0 0 8px}
+.pta-where ul{margin:0;padding-left:1.1rem;color:var(--body)}
+.pta-where li{margin:4px 0}
+.pta-where .pta-cell{background:var(--callout);border-radius:6px;padding:16px 18px}
+.pta-where p.note{color:var(--muted);margin:14px 0 0}
+.pta-credit{margin-top:clamp(28px,4vw,40px);padding:16px 18px;border-left:3px solid var(--ca);background:var(--callout);color:var(--body);font-size:.95rem;border-radius:0 6px 6px 0}
+.pta-credit p{margin:0}
+.pta-credit p + p{margin-top:8px;color:var(--muted)}
+.pta-live{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Person", "@id": "https://aneilrazvi.com/#aneil", "name": "Aneil Razvi", "url": "https://aneilrazvi.com/", "jobTitle": "Product design and AI experience leader", "address": {"@type": "PostalAddress", "addressLocality": "Allen", "addressRegion": "TX", "addressCountry": "US"}, "sameAs": ["https://www.linkedin.com/in/aneilrazvi/"]}, {"@type": "WebSite", "@id": "https://aneilrazvi.com/#website", "url": "https://aneilrazvi.com/", "name": "Aneil Razvi", "publisher": {"@id": "https://aneilrazvi.com/#aneil"}}, {"@type": "WebPage", "@id": "https://aneilrazvi.com/build/paper-to-ai#webpage", "url": "https://aneilrazvi.com/build/paper-to-ai", "name": "Paper Prototype to AI: The Build Prompt | Aneil Razvi", "description": "A free prompt that takes your paper prototype into Claude, ChatGPT or any chat AI: an interview, four plan documents, a project plan, then a clickable app.", "isPartOf": {"@id": "https://aneilrazvi.com/#website"}, "about": {"@id": "https://aneilrazvi.com/build.html#course"}, "author": {"@id": "https://aneilrazvi.com/#aneil"}, "mainEntity": {"@id": "https://aneilrazvi.com/build/paper-to-ai#prompt"}, "inLanguage": "en", "datePublished": "2026-11-20"}, {"@type": "CreativeWork", "@id": "https://aneilrazvi.com/build/paper-to-ai#prompt", "name": "The paper-to-AI build prompt", "description": "A copy-ready prompt from the AI, Built On Paper method. It interviews you about your app, reads photos of your paper prototype, writes four plan documents (vision, rules, backlog, parking lot) and a project plan as files, then builds a clickable first version.", "author": {"@id": "https://aneilrazvi.com/#aneil"}, "copyrightHolder": {"@id": "https://aneilrazvi.com/#aneil"}, "copyrightYear": 2026, "isAccessibleForFree": true, "conditionsOfAccess": "For your own project. Please don't resell or republish.", "inLanguage": "en"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://aneilrazvi.com/"}, {"@type": "ListItem", "position": 2, "name": "AI, Built On Paper", "item": "https://aneilrazvi.com/build.html"}, {"@type": "ListItem", "position": 3, "name": "The build prompt", "item": "https://aneilrazvi.com/build/paper-to-ai"}]}]}</script>
+</head>
+<body>
+
+<nav class="site-nav rz-auto" id="nav">
+  <a href="/index.html" class="nav-brand"><img class="nav-mark" src="/assets/brand/a-mark-light-tile.svg" alt="" width="30" height="30">Aneil <b>Razvi</b></a>
+  <ul class="nav-links">
+    <li><a href="/index.html">Home</a></li>
+    <li><a href="/portfolio.html">Portfolio</a></li>
+    <li><a href="/speaking.html">Speaking</a></li>
+    <li><a href="/work-with-me.html">Work With Me</a></li>
+    <li><a href="/build.html" class="active">Course</a></li>
+    <li><a href="/about.html">About</a></li>
+    <li><a href="/blog.html">Blog</a></li>
+  </ul>
+  <a href="/contact.html" class="nav-cta">Let's Talk</a>
+  <button class="nav-hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</nav>
+
+<nav class="subnav course-sub" aria-label="Course pages"><div class="subnav-in" data-label="Course">
+      <a href="/build.html">Overview</a>
+      <a href="/build/how-it-works">How it works</a>
+      <a href="/build/faq">FAQ</a>
+      <a href="/build/teams">Teams</a>
+      <a href="/build/portfolio">If I Had AI Then</a>
+      <a class="go" href="/build.html#reserve">Reserve a seat</a>
+</div></nav>
+
+<header class="band subhero" id="top">
+  <div class="wrap">
+    <p class="eyebrow">AI, Built On Paper &middot; the build prompt</p>
+    <h1>Take your paper app into AI.</h1>
+    <p class="lead">You drew your app on paper and watched real people try it. This prompt turns that paper into a plan, then a first clickable version. It works in any chat AI, like Claude or ChatGPT.</p>
+    <div class="pta-acts">
+      <button class="pta-copy" type="button" data-copy="prompt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/></svg><span class="lbl">Copy the prompt</span></button>
+      <a class="btn ghost" href="#how">How to use it</a>
+    </div>
+  </div>
+</header>
+
+<p class="pta-live" id="pta-live" aria-live="polite"></p>
+
+<main>
+<section class="wrap section" id="how" aria-labelledby="h-how">
+  <p class="eyebrow">How to use it</p>
+  <h2 class="big" id="h-how">Four steps. Give it about an hour.</h2>
+  <p class="intro">You can stop and come back. The chat keeps your place.</p>
+  <div class="stepcards pta-steps">
+    <article class="stepcard"><div class="c"><span class="sn">Step 1</span><h3>Have your photos ready</h3><p>Take one photo of each paper sheet, in order, starting with home.</p></div><p class="ex"><b>Tip:</b> lay each sheet flat, in good light, and fill the frame.</p></article>
+    <article class="stepcard"><div class="c"><span class="sn">Step 2</span><h3>Open a new chat</h3><p>In Claude or ChatGPT, on your phone or a computer.</p></div><p class="ex"><b>Tip:</b> make a Project named after your app first, so your documents stay together.</p></article>
+    <article class="stepcard"><div class="c"><span class="sn">Step 3</span><h3>Paste the prompt and send it</h3><p>Then answer its questions, one at a time. Attach your photos when it asks.</p></div></article>
+    <article class="stepcard"><div class="c"><span class="sn">Step 4</span><h3>Say "next" to move on</h3><p>After the documents and the plan, it makes files for you. Save them.</p></div></article>
+  </div>
+</section>
+
+<section class="wrap section" id="prompt" aria-labelledby="h-prompt">
+  <p class="eyebrow">The prompt</p>
+  <h2 class="big" id="h-prompt">Copy it, paste it, send it.</h2>
+  <p class="intro">It's long on purpose. Every line keeps the AI asking you instead of guessing.</p>
+  <div class="pta-box">
+    <div class="pta-bar"><span class="k">The build prompt &middot; 5 stages</span><button class="pta-copy" type="button" data-copy="prompt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/></svg><span class="lbl">Copy the prompt</span></button></div>
+<pre class="pta-prompt" id="pta-prompt">[Source: the AI, Built On Paper method by Aneil Razvi (aneilrazvi.com). For your own project. Please don't resell or republish.]
+
+I drew an app on paper and tested it with real people. Be my planning partner. Help me turn it into a plan, then a first clickable version. We go one stage at a time. At the end of each stage, tell me to say "next" when I'm ready. Start Stage 1 now.
+
+Stage 1. Interview me about my idea.
+Ask one question at a time, about 8 in all. Find out:
+- my app's name (it can be "no name yet")
+- who it's for, and what is hard for them today
+- the one job my app does for them
+- how I'll know it worked
+- what my app will never do
+- where people will use it: phone, tablet or computer
+- what I learned when someone tested my paper
+Then say my idea back in one sentence and ask if it's right.
+
+Stage 2. Look at my paper.
+I'll attach photos. Each sheet is one part of my app. For each photo, tell me in one line what you see. Ask about anything you can't read. If a part isn't drawn, ask what I expect there. Don't invent it. No photos? Ask me to describe each screen.
+
+Stage 3. Write my four documents.
+One at a time. Show each one, then wait for my "ok" or my changes. Use my words. Keep each to one page.
+- Vision: my idea in one sentence, who it's for, the one job, what done looks like, what it will never do.
+- Rules: how every screen behaves. Same symbols, same buttons, same words. What must always or never happen.
+- Backlog: every part of my app, each with a "done when" check I can test by hand.
+- Parking lot: ideas I mentioned that aren't in this version.
+When all four are approved, make each one its own file I can download and edit. A Word file is best. Name each with my app's name and the document, like "Pantry Pal - Vision". If you can't make files, put each one in its own copy box with its title on top. Always put Rules in a copy box too.
+Then tell me where to keep them. In a Project, add Vision, Backlog and Parking lot to the files, and paste Rules into the instructions. No Project? Save all four in a folder named after my app.
+
+Stage 4. Write my project plan.
+One page. Put the parts in build order: home first, then the part that proves my idea works. For each step, say what we build and the "done when" check I'll test by hand. End with the loop after every step: test it, fix it, update the right document. When I approve it, make it a file the same way, like "Pantry Pal - Plan".
+
+Stage 5. Build it.
+Only when I say "build it." Make a clickable version that looks like my paper, in black and white. Every button goes somewhere. Parts that aren't built yet show "Not built yet." If you can't show a preview here, say so and give me the steps for the first part instead.
+
+Rules for you:
+- It's my app. Don't add parts I didn't ask for.
+- Short, plain sentences. One question at a time.
+- If a question is hard, give me 2 or 3 choices to pick from.
+- If you're not sure, ask. Don't guess.
+- No code before Stage 5.</pre>
+    <div class="pta-bar end"><span class="k">Paste it into a new chat</span><button class="pta-copy" type="button" data-copy="prompt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/></svg><span class="lbl">Copy the prompt</span></button></div>
+  </div>
+</section>
+
+<section class="wrap section" id="stages" aria-labelledby="h-stages">
+  <p class="eyebrow">What happens</p>
+  <h2 class="big" id="h-stages">Five stages, one at a time.</h2>
+  <p class="intro">The AI waits for you to say "next" before it moves on. Nothing gets built until you say "build it."</p>
+  <div class="stepcards pta-steps">
+    <article class="stepcard"><div class="c"><span class="sn">Stage 1</span><h3>The interview</h3><p>About 8 questions about your idea, one at a time: who it's for, the one job, and what you learned from testing.</p></div><p class="ex"><b>You get:</b> your idea, said back in one sentence.</p></article>
+    <article class="stepcard"><div class="c"><span class="sn">Stage 2</span><h3>Your paper</h3><p>It reads each photo back to you in one line, and asks about anything it can't read or that isn't drawn yet.</p></div><p class="ex"><b>You get:</b> an AI that knows your app, with nothing made up.</p></article>
+    <article class="stepcard"><div class="c"><span class="sn">Stage 3</span><h3>Four documents</h3><p>Vision, Rules, Backlog and Parking lot, one page each, in your words. You approve each one.</p></div><p class="ex"><b>You get:</b> four files you can download and edit.</p></article>
+    <article class="stepcard"><div class="c"><span class="sn">Stage 4</span><h3>The project plan</h3><p>Your parts in build order: home first, then the part that proves your idea works. Each step has a check you test by hand.</p></div><p class="ex"><b>You get:</b> a one-page plan file.</p></article>
+    <article class="stepcard"><div class="c"><span class="sn">Stage 5</span><h3>Build it</h3><p>A clickable version that looks like your paper, in black and white. Parts that aren't built yet say so.</p></div><p class="ex"><b>You get:</b> your app on a screen.</p></article>
+  </div>
+</section>
+
+<section class="wrap" aria-labelledby="h-where">
+  <div class="box pta-where">
+    <h2 id="h-where">Where your documents go</h2>
+    <div class="pta-grid two">
+      <div class="pta-cell"><h3>Project files</h3><ul><li>Vision</li><li>Backlog</li><li>Parking lot</li><li>Your project plan</li></ul></div>
+      <div class="pta-cell"><h3>Project instructions</h3><ul><li>Rules, pasted in, so every chat in the Project follows them</li></ul></div>
+    </div>
+    <p class="note">Keep them apart. When something breaks later, you need to know whether it broke your vision, a rule, or just one part. No Project? Save them in a folder named after your app.</p>
+  </div>
+</section>
+
+<section class="wrap section" id="next" aria-labelledby="h-next">
+  <p class="eyebrow">Words to use next</p>
+  <h2 class="big" id="h-next">Type these into the same chat.</h2>
+  <ul class="pta-lines">
+    <li><div><span class="say">next</span><span class="when">You're ready for the next stage.</span></div><button class="pta-copy sm" type="button" data-copy="line"><span class="lbl">Copy</span></button></li>
+    <li><div><span class="say">build it</span><span class="when">Your plan is done and you want the clickable version.</span></div><button class="pta-copy sm" type="button" data-copy="line"><span class="lbl">Copy</span></button></li>
+    <li><div><span class="say">Change only this: ___. Keep everything else the same.</span><span class="when">One thing is wrong.</span></div><button class="pta-copy sm" type="button" data-copy="line"><span class="lbl">Copy</span></button></li>
+    <li><div><span class="say">Someone got stuck on ___. Help me fix that screen.</span><span class="when">After you test it with someone.</span></div><button class="pta-copy sm" type="button" data-copy="line"><span class="lbl">Copy</span></button></li>
+    <li><div><span class="say">New idea: ___. Put it in the Parking lot.</span><span class="when">A new idea comes up while you build.</span></div><button class="pta-copy sm" type="button" data-copy="line"><span class="lbl">Copy</span></button></li>
+    <li><div><span class="say">It did something I didn't expect: ___. Which of my documents was wrong? Fix that one first.</span><span class="when">The AI surprises you.</span></div><button class="pta-copy sm" type="button" data-copy="line"><span class="lbl">Copy</span></button></li>
+    <li><div><span class="say">Let's build the next part: ___. Here are my four documents and my plan.</span><span class="when">You start a fresh chat for each part.</span></div><button class="pta-copy sm" type="button" data-copy="line"><span class="lbl">Copy</span></button></li>
+  </ul>
+  <div class="pta-credit">
+    <p>Source: the AI, Built On Paper method by Aneil Razvi (aneilrazvi.com). For your own project. Please don't resell or republish.</p>
+    <p>Want to share it? Share this page: aneilrazvi.com/paper-to-ai</p>
+  </div>
+</section>
+</main>
+
+<section class="band final" id="final" aria-labelledby="h-final">
+  <div class="wrap">
+    <h2 id="h-final">Want help building the rest?</h2>
+    <p>AI, Built On Paper runs every step live, from the first sketch to an app at a web address you can share.</p>
+    <div class="acts"><a class="btn light" href="/build/how-it-works">See how the course works</a><a class="btn ghost" href="https://cal.com/aneil-razvi/intro" target="_blank" rel="noopener">Ask me a question</a></div>
+  </div>
+</section>
+
+<footer class="v3-footer">
+  <div class="v3f-top">
+    <div><a class="v3f-brand" href="/index.html"><img src="/assets/brand/a-mark-light-tile.svg" alt="" width="28" height="28">Aneil <b>Razvi</b></a><p class="v3f-line">Product design and AI experience leadership, from Dallas-Fort Worth.</p></div>
+    <div><h4>Work</h4><ul><li><a href="/portfolio.html">Portfolio</a></li><li><a href="/spotio-case-study.html">SPOTIO</a></li><li><a href="/cubby.html">Cubby</a></li><li><a href="/omnitracs.html">Omnitracs</a></li><li><a href="/about.html">About</a></li></ul></div>
+    <div><h4>Work with me</h4><ul><li><a href="/work-with-me.html">Engagements</a></li><li><a href="/fractional-head-of-design.html">Fractional head of design</a></li><li><a href="/workshops.html">Workshops</a></li><li><a href="/speaking.html">Speaking</a></li><li><a href="/build.html">Course</a></li></ul></div>
+    <div><h4>Elsewhere</h4><ul><li><a href="/blog.html">Building in the Open</a></li><li><a href="https://www.linkedin.com/in/aneilrazvi/" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="https://cal.com/aneil-razvi" target="_blank" rel="noopener">Book a call</a></li><li><a href="mailto:hi@aneilrazvi.com">hi@aneilrazvi.com</a></li></ul></div>
+  </div>
+  <div class="v3f-bottom"><span>© 2026 Aneil Razvi · Allen, TX</span><span><a href="/privacy.html">Privacy</a> · <a href="/maturity.html">Design maturity read</a> · <a href="/readiness.html">AI readiness read</a></span></div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var nav=document.getElementById("nav"), ham=document.querySelector(".nav-hamburger");
+  addEventListener("scroll",function(){ nav.classList.toggle("scrolled", scrollY>10); },{passive:true});
+  ham.addEventListener("click",function(){ var o=nav.classList.toggle("open"); ham.setAttribute("aria-expanded",o?"true":"false"); });
+
+  /* Copy buttons. Clipboard API first; a hidden textarea for older or in-app browsers. */
+  var live=document.getElementById("pta-live");
+  function fallback(t){
+    var ta=document.createElement("textarea"), ok=false;
+    ta.value=t; ta.setAttribute("readonly",""); ta.style.position="fixed"; ta.style.top="-1000px"; ta.style.opacity="0";
+    document.body.appendChild(ta); ta.focus(); ta.select();
+    try{ ta.setSelectionRange(0,t.length); ok=document.execCommand("copy"); }catch(e){ ok=false; }
+    document.body.removeChild(ta); return ok;
+  }
+  function flash(btn,ok,isPrompt){
+    var l=btn.querySelector(".lbl"); if(!btn.getAttribute("data-orig")) btn.setAttribute("data-orig",l.textContent);
+    l.textContent=ok?"Copied":"Press and hold the text to copy";
+    live.textContent=ok?(isPrompt?"Copied. Now paste it into a new chat.":"Copied."):"Copy didn't work here. Press and hold the text to copy it.";
+    clearTimeout(btn._t); btn._t=setTimeout(function(){ l.textContent=btn.getAttribute("data-orig"); },2500);
+  }
+  function copy(t,btn,isPrompt,which){
+    function done(ok){
+      flash(btn,ok,isPrompt);
+      try{ if(ok && window.posthog && posthog.capture) posthog.capture("prompt_copied",{which:which}); }catch(e){}
+    }
+    if(navigator.clipboard && window.isSecureContext){ navigator.clipboard.writeText(t).then(function(){ done(true); },function(){ done(fallback(t)); }); }
+    else done(fallback(t));
+  }
+  document.addEventListener("click",function(e){
+    var b=e.target.closest ? e.target.closest("[data-copy]") : null; if(!b) return;
+    var isPrompt=b.getAttribute("data-copy")==="prompt", t;
+    if(isPrompt) t=document.getElementById("pta-prompt").textContent;
+    else t=b.closest("li").querySelector(".say").textContent;
+    t=t.replace(/^\s+|\s+$/g,"");
+    copy(t,b,isPrompt,isPrompt?"prompt":t.slice(0,40));
+  });
+})();
+</script>
+<script defer src="/assets/v3/pagenav.js"></script>
+</body></html>

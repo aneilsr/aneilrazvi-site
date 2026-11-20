@@ -34,6 +34,10 @@
       "destination": "/api/go?s=squares"
     },
     {
+      "source": "/paper-to-ai",
+      "destination": "/api/go?s=paper-to-ai"
+    },
+    {
       "source": "/seat",
       "destination": "/api/go?s=seat"
     },
@@ -52,6 +56,10 @@
     {
       "source": "/build/portfolio",
       "destination": "/build/portfolio.html"
+    },
+    {
+      "source": "/build/paper-to-ai",
+      "destination": "/build/paper-to-ai.html"
     }
   ],
   "headers": [

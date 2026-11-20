@@ -2,6 +2,21 @@
 
 Newest first. One entry per shipped push, with the proof it works on production.
 
+## 2026-11-20 · The build prompt: /build/paper-to-ai and the /paper-to-ai short link
+
+The AI, Built On Paper build prompt, approved by Aneil 20 Nov, now has its own page. It is the QR target on the P-4 handout.
+- New build/paper-to-ai.html (course subnav, dark course theme): how to use it in four steps, the full prompt with three Copy
+  buttons, the five stages and what each gives you, where the documents go (Rules in Project instructions, the rest in files),
+  seven follow-up lines with their own Copy buttons, and the credit line. Copy uses the Clipboard API with a hidden-textarea
+  fallback for in-app browsers, announces "Copied" in an aria-live region, and sends a PostHog prompt_copied event.
+- Preview proof (Playwright, local server): clicking Copy put exactly the approved 596-word prompt on the clipboard (diff clean);
+  a follow-up line copied as written; no horizontal scroll at 390px on an iPhone 13 profile.
+- vercel.json: /build/paper-to-ai serves the page; /paper-to-ai goes through api/go.js (counted in link_clicks), slug
+  paper-to-ai, utm handout / qr / paper-to-ai.
+- build/how-it-works.html step 6 links to the prompt. sitemap.xml: new URL, how-it-works lastmod 2026-11-20. llms.txt: the
+  build prompt line under the course.
+- JSON-LD: WebPage plus a CreativeWork for the prompt (author Aneil, free, "for your own project, please don't resell or republish").
+
 ## 2026-11-18 · Sidenote no. 07: LinkedIn link points at the live post
 
 The LinkedIn post for "Follow It Past the Handoff" went live 18 Nov at 1:30 PM CT (urn:li:activity:7528902519981264898),

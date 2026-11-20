@@ -45,6 +45,7 @@ Team sessions: a half-day private workshop for up to 20 people ($9,500), a virtu
 - Course page: https://aneilrazvi.com/build.html
 - How it works (ten steps in four stages: define, paper, test, build): https://aneilrazvi.com/build/how-it-works
 - FAQ: https://aneilrazvi.com/build/faq
+- The build prompt (free): a copy-ready prompt that takes a tested paper prototype into any chat AI. It interviews you about the app, reads photos of the paper, writes the four plan documents (vision, rules, backlog, parking lot) and a project plan as files, then builds a clickable first version. Short link aneilrazvi.com/paper-to-ai. https://aneilrazvi.com/build/paper-to-ai
 - If I Had AI Then, a 1:1 portfolio add-on: rework one existing project into an honest Then & Now case study that shows how you'd run it today, clearly labeled as a retrospective. One project $395 (two 1-hour sessions plus written notes), each extra project $195, a 1-hour advice session $175, $295 for course buyers. Students get a monthly group clinic in Student Plus instead of 1:1. https://aneilrazvi.com/build/portfolio
 
 ## Writing: Building in the Open
