@@ -10,6 +10,8 @@ _pre-sweep-backup/
 _backup/
 Photos - to pull from/
 *.zip
+# Except downloads the site serves on purpose (the free starter kit).
+!assets/kits/*.zip
 
 # Anything prefixed with an underscore is local-only by convention.
 # Backup folders MUST never ship: Vercel serves every file in the repo,

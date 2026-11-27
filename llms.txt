@@ -41,7 +41,11 @@ AI product design, AI experience strategy, human-in-the-loop AI, product design 
 
 A course for designers and creatives, including students and career switchers, who want to turn a sketch into a live, AI-built product and a portfolio case study that shows they directed the AI. No coding. Define the problem, design it on paper, test it with people, then let AI build it from the plan. Formats: Sketch to Ship, an in-person day in Dallas-Fort Worth; a live online Build cohort; and Self-paced. Student pricing is available, and private sessions are offered for design and product teams.
 Next Sketch to Ship: date TBD, in the Dallas-Fort Worth area. Founding prices: Sketch to Ship $99, Build cohort $897, Self-paced $397.
-Team sessions: a half-day private workshop for up to 20 people ($9,500), a virtual team track, or Build cohort seats, with copy-ready manager emails and a one-page PDF. https://aneilrazvi.com/build/teams
+The path (since 27 Nov 2026): the course runs as four parts, in order. 1 Vision: the free One Source of Truth starter kit, a prompt that makes ChatGPT, Claude or Gemini interview you and write four documents every chat reads first (Vision, Decisions, Rules, Validation), plus an optional 1:1 AI Setup Session ($190, 45 minutes). 2 Sketch and test: Sketch to Ship. 3 Build with AI: the Build cohort or self-paced. 4 Launch: 1:1 now, with a workshop being built from a live launch. https://aneilrazvi.com/build/path
+- One Source of Truth starter kit (free) and the 1:1 AI Setup Session: https://aneilrazvi.com/build/one-source-of-truth (short link aneilrazvi.com/kit)
+- Proof it works: Cubby, live on the App Store since August 2026, shown through all four parts: https://aneilrazvi.com/build/cubby
+- Proof it works: Smooshdoku, a Smoosh Valley puzzle game from 80 Monkeys LLC, launching through the path in the open: https://aneilrazvi.com/build/smooshdoku
+Teams and groups: everyone starts on the individual path, then a consult shapes group sessions around the team's needs, priced after the consult. Copy-ready manager emails are on the page. https://aneilrazvi.com/build/teams
 - Course page: https://aneilrazvi.com/build.html
 - How it works (ten steps in four stages: define, paper, test, build): https://aneilrazvi.com/build/how-it-works
 - FAQ: https://aneilrazvi.com/build/faq

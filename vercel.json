@@ -42,6 +42,10 @@
       "destination": "/api/go?s=seat"
     },
     {
+      "source": "/kit",
+      "destination": "/api/go?s=kit"
+    },
+    {
       "source": "/build/how-it-works",
       "destination": "/build/how-it-works.html"
     },
@@ -60,6 +64,26 @@
     {
       "source": "/build/paper-to-ai",
       "destination": "/build/paper-to-ai.html"
+    },
+    {
+      "source": "/build/path",
+      "destination": "/build/path.html"
+    },
+    {
+      "source": "/build/one-source-of-truth",
+      "destination": "/build/one-source-of-truth.html"
+    },
+    {
+      "source": "/build/cubby",
+      "destination": "/build/cubby.html"
+    },
+    {
+      "source": "/build/smooshdoku",
+      "destination": "/build/smooshdoku.html"
+    },
+    {
+      "source": "/build/summit-vip",
+      "destination": "/build/summit-vip.html"
     }
   ],
   "headers": [

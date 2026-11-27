@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#0F1923">
+<title>Cubby, Built Through the Path | Aneil Razvi</title>
+<meta name="description" content="How Cubby, a video app for autistic teens and adults, went through all four parts of the path: vision, testing with caregivers, building with AI, launch."/>
+<meta name="author" content="Aneil Razvi"/>
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1"/>
+<link rel="canonical" href="https://aneilrazvi.com/build/cubby"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="Aneil Razvi"/>
+<meta property="og:title" content="Cubby, Built Through the Path"/>
+<meta property="og:description" content="How Cubby, a video app for autistic teens and adults, went through all four parts of the path: vision, testing with caregivers, building with AI, launch."/>
+<meta property="og:url" content="https://aneilrazvi.com/build/cubby"/>
+<meta property="og:image" content="https://aneilrazvi.com/assets/og/og-cubby.jpg"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Cubby, Built Through the Path"/>
+<meta name="twitter:description" content="How Cubby, a video app for autistic teens and adults, went through all four parts of the path: vision, testing with caregivers, building with AI, launch."/>
+<meta name="twitter:image" content="https://aneilrazvi.com/assets/og/og-cubby.jpg"/>
+<script defer src="/assets/analytics.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap">
+<link rel="stylesheet" href="/build-v2.css">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/assets/v3/v3.css" />
+<link rel="stylesheet" href="/assets/v3/course.css" />
+<link rel="stylesheet" href="/assets/v3/path.css" />
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Person", "@id": "https://aneilrazvi.com/#aneil", "name": "Aneil Razvi", "url": "https://aneilrazvi.com/", "jobTitle": "Product design and AI experience leader", "address": {"@type": "PostalAddress", "addressLocality": "Allen", "addressRegion": "TX", "addressCountry": "US"}, "sameAs": ["https://www.linkedin.com/in/aneilrazvi/"]}, {"@type": "WebSite", "@id": "https://aneilrazvi.com/#website", "url": "https://aneilrazvi.com/", "name": "Aneil Razvi", "publisher": {"@id": "https://aneilrazvi.com/#aneil"}}, {"@type": "WebPage", "@id": "https://aneilrazvi.com/build/cubby#webpage", "url": "https://aneilrazvi.com/build/cubby", "name": "Cubby, Built Through the Path | Aneil Razvi", "description": "How Cubby, a video app for autistic teens and adults, went through all four parts of the path: vision, testing with caregivers, building with AI, launch.", "isPartOf": {"@id": "https://aneilrazvi.com/#website"}, "about": [{"@id": "https://aneilrazvi.com/build.html#course"}, {"@type": "SoftwareApplication", "name": "Cubby", "url": "https://cubbyplaylist.com", "operatingSystem": "iOS, Web, Android (beta)", "applicationCategory": "MultimediaApplication"}], "author": {"@id": "https://aneilrazvi.com/#aneil"}, "inLanguage": "en", "datePublished": "2026-11-27"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://aneilrazvi.com/"}, {"@type": "ListItem", "position": 2, "name": "AI, Built On Paper", "item": "https://aneilrazvi.com/build.html"}, {"@type": "ListItem", "position": 3, "name": "The path", "item": "https://aneilrazvi.com/build/path"}, {"@type": "ListItem", "position": 4, "name": "Cubby", "item": "https://aneilrazvi.com/build/cubby"}]}]}</script>
+</head>
+<body>
+
+<nav class="site-nav rz-auto" id="nav">
+  <a href="/index.html" class="nav-brand"><img class="nav-mark" src="/assets/brand/a-mark-light-tile.svg" alt="" width="30" height="30">Aneil <b>Razvi</b></a>
+  <ul class="nav-links">
+    <li><a href="/index.html">Home</a></li>
+    <li><a href="/portfolio.html">Portfolio</a></li>
+    <li><a href="/speaking.html">Speaking</a></li>
+    <li><a href="/work-with-me.html">Work With Me</a></li>
+    <li><a href="/build.html" class="active">Course</a></li>
+    <li><a href="/about.html">About</a></li>
+    <li><a href="/blog.html">Blog</a></li>
+  </ul>
+  <a href="/contact.html" class="nav-cta">Let's Talk</a>
+  <button class="nav-hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</nav>
+
+<nav class="subnav course-sub" aria-label="Course pages"><div class="subnav-in" data-label="Course">
+      <a href="/build.html">Overview</a>
+      <a href="/build/path" aria-current="page">The path</a>
+      <a href="/build/how-it-works">How it works</a>
+      <a href="/build/faq">FAQ</a>
+      <a href="/build/teams">Teams</a>
+      <a href="/build/portfolio">If I Had AI Then</a>
+      <a class="go" href="/build/one-source-of-truth">Get the free kit</a>
+</div></nav>
+<script>/* keep the current tab in view on narrow screens */(function(){var a=document.querySelector('nav.subnav a[aria-current="page"]');if(!a)return;var c=a.parentNode,d=a.getBoundingClientRect().right-c.getBoundingClientRect().right;if(d>0)c.scrollLeft+=d+24;})();</script>
+
+<header class="band subhero" id="top">
+  <div class="wrap">
+    <p class="eyebrow">Proof it works &middot; Cubby</p>
+    <h1>Cubby went through every part of the path.</h1>
+    <p class="lead">Cubby is a video player set for each person, for autistic teens and adults. A caregiver picks the videos, and there's no search, no recommendations and no autoplay. I designed and shipped it solo by directing AI tools. It has been on the App Store since August 2026.</p>
+    <div class="pth-acts">
+      <a class="btn light" href="https://cubbyplaylist.com" target="_blank" rel="noopener">See Cubby live</a>
+      <a class="btn ghost" href="/cubby.html">Read the full case study</a>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="wrap section" id="journey" aria-labelledby="h-journey">
+  <p class="eyebrow">The path, applied</p>
+  <h2 class="big" id="h-journey">Four parts, and what each one cost.</h2>
+  <p class="intro">This is the same order the course teaches. Where a part came late, it cost more, and that's why the order matters.</p>
+  <div class="pth-stages">
+
+    <article class="pth-stage p1">
+      <div><span class="k">Part 1</span><h3>Vision</h3><span class="pill">Done, kept current</span></div>
+      <div>
+        <ul>
+          <li><b>It started as a kids' app.</b> A parent hub, child profiles and a curated feed of kid-safe videos.</li>
+          <li><b>Then the market moved.</b> YouTube Kids shipped "Approved Content Only" for free: a parent handpicks every video and search is off. That was the pitch, released by the incumbent at no cost.</li>
+          <li><b>Every call went into a decision log</b>, with the question, the evidence and what it cost. Today every AI session on Cubby starts by reading the same few files: the backlog, the decision log, the changelog and the design system.</li>
+        </ul>
+        <p class="cost"><b>What it changed:</b> who Cubby is for, before the real build. The decision log is what the free kit calls Decisions.</p>
+      </div>
+    </article>
+
+    <article class="pth-stage p2">
+      <div><span class="k">Part 2</span><h3>Sketch &amp; test</h3><span class="pill">Done, still testing</span></div>
+      <div>
+        <ul>
+          <li><b>Caregiver interviews pointed it at teens and adults.</b> The decision rule was written before the calls, so the goalposts couldn't move afterward. The pivot also took Cubby out of the COPPA minefield.</li>
+          <li><b>Testers moved the center of the product.</b> Two caregivers, separately, asked for control over the picture and the sound. That became the core: brightness, contrast, color, warmth, dim and a volume ceiling, set for each person.</li>
+          <li><b>Words got tested too.</b> "No escape" was meant as a promise. A tester read it as a threat. It became "No recommendations. No rabbit holes."</li>
+        </ul>
+        <blockquote class="pth-quote">"It takes you two hours to select videos and he runs through them in 20 minutes."<cite>A dad in the beta. It became bulk add.</cite></blockquote>
+        <p class="cost"><b>What it cost when this came late:</b> a finished design system, thrown away and rebuilt for the new audience. Testing before building is cheaper.</p>
+      </div>
+    </article>
+
+    <article class="pth-stage p3">
+      <div><span class="k">Part 3</span><h3>Build with AI</h3><span class="pill">Shipping</span></div>
+      <div>
+        <ul>
+          <li><b>Figma, then a written build plan, then AI tools</b> in small batches, with every change checked on a preview before it ships.</li>
+          <li><b>A design system with three sensory modes</b>, Calm, Balanced and Engage. The build fails if any color pair drops below WCAG AA.</li>
+          <li><b>Check it before you trust it.</b> Three bugs once passed a clean build. Every one was caught by opening the live app and reading what was on the screen. Now anything touching sign-in, roles or design tokens gets tested by driving the real product.</li>
+        </ul>
+        <figure><img src="/assets/work/cubby-tune-split.jpg" loading="lazy" alt="The same video in Cubby's tuned player next to the original, showing brightness, color and warmth adjusted for one viewer"><figcaption>The player is the product: the same video, tuned for one viewer, next to how YouTube sends it.</figcaption></figure>
+      </div>
+    </article>
+
+    <article class="pth-stage p4">
+      <div><span class="k">Part 4</span><h3>Launch</h3><span class="pill">Live</span></div>
+      <div>
+        <ul>
+          <li><b>On the App Store since August 2026</b>, and on the web at cubbyplaylist.com. Free for one person, $4.99 a month for a family.</li>
+          <li><b>Rules you don't know exist.</b> Store review, privacy rules, and Google's verification for access to YouTube all came up before launch. Cubby keeps no age or date of birth on purpose.</li>
+          <li><b>Android is in beta.</b> Google Play needs 12 testers opted in for 14 days in a row before an app can go to production.</li>
+          <li><b>Measure and listen.</b> Since launch: a one-tap sensory-safe preset, bulk add, and a full redesign. The top request now is sharing one account between two adults.</li>
+          <li><b>Out in public:</b> entered in RevenueCat's Shipaton and demoed at Go Fractional's Demo Day.</li>
+        </ul>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="wrap section" aria-labelledby="h-yours">
+  <div class="pth-callout">
+    <div><h3 id="h-yours">Start your own at Part 1.</h3><p>The free kit is the same first step: write down who it's for, why, and what it will never do.</p></div>
+    <a class="btn light" href="/build/one-source-of-truth">Get the free kit</a>
+  </div>
+  <p class="pth-note">Next proof point: <a href="/build/smooshdoku">Smooshdoku, launching through the path right now</a>.</p>
+</section>
+</main>
+
+<footer class="v3-footer">
+  <div class="v3f-top">
+    <div><a class="v3f-brand" href="/index.html"><img src="/assets/brand/a-mark-light-tile.svg" alt="" width="28" height="28">Aneil <b>Razvi</b></a><p class="v3f-line">Product design and AI experience leadership, from Dallas-Fort Worth.</p></div>
+    <div><h4>Work</h4><ul><li><a href="/portfolio.html">Portfolio</a></li><li><a href="/spotio-case-study.html">SPOTIO</a></li><li><a href="/cubby.html">Cubby</a></li><li><a href="/omnitracs.html">Omnitracs</a></li><li><a href="/about.html">About</a></li></ul></div>
+    <div><h4>Work with me</h4><ul><li><a href="/work-with-me.html">Engagements</a></li><li><a href="/fractional-head-of-design.html">Fractional head of design</a></li><li><a href="/workshops.html">Workshops</a></li><li><a href="/speaking.html">Speaking</a></li><li><a href="/build.html">Course</a></li></ul></div>
+    <div><h4>Elsewhere</h4><ul><li><a href="/blog.html">Building in the Open</a></li><li><a href="https://www.linkedin.com/in/aneilrazvi/" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="https://cal.com/aneil-razvi" target="_blank" rel="noopener">Book a call</a></li><li><a href="mailto:hi@aneilrazvi.com">hi@aneilrazvi.com</a></li></ul></div>
+  </div>
+  <div class="v3f-bottom"><span>© 2026 Aneil Razvi · Allen, TX</span><span><a href="/privacy.html">Privacy</a> · <a href="/maturity.html">Design maturity read</a> · <a href="/readiness.html">AI readiness read</a></span></div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var nav=document.getElementById("nav"), ham=document.querySelector(".nav-hamburger");
+  addEventListener("scroll",function(){ nav.classList.toggle("scrolled", scrollY>10); },{passive:true});
+  ham.addEventListener("click",function(){ var o=nav.classList.toggle("open"); ham.setAttribute("aria-expanded",o?"true":"false"); });
+})();
+</script>
+<script defer src="/assets/v3/pagenav.js"></script>
+</body></html>

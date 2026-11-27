@@ -758,6 +758,82 @@ export default async function handler(req, res) {
 </table>
 </div>`;
 
+    // ---- /build/one-source-of-truth and /build/summit-vip : the free starter kit. ----
+    // The page shows the download at once; this email is the copy they can open anywhere.
+    const isKit = (b.source === "kit");
+    const kAns = (b.answers && typeof b.answers === "object") ? b.answers : {};
+    const kVip = kAns.vip === true;
+    const KIT_URL = "https://aneilrazvi.com/assets/kits/one-source-of-truth-level-one.zip";
+    const kNext = kVip
+      ? `<p style="${bP}"><b style="color:#0F1923">Your VIP next step:</b> when your four documents are done, book the Level Two Setup Session at the VIP price of $47 (regular $190). Ten spots, bookable through 31 January.</p>
+    <a href="https://cal.com/aneil-razvi/level-two-vip" style="${bBtn}">Book Level Two, $47</a>`
+      : `<p style="${bP}"><b style="color:#0F1923">Want help setting it up?</b> The 1:1 AI Setup Session is 45 minutes on a video call. We put your four documents into a ChatGPT or Claude Project or a Gemini Gem, and you leave with a three-step plan. $190.</p>
+    <a href="https://cal.com/aneil-razvi/setup-session" style="${bBtn}">Book the setup session</a>`;
+    const toVisitorKit = `
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&amp;family=JetBrains+Mono:wght@500;600&amp;display=swap">
+<div style="background:#F4F6F8;padding:28px 12px">
+<table role="presentation" cellpadding="0" cellspacing="0" style="max-width:600px;margin:0 auto;width:100%;background:#FFFFFF;border-radius:6px;border-collapse:separate;overflow:hidden">
+  <tr><td style="background:#FFFFFF;padding:22px 34px 16px;border-bottom:2px solid #F2B632"><table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse"><tr><td valign="middle"><a href="https://aneilrazvi.com" style="text-decoration:none"><img src="https://aneilrazvi.com/assets/email/aneil-razvi-wordmark.png" width="188" height="28" alt="Aneil Razvi" style="display:block;border:0;width:188px;height:28px;font:400 18px 'DM Serif Display',Georgia,serif;color:#0F1923"></a></td><td valign="middle" align="right" style="font:500 10px/1 'JetBrains Mono',Menlo,Consolas,monospace;letter-spacing:.16em;text-transform:uppercase;color:#00838F;white-space:nowrap">aneilrazvi.com</td></tr></table></td></tr>
+  <tr><td style="padding:30px 34px 8px">
+    <div style="font:500 11px/1 'JetBrains Mono',Menlo,Consolas,monospace;letter-spacing:.14em;text-transform:uppercase;color:#00838F">One Source of Truth &middot; Level One</div>
+    <h1 style="margin:12px 0 6px;font:400 27px/1.25 'DM Serif Display',Georgia,'Times New Roman',serif;color:#0F1923">${b.name ? "Here's your kit, " + escH(clipS(b.name, 40)) + "." : "Here's your kit."}</h1>
+    <p style="${bP}">One prompt. Your AI interviews you, one question at a time, and writes four short documents every chat reads first: Vision, Decisions, Rules and Validation.</p>
+    <a href="${KIT_URL}" style="${bBtn}">Download the kit</a>
+  </td></tr>
+  <tr><td style="padding:18px 34px 4px">
+    <div style="${bH2}">How to use it</div>
+    <p style="${bP}"><b>1.</b> Open "1 - Read me first".</p>
+    <p style="${bP}"><b>2.</b> In "2 - Copy this prompt", fill in the one line about your business, then paste it into ChatGPT, Claude or Gemini.</p>
+    <p style="${bP}"><b>3.</b> Answer out loud, one question at a time. Type "approved" when a document is right, and it moves to the next one.</p>
+  </td></tr>
+  <tr><td style="padding:14px 34px 4px">
+    ${kNext}
+  </td></tr>
+  <tr><td style="padding:18px 34px 6px">
+    <p style="${bP}">This is Part 1 of a four-part path: Vision, Sketch &amp; test, Build with AI, and Launch. <a href="https://aneilrazvi.com/build/path" style="color:#00838F">See the path</a>. Questions? Just reply to this email.</p>
+  </td></tr>
+  <tr><td style="padding:16px 34px 30px">
+    ${SIG_HTML}
+  </td></tr>
+</table>
+</div>`;
+    const textVisitorKit = [
+      b.name ? `Here's your kit, ${clipS(b.name, 40)}.` : "Here's your kit.",
+      "",
+      "Download the One Source of Truth starter kit: " + KIT_URL,
+      "",
+      "1. Open \"1 - Read me first\".",
+      "2. In \"2 - Copy this prompt\", fill in the one line about your business, then paste it into ChatGPT, Claude or Gemini.",
+      "3. Answer out loud, one question at a time. Type \"approved\" when a document is right.",
+      "",
+      kVip ? "VIP next step: Level Two Setup Session, $47 (regular $190), ten spots through 31 January: https://cal.com/aneil-razvi/level-two-vip"
+           : "Want help setting it up? 1:1 AI Setup Session, 45 minutes, $190: https://cal.com/aneil-razvi/setup-session",
+      "",
+      "The whole path: https://aneilrazvi.com/build/path",
+      "",
+      ...SIG_TEXT
+    ].join("\n");
+    const toAneilKit = `<div style="background:#F4F6F8;padding:24px 12px">
+<table role="presentation" cellpadding="0" cellspacing="0" style="max-width:600px;margin:0 auto;width:100%;background:#FFFFFF;border-radius:6px;border-collapse:separate;overflow:hidden">
+  <tr><td style="padding:26px 30px 6px">
+    <div style="font:500 11px/1 'JetBrains Mono',Menlo,Consolas,monospace;letter-spacing:.14em;text-transform:uppercase;color:#00838F">${kVip ? "Kit download (summit VIP)" : "Kit download"}</div>
+    <h1 style="margin:11px 0 0;font:400 25px/1.3 'DM Serif Display',Georgia,'Times New Roman',serif;color:#0F1923"><a href="mailto:${escH(b.email)}" style="color:#0F1923;text-decoration:none">${escH(b.email)}</a></h1>
+    <div style="margin:6px 0 0;font:400 14px/1.5 Helvetica,Arial,sans-serif;color:#6B7280">${b.name ? escH(clipS(b.name, 80)) : "No name given"}</div>
+  </td></tr>
+  <tr><td style="padding:16px 30px 0">
+    <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;font:400 14px/1.5 Helvetica,Arial,sans-serif">
+      <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280;width:38%">Came in via</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#0F1923">${escH(b.utm_source || "direct")}${b.utm_medium ? " / " + escH(b.utm_medium) : ""}${b.utm_campaign ? " / " + escH(b.utm_campaign) : ""}</td></tr>
+      <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280">Landed on</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#0F1923">${escH(b.landing_path || "unknown")}</td></tr>
+      <tr><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#6B7280">Referrer</td><td style="padding:7px 0;border-bottom:1px solid #E2E8EC;color:#0F1923">${escH(b.referrer || "none")}</td></tr>
+    </table>
+  </td></tr>
+  <tr><td style="padding:16px 30px 26px">
+    <div style="font:400 13.5px/1.6 Helvetica,Arial,sans-serif;color:#3B4651">They have the kit and the ${kVip ? "$47 Level Two" : "$190 setup session"} link. Nothing to do unless they reply or book.</div>
+    <div style="margin-top:10px;font:400 12px/1.5 Helvetica,Arial,sans-serif;color:#9AA5AD">Session ${escH(b.session_id || "unknown")}</div>
+  </td></tr>
+</table>
+</div>`;
+
     // Resolves true only when Resend accepted the message. A rejection (bad sender,
     // bad address, rate limit) comes back as a normal HTTP response, not a thrown
     // error, so it has to be checked or it disappears without a trace.
@@ -774,7 +850,10 @@ export default async function handler(req, res) {
     }).catch(e => { console.error("resend failed", e); return false; });
 
     try {
-      const pair = isBuild
+      const pair = isKit
+        ? [ send(b.email, "Your One Source of Truth starter kit", toVisitorKit, textVisitorKit),
+            send(t, `Kit download: ${b.email}${kVip ? " (summit VIP)" : ""}`, toAneilKit) ]
+        : isBuild
         ? [ send(b.email, bSubject, toVisitorBuild),
             send(t, `Build list: ${b.email}${bInt.length ? " (" + bInt.join(", ") + ")" : ""}`, toAneilBuild) ]
         : isReadiness

@@ -2,6 +2,36 @@
 
 Newest first. One entry per shipped push, with the proof it works on production.
 
+## 2026-11-27 · The path: four parts, the free kit, Cubby and Smooshdoku proof pages, teams by consult
+
+Aneil approved the four-part path on 27 Nov (four parts in order, the hook, 1:1s at Parts 1, 3 and 4, "free kit" and
+"1:1 setup session" on the site with Level One and Level Two kept for the summit) and asked for it on the site, with a page
+each for Cubby and the games as proof, and teams moved to individual first plus a consult.
+- New build/path.html (/build/path): the hub. Hero with the hook, the four parts as cards with prices and ways in, who starts
+  where, the infographic (assets/course/the-path.jpg, 1600x1000, desktop only), proof cards, and a group consult callout.
+- New build/one-source-of-truth.html (/build/one-source-of-truth, short link /kit via api/go.js, utm summit / partner):
+  Part 1. The four documents, what is in the kit, an email form that posts to api/lead.js (source "kit") and shows the
+  download at once (assets/kits/one-source-of-truth-level-one.zip, the 23 Nov Level One zip), the $190 1:1 AI Setup
+  Session (cal.com/aneil-razvi/setup-session), and short questions.
+- New build/summit-vip.html (/build/summit-vip): unlisted, noindex, not in the sitemap. Level One free plus the Level Two
+  Setup Session at $47 (cal.com/aneil-razvi/level-two-vip, ten spots through 31 January).
+- New build/cubby.html and build/smooshdoku.html: each product through the four parts. Cubby facts come from cubby.html;
+  Smooshdoku facts from smooshdoku.com and smooshvalley.com (read 27 Nov). Image assets/work/smooshdoku-og.jpg is the
+  site's own social card.
+- api/lead.js: new "kit" branch. The visitor gets the download link and the next step ($190 setup, or $47 Level Two when
+  the form is on the VIP page); hi@ gets "Kit download: email".
+- build/teams.html: no fixed $9,500 workshop or team track any more. Everyone starts on the individual path; groups book a
+  consult and get a proposal. Buttons say "Book a consult". The one-pager PDF links are removed because the PDF still
+  shows $9,500 (needs a refresh before it goes back).
+- Course subnav on build.html and every build/* page gains "The path". build.html gets a short path section above
+  "Three ways in". New assets/v3/path.css for the path pages.
+- Cal.com (27 Nov): payments run through Cal Pay, no Stripe needed. Setup session renamed "1:1 AI Setup Session",
+  slug setup-session, $190; VIP event $47, bookable 27 Nov to 31 Jan, one upcoming booking per person. Refund if cancelled
+  at least one business day ahead.
+- sitemap.xml: four new URLs, lastmod 2026-11-27 on the course pages. llms.txt: the path, the kit, both proof pages, teams.
+- Preview proof (Playwright, local server): all seven changed pages render with no script errors and no horizontal scroll
+  at 1280px and 390px.
+
 ## 2026-11-20 · The build prompt: /build/paper-to-ai and the /paper-to-ai short link
 
 The AI, Built On Paper build prompt, approved by Aneil 20 Nov, now has its own page. It is the QR target on the P-4 handout.
